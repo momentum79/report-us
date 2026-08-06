@@ -1,0 +1,658 @@
+C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pykrx\__init__.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+D:\py\korea\chu_korea_final.py:511: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  df['spot'] = spot_status | spot_status.shift(1).fillna(False).astype(bool) | spot_status.shift(2).fillna(False).astype(bool)
+✅ NXT 종목 수: 0개
+
+
+============================================================
+총 139개 종목 분석 중...
+============================================================
+
+🔥 JUNG: 005935** (삼성전자우) - 정배열 돌파 + 거래대금:816,960,801,000 NXT:
+진행중... 10/139
+진행중... 20/139
+진행중... 30/139
+진행중... 40/139
+🔥 JUNG: 010120 (LS ELECTRIC) - 정배열 돌파 + 거래대금:111,669,760,000 NXT:
+진행중... 50/139
+[ETF 제외] 360750 TIGER 미국S&P500
+진행중... 60/139
+🔥 JUNG: 079550** (LIG넥스원) - 정배열 돌파 + 거래대금:544,511,154,000 NXT:
+진행중... 70/139
+[ETF 제외] 459580 KODEX CD금리액티브(합성)
+★ MOM: 047050** (포스코인터내셔널) + 거래량 급증 NXT:
+🔥 JUNG: 000720 (현대건설) - 정배열 돌파 + 거래대금:184,279,936,000 NXT:
+진행중... 80/139
+[ETF 제외] 133690 TIGER 미국나스닥100
+[ETF 제외] 379800 KODEX 미국S&P500
+[ETF 제외] 488770 KODEX 머니마켓액티브
+진행중... 90/139
+진행중... 100/139
+[ETF 제외] 379810 KODEX 미국나스닥100
+진행중... 110/139
+🔥 JUNG: 411060 (ACE KRX금현물) - 정배열 돌파 + 거래대금:70,536,601,980 NXT:
+진행중... 120/139
+🔥 JUNG: 052690 (한전기술) - 정배열 돌파 + 거래대금:71,949,920,000 NXT:
+진행중... 130/139
+진행중... 139/139
+
+============================================================
+스캔 완료!
+============================================================
+
+================================================================================
+📊 종합 Top30 (Final_score 기준)
+================================================================================
+Ticker      	Name                	 Signal_sco	    수익률(%)	Final_score	NewSig    	NXT  
+------------------------------------------------------------
+042700**  	한미반도체(1822)              	      15.50	      6.23	      94.02	-         	     
+012450**  	한화에어로스페이스(2766)          	      15.50	      1.46	      90.54	-         	     
+272210**  	한화시스템(3355)              	      16.00	     -4.00	      88.20	-         	     
+079550**  	LIG넥스원(4411)             	      16.00	     -4.65	      87.73	JUNG      	     
+012510    	더존비즈온(5699)              	      14.00	      0.08	      84.64	-         	     
+000720    	현대건설(6C88)               	      11.00	      3.83	      77.55	JUNG      	     
+047050**  	포스코인터내셔널(89xx)           	      11.50	     -1.04	      75.64	-         	     
+278470    	에이피알(7xxx)               	      10.50	      1.69	      74.36	-         	     
+010950**  	S-Oil(9577)              	      12.00	     -8.39	      71.92	-         	     
+411060    	ACE KRX금현물(xAGG)         	       9.50	      0.19	      70.00	JUNG      	     
+103590    	일진전기(BECC)               	       8.00	      4.65	      68.35	-         	     
+010120    	LS ELECTRIC(Cxxx)        	       7.00	      6.31	      66.29	JUNG      	     
+009150**  	삼성전기(xxxx)               	       6.50	      5.24	      63.87	-         	     
+000880    	한화(Fxxx)                 	       7.00	      2.02	      63.16	-         	     
+005935**  	삼성전자우(xxxx)              	       5.00	     10.70	      62.94	JUNG      	     
+004020**  	현대제철(DxAA)               	       7.25	     -0.54	      62.11	-         	     
+012630    	한화엔진(GFDD)               	       7.00	     -0.63	      61.23	-         	     
+052690    	한전기술(Exxx)               	       5.00	      8.33	      61.22	JUNG      	     
+006400    	삼성SDI(xxxx)              	       6.00	      3.73	      61.14	-         	     
+000150    	두산(xxxx)                 	       5.00	      7.45	      60.58	-         	     
+009830**  	한화솔루션(xxxx)              	       6.50	      0.00	      60.05	-         	     
+000660**  	SK하이닉스(xxxx)             	       3.75	     12.20	      59.95	🆕RED      	     
+034020**  	두산에너빌리티(xxxx)            	       4.75	      6.55	      59.10	-         	     
+047810**  	한국항공우주(HxHH)             	       6.00	      0.00	      58.42	-         	     
+034730**  	SK(xxxx)                 	       4.50	      6.69	      58.39	-         	     
+005930**  	삼성전자(xxxx)               	       4.00	      8.30	      57.93	-         	     
+096770**  	SK이노베이션(xxxx)            	       5.50	      1.35	      57.77	-         	     
+005380    	현대차(xxxx)                	       5.00	      3.55	      57.74	-         	     
+006800    	미래에셋증권(xxxx)             	       5.50	      0.62	      57.24	-         	     
+005830**  	DB손해보험(xxxx)             	       5.00	      1.94	      56.57	-         	     
+
+【MOM(모멘텀) 돌파 종목: sco stat + spot2 만족】
+------------------------------------------------------------
+047050**   | -1.04% | 포스코인터내셔널 | 거래대금:137,950,921,400 | NXT:
+
+【매수 신호 종목 (거래량 조건 포함)】
+----------------------------------------
+
+【LIME 신호 종목 + spot2】
+------------------------------------------------------------
+없음
+
+【GREEN 신호 종목 + spot2】
+------------------------------------------------------------
+없음
+
+【RED / PURPLE 신호 종목 (거래량 필터 없음)】
+------------------------------------------------------------
+055550     | RED | 신한지주 | 거래대금:128,502,412,000
+017670     | RED | SK텔레콤 | 거래대금:64,765,859,200
+103140     | RED | 풍산 | 거래대금:54,944,891,400
+111770     | RED | 영원무역 | 거래대금:13,818,549,600
+
+【🔥 JUNG 정배열 돌파 종목】
+------------------------------------------------------------
+005935**   | 10.70% | 삼성전자우 | 거래대금:816,960,801,000 | NXT:
+079550**   | -4.65% | LIG넥스원 | 거래대금:544,511,154,000 | NXT:
+000720     | 3.83% | 현대건설 | 거래대금:184,279,936,000 | NXT:
+010120     | 6.31% | LS ELECTRIC | 거래대금:111,669,760,000 | NXT:
+052690     | 8.33% | 한전기술 | 거래대금:71,949,920,000 | NXT:
+411060     | 0.19% | ACE KRX금현물 | 거래대금:70,536,601,980 | NXT:
+
+【💥 SPOT 신호 종목 (52주신고가-1% 돌파 + 거래량10배 + 거래대금500억)】
+------------------------------------------------------------
+없음
+
+✓ 파일 저장 완료!
+ - kr150_tv.txt          : (LIME -> MOM -> GREEN) 티커만, 거래대금 내림차순, ** 포함
+ - kr150_tv_input.txt    : (LIME -> MOM -> GREEN) KRX:티커 형식 (TradingView용)
+ - kr150_lime.txt        : LIME + GREEN (티커만, ** 포함)
+ - kr150_mom.txt         : MOM (티커만, ** 포함)
+ - kr150_red.txt         : RED / PURPLE (티커만)
+ - jungkr150.txt         : 🔥 JUNG 정배열 돌파 (티커만)
+ - jungkr150_tv_input.txt: 🔥 JUNG KRX:티커 형식 (TradingView용)
+ - spotkr150.txt         : 💥 SPOT 신호 (티커만)
+ - spotkr150_tv_input.txt: 💥 SPOT KRX:티커 형식 (TradingView용)
+요약: LIME:0 MOM:1 GREEN:0 RED:4 JUNG:6 SPOT:0
+
+============================================================
+📊 SCO 기준 종목 분포
+============================================================
+전체 종목: 139개
+실제 분석 완료: 130개
+
+분포:
+  sco >= 12: 6개 (4.6%)
+  0 <= sco < 12: 66개 (50.8%)
+  sco < 0: 58개 (44.6%)
+
+합계 검증: 130 == 130?
+
+✅ JSON 저장 완료: D:\py\report-us\report_kr_150.json

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Final_score 공식 비교</title>
+<style>
+  body { font-family: 'Malgun Gothic', sans-serif; margin: 20px; background:#fafafa; }
+  h1 { color: #222; }
+  .meta { color: #666; margin-bottom: 12px; }
+  .legend { margin: 10px 0; padding: 12px; background: #fff; border-radius: 6px; border: 1px solid #ddd; }
+  table { border-collapse: collapse; width: 100%; background:#fff; }
+  th, td { border: 1px solid #ccc; padding: 6px 8px; font-size: 13px; }
+  th { background: #333; color: #fff; position: sticky; top: 0; }
+  tr:hover { background: #ffd; }
+  .formula { background: #fff; padding: 12px; border-radius:6px; border:1px solid #ddd; margin: 10px 0; font-family: monospace; }
+  .top6 { background:#fff; padding:12px; border-radius:6px; border:1px solid #ddd; margin: 10px 0; }
+  .badge { display:inline-block; padding:3px 8px; border-radius:4px; margin:2px; font-size:12px; }
+</style>
+</head>
+<body>
+<h1>📊 Final_score 공식 비교 리포트</h1>
+<div class="meta">생성: 2026-04-26 15:06 | 원본 파일은 수정되지 않았습니다.</div>
+
+<div class="formula">
+  <b>현재 공식</b>: Norm_sco × 0.85 + Rank_rtn_3M × 0.15<br>
+  <b>β 공식</b>: Norm_sco × 0.60 + Norm_rtn_1M × 0.25 + Norm_rtn_3M × 0.15<br>
+  <b>γ 공식</b>: Norm_sco × 0.55 + Norm_rtn_1M × 0.30 + Norm_rtn_3M × 0.15<br>
+  (β/γ는 1M, 3M 수익률을 5%/95% 윈저화 후 선형 정규화)
+</div>
+
+<div class="top6">
+  <h3>🎯 Top6 멤버 비교</h3>
+  <p>🟦 현재 Top6: 091160, 117700, 147970, 377990, 455850, 487230</p>
+  <p>🟪 β   Top6: 091160, 117700, 147970, 377990, 434730, 487230</p>
+  <p>🟩 γ   Top6: 091160, 117700, 147970, 377990, 434730, 487230</p>
+  <p><b>현재 ∩ γ 공통</b>: 091160, 117700, 147970, 377990, 487230</p>
+  <p><b>현재만 (γ에서 빠짐)</b>: <span style="color:#c33">455850</span></p>
+  <p><b>γ만 (현재에서 없음)</b>: <span style="color:#0a8">434730</span></p>
+</div>
+
+<div class="legend">
+  <b>표 보는 법</b>: Δ 컬럼 = 현재 공식 순위 → γ 공식 순위 변화. ↑는 γ에서 상승, ↓는 γ에서 하락.
+  배경색: <span style="background:#eef">파랑=현재</span> / <span style="background:#fee">분홍=β</span> / <span style="background:#efe">초록=γ</span>
+</div>
+
+<table>
+<thead>
+<tr>
+  <th>티커</th><th>산업</th><th>sco</th><th>1M(%)</th><th>3M(%)</th>
+  <th>FS_현재</th><th>순위_현재</th>
+  <th>FS_β</th><th>순위_β</th>
+  <th>FS_γ</th><th>순위_γ</th>
+  <th>Δ(γ-현재)</th>
+</tr>
+</thead>
+<tbody>
+
+        <tr>
+            <td>117700</td>
+            <td>건설주</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+36.0</td>
+            <td style="text-align:right">+84.4</td>
+            <td style="text-align:right;background:#eef">1.000</td>
+            <td style="text-align:center;background:#eef">1 🟦</td>
+            <td style="text-align:right;background:#fee">1.000</td>
+            <td style="text-align:center;background:#fee">1 🟪</td>
+            <td style="text-align:right;background:#efe">1.000</td>
+            <td style="text-align:center;background:#efe">1 🟩</td>
+            <td style="text-align:center">—</td>
+        </tr>
+        <tr>
+            <td>377990</td>
+            <td>신재생</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+37.3</td>
+            <td style="text-align:right">+73.0</td>
+            <td style="text-align:right;background:#eef">0.999</td>
+            <td style="text-align:center;background:#eef">2 🟦</td>
+            <td style="text-align:right;background:#fee">1.000</td>
+            <td style="text-align:center;background:#fee">1 🟪</td>
+            <td style="text-align:right;background:#efe">1.000</td>
+            <td style="text-align:center;background:#efe">1 🟩</td>
+            <td style="text-align:center"><span style="color:#0a8">↑1</span></td>
+        </tr>
+        <tr>
+            <td>091160</td>
+            <td>반도체</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+25.3</td>
+            <td style="text-align:right">+62.8</td>
+            <td style="text-align:right;background:#eef">0.998</td>
+            <td style="text-align:center;background:#eef">3 🟦</td>
+            <td style="text-align:right;background:#fee">0.973</td>
+            <td style="text-align:center;background:#fee">6 🟪</td>
+            <td style="text-align:right;background:#efe">0.967</td>
+            <td style="text-align:center;background:#efe">6 🟩</td>
+            <td style="text-align:center"><span style="color:#c33">↓3</span></td>
+        </tr>
+        <tr>
+            <td>455850</td>
+            <td>반소부</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+19.2</td>
+            <td style="text-align:right">+54.5</td>
+            <td style="text-align:right;background:#eef">0.997</td>
+            <td style="text-align:center;background:#eef">4 🟦</td>
+            <td style="text-align:right;background:#fee">0.922</td>
+            <td style="text-align:center;background:#fee">11 </td>
+            <td style="text-align:right;background:#efe">0.906</td>
+            <td style="text-align:center;background:#efe">12 </td>
+            <td style="text-align:center"><span style="color:#c33">↓8</span></td>
+        </tr>
+        <tr>
+            <td>147970</td>
+            <td>티모멘</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+28.8</td>
+            <td style="text-align:right">+45.8</td>
+            <td style="text-align:right;background:#eef">0.995</td>
+            <td style="text-align:center;background:#eef">5 🟦</td>
+            <td style="text-align:right;background:#fee">1.000</td>
+            <td style="text-align:center;background:#fee">1 🟪</td>
+            <td style="text-align:right;background:#efe">1.000</td>
+            <td style="text-align:center;background:#efe">1 🟩</td>
+            <td style="text-align:center"><span style="color:#0a8">↑4</span></td>
+        </tr>
+        <tr>
+            <td>487230</td>
+            <td>전력인</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+25.6</td>
+            <td style="text-align:right">+44.9</td>
+            <td style="text-align:right;background:#eef">0.993</td>
+            <td style="text-align:center;background:#eef">6 🟦</td>
+            <td style="text-align:right;background:#fee">0.976</td>
+            <td style="text-align:center;background:#fee">5 🟪</td>
+            <td style="text-align:right;background:#efe">0.971</td>
+            <td style="text-align:center;background:#efe">5 🟩</td>
+            <td style="text-align:center"><span style="color:#0a8">↑1</span></td>
+        </tr>
+        <tr>
+            <td>434730</td>
+            <td>원자력</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+28.4</td>
+            <td style="text-align:right">+44.8</td>
+            <td style="text-align:right;background:#eef">0.992</td>
+            <td style="text-align:center;background:#eef">7 </td>
+            <td style="text-align:right;background:#fee">0.999</td>
+            <td style="text-align:center;background:#fee">4 🟪</td>
+            <td style="text-align:right;background:#efe">0.999</td>
+            <td style="text-align:center;background:#efe">4 🟩</td>
+            <td style="text-align:center"><span style="color:#0a8">↑3</span></td>
+        </tr>
+        <tr>
+            <td>495050</td>
+            <td>밸류업</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+18.8</td>
+            <td style="text-align:right">+37.7</td>
+            <td style="text-align:right;background:#eef">0.991</td>
+            <td style="text-align:center;background:#eef">8 </td>
+            <td style="text-align:right;background:#fee">0.899</td>
+            <td style="text-align:center;background:#fee">16 </td>
+            <td style="text-align:right;background:#efe">0.883</td>
+            <td style="text-align:center;background:#efe">18 </td>
+            <td style="text-align:center"><span style="color:#c33">↓10</span></td>
+        </tr>
+        <tr>
+            <td>069500</td>
+            <td>코스피</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+20.7</td>
+            <td style="text-align:right">+35.7</td>
+            <td style="text-align:right;background:#eef">0.990</td>
+            <td style="text-align:center;background:#eef">9 </td>
+            <td style="text-align:right;background:#fee">0.910</td>
+            <td style="text-align:center;background:#fee">13 </td>
+            <td style="text-align:right;background:#efe">0.897</td>
+            <td style="text-align:center;background:#efe">15 </td>
+            <td style="text-align:center"><span style="color:#c33">↓6</span></td>
+        </tr>
+        <tr>
+            <td>446770</td>
+            <td>톱반도</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+19.2</td>
+            <td style="text-align:right">+28.7</td>
+            <td style="text-align:right;background:#eef">0.989</td>
+            <td style="text-align:center;background:#eef">10 </td>
+            <td style="text-align:right;background:#fee">0.879</td>
+            <td style="text-align:center;background:#fee">19 </td>
+            <td style="text-align:right;background:#efe">0.864</td>
+            <td style="text-align:center;background:#efe">19 </td>
+            <td style="text-align:center"><span style="color:#c33">↓9</span></td>
+        </tr>
+        <tr>
+            <td>SOXX</td>
+            <td>SOXX</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+40.4</td>
+            <td style="text-align:right">+28.1</td>
+            <td style="text-align:right;background:#eef">0.988</td>
+            <td style="text-align:center;background:#eef">11 </td>
+            <td style="text-align:right;background:#fee">0.957</td>
+            <td style="text-align:center;background:#fee">7 </td>
+            <td style="text-align:right;background:#efe">0.957</td>
+            <td style="text-align:center;background:#efe">7 </td>
+            <td style="text-align:center"><span style="color:#0a8">↑4</span></td>
+        </tr>
+        <tr>
+            <td>PTF</td>
+            <td>PTF</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+28.5</td>
+            <td style="text-align:right">+26.7</td>
+            <td style="text-align:right;background:#eef">0.987</td>
+            <td style="text-align:center;background:#eef">12 </td>
+            <td style="text-align:right;background:#fee">0.953</td>
+            <td style="text-align:center;background:#fee">8 </td>
+            <td style="text-align:right;background:#efe">0.953</td>
+            <td style="text-align:center;background:#efe">8 </td>
+            <td style="text-align:center"><span style="color:#0a8">↑4</span></td>
+        </tr>
+        <tr>
+            <td>117460</td>
+            <td>에너지</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+22.3</td>
+            <td style="text-align:right">+25.0</td>
+            <td style="text-align:right;background:#eef">0.985</td>
+            <td style="text-align:center;background:#eef">13 </td>
+            <td style="text-align:right;background:#fee">0.896</td>
+            <td style="text-align:center;background:#fee">18 </td>
+            <td style="text-align:right;background:#efe">0.885</td>
+            <td style="text-align:center;background:#efe">17 </td>
+            <td style="text-align:center"><span style="color:#c33">↓4</span></td>
+        </tr>
+        <tr>
+            <td>EWT</td>
+            <td>EWT</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+25.7</td>
+            <td style="text-align:right">+23.7</td>
+            <td style="text-align:right;background:#eef">0.984</td>
+            <td style="text-align:center;background:#eef">14 </td>
+            <td style="text-align:right;background:#fee">0.921</td>
+            <td style="text-align:center;background:#fee">12 </td>
+            <td style="text-align:right;background:#efe">0.917</td>
+            <td style="text-align:center;background:#efe">11 </td>
+            <td style="text-align:center"><span style="color:#0a8">↑3</span></td>
+        </tr>
+        <tr>
+            <td>305720</td>
+            <td>이차전</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+24.5</td>
+            <td style="text-align:right">+22.9</td>
+            <td style="text-align:right;background:#eef">0.982</td>
+            <td style="text-align:center;background:#eef">15 </td>
+            <td style="text-align:right;background:#fee">0.910</td>
+            <td style="text-align:center;background:#fee">14 </td>
+            <td style="text-align:right;background:#efe">0.903</td>
+            <td style="text-align:center;background:#efe">14 </td>
+            <td style="text-align:center"><span style="color:#0a8">↑1</span></td>
+        </tr>
+        <tr>
+            <td>SMH</td>
+            <td>SMH</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+33.0</td>
+            <td style="text-align:right">+21.6</td>
+            <td style="text-align:right;background:#eef">0.980</td>
+            <td style="text-align:center;background:#eef">16 </td>
+            <td style="text-align:right;background:#fee">0.940</td>
+            <td style="text-align:center;background:#fee">10 </td>
+            <td style="text-align:right;background:#efe">0.940</td>
+            <td style="text-align:center;background:#efe">10 </td>
+            <td style="text-align:center"><span style="color:#0a8">↑6</span></td>
+        </tr>
+        <tr>
+            <td>CARZ</td>
+            <td>CARZ</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+25.7</td>
+            <td style="text-align:right">+14.7</td>
+            <td style="text-align:right;background:#eef">0.975</td>
+            <td style="text-align:center;background:#eef">17 </td>
+            <td style="text-align:right;background:#fee">0.898</td>
+            <td style="text-align:center;background:#fee">17 </td>
+            <td style="text-align:right;background:#efe">0.894</td>
+            <td style="text-align:center;background:#efe">16 </td>
+            <td style="text-align:center"><span style="color:#0a8">↑1</span></td>
+        </tr>
+        <tr>
+            <td>241180</td>
+            <td>니케이</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+10.7</td>
+            <td style="text-align:right">+12.4</td>
+            <td style="text-align:right;background:#eef">0.973</td>
+            <td style="text-align:center;background:#eef">18 </td>
+            <td style="text-align:right;background:#fee">0.766</td>
+            <td style="text-align:center;background:#fee">26 </td>
+            <td style="text-align:right;background:#efe">0.736</td>
+            <td style="text-align:center;background:#efe">29 </td>
+            <td style="text-align:center"><span style="color:#c33">↓11</span></td>
+        </tr>
+        <tr>
+            <td>139230</td>
+            <td>조선주</td>
+            <td style="text-align:right">15.5</td>
+            <td style="text-align:right">+30.1</td>
+            <td style="text-align:right">+26.3</td>
+            <td style="text-align:right;background:#eef">0.970</td>
+            <td style="text-align:center;background:#eef">19 </td>
+            <td style="text-align:right;background:#fee">0.941</td>
+            <td style="text-align:center;background:#fee">9 </td>
+            <td style="text-align:right;background:#efe">0.942</td>
+            <td style="text-align:center;background:#efe">9 </td>
+            <td style="text-align:center"><span style="color:#0a8">↑10</span></td>
+        </tr>
+        <tr>
+            <td>228790</td>
+            <td>화장품</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+16.6</td>
+            <td style="text-align:right">+12.1</td>
+            <td style="text-align:right;background:#eef">0.970</td>
+            <td style="text-align:center;background:#eef">20 </td>
+            <td style="text-align:right;background:#fee">0.815</td>
+            <td style="text-align:center;background:#fee">21 </td>
+            <td style="text-align:right;background:#efe">0.795</td>
+            <td style="text-align:center;background:#efe">21 </td>
+            <td style="text-align:center"><span style="color:#c33">↓1</span></td>
+        </tr>
+        <tr>
+            <td>PDP</td>
+            <td>PDP</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+12.7</td>
+            <td style="text-align:right">+7.5</td>
+            <td style="text-align:right;background:#eef">0.966</td>
+            <td style="text-align:center;background:#eef">21 </td>
+            <td style="text-align:right;background:#fee">0.770</td>
+            <td style="text-align:center;background:#fee">25 </td>
+            <td style="text-align:right;background:#efe">0.744</td>
+            <td style="text-align:center;background:#efe">26 </td>
+            <td style="text-align:center"><span style="color:#c33">↓5</span></td>
+        </tr>
+        <tr>
+            <td>IJR</td>
+            <td>IJR</td>
+            <td style="text-align:right">16.0</td>
+            <td style="text-align:right">+10.2</td>
+            <td style="text-align:right">+7.3</td>
+            <td style="text-align:right;background:#eef">0.962</td>
+            <td style="text-align:center;background:#eef">22 </td>
+            <td style="text-align:right;background:#fee">0.749</td>
+            <td style="text-align:center;background:#fee">31 </td>
+            <td style="text-align:right;background:#efe">0.718</td>
+            <td style="text-align:center;background:#efe">32 </td>
+            <td style="text-align:center"><span style="color:#c33">↓10</span></td>
+        </tr>
+        <tr>
+            <td>325020</td>
+            <td>케모멘</td>
+            <td style="text-align:right">15.0</td>
+            <td style="text-align:right">+11.3</td>
+            <td style="text-align:right">+21.2</td>
+            <td style="text-align:right;background:#eef">0.948</td>
+            <td style="text-align:center;background:#eef">23 </td>
+            <td style="text-align:right;background:#fee">0.772</td>
+            <td style="text-align:center;background:#fee">24 </td>
+            <td style="text-align:right;background:#efe">0.745</td>
+            <td style="text-align:center;background:#efe">25 </td>
+            <td style="text-align:center"><span style="color:#c33">↓2</span></td>
+        </tr>
+        <tr>
+            <td>QMOM</td>
+            <td>QMOM</td>
+            <td style="text-align:right">15.0</td>
+            <td style="text-align:right">+14.0</td>
+            <td style="text-align:right">+7.4</td>
+            <td style="text-align:right;background:#eef">0.934</td>
+            <td style="text-align:center;background:#eef">24 </td>
+            <td style="text-align:right;background:#fee">0.759</td>
+            <td style="text-align:center;background:#fee">28 </td>
+            <td style="text-align:right;background:#efe">0.736</td>
+            <td style="text-align:center;background:#efe">28 </td>
+            <td style="text-align:center"><span style="color:#c33">↓4</span></td>
+        </tr>
+        <tr>
+            <td>XLK</td>
+            <td>XLK</td>
+            <td style="text-align:right">15.0</td>
+            <td style="text-align:right">+20.9</td>
+            <td style="text-align:right">+7.4</td>
+            <td style="text-align:right;background:#eef">0.933</td>
+            <td style="text-align:center;background:#eef">25 </td>
+            <td style="text-align:right;background:#fee">0.817</td>
+            <td style="text-align:center;background:#fee">20 </td>
+            <td style="text-align:right;background:#efe">0.806</td>
+            <td style="text-align:center;background:#efe">20 </td>
+            <td style="text-align:center"><span style="color:#0a8">↑5</span></td>
+        </tr>
+        <tr>
+            <td>LIT</td>
+            <td>LIT</td>
+            <td style="text-align:right">14.5</td>
+            <td style="text-align:right">+19.1</td>
+            <td style="text-align:right">+12.1</td>
+            <td style="text-align:right;background:#eef">0.924</td>
+            <td style="text-align:center;background:#eef">26 </td>
+            <td style="text-align:right;background:#fee">0.803</td>
+            <td style="text-align:center;background:#fee">22 </td>
+            <td style="text-align:right;background:#efe">0.790</td>
+            <td style="text-align:center;background:#efe">22 </td>
+            <td style="text-align:center"><span style="color:#0a8">↑4</span></td>
+        </tr>
+        <tr>
+            <td>117680</td>
+            <td>철강주</td>
+            <td style="text-align:right">14.5</td>
+            <td style="text-align:right">+17.3</td>
+            <td style="text-align:right">+9.5</td>
+            <td style="text-align:right;background:#eef">0.921</td>
+            <td style="text-align:center;background:#eef">27 </td>
+            <td style="text-align:right;background:#fee">0.781</td>
+            <td style="text-align:center;background:#fee">23 </td>
+            <td style="text-align:right;background:#efe">0.765</td>
+            <td style="text-align:center;background:#efe">23 </td>
+            <td style="text-align:center"><span style="color:#0a8">↑4</span></td>
+        </tr>
+        <tr>
+            <td>EWY</td>
+            <td>EWY</td>
+            <td style="text-align:right">14.0</td>
+            <td style="text-align:right">+28.8</td>
+            <td style="text-align:right">+23.1</td>
+            <td style="text-align:right;background:#eef">0.920</td>
+            <td style="text-align:center;background:#eef">28 </td>
+            <td style="text-align:right;background:#fee">0.900</td>
+            <td style="text-align:center;background:#fee">15 </td>
+            <td style="text-align:right;background:#efe">0.903</td>
+            <td style="text-align:center;background:#efe">13 </td>
+            <td style="text-align:center"><span style="color:#0a8">↑15</span></td>
+        </tr>
+        <tr>
+            <td>449450</td>
+            <td>방산주</td>
+            <td style="text-align:right">14.0</td>
+            <td style="text-align:right">+12.2</td>
+            <td style="text-align:right">+18.4</td>
+            <td style="text-align:right;background:#eef">0.914</td>
+            <td style="text-align:center;background:#eef">29 </td>
+            <td style="text-align:right;background:#fee">0.750</td>
+            <td style="text-align:center;background:#fee">29 </td>
+            <td style="text-align:right;background:#efe">0.726</td>
+            <td style="text-align:center;background:#efe">31 </td>
+            <td style="text-align:center"><span style="color:#c33">↓2</span></td>
+        </tr>
+        <tr>
+            <td>QQQ</td>
+            <td>QQQ</td>
+            <td style="text-align:right">14.8</td>
+            <td style="text-align:right">+15.7</td>
+            <td style="text-align:right">+4.8</td>
+            <td style="text-align:right;background:#eef">0.906</td>
+            <td style="text-align:center;background:#eef">30 </td>
+            <td style="text-align:right;background:#fee">0.761</td>
+            <td style="text-align:center;background:#fee">27 </td>
+            <td style="text-align:right;background:#efe">0.742</td>
+            <td style="text-align:center;background:#efe">27 </td>
+            <td style="text-align:center"><span style="color:#0a8">↑3</span></td>
+        </tr>
+</tbody>
+</table>
+</body>
+</html>

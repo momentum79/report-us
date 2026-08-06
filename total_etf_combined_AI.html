@@ -1,0 +1,1403 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>🤖 AI Theme Momentum Board (관찰판)</title>
+<style>
+.container-all { max-width: none; margin: 0; padding-bottom: 20px; }
+.ai-board-split { display:flex; gap:18px; align-items:flex-start; }
+.ai-board-left { flex:0 0 1060px; min-width:0; }
+.ai-board-right { flex:1 1 auto; min-width:520px; padding-top:0; }
+.ai-side-panel { position:sticky; top:10px; }
+.ai-side-panel h2 { margin-top: 10px; }
+.ai-side-panel .final-order-table { font-size:14px; }
+.ai-side-panel .final-order-table th, .ai-side-panel .final-order-table td { padding:6px 9px; }
+@media (max-width: 1650px) { .ai-board-split { flex-direction:column; } .ai-board-left, .ai-board-right { flex:1 1 auto; width:100%; min-width:0; } .ai-side-panel { position:static; } }
+.top-nav-container { display: flex; margin-bottom: 10px; }
+.top-nav { display: flex; background-color: #2c3e50; border-radius: 8px; overflow: hidden; width: fit-content; }
+.nav-item { padding: 8px 15px; color: #bdc3c7; text-align: center; cursor: pointer; font-weight: bold; text-decoration: none; transition: all 0.3s; font-size: 0.9em; }
+.nav-item:hover { background-color: #34495e; color: #fff; }
+.nav-item.active { background-color: #3498db; color: white; }
+body { font-family: 'Segoe UI', sans-serif; padding: 15px; background-color: #f4f7f6; margin: 0; line-height: 1.3; }
+h1 { font-size: 1.3rem; color: #2c3e50; margin: 0 0 6px 0; }
+h2 { margin: 10px 0 4px 0; padding-bottom: 3px; color: #2c3e50; border-bottom: 2px solid #e67e22; font-size: 1.0em; }
+h3 { margin: 8px 0 4px 0; padding-bottom: 3px; color: #2c3e50; border-bottom: 2px solid #3498db; font-size: 1.0em; }
+.meta { color: #7f8c8d; font-size: 0.85rem; margin-bottom: 8px; }
+.stats-box { background: #fffde7; border: 1px solid #fbc02d; padding: 8px 14px; border-radius: 8px; margin-bottom: 10px; font-size: 13px; color: #34495e; display: inline-block; min-width: 300px; }
+.stats-box p { margin: 2px 0; }
+.stats-box .lbl { font-weight: bold; color: #2c3e50; }
+.stats-box .sub { font-size: 0.85em; color: #7f8c8d; }
+.styled-table { width: auto; min-width: 400px; max-width: 100%; border-collapse: collapse; margin: 4px 0 12px 0; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); font-size: 13px; border-radius: 8px; overflow: hidden; }
+.styled-table thead tr { background: linear-gradient(135deg, #3498db, #2980b9); color: #ffffff; text-align: center; }
+.styled-table th, .styled-table td { padding: 5px 10px; border-bottom: 1px solid #eee; white-space: nowrap; }
+.styled-table td { text-align: center; }
+.styled-table td.narrow { font-weight: bold; color: #2980b9; text-align: left; }
+.styled-table td.name-col { max-width: 150px; overflow: hidden; text-overflow: ellipsis; text-align: left; }
+.type-kr { color: #e74c3c; font-weight: bold; font-size: 0.75rem; }
+.type-us { color: #3498db; font-weight: bold; font-size: 0.75rem; }
+.sig-up { color: #27ae60; font-weight: bold; }
+.sig-down { color: #e74c3c; font-weight: bold; }
+.held-bold { background-color: #fff9c4 !important; color: #d32f2f !important; font-weight: bold !important; }
+.pos-badge { display: inline-block; width: 22px; height: 22px; line-height: 22px; border-radius: 50%; font-size: 0.75rem; font-weight: bold; color: white; text-align: center; }
+.pos-1 { background-color: #16a34a !important; }
+.pos-2 { background-color: #65a30d !important; }
+.pos-3 { background-color: #d97706 !important; }
+.pos-4 { background-color: #ea580c !important; }
+.pos-5 { background-color: #dc2626 !important; }
+/* ✅ 저점 신호 뱃지 스타일 */
+.low-badge { display: inline-block; padding: 3px 8px; border-radius: 12px; font-size: 10px; font-weight: bold; color: white; text-align: center; min-width: 35px; }
+.low-jeo   { background-color: #2ecc71; }    /* 초록 - 저 (Day 0) */
+.low-jeo2  { background-color: #3498db; }    /* 파랑 - 저2 (Day 0) */
+.low-both  { background-color: #e74c3c; }    /* 빨강 - 저1,2 (Day 0) */
+.low-track { background-color: #95a5a6; }    /* 회색 - 1저~5저 (Day 1~5) */
+.final-order-table { min-width: unset; }
+
+/* ── 차트 트리거 (TradingView / 네이버) ── */
+.chart-trigger { cursor: pointer; text-decoration: underline dotted; }
+.chart-trigger:hover { background-color: #e8f4f8 !important; }
+.naver-trigger { cursor: pointer; text-decoration: underline dotted; }
+.naver-trigger:hover { background-color: #fff3cd !important; }
+
+/* ── TRADINGVIEW BACKUP (US ETF was on TV; switched to Naver worldstock — restore by removing surrounding comment markers) ──
+#chart-popup {
+  position: fixed; background: white; border: 2px solid #2c3e50;
+  border-radius: 8px; box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  z-index: 99999; display: none; overflow: hidden;
+}
+#chart-popup.visible { display: flex; flex-direction: column; }
+#chart-popup.landscape-mode {
+  position: fixed !important; top: 0 !important; left: 0 !important;
+  width: 100vw !important; height: 100dvh !important;
+  border-radius: 0 !important; border: none !important;
+}
+.chart-ph {
+  background: #34495e; color: white; padding: 8px 12px;
+  display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;
+}
+#btn-close-popup {
+  background: #e74c3c; color: white; border: none;
+  padding: 4px 12px; cursor: pointer; border-radius: 4px; font-size: 18px; font-weight: bold;
+}
+#btn-close-popup:hover { background: #c0392b; }
+.chart-tb-group { display: flex; gap: 4px; }
+.chart-tb { background: #7f8c8d; color: white; border: none; padding: 4px 10px; cursor: pointer; border-radius: 4px; font-size: 13px; }
+.chart-tb.on { background: #27ae60; font-weight: bold; }
+#tv-container { flex: 1; min-height: 0; }
+body.chart-open { overflow: hidden; }
+   ── TRADINGVIEW BACKUP END ── */
+
+/* 네이버 팝업 (US worldstock — 미국 ETF용) */
+#naverChartPopupUS {
+  display: none; position: fixed; z-index: 99998;
+  width: 860px; background: #fff;
+  border: 1px solid #bdc3c7; border-radius: 10px;
+  padding: 12px; box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+  pointer-events: auto; overflow-y: auto; max-height: 90dvh;
+  overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+}
+#naverPopupCloseUS {
+  display: flex; background: #e74c3c; color: white;
+  border: none; border-radius: 50%; width: 28px; height: 28px;
+  font-size: 18px; line-height: 1; cursor: pointer; flex-shrink: 0;
+  align-items: center; justify-content: center; font-weight: bold;
+}
+@media (max-width: 767px) {
+  #naverChartPopupUS {
+    position: fixed !important; left: 2vw !important; top: 50% !important;
+    transform: translateY(-50%); width: 96vw !important;
+    max-height: 80dvh !important; overflow-y: auto !important;
+    padding: 8px !important; box-sizing: border-box;
+  }
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  #naverChartPopupUS { width: min(96vw, 860px); left: 2vw !important; }
+}
+
+/* 네이버 팝업 (KR) */
+#naverChartPopup {
+  display: none; position: fixed; z-index: 99998;
+  width: 860px; background: #fff;
+  border: 1px solid #bdc3c7; border-radius: 10px;
+  padding: 12px; box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+  pointer-events: auto; overflow-y: auto; max-height: 90dvh;
+  overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+}
+body.naver-popup-open { overflow: hidden; }
+#naverPopupClose {
+  display: flex; background: #e74c3c; color: white;
+  border: none; border-radius: 50%; width: 28px; height: 28px;
+  font-size: 18px; line-height: 1; cursor: pointer; flex-shrink: 0;
+  align-items: center; justify-content: center; font-weight: bold;
+}
+.popup-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.popup-title { font-weight: 700; color: #2c3e50; font-size: 14px; white-space: nowrap; }
+.popup-link { font-size: 12px; color: #2980b9; text-decoration: none; white-space: nowrap; margin-left: 1em; }
+.popup-link:hover { text-decoration: underline; }
+.charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.chart-card { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; background: #fff; }
+.chart-card-header { display: none; }
+.chart-wrap { position: relative; width: 100%; height: 300px; background: white; }
+.chart-wrap img { width: 100%; height: 100%; display: block; object-fit: fill; background: white; }
+.chart-loading { display: none; position: absolute; inset: 0; background: rgba(255,255,255,0.75); align-items: center; justify-content: center; font-size: 12px; color: #64748b; }
+.chart-loading.show { display: flex; }
+@media (max-width: 767px) {
+  #naverChartPopup {
+    position: fixed !important; left: 2vw !important; top: 50% !important;
+    transform: translateY(-50%); width: 96vw !important;
+    max-height: 80dvh !important; overflow-y: auto !important;
+    padding: 8px !important; box-sizing: border-box;
+  }
+  .charts-grid { grid-template-columns: 1fr; gap: 6px; }
+  .chart-wrap { height: 220px; }
+  #naverPopupClose { display: flex !important; }
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  #naverChartPopup { width: min(96vw, 860px); left: 2vw !important; }
+  .charts-grid { grid-template-columns: 1fr; }
+  .chart-wrap { height: 260px; }
+}
+
+@media (max-width: 600px) {
+    .styled-table { font-size: 12px; }
+    .styled-table th, .styled-table td { padding: 4px 6px; }
+    .stats-box { font-size: 11px; min-width: unset; width: 100%; box-sizing: border-box; }
+    .pc-only { display: none !important; }
+}
+
+@media screen and (max-width: 950px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
+  .top-nav-container, .top-nav { display: none !important; }
+}
+
+/* ══ Top5 카드 섹션 ═══════════════════════════════════════ */
+.t5-section { margin: 0 0 14px 0; }
+.t5-section-title {
+  font-size: 0.92em; font-weight: bold; color: #2c3e50;
+  border-bottom: 2px solid #8e44ad;
+  padding-bottom: 4px; margin-bottom: 8px;
+}
+.t5-cards-row {
+  display: flex; gap: 8px;
+  flex-wrap: nowrap; align-items: flex-start;
+}
+.t5-card {
+  background: white; border-radius: 7px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.09);
+  min-width: 110px; max-width: 160px;
+  flex: 0 0 auto; overflow: hidden;
+}
+.t5-header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 5px 9px 4px 9px;
+  border-bottom: 1px solid #eee; gap: 4px;
+}
+.t5-title { font-size: 0.8em; font-weight: bold; color: #2c3e50; white-space: nowrap; }
+.t5-label {
+  font-size: 0.72em; color: #888; white-space: nowrap;
+  background: #f0f0f0; border-radius: 3px; padding: 1px 5px;
+}
+.t5-body { padding: 5px 9px 6px 9px; }
+.t5-row {
+  display: flex; align-items: center; gap: 5px;
+  padding: 2px 0; border-bottom: 1px solid #f5f5f5; font-size: 0.82em;
+}
+.t5-row:last-child { border-bottom: none; }
+.t5-medal { font-size: 0.88em; flex-shrink: 0; min-width: 16px; text-align: center; }
+.t5-name {
+  flex: 1; color: #2c3e50; font-weight: 700;
+  white-space: nowrap; font-size: 0.93em; letter-spacing: 0.02em;
+}
+.t5-empty { font-size: 0.78em; color: #aaa; padding: 6px 0; }
+@media (max-width: 600px) {
+  .t5-cards-row { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+  .t5-card { min-width: 100px; max-width: 140px; }
+}
+/* ══ End Top5 카드 ════════════════════════════════════════ */
+
+/* ══ 🤖 AI Core Regime 카드 & Basket 표 ═════════════════════ */
+.ai-core-card {
+  display: flex; gap: 14px;
+  background: linear-gradient(135deg, #fffbea, #fff5e1);
+  border: 1px solid #f0b400;
+  padding: 12px 14px; border-radius: 10px;
+  margin: 10px 0 14px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+  max-width: 760px;
+}
+.ai-core-left  { flex: 0 0 180px; min-width: 170px; }
+.ai-core-right { flex: 1 1 360px; min-width: 240px; max-width: 520px; }
+.ai-core-label { font-size: 0.76em; color: #7f8c8d; margin-bottom: 1px; }
+.ai-core-score { font-size: 2.1em; font-weight: 800; line-height: 1.05; margin-bottom: 3px; }
+.ai-core-state {
+  display: inline-block; padding: 2px 9px; border-radius: 12px;
+  color: white; font-weight: bold; font-size: 0.82em; margin-bottom: 5px;
+}
+.ai-core-state-row {
+  display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin-bottom: 4px;
+}
+.ai-breadth-state { font-size: 0.78em; }
+.ai-core-rdg {
+  display: flex; gap: 6px; margin: 3px 0 4px 0; flex-wrap: wrap;
+}
+.ai-rdg-cell {
+  display: inline-flex; align-items: baseline; gap: 3px;
+  background: #fff; border: 1px solid #f1c40f;
+  border-radius: 6px; padding: 1px 7px;
+  font-size: 0.78em; line-height: 1.2;
+}
+.ai-rdg-lbl { color: #888; font-weight: 600; }
+.ai-rdg-val { color: #2c3e50; font-weight: 700; }
+.ai-core-dup {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  font-size: 0.78em; margin-top: 4px;
+}
+.ai-dup-pill {
+  display: inline-block; padding: 1px 7px; border-radius: 8px;
+  color: white; font-weight: bold; font-size: 0.92em;
+}
+.ai-core-dup-meta { color: #888; }
+.ai-core-dup-contrib {
+  font-size: 0.78em; color: #555; margin: 2px 0 4px 0;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.ai-core-breadth { font-size: 0.82em; margin: 3px 0; }
+.ai-core-breadth span {
+  display: inline-block; padding: 1px 7px; margin-right: 3px;
+  border-radius: 8px; font-weight: bold;
+}
+.ai-b-strong { background: #d5f5e3; color: #1d8348; }
+.ai-b-mid    { background: #fef9e7; color: #b7950b; }
+.ai-b-weak   { background: #ebebeb; color: #555; }
+.ai-b-neg    { background: #fadbd8; color: #c0392b; }
+.ai-core-meta { font-size: 0.76em; color: #888; }
+.ai-top-title { font-size: 0.82em; font-weight: bold; color: #2c3e50; margin-bottom: 4px; }
+/* Top AI Baskets — 단일 grid container 로 모든 row 컬럼 폭 통일 */
+.ai-top-list {
+  display: grid;
+  grid-template-columns: 24px auto 1fr auto;   /* rank | name | spacer | score+cnt 그룹 */
+  align-items: baseline;
+  column-gap: 10px; row-gap: 2px;
+  width: max-content;
+  max-width: 100%;
+  font-size: 0.86em;
+}
+.ai-top-row {
+  display: contents;   /* row wrapper 투명화 → 자식 span 4개가 직접 grid cell 이 됨 */
+}
+.ai-top-rank  { font-weight: bold; color: #7f8c8d; text-align: left; white-space: nowrap; padding: 1px 0; }
+.ai-top-name  { font-weight: 700; color: #2c3e50; white-space: nowrap; padding: 1px 0; }
+.ai-top-score {
+  grid-column: 3 / 4;
+  justify-self: end;
+  font-weight: bold; color: #d35400;
+  text-align: right; white-space: nowrap;
+  padding: 1px 0; padding-right: 10px;
+  min-width: 3.5em;
+}
+.ai-top-cnt   {
+  grid-column: 4 / 5;
+  justify-self: end;
+  color: #888; font-size: 0.82em;
+  text-align: right; white-space: nowrap;
+  padding: 1px 0;
+  min-width: 1.5em;
+}
+
+.ai-core-help {
+  margin-top: 8px; padding-top: 6px;
+  border-top: 1px dashed #f1c40f;
+  font-size: 0.72em; color: #95a5a6; line-height: 1.35;
+}
+.ai-core-help b { color: #7f8c8d; font-weight: 700; }
+
+.ai-basket-table th { font-size: 0.85em; }
+.ai-basket-table td { font-size: 0.82em; }
+.ai-member-hot {
+  background: #fdecea !important;
+  color: #c0392b !important;
+  font-weight: 700;
+  border: 1px solid #f5b7b1;
+}
+.ai-basket-name { line-height: 1.15; }
+.ai-basket-kr   { font-weight: 700; color: #2c3e50; display: block; }
+.ai-basket-en   { color: #95a5a6; font-size: 0.82em; font-weight: 400; display: block; }
+.ai-member {
+  display: inline-block; padding: 1px 6px; margin: 1px 2px;
+  background: #ecf0f1; border-radius: 8px; font-size: 0.92em;
+  color: #2c3e50;
+}
+/* Basket 컬럼 (AI Top 후보 / Top30 랭킹) */
+.basket-col {
+  text-align: left !important;
+  max-width: 260px;
+  white-space: normal;
+  font-size: 0.85em;
+  color: #2c3e50;
+  line-height: 1.25;
+}
+.basket-flow-card {
+  background: #fff;
+  border: 1px solid #d7e6f3;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 8px 0 12px 0;
+  max-width: 760px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.flow-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 5px;
+  margin-bottom: 7px;
+}
+.flow-title { font-weight: 800; color: #2c3e50; font-size: 0.96em; }
+.flow-window { color: #7f8c8d; font-size: 0.78em; white-space: nowrap; }
+.flow-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  color: #5f6b76;
+  font-size: 0.78em;
+  margin-bottom: 8px;
+}
+.flow-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 10px;
+}
+.flow-col {
+  background: #fbfdff;
+  border: 1px solid #edf2f7;
+  border-radius: 7px;
+  padding: 7px 8px;
+  min-width: 0;
+}
+.flow-subtitle { font-weight: 800; font-size: 0.82em; margin-bottom: 4px; }
+.flow-row {
+  display: grid;
+  grid-template-columns: minmax(95px, 1fr) auto auto;
+  gap: 7px;
+  align-items: baseline;
+  font-size: 0.82em;
+  padding: 2px 0;
+}
+.flow-name {
+  font-weight: 700;
+  color: #2c3e50;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.flow-delta { font-weight: 800; white-space: nowrap; text-align: right; }
+.flow-score { color: #8a98a8; font-size: 0.9em; white-space: nowrap; }
+.flow-up { color: #c0392b; }
+.flow-down { color: #1f78c8; }
+.flow-flat { color: #7f8c8d; }
+.flow-empty {
+  color: #95a5a6;
+  font-size: 0.82em;
+  padding: 4px 0;
+}
+.flow-empty-wide {
+  background: #fbfdff;
+  border: 1px dashed #d7e6f3;
+  border-radius: 7px;
+  padding: 10px;
+}
+.bneck-card {
+  background: #ffffff;
+  border: 1px solid #cfe2f3;
+  border-radius: 8px;
+  padding: 11px 12px;
+  margin: 8px 0 14px 0;
+  max-width: 920px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+.bneck-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 7px;
+  margin-bottom: 7px;
+}
+.bneck-eyebrow {
+  color: #7f8c8d;
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.bneck-title {
+  color: #2c3e50;
+  font-size: 1.02em;
+  font-weight: 850;
+  margin-top: 1px;
+}
+.bneck-sub {
+  color: #5f6b76;
+  font-size: 0.82em;
+  margin-top: 3px;
+  line-height: 1.35;
+}
+.bneck-confidence {
+  flex: 0 0 auto;
+  min-width: 96px;
+  text-align: right;
+  background: #f8fbff;
+  border: 1px solid #d7e6f3;
+  border-radius: 7px;
+  padding: 5px 8px;
+  color: #5f6b76;
+  font-size: 0.78em;
+}
+.bneck-confidence b {
+  display: block;
+  color: #2c3e50;
+  font-size: 1.08em;
+  margin-top: 1px;
+}
+.bneck-footnote {
+  color: #8a98a8;
+  font-size: 0.76em;
+  margin: 0 0 8px 0;
+}
+.bneck-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 5px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+.bneck-node {
+  flex: 0 0 118px;
+  background: #fbfdff;
+  border: 1px solid #e4eef8;
+  border-radius: 7px;
+  padding: 7px 8px;
+  min-height: 66px;
+}
+.bneck-node.bneck-active {
+  border-color: #e67e22;
+  box-shadow: inset 0 0 0 1px #f5c16c;
+  background: #fff8ea;
+}
+.bneck-node-name {
+  font-size: 0.78em;
+  font-weight: 800;
+  color: #2c3e50;
+  white-space: nowrap;
+}
+.bneck-node-score {
+  font-size: 1.15em;
+  font-weight: 850;
+  color: #d35400;
+  margin: 2px 0;
+}
+.bneck-arrow {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  color: #9aa9b8;
+  font-weight: 900;
+  padding: 0 1px;
+}
+.bneck-pill {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.72em;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.bneck-very-hot { background: #c0392b; }
+.bneck-hot { background: #e67e22; }
+.bneck-watch { background: #3498db; }
+.bneck-soft { background: #95a5a6; }
+.bneck-weak { background: #5d6d7e; }
+.bneck-no-data { background: #bdc3c7; }
+.bneck-delta {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-size: 0.78em;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.bneck-delta-up   { background: #fde2e2; color: #c0392b; }
+.bneck-delta-down { background: #e3f0fb; color: #2471a3; }
+.bneck-delta-flat { background: #ecf0f1; color: #5f6b76; }
+.bneck-table {
+  margin-top: 4px;
+  font-size: 12px;
+}
+.bneck-table td {
+  text-align: left;
+  vertical-align: top;
+  white-space: normal;
+}
+.bneck-table th {
+  font-size: 0.82em;
+}
+.bneck-table-active {
+  background: #fff4d9 !important;
+}
+.bneck-layer-code {
+  color: #9aa9b8;
+  font-size: 0.74em;
+  margin-top: 1px;
+}
+.bneck-member {
+  display: inline-block;
+  background: #eef5fb;
+  border-radius: 8px;
+  padding: 1px 6px;
+  margin: 1px 2px;
+  color: #2c3e50;
+  font-size: 0.88em;
+}
+.bneck-note-cell {
+  color: #5f6b76;
+  max-width: 260px;
+  line-height: 1.3;
+}
+@media (max-width: 600px) {
+  .ai-core-card { padding: 10px 11px; gap: 8px; }
+  .ai-core-left { flex: 0 0 100%; }
+  .ai-core-right { flex: 1 1 100%; max-width: 100%; }
+  .ai-top-row { grid-template-columns: 22px 1fr auto auto; font-size: 0.82em; }
+  .basket-col { max-width: 160px; font-size: 0.78em; }
+  .flow-head { flex-direction: column; gap: 2px; align-items: flex-start; }
+  .flow-cols { grid-template-columns: 1fr; gap: 7px; }
+  .flow-row { grid-template-columns: minmax(88px, 1fr) auto; }
+  .flow-score { grid-column: 1 / -1; }
+  .bneck-head { flex-direction: column; gap: 6px; }
+  .bneck-confidence { text-align: left; }
+  .bneck-node { flex-basis: 110px; }
+  .bneck-note-cell { max-width: 180px; }
+}
+/* ══ End AI Core ═══════════════════════════════════════════ */
+</style>
+</head>
+<body>
+<div class="container-all">
+    <div class="top-nav-container">
+        <div class="top-nav">
+            <a href="total_etf_combined.html" class="nav-item">통합 ETF</a>
+            <a href="total_etf_combined_AI.html" class="nav-item active">🤖 AI 관찰판</a>
+            <a href="top3_etf_daily_result_total.html" class="nav-item">Top3 추세</a>
+            <a href="etf_usa_status.html" class="nav-item">ETF현황</a>
+            <a href="hanmi_watch.html" class="nav-item">한미관심주</a>
+        </div>
+    </div>
+    <h1>🤖 AI Theme Momentum Board <span style="font-size:0.65em; color:#888; font-weight:normal;">(34 basket 관찰판 · 실거래 미연동)</span></h1>
+    <p class="meta">Updated: 2026-08-06 21:22:20</p>
+    <div class="stats-box"><p>📊 &nbsp;<b style="color:#e67e22;">총 투자비중=85.0%</b> &nbsp;/&nbsp; <span class="lbl">top3_avg_sco=</span><b>15.00</b> &nbsp;/&nbsp; <span class="lbl">top3_avg_pos=</span><b>1.00</b> &nbsp;&nbsp;<span class="sub">(코스피 x0.2 / 나스닥 x0.85)</span></p><p><span class="lbl">전체 Signal_sco 평균:</span> <b>2.4</b> <span class="sub">(전체 151개 / 유효 150개 / ATR제외 0개)</span></p><p>&nbsp;&nbsp;<span class="lbl">sco &ge; 0:</span> 88개 &nbsp;/&nbsp; <span class="lbl">sco &lt; 0:</span> 62개 &nbsp;/&nbsp; <span class="lbl">sco &ge; 11:</span> <b>24개</b></p></div>
+
+    <div class="ai-board-split">
+      <div class="ai-board-left">
+        
+<div class="ai-core-card">
+  <div class="ai-core-left">
+    <div class="ai-core-label">🤖 AI Core Regime</div>
+    <div class="ai-core-score" style="color:#2ecc71;">11.67</div>
+    <div class="ai-core-state-row">
+      <span class="ai-core-state" style="background:#2ecc71;">AI Strong</span>
+      <span class="ai-core-state ai-breadth-state" style="background:#dc2626;">Breadth Negative</span>
+    </div>
+    <div class="ai-core-rdg" title="Raw = Top10 basket 평균 / Dedup = 중복 ticker 1회만 카운트한 보정 / Gap이 클수록 특정 종목 의존">
+      <span class="ai-rdg-cell"><span class="ai-rdg-lbl">Raw</span><span class="ai-rdg-val">11.67</span></span>
+      <span class="ai-rdg-cell"><span class="ai-rdg-lbl">Dedup</span><span class="ai-rdg-val">9.71</span></span>
+      <span class="ai-rdg-cell"><span class="ai-rdg-lbl">Gap</span><span class="ai-rdg-val">+1.96</span></span>
+    </div>
+    <div class="ai-core-breadth">
+      <span class="ai-b-strong">강 7</span>
+      <span class="ai-b-mid">중 6</span>
+      <span class="ai-b-weak">약 13</span>
+      <span class="ai-b-neg">음 8</span>
+    </div>
+    <div class="ai-core-dup" title="Top10 basket의 top members 펼쳐서 ticker 등장횟수 분석">
+      <span style="color:#555;">중복영향</span>
+      <span class="ai-dup-pill" style="background:#16a34a;">낮음 16.0%</span>
+      <span class="ai-core-dup-meta">고유 42</span>
+    </div>
+    <div class="ai-core-dup-contrib" title="가장 많이 등장한 ticker (Top10 basket 기준)">
+      핵심기여: <b>018260×2 / CRM×2 / DDOG×2</b>
+    </div>
+    <div class="ai-core-meta">유효 basket 34 / 34</div>
+  </div>
+  <div class="ai-core-right">
+    <div class="ai-top-title">🏆 Top AI Baskets</div>
+    <div class="ai-top-list"><div class="ai-top-row" title="AI_AGENT_AUTOMATION_RPA"><span class="ai-top-rank">#1</span><span class="ai-top-name">AI_에이전트자동화</span><span class="ai-top-score">13.84</span><span class="ai-top-cnt">5</span></div><div class="ai-top-row" title="AI_DATA_PIPELINE_DATABASE"><span class="ai-top-rank">#2</span><span class="ai-top-name">AI_데이터플랫폼</span><span class="ai-top-score">13.73</span><span class="ai-top-cnt">7</span></div><div class="ai-top-row" title="AI_SOFTWARE_PLATFORM"><span class="ai-top-rank">#3</span><span class="ai-top-name">AI_소프트웨어</span><span class="ai-top-score">12.88</span><span class="ai-top-cnt">7</span></div><div class="ai-top-row" title="AI_DATA_IDENTITY_SECURITY"><span class="ai-top-rank">#4</span><span class="ai-top-name">AI_데이터보안</span><span class="ai-top-score">11.90</span><span class="ai-top-cnt">9</span></div><div class="ai-top-row" title="AI_CYBER_SECURITY"><span class="ai-top-rank">#5</span><span class="ai-top-name">AI_사이버보안</span><span class="ai-top-score">11.80</span><span class="ai-top-cnt">12</span></div></div>
+    <div class="ai-core-help">
+      <b>Raw</b> 핵심 AI 주도주 강도 ·
+      <b>Dedup</b> AI 생태계 확산 강도 ·
+      <b>Gap</b> 소수 핵심 종목 의존도
+    </div>
+  </div>
+</div>
+
+
+        
+<div class="basket-flow-card">
+  <div class="flow-head">
+    <div class="flow-title">📈 AI Basket Weekly Flow</div>
+    <div class="flow-window">5 snapshots ago vs today</div>
+  </div>
+  <div class="flow-meta">
+    <span>오늘 2026-08-06</span>
+    <span>기준 2026-08-01</span>
+    <span>Core <b class="flow-up">+6.00pt ▲</b></span>
+    <span>상승 32 · 하락 2 · 보합 0</span>
+  </div>
+  <div class="flow-cols">
+    <div class="flow-col">
+      <div class="flow-subtitle flow-up">상승 Basket</div>
+      <div class="flow-row"><span class="flow-name" title="AI_ASIC_CUSTOM_CHIP">AI_맞춤칩ASIC</span><span class="flow-delta flow-up">+12.41pt ▲</span><span class="flow-score">(-3.13 → 9.28)</span></div>
+<div class="flow-row"><span class="flow-name" title="AI_POWER_GRID_TRANSFORMER">AI_전력망</span><span class="flow-delta flow-up">+12.24pt ▲</span><span class="flow-score">(-5.49 → 6.75)</span></div>
+<div class="flow-row"><span class="flow-name" title="AI_COOLING_THERMAL">AI_냉각</span><span class="flow-delta flow-up">+11.83pt ▲</span><span class="flow-score">(-6.80 → 5.03)</span></div>
+<div class="flow-row"><span class="flow-name" title="AI_CLOUD_HYPERSCALER">AI_클라우드</span><span class="flow-delta flow-up">+11.08pt ▲</span><span class="flow-score">(-1.18 → 9.90)</span></div>
+<div class="flow-row"><span class="flow-name" title="AI_OPTICAL_PHOTONICS">AI_광통신</span><span class="flow-delta flow-up">+9.48pt ▲</span><span class="flow-score">(-5.00 → 4.48)</span></div>
+    </div>
+    <div class="flow-col">
+      <div class="flow-subtitle flow-down">하락 Basket</div>
+      <div class="flow-row"><span class="flow-name" title="AI_FINTECH_TRADING">AI_핀테크</span><span class="flow-delta flow-down">-2.10pt ▼</span><span class="flow-score">(3.39 → 1.29)</span></div>
+<div class="flow-row"><span class="flow-name" title="AI_EDGE_DEVICE_ONDEVICE">AI_온디바이스</span><span class="flow-delta flow-down">-0.95pt ▼</span><span class="flow-score">(-0.67 → -1.62)</span></div>
+    </div>
+  </div>
+</div>
+
+
+        
+<div class="bneck-card">
+  <div class="bneck-head">
+    <div>
+      <div class="bneck-eyebrow">AI Bottleneck Map</div>
+      <div class="bneck-title">오늘의 병목 추정: 데이터센터 가동 레이어 우세</div>
+      <div class="bneck-sub">전력 확보 이후 실제 랙/서버/데이터센터 가동 수혜가 강하게 반영됩니다.</div>
+    </div>
+    <div class="bneck-confidence">
+      <span>신뢰도 MEDIUM</span>
+      <b>+2.41pt</b>
+    </div>
+  </div>
+  <div class="bneck-footnote">뉴스 확정이 아니라 기존 Signal_sco/basket_score 기반의 시장 가격 판독입니다. &nbsp;·&nbsp; <span style="color:#5f6b76;">Δ 기준: 2026-08-01 → 2026-08-06 (5 snapshots)</span></div>
+  <div class="bneck-flow"><div class="bneck-node"><div class="bneck-node-name">수요/CAPEX</div><div class="bneck-node-score">7.00</div><div class="bneck-pill bneck-soft">약함</div></div><div class="bneck-arrow">→</div><div class="bneck-node"><div class="bneck-node-name">칩/ASIC</div><div class="bneck-node-score">4.73</div><div class="bneck-pill bneck-soft">약함</div></div><div class="bneck-arrow">→</div><div class="bneck-node"><div class="bneck-node-name">HBM/패키징/MLCC</div><div class="bneck-node-score">-0.97</div><div class="bneck-pill bneck-weak">위험</div></div><div class="bneck-arrow">→</div><div class="bneck-node"><div class="bneck-node-name">네트워크/광통신</div><div class="bneck-node-score">7.88</div><div class="bneck-pill bneck-soft">약함</div></div><div class="bneck-arrow">→</div><div class="bneck-node"><div class="bneck-node-name">전력/냉각</div><div class="bneck-node-score">3.33</div><div class="bneck-pill bneck-soft">약함</div></div><div class="bneck-arrow">→</div><div class="bneck-node bneck-active"><div class="bneck-node-name">데이터센터/서버</div><div class="bneck-node-score">10.42</div><div class="bneck-pill bneck-watch">관찰</div></div></div>
+  <table class="styled-table bneck-table">
+    <thead><tr><th>Layer</th><th>Score</th><th>5d Δ</th><th>상태</th><th>Top Basket</th><th>Top Members</th><th>해석</th></tr></thead>
+    <tbody><tr><td><b>수요/CAPEX</b><div class="bneck-layer-code">DEMAND_CAPEX</div></td><td style="text-align:right;font-weight:bold;">7.00</td><td style="text-align:right;"><span class="bneck-delta bneck-delta-up">+7.64 ▲</span></td><td><span class="bneck-pill bneck-soft">약함</span></td><td>AI_클라우드 (9.90)</td><td><span class="chart-trigger bneck-member" data-ticker="MSFT">MSFT(15.0)</span> <span class="chart-trigger bneck-member" data-ticker="AMZN">AMZN(13.0)</span> <span class="chart-trigger bneck-member" data-ticker="ADBE">ADBE(10.2)</span> <span class="chart-trigger bneck-member" data-ticker="GOOGL">GOOGL(7.2)</span></td><td class="bneck-note-cell">하이퍼스케일러와 AI 사용처가 CAPEX를 유지하는지 보는 수요 레이어</td></tr><tr><td><b>칩/ASIC</b><div class="bneck-layer-code">SILICON_COMPUTE</div></td><td style="text-align:right;font-weight:bold;">4.73</td><td style="text-align:right;"><span class="bneck-delta bneck-delta-up">+7.87 ▲</span></td><td><span class="bneck-pill bneck-soft">약함</span></td><td>AI_맞춤칩ASIC (9.28)</td><td><span class="chart-trigger bneck-member" data-ticker="HPE">HPE(14.0)</span> <span class="chart-trigger bneck-member" data-ticker="AMZN">AMZN(13.0)</span> <span class="chart-trigger bneck-member" data-ticker="DELL">DELL(13.0)</span> <span class="chart-trigger bneck-member" data-ticker="AVGO">AVGO(9.2)</span></td><td class="bneck-note-cell">GPU, ASIC, CPU, 파운드리 쪽 시장 선호</td></tr><tr><td><b>HBM/패키징/MLCC</b><div class="bneck-layer-code">MEMORY_PACKAGING</div></td><td style="text-align:right;font-weight:bold;">-0.97</td><td style="text-align:right;"><span class="bneck-delta bneck-delta-up">+4.22 ▲</span></td><td><span class="bneck-pill bneck-weak">위험</span></td><td>AI_스토리지 (1.58)</td><td><span class="chart-trigger bneck-member" data-ticker="WDC">WDC(6.2)</span> <span class="chart-trigger bneck-member" data-ticker="STX">STX(4.2)</span> <span class="chart-trigger bneck-member" data-ticker="TSM">TSM(3.0)</span> <span class="naver-trigger bneck-member" data-code="222800">222800(심텍)(1.5)</span></td><td class="bneck-note-cell">HBM, CoWoS/기판, 서버 전력 안정화 부품 병목</td></tr><tr><td><b>네트워크/광통신</b><div class="bneck-layer-code">NETWORK_OPTICS</div></td><td style="text-align:right;font-weight:bold;">7.88</td><td style="text-align:right;"><span class="bneck-delta bneck-delta-up">+9.47 ▲</span></td><td><span class="bneck-pill bneck-soft">약함</span></td><td>AI_네트워크 (11.29)</td><td><span class="chart-trigger bneck-member" data-ticker="ANET">ANET(14.5)</span> <span class="chart-trigger bneck-member" data-ticker="CSCO">CSCO(12.5)</span> <span class="chart-trigger bneck-member" data-ticker="AVGO">AVGO(9.2)</span> <span class="chart-trigger bneck-member" data-ticker="NVDA">NVDA(8.5)</span></td><td class="bneck-note-cell">AI 클러스터 확장에 필요한 scale-out 네트워크와 광통신</td></tr><tr><td><b>전력/냉각</b><div class="bneck-layer-code">POWER_COOLING</div></td><td style="text-align:right;font-weight:bold;">3.33</td><td style="text-align:right;"><span class="bneck-delta bneck-delta-up">+9.53 ▲</span></td><td><span class="bneck-pill bneck-soft">약함</span></td><td>AI_전력망 (6.75)</td><td><span class="chart-trigger bneck-member" data-ticker="ETN">ETN(14.2)</span> <span class="chart-trigger bneck-member" data-ticker="PWR">PWR(6.8)</span> <span class="chart-trigger bneck-member" data-ticker="NVT">NVT(6.2)</span> <span class="chart-trigger bneck-member" data-ticker="GRID">GRID(4.5)</span></td><td class="bneck-note-cell">변압기, 스위치기어, 자가발전, 액체냉각 등 물리 인프라 병목</td></tr><tr class="bneck-table-active"><td><b>데이터센터/서버</b><div class="bneck-layer-code">DATACENTER_DEPLOY</div></td><td style="text-align:right;font-weight:bold;">10.42</td><td style="text-align:right;"><span class="bneck-delta bneck-delta-up">+6.90 ▲</span></td><td><span class="bneck-pill bneck-watch">관찰</span></td><td>AI_데이터센터 (10.42)</td><td><span class="chart-trigger bneck-member" data-ticker="HPE">HPE(14.0)</span> <span class="chart-trigger bneck-member" data-ticker="DELL">DELL(13.0)</span> <span class="chart-trigger bneck-member" data-ticker="DLR">DLR(10.0)</span> <span class="chart-trigger bneck-member" data-ticker="EQIX">EQIX(5.0)</span></td><td class="bneck-note-cell">전력 확보 후 실제 랙/서버/데이터센터 가동 수혜</td></tr><tr><td><b>SW/데이터플랫폼</b><div class="bneck-layer-code">SOFTWARE_ADOPTION</div></td><td style="text-align:right;font-weight:bold;">12.83</td><td style="text-align:right;"><span class="bneck-delta bneck-delta-up">+4.88 ▲</span></td><td><span class="bneck-pill bneck-hot">강함</span></td><td>AI_에이전트자동화 (13.84)</td><td><span class="chart-trigger bneck-member" data-ticker="SNOW">SNOW(16.0)</span> <span class="chart-trigger bneck-member" data-ticker="MSFT">MSFT(15.0)</span> <span class="chart-trigger bneck-member" data-ticker="NET">NET(15.0)</span> <span class="chart-trigger bneck-member" data-ticker="PATH">PATH(15.0)</span></td><td class="bneck-note-cell">AI 인프라 위에서 실제 사용과 데이터 플랫폼 확산을 보는 레이어</td></tr></tbody>
+  </table>
+</div>
+
+
+        <h2>🤖 AI Basket Ranking (33/153) &nbsp;<span style="font-size:0.78em;font-weight:normal;color:#555;">basket_score = Top3 평균*0.7 + 전체 평균*0.3 (Signal_sco 기준) &nbsp;/&nbsp; <span style="color:#c0392b;font-weight:600;">Red: sco&lt;2</span></span></h2>
+        <table class="styled-table ai-basket-table"><thead><tr><th>Rank</th><th>Basket</th><th>Score</th><th>Top3 Avg</th><th>All Avg</th><th>Valid</th><th>Top Members (Signal_sco)</th></tr></thead><tbody><tr style="background:#fef9e7;"><td style="text-align:center;font-weight:bold;">1</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_에이전트자동화</span><span class="ai-basket-en">(AI_AGENT_AUTOMATION_RPA)</span></div></td><td style="text-align:right;font-weight:bold;">13.84</td><td style="text-align:right;">14.67</td><td style="text-align:right;">11.90</td><td style="text-align:center;">5</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="PATH">PATH(15.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="MSFT">MSFT(15.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="NOW">NOW(14.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="CRM">CRM(12.5)</span> <span class="chart-trigger ai-member" data-ticker="PLTR">PLTR(3.0)</span></td></tr>
+<tr style="background:#fef9e7;"><td style="text-align:center;font-weight:bold;">2</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_데이터플랫폼</span><span class="ai-basket-en">(AI_DATA_PIPELINE_DATABASE)</span></div></td><td style="text-align:right;font-weight:bold;">13.73</td><td style="text-align:right;">15.17</td><td style="text-align:right;">10.39</td><td style="text-align:center;">7</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="SNOW">SNOW(16.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="NET">NET(15.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="DDOG">DDOG(14.5)</span> <span class="naver-trigger ai-member" data-code="018260">삼성에스디에스(11.5)</span> <span class="chart-trigger ai-member" data-ticker="MDB">MDB(10.8)</span></td></tr>
+<tr style="background:#fef9e7;"><td style="text-align:center;font-weight:bold;">3</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_소프트웨어</span><span class="ai-basket-en">(AI_SOFTWARE_PLATFORM)</span></div></td><td style="text-align:right;font-weight:bold;">12.88</td><td style="text-align:right;">14.17</td><td style="text-align:right;">9.89</td><td style="text-align:center;">7</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="SNOW">SNOW(16.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="NOW">NOW(14.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="CRM">CRM(12.5)</span> <span class="naver-trigger ai-member" data-code="018260">삼성에스디에스(11.5)</span> <span class="chart-trigger ai-member" data-ticker="ADBE">ADBE(10.2)</span></td></tr>
+<tr style="background:#fef9e7;"><td style="text-align:center;font-weight:bold;">4</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_데이터보안</span><span class="ai-basket-en">(AI_DATA_IDENTITY_SECURITY)</span></div></td><td style="text-align:right;font-weight:bold;">11.90</td><td style="text-align:right;">13.83</td><td style="text-align:right;">7.39</td><td style="text-align:center;">9</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="NET">NET(15.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="DDOG">DDOG(14.5)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="ZS">ZS(12.0)</span> <span class="chart-trigger ai-member" data-ticker="PANW">PANW(10.0)</span> <span class="chart-trigger ai-member" data-ticker="OKTA">OKTA(8.2)</span></td></tr>
+<tr style="background:#fef9e7;"><td style="text-align:center;font-weight:bold;">5</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_사이버보안</span><span class="ai-basket-en">(AI_CYBER_SECURITY)</span></div></td><td style="text-align:right;font-weight:bold;">11.80</td><td style="text-align:right;">13.33</td><td style="text-align:right;">8.21</td><td style="text-align:center;">12</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="FTNT">FTNT(14.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="CIBR">CIBR(13.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="S">S(13.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="ZS">ZS(12.0)</span> <span class="chart-trigger ai-member" data-ticker="CRWD">CRWD(11.5)</span></td></tr>
+<tr style="background:#fef9e7;"><td style="text-align:center;font-weight:bold;">6</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_네트워크</span><span class="ai-basket-en">(AI_NETWORKING_SWITCH_DPU)</span></div></td><td style="text-align:right;font-weight:bold;">11.29</td><td style="text-align:right;">12.08</td><td style="text-align:right;">9.45</td><td style="text-align:center;">5</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="ANET">ANET(14.5)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="CSCO">CSCO(12.5)</span> <span class="chart-trigger ai-member" data-ticker="AVGO">AVGO(9.2)</span> <span class="chart-trigger ai-member" data-ticker="NVDA">NVDA(8.5)</span> <span class="chart-trigger ai-member" data-ticker="MRVL">MRVL(2.5)</span></td></tr>
+<tr style="background:#fef9e7;"><td style="text-align:center;font-weight:bold;">7</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_로봇부품</span><span class="ai-basket-en">(AI_ROBOT_COMPONENT)</span></div></td><td style="text-align:right;font-weight:bold;">11.04</td><td style="text-align:right;">13.00</td><td style="text-align:right;">6.47</td><td style="text-align:center;">8</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="AME">AME(15.5)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="HXGBY">HXGBY(15.0)</span> <span class="chart-trigger ai-member" data-ticker="TER">TER(8.5)</span> <span class="naver-trigger ai-member" data-code="058610">에스피지(7.0)</span> <span class="naver-trigger ai-member" data-code="469070">AI로봇ETF(2.2)</span></td></tr>
+<tr style="background:#fff4e0;"><td style="text-align:center;font-weight:bold;">8</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_데이터센터</span><span class="ai-basket-en">(AI_DATACENTER_REIT_SERVER)</span></div></td><td style="text-align:right;font-weight:bold;">10.42</td><td style="text-align:right;">12.33</td><td style="text-align:right;">5.96</td><td style="text-align:center;">7</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="HPE">HPE(14.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="DELL">DELL(13.0)</span> <span class="chart-trigger ai-member" data-ticker="DLR">DLR(10.0)</span> <span class="chart-trigger ai-member" data-ticker="EQIX">EQIX(5.0)</span> <span class="chart-trigger ai-member" data-ticker="SMCI">SMCI(3.5)</span></td></tr>
+<tr style="background:#fff4e0;"><td style="text-align:center;font-weight:bold;">9</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_원자재</span><span class="ai-basket-en">(AI_RAW_MATERIALS_COPPER_RAREEARTH)</span></div></td><td style="text-align:right;font-weight:bold;">9.90</td><td style="text-align:right;">11.17</td><td style="text-align:right;">6.95</td><td style="text-align:center;">5</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="FCX">FCX(12.5)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="SCCO">SCCO(12.0)</span> <span class="chart-trigger ai-member" data-ticker="PICK">PICK(9.0)</span> <span class="chart-trigger ai-member" data-ticker="COPX">COPX(8.0)</span> <span class="chart-trigger ai-member" data-ticker="REMX">REMX(-6.8)</span></td></tr>
+<tr style="background:#fff4e0;"><td style="text-align:center;font-weight:bold;">10</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_클라우드</span><span class="ai-basket-en">(AI_CLOUD_HYPERSCALER)</span></div></td><td style="text-align:right;font-weight:bold;">9.90</td><td style="text-align:right;">11.75</td><td style="text-align:right;">5.60</td><td style="text-align:center;">5</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="MSFT">MSFT(15.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="AMZN">AMZN(13.0)</span> <span class="chart-trigger ai-member" data-ticker="GOOGL">GOOGL(7.2)</span> <span class="chart-trigger ai-member" data-ticker="ORCL">ORCL(1.5)</span> <span class="chart-trigger ai-member" data-ticker="META">META(-8.8)</span></td></tr>
+<tr style="background:#fff4e0;"><td style="text-align:center;font-weight:bold;">11</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_맞춤칩ASIC</span><span class="ai-basket-en">(AI_ASIC_CUSTOM_CHIP)</span></div></td><td style="text-align:right;font-weight:bold;">9.28</td><td style="text-align:right;">9.83</td><td style="text-align:right;">8.00</td><td style="text-align:center;">4</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="AMZN">AMZN(13.0)</span> <span class="chart-trigger ai-member" data-ticker="AVGO">AVGO(9.2)</span> <span class="chart-trigger ai-member" data-ticker="GOOGL">GOOGL(7.2)</span> <span class="chart-trigger ai-member" data-ticker="MRVL">MRVL(2.5)</span></td></tr>
+<tr style="background:#fff4e0;"><td style="text-align:center;font-weight:bold;">12</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_공장자동화</span><span class="ai-basket-en">(AI_FACTORY_AUTOMATION)</span></div></td><td style="text-align:right;font-weight:bold;">8.56</td><td style="text-align:right;">10.58</td><td style="text-align:right;">3.83</td><td style="text-align:center;">10</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="EMR">EMR(15.0)</span> <span class="chart-trigger ai-member" data-ticker="CGNX">CGNX(10.0)</span> <span class="chart-trigger ai-member" data-ticker="ROBO">ROBO(6.8)</span> <span class="naver-trigger ai-member" data-code="090360">로보스타(5.0)</span> <span class="chart-trigger ai-member" data-ticker="ROK">ROK(3.5)</span></td></tr>
+<tr style="background:#fff4e0;"><td style="text-align:center;font-weight:bold;">13</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_CPU서버</span><span class="ai-basket-en">(AI_CPU_SERVER)</span></div></td><td style="text-align:right;font-weight:bold;">8.47</td><td style="text-align:right;">10.17</td><td style="text-align:right;">4.50</td><td style="text-align:center;">6</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="HPE">HPE(14.0)</span> <span class="chart-trigger ai-member ai-member-hot" data-ticker="DELL">DELL(13.0)</span> <span class="chart-trigger ai-member" data-ticker="SMCI">SMCI(3.5)</span> <span class="chart-trigger ai-member" data-ticker="AMD">AMD(-0.2)</span> <span class="chart-trigger ai-member" data-ticker="ARM">ARM(-0.8)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">14</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_디지털트윈</span><span class="ai-basket-en">(AI_DIGITAL_TWIN_SIMULATION)</span></div></td><td style="text-align:right;font-weight:bold;">7.04</td><td style="text-align:right;">8.17</td><td style="text-align:right;">4.40</td><td style="text-align:center;">5</td><td><span class="chart-trigger ai-member" data-ticker="PTC">PTC(9.0)</span> <span class="chart-trigger ai-member" data-ticker="NVDA">NVDA(8.5)</span> <span class="chart-trigger ai-member" data-ticker="ADSK">ADSK(7.0)</span> <span class="chart-trigger ai-member" data-ticker="SNPS">SNPS(-1.0)</span> <span class="chart-trigger ai-member" data-ticker="CDNS">CDNS(-1.5)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">15</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_전력망</span><span class="ai-basket-en">(AI_POWER_GRID_TRANSFORMER)</span></div></td><td style="text-align:right;font-weight:bold;">6.75</td><td style="text-align:right;">9.08</td><td style="text-align:right;">1.31</td><td style="text-align:center;">12</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="ETN">ETN(14.2)</span> <span class="chart-trigger ai-member" data-ticker="PWR">PWR(6.8)</span> <span class="chart-trigger ai-member" data-ticker="NVT">NVT(6.2)</span> <span class="chart-trigger ai-member" data-ticker="GRID">GRID(4.5)</span> <span class="naver-trigger ai-member" data-code="010120">LS ELECTRIC(2.8)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">16</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_추론최적화</span><span class="ai-basket-en">(AI_INFERENCE_OPTIMIZATION)</span></div></td><td style="text-align:right;font-weight:bold;">5.43</td><td style="text-align:right;">6.75</td><td style="text-align:right;">2.35</td><td style="text-align:center;">5</td><td><span class="chart-trigger ai-member" data-ticker="AVGO">AVGO(9.2)</span> <span class="chart-trigger ai-member" data-ticker="NVDA">NVDA(8.5)</span> <span class="chart-trigger ai-member" data-ticker="MRVL">MRVL(2.5)</span> <span class="chart-trigger ai-member" data-ticker="ARM">ARM(-0.8)</span> <span class="chart-trigger ai-member" data-ticker="QCOM">QCOM(-7.8)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">17</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_냉각</span><span class="ai-basket-en">(AI_COOLING_THERMAL)</span></div></td><td style="text-align:right;font-weight:bold;">5.03</td><td style="text-align:right;">7.17</td><td style="text-align:right;">0.04</td><td style="text-align:center;">6</td><td><span class="chart-trigger ai-member ai-member-hot" data-ticker="ETN">ETN(14.2)</span> <span class="chart-trigger ai-member" data-ticker="NVT">NVT(6.2)</span> <span class="chart-trigger ai-member" data-ticker="TT">TT(1.0)</span> <span class="chart-trigger ai-member" data-ticker="CARR">CARR(-5.0)</span> <span class="chart-trigger ai-member" data-ticker="VRT">VRT(-6.0)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">18</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_광통신</span><span class="ai-basket-en">(AI_OPTICAL_PHOTONICS)</span></div></td><td style="text-align:right;font-weight:bold;">4.48</td><td style="text-align:right;">4.92</td><td style="text-align:right;">3.45</td><td style="text-align:center;">5</td><td><span class="chart-trigger ai-member" data-ticker="AVGO">AVGO(9.2)</span> <span class="chart-trigger ai-member" data-ticker="COHR">COHR(3.0)</span> <span class="chart-trigger ai-member" data-ticker="LITE">LITE(2.5)</span> <span class="chart-trigger ai-member" data-ticker="MRVL">MRVL(2.5)</span> <span class="chart-trigger ai-member" data-ticker="CIEN">CIEN(0.0)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">19</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_광고미디어</span><span class="ai-basket-en">(AI_CONTENT_ADS_MEDIA)</span></div></td><td style="text-align:right;font-weight:bold;">4.09</td><td style="text-align:right;">5.50</td><td style="text-align:right;">0.80</td><td style="text-align:center;">5</td><td><span class="chart-trigger ai-member" data-ticker="ADBE">ADBE(10.2)</span> <span class="chart-trigger ai-member" data-ticker="GOOGL">GOOGL(7.2)</span> <span class="chart-trigger ai-member" data-ticker="NFLX">NFLX(-1.0)</span> <span class="chart-trigger ai-member" data-ticker="TTD">TTD(-3.8)</span> <span class="chart-trigger ai-member" data-ticker="META">META(-8.8)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">20</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_헬스케어바이오</span><span class="ai-basket-en">(AI_HEALTHCARE_BIO)</span></div></td><td style="text-align:right;font-weight:bold;">2.46</td><td style="text-align:right;">3.50</td><td style="text-align:right;">0.05</td><td style="text-align:center;">10</td><td><span class="naver-trigger ai-member" data-code="322510">JLK(4.5)</span> <span class="chart-trigger ai-member" data-ticker="IBB">IBB(3.0)</span> <span class="naver-trigger ai-member" data-code="315640">딥노이드(3.0)</span> <span class="naver-trigger ai-member" data-code="338220">뷰노(1.8)</span> <span class="chart-trigger ai-member" data-ticker="XBI">XBI(1.2)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">21</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_GPU</span><span class="ai-basket-en">(AI_GPU_ACCELERATOR)</span></div></td><td style="text-align:right;font-weight:bold;">1.83</td><td style="text-align:right;">2.67</td><td style="text-align:right;">-0.12</td><td style="text-align:center;">6</td><td><span class="chart-trigger ai-member" data-ticker="NVDA">NVDA(8.5)</span> <span class="chart-trigger ai-member" data-ticker="SMH">SMH(-0.2)</span> <span class="chart-trigger ai-member" data-ticker="AMD">AMD(-0.2)</span> <span class="chart-trigger ai-member" data-ticker="SOXX">SOXX(-0.8)</span> <span class="naver-trigger ai-member" data-code="446770">ACE글로벌반도체TOP4(-2.2)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">22</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_휴머노이드</span><span class="ai-basket-en">(AI_HUMANOID_ROBOT)</span></div></td><td style="text-align:right;font-weight:bold;">1.78</td><td style="text-align:right;">2.58</td><td style="text-align:right;">-0.11</td><td style="text-align:center;">7</td><td><span class="chart-trigger ai-member" data-ticker="ABBNY">ABBNY(3.5)</span> <span class="naver-trigger ai-member" data-code="469070">AI로봇ETF(2.2)</span> <span class="chart-trigger ai-member" data-ticker="BOTZ">BOTZ(2.0)</span> <span class="naver-trigger ai-member" data-code="277810">레인보우로보틱스(0.8)</span> <span class="naver-trigger ai-member" data-code="454910">두산로보틱스(-1.0)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">23</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_자가발전</span><span class="ai-basket-en">(AI_ONSITE_POWER_FUELCELL)</span></div></td><td style="text-align:right;font-weight:bold;">1.75</td><td style="text-align:right;">1.75</td><td style="text-align:right;">1.75</td><td style="text-align:center;">1</td><td><span class="chart-trigger ai-member" data-ticker="BE">BE(1.8)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">24</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_반도체장비</span><span class="ai-basket-en">(AI_SEMI_EQUIPMENT)</span></div></td><td style="text-align:right;font-weight:bold;">1.60</td><td style="text-align:right;">3.33</td><td style="text-align:right;">-2.44</td><td style="text-align:center;">13</td><td><span class="chart-trigger ai-member" data-ticker="TER">TER(8.5)</span> <span class="chart-trigger ai-member" data-ticker="AMAT">AMAT(1.5)</span> <span class="chart-trigger ai-member" data-ticker="LRCX">LRCX(0.0)</span> <span class="chart-trigger ai-member" data-ticker="ASML">ASML(-1.0)</span> <span class="naver-trigger ai-member" data-code="036930">주성엔지니어링(-1.2)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">25</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_스토리지</span><span class="ai-basket-en">(AI_STORAGE_CXL_SSD)</span></div></td><td style="text-align:right;font-weight:bold;">1.58</td><td style="text-align:right;">1.58</td><td style="text-align:right;">1.58</td><td style="text-align:center;">3</td><td><span class="chart-trigger ai-member" data-ticker="WDC">WDC(6.2)</span> <span class="chart-trigger ai-member" data-ticker="STX">STX(4.2)</span> <span class="naver-trigger ai-member" data-code="005930">삼성전자(-5.8)</span></td></tr>
+<tr style="background:#fafafa;"><td style="text-align:center;font-weight:bold;">26</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_핀테크</span><span class="ai-basket-en">(AI_FINTECH_TRADING)</span></div></td><td style="text-align:right;font-weight:bold;">1.29</td><td style="text-align:right;">2.50</td><td style="text-align:right;">-1.55</td><td style="text-align:center;">5</td><td><span class="chart-trigger ai-member" data-ticker="ICE">ICE(5.0)</span> <span class="chart-trigger ai-member" data-ticker="CME">CME(4.5)</span> <span class="chart-trigger ai-member" data-ticker="HOOD">HOOD(-2.0)</span> <span class="chart-trigger ai-member" data-ticker="IBKR">IBKR(-3.8)</span> <span class="chart-trigger ai-member" data-ticker="COIN">COIN(-11.5)</span></td></tr>
+<tr style="background:#fadbd8;"><td style="text-align:center;font-weight:bold;">27</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_에너지</span><span class="ai-basket-en">(AI_ENERGY_NUCLEAR_SMR_GAS)</span></div></td><td style="text-align:right;font-weight:bold;">-0.23</td><td style="text-align:right;">0.92</td><td style="text-align:right;">-2.92</td><td style="text-align:center;">6</td><td><span class="chart-trigger ai-member" data-ticker="CEG">CEG(3.2)</span> <span class="chart-trigger ai-member" data-ticker="SMR">SMR(1.0)</span> <span class="naver-trigger ai-member" data-code="434730">원자력ETF(-1.5)</span> <span class="naver-trigger ai-member" data-code="0051G0">S&amp;P500AI(-4.2)</span> <span class="chart-trigger ai-member" data-ticker="NRG">NRG(-6.5)</span></td></tr>
+<tr style="background:#fadbd8;"><td style="text-align:center;font-weight:bold;">28</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_MLCC수동부품</span><span class="ai-basket-en">(AI_PASSIVE_COMPONENT_MLCC)</span></div></td><td style="text-align:right;font-weight:bold;">-0.88</td><td style="text-align:right;">-0.88</td><td style="text-align:right;">-0.88</td><td style="text-align:center;">2</td><td><span class="naver-trigger ai-member" data-code="009150">삼성전기(0.8)</span> <span class="naver-trigger ai-member" data-code="001820">삼화콘덴서(-2.5)</span></td></tr>
+<tr style="background:#fadbd8;"><td style="text-align:center;font-weight:bold;">29</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_첨단패키징</span><span class="ai-basket-en">(AI_ADV_PACKAGING_SUBSTRATE)</span></div></td><td style="text-align:right;font-weight:bold;">-0.92</td><td style="text-align:right;">0.33</td><td style="text-align:right;">-3.86</td><td style="text-align:center;">9</td><td><span class="chart-trigger ai-member" data-ticker="TSM">TSM(3.0)</span> <span class="naver-trigger ai-member" data-code="222800">심텍(1.5)</span> <span class="naver-trigger ai-member" data-code="042700">한미반도체(-3.5)</span> <span class="naver-trigger ai-member" data-code="353200">대덕전자(-4.8)</span> <span class="naver-trigger ai-member" data-code="091160">KODEX반도체(-5.8)</span></td></tr>
+<tr style="background:#fadbd8;"><td style="text-align:center;font-weight:bold;">30</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_EDA설계</span><span class="ai-basket-en">(AI_EDA_DESIGN_TOOLS)</span></div></td><td style="text-align:right;font-weight:bold;">-1.25</td><td style="text-align:right;">-1.25</td><td style="text-align:right;">-1.25</td><td style="text-align:center;">2</td><td><span class="chart-trigger ai-member" data-ticker="SNPS">SNPS(-1.0)</span> <span class="chart-trigger ai-member" data-ticker="CDNS">CDNS(-1.5)</span></td></tr>
+<tr style="background:#fadbd8;"><td style="text-align:center;font-weight:bold;">31</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_파운드리</span><span class="ai-basket-en">(AI_FOUNDRY)</span></div></td><td style="text-align:right;font-weight:bold;">-1.38</td><td style="text-align:right;">-1.38</td><td style="text-align:right;">-1.38</td><td style="text-align:center;">2</td><td><span class="chart-trigger ai-member" data-ticker="TSM">TSM(3.0)</span> <span class="naver-trigger ai-member" data-code="005930">삼성전자(-5.8)</span></td></tr>
+<tr style="background:#fadbd8;"><td style="text-align:center;font-weight:bold;">32</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_온디바이스</span><span class="ai-basket-en">(AI_EDGE_DEVICE_ONDEVICE)</span></div></td><td style="text-align:right;font-weight:bold;">-1.62</td><td style="text-align:right;">-0.92</td><td style="text-align:right;">-3.25</td><td style="text-align:center;">5</td><td><span class="chart-trigger ai-member" data-ticker="AMD">AMD(-0.2)</span> <span class="chart-trigger ai-member" data-ticker="ARM">ARM(-0.8)</span> <span class="chart-trigger ai-member" data-ticker="AAPL">AAPL(-1.8)</span> <span class="naver-trigger ai-member" data-code="005930">삼성전자(-5.8)</span> <span class="chart-trigger ai-member" data-ticker="QCOM">QCOM(-7.8)</span></td></tr>
+<tr style="background:#fadbd8;"><td style="text-align:center;font-weight:bold;">33</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_자율주행드론</span><span class="ai-basket-en">(AI_AUTONOMOUS_VEHICLE_DRONE)</span></div></td><td style="text-align:right;font-weight:bold;">-2.75</td><td style="text-align:right;">-2.00</td><td style="text-align:right;">-4.50</td><td style="text-align:center;">6</td><td><span class="naver-trigger ai-member" data-code="478150">우주방위(-0.5)</span> <span class="chart-trigger ai-member" data-ticker="ACHR">ACHR(-2.5)</span> <span class="chart-trigger ai-member" data-ticker="JOBY">JOBY(-3.0)</span> <span class="chart-trigger ai-member" data-ticker="TSLA">TSLA(-6.8)</span> <span class="chart-trigger ai-member" data-ticker="RIVN">RIVN(-7.0)</span></td></tr>
+<tr style="background:#fadbd8;"><td style="text-align:center;font-weight:bold;">34</td><td><div class="ai-basket-name"><span class="ai-basket-kr">AI_메모리</span><span class="ai-basket-en">(AI_MEMORY_HBM_DRAM)</span></div></td><td style="text-align:right;font-weight:bold;">-3.67</td><td style="text-align:right;">-3.50</td><td style="text-align:right;">-4.06</td><td style="text-align:center;">4</td><td><span class="chart-trigger ai-member" data-ticker="MU">MU(-1.5)</span> <span class="naver-trigger ai-member" data-code="000660">SK하이닉스(-3.2)</span> <span class="naver-trigger ai-member" data-code="005930">삼성전자(-5.8)</span> <span class="naver-trigger ai-member" data-code="091160">KODEX반도체(-5.8)</span></td></tr></tbody></table>
+
+        <h3>📊 AI 종목 Top30 랭킹 &nbsp;<span style="font-size:0.8em;font-weight:normal;color:#555;">(AI investable universe만 표시 · benchmark 제외 · Basket 컬럼은 한글화)</span></h3>
+        <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>Basket</th>
+                <th>현재가</th>
+                <th>등락률(%)</th>
+                <th>위치</th>
+                <th>추세</th>
+                <th>sco</th>
+                <th>RSI</th>
+                <th>Score</th>
+                <th>1M</th>
+                <th>136</th>
+                <th>저점</th>
+                <th>🚀</th>
+                <th>지수대비(%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background-color: #FFFF99;"><td class="chart-trigger" data-ticker="SNOW" style="cursor:pointer;"><span class="type-us">[US]</span> SNOW</td><td class="basket-col">AI_데이터플랫폼 / AI_소프트웨어</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">317달러</td><td class="sig-up">+0.0%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>16.0</td><td class="sig-up">77(77)</td><td style="font-weight:bold">100.0</td><td style="font-weight:bold;color:#e74c3c">21.2%</td><td style="font-weight:bold;color:#e74c3c">79.9%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+20.4%</td></tr>
+            <tr style="background-color: #FFFF99;"><td class="chart-trigger" data-ticker="PATH" style="cursor:pointer;"><span class="type-us">[US]</span> PATH</td><td class="basket-col">AI_에이전트자동화</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">14달러</td><td class="sig-down">-2.0%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>15.0</td><td class="sig-up">68(71)</td><td style="font-weight:bold">95.0</td><td style="font-weight:bold;color:#e74c3c">21.0%</td><td style="font-weight:bold;color:#e74c3c">21.6%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+20.2%</td></tr>
+            <tr style="background-color: #FFFF99;"><td class="chart-trigger" data-ticker="HPE" style="cursor:pointer;"><span class="type-us">[US]</span> HPE</td><td class="basket-col">AI_CPU서버 / AI_데이터센터</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">53달러</td><td class="sig-up">+1.6%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>14.0</td><td class="sig-up">65(64)</td><td style="font-weight:bold">95.0</td><td style="font-weight:bold;color:#e74c3c">19.1%</td><td style="font-weight:bold;color:#e74c3c">75.3%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+18.3%</td></tr>
+            <tr style="background-color: #FFFF99;"><td class="chart-trigger" data-ticker="HXGBY" style="cursor:pointer;"><span class="type-us">[US]</span> HXGBY</td><td class="basket-col">AI_로봇부품</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">10달러</td><td class="sig-up">+0.6%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>15.0</td><td class="sig-up">78(77)</td><td style="font-weight:bold">94.0</td><td style="font-weight:bold;color:#e74c3c">25.1%</td><td style="font-weight:bold;color:#e74c3c">19.6%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+24.2%</td></tr>
+            <tr style="background-color: #FFFF99;"><td class="chart-trigger" data-ticker="MSFT" style="cursor:pointer;"><span class="type-us">[US]</span> MSFT**</td><td class="basket-col">AI_클라우드 / AI_에이전트자동화</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">487달러</td><td class="sig-down">-1.1%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#27ae60;color:#fff;font-size:11px;font-weight:bold;">2</span></td><td>15.0</td><td class="sig-up">76(79)</td><td style="font-weight:bold">94.0</td><td style="font-weight:bold;color:#e74c3c">27.2%</td><td style="font-weight:bold;color:#e74c3c">21.1%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+26.3%</td></tr>
+            <tr style="background-color: #FFFF99;"><td class="chart-trigger" data-ticker="EMR" style="cursor:pointer;"><span class="type-us">[US]</span> EMR**</td><td class="basket-col">AI_공장자동화</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">162달러</td><td class="sig-up">+2.3%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>15.0</td><td class="sig-up">72(70)</td><td style="font-weight:bold">92.0</td><td style="font-weight:bold;color:#e74c3c">19.0%</td><td style="font-weight:bold;color:#e74c3c">11.1%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+18.2%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="S" style="cursor:pointer;"><span class="type-us">[US]</span> S</td><td class="basket-col">AI_사이버보안</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">21달러</td><td class="sig-up">+0.1%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>13.0</td><td class="sig-up">70(70)</td><td style="font-weight:bold">89.0</td><td style="font-weight:bold;color:#e74c3c">17.9%</td><td style="font-weight:bold;color:#e74c3c">36.4%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+17.1%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="naver-trigger" data-code="018260" style="cursor:pointer;"><span class="type-kr">[KR]</span> 018260(삼성에스디에스)</td><td class="basket-col">AI_데이터플랫폼 / AI_소프트웨어</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">232,500원</td><td class="sig-up">+0.9%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>11.5</td><td class="sig-up">61(61)</td><td style="font-weight:bold">88.0</td><td style="font-weight:bold;color:#e74c3c">19.7%</td><td style="font-weight:bold;color:#e74c3c">28.5%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+35.0%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="FCX" style="cursor:pointer;"><span class="type-us">[US]</span> FCX</td><td class="basket-col">AI_원자재</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">69달러</td><td class="sig-up">+3.1%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>12.5</td><td class="sig-up">64(61)</td><td style="font-weight:bold">88.0</td><td style="font-weight:bold;color:#e74c3c">21.0%</td><td style="font-weight:bold;color:#e74c3c">16.0%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+20.1%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="NET" style="cursor:pointer;"><span class="type-us">[US]</span> NET</td><td class="basket-col">AI_데이터플랫폼 / AI_데이터보안</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">293달러</td><td class="sig-down">-2.8%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>15.0</td><td class="sig-up">65(71)</td><td style="font-weight:bold">87.0</td><td style="font-weight:bold;color:#e74c3c">7.2%</td><td style="font-weight:bold;color:#e74c3c">33.5%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+6.3%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="ANET" style="cursor:pointer;"><span class="type-us">[US]</span> ANET**</td><td class="basket-col">AI_네트워크</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">197달러</td><td class="sig-up">+3.6%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>14.5</td><td class="sig-up">66(62)</td><td style="font-weight:bold">87.0</td><td style="font-weight:bold;color:#e74c3c">9.0%</td><td style="font-weight:bold;color:#e74c3c">31.5%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+8.2%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="DDOG" style="cursor:pointer;"><span class="type-us">[US]</span> DDOG</td><td class="basket-col">AI_데이터플랫폼 / AI_데이터보안</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">283달러</td><td class="sig-down">-1.7%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>14.5</td><td class="sig-up">66(70)</td><td style="font-weight:bold">87.0</td><td style="font-weight:bold;color:#e74c3c">8.5%</td><td style="font-weight:bold;color:#e74c3c">83.4%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+7.6%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="AME" style="cursor:pointer;"><span class="type-us">[US]</span> AME**</td><td class="basket-col">AI_로봇부품</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">255달러</td><td class="sig-up">+0.3%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>15.5</td><td class="sig-up">70(69)</td><td style="font-weight:bold">85.0</td><td style="font-weight:bold;color:#e74c3c">10.1%</td><td style="font-weight:bold;color:#e74c3c">9.3%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+9.3%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="NOW" style="cursor:pointer;"><span class="type-us">[US]</span> NOW</td><td class="basket-col">AI_소프트웨어 / AI_에이전트자동화</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">117달러</td><td class="sig-down">-0.8%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#27ae60;color:#fff;font-size:11px;font-weight:bold;">2</span></td><td>14.0</td><td class="sig-up">61(62)</td><td style="font-weight:bold">84.0</td><td style="font-weight:bold;color:#e74c3c">8.8%</td><td style="font-weight:bold;color:#e74c3c">15.3%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+7.9%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="ETN" style="cursor:pointer;"><span class="type-us">[US]</span> ETN**</td><td class="basket-col">AI_전력망 / AI_냉각</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">447달러</td><td class="sig-up">+0.6%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>14.2</td><td class="sig-up">62(62)</td><td style="font-weight:bold">84.0</td><td style="font-weight:bold;color:#e74c3c">11.9%</td><td style="font-weight:bold;color:#e74c3c">13.9%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+11.1%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="SCCO" style="cursor:pointer;"><span class="type-us">[US]</span> SCCO</td><td class="basket-col">AI_원자재</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">197달러</td><td class="sig-up">+0.9%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>12.0</td><td class="sig-up">62(61)</td><td style="font-weight:bold">84.0</td><td style="font-weight:bold;color:#e74c3c">17.8%</td><td style="font-weight:bold;color:#e74c3c">10.0%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+17.0%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="FTNT" style="cursor:pointer;"><span class="type-us">[US]</span> FTNT</td><td class="basket-col">AI_사이버보안</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">164달러</td><td class="sig-down">-2.5%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>14.0</td><td class="sig-up">60(66)</td><td style="font-weight:bold">84.0</td><td style="font-weight:bold;color:#e74c3c">4.7%</td><td style="font-weight:bold;color:#e74c3c">63.2%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+3.9%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="DELL" style="cursor:pointer;"><span class="type-us">[US]</span> DELL</td><td class="basket-col">AI_CPU서버 / AI_데이터센터</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">463달러</td><td class="sig-down">-1.0%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>13.0</td><td class="sig-up">60(61)</td><td style="font-weight:bold">83.0</td><td style="font-weight:bold;color:#e74c3c">7.3%</td><td style="font-weight:bold;color:#e74c3c">127.4%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+6.5%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="CRM" style="cursor:pointer;"><span class="type-us">[US]</span> CRM</td><td class="basket-col">AI_소프트웨어 / AI_에이전트자동화</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">193달러</td><td class="sig-up">+1.0%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#27ae60;color:#fff;font-size:11px;font-weight:bold;">2</span></td><td>12.5</td><td class="sig-up">65(64)</td><td style="font-weight:bold">83.0</td><td style="font-weight:bold;color:#e74c3c">15.8%</td><td style="font-weight:bold;color:#e74c3c">6.6%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+15.0%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="CRWD" style="cursor:pointer;"><span class="type-us">[US]</span> CRWD</td><td class="basket-col">AI_사이버보안</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">210달러</td><td class="sig-down">-0.6%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>11.5</td><td class="sig-up">65(66)</td><td style="font-weight:bold">82.0</td><td style="font-weight:bold;color:#e74c3c">9.8%</td><td style="font-weight:bold;color:#e74c3c">63.8%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+9.0%</td></tr>
+            <tr><td class="chart-trigger" data-ticker="PANW" style="cursor:pointer;"><span class="type-us">[US]</span> PANW</td><td class="basket-col">AI_사이버보안 / AI_데이터보안</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">363달러</td><td class="sig-down">-1.0%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>10.0</td><td class="sig-up">65(67)</td><td style="font-weight:bold">82.0</td><td style="font-weight:bold;color:#e74c3c">13.1%</td><td style="font-weight:bold;color:#e74c3c">76.0%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+12.3%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="CIBR" style="cursor:pointer;"><span class="type-us">[US]</span> CIBR</td><td class="basket-col">AI_사이버보안</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">98달러</td><td class="sig-down">-0.4%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>13.0</td><td class="sig-up">69(70)</td><td style="font-weight:bold">81.0</td><td style="font-weight:bold;color:#e74c3c">6.5%</td><td style="font-weight:bold;color:#e74c3c">30.9%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+5.6%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="AMZN" style="cursor:pointer;"><span class="type-us">[US]</span> AMZN**</td><td class="basket-col">AI_맞춤칩ASIC / AI_클라우드</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">273달러</td><td class="sig-down">-1.7%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>13.0</td><td class="sig-up">63(67)</td><td style="font-weight:bold">80.0</td><td style="font-weight:bold;color:#e74c3c">11.9%</td><td style="font-weight:bold;color:#e74c3c">9.4%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+11.1%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="ZS" style="cursor:pointer;"><span class="type-us">[US]</span> ZS</td><td class="basket-col">AI_사이버보안 / AI_데이터보안</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">162달러</td><td class="sig-down">-1.0%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#27ae60;color:#fff;font-size:11px;font-weight:bold;">2</span></td><td>12.0</td><td class="sig-up">63(65)</td><td style="font-weight:bold">79.0</td><td style="font-weight:bold;color:#e74c3c">12.6%</td><td style="font-weight:bold;color:#e74c3c">5.3%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+11.8%</td></tr>
+            <tr style="background-color: #CCFFFF;"><td class="chart-trigger" data-ticker="CSCO" style="cursor:pointer;"><span class="type-us">[US]</span> CSCO</td><td class="basket-col">AI_네트워크</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">122달러</td><td class="sig-down">-0.2%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>12.5</td><td class="sig-up">62(62)</td><td style="font-weight:bold">79.0</td><td style="font-weight:bold;color:#e74c3c">6.8%</td><td style="font-weight:bold;color:#e74c3c">30.3%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+5.9%</td></tr>
+            <tr><td class="chart-trigger" data-ticker="ADBE" style="cursor:pointer;"><span class="type-us">[US]</span> ADBE</td><td class="basket-col">AI_소프트웨어 / AI_광고미디어</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">259달러</td><td class="sig-up">+0.7%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#27ae60;color:#fff;font-size:11px;font-weight:bold;">2</span></td><td>10.2</td><td class="sig-up">63(63)</td><td style="font-weight:bold">79.0</td><td style="font-weight:bold;color:#e74c3c">17.4%</td><td style="font-weight:bold;color:#e74c3c">4.6%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+16.6%</td></tr>
+            <tr><td class="chart-trigger" data-ticker="COPX" style="cursor:pointer;"><span class="type-us">[US]</span> COPX</td><td class="basket-col">AI_원자재</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">87달러</td><td class="sig-up">+3.2%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>8.0</td><td class="sig-up">65(61)</td><td style="font-weight:bold">75.0</td><td style="font-weight:bold;color:#e74c3c">18.7%</td><td style="font-weight:bold;color:#e74c3c">7.8%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+17.9%</td></tr>
+            <tr><td class="chart-trigger" data-ticker="HACK" style="cursor:pointer;"><span class="type-us">[US]</span> HACK**</td><td class="basket-col">AI_사이버보안</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">115달러</td><td class="sig-up">+0.5%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>10.0</td><td class="sig-up">67(66)</td><td style="font-weight:bold">74.0</td><td style="font-weight:bold;color:#e74c3c">5.3%</td><td style="font-weight:bold;color:#e74c3c">32.4%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+4.5%</td></tr>
+            <tr><td class="chart-trigger" data-ticker="MDB" style="cursor:pointer;"><span class="type-us">[US]</span> MDB</td><td class="basket-col">AI_데이터플랫폼</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">376달러</td><td class="sig-down">-1.0%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>10.8</td><td class="sig-up">66(68)</td><td style="font-weight:bold">74.0</td><td style="font-weight:bold;color:#e74c3c">4.7%</td><td style="font-weight:bold;color:#e74c3c">19.4%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+3.9%</td></tr>
+            <tr><td class="chart-trigger" data-ticker="CGNX" style="cursor:pointer;"><span class="type-us">[US]</span> CGNX</td><td class="basket-col">AI_공장자동화</td><td style="font-weight:bold;color:#2c3e50;white-space:nowrap;">71달러</td><td class="sig-down">-1.1%</td><td>1.0</td><td style="text-align:center"><span style="display:inline-block;padding:2px 7px;border-radius:10px;background:#00c853;color:#000;font-size:11px;font-weight:bold;">3</span></td><td>10.0</td><td class="sig-up">62(64)</td><td style="font-weight:bold">74.0</td><td style="font-weight:bold;color:#e74c3c">10.3%</td><td style="font-weight:bold;color:#e74c3c">32.7%</td><td></td><td style="text-align:center;font-size:1.1em"></td><td class="sig-up">+9.5%</td></tr>
+        </tbody>
+        </table>
+      </div>
+      <div class="ai-board-right">
+        <div class="ai-side-panel">
+          <div class="t5-section"><div class="t5-section-title">🧾 당일/주간/월간 Top5</div><div class="t5-cards-row"><div class="t5-card" style="border-top:3px solid #3498db;background:#e8f5e9;"><div class="t5-header" style="background:#e8f5e9;"><span class="t5-title">📅 당일</span><span class="t5-label">8/6</span></div><div class="t5-body"><div class="t5-row"><span class="t5-medal">🥇</span><span class="chart-trigger t5-name" data-ticker="SNOW">SNOW</span></div><div class="t5-row"><span class="t5-medal">🥈</span><span class="chart-trigger t5-name" data-ticker="PATH">PATH</span></div><div class="t5-row"><span class="t5-medal">🥉</span><span class="chart-trigger t5-name" data-ticker="HPE">HPE</span></div><div class="t5-row"><span class="t5-medal">④</span><span class="chart-trigger t5-name" data-ticker="EMR">EMR</span></div><div class="t5-row"><span class="t5-medal">⑤</span><span class="chart-trigger t5-name" data-ticker="AME">AME</span></div></div></div><div class="t5-card" style="border-top:3px solid #27ae60;background:#dfffff;"><div class="t5-header" style="background:#dfffff;"><span class="t5-title">📆 주간</span><span class="t5-label">8월1주</span></div><div class="t5-body"><div class="t5-row"><span class="t5-medal">🥇</span><span class="chart-trigger t5-name" data-ticker="SNOW">SNOW</span></div><div class="t5-row"><span class="t5-medal">🥈</span><span class="chart-trigger t5-name" data-ticker="PATH">PATH</span></div><div class="t5-row"><span class="t5-medal">🥉</span><span class="chart-trigger t5-name" data-ticker="HPE">HPE</span></div><div class="t5-row"><span class="t5-medal">④</span><span class="chart-trigger t5-name" data-ticker="EMR">EMR</span></div><div class="t5-row"><span class="t5-medal">⑤</span><span class="chart-trigger t5-name" data-ticker="AME">AME</span></div></div></div><div class="t5-card" style="border-top:3px solid #e67e22;background:#ffffdf;"><div class="t5-header" style="background:#ffffdf;"><span class="t5-title">📊 월간</span><span class="t5-label">7월</span></div><div class="t5-body"><div class="t5-row"><span class="t5-medal">🥇</span><span class="chart-trigger t5-name" data-ticker="SNOW">SNOW</span></div><div class="t5-row"><span class="t5-medal">🥈</span><span class="chart-trigger t5-name" data-ticker="AAPL">AAPL</span></div><div class="t5-row"><span class="t5-medal">🥉</span><span class="chart-trigger t5-name" data-ticker="EMR">EMR</span></div><div class="t5-row"><span class="t5-medal">④</span><span class="chart-trigger t5-name" data-ticker="PATH">PATH</span></div><div class="t5-row"><span class="t5-medal">⑤</span><span class="chart-trigger t5-name" data-ticker="ADSK">ADSK</span></div></div></div></div></div>
+          <h2>🎯 AI Top 후보 (관찰용, 실거래 미연동) <span style="font-size:0.7em; color:#888; font-weight:normal;">- buy_list_total_AI.txt</span></h2>
+          <table class="styled-table final-order-table"><thead><tr><th>Ticker</th><th>Basket</th><th>현재가</th><th>등락률(%)</th><th>위치</th><th>Sco</th><th>비중</th><th>지수대비(%)</th><th>수량</th><th class="pc-only">총액</th><th>연금</th><th class="pc-only">총액</th></tr></thead><tbody>
+<tr><td class="narrow held-bold chart-trigger" data-ticker="SNOW" style="cursor:pointer;">SNOW</td><td class="basket-col held-bold">AI_데이터플랫폼 / AI_소프트웨어</td><td style="font-weight:bold;color:#2c3e50;">317달러</td><td class="sig-up">+0.0%</td><td>1.0</td><td>16.0</td><td style="color:#27ae60;font-weight:bold;">25.6% <span style="color:#aaa;font-size:0.82em;font-weight:normal;">(33%)</span></td><td class="sig-up">+20.4%</td><td style="font-weight:bold;">11주</td><td class="pc-only" style="color:#555;">505만원</td><td style="font-weight:bold;color:#8e44ad;">55주</td><td class="pc-only" style="color:#8e44ad;">2,526만원</td></tr>
+<tr><td class="narrow held-bold chart-trigger" data-ticker="PATH" style="cursor:pointer;">PATH</td><td class="basket-col held-bold">AI_에이전트자동화</td><td style="font-weight:bold;color:#2c3e50;">14달러</td><td class="sig-down">-2.0%</td><td>1.0</td><td>15.0</td><td style="color:#e67e22;font-weight:bold;">24.7% <span style="color:#aaa;font-size:0.82em;font-weight:normal;">(27%)</span></td><td class="sig-up">+20.2%</td><td style="font-weight:bold;">259주</td><td class="pc-only" style="color:#555;">519만원</td><td style="font-weight:bold;color:#8e44ad;">1,230주</td><td class="pc-only" style="color:#8e44ad;">2,464만원</td></tr>
+<tr><td class="narrow held-bold chart-trigger" data-ticker="HPE" style="cursor:pointer;">HPE</td><td class="basket-col held-bold">AI_CPU서버 / AI_데이터센터</td><td style="font-weight:bold;color:#2c3e50;">53달러</td><td class="sig-up">+1.6%</td><td>1.0</td><td>14.0</td><td style="color:#e67e22;font-weight:bold;">16.4% <span style="color:#aaa;font-size:0.82em;font-weight:normal;">(20%)</span></td><td class="sig-up">+18.3%</td><td style="font-weight:bold;">44주</td><td class="pc-only" style="color:#555;">339만원</td><td style="font-weight:bold;color:#8e44ad;">213주</td><td class="pc-only" style="color:#8e44ad;">1,643만원</td></tr>
+<tr><td class="narrow held-bold chart-trigger" data-ticker="EMR" style="cursor:pointer;">EMR**</td><td class="basket-col held-bold">AI_공장자동화</td><td style="font-weight:bold;color:#2c3e50;">162달러</td><td class="sig-up">+2.3%</td><td>1.0</td><td>15.0</td><td style="color:#e74c3c;font-weight:bold;">9.1% <span style="color:#aaa;font-size:0.82em;font-weight:normal;">(10%)</span></td><td class="sig-up">+18.2%</td><td style="font-weight:bold;">8주</td><td class="pc-only" style="color:#555;">188만원</td><td style="font-weight:bold;color:#8e44ad;">38주</td><td class="pc-only" style="color:#8e44ad;">895만원</td></tr>
+<tr><td class="narrow held-bold chart-trigger" data-ticker="AME" style="cursor:pointer;">AME**</td><td class="basket-col held-bold">AI_로봇부품</td><td style="font-weight:bold;color:#2c3e50;">255달러</td><td class="sig-up">+0.3%</td><td>1.0</td><td>15.5</td><td style="color:#e74c3c;font-weight:bold;">9.1% <span style="color:#aaa;font-size:0.82em;font-weight:normal;">(10%)</span></td><td class="sig-up">+9.3%</td><td style="font-weight:bold;">5주</td><td class="pc-only" style="color:#555;">184만원</td><td style="font-weight:bold;color:#8e44ad;">24주</td><td class="pc-only" style="color:#8e44ad;">886만원</td></tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var titles = Array.from(document.querySelectorAll('h2, h3'));
+    var targetTitle = titles.find(t => t.innerText.includes('종목 랭킹') || t.innerText.includes('ETF 랭킹') || t.innerText.includes('Momentum Top 30'));
+    if (!targetTitle) return;
+    var table = targetTitle.nextElementSibling;
+    while (table && table.tagName !== 'TABLE' && !table.querySelector('table')) {
+        table = table.nextElementSibling;
+    }
+    if (table && table.tagName !== 'TABLE') table = table.querySelector('table');
+    if (!table) return;
+
+    var tbody = table.querySelector('tbody');
+    if (!tbody) return;
+    
+    var originalRows = Array.from(tbody.querySelectorAll('tr')).map(function(r) { return r.cloneNode(true); });
+    var sortState = { col: null, asc: true };
+
+    function getCellValue(row, col) {
+        var cells = row.querySelectorAll('td');
+        if (!cells[col]) return '';
+        return cells[col].innerText.trim();
+    }
+
+    function toNum(str) {
+        var n = parseFloat(str.replace(/[^0-9.\x2D]/g, ''));
+        if (isNaN(n) || str.trim() === '-' || str.trim() === '') return null;
+        return n;
+    }
+
+    table.querySelectorAll('th').forEach(function(th, index) {
+        th.style.cursor = 'pointer';
+        th.addEventListener('click', function() {
+            if (sortState.col === index) {
+                if (!sortState.asc) {
+                    sortState = { col: null, asc: true };
+                    tbody.innerHTML = '';
+                    originalRows.forEach(function(r) { tbody.appendChild(r.cloneNode(true)); });
+                    return;
+                }
+                sortState.asc = false;
+            } else {
+                sortState.col = index;
+                sortState.asc = true;
+            }
+            var rows = Array.from(tbody.querySelectorAll('tr'));
+            rows.sort(function(a, b) {
+                var va = getCellValue(a, index);
+                var vb = getCellValue(b, index);
+                var na = toNum(va), nb = toNum(vb);
+                if (na !== null && nb !== null) {
+                    return sortState.asc ? na - nb : nb - na;
+                }
+                var cmp = va.localeCompare(vb, 'ko');
+                return sortState.asc ? cmp : -cmp;
+            });
+            tbody.innerHTML = '';
+            rows.forEach(function(r) { tbody.appendChild(r); });
+        });
+    });
+});
+</script>
+
+<!-- TRADINGVIEW BACKUP (US ETF was on TV; switched to Naver worldstock — restore by removing this wrapper)
+<div id="chart-popup">
+    <div class="chart-ph">
+        <button id="btn-close-popup">&#215;</button>
+        <div class="chart-tb-group">
+            <button class="chart-tb" data-iv="5">5분</button>
+            <button class="chart-tb on" data-iv="D">일</button>
+            <button class="chart-tb" data-iv="W">주</button>
+            <button class="chart-tb" data-iv="M">월</button>
+        </div>
+    </div>
+    <div id="tv-container"></div>
+</div>
+<script>
+(function() {
+    var currentTicker = "";
+    var currentInterval = "D";
+    var hoverTimer = null;
+    var popup    = document.getElementById('chart-popup');
+    var tvCont   = document.getElementById('tv-container');
+    var closeBtn = document.getElementById('btn-close-popup');
+
+    var STUDIES = [
+        { "id": "MASimple@tv-basicstudies", "inputs": { "length": 5   }, "styles": { "plot.color": "#e8a020", "plot.linewidth": 1 } },
+        { "id": "MASimple@tv-basicstudies", "inputs": { "length": 10  }, "styles": { "plot.color": "#3b9ddd", "plot.linewidth": 1 } },
+        { "id": "MASimple@tv-basicstudies", "inputs": { "length": 20  }, "styles": { "plot.color": "#e84040", "plot.linewidth": 2 } },
+        { "id": "MASimple@tv-basicstudies", "inputs": { "length": 60  }, "styles": { "plot.color": "#7ac97a", "plot.linewidth": 1 } },
+        { "id": "MASimple@tv-basicstudies", "inputs": { "length": 120 }, "styles": { "plot.color": "#b07fcc", "plot.linewidth": 1 } }
+    ];
+
+    function loadChart(sym, iv) {
+        tvCont.innerHTML = '';
+        var wrap = document.createElement('div');
+        wrap.className = 'tradingview-widget-container';
+        wrap.style.cssText = 'height:100%;width:100%';
+        var inner = document.createElement('div');
+        inner.className = 'tradingview-widget-container__widget';
+        inner.style.cssText = 'height:100%;width:100%';
+        wrap.appendChild(inner);
+        var sc = document.createElement('script');
+        sc.type = 'text/javascript';
+        sc.src  = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+        sc.async = true;
+        sc.innerHTML = JSON.stringify({
+            symbol: sym, interval: iv,
+            timezone: "America/New_York", theme: "light",
+            backgroundColor: "rgba(252,251,247,1)",
+            style: "1", locale: "en", autosize: true,
+            withdateranges: false, hide_top_toolbar: true,
+            hide_side_toolbar: true, allow_symbol_change: false,
+            save_image: false, hide_volume: false,
+            studies: STUDIES,
+            overrides: { "paneProperties.legendProperties.showLegend": false }
+        });
+        wrap.appendChild(sc);
+        tvCont.appendChild(wrap);
+    }
+
+    function showChart(sym, x, y) {
+        var clean = sym.replace(/[*]/g, '');
+        currentTicker = clean;
+        popup.classList.remove('landscape-mode');
+        if (window.innerWidth > 768) {
+            var pw = 820, ph = 560;
+            var px = x + 24, py = y - 280;
+            var W = window.innerWidth, H = window.innerHeight;
+            if (px + pw > W) px = W - pw - 10;
+            if (px < 10) px = 10;
+            if (py + ph > H) py = H - ph - 10;
+            if (py < 10) py = 10;
+            popup.style.cssText = '';
+            popup.style.left = px + 'px'; popup.style.top = py + 'px';
+            popup.style.width = pw + 'px'; popup.style.height = ph + 'px';
+        } else if (window.matchMedia('(orientation: landscape)').matches) {
+            popup.style.cssText = '';
+            popup.classList.add('landscape-mode');
+        } else {
+            popup.style.cssText = '';
+            popup.style.width = '96vw'; popup.style.height = '72dvh';
+            popup.style.left = '2vw'; popup.style.top = '14dvh';
+        }
+        popup.classList.add('visible');
+        document.body.classList.add('chart-open');
+        loadChart(clean, currentInterval);
+    }
+
+    function hideChart() {
+        popup.classList.remove('visible', 'landscape-mode');
+        document.body.classList.remove('chart-open');
+        tvCont.innerHTML = '';
+        currentTicker = '';
+    }
+
+    closeBtn.addEventListener('click', function(e) { e.stopPropagation(); hideChart(); });
+
+    document.querySelectorAll('.chart-trigger').forEach(function(el) {
+        el.addEventListener('mouseenter', function(e) {
+            if (window.innerWidth > 768) {
+                clearTimeout(hoverTimer);
+                hoverTimer = setTimeout(function() {
+                    showChart(el.getAttribute('data-ticker'), e.clientX, e.clientY);
+                }, 300);
+            }
+        });
+        el.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 768) clearTimeout(hoverTimer);
+        });
+        el.addEventListener('click', function(e) {
+            e.stopPropagation(); clearTimeout(hoverTimer);
+            showChart(el.getAttribute('data-ticker'), e.clientX, e.clientY);
+        });
+    });
+
+    document.addEventListener('mousemove', function(e) {
+        if (window.innerWidth <= 768) return;
+        if (!popup.classList.contains('visible')) return;
+        if (!e.target.closest('.chart-trigger') && !e.target.closest('#chart-popup')) {
+            clearTimeout(hoverTimer); hideChart();
+        }
+    });
+
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth > 768) return;
+        if (!popup.classList.contains('visible')) return;
+        if (!e.target.closest('#chart-popup') && !e.target.closest('.chart-trigger')) hideChart();
+    });
+
+    document.querySelectorAll('.chart-tb').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            currentInterval = btn.getAttribute('data-iv');
+            document.querySelectorAll('.chart-tb').forEach(function(b) { b.classList.remove('on'); });
+            btn.classList.add('on');
+            if (currentTicker) loadChart(currentTicker, currentInterval);
+        });
+    });
+})();
+</script>
+TRADINGVIEW BACKUP END -->
+
+<!-- 네이버 차트 팝업 (US ETF - worldstock) -->
+<div id="naverChartPopupUS">
+  <div class="popup-header">
+    <button id="naverPopupCloseUS" title="닫기">&#215;</button>
+    <div class="popup-title" id="popupTitleUS">-</div>
+    <a id="popupLinkUS" class="popup-link" href="#" target="_blank" rel="noopener noreferrer">네이버 열기</a>
+  </div>
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-wrap">
+        <img id="imgDailyUS" alt="일봉 차트">
+        <div class="chart-loading" id="loadingDailyUS">불러오는 중...</div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-wrap">
+        <img id="imgWeeklyUS" alt="주봉 차트">
+        <div class="chart-loading" id="loadingWeeklyUS">불러오는 중...</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var NAVER_CODES = { QQQ: 'QQQ.O', SMH: 'SMH.O' };
+  var SUFFIX_TRY = ['.O', '.P', '', '.N', '.A', '.K'];
+  var resolvedCode = {};
+  var popup       = document.getElementById('naverChartPopupUS');
+  var popupTitle  = document.getElementById('popupTitleUS');
+  var popupLink   = document.getElementById('popupLinkUS');
+  var imgDaily    = document.getElementById('imgDailyUS');
+  var imgWeekly   = document.getElementById('imgWeeklyUS');
+  var loadingDaily   = document.getElementById('loadingDailyUS');
+  var loadingWeekly  = document.getElementById('loadingWeeklyUS');
+  var hoverTimer = null;
+  var pinned = false;
+
+  function withTs(u) { return u + '?t=' + Date.now(); }
+  function dailyUrl(c)  { return withTs('https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/day/'  + c + '_end.png'); }
+  function weeklyUrl(c) { return withTs('https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/week/' + c + '_end.png'); }
+  function pageUrl(c)   { return 'https://m.stock.naver.com/worldstock/stock/' + c + '/total'; }
+
+  function resolveCode(ticker, cb) {
+    var T = String(ticker || '').replace(/[*]/g, '').toUpperCase();
+    if (!T) { cb(null); return; }
+    if (resolvedCode[T]) { cb(resolvedCode[T]); return; }
+    var candidates = NAVER_CODES[T] ? [NAVER_CODES[T]] : SUFFIX_TRY.map(function (s) { return T + s; });
+    var i = 0;
+    function tryNext() {
+      if (i >= candidates.length) { cb(null); return; }
+      var code = candidates[i++];
+      var probe = new Image();
+      probe.onload  = function () { resolvedCode[T] = code; cb(code); };
+      probe.onerror = tryNext;
+      probe.src = withTs('https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/day/' + code + '_end.png');
+    }
+    tryNext();
+  }
+
+  function loadInto(imgEl, loadingEl, url) {
+    loadingEl.classList.add('show');
+    imgEl.style.opacity = '0.35';
+    var p = new Image();
+    p.onload  = function () { imgEl.src = url; imgEl.style.opacity = '1'; loadingEl.classList.remove('show'); };
+    p.onerror = function () { imgEl.removeAttribute('src'); imgEl.style.opacity = '1'; loadingEl.classList.remove('show'); };
+    p.src = url;
+  }
+
+  function loadCharts(ticker) {
+    var T = String(ticker || '').replace(/[*]/g, '').toUpperCase();
+    popupTitle.textContent = T + ' (resolving...)';
+    popupLink.href = '#';
+    loadingDaily.classList.add('show');
+    loadingWeekly.classList.add('show');
+    imgDaily.removeAttribute('src');
+    imgWeekly.removeAttribute('src');
+    resolveCode(T, function (code) {
+      if (!code) {
+        popupTitle.textContent = T + '  (all suffixes failed)';
+        loadingDaily.classList.remove('show');
+        loadingWeekly.classList.remove('show');
+        return;
+      }
+      popupTitle.textContent = T + '  [' + code + ']';
+      popupLink.href = pageUrl(code);
+      loadInto(imgDaily,  loadingDaily,  dailyUrl(code));
+      loadInto(imgWeekly, loadingWeekly, weeklyUrl(code));
+    });
+  }
+
+  function placePopup(cx, cy) {
+    if (window.innerWidth <= 767) return;
+    popup.style.transform = 'none';
+    var rectW = Math.min(860, window.innerWidth - 20);
+    var rectH = window.innerWidth <= 1000 ? 650 : 430;
+    var x = cx + 18, y = cy + 18;
+    if (x + rectW > window.innerWidth  - 8) x = cx - rectW - 12;
+    if (y + rectH > window.innerHeight - 8) y = cy - rectH - 12;
+    if (x < 8) x = 8; if (y < 8) y = 8;
+    popup.style.left = x + 'px'; popup.style.top = y + 'px';
+  }
+
+  function openPopup()  { popup.style.display = 'block'; document.body.classList.add('naver-popup-open'); }
+  function closePopup() { popup.style.display = 'none';  pinned = false; document.body.classList.remove('naver-popup-open'); }
+
+  document.getElementById('naverPopupCloseUS').addEventListener('click', closePopup);
+  popup.addEventListener('mouseenter', function () { pinned = true; });
+  popup.addEventListener('mouseleave', function () { pinned = false; closePopup(); });
+
+  document.querySelectorAll('.chart-trigger[data-ticker]').forEach(function (el) {
+    el.addEventListener('mouseenter', function (e) {
+      if (window.innerWidth <= 767) return;
+      clearTimeout(hoverTimer);
+      hoverTimer = setTimeout(function () {
+        placePopup(e.clientX, e.clientY);
+        openPopup();
+        loadCharts(el.getAttribute('data-ticker') || '');
+      }, 140);
+    });
+    el.addEventListener('mousemove', function (e) {
+      if (window.innerWidth <= 767) return;
+      if (popup.style.display === 'block' && !pinned) placePopup(e.clientX, e.clientY);
+    });
+    el.addEventListener('mouseleave', function () {
+      if (window.innerWidth <= 767) return;
+      clearTimeout(hoverTimer);
+      setTimeout(function () { if (!pinned) closePopup(); }, 120);
+    });
+    el.addEventListener('click', function (e) {
+      e.stopPropagation();
+      clearTimeout(hoverTimer);
+      placePopup(e.clientX, e.clientY);
+      openPopup();
+      loadCharts(el.getAttribute('data-ticker') || '');
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (window.innerWidth <= 767) {
+      if (!e.target.closest('#naverChartPopupUS')) closePopup();
+    } else {
+      if (!e.target.closest('#naverChartPopupUS') && !e.target.closest('.chart-trigger')) closePopup();
+    }
+  });
+  // === D/S 단축키 (D/↓=다음, S/↑=이전, Tab/ESC=닫기) · PNG라 A(슈퍼트렌드)는 제외 ===
+  (function(){
+    var SEL = '.chart-trigger[data-ticker]';
+    var curEl = null;
+    document.querySelectorAll(SEL).forEach(function(el){
+      el.addEventListener('mouseenter', function(){ curEl = el; });
+      el.addEventListener('click', function(){ curEl = el; });
+    });
+    try { popup.setAttribute('tabindex','-1'); } catch(e){}
+    var _open = openPopup;
+    openPopup = function(){ _open.apply(this, arguments);
+      try { if (document.activeElement === document.body || document.activeElement === null) popup.focus({preventScroll:true}); } catch(e){} };
+    function unpinOnMove(e){ if (popup.contains(e.target)) return;
+      document.removeEventListener('mousemove', unpinOnMove); pinned = false;
+      setTimeout(function(){ if (!pinned) closePopup(); }, 120); }
+    function kbPin(){ pinned = true;
+      document.removeEventListener('mousemove', unpinOnMove);
+      document.addEventListener('mousemove', unpinOnMove); }
+    /* === SWIPE-NAV-INJECTED: 모바일 좌/우 스와이프 → 키보드 D/S 재사용 (PC 무영향) === */
+    (function(){
+      if(window.__swipeNavInit) return; window.__swipeNavInit=true;
+      function isTouch(){ return window.matchMedia('(hover: none)').matches || window.innerWidth<=767; }
+      var sx=0, sy=0, st=0, tr=false;
+      document.addEventListener('touchstart', function(e){
+        if(!isTouch() || !e.touches || e.touches.length!==1){ tr=false; return; }
+        var t=e.touches[0]; sx=t.clientX; sy=t.clientY; st=Date.now(); tr=true;
+      }, true);
+      document.addEventListener('touchend', function(e){
+        if(!tr) return; tr=false;
+        var t=e.changedTouches && e.changedTouches[0]; if(!t) return;
+        var dx=t.clientX-sx, dy=t.clientY-sy, dt=Date.now()-st;
+        if(dt>800 || Math.abs(dx)<55 || Math.abs(dx)<Math.abs(dy)*1.6) return;
+        var key = dx<0 ? 'd' : 's';
+        try{ document.dispatchEvent(new KeyboardEvent('keydown', {key:key, bubbles:true, cancelable:true})); }catch(err){}
+      }, true);
+    })();
+    document.addEventListener('keydown', function(e){
+      if (popup.style.display !== 'block') return;
+      var tg = e.target, tag = tg && tg.tagName;
+      if (tag==='INPUT'||tag==='TEXTAREA'||(tg&&tg.isContentEditable)) return;
+      var k = e.key;
+      if (k==='Tab'||k==='Escape'){ e.preventDefault(); closePopup(); return; }
+      var dir = 0;
+      if (k==='s'||k==='S'||k==='ArrowUp') dir=-1;
+      else if (k==='d'||k==='D'||k==='ArrowDown') dir=1;
+      if (dir===0 || !curEl) return;
+      e.preventDefault();
+      var all = Array.prototype.slice.call(document.querySelectorAll(SEL));
+      var i = all.indexOf(curEl);
+      if (i<0) return;
+      i += dir;
+      if (i<0||i>=all.length) return;
+      var nt = all[i];
+      kbPin(); curEl = nt;
+      loadCharts(nt.getAttribute('data-ticker') || '');
+      nt.scrollIntoView({block:'nearest'});
+    });
+  })();
+})();
+</script>
+
+<!-- 네이버 차트 팝업 (한국 ETF) -->
+<div id="naverChartPopup">
+  <div class="popup-header">
+    <button id="naverPopupClose" title="닫기">&#215;</button>
+    <div class="popup-title" id="popupTitle">-</div>
+    <a id="popupLink" class="popup-link" href="#" target="_blank" rel="noopener noreferrer">네이버 열기</a>
+  </div>
+  <div class="charts-grid">
+    <div class="chart-card">
+      <div class="chart-card-header">
+        <div class="chart-card-title">일봉</div>
+        <div class="chart-status" id="statusDaily">대기중</div>
+      </div>
+      <div class="chart-wrap">
+        <img id="imgDaily" alt="일봉 차트">
+        <div class="chart-loading" id="loadingDaily">불러오는 중...</div>
+      </div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-card-header">
+        <div class="chart-card-title">주봉</div>
+        <div class="chart-status" id="statusWeekly">대기중</div>
+      </div>
+      <div class="chart-wrap">
+        <img id="imgWeekly" alt="주봉 차트">
+        <div class="chart-loading" id="loadingWeekly">불러오는 중...</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var popup      = document.getElementById('naverChartPopup');
+  var popupTitle = document.getElementById('popupTitle');
+  var popupLink  = document.getElementById('popupLink');
+  var imgDaily    = document.getElementById('imgDaily');
+  var imgWeekly   = document.getElementById('imgWeekly');
+  var loadingDaily    = document.getElementById('loadingDaily');
+  var loadingWeekly   = document.getElementById('loadingWeekly');
+  var statusDaily     = document.getElementById('statusDaily');
+  var statusWeekly    = document.getElementById('statusWeekly');
+  var hoverTimer = null;
+  var pinned = false;
+
+  function withTs(url) { return url + '?t=' + Date.now(); }
+  function dailyCandleUrl(code)  { return withTs('https://ssl.pstatic.net/imgfinance/chart/item/candle/day/'  + code + '.png'); }
+  function weeklyCandleUrl(code) { return withTs('https://ssl.pstatic.net/imgfinance/chart/item/candle/week/' + code + '.png'); }
+  function itemPageUrl(code)     { return 'https://finance.naver.com/item/main.naver?code=' + code; }
+
+  function setStatus(el, text, color) { el.textContent = text; el.style.color = color || '#94a3b8'; }
+
+  function loadInto(imgEl, loadingEl, statusEl, url, label) {
+    loadingEl.classList.add('show');
+    imgEl.style.opacity = '0.35';
+    setStatus(statusEl, '로딩중...', '#f59e0b');
+    var probe = new Image();
+    probe.onload = function () {
+      imgEl.src = url; imgEl.style.opacity = '1';
+      loadingEl.classList.remove('show');
+      setStatus(statusEl, '로드 성공', '#22c55e');
+    };
+    probe.onerror = function () {
+      imgEl.removeAttribute('src'); imgEl.style.opacity = '1';
+      loadingEl.classList.remove('show');
+      setStatus(statusEl, label + ' 실패', '#ef4444');
+    };
+    probe.src = url;
+  }
+
+  function loadCharts(code) {
+    popupTitle.textContent = code;
+    popupLink.href = itemPageUrl(code);
+    loadInto(imgDaily,   loadingDaily,   statusDaily,   dailyCandleUrl(code),  '일봉');
+    loadInto(imgWeekly,  loadingWeekly,  statusWeekly,  weeklyCandleUrl(code), '주봉');
+  }
+
+  function placePopup(cx, cy) {
+    if (window.innerWidth <= 767) return;
+    popup.style.transform = 'none';
+    var rectW = Math.min(860, window.innerWidth - 20);
+    var rectH = window.innerWidth <= 1000 ? 650 : 430;
+    var x = cx + 18, y = cy + 18;
+    if (x + rectW > window.innerWidth  - 8) x = cx - rectW - 12;
+    if (y + rectH > window.innerHeight - 8) y = cy - rectH - 12;
+    if (x < 8) x = 8; if (y < 8) y = 8;
+    popup.style.left = x + 'px'; popup.style.top = y + 'px';
+  }
+
+  function openPopup() {
+    popup.style.display = 'block';
+    document.body.classList.add('naver-popup-open');
+  }
+
+  function closePopup() {
+    popup.style.display = 'none';
+    pinned = false;
+    document.body.classList.remove('naver-popup-open');
+  }
+
+  document.getElementById('naverPopupClose').addEventListener('click', closePopup);
+  popup.addEventListener('mouseenter', function () { pinned = true; });
+  popup.addEventListener('mouseleave', function () { pinned = false; closePopup(); });
+
+  function attachNaverTrigger(el) {
+    var code = el.getAttribute('data-code');
+    if (!code) return;
+    el.addEventListener('mouseenter', function (e) {
+      if (window.innerWidth <= 767) return;
+      clearTimeout(hoverTimer);
+      hoverTimer = setTimeout(function () {
+        placePopup(e.clientX, e.clientY);
+        openPopup();
+        loadCharts(code);
+      }, 140);
+    });
+    el.addEventListener('mousemove', function (e) {
+      if (window.innerWidth <= 767) return;
+      if (popup.style.display === 'block' && !pinned) placePopup(e.clientX, e.clientY);
+    });
+    el.addEventListener('mouseleave', function () {
+      if (window.innerWidth <= 767) return;
+      clearTimeout(hoverTimer);
+      setTimeout(function () { if (!pinned) closePopup(); }, 120);
+    });
+    el.addEventListener('click', function (e) {
+      e.stopPropagation();
+      clearTimeout(hoverTimer);
+      placePopup(e.clientX, e.clientY);
+      openPopup();
+      loadCharts(code);
+    });
+  }
+
+  document.querySelectorAll('.naver-trigger[data-code]').forEach(attachNaverTrigger);
+
+  document.addEventListener('click', function (e) {
+    if (window.innerWidth <= 767) {
+      if (!e.target.closest('#naverChartPopup')) closePopup();
+    } else {
+      if (!e.target.closest('#naverChartPopup') && !e.target.closest('.naver-trigger')) closePopup();
+    }
+  });
+  // === D/S 단축키 (D/↓=다음, S/↑=이전, Tab/ESC=닫기) · PNG라 A(슈퍼트렌드)는 제외 ===
+  (function(){
+    var SEL = '.naver-trigger[data-code]';
+    var curEl = null;
+    document.querySelectorAll(SEL).forEach(function(el){
+      el.addEventListener('mouseenter', function(){ curEl = el; });
+      el.addEventListener('click', function(){ curEl = el; });
+    });
+    try { popup.setAttribute('tabindex','-1'); } catch(e){}
+    var _open = openPopup;
+    openPopup = function(){ _open.apply(this, arguments);
+      try { if (document.activeElement === document.body || document.activeElement === null) popup.focus({preventScroll:true}); } catch(e){} };
+    function unpinOnMove(e){ if (popup.contains(e.target)) return;
+      document.removeEventListener('mousemove', unpinOnMove); pinned = false;
+      setTimeout(function(){ if (!pinned) closePopup(); }, 120); }
+    function kbPin(){ pinned = true;
+      document.removeEventListener('mousemove', unpinOnMove);
+      document.addEventListener('mousemove', unpinOnMove); }
+    document.addEventListener('keydown', function(e){
+      if (popup.style.display !== 'block') return;
+      var tg = e.target, tag = tg && tg.tagName;
+      if (tag==='INPUT'||tag==='TEXTAREA'||(tg&&tg.isContentEditable)) return;
+      var k = e.key;
+      if (k==='Tab'||k==='Escape'){ e.preventDefault(); closePopup(); return; }
+      var dir = 0;
+      if (k==='s'||k==='S'||k==='ArrowUp') dir=-1;
+      else if (k==='d'||k==='D'||k==='ArrowDown') dir=1;
+      if (dir===0 || !curEl) return;
+      e.preventDefault();
+      var all = Array.prototype.slice.call(document.querySelectorAll(SEL));
+      var i = all.indexOf(curEl);
+      if (i<0) return;
+      i += dir;
+      if (i<0||i>=all.length) return;
+      var nt = all[i];
+      kbPin(); curEl = nt;
+      loadCharts(nt.getAttribute('data-code') || '');
+      nt.scrollIntoView({block:'nearest'});
+    });
+  })();
+})();
+</script>
+
+</body>
+</html>

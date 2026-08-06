@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KORU × KODEX 레버리지 sync (프로토타입)</title>
+<script src="lib/lightweight-charts.standalone.production.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#f0f2f5;font-family:-apple-system,'Malgun Gothic',sans-serif;padding:18px;color:#1f2937}
+  h1{font-size:16px;margin-bottom:6px}
+  .sub{font-size:12px;color:#666;margin-bottom:10px}
+  .bar{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+  .toggle{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #ddd;
+    border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;user-select:none}
+  .toggle input{cursor:pointer}
+  .lg{font-size:12px;color:#444}
+  .lg b.kd{color:#f23645} .lg b.kr{color:#7c3aed}
+  .card{background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:10px 8px 4px}
+  #chart{width:100%;height:460px}
+  .foot{font-size:11px;color:#888;margin-top:8px;line-height:1.6}
+</style></head><body>
+<h1>KORU × KODEX 레버리지 — 09:00 rebase sync</h1>
+<div class="sub" id="sub"></div>
+<div class="bar">
+  <label class="toggle"><input type="checkbox" id="norm">
+    진폭 정규화 (KORU %×2/3 → 2x에 맞춤)</label>
+  <span class="lg">캔들 <b class="kd">KODEX 레버리지(2x)</b> · 선 <b class="kr">KORU(3x, 야간거래)</b></span>
+</div>
+<div class="card"><div id="chart"></div></div>
+<div class="foot" id="foot"></div>
+<script>
+const D = {"day":"2026-07-02","base_won":170215,"koru_base":570.52,"kodex":[{"time":1782982800,"open":170215,"high":170215,"low":166600,"close":166880},{"time":1782983100,"open":166915,"high":169455,"low":166500,"close":167825},{"time":1782983400,"open":167755,"high":169460,"low":165440,"close":165500},{"time":1782983700,"open":165500,"high":166290,"low":164135,"close":164365},{"time":1782984000,"open":164435,"high":167945,"low":164000,"close":167280},{"time":1782984300,"open":167250,"high":167360,"low":165115,"close":167065},{"time":1782984600,"open":167010,"high":167325,"low":165260,"close":165950},{"time":1782984900,"open":165945,"high":167900,"low":165180,"close":165340},{"time":1782985200,"open":165330,"high":165405,"low":162790,"close":163130},{"time":1782985500,"open":163130,"high":165000,"low":161795,"close":164690},{"time":1782985800,"open":164690,"high":166915,"low":163430,"close":166830},{"time":1782986100,"open":166830,"high":167320,"low":164535,"close":165960},{"time":1782986400,"open":165980,"high":166895,"low":164340,"close":166745},{"time":1782986700,"open":166770,"high":169940,"low":166445,"close":169465},{"time":1782987000,"open":169430,"high":170500,"low":168495,"close":170080},{"time":1782987300,"open":170080,"high":172500,"low":168570,"close":172390},{"time":1782987600,"open":172380,"high":173900,"low":171150,"close":173860},{"time":1782987900,"open":173880,"high":175550,"low":173335,"close":175470},{"time":1782988200,"open":175555,"high":177410,"low":175450,"close":177270},{"time":1782988500,"open":177240,"high":179185,"low":176755,"close":177395},{"time":1782988800,"open":177410,"high":179185,"low":176055,"close":178270},{"time":1782989100,"open":178255,"high":180000,"low":176415,"close":178735},{"time":1782989400,"open":178735,"high":180290,"low":178500,"close":179520},{"time":1782989700,"open":179605,"high":180350,"low":178420,"close":179570},{"time":1782990000,"open":179555,"high":180400,"low":177900,"close":180315},{"time":1782990300,"open":180315,"high":181515,"low":180315,"close":181065},{"time":1782990600,"open":181150,"high":181975,"low":180570,"close":181720},{"time":1782990900,"open":181740,"high":181995,"low":178430,"close":178945},{"time":1782991200,"open":178970,"high":179550,"low":176600,"close":177030},{"time":1782991500,"open":176925,"high":177935,"low":176330,"close":177000},{"time":1782991800,"open":177000,"high":177995,"low":175525,"close":177985},{"time":1782992100,"open":177995,"high":178600,"low":177215,"close":178280},{"time":1782992400,"open":178430,"high":178595,"low":177440,"close":177835},{"time":1782992700,"open":177895,"high":178430,"low":175930,"close":176030},{"time":1782993000,"open":176080,"high":176535,"low":174820,"close":175280},{"time":1782993300,"open":175280,"high":178075,"low":175270,"close":177760},{"time":1782993600,"open":177760,"high":178570,"low":176230,"close":176290},{"time":1782993900,"open":176255,"high":176670,"low":174895,"close":175000},{"time":1782994200,"open":175000,"high":176440,"low":174895,"close":175805},{"time":1782994500,"open":175720,"high":176150,"low":175040,"close":175180},{"time":1782994800,"open":175230,"high":175375,"low":173105,"close":173645},{"time":1782995100,"open":173660,"high":174100,"low":172670,"close":172722},{"time":1782995400,"open":172680,"high":174470,"low":172395,"close":174025},{"time":1782995700,"open":173980,"high":175105,"low":173045,"close":173880},{"time":1782996000,"open":173900,"high":173975,"low":171980,"close":173060},{"time":1782996300,"open":173130,"high":173155,"low":171670,"close":172575},{"time":1782996600,"open":172500,"high":173055,"low":171560,"close":172565},{"time":1782996900,"open":172500,"high":173175,"low":171520,"close":172115},{"time":1782997200,"open":172050,"high":172855,"low":171170,"close":171715},{"time":1782997500,"open":171805,"high":172050,"low":171015,"close":171300},{"time":1782997800,"open":171285,"high":171465,"low":169685,"close":169700},{"time":1782998100,"open":169700,"high":170275,"low":168995,"close":169250},{"time":1782998400,"open":169380,"high":169705,"low":168510,"close":169595},{"time":1782998700,"open":169610,"high":172600,"low":169555,"close":171570},{"time":1782999000,"open":171520,"high":171520,"low":168845,"close":169345},{"time":1782999300,"open":169345,"high":169345,"low":168005,"close":168440},{"time":1782999600,"open":168440,"high":168950,"low":167585,"close":167895},{"time":1782999900,"open":167935,"high":168900,"low":167150,"close":168100},{"time":1783000200,"open":168155,"high":170760,"low":168150,"close":170125},{"time":1783000500,"open":170235,"high":172100,"low":170110,"close":171070},{"time":1783000800,"open":171150,"high":173295,"low":169945,"close":173100},{"time":1783001100,"open":173100,"high":173535,"low":172005,"close":172420},{"time":1783001400,"open":172350,"high":172350,"low":170360,"close":170550},{"time":1783001700,"open":170510,"high":171460,"low":169880,"close":170235},{"time":1783002000,"open":170090,"high":170900,"low":169160,"close":169795},{"time":1783002300,"open":169822,"high":170815,"low":168530,"close":168610},{"time":1783002600,"open":168610,"high":168695,"low":167080,"close":167550},{"time":1783002900,"open":167550,"high":167765,"low":166095,"close":166160},{"time":1783003200,"open":166140,"high":167205,"low":165845,"close":165980},{"time":1783003500,"open":165900,"high":166440,"low":164100,"close":165230},{"time":1783003800,"open":165250,"high":167880,"low":164610,"close":164790},{"time":1783004100,"open":164770,"high":165665,"low":163680,"close":163700},{"time":1783004400,"open":163700,"high":164310,"low":160860,"close":161115},{"time":1783004700,"open":161085,"high":162070,"low":160460,"close":160515},{"time":1783005000,"open":160500,"high":160510,"low":157475,"close":157500},{"time":1783005300,"open":157500,"high":161930,"low":157000,"close":161145},{"time":1783006200,"open":160235,"high":160235,"low":160235,"close":160235}],"koru":[{"time":1782982800,"koru":570.52},{"time":1782983100,"koru":575.54},{"time":1782983400,"koru":563.0},{"time":1782983700,"koru":560.07},{"time":1782984000,"koru":573.91},{"time":1782984300,"koru":571.14},{"time":1782984600,"koru":566.0},{"time":1782984900,"koru":566.61},{"time":1782985200,"koru":554.0},{"time":1782985500,"koru":559.16},{"time":1782985800,"koru":571.72},{"time":1782986100,"koru":567.0},{"time":1782986400,"koru":573.0},{"time":1782986700,"koru":584.0},{"time":1782987000,"koru":586.76},{"time":1782987300,"koru":595.73},{"time":1782987600,"koru":604.12},{"time":1782987900,"koru":610.82},{"time":1782988200,"koru":617.64},{"time":1782988500,"koru":621.86},{"time":1782988800,"koru":621.57},{"time":1782989100,"koru":624.0},{"time":1782989400,"koru":625.66},{"time":1782989700,"koru":625.01},{"time":1782990000,"koru":628.0},{"time":1782990300,"koru":631.99},{"time":1782990600,"koru":633.01},{"time":1782990900,"koru":627.11},{"time":1782991200,"koru":612.5},{"time":1782991500,"koru":613.0},{"time":1782991800,"koru":616.47},{"time":1782992100,"koru":622.9},{"time":1782992400,"koru":620.35},{"time":1782992700,"koru":613.11},{"time":1782993000,"koru":609.33},{"time":1782993300,"koru":618.04},{"time":1782993600,"koru":612.0},{"time":1782993900,"koru":604.05},{"time":1782994200,"koru":610.61},{"time":1782994500,"koru":606.75},{"time":1782994800,"koru":599.36},{"time":1782995100,"koru":599.71},{"time":1782995400,"koru":605.93},{"time":1782995700,"koru":604.0},{"time":1782996000,"koru":600.5},{"time":1782996300,"koru":600.47},{"time":1782996600,"koru":600.06},{"time":1782996900,"koru":597.53},{"time":1782997200,"koru":599.16},{"time":1782997500,"koru":594.93},{"time":1782997800,"koru":594.1},{"time":1782998100,"koru":586.0},{"time":1782998400,"koru":580.2},{"time":1782998700,"koru":591.03},{"time":1782999000,"koru":591.97},{"time":1782999300,"koru":585.34},{"time":1782999600,"koru":581.09},{"time":1782999900,"koru":581.0},{"time":1783000200,"koru":588.84},{"time":1783000500,"koru":595.01},{"time":1783000800,"koru":593.0},{"time":1783001100,"koru":603.02},{"time":1783001400,"koru":598.3},{"time":1783001700,"koru":596.02},{"time":1783002000,"koru":592.92},{"time":1783002300,"koru":590.65},{"time":1783002600,"koru":583.0},{"time":1783002900,"koru":580.5},{"time":1783003200,"koru":580.0},{"time":1783003500,"koru":575.83},{"time":1783003800,"koru":576.67},{"time":1783004100,"koru":572.79},{"time":1783004400,"koru":568.1},{"time":1783004700,"koru":562.01},{"time":1783005000,"koru":546.0},{"time":1783005300,"koru":542.76},{"time":1783006200,"koru":550.92}]};
+const UP='#f23645', DOWN='#2962ff', KORU_COLOR='#7c3aed';
+const won=n=>Math.round(n).toLocaleString();
+
+const chart = LightweightCharts.createChart(document.getElementById('chart'),{
+  width:document.getElementById('chart').clientWidth, height:460,
+  layout:{background:{color:'#fff'},textColor:'#333',fontSize:11},
+  grid:{vertLines:{color:'#f3f3f3'},horzLines:{color:'#f3f3f3'}},
+  rightPriceScale:{borderColor:'#ddd',scaleMargins:{top:0.1,bottom:0.08}},
+  timeScale:{borderColor:'#ddd',timeVisible:true,secondsVisible:false,rightOffset:3,minBarSpacing:2},
+  crosshair:{mode:LightweightCharts.CrosshairMode.Normal}});
+
+const cs = chart.addCandlestickSeries({upColor:UP,downColor:DOWN,borderUpColor:UP,
+  borderDownColor:DOWN,wickUpColor:UP,wickDownColor:DOWN,
+  priceFormat:{type:'custom',minMove:1,formatter:won}});
+cs.setData(D.kodex);
+
+const kl = chart.addLineSeries({color:KORU_COLOR,lineWidth:2,priceLineVisible:false,
+  lastValueVisible:true,crosshairMarkerVisible:true,
+  priceFormat:{type:'custom',minMove:1,formatter:won}});
+
+// 09:00 기준선(0%) — KODEX 09:00 시가
+cs.createPriceLine({price:D.base_won,color:'#9ca3af',lineWidth:1,
+  lineStyle:LightweightCharts.LineStyle.Dashed,axisLabelVisible:true,title:'09:00'});
+
+function koruData(normalize){
+  const b = D.koru_base, factor = normalize ? (2/3) : 1;
+  return D.koru.map(p=>{
+    const pct = (p.koru / b - 1) * factor;      // 09:00 대비 %변동 (정규화 시 ×2/3)
+    return {time:p.time, value:D.base_won*(1+pct)};  // KODEX 09:00 시가에 rebase
+  });
+}
+function redraw(){ kl.setData(koruData(document.getElementById('norm').checked)); }
+document.getElementById('norm').addEventListener('change',redraw);
+redraw();
+chart.timeScale().fitContent();
+
+// 요약 정보
+const kdC = D.kodex[D.kodex.length-1].close, kdO = D.kodex[0].open;
+const kdPct = ((kdC/kdO-1)*100).toFixed(2);
+const krC = D.koru[D.koru.length-1].koru, krO = D.koru_base;
+const krPct = ((krC/krO-1)*100).toFixed(2);
+document.getElementById('sub').textContent =
+  D.day+' 정규장 09:00~15:30 · KODEX '+(kdPct>=0?'+':'')+kdPct+'% · KORU '+(krPct>=0?'+':'')+krPct+'% (원본3x)';
+document.getElementById('foot').innerHTML =
+  '· 회색 점선 = 09:00 기준(0%). 캔들=KODEX 레버리지, 보라선=KORU(야간거래) 를 09:00 시가에 맞춰 rebase.<br>'+
+  '· 정규화 ON: KORU %변동×2/3 로 2x 진폭에 맞춤(엇박자/타이밍 비교). OFF: 원본 3x 진폭.<br>'+
+  '· 선이 캔들보다 먼저 꺾이면 야간거래(미국) 선행 → 진입/청산 참고. 벌어지면 sync 이탈.';
+
+new ResizeObserver(()=>chart.applyOptions({width:document.getElementById('chart').clientWidth}))
+  .observe(document.getElementById('chart'));
+</script></body></html>

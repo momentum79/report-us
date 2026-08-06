@@ -1,0 +1,97 @@
+base_market	base_ticker	base_name	lev_market	lev_ticker	lev_name	lev_mult	match_type	note
+US	ARKF	ARK Fintech Innovation					NO_3X	no clear 3x match in us_symbol_master
+US	ARKK	ARK Innovation	US	BULZ	MicroSectors FANG & Innovation 3X Leveraged ETN	3	PROXY_3X	FANG/innovation proxy; not ARKK-specific
+US	ARKW	ARK Next Generation Internet	US	WEBL	Direxion Daily Dow Jones Internet Bull 3X ETF	3	PROXY_3X	internet theme proxy; not ARKW-specific
+US	BOTZ	Global Robotics & AI	US	AIQU	MicroSectors 3X Long Artificial Intelligence ETN	3	PROXY_3X	AI proxy; robotics exposure not exact
+US	CARZ	Global Auto	US	CARU	MAX Auto Industry 3X Leveraged ETN	3	PROXY_3X	auto industry 3x proxy
+US	CIBR	Cybersecurity					NO_3X	no clear 3x match in us_symbol_master
+US	COPX	Copper Miners					NO_3X	no clear 3x match in us_symbol_master
+US	DBA	Agriculture					NO_3X	no clear 3x match in us_symbol_master
+US	DIA	Dow 30	US	UDOW	ProShares UltraPro Dow30	3	EXACT_3X	Dow 30 representative 3x
+US	EFA	MSCI EAFE					NO_3X	no clear 3x match in us_symbol_master
+US	EIDO	Indonesia					NO_3X	no clear 3x match in us_symbol_master
+US	EIS	Israel					NO_3X	no clear 3x match in us_symbol_master
+US	EMGF	Emerging Multifactor					NO_3X	no clear 3x match in us_symbol_master
+US	ENZL	New Zealand					NO_3X	no clear 3x match in us_symbol_master
+US	EPHE	Philippines					NO_3X	no clear 3x match in us_symbol_master
+US	ETHA	Ethereum Spot					NO_3X	2x exists, but no clear 3x match in us_symbol_master
+US	EWA	Australia					NO_3X	no clear 3x match in us_symbol_master
+US	EWC	Canada					NO_3X	no clear 3x match in us_symbol_master
+US	EWG	Germany					NO_3X	no clear 3x match in us_symbol_master
+US	EWH	Hong Kong					NO_3X	no clear 3x match in us_symbol_master
+US	EWI	Italy					NO_3X	no clear 3x match in us_symbol_master
+US	EWJ	Japan					NO_3X	2x exists, but no clear 3x match in us_symbol_master
+US	EWL	Switzerland					NO_3X	no clear 3x match in us_symbol_master
+US	EWM	Malaysia					NO_3X	no clear 3x match in us_symbol_master
+US	EWP	Spain					NO_3X	no clear 3x match in us_symbol_master
+US	EWQ	France					NO_3X	no clear 3x match in us_symbol_master
+US	EWS	Singapore					NO_3X	no clear 3x match in us_symbol_master
+US	EWT	Taiwan					NO_3X	2x exists, but no clear 3x match in us_symbol_master
+US	EWU	United Kingdom					NO_3X	no clear 3x match in us_symbol_master
+US	EWW	Mexico	US	MEXX	Direxion Daily MSCI Mexico Bull 3X ETF	3	EXACT_3X	Mexico representative 3x
+US	EWY	South Korea	US	KORU	Direxion Daily MSCI South Korea Bull 3X ETF	3	EXACT_3X	South Korea representative 3x
+US	EWZ	Brazil					NO_3X	2x exists, but no clear 3x match in us_symbol_master
+US	EZA	South Africa					NO_3X	no clear 3x match in us_symbol_master
+US	EZU	Eurozone	US	EURL	Direxion Daily FTSE Europe Bull 3X ETF	3	PROXY_3X	Europe 3x proxy for Eurozone
+US	FXI	China Large Cap	US	YINN	Direxion Daily FTSE China Bull 3X ETF	3	EXACT_3X	China large-cap representative 3x
+US	GLD	Gold	US	SHNY	MicroSectors Gold 3X Leveraged ETN	3	EXACT_3X	gold representative 3x ETN
+US	GMOM	Global Momentum					NO_3X	no clear 3x match in us_symbol_master
+US	GREK	Greece					NO_3X	no clear 3x match in us_symbol_master
+US	GRID	Smart Grid Infrastructure					NO_3X	no clear 3x match in us_symbol_master
+US	GUNR	Natural Resources					NO_3X	no clear 3x match in us_symbol_master
+US	HYG	High Yield Bond					NO_3X	2x exists, but no clear 3x match in us_symbol_master
+US	IBB	Nasdaq Biotech	US	LABU	Direxion Daily S&P Biotech Bull 3X ETF	3	PROXY_3X	biotech proxy; base index differs
+US	IBIT	Bitcoin Spot					NO_3X	2x exists, but no clear 3x match in us_symbol_master
+US	ICLN	Clean Energy					NO_3X	no clear 3x match in us_symbol_master
+US	IGV	Software	US	WEBL	Direxion Daily Dow Jones Internet Bull 3X ETF	3	PROXY_3X	internet/software-adjacent proxy; not exact
+US	IJH	S&P MidCap 400	US	UMDD	ProShares UltraPro MidCap400	3	EXACT_3X	S&P MidCap 400 representative 3x
+US	INDA	India					NO_3X	2x exists, but no clear 3x match in us_symbol_master
+US	ITA	Aerospace & Defense	US	DFEN	Direxion Daily Aerospace & Defense Bull 3X ETF	3	EXACT_3X	aerospace and defense representative 3x
+US	ITB	Home Construction	US	NAIL	Direxion Daily Homebuilders & Supplies Bull 3X ETF	3	EXACT_3X	homebuilders representative 3x
+US	IWM	Russell 2000	US	URTY	ProShares UltraPro Russell2000	3	EXACT_3X	Russell 2000 representative 3x
+US	JETS	Airlines	US	JETU	MAX Airlines 3X Leveraged ETN	3	EXACT_3X	airlines representative 3x ETN
+US	KBE	Banks	US	BNKU	MicroSectors U.S. Big Banks 3X Leveraged ETN	3	PROXY_3X	big-bank proxy for bank ETF
+US	KRE	Regional Banks	US	DPST	Direxion Daily Regional Banks Bull 3X ETF	3	EXACT_3X	regional banks representative 3x
+US	KSA	Saudi Arabia					NO_3X	no clear 3x match in us_symbol_master
+US	LIT	Lithium & Battery Tech					NO_3X	no clear 3x match in us_symbol_master
+US	MTUM	Momentum					NO_3X	no clear 3x match in us_symbol_master
+US	PAVE	Infrastructure					NO_3X	2x exists, but no clear 3x match in us_symbol_master
+US	PDBC	Broad Commodities					NO_3X	no clear 3x match in us_symbol_master
+US	PDP	Dorsey Wright Momentum					NO_3X	no clear 3x match in us_symbol_master
+US	PICK	Global Metals & Mining					NO_3X	no clear 3x match in us_symbol_master
+US	PTF	Technology Momentum	US	TECL	Direxion Daily Technology Bull 3X ETF	3	PROXY_3X	technology-sector proxy; not momentum-specific
+US	QMOM	Quant Momentum					NO_3X	no clear 3x match in us_symbol_master
+US	QQQ	Nasdaq 100	US	TQQQ	ProShares UltraPro QQQ	3	EXACT_3X	Nasdaq 100 representative 3x
+US	REMX	Rare Earth/Strategic Metals					NO_3X	no clear 3x match in us_symbol_master
+US	SCHD	Dividend					NO_3X	no clear 3x match in us_symbol_master
+US	SCZ	EAFE Small Cap					NO_3X	no clear 3x match in us_symbol_master
+US	SLV	Silver					NO_3X	2x exists, but no clear 3x match in us_symbol_master
+US	SMH	Semiconductor	US	SOXL	Direxion Daily Semiconductor Bull 3X ETF	3	EXACT_3X	semiconductor representative 3x
+US	SPY	S&P 500	US	UPRO	ProShares UltraPro S&P500	3	EXACT_3X	S&P 500 representative 3x
+US	SRVR	Data Center & Infrastructure Real Estate	US	DRN	Direxion Daily Real Estate Bull 3X ETF	3	PROXY_3X	real-estate proxy; data-center exposure not exact
+US	SVXY	Short VIX Futures					NO_3X	no clear 3x match in us_symbol_master
+US	TAN	Solar					NO_3X	no clear 3x match in us_symbol_master
+US	THD	Thailand					NO_3X	no clear 3x match in us_symbol_master
+US	TLT	20+ Year Treasury					NO_3X	2x exists, but no clear 3x match in us_symbol_master
+US	TUR	Turkey					NO_3X	no clear 3x match in us_symbol_master
+US	UNG	Natural Gas					NO_3X	2x exists, but no clear 3x match in us_symbol_master
+US	URA	Uranium					NO_3X	2x exists, but no clear 3x match in us_symbol_master
+US	VGK	Europe	US	EURL	Direxion Daily FTSE Europe Bull 3X ETF	3	EXACT_3X	Europe representative 3x
+US	VNM	Vietnam					NO_3X	no clear 3x match in us_symbol_master
+US	VNQ	Real Estate	US	DRN	Direxion Daily Real Estate Bull 3X ETF	3	EXACT_3X	real-estate representative 3x
+US	VTV	Value					NO_3X	no clear 3x match in us_symbol_master
+US	VUG	Growth					NO_3X	no clear 3x match in us_symbol_master
+US	VWO	Emerging Markets	US	EDC	Direxion Daily MSCI Emerging Markets Bull 3X ETF	3	EXACT_3X	emerging-markets representative 3x
+US	VYM	High Dividend					NO_3X	no clear 3x match in us_symbol_master
+US	XBI	S&P Biotech	US	LABU	Direxion Daily S&P Biotech Bull 3X ETF	3	EXACT_3X	S&P Biotech representative 3x
+US	XLB	Materials					NO_3X	no clear 3x match in us_symbol_master
+US	XLC	Communication Services	US	FNGU	MicroSectors FANG+ 3X Leveraged ETN	3	PROXY_3X	mega-cap communication/tech proxy; not sector exact
+US	XLE	Energy	US	WTIU	MicroSectors Energy 3X Leveraged ETN	3	PROXY_3X	energy-sector proxy from master
+US	XLF	Financials	US	FAS	Direxion Daily Financial Bull 3X ETF	3	EXACT_3X	financial sector representative 3x
+US	XLI	Industrials	US	DUSL	Direxion Daily Industrials Bull 3X ETF	3	EXACT_3X	industrials representative 3x
+US	XLK	Technology	US	TECL	Direxion Daily Technology Bull 3X ETF	3	EXACT_3X	technology sector representative 3x
+US	XLP	Consumer Staples					NO_3X	no clear 3x match in us_symbol_master
+US	XLU	Utilities	US	UTSL	Direxion Daily Utilities Bull 3X ETF	3	EXACT_3X	utilities representative 3x
+US	XLV	Healthcare	US	CURE	Direxion Daily Healthcare Bull 3X ETF	3	EXACT_3X	healthcare representative 3x
+US	XLY	Consumer Discretionary	US	WANT	Direxion Daily Consumer Discretionary Bull 3X ETF	3	EXACT_3X	consumer discretionary representative 3x
+US	XME	Metals & Mining					NO_3X	no clear 3x match in us_symbol_master

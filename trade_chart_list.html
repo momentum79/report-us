@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매매 일지 차트</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            overflow: hidden;
+        }
+        body { display: flex; flex-direction: column; }
+        /* 메뉴가 브라우저 오른쪽 끝까지 붙지 않게 72% 에서 끊고 다음 줄로 넘긴다
+           (한 줄 대략 8~9개). 줄 사이 여백은 0 — 여러 단이어도 위아래로 붙어 보이게. */
+        .header {
+            flex: 0 0 auto;
+            padding: 3px 12px 4px;
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0 12px;
+            max-width: 72%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            z-index: 10;
+            position: relative;
+        }
+        @media screen and (max-width: 1400px) {
+            .header { max-width: 100%; }
+        }
+        .acct-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 1px 0;
+        }
+        .acct-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            padding: 2px 9px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .acct-label.summary-btn { background: #1d1d1f; cursor: pointer; }
+        .acct-label.summary-btn:hover { background: #000; }
+        .updated {
+            font-size: 11px;
+            color: #8a8a8a;
+            white-space: nowrap;
+            margin-left: auto;
+            padding-left: 12px;
+        }
+        select {
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 12px;
+            color: #2c3e50;
+            outline: none;
+            background-color: #f9f9f9;
+            width: 108px;
+        }
+        .iframe-container {
+            flex: 1 1 auto;
+            min-height: 0;
+            width: 100%;
+            position: relative;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            transform-origin: 0 0;
+        }
+        @media screen and (max-width: 950px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
+            .top-nav-container, .top-nav { display: none !important; }
+        }
+    </style>
+    <script>
+        var SELECT_IDS = ["select-leader", "select-rocket", "select-manual", "select-alletf", "select-v3_jeo2", "select-v3_trend", "select-v3_ma", "select-hl_etc", "select-usvcp", "select-dip", "select-etc8042", "select-utr_ord_a", "select-utr_vcp2", "select-utr_ma"];        // 거래 있는 tag 게시판만
+        var activeSelectId = null;          // 키보드 D/S 이동 대상(현재 게시판)
+        var SUMMARY_SRC = "trade_journal_summary.html";  // 첫 화면(매매일지 요약)
+
+        // 차트 → 매매일지 요약으로 복귀. 모든 select 초기화.
+        function showSummary() {
+            document.getElementById('chart-frame').src = SUMMARY_SRC;
+            activeSelectId = null;
+            SELECT_IDS.forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.value = '';
+            });
+            adjustScale();
+        }
+
+        function updateChart(url, activeId) {
+            if (!url) return;
+            document.getElementById('chart-frame').src = url;
+            activeSelectId = activeId;
+            SELECT_IDS.forEach(function(id) {
+                if (id !== activeId) {
+                    var el = document.getElementById(id);
+                    if (el) el.value = '';
+                }
+            });
+            adjustScale();
+        }
+
+        function adjustScale() {
+            const iframe = document.getElementById('chart-frame');
+            const winW = window.innerWidth;
+            const contentW = 1330;
+            if (winW < contentW) {
+                const scale = winW / contentW;
+                iframe.style.width = contentW + 'px';
+                iframe.style.height = (100 / scale) + '%';
+                iframe.style.transform = 'scale(' + scale + ')';
+            } else {
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.transform = 'none';
+            }
+        }
+
+        window.addEventListener('resize', adjustScale);
+        window.addEventListener('load', adjustScale);
+
+        // 시작 시: 현재 표시중인 차트와 일치하는 select를 활성 게시판으로 동기화
+        window.addEventListener('load', function() {
+            var ds = document.getElementById('chart-frame').getAttribute('src');
+            SELECT_IDS.forEach(function(id) {
+                var s = document.getElementById(id);
+                if (!s) return;
+                for (var i = 0; i < s.options.length; i++) {
+                    if (s.options[i].value === ds) { s.selectedIndex = i; activeSelectId = id; break; }
+                }
+            });
+        });
+
+        // 키보드 D/↓=다음, S/↑=이전. 단, '현재 게시판(select)' 안에서만 이동.
+        function moveWithinBoard(dir) {
+            var id = activeSelectId;
+            if (!id) {  // 아직 아무것도 안 골랐으면 값이 있는 select를 찾고, 없으면 첫 게시판
+                SELECT_IDS.some(function(x) {
+                    var el = document.getElementById(x);
+                    if (el && el.value) { id = x; return true; }
+                    return false;
+                });
+                if (!id) id = "select-leader";
+            }
+            var sel = document.getElementById(id);
+            if (!sel || sel.options.length <= 1) return;  // 빈 게시판
+            var idx = sel.selectedIndex;
+            if (idx < 1) idx = (dir > 0 ? 0 : 1);  // index 0 = '-- 종목 선택 --' 플레이스홀더는 건너뜀
+            var ni = idx + dir;
+            if (ni < 1) ni = 1;
+            if (ni > sel.options.length - 1) ni = sel.options.length - 1;
+            if (ni === sel.selectedIndex) return;
+            sel.selectedIndex = ni;
+            updateChart(sel.value, id);
+        }
+        document.addEventListener('keydown', function(e) {
+            var t = e.target, tag = t && t.tagName;
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || (t && t.isContentEditable)) return;
+            var k = e.key, dir = 0;
+            if (k === 's' || k === 'S' || k === 'ArrowUp') dir = -1;
+            else if (k === 'd' || k === 'D' || k === 'ArrowDown') dir = 1;
+            if (dir === 0) return;
+            // 매매일지 요약이 떠 있으면(종목 미선택) D/S 를 표 내부 행 이동으로 위임
+            var fr = document.getElementById('chart-frame');
+            if (!activeSelectId && fr.getAttribute('src') === SUMMARY_SRC) {
+                try {
+                    if (fr.contentWindow && typeof fr.contentWindow.journalNav === 'function') {
+                        e.preventDefault();
+                        fr.contentWindow.journalNav(dir);
+                        return;
+                    }
+                } catch (err) {}
+            }
+            e.preventDefault();  // select가 포커스됐을 때 네이티브 이동/타입어헤드 중복 방지
+            moveWithinBoard(dir);
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="acct-group"><span class="acct-label summary-btn" onclick="showSummary()">■ 매매일지</span></div><div class="acct-group"><span class="acct-label" style="background:#15794A">주도주</span><select id="select-leader" onchange="updateChart(this.value, 'select-leader')"><option value="">-- 종목 선택 --</option><option value="charts/board_leader/005930.html">7/23 삼성전자</option><option value="charts/board_leader/005380.html">7/23 현대차</option><option value="charts/board_leader/347850.html">7/23 디앤디파마텍</option><option value="charts/board_leader/462870.html">7/23 시프트업</option><option value="charts/board_leader/006800.html">7/23 미래에셋증권</option><option value="charts/board_leader/086520.html">7/23 에코프로</option><option value="charts/board_leader/122630.html">7/22 KODEX </option><option value="charts/board_leader/034020.html">7/22 두산에너빌리</option><option value="charts/board_leader/000660.html">7/15 SK하이닉스</option><option value="charts/board_leader/003490.html">7/9 대한항공</option><option value="charts/board_leader/000720.html">7/9 현대건설</option><option value="charts/board_leader/069500.html">7/9 KODEX </option><option value="charts/board_leader/105560.html">7/9 KB금융</option><option value="charts/board_leader/252670.html">7/9 KODEX </option></select></div><div class="acct-group"><span class="acct-label" style="background:#1D8F58">로켓</span><select id="select-rocket" onchange="updateChart(this.value, 'select-rocket')"><option value="">-- 종목 선택 --</option><option value="charts/board_rocket/105560.html">7/7 KB금융</option></select></div><div class="acct-group"><span class="acct-label" style="background:#2AA467">수동매매</span><select id="select-manual" onchange="updateChart(this.value, 'select-manual')"><option value="">-- 종목 선택 --</option><option value="charts/board_manual/068270.html">8/6 셀트리온</option><option value="charts/board_manual/000660.html">7/31 SK하이닉스</option><option value="charts/board_manual/051900.html">7/31 LG생활건강</option><option value="charts/board_manual/006800.html">7/30 미래에셋증권</option><option value="charts/board_manual/005380.html">7/30 현대차</option><option value="charts/board_manual/122630.html">7/30 KODEX </option><option value="charts/board_manual/005930.html">7/29 삼성전자</option><option value="charts/board_manual/000270.html">7/29 기아</option><option value="charts/board_manual/347850.html">7/28 디앤디파마텍</option><option value="charts/board_manual/069500.html">7/7 KODEX </option></select></div><div class="acct-group"><span class="acct-label" style="background:#3BB878">통합ETF</span><select id="select-alletf" onchange="updateChart(this.value, 'select-alletf')"><option value="">-- 종목 선택 --</option><option value="charts/board_alletf/EWS.html">8/5 EWS</option><option value="charts/board_alletf/VNQ.html">8/5 VNQ</option><option value="charts/board_alletf/SCHD.html">8/5 SCHD</option><option value="charts/board_alletf/VTV.html">8/5 VTV</option><option value="charts/board_alletf/PDBC.html">8/5 PDBC</option><option value="charts/board_alletf/006800.html">8/5 006800</option><option value="charts/board_alletf/CCL.html">8/5 CCL</option><option value="charts/board_alletf/GREK.html">8/5 GREK</option><option value="charts/board_alletf/UYG.html">8/5 UYG</option><option value="charts/board_alletf/EWU.html">8/5 EWU</option><option value="charts/board_alletf/KBE.html">7/27 KBE</option><option value="charts/board_alletf/ENZL.html">7/27 ENZL</option><option value="charts/board_alletf/THD.html">7/27 THD</option><option value="charts/board_alletf/XLE.html">7/27 XLE</option><option value="charts/board_alletf/005930.html">7/27 005930</option><option value="charts/board_alletf/VYM.html">7/27 VYM</option><option value="charts/board_alletf/XLF.html">7/22 XLF</option><option value="charts/board_alletf/SVXY.html">7/21 SVXY</option><option value="charts/board_alletf/CIBR.html">7/21 CIBR</option></select></div><div class="acct-group"><span class="acct-label" style="background:#5B21B6">삼닉v3_저2</span><select id="select-v3_jeo2" onchange="updateChart(this.value, 'select-v3_jeo2')"><option value="">-- 종목 선택 --</option><option value="charts/board_v3_jeo2/000660.html">8/6 SK하이닉스</option><option value="charts/board_v3_jeo2/005930.html">8/6 삼성전자</option><option value="charts/board_v3_jeo2/122630.html">8/6 KODEX </option></select></div><div class="acct-group"><span class="acct-label" style="background:#6A2ECB">삼닉v3_추세</span><select id="select-v3_trend" onchange="updateChart(this.value, 'select-v3_trend')"><option value="">-- 종목 선택 --</option><option value="charts/board_v3_trend/000660.html">8/6 SK하이닉스</option><option value="charts/board_v3_trend/122630.html">8/6 KODEX </option><option value="charts/board_v3_trend/005930.html">8/6 삼성전자</option></select></div><div class="acct-group"><span class="acct-label" style="background:#7C3AED">삼닉v3_MA</span><select id="select-v3_ma" onchange="updateChart(this.value, 'select-v3_ma')"><option value="">-- 종목 선택 --</option><option value="charts/board_v3_ma/000660.html">8/6 SK하이닉스</option><option value="charts/board_v3_ma/005930.html">8/6 삼성전자</option><option value="charts/board_v3_ma/122630.html">8/6 KODEX </option></select></div><div class="acct-group"><span class="acct-label" style="background:#A471DE">5분기타</span><select id="select-hl_etc" onchange="updateChart(this.value, 'select-hl_etc')"><option value="">-- 종목 선택 --</option><option value="charts/board_hl_etc/004980.html">7/31 성신양회</option><option value="charts/board_hl_etc/018260.html">7/31 삼성에스디에</option><option value="charts/board_hl_etc/042700.html">7/31 한미반도체</option><option value="charts/board_hl_etc/084370.html">7/31 유진테크</option><option value="charts/board_hl_etc/035420.html">7/31 NAVER</option><option value="charts/board_hl_etc/005490.html">7/31 POSCO홀</option><option value="charts/board_hl_etc/006800.html">7/31 미래에셋증권</option><option value="charts/board_hl_etc/000270.html">7/31 기아</option><option value="charts/board_hl_etc/103590.html">7/31 일진전기</option><option value="charts/board_hl_etc/001440.html">7/31 대한전선</option><option value="charts/board_hl_etc/033100.html">7/31 제룡전기</option><option value="charts/board_hl_etc/006340.html">7/31 대원전선</option><option value="charts/board_hl_etc/028050.html">7/31 삼성E&A</option><option value="charts/board_hl_etc/062040.html">7/31 산일전기</option><option value="charts/board_hl_etc/373220.html">7/31 LG에너지솔</option><option value="charts/board_hl_etc/055550.html">7/31 신한지주</option><option value="charts/board_hl_etc/006360.html">7/31 GS건설</option><option value="charts/board_hl_etc/093370.html">7/31 후성</option><option value="charts/board_hl_etc/035720.html">7/31 카카오</option><option value="charts/board_hl_etc/090430.html">7/31 아모레퍼시픽</option><option value="charts/board_hl_etc/475150.html">7/31 SK이터닉스</option><option value="charts/board_hl_etc/353200.html">7/31 대덕전자</option><option value="charts/board_hl_etc/0167A0.html">7/27 SOL AI</option><option value="charts/board_hl_etc/080220.html">7/27 제주반도체</option><option value="charts/board_hl_etc/089030.html">7/23 테크윙</option><option value="charts/board_hl_etc/365660.html">7/9 레몬헬스케어</option></select></div><div class="acct-group"><span class="acct-label" style="background:#5F6871">미VCP</span><select id="select-usvcp" onchange="updateChart(this.value, 'select-usvcp')"><option value="">-- 종목 선택 --</option><option value="charts/board_usvcp/DNTH.html">7/31 다이앤서스 </option><option value="charts/board_usvcp/SWK.html">7/31 스탠리 블랙</option><option value="charts/board_usvcp/SHOO.html">7/31 스티븐 메이</option><option value="charts/board_usvcp/MBX.html">7/31 MBX 바이</option><option value="charts/board_usvcp/BBVA.html">7/31 BBVA(A</option><option value="charts/board_usvcp/SCHW.html">7/31 찰스 슈왑</option><option value="charts/board_usvcp/KMB.html">7/31 킴벌리클라크</option><option value="charts/board_usvcp/ADPT.html">7/20 어댑티브 바</option><option value="charts/board_usvcp/XHR.html">7/20 제니아 호텔</option><option value="charts/board_usvcp/ONB.html">7/20 올드 내셔널</option><option value="charts/board_usvcp/UBSI.html">7/20 유나이티드 </option><option value="charts/board_usvcp/NXP.html">7/20 NUVEEN</option><option value="charts/board_usvcp/GHRS.html">7/20 GH 리서치</option><option value="charts/board_usvcp/ELVN.html">7/20 인라이븐 테</option><option value="charts/board_usvcp/UMBF.html">7/20 UMB 파이</option><option value="charts/board_usvcp/NIC.html">7/20 니콜레 뱅크</option><option value="charts/board_usvcp/SBUX.html">7/20 스타벅스</option><option value="charts/board_usvcp/WFC.html">7/20 웰스파고</option><option value="charts/board_usvcp/EOG.html">7/20 EOG 리소</option><option value="charts/board_usvcp/BX.html">7/20 블랙스톤</option><option value="charts/board_usvcp/KO.html">7/20 코카콜라</option><option value="charts/board_usvcp/FTI.html">7/20 테크닙 FM</option></select></div><div class="acct-group"><span class="acct-label" style="background:#818A94">저사다리</span><select id="select-dip" onchange="updateChart(this.value, 'select-dip')"><option value="">-- 종목 선택 --</option><option value="charts/board_dip/0193T0.html">7/30 SK하이닉스</option><option value="charts/board_dip/0193W0.html">7/30 삼성전자 2</option><option value="charts/board_dip/122630.html">7/28 KODEX </option></select></div><div class="acct-group"><span class="acct-label" style="background:#939BA4">기타(8042)</span><select id="select-etc8042" onchange="updateChart(this.value, 'select-etc8042')"><option value="">-- 종목 선택 --</option><option value="charts/board_etc8042/005930.html">8/6 삼성전자</option><option value="charts/board_etc8042/006800.html">8/5 미래에셋증권</option><option value="charts/board_etc8042/080220.html">7/31 제주반도체</option></select></div><div class="acct-group"><span class="acct-label" style="background:#8F1A12">UTR_ORD_A</span><select id="select-utr_ord_a" onchange="updateChart(this.value, 'select-utr_ord_a')"><option value="">-- 종목 선택 --</option><option value="charts/board_utr_ord_a/BX.html">8/5 BX</option><option value="charts/board_utr_ord_a/COF.html">8/5 COF</option><option value="charts/board_utr_ord_a/CRM.html">8/5 CRM</option><option value="charts/board_utr_ord_a/CVX.html">8/5 CVX</option><option value="charts/board_utr_ord_a/KKR.html">8/5 KKR</option><option value="charts/board_utr_ord_a/NOW.html">8/5 NOW</option><option value="charts/board_utr_ord_a/TECH.html">8/5 TECH</option></select></div><div class="acct-group"><span class="acct-label" style="background:#C63628">UTR_VCP2</span><select id="select-utr_vcp2" onchange="updateChart(this.value, 'select-utr_vcp2')"><option value="">-- 종목 선택 --</option><option value="charts/board_utr_vcp2/AG.html">8/5 AG</option><option value="charts/board_utr_vcp2/CRC.html">8/5 CRC</option><option value="charts/board_utr_vcp2/SLV.html">8/5 SLV</option><option value="charts/board_utr_vcp2/GLD.html">8/5 GLD</option></select></div><div class="acct-group"><span class="acct-label" style="background:#EC6252">UTR_MA돌</span><select id="select-utr_ma" onchange="updateChart(this.value, 'select-utr_ma')"><option value="">-- 종목 선택 --</option><option value="charts/board_utr_ma/AA.html">8/5 AA</option><option value="charts/board_utr_ma/ASX.html">8/5 ASX</option><option value="charts/board_utr_ma/ESI.html">8/5 ESI</option></select></div><span class="updated">Updated: 2026-08-06 22:28:48</span>
+    </div>
+    <div class="iframe-container">
+        <iframe id="chart-frame" src="trade_journal_summary.html" onload="adjustScale()"></iframe>
+    </div>
+</body>
+</html>

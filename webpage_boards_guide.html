@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>웹페이지 게시판 구성 가이드</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --bg: #ffffff;
+    --card: #f8f9fa;
+    --border: #dee2e6;
+    --accent: #0d6efd;
+    --accent2: #198754;
+    --accent3: #dc3545;
+    --accent4: #ffc107;
+    --text: #212529;
+    --text-muted: #6c757d;
+    --code-bg: #f1f3f5;
+    --arrow: #0d6efd;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    color: #000;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+  }
+
+  .subtitle {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  /* 사이드바 미니맵 */
+  .sidebar-map {
+    background: #2c3e50;
+    color: #ecf0f1;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+  .sidebar-map .group {
+    display: inline-block;
+    margin-right: 18px;
+    margin-bottom: 6px;
+    vertical-align: top;
+  }
+  .sidebar-map .group b { color: #3498db; display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: 0.5px; }
+  .sidebar-map .group span { display: inline-block; background: #34495e; color: #bdc3c7; padding: 2px 8px; border-radius: 4px; margin: 2px 4px 2px 0; font-size: 11.5px; }
+
+  /* 섹션 탭 */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 6px 14px;
+    background: var(--card);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* 게시판 카드 */
+  .board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .board-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    transition: border-color 0.2s;
+  }
+  .board-card:hover { border-color: var(--accent); }
+
+  .board-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .board-title h3 {
+    font-size: 1.0em;
+    color: #000;
+    font-weight: 700;
+  }
+  .board-title .badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .badge-html { background: #1a237e; color: #90caf9; }
+  .badge-bat  { background: #1b5e20; color: #a5d6a7; }
+  .badge-sub  { background: #4527a0; color: #b39ddb; }
+  .badge-menu { background: #455a64; color: #b0bec5; font-size: 10px; }
+
+  /* 서브탭 표시 */
+  .subtab-list {
+    background: #eceff1;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #455a64;
+  }
+  .subtab-list b { color: #1a237e; }
+  .subtab-list code { background: #fff; padding: 1px 5px; border-radius: 3px; font-family: 'JetBrains Mono', monospace; color: #00695c; }
+
+  /* 체인 흐름 */
+  .chain {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .chain-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .chain-icon {
+    font-size: 14px;
+    min-width: 20px;
+    margin-top: 2px;
+  }
+  .chain-body { flex: 1; }
+  .chain-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+  .chain-file {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    background: var(--code-bg);
+    color: #2e7d32;
+    padding: 1px 4px;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 1px 0;
+  }
+  .chain-file.py { color: #00695c; }
+  .chain-file.txt { color: #e65100; }
+  .chain-file.json { color: #4a148c; }
+  .chain-file.csv { color: #6a1b9a; }
+  .chain-file.html-out { color: #1b5e20; font-weight: 600; }
+  .chain-file.bat { color: #333; background: #fff9c4; }
+
+  .arrow {
+    text-align: center;
+    color: var(--arrow);
+    font-size: 14px;
+    padding: 1px 0;
+    font-weight: bold;
+  }
+
+  .chain-note {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    font-style: italic;
+  }
+
+  /* 전체 요약 테이블 */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .summary-table th {
+    background: var(--accent);
+    color: #fff;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+  }
+  .summary-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .summary-table tr:hover td { background: rgba(92,107,192,0.1); }
+  .summary-table td:nth-child(3),
+  .summary-table td:nth-child(4),
+  .summary-table td:nth-child(5),
+  .summary-table td:nth-child(6) {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+  }
+  .summary-table td:nth-child(3) { color: #00695c; }
+  .summary-table td:nth-child(4) { color: #e65100; }
+  .summary-table td:nth-child(5) { color: #00695c; }
+  .summary-table td:nth-child(6) { color: #1b5e20; font-weight: 600; }
+
+  .cat-kr { background: rgba(38,166,154,0.15); }
+  .cat-us { background: rgba(92,107,192,0.15); }
+  .cat-gl { background: rgba(239,83,80,0.15); }
+  .cat-coin { background: rgba(255,193,7,0.15); }
+  .cat-etc { background: rgba(255,167,38,0.15); }
+  .cat-hub { background: rgba(13,110,253,0.18); }
+
+  /* 배치파일 안내 */
+  .bat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .bat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .bat-card h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #000;
+    background: #e9ecef;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+  .bat-card p { font-size: 12.5px; color: var(--text-muted); margin-bottom: 4px; }
+  .bat-card .scope {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+  .scope-home { background: #1b5e20; color: #a5d6a7; }
+  .scope-company { background: #e65100; color: #ffe0b2; }
+  .scope-us { background: #1a237e; color: #90caf9; }
+  .scope-coin { background: #f57f17; color: #fff8e1; }
+
+  .section-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #000;
+    margin: 16px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .updated {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: right;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .board-grid { grid-template-columns: 1fr; }
+    .bat-grid { grid-template-columns: 1fr; }
+    body { padding: 12px; }
+  }
+
+  @media (max-width: 950px) and (orientation: landscape) {
+    .tabs { display: none !important; }
+  }
+
+  /* ── 테마 탭 다크 섹션 ── */
+  .theme-dark-section {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 8px;
+  }
+  .td-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+  }
+  .td-card-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #30363d;
+  }
+  .td-card-title.green { color: #3fb950; }
+  .td-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .td-table th {
+    text-align: left;
+    color: #8b949e;
+    font-weight: 600;
+    font-size: 11px;
+    padding: 6px 10px;
+    border-bottom: 1px solid #30363d;
+  }
+  .td-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid rgba(48,54,61,.5);
+    vertical-align: top;
+    color: #b2bec3;
+  }
+  .td-table tr:last-child td { border-bottom: none; }
+  .td-path { font-family: 'JetBrains Mono', monospace; color: #74b9ff; font-size: 12px; }
+  .td-out  { font-family: 'JetBrains Mono', monospace; color: #3fb950; font-size: 12px; }
+  .td-cond-box { background: #0a1628; border-left: 3px solid #e17055; padding: 10px 14px; border-radius: 4px; margin: 8px 0; }
+  .td-cond-box h4 { color: #e17055; font-size: 13px; margin-bottom: 6px; }
+  .td-cond-box ul { padding-left: 18px; color: #b2bec3; font-size: 13px; }
+  .td-cond-box li { margin-bottom: 4px; }
+  .td-note { background: #1e2d1e; border-left: 3px solid #3fb950; padding: 8px 12px; border-radius: 4px; color: #b2bec3; font-size: 12px; }
+  .td-tag { display: inline-block; border-radius: 4px; padding: 1px 7px; font-size: 11px; margin-right: 4px; }
+  .td-in  { background: #1a3a5c; color: #74b9ff; }
+  .td-out2 { background: #1a3a2c; color: #3fb950; }
+
+  /* ── buyflow 카드 ── */
+  .bf-section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 28px 0 12px;
+  }
+  .bf-section-label::after { content: ''; flex: 1; height: 1px; background: #30363d; }
+  .bf-card {
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    transition: border-color .2s;
+  }
+  .bf-card:hover { border-color: #58a6ff; }
+  .bf-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .bf-step-badge { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 6px; white-space: nowrap; }
+  .bf-card-title { font-size: 15px; font-weight: 700; color: #e6edf3; }
+  .bf-accent { border-left: 3px solid #58a6ff; }
+  .bf-green  { border-left: 3px solid #3fb950; }
+  .bf-yellow { border-left: 3px solid #d29922; }
+  .bf-red    { border-left: 3px solid #f85149; }
+  .bf-badge-blue   { background: rgba(88,166,255,.15); color: #58a6ff; }
+  .bf-badge-green  { background: rgba(63,185,80,.15);  color: #3fb950; }
+  .bf-badge-yellow { background: rgba(210,153,34,.15); color: #d29922; }
+  .bf-badge-red    { background: rgba(248,81,73,.15);  color: #f85149; }
+  .bf-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 4px; }
+  .bf-table th { text-align: left; color: #8b949e; font-weight: 600; font-size: 11px; padding: 6px 10px; border-bottom: 1px solid #30363d; }
+  .bf-table td { padding: 7px 10px; border-bottom: 1px solid rgba(48,54,61,.5); vertical-align: top; color: #b2bec3; }
+  .bf-table tr:last-child td { border-bottom: none; }
+  .bf-code { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: rgba(88,166,255,.1); color: #58a6ff; padding: 1px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<h1>🌐 웹페이지 게시판 구성 가이드</h1>
+<p class="subtitle">https://momentum79.github.io/report-us/ · 각 게시판별 실행파일 → 산출물 체인 정리 · index.html 사이드바 기준</p>
+
+<!-- 사이드바 미니맵 -->
+<div class="sidebar-map">
+  <div class="group"><b>① 통합ETF 그룹</b>
+    <span>통합ETF</span><span>한국ETF</span><span>미국ETF</span><span>국가별등락</span><span>해선</span><span>보유자산</span>
+  </div>
+  <div class="group"><b>② KR 신호 그룹</b>
+    <span>요약</span><span>KR150 종목</span><span>당일거래대금/량</span><span>실시간/저점/돌파</span><span>코인</span>
+  </div>
+  <div class="group"><b>③ US 신호 그룹</b>
+    <span>미Main주</span><span>Finviz섹터주식</span><span>미국VCP</span><span>자동일지차트</span>
+  </div>
+  <div class="group"><b>④ 가이드</b>
+    <span>🛠 시스템 가이드</span>
+  </div>
+  <div style="margin-top:6px; font-size:11px; color:#95a5a6;">※ 사이드바 메뉴 1개 → HTML 1개. HTML 안에 서브탭이 있는 경우(KR150 종목 / 당일거래대금/량 / 실시간/저점/돌파)는 카드 상단에 "서브탭" 표시.</div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="openTab('tab-hub', this)">🏠 메인/요약</button>
+  <button class="tab-btn" onclick="openTab('tab-etf', this)">🌐 ETF·자산</button>
+  <button class="tab-btn" onclick="openTab('tab-kr', this)">🇰🇷 한국 신호</button>
+  <button class="tab-btn" onclick="openTab('tab-us', this)">🇺🇸 미국 신호</button>
+  <button class="tab-btn" onclick="openTab('tab-coin', this)">🪙 코인</button>
+  <button class="tab-btn" onclick="openTab('tab-etc', this)">💼 기타/일지</button>
+  <button class="tab-btn" onclick="openTab('tab-bat', this)">⚙️ 배치파일</button>
+  <button class="tab-btn" onclick="openTab('tab-summary', this)">📋 전체요약</button>
+  <button class="tab-btn" onclick="openTab('tab-theme', this)">🎯 테마매매 전략</button>
+</div>
+
+<!-- ===================== 메인/요약 탭 ===================== -->
+<div id="tab-hub" class="tab-content active">
+  <div class="section-title">🏠 메인 허브 / 요약 (사이드바 진입 우선순위 1순위)</div>
+  <div class="board-grid">
+
+    <!-- 메인 허브 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>0-A. 메인 허브 (Landing Page · 통합ETF)</h3>
+        <span class="badge badge-html">main_hub.html</span>
+        <span class="badge badge-menu">사이드바: 통합ETF</span>
+      </div>
+      <div class="subtab-list">📌 <b>접속 시 첫 화면</b> — Market Trend (sco 4구간) / Regime Map / History 차트 / 통합 ETF 비중 시그널</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">데이터 입력 (선행 산출물)</div>
+            <div class="chain-file json">D:\py\report-us\kr_signal_stats_total.json</div>
+            <div class="chain-note">→ jasantop4_global_softcap.py 가 먼저 실행되어야 데이터 존재</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-label">HTML 직접 생성</div>
+            <div class="chain-file py">D:\py\report-us\make_index_main_hub.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-label">최종 HTML</div>
+            <div class="chain-file html-out">D:\py\report-us\main_hub.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 요약 게시판 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>0-B. 요약 게시판</h3>
+        <span class="badge badge-html">summary.html</span>
+        <span class="badge badge-menu">사이드바: 요약</span>
+      </div>
+      <div class="subtab-list">📌 파이프라인 마지막에 단독 실행 · 기존 산출물 취합 + 실시간 체결강도 조회 (KR + US 통합 요약)</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">취합 + 직접 생성</div>
+            <div class="chain-file py">D:\py\report-us\make_summary_board.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-label">참조 산출물 (사전 실행 필요)</div>
+            <div class="chain-file json">report_kr_150.json</div>
+            <div class="chain-file txt">report_kr_summary.txt</div>
+            <div class="chain-file json">report_volume.json</div>
+            <div class="chain-note">+ Kiwoom API ka10003(체결강도) 실시간</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\summary.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 메인 대시보드 / 사이드바 자체 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>0-C. 메인 대시보드 (사이드바 프레임)</h3>
+        <span class="badge badge-html">index.html</span>
+      </div>
+      <div class="subtab-list">📌 모든 게시판을 iframe으로 로드하는 좌측 사이드바 메뉴 · 수동 편집 · 캐시 무력화 + 메시지 핸들러 포함</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">✏️</span>
+          <div class="chain-body">
+            <div class="chain-label">수동 편집 (HTML 직접 관리)</div>
+            <div class="chain-file html-out">D:\py\report-us\index.html</div>
+            <div class="chain-note">사이드바 메뉴 추가 시 이 파일을 직접 수정</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== ETF·자산 탭 ===================== -->
+<div id="tab-etf" class="tab-content">
+  <div class="section-title">🌐 ETF·자산 (사이드바 ① 그룹)</div>
+  <div class="board-grid">
+
+    <!-- 한국 ETF -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>1. 한국 ETF</h3>
+        <span class="badge badge-html">kor_etf.html</span>
+        <span class="badge badge-menu">사이드바: 한국ETF</span>
+      </div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">데이터 수집 · 분석</div>
+            <div class="chain-file py">D:\py\jasantop4_final.py</div>
+            <div class="chain-file py">D:\py\investor_trend.py</div>
+            <div class="chain-file py">D:\py\adv_momentum_v1.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-label">중간 산출물</div>
+            <div class="chain-file txt">D:\py\report-us\report_kor_etf.txt</div>
+            <div class="chain-file json">D:\py\report-us\kr_signal_stats.json</div>
+            <div class="chain-file json">D:\py\report-us\investor_data.json</div>
+            <div class="chain-file txt">D:\py\buy_list.txt</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_kor_etf.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\kor_etf.html</div>
+            <div class="chain-note">서브탭/링크: Top3 추세(make_top3_report.py → top3_etf_daily_result.html), 한국ETF 거래량(make_index_kor_etf_vol.py → kor_etf_vol.html)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- US ETF -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>2. US ETF</h3>
+        <span class="badge badge-html">us_etf.html</span>
+        <span class="badge badge-menu">사이드바: 미국ETF</span>
+      </div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\usa_jasantop4_ETF.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file txt">D:\py\report-us\report_us_etf.txt</div>
+            <div class="chain-file json">D:\py\report-us\rank_history\*.json (4일 롤링)</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_us_etf.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\us_etf.html</div>
+            <div class="chain-note">+ 미국 이자율: make_index_us_interest.py → us_interest.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 통합 ETF 138개 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>3. 통합 ETF (138종) — main_hub의 핵심 데이터</h3>
+        <span class="badge badge-html">total_etf_combined.html</span>
+      </div>
+      <div class="subtab-list">📌 한국 ETF(36) + 미국 ETF(70+) + 국가/원자재/채권(30+) 통합 분석 · 비중계산 · main_hub 데이터 원천</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">데이터 분석 · 비중 계산 (s1 운영 + s3 shadow CSV 누적)</div>
+            <div class="chain-file py">D:\py\jasantop4_global_softcap.py</div>
+            <div class="chain-note">캐시: D:\py\etf_parquet_cache.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-label">중간 산출물</div>
+            <div class="chain-file csv">D:\py\0txt\total_top30.csv</div>
+            <div class="chain-file txt">D:\py\buy_list_total.txt</div>
+            <div class="chain-file json">D:\py\report-us\kr_signal_stats_total.json</div>
+            <div class="chain-file json">D:\py\report-us\top3_etf_track_total.json</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_total_top_etf_combined.py</div>
+            <div class="chain-note">+ 차트v2 샌드박스: make_index_total_top_etf_combined2.py → total_etf_combined2.html</div>
+            <div class="chain-note">+ 거래량 부 ver: make_index_total_top_etf_combined_vol.py → total_etf_combined_vol.html</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\total_etf_combined.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI 전용 관찰판 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>3-A. AI 전용 관찰판 (Shadow · 실거래 비연동)</h3>
+        <span class="badge badge-html">total_etf_combined_AI.html</span>
+      </div>
+      <div class="subtab-list">📌 AI 32개 basket 기반 Core Regime / Basket Breadth / Top 후보 · 기존 138종 산출물과 완전 분리</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\jasantop4_global_softcap_AI.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file csv">D:\py\0txt\total_top30_AI.csv</div>
+            <div class="chain-file txt">D:\py\buy_list_total_AI.txt</div>
+            <div class="chain-file json">D:\py\report-us\kr_signal_stats_total_AI.json</div>
+            <div class="chain-file json">D:\py\report-us\ai_basket_scores_total_AI.json</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_total_top_etf_combined_AI.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\total_etf_combined_AI.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 국가별 등락 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>4. 국가별 등락 / World ETF</h3>
+        <span class="badge badge-html">country_returns.html</span>
+        <span class="badge badge-menu">사이드바: 국가별등락</span>
+      </div>
+      <div class="subtab-list">📌 34개 국가 ETF 신호 · 지수 추이 탭 포함 (SPY/EWY SCO 히스토리)</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\usa_jasantop4_world.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file json">D:\py\report-us\world_rank.json</div>
+            <div class="chain-file json">D:\py\report-us\world_sco_track.json (SCO 누적)</div>
+            <div class="chain-file json">D:\py\report-us\rank_history_world\*.json</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_country_returns.py</div>
+            <div class="chain-note">⚠️ 구글시트 온라인 접속 필요 (국가별등락 시트)</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\country_returns.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 해선 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>5. 해선 (해외선물/FX/암호화폐 모멘텀)</h3>
+        <span class="badge badge-html">futures.html</span>
+        <span class="badge badge-menu">사이드바: 해선</span>
+      </div>
+      <div class="subtab-list">📌 ES/NQ/GC 등 선물 + FX + 암호화폐 RSI 신호 (Wilder RMA · Pine Script ta.rsi 호환)</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\futures_momentum.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file txt">D:\py\report-us\report_futures.txt</div>
+            <div class="chain-file txt">D:\py\0txt\buy_futures.txt</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_futures.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\futures.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 보유 자산 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>6. 보유 자산 (Holdings)</h3>
+        <span class="badge badge-html">holdings.html</span>
+        <span class="badge badge-menu">사이드바: 보유자산</span>
+      </div>
+      <div class="subtab-list">📌 HTML은 정적 (수동 편집) · JSON을 fetch해서 클라이언트에서 렌더링 · 4개 계좌(1887/8042/YK/JW)</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">JSON 갱신 (배치 실행)</div>
+            <div class="chain-file py">D:\py\make_holdings_json.py</div>
+            <div class="chain-file py">D:\py\holdings_detail.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-label">데이터 (HTML이 fetch함)</div>
+            <div class="chain-file json">D:\py\report-us\holdings_1887.json</div>
+            <div class="chain-file json">D:\py\report-us\holdings_8042.json</div>
+            <div class="chain-file json">D:\py\report-us\holdings_yk.json</div>
+            <div class="chain-file json">D:\py\report-us\holdings_jw.json</div>
+            <div class="chain-file json">D:\py\report-us\holdings_analysis.json</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✏️</span>
+          <div class="chain-body">
+            <div class="chain-label">HTML 수동 관리</div>
+            <div class="chain-file html-out">D:\py\report-us\holdings.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 구글시트 연동 (보조) -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>7. 구글시트 연동 (보조 게시판)</h3>
+        <span class="badge badge-html">google_sheet.html</span>
+      </div>
+      <div class="subtab-list">📌 사이드바에는 미노출 · 구글시트 직접 임베드</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_google_sheet.py</div>
+            <div class="chain-note">⚠️ 구글 시트 온라인 직접 접속</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\google_sheet.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== 한국 신호 탭 ===================== -->
+<div id="tab-kr" class="tab-content">
+  <div class="section-title">🇰🇷 한국 신호 (사이드바 ② 그룹) — 1메뉴 = 1HTML + 서브탭</div>
+  <div class="board-grid">
+
+    <!-- KR150 종목 그룹 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>1. KR150 종목 (주도테마 → KR150 → KR전종목)</h3>
+        <span class="badge badge-html">kor_theme.html</span>
+        <span class="badge badge-menu">사이드바: KR150 종목</span>
+      </div>
+      <div class="subtab-list">
+        📌 <b>HTML 내부 서브탭</b>:
+        <code>kor_theme.html</code> (주도테마, 디폴트) →
+        <code>kor_150.html</code> (KR150) →
+        <code>kor_stock.html</code> (KR전종목)<br>
+        각 HTML이 독립적으로 생성 / 상호 nav-item 링크로 연결.
+      </div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">[주도테마] 데이터 수집</div>
+            <div class="chain-file py">D:\py\top3_theme_analysis.py</div>
+            <div class="chain-file py">D:\py\combine_theme_order.py</div>
+            <div class="chain-file py">D:\py\theme_order_monitor.py (또는 theme_order_monitor_integrate.py)</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file json">D:\py\0txt\theme_analysis.json</div>
+            <div class="chain-file txt">D:\py\0txt\00theme_order.txt</div>
+            <div class="chain-file txt">D:\py\0txt\00theme_filter.txt / 00theme_filter_tv.txt</div>
+            <div class="chain-file json">D:\py\report-us\theme_order.json</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_theme.py → kor_theme.html</div>
+          </div>
+        </div>
+        <hr style="border:none; border-top:1px dashed var(--border); margin:8px 0;">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">[KR150] 데이터 수집</div>
+            <div class="chain-file py">D:\py\korea\chu_korea_final.py</div>
+            <div class="chain-file py">D:\py\korea\kr_total_scanner.py</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file json">D:\py\report-us\report_kr_150.json</div>
+            <div class="chain-file json">D:\py\report-us\leader_tracking_150.json</div>
+            <div class="chain-file json">D:\py\report-us\rank_history_kr150\*.json (4일 롤링)</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_kr_150.py → kor_150.html</div>
+          </div>
+        </div>
+        <hr style="border:none; border-top:1px dashed var(--border); margin:8px 0;">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">[KR전종목] 데이터 수집 (~2,600개)</div>
+            <div class="chain-file py">D:\py\korea\chu_korea_final_all_tic.py</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file txt">D:\py\report-us\report_kr_summary.txt</div>
+            <div class="chain-file txt">D:\py\kor_tv.txt (TradingView 입력용)</div>
+            <div class="chain-file json">D:\py\report-us\leader_tracking.json</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\kr\make_index_kr.py → kor_stock.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 당일거래대금/량 그룹 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>2. 당일거래대금/량 (거래대금 → 매매일지 → 거래량 급증 → 조건검색)</h3>
+        <span class="badge badge-html">kor_volume.html</span>
+        <span class="badge badge-menu">사이드바: 당일거래대금/량</span>
+      </div>
+      <div class="subtab-list">
+        📌 <b>HTML 내부 서브탭 (nav-item)</b>:
+        <code>kor_volume.html</code> (거래대금, 디폴트) →
+        <code>danta_journal.html</code> (매매일지) →
+        <code>kor_volume_spike.html</code> (거래량 급증) →
+        <code>kor_condition.html</code> (조건검색)
+      </div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">[거래대금 Top30] 스냅샷 모드 자동 판별</div>
+            <div class="chain-file py">D:\py\topvolume30.py</div>
+            <div class="chain-note">snapshot(9:00~9:29) / close(15:30~) / normal</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file json">D:\py\report-us\report_volume.json</div>
+            <div class="chain-file json">D:\py\0_당일거래대금\snapshot_price.json</div>
+            <div class="chain-file csv">D:\py\0_당일거래대금\snapshot_track.csv (4주 보관)</div>
+            <div class="chain-file json">D:\py\0_당일거래대금\intraday_rank\YYYY-MM-DD.json (시각별 +4% 순위 누적)</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_volume.py → kor_volume.html (bump chart 포함)</div>
+          </div>
+        </div>
+        <hr style="border:none; border-top:1px dashed var(--border); margin:8px 0;">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">[매매일지] 단타봇 1887 자체장부</div>
+            <div class="chain-file py">D:\py\report-us\make_danta_journal.py</div>
+            <div class="chain-file py">D:\py\report-us\journal_summary.py (헬퍼)</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\danta_journal.html</div>
+          </div>
+        </div>
+        <hr style="border:none; border-top:1px dashed var(--border); margin:8px 0;">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">[거래량 급증] 전일比 10배 필터</div>
+            <div class="chain-file py">D:\py\거래량급증.py</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file txt">D:\py\report-us\report_volume_spike.txt</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_volume_spike.py → kor_volume_spike.html</div>
+          </div>
+        </div>
+        <hr style="border:none; border-top:1px dashed var(--border); margin:8px 0;">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">[조건검색] 키움 조건검색식 결과</div>
+            <div class="chain-file py">D:\py\kiwoom_condition_search.py</div>
+            <div class="chain-note">실행: D:\py\0bat\0_조건검색.bat</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file json">D:\py\report-us\condition_search_results.json</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_condition.py → kor_condition.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 실시간/저점/돌파 그룹 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>3. 실시간/저점/돌파 (실시간순위 → 저점 → 횡보돌파)</h3>
+        <span class="badge badge-html">kor_realtime.html</span>
+        <span class="badge badge-menu">사이드바: 실시간/저점/돌파</span>
+      </div>
+      <div class="subtab-list">
+        📌 <b>HTML 내부 서브탭 (nav-item)</b>:
+        <code>kor_realtime.html</code> (실시간순위, 디폴트) →
+        <code>kor_low_point.html#low-point</code> (저점) →
+        <code>kor_low_point.html#breakout</code> (횡보돌파)<br>
+        ※ 저점/돌파는 같은 HTML 내 앵커로 분리됨.
+      </div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">[실시간순위] 30분 갱신</div>
+            <div class="chain-file py">D:\py\실시간순위.py</div>
+            <div class="chain-note">키움 API ka00198 (qry_tp=5)</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file txt">D:\py\report-us\report_realtime.txt</div>
+            <div class="chain-file txt">D:\py\0txt\실시간순위.txt</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_realtime.py → kor_realtime.html</div>
+          </div>
+        </div>
+        <hr style="border:none; border-top:1px dashed var(--border); margin:8px 0;">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">[저점/횡보돌파] 전종목 스캔 (100일)</div>
+            <div class="chain-file py">D:\py\korea\kr_low_signal.py</div>
+            <div class="chain-note">또는 D:\py\0bat\6_저점돌파.bat</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file json">D:\py\report-us\kr_low_point_data.json</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_kr_low_point.py → kor_low_point.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== 미국 신호 탭 ===================== -->
+<div id="tab-us" class="tab-content">
+  <div class="section-title">🇺🇸 미국 신호 (사이드바 ③ 그룹)</div>
+  <div class="board-grid">
+
+    <!-- US Main -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>1. 미Main주 (US Main)</h3>
+        <span class="badge badge-html">us_main.html</span>
+        <span class="badge badge-menu">사이드바: 미Main주</span>
+      </div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\korea\chu_usa_all.py</div>
+            <div class="chain-note">미국 ETF + 주식 통합 LIME/GREEN/MOM 신호</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file txt">D:\py\report-us\report_us_main.txt</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_us_main.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\us_main.html</div>
+            <div class="chain-note">+ 미국 요약: make_us_summary_board.py → us_summary.html (보조)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- US Finviz -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>2. Finviz섹터주식 (US Finviz)</h3>
+        <span class="badge badge-html">us_finviz.html</span>
+        <span class="badge badge-menu">사이드바: Finviz섹터주식</span>
+      </div>
+      <div class="subtab-list">📌 미국 주식 200개 JASANTOP4 신호 · ATR 필터 + Early stage + Entry timing</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\usa_jasantop4_stocks.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file txt">D:\py\report-us\report_us_finviz.txt</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_us_finviz.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\us_finviz.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- US VCP -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>3. 미국VCP (US 주식 VCP 스캔)</h3>
+        <span class="badge badge-html">us_stock.html</span>
+        <span class="badge badge-menu">사이드바: 미국VCP</span>
+      </div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\usa_jasan_trview_batchver.py</div>
+            <div class="chain-note">+ D:\py\us_minervini_2stage.py (보조 스캐너)</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file txt">D:\py\report-us\report_us.txt</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_us.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\us_stock.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 자동일지차트 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>4. 자동일지차트</h3>
+        <span class="badge badge-html">trade_chart_list.html</span>
+        <span class="badge badge-menu">사이드바: 자동일지차트</span>
+      </div>
+      <div class="subtab-list">📌 거래내역 기반 5분봉 고/저, rocket, 주도주 차트를 종목별 HTML로 자동 생성 · 최근 N일 필터</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">차트 데이터/이미지 빌더</div>
+            <div class="chain-file py">D:\py\report-us\make_trade_chart_boards.py</div>
+            <div class="chain-file py">D:\py\trade_chart_v2_lib.py (차트 v2 코어)</div>
+            <div class="chain-file py">D:\py\report-us\chart_popup_v2.py / chart_popup_v3.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-label">개별 차트 HTML</div>
+            <div class="chain-file html-out">D:\py\report-us\charts\board_*\*_1887*.html</div>
+            <div class="chain-file html-out">D:\py\report-us\charts\board_*\*_8042*.html</div>
+            <div class="chain-file html-out">D:\py\report-us\trade_journal_summary.html (요약 첫화면)</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-label">리스트/네비 페이지</div>
+            <div class="chain-file py">D:\py\report-us\make_index_trade_chart.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\trade_chart_list.html</div>
+            <div class="chain-note">+ 한국/미국 차트 디스플레이: make_kr_chart_display.py → kr_chart.html / make_us_chart_display.py → us_chart.html / make_danta_chart_display.py → danta_chart.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== 코인 탭 ===================== -->
+<div id="tab-coin" class="tab-content">
+  <div class="section-title">🪙 코인 (사이드바 ② 그룹 — 코인)</div>
+  <div class="board-grid">
+
+    <!-- 코인 신호 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>1. 코인 신호 게시판</h3>
+        <span class="badge badge-html">coin.html</span>
+        <span class="badge badge-menu">사이드바: 코인</span>
+      </div>
+      <div class="subtab-list">📌 Upbit 코인 LIME/GREEN/MOM 신호 + 모니터링. <b>차후 서브탭으로 확장 예정</b> (메모리: 콘텐츠 대기중)</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">데이터 수집 (Upbit 전종목)</div>
+            <div class="chain-file py">D:\py\coin\upbit_total.py</div>
+            <div class="chain-note">+ D:\py\coin\fetch_5min_ohlcv.py (5분봉)</div>
+            <div class="chain-note">+ D:\py\coin\upbit_open_surge.py / upbit_open_surge_home.py (개장가 급등)</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-label">중간 산출물</div>
+            <div class="chain-file json">D:\py\coin\0txt\report_coin.json</div>
+            <div class="chain-file json">D:\py\coin\open_surge_*.json / *.txt</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-label">HTML 생성 (2버전 중 1개 사용)</div>
+            <div class="chain-file py">D:\py\report-us\make_index_coin.py (현행)</div>
+            <div class="chain-file py">D:\py\report-us\make_index_coin2.py (대체버전)</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\coin.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 코인 자동매매 (실거래) -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>2. 코인 자동매매 (실거래 · 게시판 미연동)</h3>
+        <span class="badge badge-bat">D:\py\coin\0order\</span>
+      </div>
+      <div class="subtab-list">
+        📌 <b>실거래 봇</b> (HTML 게시판 미생성) · 별도 장부 파일 + git 동기화 · 주문=현재가 지정가 (시장가 금지)
+      </div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">메인 실거래 봇</div>
+            <div class="chain-file py">D:\py\coin\0order\0_upbit_btc_eth_mtf_strategy_v2.py</div>
+            <div class="chain-note">BTC/ETH MTF 전략 · v2 (live) · _old 는 보관용</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">단타/Top3 봇</div>
+            <div class="chain-file py">D:\py\coin\0order\0_upbit_top3_trader.py (US-ETF-Top3 × s1 리밸런스)</div>
+            <div class="chain-file py">D:\py\coin\0order\0_daytrader_5m.py (5분봉 단타)</div>
+            <div class="chain-file py">D:\py\coin\0order\0_anytime_5m.py</div>
+            <div class="chain-file py">D:\py\coin\0order\0_upbit_day_trader.py</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">보조 봇</div>
+            <div class="chain-file py">D:\py\coin\0order\company_ssl_inject_trader.py (회사 SSL 우회)</div>
+            <div class="chain-file py">D:\py\coin\0order\tv_alert_trader_coin.py (TV 알림 트리거)</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-label">실거래 장부/락 (git 동기화)</div>
+            <div class="chain-file json">D:\py\coin\0order\0_upbit_btc_eth_mtf_state_v2_live.json</div>
+            <div class="chain-file">D:\py\coin\0order\0_upbit_btc_eth_mtf_v2_live.lock</div>
+            <div class="chain-file json">D:\py\coin\0order\0_upbit_scalp_state_v2_live.json</div>
+            <div class="chain-file json">D:\py\coin\0order\0_daytrader_5m_state_live.json</div>
+            <div class="chain-file csv">D:\py\coin\0order\0_daytrader_5m_log_live.csv</div>
+            <div class="chain-file">D:\py\coin\0order\0_daytrader_5m.lock</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">⚙️</span>
+          <div class="chain-body">
+            <div class="chain-label">배치 (회사 노트북)</div>
+            <div class="chain-file bat">D:\py\coin\0order\00_daytrader.bat</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== 기타/일지 탭 ===================== -->
+<div id="tab-etc" class="tab-content">
+  <div class="section-title">💼 기타 / 백테스트 / 일지 (사이드바 미노출 · 보조 게시판)</div>
+  <div class="board-grid">
+
+    <!-- 연금 ETF -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>1. 연금 ETF / PAA</h3>
+        <span class="badge badge-html">adv_momentum.html</span>
+      </div>
+      <div class="subtab-list">📌 PAA(패턴회피) 위치점수 기반 연금 ETF 전략 · 3계좌(8042/YK/JW) 비중관리</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-note">HTML 직접 생성 (중간 산출물 없음)</div>
+            <div class="chain-file py">D:\py\adv_momentum_v1.py</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file txt">D:\py\0txt\0samsung.txt</div>
+            <div class="chain-file txt">D:\py\0txt\0weight_buy.txt</div>
+          </div>
+        </div>
+        <div class="arrow">▼</div>
+        <div class="chain-step"><span class="chain-icon">✅</span>
+          <div class="chain-body">
+            <div class="chain-file html-out">D:\py\report-us\adv_momentum.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top3 통합 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>2. Top3 추세 (한국 / 통합 2버전)</h3>
+        <span class="badge badge-html">top3_etf_daily_result*.html</span>
+      </div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">한국 Top3 (kr_signal_stats.json 사용)</div>
+            <div class="chain-file py">D:\py\report-us\make_top3_report.py → top3_etf_daily_result.html</div>
+            <div class="chain-file json">D:\py\report-us\top3_etf_track.json (이력)</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">통합 Top3 (kr_signal_stats_total.json 사용)</div>
+            <div class="chain-file py">D:\py\report-us\make_top3_report_total.py → top3_etf_daily_result_total.html</div>
+            <div class="chain-file json">D:\py\report-us\top3_etf_track_total.json</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 백테스트 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>3. 백테스트 결과</h3>
+        <span class="badge badge-html">backtest*.html</span>
+      </div>
+      <div class="subtab-list">📌 sc3(KR-only) 단독 = 결론 모델 · 44종 종합 CAGR23/MDD-11/Calmar2.12 · 캐시 사용</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-label">백테스트 프레임워크</div>
+            <div class="chain-file py">D:\py\backtest\backtest_phase3+sizers.py (엔진)</div>
+            <div class="chain-file py">D:\py\backtest\cache_full_2022_to_now.pkl (캐시)</div>
+            <div class="chain-note">결과 폴더: D:\py\backtest\260626_x*, _x2_neutral_exit 등 (날짜·시나리오별)</div>
+          </div>
+        </div>
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_backtest.py → backtest.html</div>
+            <div class="chain-file py">D:\py\report-us\make_backtest_v2.py → backtest_v2.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 단타 일지 / 차트 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>4. 단타 일지 / 차트 디스플레이</h3>
+        <span class="badge badge-html">danta_journal.html · danta_chart.html</span>
+      </div>
+      <div class="subtab-list">📌 1887 자체장부 단타봇 일지 · 한국/미국 차트 디스플레이 페이지</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🐍</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_danta_journal.py → danta_journal.html</div>
+            <div class="chain-file py">D:\py\report-us\make_danta_chart_display.py → danta_chart.html</div>
+            <div class="chain-file py">D:\py\report-us\make_kr_chart_display.py → kr_chart.html</div>
+            <div class="chain-file py">D:\py\report-us\make_us_chart_display.py → us_chart.html</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 보조 ETF/거래량 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>5. 보조 ETF/거래량 게시판</h3>
+        <span class="badge badge-html">kor_etf_vol · us_interest · etf_combined</span>
+      </div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">🔨</span>
+          <div class="chain-body">
+            <div class="chain-file py">D:\py\report-us\make_index_kor_etf_vol.py → kor_etf_vol.html (한국 ETF 거래량)</div>
+            <div class="chain-file py">D:\py\report-us\make_index_us_interest.py → us_interest.html (미국 이자율/채권)</div>
+            <div class="chain-file py">D:\py\report-us\make_index_etf_combined.py → etf_combined.html (한국 ETF Top30)</div>
+            <div class="chain-file py">D:\py\report-us\make_index_total_top_etf_combined_vol.py → total_etf_combined_vol.html</div>
+            <div class="chain-file py">D:\py\report-us\make_index_total_top_etf_combined2.py → total_etf_combined2.html (차트 v2 샌드박스)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 통합 매매일지 외부 -->
+    <div class="board-card">
+      <div class="board-title">
+        <h3>6. 매매일지 마스터 (Codex 위임 영역)</h3>
+        <span class="badge badge-bat">D:\py\0order\0codex_trading.md</span>
+      </div>
+      <div class="subtab-list">📌 4계좌(1887/8042/YK·JW/업비트) 일지·장부·복기차트 경로맵 · 매매일지 복기는 Codex에 위임 (메모리 정책)</div>
+      <div class="chain">
+        <div class="chain-step"><span class="chain-icon">📄</span>
+          <div class="chain-body">
+            <div class="chain-file">D:\py\0order\0codex_trading.md (마스터 문서)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== 배치파일 탭 ===================== -->
+<div id="tab-bat" class="tab-content">
+  <div class="section-title">⚙️ 메인 배치파일 선택 가이드</div>
+  <div class="bat-grid">
+    <div class="bat-card">
+      <h4>D:\py\0bat\0_h1time.bat</h4>
+      <p><span class="scope scope-home">🏠 집 전용 / 전체 업데이트</span></p>
+      <p style="margin-top:8px;">KR + US 모두 실행. 가장 완전한 업데이트.</p>
+      <p>포함: KR분석 → US분석 → 모든 HTML 생성 → git push → 텔레그램</p>
+      <p style="margin-top:6px;">로그: <code>D:\py\0bat\0_h1time_alltic_block.log</code></p>
+    </div>
+    <div class="bat-card">
+      <h4>D:\py\0bat\0_c1time.bat</h4>
+      <p><span class="scope scope-company">🏢 회사 전용 / KR 집중 업데이트</span></p>
+      <p style="margin-top:8px;">KR 중심. US ETF HTML 생성 제외.</p>
+      <p>포함: KR분석 → World ETF → KR HTML 생성 → git push</p>
+    </div>
+    <div class="bat-card">
+      <h4>D:\py\0bat\000_c1us2.bat</h4>
+      <p><span class="scope scope-company">🏢 회사 / US ETF 추가</span></p>
+      <p style="margin-top:8px;">c1time + US ETF 보조 갱신용</p>
+    </div>
+    <div class="bat-card">
+      <h4>D:\py\0bat\2web_us_global_etf.bat</h4>
+      <p><span class="scope scope-us">🇺🇸 US ETF + 해선 단독</span></p>
+      <p style="margin-top:8px;">빠른 US ETF만 업데이트할 때.</p>
+      <p>포함: usa_jasantop4_ETF.py → futures_momentum.py → us_etf.html → etf_combined.html → git push</p>
+    </div>
+    <div class="bat-card">
+      <h4>D:\py\0bat\0_h1time_us_block.bat</h4>
+      <p><span class="scope scope-us">🇺🇸 US 블록 단독</span></p>
+      <p style="margin-top:8px;">h1time의 US 부분만 분리 실행</p>
+      <p>로그: <code>D:\py\0bat\0_h1time_us_block.log</code></p>
+    </div>
+    <div class="bat-card">
+      <h4>D:\py\0bat\6_저점돌파.bat</h4>
+      <p style="margin-top:8px;">저점/돌파 신호만 단독 업데이트</p>
+      <p>→ kr_low_signal.py → kr_low_point_data.json → kor_low_point.html</p>
+    </div>
+    <div class="bat-card">
+      <h4>D:\py\0bat\0_조건검색.bat</h4>
+      <p style="margin-top:8px;">키움 조건검색식 → condition_search_results.json → kor_condition.html</p>
+    </div>
+    <div class="bat-card">
+      <h4>D:\py\0bat\1_auto_update_kor150_topvolume_1h.bat</h4>
+      <p style="margin-top:8px;">매시간 KR150 + 거래대금 + 조건검색 갱신</p>
+    </div>
+    <div class="bat-card">
+      <h4>D:\py\0order\1_auto_buy_테마주.bat</h4>
+      <p><span class="scope scope-company">🛒 테마매매 자동주문 (1887)</span></p>
+      <p style="margin-top:8px;">09:20 → snapshot · 09:27 → buy_leader_theme_1887.py 실행</p>
+      <p>상세: "🎯 테마매매 전략" 탭 참조</p>
+    </div>
+    <div class="bat-card">
+      <h4>D:\py\coin\0order\00_daytrader.bat</h4>
+      <p><span class="scope scope-coin">🪙 코인 단타 자동매매</span></p>
+      <p style="margin-top:8px;">5분봉 단타봇 상시 실행 (회사 노트북용)</p>
+    </div>
+  </div>
+
+  <div class="section-title">🚀 배포 방법</div>
+  <div class="board-card" style="max-width:600px;">
+    <div class="chain">
+      <div class="chain-step"><span class="chain-icon">1️⃣</span>
+        <div class="chain-body">
+          <div class="chain-note">모든 HTML 생성 완료 후</div>
+          <div class="chain-file bat">git add .</div>
+        </div>
+      </div>
+      <div class="chain-step"><span class="chain-icon">2️⃣</span>
+        <div class="chain-body">
+          <div class="chain-file bat">git commit -m "auto update"</div>
+        </div>
+      </div>
+      <div class="chain-step"><span class="chain-icon">3️⃣</span>
+        <div class="chain-body">
+          <div class="chain-file bat">git push origin main</div>
+        </div>
+      </div>
+      <div class="arrow">▼</div>
+      <div class="chain-step"><span class="chain-icon">🌐</span>
+        <div class="chain-body">
+          <div class="chain-file html-out">https://momentum79.github.io/report-us/</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== 전체 요약 탭 ===================== -->
+<div id="tab-summary" class="tab-content">
+  <div class="section-title">📋 전체 요약표 (사이드바 메뉴 기준)</div>
+  <div style="overflow-x:auto;">
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>사이드바 메뉴 / 게시판</th>
+          <th>데이터 수집 .py</th>
+          <th>중간 산출물</th>
+          <th>HTML 생성 .py</th>
+          <th>최종 HTML</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 메인/요약 -->
+        <tr class="cat-hub"><td>0-A</td><td>🏠 통합ETF (메인 허브)</td><td>jasantop4_global_softcap.py (선행)</td><td>kr_signal_stats_total.json</td><td>report-us/make_index_main_hub.py</td><td>main_hub.html</td></tr>
+        <tr class="cat-hub"><td>0-B</td><td>🇰🇷 요약</td><td>(기존 산출물 취합)</td><td>report_kr_150.json, report_kr_summary.txt, report_volume.json + ka10003 실시간</td><td>report-us/make_summary_board.py (직접)</td><td>summary.html</td></tr>
+        <tr class="cat-hub"><td>0-C</td><td>📊 메인 대시보드 (사이드바)</td><td>-</td><td>-</td><td>(수동 편집)</td><td>index.html</td></tr>
+
+        <!-- ETF·자산 그룹 -->
+        <tr class="cat-kr"><td>1</td><td>🌐 한국ETF</td><td>jasantop4_final.py<br>investor_trend.py<br>adv_momentum_v1.py</td><td>report_kor_etf.txt<br>kr_signal_stats.json<br>investor_data.json<br>buy_list.txt</td><td>make_index_kor_etf.py</td><td>kor_etf.html</td></tr>
+        <tr class="cat-us"><td>2</td><td>🌐 미국ETF</td><td>usa_jasantop4_ETF.py</td><td>report_us_etf.txt<br>rank_history/*.json</td><td>make_index_us_etf.py</td><td>us_etf.html</td></tr>
+        <tr class="cat-gl"><td>3</td><td>🌐 통합ETF 138종 (main_hub 데이터 원천)</td><td>jasantop4_global_softcap.py</td><td>total_top30.csv<br>buy_list_total.txt<br>kr_signal_stats_total.json</td><td>make_index_total_top_etf_combined.py</td><td>total_etf_combined.html</td></tr>
+        <tr class="cat-gl"><td>3-A</td><td>🤖 AI 전용 관찰판 (shadow)</td><td>jasantop4_global_softcap_AI.py</td><td>total_top30_AI.csv<br>buy_list_total_AI.txt<br>kr_signal_stats_total_AI.json<br>ai_basket_scores_total_AI.json</td><td>make_index_total_top_etf_combined_AI.py</td><td>total_etf_combined_AI.html</td></tr>
+        <tr class="cat-gl"><td>4</td><td>🌐 국가별등락 / World ETF</td><td>usa_jasantop4_world.py</td><td>world_rank.json + world_sco_track.json + 구글시트⚠️</td><td>make_index_country_returns.py</td><td>country_returns.html</td></tr>
+        <tr class="cat-gl"><td>5</td><td>🌐 해선 (해외선물/FX/암호화폐)</td><td>report-us/futures_momentum.py</td><td>report_futures.txt</td><td>make_index_futures.py</td><td>futures.html</td></tr>
+        <tr class="cat-etc"><td>6</td><td>🌐 보유자산</td><td>make_holdings_json.py<br>holdings_detail.py</td><td>holdings_1887/8042/yk/jw.json<br>holdings_analysis.json</td><td>(수동 편집 · JSON fetch)</td><td>holdings.html</td></tr>
+        <tr class="cat-gl"><td>(보조)</td><td>🌐 구글시트 연동</td><td>-</td><td>구글시트 직접⚠️</td><td>make_index_google_sheet.py</td><td>google_sheet.html</td></tr>
+
+        <!-- KR 신호 그룹 -->
+        <tr class="cat-kr"><td>K-1a</td><td>🇰🇷 KR150 종목 [주도테마]</td><td>top3_theme_analysis.py<br>combine_theme_order.py<br>theme_order_monitor(_integrate).py</td><td>theme_analysis.json<br>00theme_order.txt<br>00theme_filter*.txt<br>theme_order.json</td><td>make_index_theme.py</td><td>kor_theme.html (디폴트)</td></tr>
+        <tr class="cat-kr"><td>K-1b</td><td>🇰🇷 KR150 종목 [KR150]</td><td>korea/chu_korea_final.py<br>korea/kr_total_scanner.py</td><td>report_kr_150.json<br>leader_tracking_150.json<br>rank_history_kr150/*.json</td><td>make_index_kr_150.py</td><td>kor_150.html</td></tr>
+        <tr class="cat-kr"><td>K-1c</td><td>🇰🇷 KR150 종목 [KR전종목]</td><td>korea/chu_korea_final_all_tic.py</td><td>report_kr_summary.txt<br>kor_tv.txt<br>leader_tracking.json</td><td>kr/make_index_kr.py</td><td>kor_stock.html</td></tr>
+        <tr class="cat-kr"><td>K-2a</td><td>🇰🇷 당일거래대금/량 [거래대금]</td><td>topvolume30.py</td><td>report_volume.json<br>0_당일거래대금/snapshot_*<br>intraday_rank/*.json</td><td>make_index_volume.py</td><td>kor_volume.html (디폴트)</td></tr>
+        <tr class="cat-kr"><td>K-2b</td><td>🇰🇷 당일거래대금/량 [매매일지]</td><td>(1887 단타봇 자체장부)</td><td>0order 장부 파일</td><td>make_danta_journal.py<br>journal_summary.py</td><td>danta_journal.html</td></tr>
+        <tr class="cat-kr"><td>K-2c</td><td>🇰🇷 당일거래대금/량 [거래량 급증]</td><td>거래량급증.py</td><td>report_volume_spike.txt</td><td>make_index_volume_spike.py</td><td>kor_volume_spike.html</td></tr>
+        <tr class="cat-kr"><td>K-2d</td><td>🇰🇷 당일거래대금/량 [조건검색]</td><td>kiwoom_condition_search.py</td><td>condition_search_results.json</td><td>make_index_condition.py</td><td>kor_condition.html</td></tr>
+        <tr class="cat-kr"><td>K-3a</td><td>🇰🇷 실시간/저점/돌파 [실시간]</td><td>실시간순위.py</td><td>report_realtime.txt</td><td>make_index_realtime.py</td><td>kor_realtime.html (디폴트)</td></tr>
+        <tr class="cat-kr"><td>K-3b</td><td>🇰🇷 실시간/저점/돌파 [저점/돌파]</td><td>korea/kr_low_signal.py</td><td>kr_low_point_data.json</td><td>make_index_kr_low_point.py</td><td>kor_low_point.html (#low-point, #breakout)</td></tr>
+
+        <!-- 코인 -->
+        <tr class="cat-coin"><td>C-1</td><td>🪙 코인 (게시판)</td><td>coin/upbit_total.py<br>coin/fetch_5min_ohlcv.py<br>coin/upbit_open_surge.py</td><td>coin/0txt/report_coin.json</td><td>make_index_coin.py / make_index_coin2.py</td><td>coin.html</td></tr>
+        <tr class="cat-coin"><td>C-2</td><td>🪙 코인 자동매매 (실거래/장부)</td><td>coin/0order/0_upbit_btc_eth_mtf_strategy_v2.py<br>coin/0order/0_upbit_top3_trader.py<br>coin/0order/0_daytrader_5m.py</td><td>0_upbit_btc_eth_mtf_state_v2_live.json<br>0_upbit_scalp_state_v2_live.json<br>0_daytrader_5m_state_live.json + lock</td><td>-</td><td>(게시판 미연동)</td></tr>
+
+        <!-- US 신호 그룹 -->
+        <tr class="cat-us"><td>U-1</td><td>🇺🇸 미Main주</td><td>korea/chu_usa_all.py</td><td>report_us_main.txt</td><td>make_index_us_main.py</td><td>us_main.html</td></tr>
+        <tr class="cat-us"><td>U-2</td><td>🇺🇸 Finviz섹터주식</td><td>usa_jasantop4_stocks.py</td><td>report_us_finviz.txt</td><td>make_index_us_finviz.py</td><td>us_finviz.html</td></tr>
+        <tr class="cat-us"><td>U-3</td><td>🇺🇸 미국VCP</td><td>report-us/usa_jasan_trview_batchver.py<br>(+ us_minervini_2stage.py)</td><td>report_us.txt</td><td>make_index_us.py</td><td>us_stock.html</td></tr>
+        <tr class="cat-us"><td>U-4</td><td>🇺🇸 자동일지차트</td><td>make_trade_chart_boards.py<br>trade_chart_v2_lib.py<br>chart_popup_v2/v3.py</td><td>charts/board_*/*.html<br>trade_journal_summary.html</td><td>make_index_trade_chart.py</td><td>trade_chart_list.html</td></tr>
+
+        <!-- 기타 -->
+        <tr class="cat-etc"><td>E-1</td><td>💼 연금 ETF / PAA</td><td>adv_momentum_v1.py</td><td>0samsung.txt, 0weight_buy.txt</td><td>(직접 생성)</td><td>adv_momentum.html</td></tr>
+        <tr class="cat-etc"><td>E-2a</td><td>💼 Top3 추세 (한국)</td><td>(jasantop4_final.py 산출물)</td><td>top3_etf_track.json</td><td>make_top3_report.py</td><td>top3_etf_daily_result.html</td></tr>
+        <tr class="cat-etc"><td>E-2b</td><td>💼 Top3 추세 (통합)</td><td>(jasantop4_global_softcap.py 산출물)</td><td>top3_etf_track_total.json</td><td>make_top3_report_total.py</td><td>top3_etf_daily_result_total.html</td></tr>
+        <tr class="cat-etc"><td>E-3</td><td>💼 백테스트 (sc3 결론)</td><td>backtest/backtest_phase3+sizers.py<br>cache_full_2022_to_now.pkl</td><td>backtest/260626_x* (시나리오)</td><td>make_backtest.py / make_backtest_v2.py</td><td>backtest.html / backtest_v2.html</td></tr>
+        <tr class="cat-etc"><td>E-4</td><td>💼 차트 디스플레이</td><td>-</td><td>-</td><td>make_kr_chart_display.py<br>make_us_chart_display.py<br>make_danta_chart_display.py</td><td>kr_chart.html<br>us_chart.html<br>danta_chart.html</td></tr>
+        <tr class="cat-etc"><td>E-5</td><td>💼 보조 ETF/거래량</td><td>-</td><td>-</td><td>make_index_kor_etf_vol.py<br>make_index_us_interest.py<br>make_index_etf_combined.py<br>make_index_total_top_etf_combined_vol.py<br>make_index_total_top_etf_combined2.py</td><td>kor_etf_vol.html<br>us_interest.html<br>etf_combined.html<br>total_etf_combined_vol.html<br>total_etf_combined2.html</td></tr>
+
+        <!-- 가이드 -->
+        <tr class="cat-hub"><td>G-1</td><td>🛠 시스템 가이드</td><td>-</td><td>-</td><td>(수동 작성: D:\py\웹페이지_게시판_가이드.html)</td><td>webpage_boards_guide.html (사본)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:12px; color:#7986cb; margin-top:10px;">
+    ⚠️ 표에서 "구글시트"는 인터넷 연결 필수 &nbsp;|&nbsp;
+    모든 .py 경로의 기본 위치: <code>D:\py\</code>, <code>D:\py\report-us\</code>, <code>D:\py\korea\</code>, <code>D:\py\coin\</code><br>
+    모든 HTML 산출물 위치: <code>D:\py\report-us\</code>
+  </p>
+</div>
+
+<!-- ===================== 테마 탭 ===================== -->
+<div id="tab-theme" class="tab-content">
+
+  <!-- 서브탭 -->
+  <div class="tabs" style="margin-bottom:16px;">
+    <button class="tab-btn active" onclick="openSubTab('theme-sub-flow', this, 'theme-sub')">📊 전략 흐름도</button>
+    <button class="tab-btn" onclick="openSubTab('theme-sub-batch', this, 'theme-sub')">⚙️ 배치 플로우 상세</button>
+    <button class="tab-btn" onclick="openSubTab('theme-sub-buy', this, 'theme-sub')">🛒 매수 실행 흐름</button>
+  </div>
+
+  <!-- ── 서브탭 1: 전략 흐름도 (SVG) ── -->
+  <div id="theme-sub-flow" class="theme-sub" style="display:block;">
+    <div class="section-title">📊 제1전략 전체 흐름도</div>
+    <div style="overflow-x:auto; background:#f8f9fa; border:1px solid var(--border); border-radius:12px; padding:20px;">
+      <svg width="100%" viewBox="0 0 680 720" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>제1전략 전체 흐름도</title>
+<desc>장전 준비, 9:20직전 스냅샷, 9:30이후 매수, 종일 매도의 4단계 흐름</desc>
+<defs>
+<marker id="arrow-theme" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+<line x1="55" y1="172" x2="640" y2="172" stroke="rgba(31,30,29,0.15)" stroke-width="0.5" stroke-dasharray="4 3"/>
+<line x1="55" y1="340" x2="640" y2="340" stroke="rgba(31,30,29,0.15)" stroke-width="0.5" stroke-dasharray="4 3"/>
+<line x1="55" y1="588" x2="640" y2="588" stroke="rgba(31,30,29,0.15)" stroke-width="0.5" stroke-dasharray="4 3"/>
+
+<g><rect x="58" y="20" width="40" height="18" rx="9" stroke-width="0.5" fill="#f1efe8" stroke="#5f5e5a"/><text x="78" y="29" text-anchor="middle" dominant-baseline="central" fill="#5f5e5a" font-size="12">장전</text></g>
+<g><rect x="58" y="180" width="68" height="18" rx="9" stroke-width="0.5" fill="#f1efe8" stroke="#5f5e5a"/><text x="92" y="189" text-anchor="middle" dominant-baseline="central" fill="#5f5e5a" font-size="12">9:20 직전</text></g>
+<g><rect x="58" y="348" width="68" height="18" rx="9" stroke-width="0.5" fill="#f1efe8" stroke="#5f5e5a"/><text x="92" y="357" text-anchor="middle" dominant-baseline="central" fill="#5f5e5a" font-size="12">9:30 이후</text></g>
+<g><rect x="58" y="596" width="36" height="18" rx="9" stroke-width="0.5" fill="#f1efe8" stroke="#5f5e5a"/><text x="76" y="605" text-anchor="middle" dominant-baseline="central" fill="#5f5e5a" font-size="12">종일</text></g>
+
+<!-- 장전 -->
+<g>
+<rect x="60" y="46" width="168" height="44" rx="8" stroke-width="0.5" fill="#f1efe8" stroke="#5f5e5a"/>
+<text x="144" y="62" text-anchor="middle" dominant-baseline="central" fill="#444441" font-size="14" font-weight="500">theme_order_monitor</text>
+<text x="144" y="80" text-anchor="middle" dominant-baseline="central" fill="#5f5e5a" font-size="12">_integrate.py</text>
+</g>
+<g>
+<rect x="248" y="46" width="168" height="44" rx="8" stroke-width="0.5" fill="#f1efe8" stroke="#5f5e5a"/>
+<text x="332" y="62" text-anchor="middle" dominant-baseline="central" fill="#444441" font-size="14" font-weight="500">topvolume30.py</text>
+<text x="332" y="80" text-anchor="middle" dominant-baseline="central" fill="#5f5e5a" font-size="12">거래대금+외인/기관</text>
+</g>
+<g>
+<rect x="436" y="46" width="178" height="44" rx="8" stroke-width="0.5" fill="#f1efe8" stroke="#5f5e5a"/>
+<text x="525" y="62" text-anchor="middle" dominant-baseline="central" fill="#444441" font-size="14" font-weight="500">make_index_volume.py</text>
+<text x="525" y="80" text-anchor="middle" dominant-baseline="central" fill="#5f5e5a" font-size="12">→ 00_1887_leader.txt</text>
+</g>
+
+<line x1="228" y1="68" x2="248" y2="68" marker-end="url(#arrow-theme)" stroke="#73726c" stroke-width="1.5"/>
+<line x1="416" y1="68" x2="436" y2="68" marker-end="url(#arrow-theme)" stroke="#73726c" stroke-width="1.5"/>
+
+<!-- 9:20 직전 -->
+<g>
+<rect x="156" y="198" width="362" height="44" rx="8" stroke-width="0.5" fill="#f1efe8" stroke="#5f5e5a"/>
+<text x="337" y="214" text-anchor="middle" dominant-baseline="central" fill="#444441" font-size="14" font-weight="500">minbar_theme_snapshot_monitor.py</text>
+<text x="337" y="232" text-anchor="middle" dominant-baseline="central" fill="#5f5e5a" font-size="12">테마주 5분봉 → 09:20 스냅샷 JSON 저장</text>
+</g>
+
+<!-- 9:30 이후 -->
+<g>
+<rect x="60" y="358" width="254" height="104" rx="8" stroke-width="0.5" fill="#e8f4e8" stroke="#3c7c3c"/>
+<text x="187" y="378" text-anchor="middle" dominant-baseline="central" fill="#2a5a2a" font-size="14" font-weight="500">A. 주도주 즉시 지정가</text>
+<text x="187" y="398" text-anchor="middle" dominant-baseline="central" fill="#3c7c3c" font-size="12">외인+기관 당일합 &gt; 0</text>
+<text x="187" y="416" text-anchor="middle" dominant-baseline="central" fill="#3c7c3c" font-size="12">누적거래대금 100억+</text>
+<text x="187" y="434" text-anchor="middle" dominant-baseline="central" fill="#3c7c3c" font-size="12">9시시가 대비 등락률 &gt;= 코스피</text>
+<text x="187" y="452" text-anchor="middle" dominant-baseline="central" fill="#3c7c3c" font-size="12">보유 중 / 마이너스 → 스킵</text>
+</g>
+<g>
+<rect x="344" y="358" width="270" height="104" rx="8" stroke-width="0.5" fill="#f1efe8" stroke="#5f5e5a"/>
+<text x="479" y="378" text-anchor="middle" dominant-baseline="central" fill="#444441" font-size="14" font-weight="500">B. 테마종목 스톱지정가</text>
+<text x="479" y="398" text-anchor="middle" dominant-baseline="central" fill="#5f5e5a" font-size="12">외인+기관 당일합 &gt; 0</text>
+<text x="479" y="416" text-anchor="middle" dominant-baseline="central" fill="#5f5e5a" font-size="12">9시시가 대비 등락률 &gt;= 코스피</text>
+<text x="479" y="434" text-anchor="middle" dominant-baseline="central" fill="#5f5e5a" font-size="12">ma5×1.01 / 장대양봉중심×1.01</text>
+<text x="479" y="452" text-anchor="middle" dominant-baseline="central" fill="#5f5e5a" font-size="12">보유 중 / 마이너스 → 스킵</text>
+</g>
+
+<text x="337" y="480" text-anchor="middle" fill="#3d3d3a" font-size="12">※ 두 섹션은 buy_leader_theme_1887.py 에서 순차 실행</text>
+<text x="337" y="498" text-anchor="middle" fill="#3d3d3a" font-size="12">수량: 10만원 이상 2주 / 미만 4주</text>
+<line x1="337" y1="508" x2="337" y2="552" marker-end="url(#arrow-theme)" stroke="#73726c" stroke-width="1.5"/>
+
+<!-- 9:20→9:30 연결선 -->
+<line x1="337" y1="242" x2="337" y2="356" marker-end="url(#arrow-theme)" stroke="#73726c" stroke-width="1.5"/>
+
+<!-- 종일 -->
+<g>
+<rect x="60" y="556" width="554" height="56" rx="8" stroke-width="0.5" fill="#faecc7" stroke="#997a1d"/>
+<text x="337" y="578" text-anchor="middle" dominant-baseline="central" fill="#715a0d" font-size="14" font-weight="500">sell1887_holdings_theme_atr_stoploss.py</text>
+<text x="337" y="596" text-anchor="middle" dominant-baseline="central" fill="#997a1d" font-size="12">9:01~15:15 / 17회 자동 / 4단계 매도 전략</text>
+</g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ── 서브탭 2: 배치 플로우 상세 (테마주매매법.html) ── -->
+  <div id="theme-sub-batch" class="theme-sub" style="display:none;">
+    <div class="section-title">⚙️ 배치 플로우 상세 문서</div>
+    <div class="theme-dark-section">
+
+      <p style="color:#b2bec3; font-size:13px; margin-bottom:20px;">
+        배치파일: <code style="background:#0f1e30;color:#74b9ff;padding:2px 6px;border-radius:3px;font-family:monospace;">D:\py\0order\1_auto_buy_테마주.bat</code>
+      </p>
+
+      <!-- 실행 플로우 -->
+      <h2 style="font-size:15px;color:#fdcb6e;margin:20px 0 12px;border-bottom:1px solid #2d3561;padding-bottom:6px;">⚙️ 실행 흐름 (배치 플로우)</h2>
+
+      <div style="display:flex;flex-direction:column;gap:0;align-items:flex-start;margin:0 0 20px;">
+        <div style="font-size:12px;color:#fdcb6e;font-weight:bold;margin:8px 0 4px 20px;">⏰ 09:20 도달 시 순차 실행</div>
+        <div style="margin-left:20px;background:#16213e;border:1px solid #00b894;border-radius:8px;padding:8px 18px;font-size:13px;color:#00b894;min-width:320px;margin-bottom:4px;">
+          ① <strong>theme_order_monitor_integrate.py</strong>
+          <span style="color:#b2bec3;font-size:11px;display:block;">D:\py\ &nbsp;|&nbsp; 6소스 → 티커수집 → 거래대금필터(50억) → filter 파일 갱신</span>
+        </div>
+        <div style="margin-left:30px;color:#b2bec3;font-size:14px;">↓</div>
+        <div style="margin-left:20px;background:#16213e;border:1px solid #00b894;border-radius:8px;padding:8px 18px;font-size:13px;color:#00b894;min-width:320px;margin-bottom:4px;">
+          ② <strong>topvolume30.py</strong>
+          <span style="color:#b2bec3;font-size:11px;display:block;">D:\py\ &nbsp;|&nbsp; 거래대금 TOP30 조회 + 외인/기관 당일합 → report_volume.json</span>
+        </div>
+        <div style="margin-left:30px;color:#b2bec3;font-size:14px;">↓</div>
+        <div style="margin-left:20px;background:#16213e;border:1px solid #74b9ff;border-radius:8px;padding:8px 18px;font-size:13px;color:#74b9ff;min-width:320px;margin-bottom:4px;">
+          ③ <strong>make_index_volume.py</strong>
+          <span style="color:#b2bec3;font-size:11px;display:block;">D:\py\report-us\ &nbsp;|&nbsp; ①②결과 교집합 → 00_1887_leader.txt 생성</span>
+        </div>
+        <div style="margin-left:30px;color:#b2bec3;font-size:14px;">↓</div>
+        <div style="margin-left:20px;background:#16213e;border:1px solid #00b894;border-radius:8px;padding:8px 18px;font-size:13px;color:#00b894;min-width:320px;margin-bottom:4px;">
+          ④ <strong>minbar_theme_snapshot_monitor.py</strong>
+          <span style="color:#b2bec3;font-size:11px;display:block;">D:\py\0order\ &nbsp;|&nbsp; 테마주 5분봉 조회 → 09:20 스냅샷 저장 (snapshot JSON)</span>
+        </div>
+        <div style="font-size:12px;color:#fdcb6e;font-weight:bold;margin:16px 0 4px 20px;">⏰ 09:27 도달 시 실행</div>
+        <div style="margin-left:20px;background:#16213e;border:1px solid #e17055;border-radius:8px;padding:8px 18px;font-size:13px;color:#e17055;min-width:320px;">
+          ⑤ <strong>buy_leader_theme_1887.py</strong>
+          <span style="color:#b2bec3;font-size:11px;display:block;">D:\py\0order\ &nbsp;|&nbsp; 주도주 즉시매수 + 나머지 테마주 스톱지정가 매수</span>
+        </div>
+      </div>
+
+      <hr style="border:none;border-top:1px solid #2d3561;margin:20px 0;">
+
+      <!-- ① theme_order_monitor_integrate -->
+      <h2 style="font-size:15px;color:#fdcb6e;margin:20px 0 12px;border-bottom:1px solid #2d3561;padding-bottom:6px;">① theme_order_monitor_integrate.py</h2>
+      <div class="td-card">
+        <div class="td-card-title green">입력 파일 (6개 소스 + 1개 참조)</div>
+        <table class="td-table">
+          <tr><th>역할</th><th>경로</th><th>파일명</th></tr>
+          <tr><td>당일 테마</td><td class="td-path">D:\py\0txt\</td><td class="td-path">theme_analysis.json</td></tr>
+          <tr><td>전일 테마</td><td class="td-path">D:\py\0txt\</td><td class="td-path">theme_yesterday.json</td></tr>
+          <tr><td>KR150 SPOT/LIME 신호</td><td class="td-path">D:\py\report-us\</td><td class="td-path">report_kr_150.json</td></tr>
+          <tr><td>전종목 SPOT/LIME 신호</td><td class="td-path">D:\py\report-us\</td><td class="td-path">report_kr_summary.txt</td></tr>
+          <tr><td>KR150 주도주 트래킹</td><td class="td-path">D:\py\report-us\</td><td class="td-path">leader_tracking_150.json</td></tr>
+          <tr><td>전종목 주도주 트래킹</td><td class="td-path">D:\py\report-us\</td><td class="td-path">leader_tracking.json</td></tr>
+          <tr><td>종목명 매핑 (참조)</td><td class="td-path">D:\py\korea\</td><td class="td-path">kr.csv</td></tr>
+        </table>
+      </div>
+      <div class="td-card">
+        <div class="td-card-title green">출력 파일 (4개)</div>
+        <table class="td-table">
+          <tr><th>역할</th><th>경로</th><th>파일명</th><th>형식</th></tr>
+          <tr><td>TradingView 입력용</td><td class="td-out">D:\py\0txt\</td><td class="td-out">00theme_filter_tv.txt</td><td>KRX:XXXXXX 한줄씩</td></tr>
+          <tr><td>타 스크립트 입력용</td><td class="td-out">D:\py\0txt\</td><td class="td-out">00theme_filter_order.txt</td><td>6자리 코드 한줄씩</td></tr>
+          <tr><td>출처 포함 리스트</td><td class="td-out">D:\py\0txt\</td><td class="td-out">00theme_filter.txt</td><td>코드 + 소스명</td></tr>
+          <tr><td>지표 JSON (웹 대시보드용)</td><td class="td-out">D:\py\report-us\</td><td class="td-out">theme_order.json</td><td>JSON (items 배열)</td></tr>
+        </table>
+      </div>
+      <div class="td-card">
+        <div class="td-card-title green">로직 — STEP 1: 티커 수집 (우선순위 순서로 중복제거)</div>
+        <ol style="padding-left:20px;color:#b2bec3;font-size:13px;line-height:2;">
+          <li>당일 테마 (theme_analysis.json → daily.top_themes)</li>
+          <li>전일 테마 (theme_yesterday.json → top_themes)</li>
+          <li>KR150 SPOT/LIME (type이 'SPOT' 또는 'LIME'인 것만)</li>
+          <li>전종목 SPOT/LIME (정규식: ^(\d{6})\*{0,2}\s+(?:SPOT|LIME))</li>
+          <li>KR150 주도주 (added_date 오름차순 정렬)</li>
+          <li>전종목 주도주 (added_date 오름차순 정렬)</li>
+        </ol>
+      </div>
+      <div class="td-card">
+        <div class="td-card-title green">STEP 2: 거래대금 필터 / STEP 3: 지표 계산</div>
+        <div class="td-cond-box">
+          <h4>🔴 거래대금 스킵 조건</h4>
+          <ul><li>전일 거래대금 &lt; <strong style="color:#fdcb6e;">50억</strong></li><li>pykrx 데이터 조회 실패</li></ul>
+        </div>
+        <p style="color:#b2bec3;font-size:13px;margin-top:10px;">필터 통과 종목의 지표: 5이평 괴리(%) / 장대양봉중심 괴리(%) / 체결강도 / 전일 거래대금. 결과는 <strong>체결강도 내림차순</strong>으로 JSON 저장.</p>
+      </div>
+
+      <hr style="border:none;border-top:1px solid #2d3561;margin:20px 0;">
+
+      <!-- ② topvolume30 -->
+      <h2 style="font-size:15px;color:#fdcb6e;margin:20px 0 12px;border-bottom:1px solid #2d3561;padding-bottom:6px;">② topvolume30.py</h2>
+      <div class="td-card">
+        <div class="td-card-title green">핵심 내용</div>
+        <p style="color:#b2bec3;font-size:13px;">당일 거래대금 상위 종목을 조회하고, <code style="background:#0f1e30;color:#74b9ff;padding:1px 5px;border-radius:3px;">00theme_filter.txt</code>의 테마 종목과 교집합을 뽑아 외인·기관 당일 순매수 합산 값을 <code style="background:#0f1e30;color:#74b9ff;padding:1px 5px;border-radius:3px;">report_volume.json</code>에 저장합니다. <code>today</code> 필드(외인+기관 당일합)가 이후 매수 필터의 핵심 데이터로 사용됩니다.</p>
+        <table class="td-table" style="margin-top:10px;">
+          <tr><th>입력</th><th>출력</th></tr>
+          <tr><td class="td-path">00theme_filter.txt + ka10023/ka10051 API</td><td class="td-out">report_volume.json / topvolume30.txt</td></tr>
+        </table>
+      </div>
+
+      <hr style="border:none;border-top:1px solid #2d3561;margin:20px 0;">
+
+      <!-- ③ make_index_volume -->
+      <h2 style="font-size:15px;color:#fdcb6e;margin:20px 0 12px;border-bottom:1px solid #2d3561;padding-bottom:6px;">③ make_index_volume.py</h2>
+      <div class="td-card">
+        <div class="td-card-title" style="color:#74b9ff;">입력 → 출력</div>
+        <table class="td-table">
+          <tr><th>구분</th><th>경로</th><th>파일명</th></tr>
+          <tr><td><span class="td-tag td-in">IN</span> 테마필터</td><td class="td-path">D:\py\0txt\</td><td class="td-path">00theme_filter.txt</td></tr>
+          <tr><td><span class="td-tag td-in">IN</span> 거래대금 TOP</td><td class="td-path">D:\py\report-us\</td><td class="td-path">report_volume.json</td></tr>
+          <tr><td><span class="td-tag td-out2">OUT</span> 주도주 리스트</td><td class="td-out">D:\py\0txt\</td><td class="td-out">00_1887_leader.txt</td></tr>
+          <tr><td><span class="td-tag td-out2">OUT</span> HTML 대시보드</td><td class="td-out">D:\py\report-us\</td><td class="td-out">kor_volume.html</td></tr>
+        </table>
+        <div class="td-note" style="margin-top:10px;">① <code style="background:#0f1e30;color:#74b9ff;padding:1px 5px;border-radius:3px;">00theme_filter.txt</code> 와 ② <code style="background:#0f1e30;color:#74b9ff;padding:1px 5px;border-radius:3px;">report_volume.json</code> 의 교집합 종목을 <code style="background:#0f1e30;color:#74b9ff;padding:1px 5px;border-radius:3px;">00_1887_leader.txt</code>에 기록합니다. 이 파일이 매수 스크립트의 "주도주" 리스트로 사용됩니다.</div>
+      </div>
+
+      <hr style="border:none;border-top:1px solid #2d3561;margin:20px 0;">
+
+      <!-- ④ minbar_theme_snapshot_monitor -->
+      <h2 style="font-size:15px;color:#fdcb6e;margin:20px 0 12px;border-bottom:1px solid #2d3561;padding-bottom:6px;">④ minbar_theme_snapshot_monitor.py</h2>
+      <div class="td-card">
+        <div class="td-card-title green">출력 파일</div>
+        <table class="td-table">
+          <tr><th>역할</th><th>경로</th><th>파일명</th></tr>
+          <tr><td>당일 스냅샷 원본</td><td class="td-out">D:\py\snapshots\</td><td class="td-out">theme_snapshot_YYYYMMDD.json</td></tr>
+          <tr><td>누적 트래킹 CSV</td><td class="td-out">D:\py\snapshots\</td><td class="td-out">theme_track.csv</td></tr>
+          <tr><td>4주 초과분 아카이브</td><td class="td-out">D:\py\snapshots\</td><td class="td-out">theme_track_archive.csv</td></tr>
+        </table>
+      </div>
+      <div class="td-card">
+        <div class="td-card-title green">실행 모드 자동 판별</div>
+        <table class="td-table">
+          <tr><th>시각 조건</th><th>모드</th><th>동작</th></tr>
+          <tr><td>09:00 ~ 09:29</td><td style="color:#00b894;">snapshot</td><td>지정 시각의 5분봉 가격·거래대금 저장</td></tr>
+          <tr><td>15:30 이후</td><td style="color:#e17055;">close</td><td>스냅샷 대비 당일 고/저/종가 수익률 계산 → CSV 저장</td></tr>
+          <tr><td>그 외</td><td style="color:#b2bec3;">none</td><td>실행은 되나 아무 작업 없음</td></tr>
+          <tr><td>TEST_MODE=True</td><td style="color:#a29bfe;">test</td><td>시각 무관하게 스냅샷 3개 + close 전체 실행</td></tr>
+        </table>
+        <div class="td-note" style="margin-top:10px;"><strong>4주(28일)</strong> 이내 데이터만 theme_track.csv에 유지. 초과분은 theme_track_archive.csv로 이동. 중복 키: (날짜 + 종목코드 + 스냅샷시각)</div>
+      </div>
+
+    </div><!-- /.theme-dark-section -->
+  </div><!-- /#theme-sub-batch -->
+
+  <!-- ── 서브탭 3: 매수 실행 흐름 (테마buyflow.html) ── -->
+  <div id="theme-sub-buy" class="theme-sub" style="display:none;">
+    <div class="section-title">🛒 매수 실행 흐름 — buy_leader_theme_1887.py</div>
+    <div class="theme-dark-section">
+      <div style="text-align:center;margin-bottom:30px;">
+        <span style="display:inline-block;background:linear-gradient(135deg,#1f6feb,#388bfd);color:#fff;font-family:'JetBrains Mono',monospace;font-size:13px;padding:4px 14px;border-radius:20px;margin-bottom:12px;">📄 D:\py\0order\buy_leader_theme_1887.py</span>
+        <div style="font-size:22px;font-weight:900;background:linear-gradient(90deg,#58a6ff,#a371f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">테마주 자동 매수 실행 흐름</div>
+        <p style="color:#8b949e;font-size:14px;margin-top:6px;">1887 계좌 제1전략 | 주도주 즉시매수 + 테마종목 스톱지정가</p>
+      </div>
+
+      <!-- 선행 조건 -->
+      <div class="bf-section-label">⚙️ 실행 전 필수 준비</div>
+      <div class="bf-card bf-accent">
+        <div class="bf-card-header"><span class="bf-step-badge bf-badge-blue">PRE</span><span class="bf-card-title">선행 스크립트 완료 필요</span></div>
+        <ul style="list-style:none;">
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(48,54,61,.4);font-size:14px;">
+            <span style="font-size:15px;">1️⃣</span>
+            <div><code class="bf-code">minbar_theme_snapshot_monitor.py</code> — 09:20 분봉 스냅샷 저장 완료</div>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;font-size:14px;">
+            <span style="font-size:15px;">2️⃣</span>
+            <div><code class="bf-code">topvolume30.py</code> — <code class="bf-code">report_volume.json</code> (외인+기관 수급) 생성 완료</div>
+          </li>
+        </ul>
+        <div style="background:rgba(210,153,34,.08);border:1px solid rgba(210,153,34,.3);border-radius:8px;padding:12px 16px;font-size:13px;color:#d29922;margin-top:10px;">⚠️ 위 두 파일이 없으면 필터가 미적용 또는 스킵 처리됩니다.</div>
+      </div>
+
+      <!-- STEP 0 -->
+      <div class="bf-section-label">🔵 STEP 0 — 초기화</div>
+      <div class="bf-card bf-accent">
+        <div class="bf-card-header"><span class="bf-step-badge bf-badge-blue">INIT</span><span class="bf-card-title">환경변수 &amp; 경로 로드</span></div>
+        <table class="bf-table">
+          <tr><th>항목</th><th>내용</th></tr>
+          <tr><td><code class="bf-code">.env</code> 로드</td><td><code class="bf-code">KIWOOM_ACCOUNT_NO_1887</code> / APP_KEY / SECRET_KEY</td></tr>
+          <tr><td><code class="bf-code">BASE_DIR</code></td><td><code class="bf-code">D:\py</code> (파일 기준 2단계 위)</td></tr>
+          <tr><td>코스피 중단 기준</td><td><code class="bf-code">KOSPI_HALT_RATE = -1.0%</code></td></tr>
+          <tr><td>누적거래대금 기준</td><td><code class="bf-code">CUM_AMT_MIN = 100억</code></td></tr>
+          <tr><td>주문 딜레이</td><td><code class="bf-code">ORDER_DELAY = 0.5초</code></td></tr>
+        </table>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="bf-section-label">🔵 STEP 1 — 데이터 로드</div>
+      <div class="bf-card bf-accent">
+        <div class="bf-card-header"><span class="bf-step-badge bf-badge-blue">LOAD</span><span class="bf-card-title">6가지 데이터 수집</span></div>
+        <table class="bf-table">
+          <tr><th>#</th><th>데이터</th><th>출처</th><th>실패 시</th></tr>
+          <tr><td>①</td><td>키움 API 토큰</td><td><code class="bf-code">POST /oauth2/token</code></td><td style="color:#f85149;">⛔ 즉시 종료</td></tr>
+          <tr><td>②</td><td>1887 보유종목</td><td><code class="bf-code">POST /api/dostk/acnt</code></td><td style="color:#8b949e;">빈 set 처리</td></tr>
+          <tr><td>③</td><td>주도주 목록</td><td><code class="bf-code">D:\py\0txt\00_1887_leader.txt</code></td><td style="color:#8b949e;">빈 set 처리</td></tr>
+          <tr><td>④</td><td>테마종목 목록 + 지표</td><td><code class="bf-code">D:\py\report-us\theme_order.json</code></td><td style="color:#8b949e;">빈 dict 처리</td></tr>
+          <tr><td>⑤</td><td>외인+기관 수급</td><td><code class="bf-code">D:\py\report-us\report_volume.json</code></td><td style="color:#d29922;">필터 미적용</td></tr>
+          <tr><td>⑥</td><td>09:20 분봉 스냅샷</td><td><code class="bf-code">D:\py\snapshots\theme_snapshot_YYYYMMDD.json</code></td><td style="color:#d29922;">거래대금 필터 미적용</td></tr>
+        </table>
+        <div style="background:rgba(210,153,34,.08);border:1px solid rgba(210,153,34,.3);border-radius:8px;padding:10px 14px;font-size:13px;color:#d29922;margin-top:10px;">⚠️ ③④ 모두 비어있으면 → <strong>즉시 종료</strong></div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="bf-section-label">🔴 STEP 2 — 코스피 안전장치</div>
+      <div class="bf-card bf-red">
+        <div class="bf-card-header"><span class="bf-step-badge bf-badge-red">GUARD</span><span class="bf-card-title">코스피 시가대비 등락률 체크 → -1% 이하면 전체 중단</span></div>
+        <div style="background:#1e2530;border:1px solid #30363d;border-radius:8px;padding:12px 16px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#a371f7;margin-top:8px;text-align:center;">
+          코스피 등락률 = (현재 분봉 종가 ÷ 09:00 첫봉 시가 − 1) × 100
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;">
+          <div style="background:#1e2530;border:1px solid #30363d;border-radius:8px;padding:14px 16px;">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#f85149;margin-bottom:8px;">❌ 코스피 ≤ −1.0%</div>
+            <p style="color:#f85149;font-size:13px;">전체 매수 즉시 중단<br>아무 주문도 안 나감</p>
+          </div>
+          <div style="background:#1e2530;border:1px solid #30363d;border-radius:8px;padding:14px 16px;">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#3fb950;margin-bottom:8px;">✅ 코스피 > −1.0%</div>
+            <p style="color:#3fb950;font-size:13px;">정상 진행<br>A / B 매수 섹션으로 이동</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="bf-section-label">🟢 STEP 3 — [A] 주도주 즉시 지정가 매수</div>
+      <div class="bf-card bf-green">
+        <div class="bf-card-header"><span class="bf-step-badge bf-badge-green">SECTION A</span><span class="bf-card-title">00_1887_leader.txt 종목 → 즉시 지정가</span></div>
+        <p style="font-size:13px;color:#8b949e;margin-bottom:14px;">종목을 코드 오름차순으로 순회. 아래 필터를 순서대로 통과해야 매수.</p>
+        <ul style="list-style:none;">
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(48,54,61,.4);font-size:14px;"><span style="min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:rgba(248,81,73,.2);color:#f85149;flex-shrink:0;">✕</span><div><strong>이미 보유 중?</strong><div style="font-size:12px;color:#8b949e;margin-top:2px;">보유 중이면 → 스킵</div></div></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(48,54,61,.4);font-size:14px;"><span style="min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:rgba(248,81,73,.2);color:#f85149;flex-shrink:0;">✕</span><div><strong>등락률(change_rt) ≥ 0?</strong><div style="font-size:12px;color:#8b949e;margin-top:2px;">마이너스이면 → 스킵</div></div></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(48,54,61,.4);font-size:14px;"><span style="min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:rgba(63,185,80,.2);color:#3fb950;flex-shrink:0;">①</span><div><strong>외인+기관 당일합 &gt; 0?</strong><div style="font-size:12px;color:#8b949e;margin-top:2px;">report_volume.json 기준. 데이터 없으면 통과</div></div></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(48,54,61,.4);font-size:14px;"><span style="min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:rgba(63,185,80,.2);color:#3fb950;flex-shrink:0;">②</span><div><strong>09:20 누적거래대금 ≥ 100억?</strong><div style="font-size:12px;color:#8b949e;margin-top:2px;">theme_snapshot.json 기준. 없으면 미적용</div></div></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;font-size:14px;"><span style="min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:rgba(63,185,80,.2);color:#3fb950;flex-shrink:0;">③</span><div><strong>종목 시가대비 등락률 ≥ 코스피 시가대비 등락률?</strong><div style="font-size:12px;color:#8b949e;margin-top:2px;">실시간 분봉 기준 / 실패 시 스냅샷 fallback</div></div></li>
+        </ul>
+        <div style="margin-top:16px;background:#1e2530;border:1px solid #30363d;border-radius:8px;padding:14px 16px;">
+          <p style="font-size:13px;font-weight:700;margin-bottom:10px;color:#3fb950;">✅ 6단계 통과 시 → 즉시 지정가 매수</p>
+          <table class="bf-table">
+            <tr><th>항목</th><th>계산</th></tr>
+            <tr><td>수량</td><td>현재가 ≥ 10만원 → <strong>2주</strong> / 미만 → <strong>4주</strong></td></tr>
+            <tr><td>주문가</td><td>현재가 틱 단위 올림 (ETF: 5원 고정 / 일반주: 가격대별 틱)</td></tr>
+            <tr><td>주문유형</td><td><code class="bf-code">trde_tp: "0"</code> 지정가</td></tr>
+            <tr><td>딜레이</td><td>주문 후 0.5초 대기</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="bf-section-label">🟡 STEP 4 — [B] 테마종목 스톱지정가 매수</div>
+      <div class="bf-card bf-yellow">
+        <div class="bf-card-header"><span class="bf-step-badge bf-badge-yellow">SECTION B</span><span class="bf-card-title">theme_order.json 중 주도주 제외 종목 → 스톱지정가</span></div>
+        <ul style="list-style:none;">
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(48,54,61,.4);font-size:14px;"><span style="min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:rgba(248,81,73,.2);color:#f85149;flex-shrink:0;">✕</span><div><strong>이미 보유 중?</strong></div></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(48,54,61,.4);font-size:14px;"><span style="min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:rgba(248,81,73,.2);color:#f85149;flex-shrink:0;">✕</span><div><strong>등락률 마이너스?</strong></div></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(48,54,61,.4);font-size:14px;"><span style="min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:rgba(248,81,73,.2);color:#f85149;flex-shrink:0;">✕</span><div><strong>지표 없음?</strong><div style="font-size:12px;color:#8b949e;margin-top:2px;">ma5도 없고 bigcandle_center도 없으면 → 스킵 (스톱가 계산 불가)</div></div></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid rgba(48,54,61,.4);font-size:14px;"><span style="min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:rgba(210,153,34,.2);color:#d29922;flex-shrink:0;">①</span><div><strong>외인+기관 당일합 &gt; 0?</strong></div></li>
+          <li style="display:flex;align-items:flex-start;gap:10px;padding:7px 0;font-size:14px;"><span style="min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;background:rgba(210,153,34,.2);color:#d29922;flex-shrink:0;">②</span><div><strong>종목 시가대비 등락률 ≥ 코스피 시가대비 등락률?</strong></div></li>
+        </ul>
+        <div style="margin-top:16px;background:#1e2530;border:1px solid #30363d;border-radius:8px;padding:14px 16px;">
+          <p style="font-size:13px;font-weight:700;margin-bottom:10px;color:#d29922;">✅ 통과 시 → 스톱지정가 분할 주문</p>
+          <table class="bf-table">
+            <tr><th>지표</th><th>스톱가 계산</th></tr>
+            <tr><td><code class="bf-code">ma5</code> (5일선)</td><td><code class="bf-code">ceil(ma5 × 1.01)</code> — 5일선 1% 위</td></tr>
+            <tr><td><code class="bf-code">bigcandle_center</code></td><td><code class="bf-code">ceil(bc_center × 1.01)</code> — 장대양봉 중심 1% 위</td></tr>
+          </table>
+          <table class="bf-table" style="margin-top:10px;">
+            <tr><th>수량</th><th>1차 주문</th><th>2차 주문</th></tr>
+            <tr><td><strong>2주</strong> (현재가 ≥10만)</td><td>1주 @ 스톱가 + 2틱</td><td>1주 @ 스톱가 − 5틱</td></tr>
+            <tr><td><strong>4주</strong> (현재가 &lt;10만)</td><td>2주 @ 스톱가 + 2틱</td><td>2주 @ 스톱가 − 5틱</td></tr>
+          </table>
+          <p style="font-size:12px;color:#8b949e;margin-top:8px;">두 지표 모두 있으면 → <strong>두 번 독립 주문</strong> (ma5 주문 + 장대양봉 주문)</p>
+          <p style="font-size:12px;color:#8b949e;">주문유형 <code class="bf-code">trde_tp: "28"</code> (스톱지정가) | 1차 후 2초 대기 → 2차</p>
+        </div>
+      </div>
+
+      <!-- 전체 흐름 요약 -->
+      <div class="bf-section-label">📋 전체 흐름 한눈에</div>
+      <div class="bf-card" style="border-color:#30363d;">
+        <table class="bf-table">
+          <tr><th>단계</th><th>동작</th><th>중단 조건</th></tr>
+          <tr><td><code class="bf-code">INIT</code></td><td>.env 로드, 상수 설정</td><td>—</td></tr>
+          <tr><td><code class="bf-code">LOAD</code></td><td>토큰/보유/주도주/테마/수급/스냅샷 로드</td><td>토큰 실패, 종목 없음</td></tr>
+          <tr><td><code class="bf-code">GUARD</code></td><td>코스피 시가대비 등락률 계산</td><td>코스피 ≤ −1%</td></tr>
+          <tr><td><code class="bf-code">A</code></td><td>주도주 필터 → 즉시 지정가</td><td>각 필터 미통과 시 스킵</td></tr>
+          <tr><td><code class="bf-code">B</code></td><td>테마종목 필터 → 스톱지정가 분할</td><td>각 필터 미통과 시 스킵</td></tr>
+          <tr><td><code class="bf-code">DONE</code></td><td>최종 주문/스킵 요약 출력</td><td>—</td></tr>
+        </table>
+      </div>
+
+      <p style="text-align:center;color:#8b949e;font-size:12px;margin-top:30px;">buy_leader_theme_1887.py | 1887 계좌 제1전략</p>
+    </div><!-- /.theme-dark-section -->
+  </div><!-- /#theme-sub-buy -->
+
+</div><!-- /#tab-theme -->
+
+<p class="updated">최종 정리: 2026-06-28 · momentum79 · 사이드바 메뉴 기준 재정리</p>
+
+<script>
+function openTab(tabId, btn) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('body > .tabs .tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  btn.classList.add('active');
+}
+function openSubTab(subId, btn, groupClass) {
+  document.querySelectorAll('.' + groupClass).forEach(t => t.style.display = 'none');
+  document.getElementById(subId).style.display = 'block';
+  btn.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>

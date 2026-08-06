@@ -1,0 +1,75 @@
+{
+    "avg_sco": 4.3,
+    "total_cnt": 132,
+    "valid_cnt": 132,
+    "atr_excl_cnt": 0,
+    "sco_pos": 87,
+    "sco_neg": 45,
+    "sco_strong": 33,
+    "sco_zone_neg": 45,
+    "sco_zone_weak": 39,
+    "sco_zone_mid": 15,
+    "sco_zone_strong": 33,
+    "strong_count": 33,
+    "top3_avg_sco": 15.67,
+    "top3_avg_pos": 1.0,
+    "kospi_trend": "-",
+    "kosdaq_trend": "GREEN",
+    "sp500_trend": "LIME",
+    "nasdaq_trend": "LIME",
+    "euro_trend": "LIME",
+    "india_trend": "-",
+    "nikkei_trend": "-",
+    "shanghai_trend": "GREEN",
+    "hongkong_trend": "-",
+    "brazil_trend": "-",
+    "kospi_mult": 0.2,
+    "nasdaq_mult": 0.85,
+    "invest_pct": 48.8,
+    "invest_amount_total": 48781497,
+    "internal_weights": [
+        28.7926,
+        25.7998,
+        16.5119,
+        10.3199,
+        10.3199,
+        8.2559
+    ],
+    "n_holdings": 6,
+    "holdings_tickers": [
+        "GREK",
+        "XLF",
+        "EWP",
+        "EWQ",
+        "EWA",
+        "EWS"
+    ],
+    "final_ratios": {
+        "GREK": 14.05,
+        "XLF": 12.59,
+        "EWP": 8.05,
+        "EWQ": 5.03,
+        "EWA": 5.03,
+        "EWS": 4.03
+    },
+    "top3_tickers": [
+        "GREK",
+        "XLF",
+        "EWP"
+    ],
+    "allocation_map_used": [
+        31,
+        25,
+        16,
+        10,
+        10,
+        8
+    ],
+    "score_model": {
+        "name": "vol_stability_v1",
+        "base": "sco55 + return1m30 + return3m15",
+        "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
+        "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
+    },
+    "update_time": "2026-08-06 21:11:53"
+}

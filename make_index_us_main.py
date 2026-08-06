@@ -1,0 +1,974 @@
+# make_index_us_main.py
+import html
+from pathlib import Path
+from datetime import datetime
+import re
+
+BASE = Path(__file__).resolve().parent
+import sys
+sys.path.insert(0, str(BASE))
+from chart_popup_v4 import build_chart_popup   # V4 내장형 일/주봉 인터랙티브 팝업
+REPORT_TXT = BASE / "report_us_main.txt"
+OUT_HTML = BASE / "us_main.html"
+
+
+def extract_block(text, start_marker, end_markers):
+    lines = text.splitlines()
+    start = None
+    for i, line in enumerate(lines):
+        if line.strip().startswith(start_marker):
+            start = i
+            break
+    if start is None:
+        return ""
+
+    end = len(lines)
+    for i in range(start + 1, len(lines)):
+        if any(lines[i].strip().startswith(m) for m in end_markers):
+            end = i
+            break
+
+    return "\n".join(lines[start:end]).strip()
+
+
+# ── Signal → badge HTML 변환 ──────────────────────────────────────────────────
+# (key: label) -> (bg_color, text_color)
+SIGNAL_BADGE = {
+    "MOM":    ("#6a0dad", "#fff"),
+    "LIME":   ("#27ae60", "#fff"),
+    "GREEN":  ("#2ecc71", "#fff"),
+    "RED":    ("#e74c3c", "#fff"),
+    "PURPLE": ("#8e44ad", "#fff"),
+}
+NEWSIG_BADGE = {
+    "🆕GRN": ("#27ae60", "#fff"),
+    "🆕RED": ("#e74c3c", "#fff"),
+    "🆕MOM": ("#6a0dad", "#fff"),
+    "🆕LME": ("#f39c12", "#fff"),
+}
+
+def make_badge(text, bg, fg="#fff"):
+    """inline badge span"""
+    return (
+        f'<span style="display:inline-block;padding:1px 7px;border-radius:10px;'
+        f'font-size:11px;font-weight:600;background:{bg};color:{fg};">'
+        f'{html.escape(text)}</span>'
+    )
+
+
+# ── 등락률 셀: 상승=lime(green), 하락=red, 소수점 2자리 ──
+CHG_UP_COLOR = "#16a34a"
+CHG_DN_COLOR = "#e74c3c"
+
+def chg_cell(val):
+    s = str(val).strip().replace("%", "").replace("+", "").replace(",", "")
+    try:
+        f = float(s)
+    except ValueError:
+        return f'<td>{html.escape(str(val))}</td>'
+    if f > 0:
+        color, sign = CHG_UP_COLOR, "+"
+    elif f < 0:
+        color, sign = CHG_DN_COLOR, ""
+    else:
+        color, sign = "#333", ""
+    return f'<td style="color:{color};font-weight:600;">{sign}{f:.2f}%</td>'
+
+
+def parse_pipe_block_mom(block_text):
+    """
+    MOM/LIME/GREEN 파싱: Ticker | Signal | Price | 등락률 | Date | sco | sco99
+    → Signal/Date/sco99 제거
+    출력 컬럼: [Ticker, Price($), 등락률(%), sco]
+    """
+    rows = []
+    for line in block_text.splitlines():
+        line = line.strip()
+        if not line or line.startswith("【") or line.startswith("-") or line.startswith("="):
+            continue
+        if "|" in line:
+            parts = [p.strip() for p in line.split("|")]
+            # parts: [Ticker, Signal, Price, 등락률, Date, sco, sco99]
+            ticker  = parts[0] if len(parts) > 0 else ""
+            price   = parts[2] if len(parts) > 2 else ""
+            chg     = parts[3] if len(parts) > 3 else ""
+            sco_raw = parts[5] if len(parts) > 5 else ""
+            sco_val = sco_raw.replace("sco:", "").strip()
+            try:
+                sco_val = f"{float(sco_val):.1f}"
+            except ValueError:
+                pass
+            rows.append([ticker, price, chg, sco_val])
+        elif line == "(없음)":
+            rows.append(None)
+    return rows
+
+
+def rows_to_html_table(rows, headers):
+    """rows(리스트) → styled-tableWide 테이블 HTML. 등락률 컬럼은 색상 처리."""
+    if not rows or rows == [None]:
+        return '<p style="padding-left:10px; color:#777;">(검출된 종목 없음)</p>'
+
+    chg_cols = {i for i, h in enumerate(headers) if "등락" in h}
+
+    html_out = ['<table class="styled-tableWide">']
+    html_out.append("<thead><tr>" + "".join(f"<th>{h}</th>" for h in headers) + "</tr></thead>")
+    html_out.append("<tbody>")
+
+    for parts in rows:
+        if parts is None:
+            continue
+        row_html = "<tr>"
+        for i, c in enumerate(parts):
+            if i == 0:
+                # 티커 컬럼: chart-trigger
+                ticker_clean = c.replace("*", "").strip()
+                row_html += (
+                    f'<td class="ticker-col chart-trigger" data-ticker="{html.escape(ticker_clean)}">'
+                    f'{html.escape(c)}</td>'
+                )
+            elif i in chg_cols:
+                row_html += chg_cell(c)
+            else:
+                row_html += f"<td>{html.escape(str(c))}</td>"
+
+        row_html += "</tr>"
+        html_out.append(row_html)
+
+    html_out.append("</tbody></table>")
+    return "\n".join(html_out)
+
+
+def sort_rows_by_sco(rows, sco_idx, reverse=True):
+    """sco 컬럼(sco_idx) 기준 내림차순 정렬. None 행 제거."""
+    def key(r):
+        try:
+            return float(str(r[sco_idx]).replace("sco:", "").strip())
+        except (ValueError, IndexError, TypeError):
+            return float("-inf")
+    clean = [r for r in rows if r is not None]
+    return sorted(clean, key=key, reverse=reverse)
+
+
+def rows_to_html_columns(rows, headers, max_cols=4, chunk=10):
+    """rows를 chunk개씩 끊어 가로 컬럼(최대 max_cols열)으로 배치."""
+    clean = [r for r in rows if r is not None]
+    if not clean:
+        return '<p style="padding-left:10px; color:#777;">(검출된 종목 없음)</p>'
+    clean = clean[: max_cols * chunk]
+    chunks = [clean[i:i + chunk] for i in range(0, len(clean), chunk)]
+    cols = "\n".join(
+        f'<div class="col-table">{rows_to_html_table(ch, headers)}</div>'
+        for ch in chunks
+    )
+    return f'<div class="table-columns">{cols}</div>'
+
+
+def parse_pipe_block_top30(block_text):
+    """
+    Top30 블록 파싱:
+    헤더행: Ticker | sco | 3M(%) | Final | NewSig
+    데이터행: {ticker} | {sco} | {rtn} | {final} | {newsig}
+    """
+    rows = []
+    for line in block_text.splitlines():
+        line = line.strip()
+        if not line or line.startswith("【") or line.startswith("-") or line.startswith("="):
+            continue
+        # 헤더행 스킵
+        if "Ticker" in line and "sco" in line:
+            continue
+        if "|" in line:
+            parts = [p.strip() for p in line.split("|")]
+            rows.append(parts)
+        elif line == "(없음)":
+            rows.append(None)
+    return rows
+
+
+def rows_to_html_table_top30(rows, table_id="top30-table"):
+    """
+    Top30 전용: [Ticker, Price($), 등락률(%), sco, 3M(%), Final, NewSig] → styled-tableWide 테이블
+    """
+    if not rows or rows == [None]:
+        return '<p style="padding-left:10px; color:#777;">(Top30 데이터 없음)</p>'
+
+    headers = ["Ticker", "Price($)", "등락률(%)", "sco", "3M(%)", "Final", "NewSig"]
+    html_out = [f'<table class="styled-tableWide top30-sortable" id="{table_id}">']
+    html_out.append(
+        "<thead><tr>" +
+        "".join(f'<th class="sortable" data-col="{i}">{h}</th>' for i, h in enumerate(headers)) +
+        "</tr></thead>"
+    )
+    html_out.append("<tbody>")
+
+    for parts in rows:
+        if parts is None:
+            continue
+        if len(parts) < 6:
+            continue
+        ticker  = parts[0].strip()
+        price   = parts[1].strip() if len(parts) > 1 else ""
+        chg_val = parts[2].strip() if len(parts) > 2 else ""
+        sco_val = parts[3].strip() if len(parts) > 3 else ""
+        rtn_val = parts[4].strip() if len(parts) > 4 else ""
+        final   = parts[5].strip() if len(parts) > 5 else ""
+        newsig  = parts[6].strip() if len(parts) > 6 else "-"
+
+        ticker_clean = ticker.replace("*", "").strip()
+        row_html  = f'<tr><td class="ticker-col chart-trigger" data-ticker="{html.escape(ticker_clean)}">{html.escape(ticker)}</td>'
+        row_html += f"<td>{html.escape(price)}</td>"
+        row_html += chg_cell(chg_val)
+        row_html += f"<td>{html.escape(sco_val)}</td>"
+        row_html += f"<td>{html.escape(rtn_val)}</td>"
+        row_html += f"<td>{html.escape(final)}</td>"
+
+        # NewSig badge
+        if newsig in NEWSIG_BADGE:
+            bg, fg = NEWSIG_BADGE[newsig]
+            row_html += f"<td>{make_badge(newsig, bg, fg)}</td>"
+        elif newsig == "-" or newsig == "":
+            row_html += '<td style="color:#bbb;">-</td>'
+        else:
+            row_html += f"<td>{html.escape(newsig)}</td>"
+
+        row_html += "</tr>"
+        html_out.append(row_html)
+
+    html_out.append("</tbody></table>")
+    return "\n".join(html_out)
+
+
+def rows_to_html_columns_top30(rows, max_cols=3, chunk=10):
+    """Top30를 chunk개씩 끊어 가로 컬럼(최대 max_cols열)으로 배치."""
+    clean = [r for r in rows if r is not None]
+    if not clean:
+        return '<p style="padding-left:10px; color:#777;">(Top30 데이터 없음)</p>'
+    clean = clean[: max_cols * chunk]
+    chunks = [clean[i:i + chunk] for i in range(0, len(clean), chunk)]
+    cols = "\n".join(
+        f'<div class="col-table">{rows_to_html_table_top30(ch, table_id=f"top30-table-{idx}")}</div>'
+        for idx, ch in enumerate(chunks)
+    )
+    return f'<div class="table-columns">{cols}</div>'
+
+
+def parse_pipe_block_order(block_text):
+    rows = []
+    for line in block_text.splitlines():
+        line = line.strip()
+        if not line or line.startswith("=") or line.startswith("-"):
+            continue
+        if "Ticker" in line and "Weight" in line:
+            continue
+        if line == "None" or "없음" in line:
+            continue
+        if "|" in line:
+            rows.append([p.strip() for p in line.split("|")])
+    return rows
+
+
+def rows_to_html_table_order(rows, table_id="order-a-table"):
+    if not rows:
+        return '<p style="padding-left:10px; color:#777;">(A급 주문 후보 없음)</p>'
+    headers = ["Ticker", "Weight(%)", "Price($)", "등락률(%)", "sco", "3M(%)", "Final", "Color", "NewSig"]
+    html_out = [f'<table class="styled-tableWide top30-sortable" id="{table_id}">']
+    html_out.append("<thead><tr>" + "".join(f'<th class="sortable" data-col="{i}">{h}</th>' for i, h in enumerate(headers)) + "</tr></thead>")
+    html_out.append("<tbody>")
+    for parts in rows:
+        if len(parts) < 9:
+            continue
+        ticker, weight, price, chg, sco, rtn, final, color, newsig = parts[:9]
+        ticker_clean = ticker.replace("*", "").strip()
+        row_html = f'<tr><td class="ticker-col chart-trigger" data-ticker="{html.escape(ticker_clean)}">{html.escape(ticker)}</td>'
+        row_html += f"<td>{html.escape(weight)}</td><td>{html.escape(price)}</td>"
+        row_html += chg_cell(chg)
+        row_html += f"<td>{html.escape(sco)}</td><td>{html.escape(rtn)}</td><td>{html.escape(final)}</td><td>{html.escape(color)}</td>"
+        row_html += f"<td>{html.escape(newsig)}</td></tr>"
+        html_out.append(row_html)
+    html_out.append("</tbody></table>")
+    return "\n".join(html_out)
+
+
+def main():
+    text = REPORT_TXT.read_text(encoding="utf-8", errors="replace") if REPORT_TXT.exists() else ""
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    # ── 업데이트 시간 추출 ──
+    update_time = now
+    for line in text.splitlines():
+        if "업데이트:" in line:
+            update_time = line.split("업데이트:")[1].strip()
+            break
+
+    # ── 블록 추출 ──
+    mom_block = extract_block(
+        text,
+        "【MOM",
+        ["【LIME", "【GREEN", "【RED"]
+    )
+    lime_block = extract_block(
+        text,
+        "【LIME",
+        ["【GREEN", "【RED"]
+    )
+    green_block = extract_block(
+        text,
+        "【GREEN",
+        ["【RED", "【US Main Top30"]
+    )
+    top30_block = extract_block(
+        text,
+        "【US Main Top30",
+        []
+    )
+    order_a_block = extract_block(
+        text,
+        "=== ORDER A max10",
+        ["【US Main Top30", "==="]
+    )
+
+    # ── 파싱 (Signal/Date 제거, sco 정규화) ──
+    mom_rows   = parse_pipe_block_mom(mom_block)       # [Ticker, Price, 등락률, sco]
+    lime_rows  = parse_pipe_block_mom(lime_block)      # [Ticker, Price, 등락률, sco]
+    green_rows = parse_pipe_block_mom(green_block)     # [Ticker, Price, 등락률, sco]
+    top30_rows = parse_pipe_block_top30(top30_block)   # [Ticker, Price, 등락률, sco, 3M(%), Final, NewSig]
+    order_a_rows = parse_pipe_block_order(order_a_block)
+
+    # ── 헤더 정의 ──
+    signal_headers = ["Ticker", "Price($)", "등락률(%)", "sco"]
+
+    # sco(인덱스 3) 내림차순 정렬 후 10개씩 끊어 최대 4열로 배치
+    mom_rows   = sort_rows_by_sco(mom_rows,   3)
+    lime_rows  = sort_rows_by_sco(lime_rows,  3)
+    green_rows = sort_rows_by_sco(green_rows, 3)
+
+    mom_html   = rows_to_html_columns(mom_rows,   signal_headers, max_cols=4, chunk=10)
+    lime_html  = rows_to_html_columns(lime_rows,  signal_headers, max_cols=4, chunk=10)
+    green_html = rows_to_html_columns(green_rows, signal_headers, max_cols=4, chunk=10)
+    order_a_html = rows_to_html_table_order(order_a_rows)
+    top30_html = rows_to_html_columns_top30(top30_rows, max_cols=3, chunk=10)
+
+    page = f"""<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>US Main Stock Report</title>
+<style>
+body {{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 15px;
+  margin: 0;
+  background-color: #f4f7f6;
+  line-height: 1.4;
+}}
+h2 {{
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  color: #2c3e50;
+  border-bottom: 2px solid #e67e22;
+  font-size: 1.4em;
+}}
+.signal-header {{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding-bottom: 3px;
+  color: #2c3e50;
+  font-size: 1.1em;
+  border-bottom: 1px solid #e67e22;
+}}
+.styled-tableWide {{
+  width: auto;
+  min-width: 300px;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 5px 0 15px 0;
+  font-size: 12px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}}
+.styled-tableWide thead tr {{
+  background-color: #e67e22;
+  color: #ffffff;
+  text-align: left;
+}}
+.styled-tableWide th, .styled-tableWide td {{
+  padding: 4px 10px;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}}
+.styled-tableWide td.ticker-col {{
+  width: 70px;
+  font-weight: 600;
+}}
+.styled-tableWide tbody tr:nth-of-type(even) {{
+  background-color: #fdf8f4;
+}}
+.styled-tableWide tbody tr:last-of-type {{
+  border-bottom: 2px solid #e67e22;
+}}
+@media (max-width: 600px) {{
+  .styled-tableWide {{ font-size: 10px; }}
+  .styled-tableWide th, .styled-tableWide td {{ padding: 3px 4px; }}
+  .styled-tableWide td.ticker-col {{ width: 50px; }}
+}}
+        /* ── TRADINGVIEW BACKUP (commented out for Naver migration; restore by removing surrounding comment markers) ──
+        ── TradingView Chart Popup ── (legacy)
+        #chart-popup {{
+            position: fixed; z-index: 10000;
+            width: 820px; height: 560px;
+            background: #fcfbf7; border: 1px solid #ddd8ce;
+            border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,.55);
+            display: none; flex-direction: column;
+            overflow: hidden; opacity: 0;
+            transition: opacity .15s ease; pointer-events: none;
+        }}
+        #chart-popup.visible {{ display: flex; opacity: 1; pointer-events: auto; }}
+        .chart-ph {{
+            display: flex; align-items: center; gap: 8px;
+            padding: 8px 12px; border-bottom: 1px solid #ddd8ce;
+            background: #f0ece3; flex-shrink: 0;
+        }}
+        #btn-close-popup {{
+            width: 28px; height: 28px; min-width: 28px;
+            background: #e5e0d8; border: none; border-radius: 4px;
+            color: #555; cursor: pointer; font-size: 18px;
+            display: flex; align-items: center; justify-content: center;
+            transition: background .12s;
+        }}
+        #btn-close-popup:hover {{ background: #c84040; color: #fff; }}
+        .chart-tb-group {{ display: flex; gap: 4px; }}
+        .chart-tb {{
+            padding: 4px 10px; font-size: 12px; font-family: monospace;
+            cursor: pointer; border: 1px solid #ddd8ce; background: transparent;
+            color: #6b7280; border-radius: 3px; transition: all .12s;
+            white-space: nowrap; min-width: 36px; text-align: center;
+        }}
+        .chart-tb:hover {{ border-color: #aaa; color: #333; }}
+        .chart-tb.on {{ background: #c84b00; border-color: #c84b00; color: #fff; }}
+        #tv-container {{ flex: 1; min-height: 0; width: 100%; position: relative; }}
+        #tv-container .tradingview-widget-container,
+        #tv-container .tradingview-widget-container__widget {{
+            width: 100% !important; height: 100% !important;
+        }}
+        @media (max-width: 1024px) and (orientation: portrait) {{
+            #chart-popup {{
+                width: 96vw !important; height: 72vh !important;
+                left: 2vw !important; top: 14vh !important;
+                right: auto !important; bottom: auto !important;
+            }}
+            .chart-tb {{ padding: 5px 10px; font-size: 13px; min-width: 40px; }}
+            #btn-close-popup {{ width: 32px; height: 32px; min-width: 32px; font-size: 20px; }}
+        }}
+        @media (max-width: 1024px) and (orientation: landscape) {{
+            .chart-tb {{ padding: 5px 10px; font-size: 13px; min-width: 40px; }}
+            #btn-close-popup {{ width: 36px; height: 36px; min-width: 36px; font-size: 22px; }}
+        }}
+        #chart-popup.landscape-mode {{
+            position: fixed !important;
+            width: 100vw !important; height: 100dvh !important;
+            left: 0 !important; top: 0 !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+            border: none !important;
+            z-index: 999999 !important;
+        }}
+        #chart-popup.landscape-mode .chart-ph {{
+            position: absolute !important;
+            top: 0 !important; left: 0 !important; right: 0 !important;
+            z-index: 10 !important;
+            background: rgba(240,236,227,0.88) !important;
+            border-bottom: none !important;
+        }}
+        #chart-popup.landscape-mode #tv-container {{
+            position: absolute !important;
+            top: 0 !important; left: 0 !important;
+            width: 100% !important; height: 100% !important;
+        }}
+        ── TRADINGVIEW BACKUP END ── */
+
+        /* ── Naver Chart Popup (active) ── */
+        #naverChartPopup {{
+            display: none; position: fixed; z-index: 99999;
+            width: 860px; background: #fff;
+            border: 1px solid #bdc3c7; border-radius: 10px;
+            padding: 12px; box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+            pointer-events: auto; overflow-y: auto;
+            max-height: 90dvh; overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+        }}
+        body.naver-popup-open {{ overflow: hidden; }}
+        #naverPopupClose {{
+            display: flex; background: #e74c3c; color: white;
+            border: none; border-radius: 50%;
+            width: 28px; height: 28px;
+            font-size: 18px; line-height: 1;
+            cursor: pointer; flex-shrink: 0;
+            align-items: center; justify-content: center;
+            font-weight: bold;
+        }}
+        .naver-popup-header {{ display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }}
+        .naver-popup-title {{ font-weight: 700; color: #2c3e50; font-size: 14px; white-space: nowrap; }}
+        .naver-popup-link {{ font-size: 12px; color: #2980b9; text-decoration: none; white-space: nowrap; margin-left: 1em; }}
+        .naver-popup-link:hover {{ text-decoration: underline; }}
+        .naver-charts-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }}
+        .naver-chart-card {{ border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; background: #fff; }}
+        .naver-chart-wrap {{ position: relative; width: 100%; height: 300px; background: white; }}
+        .naver-chart-wrap img {{ width: 100%; height: 100%; display: block; object-fit: fill; background: white; }}
+        .naver-chart-loading {{
+            display: none; position: absolute; inset: 0;
+            background: rgba(255,255,255,0.75);
+            align-items: center; justify-content: center;
+            font-size: 12px; color: #64748b;
+        }}
+        .naver-chart-loading.show {{ display: flex; }}
+        @media (max-width: 767px) {{
+            #naverChartPopup {{
+                position: fixed !important; left: 2vw !important;
+                top: 50% !important; transform: translateY(-50%);
+                width: 96vw !important; max-height: 80dvh !important;
+                overflow-y: auto !important; padding: 8px !important;
+                box-sizing: border-box;
+            }}
+            .naver-charts-grid {{ grid-template-columns: 1fr; gap: 6px; }}
+            .naver-chart-wrap {{ height: 220px; }}
+        }}
+        @media (min-width: 768px) and (max-width: 1000px) {{
+            #naverChartPopup {{ width: min(96vw, 860px); left: 2vw !important; }}
+            .naver-charts-grid {{ grid-template-columns: 1fr; }}
+            .naver-chart-wrap {{ height: 260px; }}
+        }}
+@media screen and (max-width: 950px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {{
+  .top-nav-container, .top-nav {{ display: none !important; }}
+}}
+.sortable {{ cursor: pointer; user-select: none; }}
+.sortable:hover {{ background-color: #d35400; }}
+.table-columns {{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}}
+.table-columns .col-table {{ flex: 0 0 auto; }}
+.table-columns .col-table .styled-tableWide {{ margin: 5px 0; }}
+@media (max-width: 600px) {{
+  .table-columns {{ gap: 8px; }}
+}}
+</style>
+</head>
+<body>
+
+<p style="margin: 0 0 10px 0; color: #000; font-size: 0.9em;">공식 업데이트: {update_time} <small style="color: #ccc; font-size: 10px;">v2.1</small></p>
+
+<h2>🧾 주문용 A급 max10 (동일비중)</h2>
+{order_a_html}
+
+<h3 class="signal-header">🚀 MOM (모멘텀) 돌파</h3>
+{mom_html}
+
+<h3 class="signal-header">🟢 LIME 신호 (매수)</h3>
+{lime_html}
+
+<h3 class="signal-header">🌱 GREEN 신호 (관심)</h3>
+{green_html}
+
+<h2>🏆 US Main Top30 (sco 순위)</h2>
+{top30_html}
+
+<div style="text-align:center; margin-top:30px; padding-bottom:40px; color:#555; font-size:0.85em;">
+    Analysis Source: korea/chu_usa_all.py &nbsp;|&nbsp; US Main Stock coloryp scan
+</div>
+
+    <!-- TRADINGVIEW BACKUP (commented out for Naver migration; restore by removing this wrapper)
+    <div id="chart-popup">
+        <div class="chart-ph">
+            <button id="btn-close-popup">&#215;</button>
+            <div class="chart-tb-group">
+                <button class="chart-tb" data-iv="5">5분</button>
+                <button class="chart-tb on" data-iv="D">일</button>
+                <button class="chart-tb" data-iv="W">주</button>
+                <button class="chart-tb" data-iv="M">월</button>
+            </div>
+        </div>
+        <div id="tv-container"></div>
+    </div>
+
+    <script>
+    (function() {{
+        var currentTicker = "";
+        var currentInterval = "D";
+        var hoverTimer = null;
+        var popup    = document.getElementById('chart-popup');
+        var tvCont   = document.getElementById('tv-container');
+        var closeBtn = document.getElementById('btn-close-popup');
+
+        var STUDIES = [
+            {{ "id": "MASimple@tv-basicstudies", "inputs": {{ "length": 5   }}, "styles": {{ "plot.color": "#e8a020", "plot.linewidth": 1 }} }},
+            {{ "id": "MASimple@tv-basicstudies", "inputs": {{ "length": 10  }}, "styles": {{ "plot.color": "#3b9ddd", "plot.linewidth": 1 }} }},
+            {{ "id": "MASimple@tv-basicstudies", "inputs": {{ "length": 20  }}, "styles": {{ "plot.color": "#e84040", "plot.linewidth": 2 }} }},
+            {{ "id": "MASimple@tv-basicstudies", "inputs": {{ "length": 60  }}, "styles": {{ "plot.color": "#7ac97a", "plot.linewidth": 1 }} }},
+            {{ "id": "MASimple@tv-basicstudies", "inputs": {{ "length": 120 }}, "styles": {{ "plot.color": "#b07fcc", "plot.linewidth": 1 }} }}
+        ];
+
+        function loadChart(sym, iv) {{
+            tvCont.innerHTML = '';
+            var wrap = document.createElement('div');
+            wrap.className = 'tradingview-widget-container';
+            wrap.style.cssText = 'height:100%;width:100%';
+            var inner = document.createElement('div');
+            inner.className = 'tradingview-widget-container__widget';
+            inner.style.cssText = 'height:100%;width:100%';
+            wrap.appendChild(inner);
+            var sc = document.createElement('script');
+            sc.type = 'text/javascript';
+            sc.src  = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+            sc.async = true;
+            sc.innerHTML = JSON.stringify({{
+                symbol: sym, interval: iv,
+                timezone: "America/New_York", theme: "light",
+                backgroundColor: "rgba(252,251,247,1)",
+                style: "1", locale: "en", autosize: true,
+                withdateranges: false, hide_top_toolbar: true,
+                hide_side_toolbar: true, allow_symbol_change: false,
+                save_image: false, hide_volume: false,
+                studies: STUDIES,
+                overrides: {{ "paneProperties.legendProperties.showLegend": false }}
+            }});
+            wrap.appendChild(sc);
+            tvCont.appendChild(wrap);
+        }}
+
+        function showChart(sym, x, y) {{
+            var clean = sym.replace(/[*]/g, '');
+            currentTicker = clean;
+            var isLandscape = window.matchMedia('(orientation: landscape)').matches;
+            var isSmall = window.innerWidth <= 768;
+            popup.classList.remove('landscape-mode');
+            popup.style.cssText = '';
+            if (!isSmall) {{
+                var pw = 820, ph = 560;
+                var px = x + 24, py = y - 280;
+                var W = window.innerWidth, H = window.innerHeight;
+                if (px + pw > W) px = W - pw - 10;
+                if (px < 10) px = 10;
+                if (py + ph > H) py = H - ph - 10;
+                if (py < 10) py = 10;
+                popup.style.left = px + 'px'; popup.style.top = py + 'px';
+                popup.style.width = pw + 'px'; popup.style.height = ph + 'px';
+            }} else if (isLandscape) {{
+                popup.classList.add('landscape-mode');
+                if (window.parent && window.parent !== window) {{
+                    window.parent.postMessage({{action: 'openChart'}}, '*');
+                }}
+            }} else {{
+                popup.style.width = '96vw'; popup.style.height = '72dvh';
+                popup.style.left = '2vw'; popup.style.top = '14dvh';
+            }}
+            popup.classList.add('visible');
+            loadChart(clean, currentInterval);
+        }}
+
+        function hideChart() {{
+            var wasLandscape = popup.classList.contains('landscape-mode');
+            popup.classList.remove('visible');
+            popup.classList.remove('landscape-mode');
+            tvCont.innerHTML = '';
+            currentTicker = '';
+            if (wasLandscape && window.parent && window.parent !== window) {{
+                window.parent.postMessage({{action: 'closeChart'}}, '*');
+            }}
+        }}
+
+        closeBtn.addEventListener('click', function(e) {{ e.stopPropagation(); hideChart(); }});
+
+        document.querySelectorAll('.chart-trigger').forEach(function(el) {{
+            el.addEventListener('mouseenter', function(e) {{
+                if (window.innerWidth > 768) {{
+                    clearTimeout(hoverTimer);
+                    hoverTimer = setTimeout(function() {{
+                        showChart(el.getAttribute('data-ticker'), e.clientX, e.clientY);
+                    }}, 300);
+                }}
+            }});
+            el.addEventListener('mouseleave', function() {{
+                if (window.innerWidth > 768) clearTimeout(hoverTimer);
+            }});
+            el.addEventListener('click', function(e) {{
+                e.stopPropagation(); clearTimeout(hoverTimer);
+                showChart(el.getAttribute('data-ticker'), e.clientX, e.clientY);
+            }});
+        }});
+
+        document.addEventListener('mousemove', function(e) {{
+            if (window.innerWidth <= 768) return;
+            if (!popup.classList.contains('visible')) return;
+            if (!e.target.closest('.chart-trigger') && !e.target.closest('#chart-popup')) {{
+                clearTimeout(hoverTimer); hideChart();
+            }}
+        }});
+
+        document.addEventListener('click', function(e) {{
+            if (window.innerWidth > 768) return;
+            if (!popup.classList.contains('visible')) return;
+            if (!e.target.closest('#chart-popup') && !e.target.closest('.chart-trigger')) hideChart();
+        }});
+
+        document.querySelectorAll('.chart-tb').forEach(function(btn) {{
+            btn.addEventListener('click', function(e) {{
+                e.stopPropagation();
+                currentInterval = btn.getAttribute('data-iv');
+                document.querySelectorAll('.chart-tb').forEach(function(b) {{ b.classList.remove('on'); }});
+                btn.classList.add('on');
+                if (currentTicker) loadChart(currentTicker, currentInterval);
+            }});
+        }});
+    }})();
+    </script>
+    TRADINGVIEW BACKUP END -->
+
+    <!-- Naver Chart Popup (active) -->
+    __V4_BLOCK__
+
+    <script>
+    (function () {{
+      return;   // V4 팝업으로 대체됨 (아래 네이버 PNG 로직 비활성)
+      var NAVER_CODES = {{ QQQ: 'QQQ.O', SMH: 'SMH.O' }};
+      var SUFFIX_TRY = ['.O', '.P', '', '.N', '.A', '.K'];
+      var resolvedCode = {{}};
+      var popup     = document.getElementById('naverChartPopup');
+      var titleEl   = document.getElementById('naverPopupTitle');
+      var linkEl    = document.getElementById('naverPopupLink');
+      var imgDaily  = document.getElementById('naverImgDaily');
+      var imgWeekly = document.getElementById('naverImgWeekly');
+      var loadDaily = document.getElementById('naverLoadingDaily');
+      var loadWeekly= document.getElementById('naverLoadingWeekly');
+      var hoverTimer = null;
+      var pinned = false;
+
+      function withTs(u) {{ return u + '?t=' + Date.now(); }}
+      function dailyUrl(c)  {{ return withTs('https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/day/'  + c + '_end.png'); }}
+      function weeklyUrl(c) {{ return withTs('https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/week/' + c + '_end.png'); }}
+      function pageUrl(c)   {{ return 'https://m.stock.naver.com/worldstock/stock/' + c + '/total'; }}
+
+      function resolveCode(ticker, cb) {{
+        var T = String(ticker || '').replace(/[*]/g, '').toUpperCase();
+        if (!T) {{ cb(null); return; }}
+        if (resolvedCode[T]) {{ cb(resolvedCode[T]); return; }}
+        var candidates = NAVER_CODES[T] ? [NAVER_CODES[T]] : SUFFIX_TRY.map(function (s) {{ return T + s; }});
+        var i = 0;
+        function tryNext() {{
+          if (i >= candidates.length) {{ cb(null); return; }}
+          var code = candidates[i++];
+          var probe = new Image();
+          probe.onload  = function () {{ resolvedCode[T] = code; cb(code); }};
+          probe.onerror = tryNext;
+          probe.src = withTs('https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/day/' + code + '_end.png');
+        }}
+        tryNext();
+      }}
+
+      function loadInto(imgEl, loadingEl, url) {{
+        loadingEl.classList.add('show');
+        imgEl.style.opacity = '0.35';
+        var p = new Image();
+        p.onload  = function () {{ imgEl.src = url; imgEl.style.opacity = '1'; loadingEl.classList.remove('show'); }};
+        p.onerror = function () {{ imgEl.removeAttribute('src'); imgEl.style.opacity = '1'; loadingEl.classList.remove('show'); }};
+        p.src = url;
+      }}
+
+      function loadCharts(ticker) {{
+        var T = String(ticker || '').replace(/[*]/g, '').toUpperCase();
+        titleEl.textContent = T + ' (resolving...)';
+        linkEl.href = '#';
+        loadDaily.classList.add('show');
+        loadWeekly.classList.add('show');
+        imgDaily.removeAttribute('src');
+        imgWeekly.removeAttribute('src');
+        resolveCode(T, function (code) {{
+          if (!code) {{
+            titleEl.textContent = T + '  (all suffixes failed)';
+            loadDaily.classList.remove('show');
+            loadWeekly.classList.remove('show');
+            return;
+          }}
+          titleEl.textContent = T + '  [' + code + ']';
+          linkEl.href = pageUrl(code);
+          loadInto(imgDaily,  loadDaily,  dailyUrl(code));
+          loadInto(imgWeekly, loadWeekly, weeklyUrl(code));
+        }});
+      }}
+
+      function placePopup(cx, cy) {{
+        if (window.innerWidth <= 767) return;
+        var rectW = Math.min(860, window.innerWidth - 20);
+        var rectH = window.innerWidth <= 1000 ? 650 : 430;
+        var x = cx + 18, y = cy + 18;
+        if (x + rectW > window.innerWidth  - 8) x = cx - rectW - 12;
+        if (y + rectH > window.innerHeight - 8) y = cy - rectH - 12;
+        if (x < 8) x = 8; if (y < 8) y = 8;
+        popup.style.left = x + 'px'; popup.style.top = y + 'px';
+        popup.style.transform = 'none';
+      }}
+
+      function openPopup()  {{ popup.style.display = 'block'; document.body.classList.add('naver-popup-open'); }}
+      function closePopup() {{ popup.style.display = 'none';  pinned = false; document.body.classList.remove('naver-popup-open'); }}
+
+      document.getElementById('naverPopupClose').addEventListener('click', closePopup);
+      popup.addEventListener('mouseenter', function () {{ pinned = true; }});
+      popup.addEventListener('mouseleave', function () {{ pinned = false; closePopup(); }});
+
+      document.querySelectorAll('td[data-ticker]').forEach(function (el) {{
+        el.addEventListener('mouseenter', function (e) {{
+          if (window.innerWidth <= 767) return;
+          clearTimeout(hoverTimer);
+          hoverTimer = setTimeout(function () {{
+            placePopup(e.clientX, e.clientY);
+            openPopup();
+            loadCharts(el.getAttribute('data-ticker') || '');
+          }}, 140);
+        }});
+        el.addEventListener('mousemove', function (e) {{
+          if (popup.style.display === 'block' && !pinned) placePopup(e.clientX, e.clientY);
+        }});
+        el.addEventListener('mouseleave', function () {{
+          clearTimeout(hoverTimer);
+          setTimeout(function () {{ if (!pinned) closePopup(); }}, 120);
+        }});
+        el.addEventListener('click', function (e) {{
+          if (window.innerWidth > 767) return;
+          e.stopPropagation();
+          openPopup();
+          loadCharts(el.getAttribute('data-ticker') || '');
+        }});
+      }});
+
+      // === D/S 단축키 (D/↓=다음, S/↑=이전, Tab/ESC=닫기) · PNG라 A(슈퍼트렌드)는 제외 ===
+      (function(){{
+        var SEL = 'td[data-ticker]';
+        var curEl = null;
+        document.querySelectorAll(SEL).forEach(function(el){{
+          el.addEventListener('mouseenter', function(){{ curEl = el; }});
+          el.addEventListener('click', function(){{ curEl = el; }});
+        }});
+        try {{ popup.setAttribute('tabindex','-1'); }} catch(e){{}}
+        var _open = openPopup;
+        openPopup = function(){{ _open.apply(this, arguments);
+          try {{ if (document.activeElement === document.body || document.activeElement === null) popup.focus({{preventScroll:true}}); }} catch(e){{}} }};
+        function unpinOnMove(e){{ if (popup.contains(e.target)) return;
+          document.removeEventListener('mousemove', unpinOnMove); pinned = false;
+          setTimeout(function(){{ if (!pinned) closePopup(); }}, 120); }}
+        function kbPin(){{ pinned = true;
+          document.removeEventListener('mousemove', unpinOnMove);
+          document.addEventListener('mousemove', unpinOnMove); }}
+        /* === SWIPE-NAV-INJECTED: 모바일 좌/우 스와이프 → 키보드 D/S 재사용 (PC 무영향) === */
+        (function(){{
+          if(window.__swipeNavInit) return; window.__swipeNavInit=true;
+          function isTouch(){{ return window.matchMedia('(hover: none)').matches || window.innerWidth<=767; }}
+          var sx=0, sy=0, st=0, tr=false;
+          document.addEventListener('touchstart', function(e){{
+            if(!isTouch() || !e.touches || e.touches.length!==1){{ tr=false; return; }}
+            var t=e.touches[0]; sx=t.clientX; sy=t.clientY; st=Date.now(); tr=true;
+          }}, true);
+          document.addEventListener('touchend', function(e){{
+            if(!tr) return; tr=false;
+            var t=e.changedTouches && e.changedTouches[0]; if(!t) return;
+            var dx=t.clientX-sx, dy=t.clientY-sy, dt=Date.now()-st;
+            if(dt>800 || Math.abs(dx)<55 || Math.abs(dx)<Math.abs(dy)*1.6) return;
+            var key = dx<0 ? 'd' : 's';
+            try{{ document.dispatchEvent(new KeyboardEvent('keydown', {{key:key, bubbles:true, cancelable:true}})); }}catch(err){{}}
+          }}, true);
+        }})();
+        document.addEventListener('keydown', function(e){{
+          if (popup.style.display !== 'block') return;
+          var tg = e.target, tag = tg && tg.tagName;
+          if (tag==='INPUT'||tag==='TEXTAREA'||(tg&&tg.isContentEditable)) return;
+          var k = e.key;
+          if (k==='Tab'||k==='Escape'){{ e.preventDefault(); closePopup(); return; }}
+          var dir = 0;
+          if (k==='s'||k==='S'||k==='ArrowUp') dir=-1;
+          else if (k==='d'||k==='D'||k==='ArrowDown') dir=1;
+          if (dir===0 || !curEl) return;
+          e.preventDefault();
+          var all = Array.prototype.slice.call(document.querySelectorAll(SEL));
+          var i = all.indexOf(curEl);
+          if (i<0) return;
+          i += dir;
+          if (i<0||i>=all.length) return;
+          var nt = all[i];
+          kbPin(); curEl = nt;
+          loadCharts(nt.getAttribute('data-ticker') || '');
+          nt.scrollIntoView({{block:'nearest'}});
+        }});
+      }})();
+    }})();
+    </script>
+
+<script>
+(function() {{
+  function makeTableSortable(tableOrId) {{
+    var table = (typeof tableOrId === 'string') ? document.getElementById(tableOrId) : tableOrId;
+    if (!table) return;
+    var tbody = table.querySelector('tbody');
+    var originalRows = Array.from(tbody.querySelectorAll('tr')).map(function(r) {{ return r.cloneNode(true); }});
+    var sortState = {{ col: null, asc: true }};
+    function getCellValue(row, col) {{
+      var cells = row.querySelectorAll('td');
+      if (!cells[col]) return '';
+      return cells[col].innerText.trim();
+    }}
+    function toNum(str) {{
+      var n = parseFloat(str.replace(/[^0-9.\x2D]/g, ''));
+      return isNaN(n) ? null : n;
+    }}
+    table.querySelectorAll('th.sortable').forEach(function(th) {{
+      th.addEventListener('click', function() {{
+        var col = parseInt(th.getAttribute('data-col'));
+        if (sortState.col === col) {{
+          if (!sortState.asc) {{ resetSort(); return; }}
+          sortState.asc = false;
+        }} else {{
+          sortState.col = col;
+          sortState.asc = true;
+        }}
+        table.querySelectorAll('th.sortable').forEach(function(h) {{ h.classList.remove('asc', 'desc'); }});
+        th.classList.add(sortState.asc ? 'asc' : 'desc');
+        var rows = Array.from(tbody.querySelectorAll('tr'));
+        rows.sort(function(a, b) {{
+          var va = getCellValue(a, col);
+          var vb = getCellValue(b, col);
+          var na = toNum(va), nb = toNum(vb);
+          var cmp = (na !== null && nb !== null) ? na - nb : va.localeCompare(vb, 'ko');
+          return sortState.asc ? cmp : -cmp;
+        }});
+        rows.forEach(function(r) {{ tbody.appendChild(r); }});
+      }});
+    }});
+    function resetSort() {{
+      sortState = {{ col: null, asc: true }};
+      table.querySelectorAll('th.sortable').forEach(function(h) {{ h.classList.remove('asc', 'desc'); }});
+      originalRows.forEach(function(r) {{ tbody.appendChild(r.cloneNode(true)); }});
+    }}
+  }}
+  document.querySelectorAll('table.top30-sortable').forEach(function(t) {{ makeTableSortable(t); }});
+}})();
+</script>
+
+</body>
+</html>
+"""
+    _us_tickers = sorted({t.upper().replace('*', '') for t in re.findall(r'data-ticker="([^"]+)"', page)})
+    page = page.replace('__V4_BLOCK__', build_chart_popup(_us_tickers))
+    OUT_HTML.write_text(page, encoding="utf-8")
+    print("[OK] us_main.html updated (badge signals, finviz style)")
+
+
+if __name__ == "__main__":
+    main()

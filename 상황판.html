@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regime Map 기준 요약</title>
+<style>
+  body {
+    font-family: "Segoe UI", "Malgun Gothic", Arial, sans-serif;
+    background: #f3f5f7;
+    color: #243447;
+    margin: 0;
+    padding: 24px;
+    line-height: 1.45;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  header {
+    background: #243447;
+    color: #fff;
+    padding: 20px 26px;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  header p {
+    margin: 6px 0 0;
+    color: #cbd5df;
+    font-size: 14px;
+  }
+  section {
+    padding: 22px 26px;
+    border-bottom: 1px solid #edf0f2;
+  }
+  h2 {
+    margin: 0 0 12px;
+    font-size: 19px;
+    color: #243447;
+  }
+  .note {
+    background: #fff7e8;
+    border-left: 5px solid #e67e22;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 14px;
+    font-size: 14px;
+  }
+  th {
+    background: #2c3e50;
+    color: #fff;
+    padding: 9px 10px;
+    text-align: center;
+  }
+  td {
+    border: 1px solid #e5e9ee;
+    padding: 8px 10px;
+    text-align: center;
+  }
+  td.left {
+    text-align: left;
+  }
+  tr:nth-child(even) td {
+    background: #fafbfc;
+  }
+  .formula {
+    background: #f6f8fa;
+    border: 1px solid #e5e9ee;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .card {
+    border: 1px solid #e5e9ee;
+    border-radius: 12px;
+    padding: 14px;
+    background: #fbfcfd;
+  }
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    color: #e67e22;
+  }
+  .card p {
+    margin: 4px 0;
+  }
+  .small {
+    font-size: 13px;
+    color: #6c7a89;
+  }
+  .good { color: #218c4b; font-weight: 700; }
+  .bad { color: #d64541; font-weight: 700; }
+  .warn { color: #e67e22; font-weight: 700; }
+  .footer {
+    padding: 18px 26px;
+    background: #f8fafc;
+    font-size: 13px;
+    color: #657786;
+  }
+  @media (max-width: 760px) {
+    body { padding: 10px; }
+    .grid { grid-template-columns: 1fr; }
+    table { font-size: 12px; }
+    th, td { padding: 7px 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Regime Map 기준 요약</h1>
+    <p>시장판정 · Strong/Risk/Worst Zone · Comment 조건만 핵심 정리</p>
+  </header>
+
+  <section>
+    <h2>0. Regime Map Score 계산 방식</h2>
+    <div class="note">16개 구간에 점수를 부여하고, 각 구간 ETF 개수로 가중평균을 낸 뒤 0~100점으로 환산한다.</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>3M 수익률 \ sco</th>
+          <th>sco &lt; 0</th>
+          <th>0 ≤ sco &lt; 8</th>
+          <th>8 ≤ sco &lt; 11</th>
+          <th>sco ≥ 11</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><b>3M ≥ 30%</b></td><td>4</td><td>8</td><td>12</td><td>16</td></tr>
+        <tr><td><b>15% ≤ 3M &lt; 30%</b></td><td>3</td><td>6</td><td>11</td><td>13</td></tr>
+        <tr><td><b>0% ≤ 3M &lt; 15%</b></td><td>2</td><td>6</td><td>8</td><td>10</td></tr>
+        <tr><td><b>3M &lt; 0%</b></td><td>1</td><td>3</td><td>5</td><td>7</td></tr>
+      </tbody>
+    </table>
+
+    <div class="formula">regime_raw_avg = Σ(구간별 ETF 수 × 구간 점수) / 전체 ETF 수
+
+regime_map_score = (regime_raw_avg - 1) / 15 × 100
+
+최저: raw_avg 1점  → 0점
+최고: raw_avg 16점 → 100점</div>
+  </section>
+
+  <section>
+    <h2>1. 시장판정 종류와 조건</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Regime Map Score</th>
+          <th>시장판정</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>70 이상</td><td class="good">강세 확산</td></tr>
+        <tr><td>55 이상 ~ 70 미만</td><td class="good">강세 유지</td></tr>
+        <tr><td>40 이상 ~ 55 미만</td><td>중립/선별</td></tr>
+        <tr><td>25 이상 ~ 40 미만</td><td class="warn">약세 경계</td></tr>
+        <tr><td>15 이상 ~ 25 미만</td><td class="bad">약세 확산</td></tr>
+        <tr><td>15 미만</td><td class="bad">위험 회피</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>2. Strong Zone / Risk Zone / Worst Zone 정의</h2>
+    <div class="note">주의: Strong Zone은 단순히 “sco ≥ 11”이 아니다. 16구간 점수표에서 11점 이상인 칸들의 합계다.</div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Strong Zone</h3>
+        <p><b>조건:</b> 점수표 기준 <b>11점 이상</b></p>
+        <p class="small">포함 구간:</p>
+        <p>① 3M 15~30% + sco 8~10</p>
+        <p>② 3M 15~30% + sco 11+</p>
+        <p>③ 3M 30%+ + sco 8~10</p>
+        <p>④ 3M 30%+ + sco 11+</p>
+      </div>
+
+      <div class="card">
+        <h3>Risk Zone</h3>
+        <p><b>조건:</b> 점수표 기준 <b>3점 이하</b></p>
+        <p class="small">포함 구간:</p>
+        <p>① 3M &lt; 0% + sco &lt; 0</p>
+        <p>② 3M 0~15% + sco &lt; 0</p>
+        <p>③ 3M 15~30% + sco &lt; 0</p>
+        <p>④ 3M &lt; 0% + sco 0~7</p>
+      </div>
+
+      <div class="card">
+        <h3>Worst Zone</h3>
+        <p><b>조건:</b> 좌하단 한 칸</p>
+        <p>① <b>sco &lt; 0</b></p>
+        <p>② <b>3M 수익률 &lt; 0%</b></p>
+        <p class="small">sco도 약하고, 3개월 수익률도 음수인 최악 구간.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Comment 문구 조건</h2>
+    <div class="note">위에서부터 순서대로 검사해서, 먼저 걸리는 문구 1개만 표시한다.</div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>우선순위</th>
+          <th>조건</th>
+          <th>표시 문구</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>score &lt; 15</td>
+          <td class="left">약세 구역 비중이 높고 리더십이 부족합니다. 현금 비중을 우선하고 신규 진입은 최소화하는 구간입니다.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>score &lt; 25 그리고 score_delta &lt; -3</td>
+          <td class="left">시장 내부 체력이 빠르게 약화되고 있습니다. 강한 구역 ETF는 감소하고 약세 구역 ETF가 확대되었습니다.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>strong_delta &lt; 0 그리고 risk_delta &gt; 0</td>
+          <td class="left">강한 구역 ETF는 줄고 약세 구역 ETF가 증가했습니다. 신규 매수는 Top 후보 중심으로 제한 접근이 유리합니다.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>strong_delta &gt; 0 그리고 risk_delta &lt; 0</td>
+          <td class="left">리더십 구역이 확대되고 약세 구역이 감소하고 있습니다. 시장 내부 개선 흐름이 나타나고 있습니다.</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>score ≥ 55</td>
+          <td class="left">시장 내부 강도가 양호합니다. 강한 구역 ETF가 유지되고 있어 기존 전략 비중을 유지할 수 있습니다.</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>위 조건에 모두 해당 없음</td>
+          <td class="left">시장 방향성이 뚜렷하지 않습니다. 강한 ETF와 약한 ETF가 혼재되어 있어 신규 매수는 선별적으로 접근하세요.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>4. 한 줄 기억</h2>
+    <div class="formula">시장판정 = Regime Map Score 구간으로 결정
+
+Strong Zone = 점수 11점 이상 구간 합계
+Risk Zone   = 점수 3점 이하 구간 합계
+Worst Zone  = sco < 0 AND 3M < 0% 한 칸
+
+Comment = score와 전일대비 변화량을 순서대로 검사해서 1개 선택</div>
+  </section>
+
+  <div class="footer">
+    기준표 버전: Regime Map Score v1 · 사용자 정의 휴리스틱 점수표
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum Trading Dashboard</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            padding: 10px 0;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            overflow-y: auto;
+            /* Enable vertical scrolling */
+        }
+
+        .sidebar-header {
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 1px solid #34495e;
+            margin-bottom: 10px;
+        }
+
+        .menu-item {
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #bdc3c7;
+            border-left: 4px solid transparent;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .menu-item:hover {
+            background-color: #34495e;
+            color: #fff;
+        }
+
+        .menu-item.active {
+            background-color: #34495e;
+            color: #3498db;
+            border-left-color: #3498db;
+            font-weight: bold;
+        }
+
+        /* 그룹 헤더 */
+        .menu-group-header {
+            padding: 8px 15px 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 6px;
+            border-top: 1px solid #34495e;
+        }
+
+        /* 하위 메뉴 */
+        .sub-menu-item {
+            padding: 7px 20px 7px 30px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #bdc3c7;
+            border-left: 4px solid transparent;
+            transition: all 0.3s;
+            font-size: 0.88rem;
+            display: block;
+        }
+
+        .sub-menu-item:hover {
+            background-color: #34495e;
+            color: #fff;
+        }
+
+        .sub-menu-item.active {
+            background-color: #34495e;
+            color: #3498db;
+            border-left-color: #3498db;
+            font-weight: bold;
+        }
+
+        /* PC view: hide mobile labels */
+        .mobile-label {
+            display: none;
+        }
+
+        .content {
+            flex-grow: 1;
+            background-color: #ecf0f1;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                flex-wrap: wrap;
+                overflow-x: hidden;
+                padding: 5px 0;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .sidebar-header {
+                display: none;
+            }
+
+            .pc-label {
+                display: none;
+            }
+
+            .mobile-label {
+                display: inline;
+            }
+
+            .menu-item {
+                width: 20%;
+                flex: none;
+                padding: 7px 5px;
+                white-space: nowrap;
+                border-left: none;
+                border-bottom: 2px solid transparent;
+                text-align: center;
+                font-size: 0.75rem;
+                box-sizing: border-box;
+            }
+
+            .menu-item.active {
+                border-left: none;
+                border-bottom-color: #3498db;
+            }
+
+            /* 모바일: 그룹 헤더 숨김 */
+            .menu-group-header {
+                display: none;
+            }
+
+            /* 모바일: 하위 메뉴도 menu-item과 동일하게 */
+            .sub-menu-item {
+                width: 20%;
+                flex: none;
+                padding: 7px 5px;
+                white-space: nowrap;
+                border-left: none;
+                border-bottom: 2px solid transparent;
+                text-align: center;
+                font-size: 0.75rem;
+                box-sizing: border-box;
+            }
+
+            .sub-menu-item.active {
+                border-left: none;
+                border-bottom-color: #3498db;
+            }
+
+            .mobile-hide {
+                display: none !important;
+            }
+        }
+
+        /* 스마트폰 가로모드: 사이드바 숨김 */
+        @media (max-width: 767px) and (orientation: landscape) {
+            .sidebar { display: none !important; }
+        }
+
+        .sidebar-divider {
+            height: 1px;
+            background: #4a6278;
+            margin: 6px 15px;
+        }
+    </style>
+    <script>
+        function loadPage(url, element) {
+            // Add cache-busting timestamp
+            const timestamp = new Date().getTime();
+            const cacheBustedUrl = url.includes('?') ? `${url}&t=${timestamp}` : `${url}?t=${timestamp}`;
+
+            document.getElementById('main-frame').src = cacheBustedUrl;
+
+            // Update active class (menu-item + sub-menu-item 둘 다)
+            const items = document.querySelectorAll('.menu-item, .sub-menu-item');
+            items.forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // Auto-select first item on load
+        window.onload = function () {
+            const firstItem = document.querySelector('.menu-item');
+            if (firstItem) {
+                firstItem.classList.add('active');
+
+                // Add cache-busting timestamp to initial page
+                const initialUrl = 'main_hub.html';
+                const timestamp = new Date().getTime();
+                document.getElementById('main-frame').src = `${initialUrl}?t=${timestamp}`;
+            }
+        }
+
+        // Handle full-screen messages from iframes (e.g., US ETF landscape chart)
+        window.addEventListener("message", function (event) {
+            const action = event.data.action;
+            const sidebar = document.querySelector('.sidebar');
+            const content = document.querySelector('.content');
+
+            if (action === "openChart") {
+                sidebar.style.display = "none";
+                content.style.position = "fixed";
+                content.style.top = "0";
+                content.style.left = "0";
+                content.style.width = "100vw";
+                content.style.height = "100dvh";
+                content.style.paddingBottom = "env(safe-area-inset-bottom)";
+                content.style.boxSizing = "border-box";
+                content.style.zIndex = "999999";
+            } else if (action === "closeChart") {
+                sidebar.style.display = "";
+                content.style.position = "";
+                content.style.top = "";
+                content.style.left = "";
+                content.style.width = "";
+                content.style.height = "";
+                content.style.paddingBottom = "";
+                content.style.boxSizing = "";
+                content.style.zIndex = "";
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar Menu -->
+        <div class="sidebar">
+            <div class="sidebar-header">📊 Trading Report</div>
+
+            <!-- 요약 (최상단) → 클릭 시 주문(order.html)이 디폴트로 열림 -->
+            <div class="menu-item" onclick="loadPage('order.html', this)">
+                <span class="pc-label">요약</span>
+                <span class="mobile-label">요약</span>
+            </div>
+            <!-- 통합ETF -->
+            <div class="menu-item" onclick="loadPage('main_hub.html', this)">
+                <span class="pc-label">통합ETF</span>
+                <span class="mobile-label">통합ETF</span>
+            </div>
+            <div class="menu-item" onclick="loadPage('kor_etf.html', this)">
+                <span class="pc-label">한국ETF</span>
+                <span class="mobile-label">한ETF</span>
+            </div>
+            <div class="menu-item" onclick="loadPage('us_etf.html', this)">
+                <span class="pc-label">미국ETF</span>
+                <span class="mobile-label">미ETF</span>
+            </div>
+            <div class="menu-item" onclick="loadPage('country_returns.html', this)">
+                <span class="pc-label">국가별등락</span>
+                <span class="mobile-label">국가별</span>
+            </div>
+            <div class="menu-item" onclick="loadPage('futures.html', this)">
+                <span class="pc-label">해선</span>
+                <span class="mobile-label">해선</span>
+            </div>
+            <div class="menu-item" onclick="loadPage('holdings.html', this)">
+                <span class="pc-label">보유자산</span>
+                <span class="mobile-label">보유주</span>
+            </div>
+            <div class="sidebar-divider mobile-hide"></div>
+            <div class="menu-item" onclick="loadPage('kor_theme.html', this)">
+                <span class="pc-label">KR150 종목</span>
+                <span class="mobile-label">KR150</span>
+            </div>
+            <div class="menu-item" onclick="loadPage('kor_volume.html', this)">
+                <span class="pc-label">당일거래대금/량</span>
+                <span class="mobile-label">거래대금/량</span>
+            </div>
+            <div class="menu-item" onclick="loadPage('kor_realtime.html', this)">
+                <span class="pc-label">실시간/저점/돌파</span>
+                <span class="mobile-label">실/저/돌</span>
+            </div>
+            <div class="menu-item" onclick="loadPage('coin.html', this)">
+                <span class="pc-label">코인</span>
+                <span class="mobile-label">코인</span>
+            </div>
+            <div class="sidebar-divider mobile-hide"></div>
+            <div class="menu-item" onclick="loadPage('us_main.html', this)">
+                <span class="pc-label">미Main주</span>
+                <span class="mobile-label">미Main</span>
+            </div>
+            <div class="menu-item" onclick="loadPage('us_finviz.html', this)">
+                <span class="pc-label">Finviz섹터주식</span>
+                <span class="mobile-label">Fin섹터</span>
+            </div>
+            <div class="menu-item" onclick="loadPage('us_stock.html', this)">
+                <span class="pc-label">미국VCP</span>
+                <span class="mobile-label">미VCP</span>
+            </div>
+            <div class="menu-item" onclick="loadPage('trade_chart_list.html', this)">
+                <span class="pc-label">자동일지차트</span>
+                <span class="mobile-label">일지차트</span>
+            </div>
+            <!-- 가이드 -->
+            <div class="menu-item mobile-hide" onclick="loadPage('webpage_boards_guide.html', this)">
+                <span class="pc-label">🛠 시스템 가이드</span>
+                <span class="mobile-label">가이드</span>
+            </div>
+        </div>
+
+        <!-- Right Content Area -->
+        <div class="content">
+            <iframe id="main-frame" name="main-frame" title="Report Content"></iframe>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,454 @@
+{
+  "generated_at": "2026-08-06 21:17",
+  "sections": [
+    {
+      "num": "1",
+      "api_id": "usa20511",
+      "title": "ETF 기간별 등락률 상위 (2주)",
+      "highlight_column": null,
+      "columns": [
+        {
+          "key": "rank",
+          "label": "순위",
+          "kind": "text"
+        },
+        {
+          "key": "stk_cd",
+          "label": "티커",
+          "kind": "text"
+        },
+        {
+          "key": "_start_price",
+          "label": "시작가",
+          "kind": "price"
+        },
+        {
+          "key": "_end_price",
+          "label": "종료가",
+          "kind": "price"
+        },
+        {
+          "key": "flu_rt",
+          "label": "등락률",
+          "kind": "change"
+        },
+        {
+          "key": "_start_volume",
+          "label": "시작거래량",
+          "kind": "int"
+        },
+        {
+          "key": "_end_volume",
+          "label": "종료거래량",
+          "kind": "int"
+        },
+        {
+          "key": "stk_nm",
+          "label": "종목명",
+          "kind": "text"
+        }
+      ],
+      "rows": [],
+      "dropped": [],
+      "error": null
+    },
+    {
+      "num": "2",
+      "api_id": "usa20541",
+      "title": "ETF 당일 거래대금 상위 (레버리지·인버스)",
+      "highlight_column": null,
+      "columns": [
+        {
+          "key": "rank",
+          "label": "순위",
+          "kind": "text"
+        },
+        {
+          "key": "stk_cd",
+          "label": "티커",
+          "kind": "text"
+        },
+        {
+          "key": "_end_price",
+          "label": "종료가",
+          "kind": "price"
+        },
+        {
+          "key": "flu_rt",
+          "label": "등락률",
+          "kind": "change"
+        },
+        {
+          "key": "_trde_amt",
+          "label": "거래대금",
+          "kind": "amt"
+        },
+        {
+          "key": "_start_volume",
+          "label": "시작거래량",
+          "kind": "int"
+        },
+        {
+          "key": "_end_volume",
+          "label": "종료거래량",
+          "kind": "int"
+        },
+        {
+          "key": "stk_nm",
+          "label": "종목명",
+          "kind": "text"
+        }
+      ],
+      "rows": [],
+      "dropped": [],
+      "error": null
+    },
+    {
+      "num": "3",
+      "api_id": "usa23000",
+      "title": "업종별 기간별 수익률 (4주)",
+      "highlight_column": "perf_1m",
+      "columns": [
+        {
+          "key": "rank",
+          "label": "순위",
+          "kind": "text"
+        },
+        {
+          "key": "stk_nm",
+          "label": "종목명",
+          "kind": "text"
+        },
+        {
+          "key": "perf_1d",
+          "label": "1D",
+          "kind": "change"
+        },
+        {
+          "key": "perf_5d",
+          "label": "5D",
+          "kind": "change"
+        },
+        {
+          "key": "perf_1m",
+          "label": "1M",
+          "kind": "change"
+        },
+        {
+          "key": "perf_3m",
+          "label": "3M",
+          "kind": "change"
+        }
+      ],
+      "rows": [
+        {
+          "rank": "1",
+          "stk_nm": "도/소매",
+          "perf_1d": "0.05",
+          "perf_5d": "11.17",
+          "perf_1m": "11.34",
+          "perf_3m": "1.75"
+        },
+        {
+          "rank": "2",
+          "stk_nm": "에너지및관련서비스",
+          "perf_1d": "0.94",
+          "perf_5d": "-2.54",
+          "perf_1m": "8.97",
+          "perf_3m": "1.53"
+        },
+        {
+          "rank": "3",
+          "stk_nm": "금속및채광",
+          "perf_1d": "-0.11",
+          "perf_5d": "6.97",
+          "perf_1m": "8.42",
+          "perf_3m": "0.63"
+        },
+        {
+          "rank": "4",
+          "stk_nm": "소재산업(기타)",
+          "perf_1d": "0.40",
+          "perf_5d": "3.36",
+          "perf_1m": "8.18",
+          "perf_3m": "16.13"
+        },
+        {
+          "rank": "5",
+          "stk_nm": "가정용내구재",
+          "perf_1d": "0.60",
+          "perf_5d": "7.27",
+          "perf_1m": "7.64",
+          "perf_3m": "14.50"
+        },
+        {
+          "rank": "6",
+          "stk_nm": "소비자서비스",
+          "perf_1d": "-0.10",
+          "perf_5d": "0.50",
+          "perf_1m": "4.80",
+          "perf_3m": "9.99"
+        },
+        {
+          "rank": "7",
+          "stk_nm": "해운",
+          "perf_1d": "0.99",
+          "perf_5d": "-0.65",
+          "perf_1m": "4.57",
+          "perf_3m": "2.57"
+        },
+        {
+          "rank": "8",
+          "stk_nm": "상업및전문서비스",
+          "perf_1d": "0.03",
+          "perf_5d": "-0.87",
+          "perf_1m": "3.75",
+          "perf_3m": "6.36"
+        },
+        {
+          "rank": "9",
+          "stk_nm": "상업은행",
+          "perf_1d": "0.72",
+          "perf_5d": "2.14",
+          "perf_1m": "3.73",
+          "perf_3m": "14.59"
+        },
+        {
+          "rank": "10",
+          "stk_nm": "복합기업",
+          "perf_1d": "0.30",
+          "perf_5d": "6.76",
+          "perf_1m": "3.65",
+          "perf_3m": "23.99"
+        },
+        {
+          "rank": "11",
+          "stk_nm": "무역회사",
+          "perf_1d": "0.66",
+          "perf_5d": "4.99",
+          "perf_1m": "3.04",
+          "perf_3m": "10.63"
+        },
+        {
+          "rank": "12",
+          "stk_nm": "건강관리장비및서비스",
+          "perf_1d": "0.54",
+          "perf_5d": "1.26",
+          "perf_1m": "2.53",
+          "perf_3m": "13.19"
+        },
+        {
+          "rank": "13",
+          "stk_nm": "바이오",
+          "perf_1d": "0.83",
+          "perf_5d": "1.04",
+          "perf_1m": "2.45",
+          "perf_3m": "17.05"
+        },
+        {
+          "rank": "14",
+          "stk_nm": "음식료및담배생산",
+          "perf_1d": "0.64",
+          "perf_5d": "-0.87",
+          "perf_1m": "2.21",
+          "perf_3m": "4.24"
+        },
+        {
+          "rank": "15",
+          "stk_nm": "보험",
+          "perf_1d": "0.13",
+          "perf_5d": "-0.17",
+          "perf_1m": "2.10",
+          "perf_3m": "13.32"
+        },
+        {
+          "rank": "16",
+          "stk_nm": "레져서비스및제품",
+          "perf_1d": "0.31",
+          "perf_5d": "0.36",
+          "perf_1m": "2.02",
+          "perf_3m": "3.73"
+        },
+        {
+          "rank": "17",
+          "stk_nm": "섬유의복및호화제품",
+          "perf_1d": "-0.47",
+          "perf_5d": "1.62",
+          "perf_1m": "1.93",
+          "perf_3m": "0.29"
+        },
+        {
+          "rank": "18",
+          "stk_nm": "화학",
+          "perf_1d": "0.22",
+          "perf_5d": "1.36",
+          "perf_1m": "1.74",
+          "perf_3m": "0.17"
+        },
+        {
+          "rank": "19",
+          "stk_nm": "운송인프라(도로선로)",
+          "perf_1d": "0.16",
+          "perf_5d": "1.20",
+          "perf_1m": "1.37",
+          "perf_3m": "4.83"
+        },
+        {
+          "rank": "20",
+          "stk_nm": "우주항공및국방",
+          "perf_1d": "0.12",
+          "perf_5d": "4.50",
+          "perf_1m": "1.23",
+          "perf_3m": "5.71"
+        },
+        {
+          "rank": "21",
+          "stk_nm": "가정및개인용품",
+          "perf_1d": "0.20",
+          "perf_5d": "1.80",
+          "perf_1m": "1.05",
+          "perf_3m": "3.64"
+        },
+        {
+          "rank": "22",
+          "stk_nm": "음식료소매",
+          "perf_1d": "0.79",
+          "perf_5d": "-0.55",
+          "perf_1m": "0.41",
+          "perf_3m": "-1.22"
+        },
+        {
+          "rank": "23",
+          "stk_nm": "기계및전기장비",
+          "perf_1d": "0.57",
+          "perf_5d": "6.72",
+          "perf_1m": "0.17",
+          "perf_3m": "2.59"
+        },
+        {
+          "rank": "24",
+          "stk_nm": "제약",
+          "perf_1d": "0.72",
+          "perf_5d": "0.24",
+          "perf_1m": "0.17",
+          "perf_3m": "12.30"
+        },
+        {
+          "rank": "25",
+          "stk_nm": "건설및건축제폼",
+          "perf_1d": "0.25",
+          "perf_5d": "4.66",
+          "perf_1m": "-0.58",
+          "perf_3m": "-5.52"
+        },
+        {
+          "rank": "26",
+          "stk_nm": "미디어",
+          "perf_1d": "-0.24",
+          "perf_5d": "6.92",
+          "perf_1m": "-1.09",
+          "perf_3m": "-6.84"
+        },
+        {
+          "rank": "27",
+          "stk_nm": "자동차관련부품",
+          "perf_1d": "0.23",
+          "perf_5d": "-0.84",
+          "perf_1m": "-1.14",
+          "perf_3m": "-0.34"
+        },
+        {
+          "rank": "28",
+          "stk_nm": "항공사및항공운송",
+          "perf_1d": "0.22",
+          "perf_5d": "3.75",
+          "perf_1m": "-1.73",
+          "perf_3m": "12.36"
+        },
+        {
+          "rank": "29",
+          "stk_nm": "건축자재",
+          "perf_1d": "0.32",
+          "perf_5d": "4.06",
+          "perf_1m": "-4.38",
+          "perf_3m": "-5.05"
+        },
+        {
+          "rank": "30",
+          "stk_nm": "자동차",
+          "perf_1d": "0.23",
+          "perf_5d": "2.86",
+          "perf_1m": "-15.51",
+          "perf_3m": "-11.98"
+        }
+      ],
+      "dropped": [],
+      "error": null
+    },
+    {
+      "num": "4",
+      "api_id": "usa23100",
+      "title": "업종별 등락률 상위",
+      "highlight_column": null,
+      "columns": [
+        {
+          "key": "rank",
+          "label": "순위",
+          "kind": "text"
+        },
+        {
+          "key": "stk_cd",
+          "label": "티커",
+          "kind": "text"
+        },
+        {
+          "key": "_start_price",
+          "label": "시가",
+          "kind": "price"
+        },
+        {
+          "key": "_end_price",
+          "label": "현재가",
+          "kind": "price"
+        },
+        {
+          "key": "flu_rt",
+          "label": "등락률",
+          "kind": "change"
+        },
+        {
+          "key": "_end_volume",
+          "label": "거래량",
+          "kind": "int"
+        },
+        {
+          "key": "stk_nm",
+          "label": "종목명",
+          "kind": "text"
+        }
+      ],
+      "rows": [
+        {
+          "rank": "1",
+          "stk_cd": "CLRO",
+          "_start_price": "+9.7501",
+          "_end_price": "+9.7501",
+          "flu_rt": "+164.95",
+          "_end_volume": "11955610",
+          "stk_nm": "클리어원"
+        },
+        {
+          "rank": "2",
+          "stk_cd": "PAVS",
+          "_start_price": "+9.4700",
+          "_end_price": "+9.4700",
+          "flu_rt": "+92.87",
+          "_end_volume": "8729962",
+          "stk_nm": "파라노부스 엔터테인먼트 테크놀로지"
+        }
+      ],
+      "dropped": [],
+      "error": null
+    }
+  ]
+}

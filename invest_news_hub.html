@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
+<title>투자뉴스 허브</title>
+<style>
+  body { font-family:"Malgun Gothic",Arial,sans-serif; margin:0; background:#f4f5f7; }
+  .topbar { background:#181b21; color:#fff; padding:10px 16px; }
+  .topbar h1 { font-size:18px; margin:0; display:inline-block; }
+  .topbar .meta { font-size:11px; color:#9aa0aa; margin-left:10px; }
+  .tabs { background:#23262e; padding:0 8px; }
+  .tabs button { background:none; border:none; color:#bbb; font-size:14px; font-weight:600;
+                  padding:12px 18px; cursor:pointer; border-bottom:3px solid transparent; }
+  .tabs button.active { color:#fff; border-bottom-color:#3b6fe0; }
+  .panel { display:none; } .panel.active { display:block; }
+  iframe { width:100%; height:calc(100vh - 96px); border:none; background:#fff; }
+</style></head><body>
+  <div class="topbar"><h1>투자뉴스 허브</h1><span class="meta">갱신 2026-06-06 10:47:18</span></div>
+  <div class="tabs">
+    <button id="b1" class="active" onclick="show('breaking')">실시간 속보</button>
+    <button id="b2" onclick="show('main')">주요뉴스</button>
+  </div>
+  <div id="breaking" class="panel active"><iframe src="invest_breaking_latest.html"></iframe></div>
+  <div id="main" class="panel"><iframe src="invest_mainnews_latest.html"></iframe></div>
+  <script>
+    function show(id) {
+      document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+      document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.getElementById(id==='breaking'?'b1':'b2').classList.add('active');
+    }
+  </script>
+</body></html>

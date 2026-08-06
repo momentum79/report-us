@@ -1,0 +1,649 @@
+{
+  "created_at": "2026-07-14 22:37:59",
+  "snapshot_days": 1,
+  "first_date": "2026-07-14",
+  "last_date": "2026-07-14",
+  "policy": {
+    "buy": "1 share per unique ticker per snapshot day",
+    "sell": "sell all shares when trend is not LIME/GREEN",
+    "price": "snapshot close"
+  },
+  "trades": [
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "MET",
+      "qty": 1,
+      "price": 91.6500015258789,
+      "trend": "LIME",
+      "source": "finviz",
+      "section": "order_top4",
+      "rank": 1
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "CSX",
+      "qty": 1,
+      "price": 49.40999984741211,
+      "trend": "LIME",
+      "source": "finviz",
+      "section": "order_top4",
+      "rank": 2
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "ANET",
+      "qty": 1,
+      "price": 186.9600067138672,
+      "trend": "LIME",
+      "source": "finviz",
+      "section": "order_top4",
+      "rank": 3
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "AAPL",
+      "qty": 1,
+      "price": 315.32000732421875,
+      "trend": "LIME",
+      "source": "finviz",
+      "section": "order_top4",
+      "rank": 4
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "AFL",
+      "qty": 1,
+      "price": 121.91000366210938,
+      "trend": "LIME",
+      "source": "finviz",
+      "section": "sector_quality_top10",
+      "rank": 5
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "ALL",
+      "qty": 1,
+      "price": 251.61000061035156,
+      "trend": "LIME",
+      "source": "finviz",
+      "section": "sector_quality_top10",
+      "rank": 6
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "UNP",
+      "qty": 1,
+      "price": 286.9599914550781,
+      "trend": "LIME",
+      "source": "finviz",
+      "section": "sector_quality_top10",
+      "rank": 7
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "UNH",
+      "qty": 1,
+      "price": 424.6199951171875,
+      "trend": "LIME",
+      "source": "finviz",
+      "section": "sector_quality_top10",
+      "rank": 8
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "SBUX",
+      "qty": 1,
+      "price": 106.01000213623047,
+      "trend": "LIME",
+      "source": "finviz",
+      "section": "sector_quality_top10",
+      "rank": 9
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "NSC",
+      "qty": 1,
+      "price": 327.4700012207031,
+      "trend": "LIME",
+      "source": "finviz",
+      "section": "sector_quality_top10",
+      "rank": 10
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "PBF",
+      "qty": 1,
+      "price": 53.18000030517578,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "main_quality_top10",
+      "rank": 1
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "VLO",
+      "qty": 1,
+      "price": 280.69000244140625,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "main_quality_top10",
+      "rank": 2
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "CLMT",
+      "qty": 1,
+      "price": 39.470001220703125,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "main_quality_top10",
+      "rank": 3
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "TIGO",
+      "qty": 1,
+      "price": 96.95999908447266,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "main_quality_top10",
+      "rank": 4
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "OII",
+      "qty": 1,
+      "price": 42.099998474121094,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "main_quality_top10",
+      "rank": 5
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "SMFG",
+      "qty": 1,
+      "price": 25.739999771118164,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "main_quality_top10",
+      "rank": 6
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "MATX",
+      "qty": 1,
+      "price": 204.77000427246094,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "main_quality_top10",
+      "rank": 7
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "MUFG",
+      "qty": 1,
+      "price": 21.649999618530273,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "main_quality_top10",
+      "rank": 9
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "NUVL",
+      "qty": 1,
+      "price": 123.9000015258789,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "main_quality_top10",
+      "rank": 10
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "CGON",
+      "qty": 1,
+      "price": 75.23999786376953,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "signal_mom",
+      "rank": 1
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "WERN",
+      "qty": 1,
+      "price": 43.849998474121094,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "signal_mom",
+      "rank": 2
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "RUSHA",
+      "qty": 1,
+      "price": 75.4800033569336,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "signal_mom",
+      "rank": 3
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "ZETA",
+      "qty": 1,
+      "price": 21.489999771118164,
+      "trend": "-",
+      "source": "us_main",
+      "section": "signal_mom",
+      "rank": 4
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "CI",
+      "qty": 1,
+      "price": 293.4599914550781,
+      "trend": "LIME",
+      "source": "us_main",
+      "section": "signal_mom",
+      "rank": 5
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "FBNC",
+      "qty": 1,
+      "price": 63.720001220703125,
+      "trend": "-",
+      "source": "us_main",
+      "section": "signal_lime",
+      "rank": 1
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "UBSI",
+      "qty": 1,
+      "price": 46.11000061035156,
+      "trend": "-",
+      "source": "us_main",
+      "section": "signal_lime",
+      "rank": 2
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "JBHT",
+      "qty": 1,
+      "price": 279.9599914550781,
+      "trend": "-",
+      "source": "us_main",
+      "section": "signal_lime",
+      "rank": 3
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "CFR",
+      "qty": 1,
+      "price": 156.86000061035156,
+      "trend": "-",
+      "source": "us_main",
+      "section": "signal_lime",
+      "rank": 4
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "NBHC",
+      "qty": 1,
+      "price": 44.33000183105469,
+      "trend": "-",
+      "source": "us_main",
+      "section": "signal_lime",
+      "rank": 5
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "CB",
+      "qty": 1,
+      "price": 347.8299865722656,
+      "trend": "GREEN",
+      "source": "us_main",
+      "section": "signal_lime",
+      "rank": 6
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "CVS",
+      "qty": 1,
+      "price": 104.1500015258789,
+      "trend": "-",
+      "source": "us_main",
+      "section": "signal_lime",
+      "rank": 7
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "BNL",
+      "qty": 1,
+      "price": 21.829999923706055,
+      "trend": "LIME",
+      "source": "us_stock",
+      "section": "vcp_early_top10",
+      "rank": 3
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "IUSV",
+      "qty": 1,
+      "price": 111.70999908447266,
+      "trend": "LIME",
+      "source": "us_stock",
+      "section": "vcp_early_top10",
+      "rank": 4
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "GKOS",
+      "qty": 1,
+      "price": 152.72000122070312,
+      "trend": "LIME",
+      "source": "us_stock",
+      "section": "vcp_early_top10",
+      "rank": 6
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "TRNO",
+      "qty": 1,
+      "price": 69.4000015258789,
+      "trend": "LIME",
+      "source": "us_stock",
+      "section": "vcp_early_top10",
+      "rank": 7
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "HSBC",
+      "qty": 1,
+      "price": 99.08999633789062,
+      "trend": "LIME",
+      "source": "us_stock",
+      "section": "vcp_early_top10",
+      "rank": 9
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "HUBG",
+      "qty": 1,
+      "price": 46.20000076293945,
+      "trend": "LIME",
+      "source": "us_stock",
+      "section": "vcp_early_top10",
+      "rank": 10
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "FTI",
+      "qty": 1,
+      "price": 71.8499984741211,
+      "trend": "LIME",
+      "source": "minervini",
+      "section": "stage2_entry",
+      "rank": 1
+    },
+    {
+      "date": "2026-07-14",
+      "action": "BUY",
+      "ticker": "ANDE",
+      "qty": 1,
+      "price": 72.20999908447266,
+      "trend": "-",
+      "source": "minervini",
+      "section": "stage2_entry",
+      "rank": 2
+    }
+  ],
+  "summary": {
+    "buy_count": 39,
+    "sell_count": 0,
+    "open_tickers": 39,
+    "gross_buy_amount": 5247.869987487793,
+    "realized_pnl": 0.0,
+    "unrealized_pnl": 0.0,
+    "total_pnl": 0.0,
+    "total_return_pct_on_gross_buys": 0.0
+  },
+  "open_positions": {
+    "AAPL": {
+      "qty": 1,
+      "avg_cost": 315.32000732421875,
+      "latest_price": 315.32000732421875
+    },
+    "AFL": {
+      "qty": 1,
+      "avg_cost": 121.91000366210938,
+      "latest_price": 121.91000366210938
+    },
+    "ALL": {
+      "qty": 1,
+      "avg_cost": 251.61000061035156,
+      "latest_price": 251.61000061035156
+    },
+    "ANDE": {
+      "qty": 1,
+      "avg_cost": 72.20999908447266,
+      "latest_price": 72.20999908447266
+    },
+    "ANET": {
+      "qty": 1,
+      "avg_cost": 186.9600067138672,
+      "latest_price": 186.9600067138672
+    },
+    "BNL": {
+      "qty": 1,
+      "avg_cost": 21.829999923706055,
+      "latest_price": 21.829999923706055
+    },
+    "CB": {
+      "qty": 1,
+      "avg_cost": 347.8299865722656,
+      "latest_price": 347.8299865722656
+    },
+    "CFR": {
+      "qty": 1,
+      "avg_cost": 156.86000061035156,
+      "latest_price": 156.86000061035156
+    },
+    "CGON": {
+      "qty": 1,
+      "avg_cost": 75.23999786376953,
+      "latest_price": 75.23999786376953
+    },
+    "CI": {
+      "qty": 1,
+      "avg_cost": 293.4599914550781,
+      "latest_price": 293.4599914550781
+    },
+    "CLMT": {
+      "qty": 1,
+      "avg_cost": 39.470001220703125,
+      "latest_price": 39.470001220703125
+    },
+    "CSX": {
+      "qty": 1,
+      "avg_cost": 49.40999984741211,
+      "latest_price": 49.40999984741211
+    },
+    "CVS": {
+      "qty": 1,
+      "avg_cost": 104.1500015258789,
+      "latest_price": 104.1500015258789
+    },
+    "FBNC": {
+      "qty": 1,
+      "avg_cost": 63.720001220703125,
+      "latest_price": 63.720001220703125
+    },
+    "FTI": {
+      "qty": 1,
+      "avg_cost": 71.8499984741211,
+      "latest_price": 71.8499984741211
+    },
+    "GKOS": {
+      "qty": 1,
+      "avg_cost": 152.72000122070312,
+      "latest_price": 152.72000122070312
+    },
+    "HSBC": {
+      "qty": 1,
+      "avg_cost": 99.08999633789062,
+      "latest_price": 99.08999633789062
+    },
+    "HUBG": {
+      "qty": 1,
+      "avg_cost": 46.20000076293945,
+      "latest_price": 46.20000076293945
+    },
+    "IUSV": {
+      "qty": 1,
+      "avg_cost": 111.70999908447266,
+      "latest_price": 111.70999908447266
+    },
+    "JBHT": {
+      "qty": 1,
+      "avg_cost": 279.9599914550781,
+      "latest_price": 279.9599914550781
+    },
+    "MATX": {
+      "qty": 1,
+      "avg_cost": 204.77000427246094,
+      "latest_price": 204.77000427246094
+    },
+    "MET": {
+      "qty": 1,
+      "avg_cost": 91.6500015258789,
+      "latest_price": 91.6500015258789
+    },
+    "MUFG": {
+      "qty": 1,
+      "avg_cost": 21.649999618530273,
+      "latest_price": 21.649999618530273
+    },
+    "NBHC": {
+      "qty": 1,
+      "avg_cost": 44.33000183105469,
+      "latest_price": 44.33000183105469
+    },
+    "NSC": {
+      "qty": 1,
+      "avg_cost": 327.4700012207031,
+      "latest_price": 327.4700012207031
+    },
+    "NUVL": {
+      "qty": 1,
+      "avg_cost": 123.9000015258789,
+      "latest_price": 123.9000015258789
+    },
+    "OII": {
+      "qty": 1,
+      "avg_cost": 42.099998474121094,
+      "latest_price": 42.099998474121094
+    },
+    "PBF": {
+      "qty": 1,
+      "avg_cost": 53.18000030517578,
+      "latest_price": 53.18000030517578
+    },
+    "RUSHA": {
+      "qty": 1,
+      "avg_cost": 75.4800033569336,
+      "latest_price": 75.4800033569336
+    },
+    "SBUX": {
+      "qty": 1,
+      "avg_cost": 106.01000213623047,
+      "latest_price": 106.01000213623047
+    },
+    "SMFG": {
+      "qty": 1,
+      "avg_cost": 25.739999771118164,
+      "latest_price": 25.739999771118164
+    },
+    "TIGO": {
+      "qty": 1,
+      "avg_cost": 96.95999908447266,
+      "latest_price": 96.95999908447266
+    },
+    "TRNO": {
+      "qty": 1,
+      "avg_cost": 69.4000015258789,
+      "latest_price": 69.4000015258789
+    },
+    "UBSI": {
+      "qty": 1,
+      "avg_cost": 46.11000061035156,
+      "latest_price": 46.11000061035156
+    },
+    "UNH": {
+      "qty": 1,
+      "avg_cost": 424.6199951171875,
+      "latest_price": 424.6199951171875
+    },
+    "UNP": {
+      "qty": 1,
+      "avg_cost": 286.9599914550781,
+      "latest_price": 286.9599914550781
+    },
+    "VLO": {
+      "qty": 1,
+      "avg_cost": 280.69000244140625,
+      "latest_price": 280.69000244140625
+    },
+    "WERN": {
+      "qty": 1,
+      "avg_cost": 43.849998474121094,
+      "latest_price": 43.849998474121094
+    },
+    "ZETA": {
+      "qty": 1,
+      "avg_cost": 21.489999771118164,
+      "latest_price": 21.489999771118164
+    }
+  }
+}

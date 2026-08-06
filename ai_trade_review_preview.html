@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 매매복기 미리보기</title>
+<style>
+  :root {
+    --bg:#f5f7fb; --panel:#ffffff; --ink:#172033; --muted:#667085; --line:#d9e0ea;
+    --pass:#0f8a5f; --warn:#b7791f; --fail:#c43d3d; --skip:#64748b; --info:#2563eb;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:Arial,'Noto Sans KR',sans-serif; font-size:14px; line-height:1.55; }
+  .wrap { max-width:1280px; margin:0 auto; padding:24px; }
+  .top { display:flex; justify-content:space-between; gap:16px; align-items:flex-end; margin-bottom:18px; }
+  h1 { margin:0; font-size:26px; letter-spacing:0; }
+  .sub { color:var(--muted); margin-top:4px; }
+  .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:16px 0; }
+  .metric { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:14px; }
+  .metric .label { color:var(--muted); font-size:12px; }
+  .metric .value { font-size:24px; font-weight:700; margin-top:4px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; margin-bottom:14px; }
+  h2 { font-size:17px; margin:0 0 12px; }
+  table { width:100%; border-collapse:collapse; }
+  th { text-align:left; background:#edf2f7; color:#344054; font-size:12px; padding:8px; border-bottom:1px solid var(--line); white-space:nowrap; }
+  td { padding:8px; border-bottom:1px solid #eef2f7; vertical-align:top; }
+  tr:last-child td { border-bottom:0; }
+  .badge { display:inline-block; min-width:54px; text-align:center; border-radius:999px; padding:2px 8px; color:white; font-weight:700; font-size:12px; }
+  .pass { background:var(--pass); } .warn { background:var(--warn); } .fail { background:var(--fail); }
+  .skip { background:var(--skip); } .info { background:var(--info); }
+  .small { font-size:12px; color:var(--muted); }
+  .muted { color:var(--muted); }
+  .mono { font-family:'JetBrains Mono',Consolas,monospace; }
+  .ok { color:var(--pass); font-weight:700; } .bad { color:var(--fail); font-weight:700; } .warntext { color:var(--warn); font-weight:700; }
+  .empty { padding:12px; color:var(--muted); background:#f8fafc; border:1px dashed var(--line); border-radius:8px; }
+  ul { margin:0; padding-left:20px; }
+  li { margin:6px 0; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .note { background:#fff8e6; border-color:#f5d083; }
+  @media (max-width:900px) { .grid,.two { grid-template-columns:1fr; } .top { display:block; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>AI 매매복기 미리보기</h1>
+      <div class="sub">로컬 read-only 감사판 · 주문/배포 없음 · 생성 2026-07-05 10:53:23</div>
+    </div>
+    <div class="sub">오늘 2026-07-05 · 기대 거래일 2026-07-03</div>
+  </div>
+
+  <div class="grid">
+    <div class="metric"><div class="label">한국 ETF 수량 이행률</div><div class="value">0.0%</div></div>
+    <div class="metric"><div class="label">연속 손실 전략</div><div class="value">1개</div></div>
+    <div class="metric"><div class="label">연속 이익 전략</div><div class="value">0개</div></div>
+    <div class="metric"><div class="label">오늘 경고 모드</div><div class="value">휴장/주말 SKIP</div></div>
+  </div>
+
+  <div class="card note">
+    <h2>오늘의 반성 포인트</h2>
+    <ul><li>오늘은 주말이라 루틴 누락 경고는 끄고, 마지막 거래일 기준 이행률만 확인합니다.</li><li>한국 ETF 수량 이행률이 0.0%입니다. 시스템 신호를 따르지 않은 날로 분류하고, 의도적 축소였는지 기록이 필요합니다.</li><li>최근 3회 거래일 기준 연속 손실 전략이 1개 있습니다. 신규 투입보다 원인 분해가 먼저입니다.</li><li>최근 3회 거래일 연속 이익 전략은 현재 데이터 기준으로 감지되지 않았습니다.</li></ul>
+  </div>
+
+  <div class="two">
+    <div class="card">
+      <h2>일간 누적표</h2>
+      <div class="small">이번 주 월요일부터 기대 거래일까지의 이행률 기록입니다. 이 스크립트를 매일 돌릴수록 채워집니다.</div>
+      <table><thead><tr><th>날짜</th><th>한국 ETF</th><th>연속손실</th><th>연속이익</th><th>기록시각</th></tr></thead><tbody><tr><td>2026-06-29</td><td><span class="muted">미기록</span></td><td><span class="muted">-</span></td><td><span class="muted">-</span></td><td><span class="small">아직 이 스크립트를 돌린 기록 없음</span></td></tr><tr><td>2026-06-30</td><td><span class="muted">미기록</span></td><td><span class="muted">-</span></td><td><span class="muted">-</span></td><td><span class="small">아직 이 스크립트를 돌린 기록 없음</span></td></tr><tr><td>2026-07-01</td><td><span class="muted">미기록</span></td><td><span class="muted">-</span></td><td><span class="muted">-</span></td><td><span class="small">아직 이 스크립트를 돌린 기록 없음</span></td></tr><tr><td>2026-07-02</td><td><span class="muted">미기록</span></td><td><span class="muted">-</span></td><td><span class="muted">-</span></td><td><span class="small">아직 이 스크립트를 돌린 기록 없음</span></td></tr><tr><td>2026-07-03</td><td><span class="bad">0.0%</span></td><td><span class="bad">1개</span></td><td><span class="muted">0개</span></td><td><span class="small">2026-07-05 10:53:23</span></td></tr></tbody></table>
+    </div>
+    <div class="card">
+      <h2>주간 누적표</h2>
+      <div class="small">저장된 일간 기록 기준 주차별 평균입니다.</div>
+      <table><thead><tr><th>주간</th><th>기록일수</th><th>한국 ETF 평균</th><th>최대 연속손실</th><th>최대 연속이익</th></tr></thead><tbody><tr><td>2026-06-29~2026-07-03</td><td>1일</td><td><span class="bad">0.0%</span></td><td><span class="bad">1개</span></td><td><span class="muted">0개</span></td></tr></tbody></table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>한국 ETF 권장 수량 vs 실제 보유</h2>
+    <div class="small">기준 파일: D:\py\0order\00_etf_korea_rebalancing.txt · 실제: report-us\holdings_*.json 합산</div>
+    <table><thead><tr><th>티커/코드</th><th>권장</th><th>실제</th><th>차이</th><th>상태</th></tr></thead><tbody><tr><td><span class="mono">195930</span></td><td>124</td><td>0</td><td><span class="bad">-124</span></td><td>UNDER</td></tr><tr><td><span class="mono">228790</span></td><td>640</td><td>0</td><td><span class="bad">-640</span></td><td>UNDER</td></tr></tbody></table>
+  </div>
+
+  <div class="two">
+    <div class="card">
+      <h2>최근 3회 거래일 연속 손실 전략</h2>
+      <table><thead><tr><th>계좌</th><th>전략</th><th>3회 합산</th><th>최근 3회</th></tr></thead><tbody><tr><td>8042</td><td>lowhigh</td><td><span class="bad">-170,500원</span></td><td>2026-06-29: -50,000원 (1건)<br>2026-07-01: -60,500원 (1건)<br>2026-07-03: -60,000원 (1건)</td></tr></tbody></table>
+    </div>
+    <div class="card">
+      <h2>최근 3회 거래일 연속 이익 전략</h2>
+      <div class="empty">최근 3회 거래일 연속 이익 전략이 없습니다.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>v1 한계</h2>
+    <ul>
+      <li>일간/주간 누적은 오늘부터 `ai_trade_review_history.json`에 저장되는 기록 기준입니다. 과거 보유 스냅샷이 없으면 자동으로 과거를 복원하지 않습니다.</li>
+      <li>한국 ETF 이행률은 수량 기준 단순 계산입니다. 의도적으로 축소한 날은 나중에 메모 필드를 붙이는 방식이 좋습니다.</li>
+      <li>AI API 문장은 아직 붙이지 않았습니다. 먼저 이행률 판정이 맞는지 확인하는 버전입니다.</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

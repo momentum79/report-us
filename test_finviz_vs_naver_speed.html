@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Finviz vs Naver 차트 이미지 로딩속도 비교</title>
+<style>
+  :root {
+    --ink: #123047;
+    --line: #e67e22;
+    --soft: #eef2f4;
+    --card: #ffffff;
+    --muted: #607080;
+    --finviz: #2980b9;
+    --naver: #27ae60;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 18px 22px 40px;
+    background: #f3f6f7;
+    color: var(--ink);
+    font-family: Arial, "Malgun Gothic", sans-serif;
+  }
+  h1 { margin: 0 0 6px; font-size: 24px; border-bottom: 2px solid var(--line); padding-bottom: 10px; }
+  p.desc { color: var(--muted); font-size: 13px; margin: 8px 0 18px; line-height: 1.5; }
+  .toolbar {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    margin-bottom: 16px; padding: 12px; background: var(--card);
+    border: 1px solid #dbe2e6; border-radius: 8px;
+  }
+  button {
+    border: 1px solid #cbd5df; background: #fff; color: var(--ink);
+    border-radius: 6px; padding: 8px 13px; font-size: 14px; font-weight: 700; cursor: pointer;
+  }
+  button.active { background: var(--line); border-color: var(--line); color: #fff; }
+  button.primary { background: var(--ink); border-color: var(--ink); color: #fff; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .sep { width: 1px; height: 24px; background: #dbe2e6; margin: 0 4px; }
+  .status { font-size: 13px; color: var(--muted); margin-left: 6px; }
+
+  table.results {
+    width: 100%; border-collapse: collapse; background: var(--card);
+    border: 1px solid #dbe2e6; border-radius: 8px; overflow: hidden; margin-bottom: 18px;
+    font-size: 13px;
+  }
+  table.results th, table.results td {
+    padding: 7px 10px; text-align: right; border-bottom: 1px solid #eef2f4;
+  }
+  table.results th:first-child, table.results td:first-child,
+  table.results th:nth-child(2), table.results td:nth-child(2) { text-align: left; }
+  table.results th { background: var(--soft); font-weight: 800; }
+  table.results tr:last-child td { border-bottom: none; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 800; padding: 1px 5px; border-radius: 4px; margin-left: 5px; }
+  .tag.probe { background: #fdecea; color: #c0392b; }
+  .tag.cached { background: #eafaf1; color: #1e8449; }
+  .fail { color: #c0392b; font-weight: 800; }
+  .win { color: #1e8449; font-weight: 800; }
+
+  .summary {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px;
+    margin-bottom: 20px;
+  }
+  .summary .box {
+    background: var(--card); border: 1px solid #dbe2e6; border-radius: 8px; padding: 10px 12px;
+  }
+  .summary .box .src { font-size: 12px; font-weight: 800; color: var(--muted); }
+  .summary .box .avg { font-size: 20px; font-weight: 800; margin-top: 2px; }
+  .summary .box.finviz .src { color: var(--finviz); }
+  .summary .box.naver .src { color: var(--naver); }
+
+  .preview { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .panel { background: var(--card); border: 1px solid #dbe2e6; border-radius: 8px; padding: 10px; }
+  .panel h3 { margin: 0 0 8px; font-size: 14px; }
+  .panel.finviz h3 { color: var(--finviz); }
+  .panel.naver h3 { color: var(--naver); }
+  .chart-row { display: flex; gap: 8px; }
+  .chart-box { flex: 1; }
+  .chart-box .lbl { font-size: 11px; color: var(--muted); margin-bottom: 3px; }
+  .chart-box img { width: 100%; height: auto; border: 1px solid #e5e7eb; border-radius: 4px; background: #fafafa; min-height: 90px; }
+
+  @media (max-width: 767px) {
+    .preview { grid-template-columns: 1fr; }
+    table.results { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+  <h1>Finviz vs Naver 차트 이미지 로딩속도 비교</h1>
+  <p class="desc">
+    매 실행마다 캐시 무력화(cache-busting)를 적용해 실제 네트워크 요청 시간을 측정합니다.
+    네이버는 최초 1회 티커→코드 탐색(suffix probing, 운영 코드와 동일 방식)이 필요해서 이후 재사용 시와 분리해서 표시합니다.
+  </p>
+
+  <div class="toolbar">
+    <button class="ticker-btn active" data-ticker="QQQ">QQQ</button>
+    <button class="ticker-btn" data-ticker="IWM">IWM</button>
+    <div class="sep"></div>
+    <button class="primary" id="runOnce">1회 테스트</button>
+    <button id="run5">5회 반복 테스트</button>
+    <button id="resetCode">네이버 코드캐시 초기화</button>
+    <button id="clearLog">기록 지우기</button>
+    <span class="status" id="statusText"></span>
+  </div>
+
+  <div class="summary" id="summary"></div>
+
+  <table class="results">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>티커</th>
+        <th>Finviz 일봉</th>
+        <th>Finviz 주봉</th>
+        <th>Naver 일봉</th>
+        <th>Naver 주봉</th>
+      </tr>
+    </thead>
+    <tbody id="resultsBody"></tbody>
+  </table>
+
+  <div class="preview">
+    <div class="panel finviz">
+      <h3>Finviz 미리보기</h3>
+      <div class="chart-row">
+        <div class="chart-box"><div class="lbl">Daily</div><img id="finvizDailyImg" alt="finviz daily"></div>
+        <div class="chart-box"><div class="lbl">Weekly</div><img id="finvizWeeklyImg" alt="finviz weekly"></div>
+      </div>
+    </div>
+    <div class="panel naver">
+      <h3>Naver 미리보기</h3>
+      <div class="chart-row">
+        <div class="chart-box"><div class="lbl">Daily</div><img id="naverDailyImg" alt="naver daily"></div>
+        <div class="chart-box"><div class="lbl">Weekly</div><img id="naverWeeklyImg" alt="naver weekly"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var NAVER_CODES = { QQQ: 'QQQ.O' };            // 운영 코드(make_index_us.py)와 동일한 기지정 매핑
+    var SUFFIX_TRY = ['.O', '.P', '', '.N', '.A', '.K'];
+    var resolvedCode = {};                          // 세션 내 캐시 (make_index_us.py 의 resolvedCode 와 동일 역할)
+
+    var currentTicker = 'QQQ';
+    var runIndex = 0;
+    var history = { finvizDaily: [], finvizWeekly: [], naverDaily: [], naverWeekly: [] };
+
+    var buttons = Array.from(document.querySelectorAll('.ticker-btn'));
+    var runOnceBtn = document.getElementById('runOnce');
+    var run5Btn = document.getElementById('run5');
+    var resetCodeBtn = document.getElementById('resetCode');
+    var clearLogBtn = document.getElementById('clearLog');
+    var statusText = document.getElementById('statusText');
+    var resultsBody = document.getElementById('resultsBody');
+    var summaryEl = document.getElementById('summary');
+
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () {
+        currentTicker = b.getAttribute('data-ticker');
+        buttons.forEach(function (x) { x.classList.toggle('active', x === b); });
+      });
+    });
+
+    function finvizUrl(ticker, period) {
+      return 'https://charts2.finviz.com/chart.ashx?t=' + encodeURIComponent(ticker) + '&ty=c&ta=1&p=' + period + '&s=l&_cb=' + Date.now() + Math.random();
+    }
+    function naverDailyUrl(code) {
+      return 'https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/day/' + code + '_end.png?t=' + Date.now() + Math.random();
+    }
+    function naverWeeklyUrl(code) {
+      return 'https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/week/' + code + '_end.png?t=' + Date.now() + Math.random();
+    }
+
+    // Image 를 로드하며 걸린 시간(ms)을 재는 Promise. targetImgEl 있으면 미리보기도 갱신.
+    function timeImageLoad(url, targetImgEl) {
+      return new Promise(function (resolve) {
+        var t0 = performance.now();
+        var img = new Image();
+        img.onload = function () {
+          var ms = performance.now() - t0;
+          if (targetImgEl) { targetImgEl.src = url; }
+          resolve({ ok: true, ms: ms });
+        };
+        img.onerror = function () {
+          resolve({ ok: false, ms: performance.now() - t0 });
+        };
+        img.src = url;
+      });
+    }
+
+    // 네이버 코드 탐색(운영 코드 resolveCode 와 동일 로직) + 그 성공 프로브를 그대로 "일봉 첫 로딩"으로 재사용
+    function resolveNaverCodeTimed(ticker) {
+      var T = ticker.toUpperCase();
+      if (resolvedCode[T]) {
+        return timeImageLoad(naverDailyUrl(resolvedCode[T]), document.getElementById('naverDailyImg'))
+          .then(function (r) { return Object.assign({ code: resolvedCode[T], probed: false }, r); });
+      }
+      var candidates = NAVER_CODES[T] ? [NAVER_CODES[T]] : SUFFIX_TRY.map(function (s) { return T + s; });
+      var i = 0;
+      var t0 = performance.now();
+      return new Promise(function (resolve) {
+        function tryNext() {
+          if (i >= candidates.length) { resolve({ code: null, probed: true, ok: false, ms: performance.now() - t0 }); return; }
+          var code = candidates[i++];
+          var url = naverDailyUrl(code);
+          var img = new Image();
+          img.onload = function () {
+            resolvedCode[T] = code;
+            document.getElementById('naverDailyImg').src = url;
+            resolve({ code: code, probed: true, ok: true, ms: performance.now() - t0 });
+          };
+          img.onerror = tryNext;
+          img.src = url;
+        }
+        tryNext();
+      });
+    }
+
+    function fmtMs(r) {
+      if (!r || !r.ok) return '<span class="fail">실패</span>';
+      return r.ms.toFixed(0) + 'ms';
+    }
+
+    async function runSingleTest() {
+      runIndex += 1;
+      var ticker = currentTicker;
+      statusText.textContent = '측정 중... (' + ticker + ')';
+      runOnceBtn.disabled = true; run5Btn.disabled = true;
+
+      var finvizDaily = await timeImageLoad(finvizUrl(ticker, 'd'), document.getElementById('finvizDailyImg'));
+      var finvizWeekly = await timeImageLoad(finvizUrl(ticker, 'w'), document.getElementById('finvizWeeklyImg'));
+      var naverDaily = await resolveNaverCodeTimed(ticker);
+      var naverWeekly = naverDaily.ok
+        ? await timeImageLoad(naverWeeklyUrl(naverDaily.code), document.getElementById('naverWeeklyImg'))
+        : { ok: false, ms: 0 };
+
+      if (finvizDaily.ok) history.finvizDaily.push(finvizDaily.ms);
+      if (finvizWeekly.ok) history.finvizWeekly.push(finvizWeekly.ms);
+      if (naverDaily.ok) history.naverDaily.push(naverDaily.ms);
+      if (naverWeekly.ok) history.naverWeekly.push(naverWeekly.ms);
+
+      var tr = document.createElement('tr');
+      tr.innerHTML =
+        '<td>' + runIndex + '</td>' +
+        '<td>' + ticker + '</td>' +
+        '<td>' + fmtMs(finvizDaily) + '</td>' +
+        '<td>' + fmtMs(finvizWeekly) + '</td>' +
+        '<td>' + fmtMs(naverDaily) + '<span class="tag ' + (naverDaily.probed ? 'probe">코드탐색' : 'cached">캐시재사용') + '</span></td>' +
+        '<td>' + fmtMs(naverWeekly) + '</td>';
+      resultsBody.prepend(tr);
+
+      statusText.textContent = '완료 (run #' + runIndex + ')';
+      runOnceBtn.disabled = false; run5Btn.disabled = false;
+      renderSummary();
+    }
+
+    async function run5Times() {
+      run5Btn.disabled = true; runOnceBtn.disabled = true;
+      for (var i = 0; i < 5; i++) {
+        await runSingleTest();
+      }
+      run5Btn.disabled = false; runOnceBtn.disabled = false;
+    }
+
+    function avg(arr) { return arr.length ? arr.reduce(function (a, b) { return a + b; }, 0) / arr.length : null; }
+
+    function renderSummary() {
+      var boxes = [
+        { key: 'finvizDaily', label: 'Finviz 일봉', cls: 'finviz' },
+        { key: 'finvizWeekly', label: 'Finviz 주봉', cls: 'finviz' },
+        { key: 'naverDaily', label: 'Naver 일봉', cls: 'naver' },
+        { key: 'naverWeekly', label: 'Naver 주봉', cls: 'naver' },
+      ];
+      summaryEl.innerHTML = boxes.map(function (b) {
+        var a = avg(history[b.key]);
+        var n = history[b.key].length;
+        return '<div class="box ' + b.cls + '"><div class="src">' + b.label + ' (n=' + n + ')</div>' +
+          '<div class="avg">' + (a === null ? '-' : a.toFixed(0) + 'ms') + '</div></div>';
+      }).join('');
+    }
+
+    runOnceBtn.addEventListener('click', runSingleTest);
+    run5Btn.addEventListener('click', run5Times);
+    resetCodeBtn.addEventListener('click', function () {
+      resolvedCode = {};
+      statusText.textContent = '네이버 코드캐시 초기화됨 (다음 테스트는 다시 탐색부터 시작)';
+    });
+    clearLogBtn.addEventListener('click', function () {
+      runIndex = 0;
+      history = { finvizDaily: [], finvizWeekly: [], naverDaily: [], naverWeekly: [] };
+      resultsBody.innerHTML = '';
+      renderSummary();
+      statusText.textContent = '기록 초기화됨';
+    });
+
+    renderSummary();
+  })();
+  </script>
+</body>
+</html>

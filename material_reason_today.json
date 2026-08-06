@@ -1,0 +1,214 @@
+{
+  "generated_at": "2026-06-10 21:22:12",
+  "asof": "2026-06-10",
+  "mode": "online",
+  "params": {
+    "min_change": 15.0,
+    "top_volume": 30
+  },
+  "source_files": [
+    "report-us/report_volume.json",
+    "report-us/report_kr_150.json",
+    "report-us/report_kr_summary.txt",
+    "report-us/naver_leader_pool.json",
+    "report-us/leader_tracking_volume.json",
+    "report-us/leader_tracking_150.json",
+    "report-us/leader_tracking.json",
+    "0txt/theme_analysis.json",
+    "0txt/theme_stock_tracking.json",
+    "0txt/00_1887_naver_thema_debug.csv"
+  ],
+  "candidates_count": 3,
+  "global_warnings": [
+    "theme_stale:fetched_at=2026-06-03"
+  ],
+  "items": [
+    {
+      "code": "475150",
+      "name": "SK이터닉스",
+      "change_pct": 29.87,
+      "trade_value_krw": 304714000000.0,
+      "triggers": [
+        "change>=15.0"
+      ],
+      "material_summary": "개별 뉴스('KKR과 신재생사업 빅딜…SK이터닉스 '상한가'')로 상승한 것으로 추정, 당일 +29.9%",
+      "material_type": "회사개별",
+      "strength_grade": "A",
+      "persistence": "며칠",
+      "extinction_checkpoints": [
+        "뚜렷한 일정성 체크포인트 미확인"
+      ],
+      "confidence": 75,
+      "evidence": [
+        {
+          "kind": "news",
+          "score": 8,
+          "title": "KKR과 신재생사업 빅딜…SK이터닉스 '상한가'",
+          "time": "2026-06-10 18:08",
+          "press": "한국경제",
+          "url": "https://finance.naver.com/item/news_read.naver?article_id=0005297359&office_id=015&code=475150&page=1&sm=",
+          "tags": [
+            "name_in_title",
+            "today"
+          ],
+          "freshness": "fresh"
+        },
+        {
+          "kind": "news",
+          "score": 8,
+          "title": "SK·KKR 신재생에너지 빅딜에...SK이터닉스 상한가",
+          "time": "2026-06-10 16:05",
+          "press": "한국경제",
+          "url": "https://finance.naver.com/item/news_read.naver?article_id=0005297235&office_id=015&code=475150&page=1&sm=",
+          "tags": [
+            "name_in_title",
+            "today"
+          ],
+          "freshness": "fresh"
+        },
+        {
+          "kind": "news",
+          "score": 8,
+          "title": "[특징주] SK이터닉스, 상한가 마감…신재생에너지주 동반 상승(종합)",
+          "time": "2026-06-10 15:47",
+          "press": "연합뉴스",
+          "url": "https://finance.naver.com/item/news_read.naver?article_id=0016131173&office_id=001&code=475150&page=1&sm=",
+          "tags": [
+            "name_in_title",
+            "today"
+          ],
+          "freshness": "fresh"
+        },
+        {
+          "kind": "news",
+          "score": 8,
+          "title": "[ET특징주] SK이터닉스, 신재생에너지 사업 재편 기대감에 주가 上",
+          "time": "2026-06-10 11:29",
+          "press": "전자신문",
+          "url": "https://finance.naver.com/item/news_read.naver?article_id=0003436232&office_id=030&code=475150&page=1&sm=",
+          "tags": [
+            "name_in_title",
+            "today"
+          ],
+          "freshness": "fresh"
+        },
+        {
+          "kind": "news",
+          "score": 8,
+          "title": "SK이터닉스, 30% 상승세…신재생 사업 재편 소식 영향 [특징주]",
+          "time": "2026-06-10 10:10",
+          "press": "데일리안",
+          "url": "https://finance.naver.com/item/news_read.naver?article_id=0003099540&office_id=119&code=475150&page=1&sm=",
+          "tags": [
+            "name_in_title",
+            "today"
+          ],
+          "freshness": "fresh"
+        },
+        {
+          "kind": "news",
+          "score": 8,
+          "title": "SK이터닉스, SK그룹 신재생에너지 사업 개편 기대에 上[특징주]",
+          "time": "2026-06-10 10:08",
+          "press": "이데일리",
+          "url": "https://finance.naver.com/item/news_read.naver?article_id=0006302059&office_id=018&code=475150&page=1&sm=",
+          "tags": [
+            "name_in_title",
+            "today"
+          ],
+          "freshness": "fresh"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "code": "093370",
+      "name": "후성",
+      "change_pct": 21.3,
+      "trade_value_krw": 1197656000000.0,
+      "triggers": [
+        "change>=15.0",
+        "top_volume_rank<=30&change>=8",
+        "tracked:lt_volume",
+        "tracked:lt_legacy"
+      ],
+      "material_summary": "뚜렷한 뉴스/테마 근거 없이 거래대금 유입(수급) 중심 상승으로 추정 (당일/전일 종목명 뉴스 없음, 과거 기사만 존재), 당일 +21.3%",
+      "material_type": "수급성/불명확",
+      "strength_grade": "D",
+      "persistence": "단발",
+      "extinction_checkpoints": [
+        "수급성 — 거래대금 급감 시 소멸 가능"
+      ],
+      "confidence": 33,
+      "evidence": [
+        {
+          "kind": "volume",
+          "score": 2,
+          "detail": "거래대금 Top30 (rank 12)",
+          "rank": 12
+        },
+        {
+          "kind": "stale_news",
+          "score": 0,
+          "title": "리튬 품귀에 포스코홀딩스·후성 '불기둥'",
+          "time": "2026-05-05 17:42",
+          "press": "매일경제",
+          "url": "https://finance.naver.com/item/news_read.naver?article_id=0005675570&office_id=009&code=093370&page=1&sm=",
+          "tags": [
+            "stale"
+          ],
+          "freshness": "stale"
+        }
+      ],
+      "warnings": [
+        "stale_news_only"
+      ]
+    },
+    {
+      "code": "100090",
+      "name": "SK오션플랜트",
+      "change_pct": 19.6,
+      "trade_value_krw": 353628000000.0,
+      "triggers": [
+        "change>=15.0"
+      ],
+      "material_summary": "재료 근거가 약함 — 수급성/불명확 상승으로 추정 (당일/전일 종목명 뉴스 없음, 과거 기사만 존재), 당일 +19.6%",
+      "material_type": "수급성/불명확",
+      "strength_grade": "D",
+      "persistence": "단발",
+      "extinction_checkpoints": [
+        "수급성 — 거래대금 급감 시 소멸 가능"
+      ],
+      "confidence": 30,
+      "evidence": [
+        {
+          "kind": "stale_news",
+          "score": 0,
+          "title": "SK오션플랜트 방문한 美 국방부 실사단…마스가 협력 기대감",
+          "time": "2026-05-15 12:58",
+          "press": "전자신문",
+          "url": "https://finance.naver.com/item/news_read.naver?article_id=0003427986&office_id=030&code=100090&page=1&sm=",
+          "tags": [
+            "stale"
+          ],
+          "freshness": "stale"
+        },
+        {
+          "kind": "stale_news",
+          "score": 0,
+          "title": "SK오션플랜트, 美 국방부 현장 실사 받아…함정 건조역량 확인",
+          "time": "2026-05-15 11:30",
+          "press": "뉴스1",
+          "url": "https://finance.naver.com/item/news_read.naver?article_id=0008946731&office_id=421&code=100090&page=1&sm=",
+          "tags": [
+            "stale"
+          ],
+          "freshness": "stale"
+        }
+      ],
+      "warnings": [
+        "stale_news_only"
+      ]
+    }
+  ]
+}

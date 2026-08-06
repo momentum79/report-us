@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>해외선물 Report</title>
+<style>
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  margin: 0;
+  background-color: #f4f7f6;
+}
+h1 { margin: 0; font-size: 1.5em; color: #2c3e50; }
+h2 {
+  margin-top: 30px;
+  padding-bottom: 10px;
+  color: #2c3e50;
+  border-bottom: 2px solid #e67e22;
+}
+.styled-table {
+  width: auto;
+  border-collapse: collapse;
+  margin: 10px 0 20px 0;
+  font-size: 13px;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.styled-table thead tr {
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  color: #ffffff;
+  text-align: center;
+}
+.styled-table th, .styled-table td {
+  padding: 6px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  white-space: nowrap;
+  text-align: center;
+}
+.styled-table td:nth-child(1) { text-align: left; font-weight: bold; color: #2980b9; }
+.styled-tableWide {
+  width: auto;
+  border-collapse: collapse;
+  margin: 10px 0 20px 0;
+  font-size: 13px;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.styled-tableWide thead tr {
+  background: linear-gradient(135deg, #e67e22, #d35400);
+  color: #ffffff;
+  text-align: center;
+}
+.styled-tableWide th, .styled-tableWide td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #f0f0f0;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 12px;
+}
+.styled-tableWide td:nth-child(1) { text-align: left; font-weight: bold; color: #2980b9; }
+.held-bold { font-weight: 700; }
+.held-plain {}
+.sig-up   { color: #00b050; font-weight: 600; }
+.sig-down { color: #ff0000; font-weight: 600; }
+.sig-jung { background: #fffbea; color: #d68910; font-weight: 600; }
+.sig-yeok { background: #e8f4fd; color: #1e6fa8; font-weight: 600; }
+.up   { color: #00b050; font-weight: 600; }
+.down { color: #ff0000; font-weight: 600; }
+.pos-badge {
+  display: inline-block;
+  width: 22px; height: 22px; line-height: 22px;
+  border-radius: 50%;
+  font-size: 0.75rem; font-weight: bold;
+  color: white; text-align: center;
+}
+.pos-1 { background-color: #16a34a !important; }
+.pos-2 { background-color: #65a30d !important; }
+.pos-3 { background-color: #d97706 !important; }
+.pos-4 { background-color: #ea580c !important; }
+.pos-5 { background-color: #dc2626 !important; }
+.trend-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em; font-weight: 700;
+}
+.trend-lime   { background: #2AF527; color: black; }
+.trend-green  { background: #8DCF8C; color: black; }
+.trend-red    { background: #e74c3c; color: white; }
+.trend-purple { background: #9b59b6; color: white; }
+
+/* ✅ 저점 신호 뱃지 */
+.low-badge { display:inline-block; padding:2px 7px; border-radius:10px; font-size:10px; font-weight:bold; color:white; text-align:center; min-width:30px; }
+.low-jeo   { background-color:#2ecc71; }
+.low-jeo2  { background-color:#3498db; }
+.low-both  { background-color:#e74c3c; }
+.low-track { background-color:#95a5a6; }
+
+.ticker-col { cursor: pointer; text-decoration: underline dotted; }
+.ticker-col:hover { background: #fef3e2; }
+.chart-trigger { cursor: pointer; }
+.chart-trigger:hover { background-color: #fef3e2 !important; }
+.sortable { cursor: pointer; user-select: none; }
+.sortable:hover { background: linear-gradient(135deg, #d35400, #c0392b); }
+/* ── Chart Popup (Naver ETF 일/주봉 + TradingEconomics 단일 PNG) ── */
+#chartPopup {
+  display: none; position: fixed; z-index: 99999;
+  width: 860px; background: #fff;
+  border: 1px solid #bdc3c7; border-radius: 10px;
+  padding: 12px; box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+  overflow-y: auto; max-height: 90dvh; overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+body.chart-open { overflow: hidden; }
+.cp-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+#chartPopupClose {
+  display: flex; background: #e74c3c; color: #fff;
+  border: none; border-radius: 50%;
+  width: 28px; height: 28px; font-size: 18px; line-height: 1;
+  cursor: pointer; flex-shrink: 0;
+  align-items: center; justify-content: center; font-weight: bold;
+}
+#chartPopupClose:hover { background: #c0392b; }
+.cp-title { font-weight: 700; color: #2c3e50; font-size: 14px; white-space: nowrap; }
+.cp-note  { font-size: 12px; color: #7f8c8d; white-space: nowrap; }
+.cp-link  { font-size: 12px; color: #2980b9; text-decoration: none; margin-left: auto; white-space: nowrap; }
+.cp-link:hover { text-decoration: underline; }
+.cp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cp-grid.single { grid-template-columns: 1fr; }
+.cp-card { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; background: #fff; }
+.cp-wrap { position: relative; width: 100%; height: 300px; background: #fff; }
+.cp-wrap img { width: 100%; height: 100%; display: block; object-fit: fill; background: #fff; }
+.cp-grid.single .cp-wrap img { object-fit: contain; }
+.cp-loading {
+  display: none; position: absolute; inset: 0;
+  background: rgba(255,255,255,0.75);
+  align-items: center; justify-content: center;
+  font-size: 12px; color: #64748b;
+}
+.cp-loading.show { display: flex; }
+@media (max-width: 767px) {
+  #chartPopup {
+    left: 2vw !important; top: 50% !important; transform: translateY(-50%);
+    width: 96vw !important; max-height: 80dvh !important;
+    padding: 8px !important; box-sizing: border-box;
+  }
+  .cp-grid { grid-template-columns: 1fr; gap: 6px; }
+  .cp-wrap { height: 230px; }
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  #chartPopup { width: min(96vw, 860px); left: 2vw !important; }
+  .cp-grid { grid-template-columns: 1fr; }
+  .cp-wrap { height: 260px; }
+}
+.small-board {
+  flex: 1; min-width: 280px;
+  background: white; padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.small-board h3 { margin: 0 0 10px 0; font-size: 1em; color: #2c3e50; }
+.meta { color: #888; font-size: 0.9em; margin-top: 20px; }
+@media (max-width: 480px) {
+  h1 { font-size: 1.0em !important; }
+  h2 { font-size: 0.95em !important; margin-top: 18px !important; padding-bottom: 6px !important; }
+}
+@media screen and (max-width: 950px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
+  .top-nav-container, .top-nav { display: none !important; }
+}
+</style>
+</head>
+<body>
+
+<h1>🌍 해외선물 / FX / 암호화폐 Momentum Report</h1>
+<div style="font-size: 0.9em; color: #888; margin-bottom: 20px;">
+  📡 데이터: <strong>2026-08-06 21:10:45</strong> &nbsp;|&nbsp; 📄 페이지: 2026-08-06 21:24:52
+</div>
+
+<h2>🎯 주문용 Top4 (오늘)</h2>
+<table class="styled-table">
+<thead><tr><th>Ticker</th><th>위치</th><th>Sco</th><th>3M(%)</th><th>Score</th><th>신호</th></tr></thead>
+<tbody>
+<tr><td class="ticker-col chart-trigger" data-ticker="HG" data-name="HG" style="background-color:#2AF527; color:black; font-weight:bold; cursor:pointer;">HG</td><td><span class="pos-badge pos-1">1</span></td><td>15.00</td><td class="sig-up">7.27</td><td>95.17</td><td>-</td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="MXN" data-name="MXN" style="background-color:#2AF527; color:black; font-weight:bold; cursor:pointer;">MXN</td><td><span class="pos-badge pos-1">1</span></td><td>13.00</td><td class="sig-down">-0.15</td><td>85.86</td><td>-</td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="ES" data-name="ES" style="background-color:#2AF527; color:black; font-weight:bold; cursor:pointer;">ES</td><td><span class="pos-badge pos-1">1</span></td><td>11.50</td><td class="sig-up">4.45</td><td>82.32</td><td>-</td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="NZD" data-name="NZD" style="background-color:#8DCF8C; color:black; font-weight:bold; cursor:pointer;">NZD</td><td><span class="pos-badge pos-1">1</span></td><td>11.25</td><td class="sig-down">-1.28</td><td>79.52</td><td>-</td></tr>
+</tbody></table>
+
+<h2>📊 해외선물 Momentum Top</h2>
+<div style="display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap;">
+  <div><table class="styled-tableWide" id="momentum-table">
+<thead><tr><th class="sortable" data-col="0">Ticker</th><th class="sortable" data-col="1">등락</th><th class="sortable" data-col="2">위치</th><th class="sortable" data-col="3">Sco</th><th class="sortable" data-col="4">정</th><th class="sortable" data-col="5">신호</th><th class="sortable" data-col="6">5</th><th class="sortable" data-col="7">10</th><th class="sortable" data-col="8">20</th><th class="sortable" data-col="9">60</th><th class="sortable" data-col="10">120</th><th class="sortable" data-col="11">136평</th><th class="sortable" data-col="12">3M(%)</th><th class="sortable" data-col="13">Score</th><th>저점</th></tr></thead>
+<tbody>
+<tr><td class="ticker-col chart-trigger held-bold" data-ticker="HG" data-name="HG" style="background-color:#2AF527; color:black; font-weight:bold; cursor:pointer;">HG</td><td class="held-bold sig-up">1.28</td><td class="held-bold"><span class="pos-badge pos-1">1</span></td><td class="held-bold">15.00</td><td class="held-bold sig-jung">정배</td><td class="held-bold">-</td><td class="held-bold up">상</td><td class="held-bold up">상</td><td class="held-bold up">상</td><td class="held-bold up">상</td><td class="held-bold up">상</td><td class="held-bold up">10.79</td><td class="held-bold sig-up">7.27</td><td class="held-bold">95.17</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger held-bold" data-ticker="ES" data-name="ES" style="background-color:#2AF527; color:black; font-weight:bold; cursor:pointer;">ES</td><td class="held-bold sig-down">-0.21</td><td class="held-bold"><span class="pos-badge pos-1">1</span></td><td class="held-bold">11.50</td><td class="held-bold">-</td><td class="held-bold">-</td><td class="held-bold up">상</td><td class="held-bold up">상</td><td class="held-bold up">상</td><td class="held-bold up">상</td><td class="held-bold up">상</td><td class="held-bold up">8.07</td><td class="held-bold sig-up">4.45</td><td class="held-bold">82.32</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="RTY" data-name="RTY" style="background-color:#2AF527; color:black; font-weight:bold; cursor:pointer;">RTY</td><td class="sig-down">-0.63</td><td><span class="pos-badge pos-1">1</span></td><td>7.25</td><td>-</td><td><span class="trend-badge trend-lime">🆕LIME</span></td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="up">8.86</td><td class="sig-up">5.50</td><td>68.22</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="NQ" data-name="NQ" style="background-color:#2AF527; color:black; font-weight:bold; cursor:pointer;">NQ</td><td class="sig-down">-0.83</td><td><span class="pos-badge pos-1">1</span></td><td>6.75</td><td>-</td><td><span class="trend-badge trend-lime">🆕LIME</span></td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="up">8.56</td><td class="sig-up">0.96</td><td>64.98</td><td class="col-low" style="text-align:center;"><span class="low-badge low-track">4저</span></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="ETH" data-name="ETH" style="background-color:#e74c3c; color:white; font-weight:bold; cursor:pointer;">ETH</td><td class="sig-up">2.04</td><td><span class="pos-badge pos-1">1</span></td><td>-0.50</td><td>-</td><td>-</td><td class="up">상</td><td class="down">하</td><td class="up">상</td><td class="up">상</td><td class="down">하</td><td class="down">-4.43</td><td class="sig-up">21.53</td><td>47.30</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="ZW" data-name="ZW" style="cursor:pointer;">ZW**</td><td class="sig-up">0.59</td><td><span class="pos-badge pos-4">4</span></td><td>1.00</td><td>-</td><td>-</td><td class="down">하</td><td class="down">하</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="up">7.01</td><td class="sig-up">5.72</td><td>47.05</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="PA" data-name="PA" style="background-color:#8DCF8C; color:black; font-weight:bold; cursor:pointer;">PA</td><td class="sig-up">0.69</td><td><span class="pos-badge pos-1">1</span></td><td>0.50</td><td>-</td><td><span class="trend-badge trend-green">🆕GRN</span></td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="down">하</td><td class="down">하</td><td class="down">-7.93</td><td class="sig-down">-7.95</td><td>40.71</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="LE" data-name="LE" style="cursor:pointer;">LE</td><td class="sig-up">0.96</td><td><span class="pos-badge pos-2">2</span></td><td>0.00</td><td>-</td><td>-</td><td class="up">상</td><td class="up">상</td><td class="down">하</td><td class="down">하</td><td class="down">하</td><td class="down">-3.55</td><td class="sig-down">-5.92</td><td>39.70</td><td class="col-low" style="text-align:center;"><span class="low-badge low-track">2저</span></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="PL" data-name="PL" style="background-color:#2AF527; color:black; font-weight:bold; cursor:pointer;">PL</td><td class="sig-down">-0.57</td><td><span class="pos-badge pos-2">2</span></td><td>0.25</td><td>-</td><td><span class="trend-badge trend-lime">🆕LIME</span></td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="down">하</td><td class="down">하</td><td class="down">-11.01</td><td class="sig-down">-15.13</td><td>37.43</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="BTC" data-name="BTC" style="background-color:#e74c3c; color:white; font-weight:bold; cursor:pointer;">BTC</td><td class="sig-up">0.85</td><td><span class="pos-badge pos-1">1</span></td><td>-2.25</td><td>-</td><td>-</td><td class="up">상</td><td class="down">하</td><td class="up">상</td><td class="up">상</td><td class="down">하</td><td class="down">-6.86</td><td class="sig-up">6.13</td><td>36.13</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="ZC" data-name="ZC" style="background-color:#9b59b6; color:white; font-weight:bold; cursor:pointer;">ZC</td><td class="sig-down">-1.24</td><td><span class="pos-badge pos-5">5</span></td><td>-2.50</td><td>-</td><td>-</td><td class="down">하</td><td class="down">하</td><td class="up">상</td><td class="down">하</td><td class="up">상</td><td class="down">-1.22</td><td class="sig-down">-4.27</td><td>31.76</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="ZO" data-name="ZO" style="cursor:pointer;">ZO</td><td class="sig-up">1.28</td><td><span class="pos-badge pos-4">4</span></td><td>-3.00</td><td class="sig-yeok">역배</td><td>-</td><td class="up">상</td><td class="down">하</td><td class="up">상</td><td class="down">하</td><td class="up">상</td><td class="down">-2.68</td><td class="sig-down">-4.38</td><td>30.02</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="GC" data-name="GC" style="background-color:#8DCF8C; color:black; font-weight:bold; cursor:pointer;">GC</td><td class="sig-up">3.67</td><td><span class="pos-badge pos-2">2</span></td><td>-3.25</td><td>-</td><td>-</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="down">하</td><td class="down">하</td><td class="down">-7.47</td><td class="sig-down">-10.05</td><td>27.25</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="ZS" data-name="ZS" style="background-color:#9b59b6; color:white; font-weight:bold; cursor:pointer;">ZS</td><td class="sig-down">-0.30</td><td><span class="pos-badge pos-5">5</span></td><td>-5.00</td><td>-</td><td>-</td><td class="down">하</td><td class="down">하</td><td class="down">하</td><td class="down">하</td><td class="up">상</td><td class="down">-0.58</td><td class="sig-down">-3.58</td><td>23.50</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="CL" data-name="CL" style="cursor:pointer;">CL</td><td class="sig-down">-0.73</td><td><span class="pos-badge pos-5">5</span></td><td>-3.25</td><td>-</td><td>-</td><td class="down">하</td><td class="down">하</td><td class="up">상</td><td class="down">하</td><td class="up">상</td><td class="down">-10.63</td><td class="sig-down">-21.17</td><td>23.49</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="SI" data-name="SI" style="background-color:#2AF527; color:black; font-weight:bold; cursor:pointer;">SI</td><td class="sig-up">3.40</td><td><span class="pos-badge pos-2">2</span></td><td>-3.25</td><td>-</td><td><span class="trend-badge trend-lime">🆕LIME</span></td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="down">하</td><td class="down">하</td><td class="down">-16.40</td><td class="sig-down">-22.76</td><td>22.95</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="ZL" data-name="ZL" style="background-color:#9b59b6; color:white; font-weight:bold; cursor:pointer;">ZL</td><td class="sig-down">-0.63</td><td><span class="pos-badge pos-5">5</span></td><td>-7.50</td><td>-</td><td>-</td><td class="down">하</td><td class="down">하</td><td class="down">하</td><td class="down">하</td><td class="up">상</td><td class="down">-0.65</td><td class="sig-down">-9.98</td><td>12.83</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="NG" data-name="NG" style="background-color:#e74c3c; color:white; font-weight:bold; cursor:pointer;">NG</td><td class="sig-up">0.22</td><td><span class="pos-badge pos-5">5</span></td><td>-8.50</td><td>-</td><td><span class="trend-badge trend-red">🆕RED</span></td><td class="down">하</td><td class="down">하</td><td class="down">하</td><td class="down">하</td><td class="down">하</td><td class="down">-14.20</td><td class="sig-down">-2.50</td><td>11.96</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="ZB" data-name="ZB" style="background-color:#e74c3c; color:white; font-weight:bold; cursor:pointer;">ZB**</td><td class="sig-up">0.11</td><td><span class="pos-badge pos-3">3</span></td><td>-10.00</td><td class="sig-yeok">역배</td><td>-</td><td class="down">하</td><td class="down">하</td><td class="down">하</td><td class="down">하</td><td class="down">하</td><td class="down">-3.17</td><td class="sig-down">-3.16</td><td>6.64</td><td class="col-low" style="text-align:center;"><span class="low-badge low-jeo">저</span></td></tr>
+</tbody></table></div>
+  <div><table class="styled-tableWide" id="currency-table">
+<thead><tr><th class="sortable" data-col="0">Ticker</th><th class="sortable" data-col="1">등락</th><th class="sortable" data-col="2">위치</th><th class="sortable" data-col="3">Sco</th><th class="sortable" data-col="4">정</th><th class="sortable" data-col="5">신호</th><th class="sortable" data-col="6">5</th><th class="sortable" data-col="7">10</th><th class="sortable" data-col="8">20</th><th class="sortable" data-col="9">60</th><th class="sortable" data-col="10">120</th><th class="sortable" data-col="11">136평</th><th class="sortable" data-col="12">3M(%)</th><th class="sortable" data-col="13">Score</th><th>저점</th></tr></thead>
+<tbody>
+<tr><td class="ticker-col chart-trigger held-bold" data-ticker="MXN" data-name="MXN" style="background-color:#2AF527; color:black; font-weight:bold; cursor:pointer;">MXN</td><td class="held-bold sig-up">0.42</td><td class="held-bold"><span class="pos-badge pos-1">1</span></td><td class="held-bold">13.00</td><td class="held-bold">-</td><td class="held-bold">-</td><td class="held-bold up">상</td><td class="held-bold up">상</td><td class="held-bold up">상</td><td class="held-bold up">상</td><td class="held-bold up">상</td><td class="held-bold up">1.01</td><td class="held-bold sig-down">-0.15</td><td class="held-bold">85.86</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger held-plain" data-ticker="NZD" data-name="NZD" style="background-color:#8DCF8C; color:black; font-weight:bold; cursor:pointer;">NZD</td><td class="held-plain sig-up">0.16</td><td class="held-plain"><span class="pos-badge pos-1">1</span></td><td class="held-plain">11.25</td><td class="held-plain">-</td><td class="held-plain">-</td><td class="held-plain up">상</td><td class="held-plain up">상</td><td class="held-plain up">상</td><td class="held-plain up">상</td><td class="held-plain down">하</td><td class="held-plain up">0.25</td><td class="held-plain sig-down">-1.28</td><td class="held-plain">79.52</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="GBP" data-name="GBP" style="background-color:#8DCF8C; color:black; font-weight:bold; cursor:pointer;">GBP</td><td class="sig-up">0.18</td><td><span class="pos-badge pos-1">1</span></td><td>10.50</td><td>-</td><td>-</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="up">0.12</td><td class="sig-down">-0.64</td><td>77.19</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="JPY" data-name="JPY" style="background-color:#8DCF8C; color:black; font-weight:bold; cursor:pointer;">JPY</td><td class="sig-down">-0.10</td><td><span class="pos-badge pos-1">1</span></td><td>8.75</td><td>-</td><td>-</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="down">하</td><td class="up">0.78</td><td class="sig-down">-0.01</td><td>71.45</td><td class="col-low" style="text-align:center;"><span class="low-badge low-track">5저</span></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="EUR" data-name="EUR" style="background-color:#8DCF8C; color:black; font-weight:bold; cursor:pointer;">EUR</td><td class="sig-up">0.22</td><td><span class="pos-badge pos-1">1</span></td><td>6.75</td><td>-</td><td>-</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="down">하</td><td class="down">-0.74</td><td class="sig-down">-1.73</td><td>64.07</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="AUD" data-name="AUD" style="background-color:#2AF527; color:black; font-weight:bold; cursor:pointer;">AUD</td><td class="sig-up">0.70</td><td><span class="pos-badge pos-1">1</span></td><td>5.75</td><td>-</td><td>-</td><td class="up">상</td><td class="up">상</td><td class="up">상</td><td class="down">하</td><td class="up">상</td><td class="down">-0.08</td><td class="sig-down">-2.64</td><td>60.36</td><td class="col-low" style="text-align:center;"></td></tr>
+<tr><td class="ticker-col chart-trigger" data-ticker="BRL" data-name="BRL" style="cursor:pointer;">BRL</td><td class="sig-down">-0.79</td><td><span class="pos-badge pos-5">5</span></td><td>5.75</td><td>-</td><td>-</td><td class="down">하</td><td class="down">하</td><td class="up">상</td><td class="down">하</td><td class="up">상</td><td class="down">-0.41</td><td class="sig-down">-4.55</td><td>59.72</td><td class="col-low" style="text-align:center;"></td></tr>
+</tbody></table></div>
+</div>
+
+<h2>🚫 ATR 모니터링</h2>
+<div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px;">
+  <div class="small-board">
+    <h3>⚠️ ATR 트리거 (2주)</h3>
+    <p style="color:#888; font-size:0.9em;">(ATR 트리거 종목 없음)</p>
+  </div>
+  <div class="small-board">
+    <h3>🛡 ATR 제외</h3>
+    <p style="color:#888; font-size:0.9em;">(ATR 제외 종목 없음)</p>
+  </div>
+</div>
+
+<h2>📈 Signal_sco 기준 종목 분포</h2>
+<pre style="font-size: 12px; background: white; padding: 10px; border-radius: 4px;">📊 Signal_sco 기준 종목 분포
+================================================================================
+
+전체 선물/FX/코인: 26개
+  sco &gt;= 12: 2개 (7.7%)
+  0 &lt;= sco &lt; 12: 13개 (50.0%)
+  sco &lt; 0: 11개 (42.3%)
+
+합계 검증: 26 == 26?
+✅ 해선 저점 신호 데이터가 &#x27;D:\py\report-us\futures_low_signals.json&#x27;에 저장되었습니다.</pre>
+
+<p class="meta">[실행 시간] 9.95초</p>
+
+<!-- Chart Popup (Naver ETF 일/주봉 + TradingEconomics 단일 PNG) -->
+<div id="chartPopup">
+  <div class="cp-header">
+    <button id="chartPopupClose" title="닫기">&#215;</button>
+    <span class="cp-title" id="cpTitle">-</span>
+    <span class="cp-note" id="cpNote"></span>
+    <a id="cpLink" class="cp-link" href="#" target="_blank" rel="noopener noreferrer">원본 열기</a>
+  </div>
+  <div class="cp-grid" id="cpGrid">
+    <div class="cp-card">
+      <div class="cp-wrap">
+        <img id="cpImg1" alt="chart 1">
+        <div class="cp-loading" id="cpLoad1">불러오는 중...</div>
+      </div>
+    </div>
+    <div class="cp-card" id="cpCard2">
+      <div class="cp-wrap">
+        <img id="cpImg2" alt="chart 2">
+        <div class="cp-loading" id="cpLoad2">불러오는 중...</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  // 선물 티커 → 차트 소스 매핑 (Python CHART_MAP 직렬화)
+  var CHART_MAP = {"ES": {"src": "naver", "code": "SPY", "note": "SPY"}, "NQ": {"src": "naver", "code": "QQQ.O", "note": "QQQ"}, "RTY": {"src": "naver", "code": "IWM", "note": "IWM"}, "GC": {"src": "naver", "code": "GLD", "note": "GLD·금"}, "SI": {"src": "naver", "code": "SLV", "note": "SLV·은"}, "PL": {"src": "te", "code": "xptusd:cur", "note": "Platinum"}, "PA": {"src": "te", "code": "xpdusd:cur", "note": "Palladium"}, "HG": {"src": "te", "code": "hg1:com", "note": "Copper"}, "CL": {"src": "naver", "code": "USO", "note": "USO·WTI"}, "NG": {"src": "naver", "code": "UNG", "note": "UNG·천연가스"}, "ZB": {"src": "naver", "code": "TLT.O", "note": "TLT·美장기채"}, "ZC": {"src": "te", "code": "c 1:com", "note": "Corn"}, "ZO": {"src": "te", "code": "o 1:com", "note": "Oat"}, "ZW": {"src": "te", "code": "w 1:com", "note": "Wheat"}, "ZS": {"src": "te", "code": "s 1:com", "note": "Soybean"}, "LE": {"src": "naver", "code": "COW", "note": "COW·축산"}, "AUD": {"src": "te", "code": "audusd:cur", "note": "AUD/USD"}, "GBP": {"src": "te", "code": "gbpusd:cur", "note": "GBP/USD"}, "EUR": {"src": "te", "code": "eurusd:cur", "note": "EUR/USD"}, "NZD": {"src": "te", "code": "nzdusd:cur", "note": "NZD/USD"}, "MXN": {"src": "te", "code": "mxnusd:cur", "note": "MXN/USD"}, "JPY": {"src": "te", "code": "jpyusd:cur", "note": "JPY/USD"}, "BRL": {"src": "te", "code": "brlusd:cur", "note": "BRL/USD"}, "BTC": {"src": "naver", "code": "IBIT.O", "note": "IBIT·비트코인"}, "ETH": {"src": "naver", "code": "ETHA.O", "note": "ETHA·이더리움"}};
+  var VER = "202608";
+
+  var popup   = document.getElementById('chartPopup');
+  var titleEl = document.getElementById('cpTitle');
+  var noteEl  = document.getElementById('cpNote');
+  var linkEl  = document.getElementById('cpLink');
+  var grid    = document.getElementById('cpGrid');
+  var card2   = document.getElementById('cpCard2');
+  var img1    = document.getElementById('cpImg1');
+  var img2    = document.getElementById('cpImg2');
+  var load1   = document.getElementById('cpLoad1');
+  var load2   = document.getElementById('cpLoad2');
+  var hoverTimer = null, pinned = false;
+
+  var TS = Date.now();
+  function withTs(u) { return u + (u.indexOf('?') >= 0 ? '&' : '?') + 't=' + TS; }
+  function naverDay(c)  { return withTs('https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/day/'  + c + '_end.png'); }
+  function naverWeek(c) { return withTs('https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/week/' + c + '_end.png'); }
+  function naverPage(c) { return 'https://m.stock.naver.com/worldstock/stock/' + c + '/total'; }
+  function teUrl(sym)   { return 'https://d3fy651gv2fhd3.cloudfront.net/charts/embed.png?s=' + encodeURIComponent(sym) + '&v=' + VER + '&h=400&w=720&ref=/x'; }
+  function tePage(sym)  { return 'https://tradingeconomics.com/embed/?s=' + encodeURIComponent(sym); }
+
+  function loadInto(imgEl, loadingEl, url) {
+    loadingEl.classList.add('show');
+    imgEl.style.opacity = '0.35';
+    var p = new Image();
+    p.onload  = function () { imgEl.src = url; imgEl.style.opacity = '1'; loadingEl.classList.remove('show'); };
+    p.onerror = function () { imgEl.removeAttribute('src'); imgEl.style.opacity = '1'; loadingEl.classList.remove('show'); };
+    p.src = url;
+  }
+
+  function loadCharts(ticker) {
+    var T = String(ticker || '').replace(/[*]/g, '').toUpperCase();
+    var cfg = CHART_MAP[T];
+    if (!cfg) return false;   // 매핑 없는 티커(ZL 등) → 팝업 안 띄움
+    titleEl.textContent = T;
+    noteEl.textContent  = cfg.note ? '→ ' + cfg.note : '';
+    if (cfg.src === 'naver') {
+      grid.classList.remove('single'); card2.style.display = '';
+      linkEl.href = naverPage(cfg.code);
+      loadInto(img1, load1, naverDay(cfg.code));
+      loadInto(img2, load2, naverWeek(cfg.code));
+    } else {
+      grid.classList.add('single'); card2.style.display = 'none';
+      linkEl.href = tePage(cfg.code);
+      loadInto(img1, load1, teUrl(cfg.code));
+      img2.removeAttribute('src');
+    }
+    return true;
+  }
+
+  function placePopup(cx, cy) {
+    if (window.innerWidth <= 767) return;
+    var rectW = Math.min(860, window.innerWidth - 20);
+    var rectH = window.innerWidth <= 1000 ? 420 : 380;
+    var x = cx + 18, y = cy + 18;
+    if (x + rectW > window.innerWidth  - 8) x = cx - rectW - 12;
+    if (y + rectH > window.innerHeight - 8) y = cy - rectH - 12;
+    if (x < 8) x = 8; if (y < 8) y = 8;
+    popup.style.left = x + 'px'; popup.style.top = y + 'px';
+    popup.style.transform = 'none';
+  }
+
+  function openPopup()  { popup.style.display = 'block'; document.body.classList.add('chart-open'); }
+  function closePopup() { popup.style.display = 'none';  pinned = false; document.body.classList.remove('chart-open'); }
+
+  document.getElementById('chartPopupClose').addEventListener('click', closePopup);
+  popup.addEventListener('mouseenter', function () { pinned = true; });
+  popup.addEventListener('mouseleave', function () { pinned = false; closePopup(); });
+
+  document.querySelectorAll('td[data-ticker]').forEach(function (el) {
+    var T = (el.getAttribute('data-ticker') || '').replace(/[*]/g, '').toUpperCase();
+    if (!CHART_MAP[T]) return;   // 차트 없는 티커는 바인딩 안 함
+
+    el.addEventListener('mouseenter', function (e) {
+      if (window.innerWidth <= 767) return;
+      clearTimeout(hoverTimer);
+      var cx = e.clientX, cy = e.clientY;
+      hoverTimer = setTimeout(function () {
+        if (!loadCharts(T)) return;
+        placePopup(cx, cy);
+        openPopup();
+      }, 140);
+    });
+    el.addEventListener('mousemove', function (e) {
+      if (popup.style.display === 'block' && !pinned) placePopup(e.clientX, e.clientY);
+    });
+    el.addEventListener('mouseleave', function () {
+      clearTimeout(hoverTimer);
+      setTimeout(function () { if (!pinned) closePopup(); }, 120);
+    });
+    el.addEventListener('click', function (e) {
+      if (window.innerWidth > 767) return;
+      e.stopPropagation();
+      if (loadCharts(T)) openPopup();
+    });
+  });
+  (function () {
+    var seen = {}, queue = [];
+    document.querySelectorAll('td[data-ticker]').forEach(function (el) {
+      var T = (el.getAttribute('data-ticker') || '').replace(/[*]/g, '').toUpperCase();
+      if (!T || seen[T] || !CHART_MAP[T]) return;
+      seen[T] = true; queue.push(T);
+    });
+    var idx = 0, CONCURRENCY = 3;
+    function next() {
+      if (idx >= queue.length) return;
+      var cfg = CHART_MAP[queue[idx++]];
+      var urls = (cfg.src === 'naver') ? [naverDay(cfg.code), naverWeek(cfg.code)] : [teUrl(cfg.code)];
+      var done = 0, need = urls.length;
+      function step() { if (++done >= need) next(); }
+      urls.forEach(function (u) { var im = new Image(); im.onload = step; im.onerror = step; im.src = u; });
+    }
+    setTimeout(function () { for (var i = 0; i < CONCURRENCY && i < queue.length; i++) next(); }, 300);
+  })();
+
+  (function () {
+    var curEl = null;
+    var trig = [].slice.call(document.querySelectorAll('td[data-ticker]')).filter(function (el) {
+      var T = (el.getAttribute('data-ticker') || '').replace(/[*]/g, '').toUpperCase();
+      return T && CHART_MAP[T];
+    });
+    trig.forEach(function (el) {
+      el.addEventListener('mouseenter', function () { curEl = el; });
+      el.addEventListener('click', function () { curEl = el; });
+    });
+    try { popup.setAttribute('tabindex', '-1'); } catch (e) {}
+    var _open = openPopup;
+    openPopup = function () {
+      _open();
+      try {
+        var a = document.activeElement;
+        if (a === document.body || a === null || a === document.documentElement) popup.focus({ preventScroll: true });
+      } catch (e) {}
+    };
+    function kbPin() { pinned = true; }
+    function unpinOnMove() { pinned = false; document.removeEventListener('mousemove', unpinOnMove, true); }
+    function nav(dir) {
+      if (!trig.length || popup.style.display !== 'block') return;
+      var i = curEl ? trig.indexOf(curEl) : -1;
+      i = (i + dir + trig.length) % trig.length;
+      var el = trig[i]; curEl = el;
+      var T = (el.getAttribute('data-ticker') || '').replace(/[*]/g, '').toUpperCase();
+      if (loadCharts(T)) {
+        var r = el.getBoundingClientRect();
+        placePopup(r.left + r.width / 2, r.top + r.height / 2);
+        kbPin();
+        document.addEventListener('mousemove', unpinOnMove, true);
+      }
+    }
+    /* === SWIPE-NAV-INJECTED: 모바일 좌/우 스와이프 → 키보드 D/S 재사용 (PC 무영향) === */
+    (function(){
+      if(window.__swipeNavInit) return; window.__swipeNavInit=true;
+      function isTouch(){ return window.matchMedia('(hover: none)').matches || window.innerWidth<=767; }
+      var sx=0, sy=0, st=0, tr=false;
+      document.addEventListener('touchstart', function(e){
+        if(!isTouch() || !e.touches || e.touches.length!==1){ tr=false; return; }
+        var t=e.touches[0]; sx=t.clientX; sy=t.clientY; st=Date.now(); tr=true;
+      }, true);
+      document.addEventListener('touchend', function(e){
+        if(!tr) return; tr=false;
+        var t=e.changedTouches && e.changedTouches[0]; if(!t) return;
+        var dx=t.clientX-sx, dy=t.clientY-sy, dt=Date.now()-st;
+        if(dt>800 || Math.abs(dx)<55 || Math.abs(dx)<Math.abs(dy)*1.6) return;
+        var key = dx<0 ? 'd' : 's';
+        try{ document.dispatchEvent(new KeyboardEvent('keydown', {key:key, bubbles:true, cancelable:true})); }catch(err){}
+      }, true);
+    })();
+    document.addEventListener('keydown', function (e) {
+      if (popup.style.display !== 'block') return;
+      var t = e.target, tn = t && t.tagName;
+      if (tn === 'INPUT' || tn === 'TEXTAREA' || tn === 'SELECT' || (t && t.isContentEditable)) return;
+      var k = e.key ? e.key.toLowerCase() : '';
+      if (k === 'd') { e.preventDefault(); nav(1); }
+      else if (k === 's') { e.preventDefault(); nav(-1); }
+      else if (k === 'escape') { closePopup(); }
+    });
+  })();
+})();
+</script>
+
+
+<script>
+(function() {
+  function makeTableSortable(tableId) {
+    var table = document.getElementById(tableId);
+    if (!table) return;
+    var tbody = table.querySelector('tbody');
+    var originalRows = Array.from(tbody.querySelectorAll('tr')).map(function(r) { return r.cloneNode(true); });
+    var sortState = { col: null, asc: true };
+    function getCellValue(row, col) {
+      var cells = row.querySelectorAll('td');
+      if (!cells[col]) return '';
+      return cells[col].innerText.trim();
+    }
+    function toNum(str) {
+      var n = parseFloat(str.replace(/[^0-9.-]/g, ''));
+      return isNaN(n) ? null : n;
+    }
+    table.querySelectorAll('th.sortable').forEach(function(th) {
+      th.addEventListener('click', function() {
+        var col = parseInt(th.getAttribute('data-col'));
+        if (sortState.col === col) {
+          if (!sortState.asc) { resetSort(); return; }
+          sortState.asc = false;
+        } else {
+          sortState.col = col;
+          sortState.asc = true;
+        }
+        table.querySelectorAll('th.sortable').forEach(function(h) { h.classList.remove('asc', 'desc'); });
+        th.classList.add(sortState.asc ? 'asc' : 'desc');
+        var rows = Array.from(tbody.querySelectorAll('tr'));
+        rows.sort(function(a, b) {
+          var va = getCellValue(a, col);
+          var vb = getCellValue(b, col);
+          var na = toNum(va), nb = toNum(vb);
+          var cmp = (na !== null && nb !== null) ? na - nb : va.localeCompare(vb, 'ko');
+          return sortState.asc ? cmp : -cmp;
+        });
+        rows.forEach(function(r) { tbody.appendChild(r); });
+      });
+    });
+    function resetSort() {
+      sortState = { col: null, asc: true };
+      table.querySelectorAll('th.sortable').forEach(function(h) { h.classList.remove('asc', 'desc'); });
+      originalRows.forEach(function(r) { tbody.appendChild(r.cloneNode(true)); });
+    }
+  }
+  makeTableSortable('momentum-table');
+})();
+</script>
+
+</body>
+</html>

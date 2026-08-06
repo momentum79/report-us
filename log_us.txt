@@ -1,0 +1,72 @@
+===== US Super Scanner 시작: 2026-04-11 14:35:29 =====
+✅ us.csv 파싱 완료: 전체 789개, Finviz=O 250개
+
+🚀 Parquet 캐시 업데이트 시작 (전체 종목 일괄 처리)...
+  [50/789] ♻️  ELAN: 업데이트 중...
+  [82/789] 🆕 REVG: 최초 조회 (800일)
+$REVG: possibly delisted; no price data found  (1d 2024-02-01 -> 2026-04-12) (Yahoo error = "No data found, symbol may be delisted")
+
+1 Failed download:
+['REVG']: possibly delisted; no price data found  (1d 2024-02-01 -> 2026-04-12) (Yahoo error = "No data found, symbol may be delisted")
+  [100/789] ♻️  PSLV: 업데이트 중...
+  [128/789] 🆕 CMA: 최초 조회 (800일)
+$CMA: possibly delisted; no price data found  (1d 2024-02-01 -> 2026-04-12) (Yahoo error = "No data found, symbol may be delisted")
+
+1 Failed download:
+['CMA']: possibly delisted; no price data found  (1d 2024-02-01 -> 2026-04-12) (Yahoo error = "No data found, symbol may be delisted")
+  [150/789] ♻️  TSM: 업데이트 중...
+  [200/789] ♻️  BABA: 업데이트 중...
+  [250/789] ♻️  ADI: 업데이트 중...
+  [300/789] ♻️  PATK: 업데이트 중...
+  [350/789] ♻️  CVX: 업데이트 중...
+  [400/789] ♻️  SBCF: 업데이트 중...
+  [450/789] ♻️  WERN: 업데이트 중...
+  [500/789] ♻️  OPCH: 업데이트 중...
+  [548/789] 🆕 PCH: 최초 조회 (800일)
+$PCH: possibly delisted; no price data found  (1d 2024-02-01 -> 2026-04-12) (Yahoo error = "No data found, symbol may be delisted")
+
+1 Failed download:
+['PCH']: possibly delisted; no price data found  (1d 2024-02-01 -> 2026-04-12) (Yahoo error = "No data found, symbol may be delisted")
+  [550/789] ♻️  ICHR: 업데이트 중...
+  [600/789] ♻️  AEP: 업데이트 중...
+  [650/789] ♻️  DHR: 업데이트 중...
+  [700/789] ♻️  LIT: 업데이트 중...
+  [750/789] ♻️  SO: 업데이트 중...
+
+Warning (from warnings module):
+  File "D:\py\report-us\us_stock_parquet_cache.py", line 210
+    out_df = pd.concat(merged_list, ignore_index=True) if merged_list else _empty_cache()
+FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+✅ 미국 주식 캐시 업데이트 완료: 789개 종목
+✅ 캐시 업데이트 완료!
+
+📥 캐시에서 데이터 로드 중: 총 789개
+✅ 캐시 로드 완료: 성공 786개 / 실패 3개
+  실패 티커: ['REVG', 'CMA', 'PCH']
+
+📊 지표 계산 및 신호 추출 중... (786개)
+
+============================================================
+📌 [파티션 C] Finviz=O 대상 생성 중...
+============================================================
+✅ 저장 완료: D:\py\buy_us_stock.txt
+✅ 저장 완료: report_us_finviz.txt
+
+============================================================
+📌 [파티션 A/B] 전체 대상 생성 중...
+============================================================
+✅ 저장 완료: D:\py\report-us\report_us_main.txt
+✅ 저장 완료: D:\py\buy_us_etf.txt, D:\py\report_us.txt, usa_xxx.txt 파일들
+✅ 원본 데이터(Raw) 보관용 CSV 저장 완료: D:\py\report-us\us_all_indicators_raw.csv
+
+================================================================================
+📊 Signal_sco 기준 종목 분포 (전체 기준)
+================================================================================
+
+전체 분석 완료: 784개
+  sco >= 12: 191개 (24.4%)
+  0 <= sco < 12: 427개 (54.5%)
+  sco < 0: 166개 (21.2%)
+
+[실행 완료] 총 소요시간: 305.00초
+===== US Super Scanner 완료: 2026-04-11 14:40:34 =====

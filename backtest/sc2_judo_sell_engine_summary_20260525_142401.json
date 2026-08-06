@@ -1,0 +1,41 @@
+{
+  "scenario": "Sc#2_judo_sell_engine",
+  "max_hold_days": 2,
+  "capital_slot_h": 3,
+  "minute_mode": "auto",
+  "all": {
+    "n": 24,
+    "dates": 12,
+    "win": 13,
+    "loss": 9,
+    "cap": 33333333.333333332,
+    "pnl": 2538380.0000000005,
+    "roi": 2.5383800000000005,
+    "best_day": 2.862333333333333,
+    "worst_day": -2.608083333333333
+  },
+  "nxt": {
+    "n": 18,
+    "dates": 10,
+    "win": 8,
+    "loss": 8,
+    "cap": 33333333.333333332,
+    "pnl": -3024841.6666666656,
+    "roi": -3.0248416666666658,
+    "best_day": 2.0051666666666668,
+    "worst_day": -2.608083333333333
+  },
+  "non_nxt": {
+    "n": 6,
+    "dates": 6,
+    "win": 5,
+    "loss": 1,
+    "cap": 33333333.333333332,
+    "pnl": 7044466.666666666,
+    "roi": 7.044466666666666,
+    "best_day": 2.862333333333333,
+    "worst_day": -0.0027333333333333337
+  },
+  "trade_csv": "D:\\py\\report-us\\backtest\\sc2_judo_sell_engine_20260525_142401.csv",
+  "fills_csv": "D:\\py\\report-us\\backtest\\sc2_judo_sell_engine_fills_20260525_142401.csv"
+}

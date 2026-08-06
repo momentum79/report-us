@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
+<title>재료판정 보드</title>
+<style>
+  * { box-sizing:border-box; }
+  body { font-family:"Malgun Gothic",Arial,sans-serif; margin:0; background:#f4f5f7; color:#1c1c1e; }
+  .wrap { max-width:1100px; margin:0 auto; padding:14px; }
+  header h1 { font-size:19px; margin:6px 0; }
+  header .meta { color:#666; font-size:12px; margin-bottom:10px; }
+  .gwarn { background:#fff4e5; border-left:4px solid #e07a00; padding:6px 10px;
+            font-size:12px; color:#8a5200; border-radius:4px; margin-bottom:12px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:12px; }
+  .card { background:#fff; border:1px solid #e2e4e8; border-radius:10px; padding:12px 13px; }
+  .chead { display:flex; align-items:center; flex-wrap:wrap; gap:6px; }
+  .grade { color:#fff; font-weight:700; font-size:12px; border-radius:5px; padding:2px 8px; }
+  .nm { font-weight:700; font-size:15px; }
+  .code { color:#888; font-size:12px; }
+  .chg { font-weight:700; font-size:14px; }
+  .chg.up { color:#d00000; }
+  .chg.na { color:#aaa; font-weight:500; font-size:12px; }
+  .tv { color:#444; font-size:12px; }
+  .conf { margin-left:auto; font-size:12px; color:#2c6e2c; font-weight:600; }
+  .summary { margin:8px 0 6px; font-size:13.5px; line-height:1.5; color:#222; }
+  .tags { display:flex; gap:8px; margin-bottom:6px; }
+  .mtype { background:#eef3ff; color:#1450b4; font-weight:600; font-size:12px;
+            border-radius:5px; padding:2px 8px; }
+  .pers { background:#f0f0f3; color:#555; font-size:12px; border-radius:5px; padding:2px 8px; }
+  ul.ev { margin:6px 0; padding-left:0; list-style:none; }
+  ul.ev li { font-size:12.5px; padding:3px 0; border-bottom:1px dashed #eee; }
+  ul.ev li a { color:#1450b4; text-decoration:none; }
+  ul.ev li a:hover { text-decoration:underline; }
+  ul.ev .meta { color:#999; font-size:11px; }
+  ul.ev .sc { color:#2c6e2c; font-size:11px; font-weight:600; float:right; }
+  ul.ev .noev { color:#aaa; }
+  ul.ev li.stale { color:#aaa; }
+  ul.ev li.stale a { color:#9aa7c0; }
+  .cp { font-size:11.5px; color:#8a5200; background:#fffaf0; border-radius:4px;
+         padding:4px 7px; margin-top:4px; }
+  .trigs { margin-top:6px; }
+  .trig { display:inline-block; background:#f3f4f6; color:#666; font-size:10.5px;
+           border-radius:4px; padding:1px 6px; margin:2px 3px 0 0; }
+  .warn { color:#b00; font-size:11.5px; margin-top:5px; }
+  .empty { padding:40px; text-align:center; color:#999; }
+  @media (max-width:600px) { .grid { grid-template-columns:1fr; } }
+</style></head><body><div class="wrap">
+  <header>
+    <h1>재료판정 보드 <small>(2026-06-10)</small></h1>
+    <div class="meta">급등/거래대금 후보 3종목 · 추정 재료 자동판정 v1.1 (당일/전일 뉴스만 점수반영) · 갱신 2026-06-10 21:22:12 · 규칙기반(참고용)</div>
+  </header>
+  <div class='gwarn'>⚠ theme_stale:fetched_at=2026-06-03</div>
+  <div class="grid">
+        <div class="card">
+          <div class="chead">
+            <span class="grade" style="background:#d00000">A</span>
+            <span class="nm">SK이터닉스</span>
+            <span class="code">475150</span>
+            <span class='chg up'>+29.9%</span>
+            <span class="tv">3047억</span>
+            <span class="conf">신뢰도 75</span>
+          </div>
+          <div class="summary">개별 뉴스(&#x27;KKR과 신재생사업 빅딜…SK이터닉스 &#x27;상한가&#x27;&#x27;)로 상승한 것으로 추정, 당일 +29.9%</div>
+          <div class="tags">
+            <span class="mtype">회사개별</span>
+            <span class="pers">지속성: 며칠</span>
+          </div>
+          <ul class="ev"><li><a href='https://finance.naver.com/item/news_read.naver?article_id=0005297359&amp;office_id=015&amp;code=475150&amp;page=1&amp;sm=' target='_blank'>📰 KKR과 신재생사업 빅딜…SK이터닉스 &#x27;상한가&#x27;</a> <span class='meta'>한국경제 · 2026-06-10 18:08</span> <span class='sc'>+8</span></li><li><a href='https://finance.naver.com/item/news_read.naver?article_id=0005297235&amp;office_id=015&amp;code=475150&amp;page=1&amp;sm=' target='_blank'>📰 SK·KKR 신재생에너지 빅딜에...SK이터닉스 상한가</a> <span class='meta'>한국경제 · 2026-06-10 16:05</span> <span class='sc'>+8</span></li><li><a href='https://finance.naver.com/item/news_read.naver?article_id=0016131173&amp;office_id=001&amp;code=475150&amp;page=1&amp;sm=' target='_blank'>📰 [특징주] SK이터닉스, 상한가 마감…신재생에너지주 동반 상승(종합)</a> <span class='meta'>연합뉴스 · 2026-06-10 15:47</span> <span class='sc'>+8</span></li></ul>
+          <div class="cp">소멸체크: 뚜렷한 일정성 체크포인트 미확인</div>
+          <div class="trigs"><span class='trig'>change&gt;=15.0</span></div>
+          
+        </div>
+        <div class="card">
+          <div class="chead">
+            <span class="grade" style="background:#888">D</span>
+            <span class="nm">후성</span>
+            <span class="code">093370</span>
+            <span class='chg up'>+21.3%</span>
+            <span class="tv">11977억</span>
+            <span class="conf">신뢰도 33</span>
+          </div>
+          <div class="summary">뚜렷한 뉴스/테마 근거 없이 거래대금 유입(수급) 중심 상승으로 추정 (당일/전일 종목명 뉴스 없음, 과거 기사만 존재), 당일 +21.3%</div>
+          <div class="tags">
+            <span class="mtype">수급성/불명확</span>
+            <span class="pers">지속성: 단발</span>
+          </div>
+          <ul class="ev"><li>💰 거래대금 Top30 (rank 12) <span class='sc'>+2</span></li><li class='stale'><a href='https://finance.naver.com/item/news_read.naver?article_id=0005675570&amp;office_id=009&amp;code=093370&amp;page=1&amp;sm=' target='_blank'>🕓 리튬 품귀에 포스코홀딩스·후성 &#x27;불기둥&#x27;</a> <span class='meta'>매일경제 · 2026-05-05 17:42 · 과거기사(점수 미반영)</span></li></ul>
+          <div class="cp">소멸체크: 수급성 — 거래대금 급감 시 소멸 가능</div>
+          <div class="trigs"><span class='trig'>change&gt;=15.0</span> <span class='trig'>top_volume_rank&lt;=30&amp;change&gt;=8</span> <span class='trig'>tracked:lt_volume</span> <span class='trig'>tracked:lt_legacy</span></div>
+          <div class='warn'>⚠ stale_news_only</div>
+        </div>
+        <div class="card">
+          <div class="chead">
+            <span class="grade" style="background:#888">D</span>
+            <span class="nm">SK오션플랜트</span>
+            <span class="code">100090</span>
+            <span class='chg up'>+19.6%</span>
+            <span class="tv">3536억</span>
+            <span class="conf">신뢰도 30</span>
+          </div>
+          <div class="summary">재료 근거가 약함 — 수급성/불명확 상승으로 추정 (당일/전일 종목명 뉴스 없음, 과거 기사만 존재), 당일 +19.6%</div>
+          <div class="tags">
+            <span class="mtype">수급성/불명확</span>
+            <span class="pers">지속성: 단발</span>
+          </div>
+          <ul class="ev"><li class='stale'><a href='https://finance.naver.com/item/news_read.naver?article_id=0003427986&amp;office_id=030&amp;code=100090&amp;page=1&amp;sm=' target='_blank'>🕓 SK오션플랜트 방문한 美 국방부 실사단…마스가 협력 기대감</a> <span class='meta'>전자신문 · 2026-05-15 12:58 · 과거기사(점수 미반영)</span></li></ul>
+          <div class="cp">소멸체크: 수급성 — 거래대금 급감 시 소멸 가능</div>
+          <div class="trigs"><span class='trig'>change&gt;=15.0</span></div>
+          <div class='warn'>⚠ stale_news_only</div>
+        </div></div>
+</div></body></html>

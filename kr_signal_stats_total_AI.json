@@ -1,0 +1,246 @@
+{
+    "avg_sco": 2.4,
+    "total_cnt": 151,
+    "valid_cnt": 150,
+    "atr_excl_cnt": 0,
+    "sco_pos": 88,
+    "sco_neg": 62,
+    "sco_strong": 24,
+    "sco_zone_neg": 62,
+    "sco_zone_weak": 50,
+    "sco_zone_mid": 14,
+    "sco_zone_strong": 24,
+    "strong_count": 24,
+    "top3_avg_sco": 15.0,
+    "top3_avg_pos": 1.0,
+    "kospi_trend": "-",
+    "kosdaq_trend": "-",
+    "sp500_trend": "LIME",
+    "nasdaq_trend": "LIME",
+    "euro_trend": "-",
+    "india_trend": "-",
+    "nikkei_trend": "-",
+    "kospi_mult": 0.2,
+    "nasdaq_mult": 0.85,
+    "invest_pct": 85.0,
+    "invest_amount_total": 84999997,
+    "internal_weights": [
+        30.1451,
+        29.0167,
+        19.3444,
+        10.7469,
+        10.7469
+    ],
+    "n_holdings": 5,
+    "holdings_tickers": [
+        "SNOW",
+        "PATH",
+        "HPE",
+        "EMR",
+        "AME"
+    ],
+    "final_ratios": {
+        "SNOW": 25.62,
+        "PATH": 24.66,
+        "HPE": 16.44,
+        "EMR": 9.13,
+        "AME": 9.13
+    },
+    "top3_tickers": [
+        "SNOW",
+        "PATH",
+        "HPE"
+    ],
+    "allocation_map_used": [
+        33,
+        27,
+        20,
+        10,
+        10
+    ],
+    "ai_core_score": 11.67,
+    "ai_core_dedup_score": 9.71,
+    "ai_core_gap": 1.96,
+    "ai_core_state": "AI Strong",
+    "ai_breadth_state": "Negative",
+    "ai_breadth_strong": 7,
+    "ai_breadth_mid": 6,
+    "ai_breadth_weak": 13,
+    "ai_breadth_negative": 8,
+    "ai_duplicate_impact": {
+        "total_entries": 50,
+        "unique_ticker_count": 42,
+        "duplicate_ratio": 0.16,
+        "duplicate_level": "낮음",
+        "top_contributor": "018260",
+        "top_contributor_count": 2,
+        "top_contributors": [
+            {
+                "ticker": "018260",
+                "count": 2,
+                "Signal_sco": 11.5
+            },
+            {
+                "ticker": "CRM",
+                "count": 2,
+                "Signal_sco": 12.5
+            },
+            {
+                "ticker": "DDOG",
+                "count": 2,
+                "Signal_sco": 14.5
+            },
+            {
+                "ticker": "MSFT",
+                "count": 2,
+                "Signal_sco": 15.0
+            },
+            {
+                "ticker": "NET",
+                "count": 2,
+                "Signal_sco": 15.0
+            }
+        ]
+    },
+    "top_ai_baskets": [
+        {
+            "basket": "AI_AGENT_AUTOMATION_RPA",
+            "basket_name_kr": "AI_에이전트자동화",
+            "score": 13.84,
+            "valid_count": 5
+        },
+        {
+            "basket": "AI_DATA_PIPELINE_DATABASE",
+            "basket_name_kr": "AI_데이터플랫폼",
+            "score": 13.73,
+            "valid_count": 7
+        },
+        {
+            "basket": "AI_SOFTWARE_PLATFORM",
+            "basket_name_kr": "AI_소프트웨어",
+            "score": 12.88,
+            "valid_count": 7
+        },
+        {
+            "basket": "AI_DATA_IDENTITY_SECURITY",
+            "basket_name_kr": "AI_데이터보안",
+            "score": 11.9,
+            "valid_count": 9
+        },
+        {
+            "basket": "AI_CYBER_SECURITY",
+            "basket_name_kr": "AI_사이버보안",
+            "score": 11.8,
+            "valid_count": 12
+        }
+    ],
+    "top_ai_tickers": [
+        {
+            "ticker": "SNOW",
+            "name": "SNOW",
+            "Signal_sco": 16.0,
+            "return_3m": 107.83,
+            "Final_score": 1.0,
+            "baskets": [
+                "AI_DATA_PIPELINE_DATABASE",
+                "AI_SOFTWARE_PLATFORM"
+            ]
+        },
+        {
+            "ticker": "PATH",
+            "name": "PATH",
+            "Signal_sco": 15.0,
+            "return_3m": 28.08,
+            "Final_score": 0.9548,
+            "baskets": [
+                "AI_AGENT_AUTOMATION_RPA"
+            ]
+        },
+        {
+            "ticker": "HPE",
+            "name": "HPE",
+            "Signal_sco": 14.0,
+            "return_3m": 70.26,
+            "Final_score": 0.9458,
+            "baskets": [
+                "AI_CPU_SERVER",
+                "AI_DATACENTER_REIT_SERVER"
+            ]
+        },
+        {
+            "ticker": "HXGBY",
+            "name": "HXGBY",
+            "Signal_sco": 15.0,
+            "return_3m": 19.99,
+            "Final_score": 0.9408,
+            "baskets": [
+                "AI_ROBOT_COMPONENT"
+            ]
+        },
+        {
+            "ticker": "MSFT",
+            "name": "MSFT",
+            "Signal_sco": 15.0,
+            "return_3m": 17.68,
+            "Final_score": 0.9368,
+            "baskets": [
+                "AI_CLOUD_HYPERSCALER",
+                "AI_AGENT_AUTOMATION_RPA"
+            ]
+        },
+        {
+            "ticker": "EMR",
+            "name": "EMR",
+            "Signal_sco": 15.0,
+            "return_3m": 15.44,
+            "Final_score": 0.9179,
+            "baskets": [
+                "AI_FACTORY_AUTOMATION"
+            ]
+        },
+        {
+            "ticker": "S",
+            "name": "S",
+            "Signal_sco": 13.0,
+            "return_3m": 26.58,
+            "Final_score": 0.8885,
+            "baskets": [
+                "AI_CYBER_SECURITY"
+            ]
+        },
+        {
+            "ticker": "018260",
+            "name": "삼성에스디에스",
+            "Signal_sco": 11.5,
+            "return_3m": 33.85,
+            "Final_score": 0.8845,
+            "baskets": [
+                "AI_DATA_PIPELINE_DATABASE",
+                "AI_SOFTWARE_PLATFORM"
+            ]
+        },
+        {
+            "ticker": "FCX",
+            "name": "FCX",
+            "Signal_sco": 12.5,
+            "return_3m": 12.83,
+            "Final_score": 0.8782,
+            "baskets": [
+                "AI_RAW_MATERIALS_COPPER_RAREEARTH"
+            ]
+        },
+        {
+            "ticker": "NET",
+            "name": "NET",
+            "Signal_sco": 15.0,
+            "return_3m": 49.37,
+            "Final_score": 0.8738,
+            "baskets": [
+                "AI_DATA_PIPELINE_DATABASE",
+                "AI_DATA_IDENTITY_SECURITY"
+            ]
+        }
+    ],
+    "ai_basket_count": 34,
+    "update_time": "2026-08-06 21:12:39"
+}

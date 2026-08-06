@@ -1,0 +1,88 @@
+# 2026-04-17 수정사항 정리
+
+---
+
+## 1. 네이버 차트 팝업 — 한국 티커 클릭 시 차트 표시 (PC hover + 스마트폰 click)
+
+### 적용 대상 (8개 게시판, 17:17 커밋)
+- make_index_kor_etf.py       → kor_etf.html       (한국 ETF)
+- make_index_kr_150.py        → kor_150.html        (KR150)
+- kr/make_index_kr.py         → kor_stock.html      (KR전종목)
+- make_index_kr_low_point.py  → kor_low_point.html  (저점돌파)
+- make_index_realtime.py      → kor_realtime.html   (실시간순위)
+- make_index_theme.py         → kor_theme.html      (주도테마)
+- make_index_volume.py        → kor_volume.html     (거래대금)
+- make_index_volume_spike.py  → kor_volume_spike.html (거래량급증)
+
+### 동작 방식
+- 6자리 한국 티커에 data-code 속성 부여
+- PC: 140ms hover 후 팝업 → 커서 따라 이동 → mouseleave 시 닫힘
+- 스마트폰: 클릭으로 열기, 닫기 버튼(×) 또는 팝업 외부 클릭으로 닫힘
+- 팝업 내용: 당일 선차트(1일) + 일봉 2개 패널
+- 차트 URL: https://ssl.pstatic.net/imgfinance/chart/item/area/day/{code}.png
+            https://ssl.pstatic.net/imgfinance/chart/item/candle/day/{code}.png
+
+---
+
+## 2. 요약게시판 네이버 차트 팝업 추가 (이번 대화)
+
+### 파일
+- make_summary_board.py → summary.html, etf_summary.html
+
+### 적용 범위
+- stock_row() 함수: 6자리 숫자 티커 → naver-trigger 클래스 + data-code 자동 부여
+- SPOT 카드 인라인 HTML 티커 span → 동일 처리
+- 주도주(주) 카드 인라인 HTML 티커 span → 동일 처리
+- LIME/MOM/GANN/거래대금/KR150/KR전종목 Top10 등 stock_row() 호출 구간 모두 적용
+
+---
+
+## 3. 통합ETF게시판 이중 차트 팝업 (이번 대화)
+
+### 파일
+- make_index_total_top_etf_combined.py → total_etf_combined.html
+
+### 적용 범위
+- ETF 랭킹 테이블 Ticker 셀
+  - [KR] 한국ETF: data-code="{6자리}" → 네이버 차트 팝업
+  - [US] 미국ETF: data-ticker="{심볼}" → TradingView 차트 팝업
+- 주문용 최종 보유 목록 테이블 Ticker 셀도 동일하게 분기 처리
+
+### 한국ETF 티커 인식 조건
+- CSV 원본 티커에서 [KR] 접두사, ** 접미사 제거 후
+  is_kr = ticker.isdigit() and len(ticker) == 6 로 판별
+
+### TradingView 팝업 (US ETF)
+- 5분 / 일 / 주 / 월 인터벌 버튼 포함
+- PC: 300ms hover + click / 스마트폰: click
+- 가로모드: 전체화면
+
+### 네이버 팝업 (KR ETF)
+- 당일 선차트 + 일봉 2패널
+- PC: 140ms hover + click / 스마트폰: click
+
+---
+
+## 기타 수정 (별도 커밋)
+
+- topvolume30.py                                    — 거래대금 상위 관련
+- 0order/sell1887_holdings_theme_atr_stoploss_multitime.py — 매도 로직
+- report-us/usa_jasantop4_interest.py               — 미국 관심주
+
+---
+
+## 검토 포인트
+
+1. summary.html / etf_summary.html
+   - 각 카드의 6자리 티커 클릭 시 네이버 팝업 정상 표시 여부
+   - 스마트폰에서 닫기 버튼 표시 및 동작 여부
+
+2. total_etf_combined.html
+   - [KR] 티커 클릭 → 네이버 팝업 표시 여부
+   - [US] 티커 클릭(hover) → TradingView 팝업 표시 여부
+   - ** 붙은 티커도 6자리 코드로 정상 매칭 여부 (** 제거 후 처리)
+   - 주문용 보유 목록 테이블에서도 동일 동작 여부
+
+3. 기존 8개 게시판
+   - kor_etf.html 등에서 티커 hover/click 시 팝업 정상 여부
+   - 팝업이 화면 밖으로 벗어나지 않는지 위치 확인

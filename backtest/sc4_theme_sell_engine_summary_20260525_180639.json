@@ -1,0 +1,42 @@
+{
+  "scenario": "Sc#4_theme_sell_engine",
+  "group": "theme",
+  "max_hold_days": 2,
+  "capital_slot_h": 3,
+  "minute_mode": "auto",
+  "all": {
+    "n": 65,
+    "dates": 13,
+    "win": 38,
+    "loss": 27,
+    "cap": 33333333.333333332,
+    "pnl": -3783924.603174602,
+    "roi": -3.783924603174602,
+    "best_day": 1.5680777777777777,
+    "worst_day": -1.8882749999999997
+  },
+  "nxt": {
+    "n": 4,
+    "dates": 3,
+    "win": 0,
+    "loss": 4,
+    "cap": 33333333.333333332,
+    "pnl": -5060550.0,
+    "roi": -5.06055,
+    "best_day": -0.19526666666666664,
+    "worst_day": -2.4546999999999994
+  },
+  "non_nxt": {
+    "n": 61,
+    "dates": 13,
+    "win": 38,
+    "loss": 23,
+    "cap": 33333333.333333332,
+    "pnl": -3145081.8253968246,
+    "roi": -3.145081825396825,
+    "best_day": 1.5680777777777777,
+    "worst_day": -1.7141722222222222
+  },
+  "trade_csv": "D:\\py\\report-us\\backtest\\sc4_theme_sell_engine_20260525_180639.csv",
+  "fills_csv": "D:\\py\\report-us\\backtest\\sc4_theme_sell_engine_fills_20260525_180639.csv"
+}

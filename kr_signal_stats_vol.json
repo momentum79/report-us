@@ -1,0 +1,125 @@
+{
+    "avg_sco": -5.7,
+    "total_cnt": 36,
+    "valid_cnt": 36,
+    "atr_excl_cnt": 0,
+    "sco_pos": 5,
+    "sco_neg": 31,
+    "sco_strong": 2,
+    "strong_count": 2,
+    "top3_avg_sco": 13.25,
+    "top3_avg_pos": 1.0,
+    "kospi_trend": "PURPLE",
+    "kosdaq_trend": "RED",
+    "sp500_trend": "LIME",
+    "nasdaq_trend": "PURPLE",
+    "euro_trend": "-",
+    "india_trend": "RED",
+    "nikkei_trend": "PURPLE",
+    "kospi_mult": 0.1,
+    "nasdaq_mult": 0.1,
+    "invest_pct": 15.0,
+    "invest_amount_total": 15000000,
+    "per_ticker_alloc": [
+        {
+            "ticker": "449180",
+            "industry": "에센피",
+            "is_kospi": false,
+            "bucket": "NASDAQ",
+            "internal_weight": 55.0,
+            "market_mult": 0.15,
+            "floor_mult": null,
+            "effective_mult": 0.15,
+            "effective_pct": 8.25
+        },
+        {
+            "ticker": "091170",
+            "industry": "은행주",
+            "is_kospi": true,
+            "bucket": "KOSPI",
+            "internal_weight": 45.0,
+            "market_mult": 0.15,
+            "floor_mult": null,
+            "effective_mult": 0.15,
+            "effective_pct": 6.75
+        }
+    ],
+    "invest_pct_sc3": 15.0,
+    "invest_pct_s1": 10.0,
+    "invest_amount_sc3": 15000000,
+    "invest_amount_s1": 9999999,
+    "per_ticker_alloc_sc3": [
+        {
+            "ticker": "449180",
+            "industry": "에센피",
+            "is_kospi": false,
+            "bucket": "NASDAQ",
+            "internal_weight": 55.0,
+            "market_mult": 0.15,
+            "floor_mult": null,
+            "effective_mult": 0.15,
+            "effective_pct": 8.25
+        },
+        {
+            "ticker": "091170",
+            "industry": "은행주",
+            "is_kospi": true,
+            "bucket": "KOSPI",
+            "internal_weight": 45.0,
+            "market_mult": 0.15,
+            "floor_mult": null,
+            "effective_mult": 0.15,
+            "effective_pct": 6.75
+        }
+    ],
+    "per_ticker_alloc_s1": [
+        {
+            "ticker": "449180",
+            "industry": "에센피",
+            "is_kospi": false,
+            "internal_weight": 58.9812,
+            "market_mult": 0.1,
+            "floor_mult": 0.0,
+            "effective_mult": 0.1,
+            "effective_pct": 5.8981
+        },
+        {
+            "ticker": "091170",
+            "industry": "은행주",
+            "is_kospi": true,
+            "internal_weight": 41.0188,
+            "market_mult": 0.1,
+            "floor_mult": 0.0,
+            "effective_mult": 0.1,
+            "effective_pct": 4.1019
+        }
+    ],
+    "sc3_state": {
+        "kr_state": "PURPLE",
+        "kr_bucket_pct": 0.15,
+        "us_state": "PURPLE",
+        "us_bucket_pct": 0.15,
+        "last_date": "2026-07-16",
+        "updated_today": false
+    },
+    "sc3_ok": true,
+    "trade_date": "2026-07-16",
+    "vol63_median": 25.4,
+    "internal_weights": [
+        58.9812,
+        41.0188
+    ],
+    "n_holdings": 2,
+    "holdings_tickers": [
+        "449180",
+        "091170"
+    ],
+    "top3_k_tickers": [
+        "091170"
+    ],
+    "allocation_map_used": [
+        55,
+        45
+    ],
+    "update_time": "2026-07-18 16:17:44"
+}

@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Moving Average Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: auto;
+            max-width: 100%;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+            background: white;
+        }
+        
+        .update-time {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            border-collapse: collapse;
+            font-size: 12px;
+            width: auto;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: #ffffff;
+            padding: 5px 10px;
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        td {
+            padding: 4px 8px;
+            border-bottom: 1px solid #eee;
+            white-space: nowrap;
+            text-align: center;
+        }
+        
+        tr:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+
+        .up { color: #27ae60; font-weight: bold; }
+        .down { color: #e74c3c; font-weight: bold; }
+        
+        .pos-top { background-color: #e74c3c; color: white; font-weight: bold; border-radius: 4px; }
+        .pos-high { background-color: #f39c12; color: white; font-weight: bold; border-radius: 4px; }
+        
+        .sig-jung { background-color: #e8f5e9; color: #27ae60; font-weight: bold; }
+        .sig-yeok { background-color: #ffebee; color: #e74c3c; font-weight: bold; }
+
+        .ticker { font-weight: bold; text-align: left; color: #2c3e50; }
+        .etf-name { text-align: left; color: #34495e; max-width: 120px; overflow: hidden; text-overflow: ellipsis; }
+        
+        .trend-up-3 { background: #00ff00; color: #000; font-weight: bold; border-radius: 3px; padding: 1px 3px; }
+        .trend-up-2 { background: #b7e1cd; color: #000; font-weight: bold; border-radius: 3px; padding: 1px 3px; }
+        .trend-down-3 { background: #ff0000; color: #fff; font-weight: bold; border-radius: 3px; padding: 1px 3px; }
+        .trend-down-2 { background: #ff9900; color: #fff; font-weight: bold; border-radius: 3px; padding: 1px 3px; }
+        
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            td, th { padding: 3px 5px; font-size: 11px; }
+        }
+    @media screen and (max-width: 950px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {
+  .top-nav-container, .top-nav { display: none !important; }
+}
+</style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <div class="update-time">마지막 업데이트: 2026-08-05 15:37:02</div>
+        </div>
+        <div class="table-container">
+            <table id="maTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Ticker</th>
+                        <th onclick="sortTable(1)">Name</th>
+                        <th onclick="sortTable(2)">위치</th>
+                        <th onclick="sortTable(3)">정/역</th>
+                        <th onclick="sortTable(4)">5</th>
+                        <th onclick="sortTable(5)">10</th>
+                        <th onclick="sortTable(6)">20</th>
+                        <th onclick="sortTable(7)">60</th>
+                        <th onclick="sortTable(8)">120</th>
+                        <th onclick="sortTable(9)">추세</th>
+                        <th onclick="sortTable(10)">1/3/6</th>
+                    </tr>
+                </thead>
+                <tbody>
+    <tr><td class="ticker">371160</td><td class="etf-name">H항셍테</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">spy</td><td class="etf-name">SPY</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">QQQ</td><td class="etf-name">QQQ</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">478150</td><td class="etf-name">미방산우주</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">195930</td><td class="etf-name">Eurox</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">446770</td><td class="etf-name">반도체톱4</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">BITO</td><td class="etf-name">BITO</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">SLV</td><td class="etf-name">SLV</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">GLD</td><td class="etf-name">GLD</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">487230</td><td class="etf-name">미전력인</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">241180</td><td class="etf-name">Nikkei</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">453810</td><td class="etf-name">인도</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">kospi</td><td class="etf-name">K200</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">229200</td><td class="etf-name">KOSDAQ150</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">091160</td><td class="etf-name">반도체</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">091180</td><td class="etf-name">자동차</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">305720</td><td class="etf-name">2차전지</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">117460</td><td class="etf-name">에너지화학</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">244580</td><td class="etf-name">바이오</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">091170</td><td class="etf-name">은행</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">102970</td><td class="etf-name">증권</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">117680</td><td class="etf-name">철강</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">117700</td><td class="etf-name">건설</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">139230</td><td class="etf-name">조선</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">228810</td><td class="etf-name">엔터</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">228790</td><td class="etf-name">화장품</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">475050</td><td class="etf-name">KPOP</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker">449450</td><td class="etf-name">K방산</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td><td class="">#DIV/0!</td></tr><tr><td class="ticker"></td><td class="etf-name"></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td><td class=""></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+    function sortTable(n) {{
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("maTable");
+        switching = true;
+        dir = "asc";
+        while (switching) {{
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < (rows.length - 1); i++) {{
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                
+                var xVal = x.textContent || x.innerText;
+                var yVal = y.textContent || y.innerText;
+                
+                // Clean values for numeric comparison
+                xVal = xVal.replace(/[%,원]/g, '').trim();
+                yVal = yVal.replace(/[%,원]/g, '').trim();
+                
+                if (!isNaN(parseFloat(xVal)) && isFinite(xVal) && !isNaN(parseFloat(yVal)) && isFinite(yVal)) {{
+                    xVal = parseFloat(xVal);
+                    yVal = parseFloat(yVal);
+                }} else {{
+                    xVal = xVal.toLowerCase();
+                    yVal = yVal.toLowerCase();
+                }}
+
+                if (dir == "asc") {{
+                    if (xVal > yVal) {{
+                        shouldSwitch = true;
+                        break;
+                    }}
+                }} else if (dir == "desc") {{
+                    if (xVal < yVal) {{
+                        shouldSwitch = true;
+                        break;
+                    }}
+                }}
+            }}
+            if (shouldSwitch) {{
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                switchcount++;
+            }} else {{
+                if (switchcount == 0 && dir == "asc") {{
+                    dir = "desc";
+                    switching = true;
+                }}
+            }}
+        }}
+    }}
+    </script>
+</body>
+</html>
+    

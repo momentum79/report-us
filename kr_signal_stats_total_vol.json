@@ -1,0 +1,60 @@
+{
+    "avg_sco": -0.3,
+    "total_cnt": 135,
+    "valid_cnt": 135,
+    "atr_excl_cnt": 0,
+    "sco_pos": 64,
+    "sco_neg": 71,
+    "sco_strong": 16,
+    "sco_zone_neg": 71,
+    "sco_zone_weak": 33,
+    "sco_zone_mid": 15,
+    "sco_zone_strong": 16,
+    "strong_count": 16,
+    "top3_avg_sco": 15.5,
+    "top3_avg_pos": 1.0,
+    "kospi_trend": "PURPLE",
+    "kosdaq_trend": "RED",
+    "sp500_trend": "LIME",
+    "nasdaq_trend": "PURPLE",
+    "euro_trend": "-",
+    "india_trend": "RED",
+    "nikkei_trend": "PURPLE",
+    "kospi_mult": 0.1,
+    "nasdaq_mult": 0.1,
+    "invest_pct": 24.0,
+    "invest_amount_total": 24000000,
+    "internal_weights": [
+        45.0,
+        30.0,
+        25.0
+    ],
+    "n_holdings": 3,
+    "holdings_tickers": [
+        "KBE",
+        "KRE",
+        "EWC"
+    ],
+    "final_ratios": {
+        "KBE": 10.8,
+        "KRE": 7.2,
+        "EWC": 6.0
+    },
+    "top3_tickers": [
+        "KBE",
+        "KRE",
+        "EWC"
+    ],
+    "allocation_map_used": [
+        45,
+        30,
+        25
+    ],
+    "score_model": {
+        "name": "vol_stability_v1",
+        "base": "sco55 + return1m30 + return3m15",
+        "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
+        "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
+    },
+    "update_time": "2026-07-18 16:18:45"
+}

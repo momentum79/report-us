@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KR 저점 신호</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            margin: 0;
+            background-color: #f4f7f6;
+        }
+
+        h2 {
+            margin-top: 30px;
+            padding-bottom: 10px;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .signal-header {
+            margin-top: 15px;
+            padding-bottom: 5px;
+            color: #2c3e50;
+            font-size: 1.1em;
+            border-bottom: 1px solid #3498db;
+        }
+
+        .styled-table {
+            width: auto;
+            max-width: 100%;
+            border-collapse: collapse;
+            margin: 5px 0 15px 0;
+            font-size: 13px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .styled-table thead tr {
+            background-color: #3498db;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 6px 10px;
+            border-bottom: 1px solid #eee;
+            white-space: nowrap;
+        }
+
+        .styled-table td.narrow {
+            width: 60px;
+            font-weight: bold;
+            color: #34495e;
+            text-align: left;
+        }
+
+        .styled-table td.yield-col {
+            width: 50px;
+            color: #e74c3c;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .styled-table td.name-col {
+            max-width: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .styled-table td.signal-col {
+            width: 40px;
+            text-align: center;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .styled-table td.nxt-col {
+            width: 40px;
+            text-align: center;
+            font-weight: bold;
+            color: #9b59b6;
+        }
+
+        .table-title {
+            font-weight: bold;
+            margin-top: 15px;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #3498db;
+        }
+
+        @media (max-width: 600px) {
+            .styled-table {
+                font-size: 11px;
+            }
+
+            .styled-table th,
+            .styled-table td {
+                padding: 4px 3px;
+            }
+
+            .styled-table td.narrow {
+                width: 25px;
+            }
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>📉 KR 저점 신호</h1>
+        <small>업데이트: <span id="update-time">-</span></small>
+    </div>
+
+    <h3 class="signal-header">📊 저점 신호 발생 종목</h3>
+    <table class="styled-table" id="low-point-table">
+        <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>Name</th>
+                <th>저</th>
+                <th>저2</th>
+                <th>종가</th>
+                <th>NXT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="6">데이터 로딩 중...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // 페이지 로드 시 데이터 가져오기
+        window.onload = function () {
+            loadLowPointData();
+        };
+
+        function loadLowPointData() {
+            // JSON 파일에서 데이터 로드
+            fetch('kr_low_point_data.json?' + new Date().getTime())
+                .then(response => response.json())
+                .then(data => {
+                    updateTable(data);
+                })
+                .catch(error => {
+                    console.error('Error loading data:', error);
+                    document.querySelector('#low-point-table tbody').innerHTML =
+                        '<tr><td colspan="6">데이터 로드 실패</td></tr>';
+                });
+        }
+
+        function updateTable(data) {
+            const tbody = document.querySelector('#low-point-table tbody');
+            const updateTime = document.getElementById('update-time');
+
+            // 업데이트 시간 표시
+            if (data.update_time) {
+                updateTime.textContent = data.update_time;
+            }
+
+            // 테이블 내용 업데이트
+            if (data.stocks && data.stocks.length > 0) {
+                tbody.innerHTML = data.stocks.map(stock => `
+            <tr>
+                <td class="narrow">${stock.ticker}</td>
+                <td class="name-col">${stock.name}</td>
+                <td class="signal-col">${stock.jeo}</td>
+                <td class="signal-col">${stock.jeo2}</td>
+                <td class="yield-col">${stock.close.toLocaleString()}</td>
+                <td class="nxt-col">${stock.nxt}</td>
+            </tr>
+        `).join('');
+            } else {
+                tbody.innerHTML = '<tr><td colspan="6">신호 발생 종목 없음</td></tr>';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

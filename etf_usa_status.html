@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>ETF현황 (미국 ETF 스캐너)</title>
+<style>
+:root{--bg:#f4f7f6;--sur:#fff;--bor:#e0e7e5;--txt:#2c3e50;--txt2:#4a5568}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;font-size:14px;line-height:1.6;padding:15px}
+.top-nav-container{display:flex;margin-bottom:10px}
+.top-nav{display:flex;background:#2c3e50;border-radius:8px;overflow:hidden;width:fit-content}
+.nav-item{padding:8px 15px;color:#bdc3c7;text-align:center;font-weight:bold;text-decoration:none;transition:all .3s;font-size:13px}
+.nav-item:hover{background:#34495e;color:#fff}
+.nav-item.active{background:#3498db;color:#fff}
+.hdr{padding:2px 0 14px;border-bottom:2px solid #3498db;margin-bottom:16px}
+.hdr h1{font-size:1.2em;font-weight:bold;color:#2c3e50;margin:0 0 2px}
+.hdr .sub{font-size:13px;color:#4a5568}
+.wrap{max-width:1320px;margin:0;display:flex;flex-direction:column;gap:16px}
+.card{background:#fff;border-radius:8px;padding:16px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.row-pair{display:flex;align-items:flex-start;gap:0}
+.row-pair .card+.card{margin-left:20px;padding-left:20px;border-left:2px solid #d5e0de}
+@media(max-width:900px){
+  .row-pair{flex-direction:column;gap:16px}
+  .row-pair .card+.card{margin-left:0;padding-left:16px;border-left:none;border-top:2px solid #d5e0de;padding-top:12px}
+}
+.ct{font-size:1.0em;font-weight:bold;color:#2c3e50;margin-bottom:12px;padding-bottom:4px;border-bottom:2px solid #3498db}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:auto;font-size:13px;white-space:nowrap}
+thead th{background:#f0f4f3;color:#4a5568;font-weight:700;text-align:left;padding:7px 10px;border-bottom:2px solid #d5e0de;position:sticky;top:0}
+tbody td{padding:6px 10px;border-bottom:1px solid #eef2f1}
+tbody tr:nth-child(even){background:#fafcfb}
+tbody tr:hover{background:#eef6fb}
+td.num{text-align:right;font-family:'IBM Plex Mono','Consolas',monospace}
+td.txt{text-align:left}
+.empty{color:#95a5a6;padding:10px 2px;font-size:13px}
+.note{margin-top:8px;font-size:12px;color:#b45309;line-height:1.7}
+td.ticker-hover{cursor:pointer;color:#2980b9;text-decoration:underline dotted;text-underline-offset:2px}
+td.ticker-hover:hover{color:#1a5c8a;background:#eaf3fb}
+@media(max-width:600px){
+  body{padding:8px} .card{padding:10px} table{font-size:12px}
+  thead th,tbody td{padding:5px 7px}
+}
+
+/* ── Naver 호버 차트 팝업 (일봉/주봉, KR150 수준 크기) ── */
+#naverChartPopup{
+  display:none;position:fixed;z-index:99999;width:1060px;background:#fff;
+  border:1px solid #bdc3c7;border-radius:10px;padding:12px 14px 14px;
+  box-shadow:0 12px 34px rgba(0,0,0,.24);overflow-y:auto;max-height:92dvh;
+  overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+}
+body.naver-popup-open{overflow:hidden}
+#naverChartPopup .popup-header{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+#naverPopupClose{display:flex;background:#e74c3c;color:#fff;border:none;border-radius:50%;
+  width:26px;height:26px;font-size:16px;line-height:1;cursor:pointer;flex-shrink:0;
+  align-items:center;justify-content:center;font-weight:bold}
+#naverChartPopup .popup-title{font-weight:700;color:#2c3e50;font-size:14px;white-space:nowrap}
+#naverChartPopup .popup-link{font-size:12px;color:#2980b9;text-decoration:none;white-space:nowrap}
+#naverChartPopup .popup-link:hover{text-decoration:underline}
+.naver-charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.naver-chart-card{border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;background:#fff}
+.naver-chart-lab{font-size:11px;font-weight:700;color:#64748b;padding:5px 8px 2px}
+.naver-chart-wrap{position:relative;width:100%;height:380px;background:#fff}
+.naver-chart-wrap img{width:100%;height:100%;display:block;object-fit:fill;background:#fff}
+.naver-chart-loading{display:none;position:absolute;inset:0;background:rgba(255,255,255,.75);
+  align-items:center;justify-content:center;font-size:12px;color:#64748b}
+.naver-chart-loading.show{display:flex}
+@media(max-width:1000px){
+  #naverChartPopup{width:96vw;left:2vw!important}
+  .naver-charts-grid{grid-template-columns:1fr}
+  .naver-chart-wrap{height:300px}
+}
+@media(max-width:767px){
+  #naverChartPopup{position:fixed!important;left:2vw!important;top:50%!important;
+    transform:translateY(-50%);width:96vw!important;max-height:86dvh!important;padding:8px}
+  .naver-chart-wrap{height:260px}
+}
+</style>
+</head>
+<body>
+  <div class="top-nav-container">
+    <div class="top-nav">
+      <a href="total_etf_combined.html" class="nav-item">통합 ETF</a>
+      <a href="total_etf_combined_AI.html" class="nav-item">🤖 AI 관찰판</a>
+      <a href="top3_etf_daily_result_total.html" class="nav-item">Top3 추세</a>
+      <a href="etf_usa_status.html" class="nav-item active">ETF현황</a>
+      <a href="hanmi_watch.html" class="nav-item">한미관심주</a>
+    </div>
+  </div>
+  <div class="hdr">
+    <h1>🇺🇸 ETF현황 — 미국 ETF 스캐너</h1>
+    <div class="sub">키움 미국 ETF API 4종 · 거래량 200만주↑ 필터 · 데이터: 2026-08-06 21:17 · 페이지생성: 2026-08-06 21:22</div>
+  </div>
+  <div class="wrap">
+<div class="card"><div class="ct">1. ETF 기간별 등락률 상위 (2주) (usa20511)</div><div class="empty">조건에 맞는 행이 없습니다.</div></div>
+<div class="row-pair"><div class="card"><div class="ct">2. ETF 당일 거래대금 상위 (레버리지·인버스) (usa20541)</div><div class="empty">조건에 맞는 행이 없습니다.</div></div><div class="card"><div class="ct">3. 업종별 기간별 수익률 (4주) (usa23000)</div><div class="tbl-wrap"><table><thead><tr><th>순위</th><th>종목명</th><th>1D</th><th>5D</th><th style="color:#e74c3c">1M</th><th>3M</th></tr></thead><tbody><tr><td class="txt">1</td><td class="txt">도/소매</td><td class="num" style="color:#1a9e75;font-weight:600">+0.05%</td><td class="num" style="color:#1a9e75;font-weight:600">+11.17%</td><td class="num" style="color:#1a9e75;font-weight:600">+11.34%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.75%</td></tr><tr><td class="txt">2</td><td class="txt">에너지및관련서비스</td><td class="num" style="color:#1a9e75;font-weight:600">+0.94%</td><td class="num" style="color:#e74c3c;font-weight:600">-2.54%</td><td class="num" style="color:#1a9e75;font-weight:600">+8.97%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.53%</td></tr><tr><td class="txt">3</td><td class="txt">금속및채광</td><td class="num" style="color:#e74c3c;font-weight:600">-0.11%</td><td class="num" style="color:#1a9e75;font-weight:600">+6.97%</td><td class="num" style="color:#1a9e75;font-weight:600">+8.42%</td><td class="num" style="color:#1a9e75;font-weight:600">+0.63%</td></tr><tr><td class="txt">4</td><td class="txt">소재산업(기타)</td><td class="num" style="color:#1a9e75;font-weight:600">+0.40%</td><td class="num" style="color:#1a9e75;font-weight:600">+3.36%</td><td class="num" style="color:#1a9e75;font-weight:600">+8.18%</td><td class="num" style="color:#1a9e75;font-weight:600">+16.13%</td></tr><tr><td class="txt">5</td><td class="txt">가정용내구재</td><td class="num" style="color:#1a9e75;font-weight:600">+0.60%</td><td class="num" style="color:#1a9e75;font-weight:600">+7.27%</td><td class="num" style="color:#1a9e75;font-weight:600">+7.64%</td><td class="num" style="color:#1a9e75;font-weight:600">+14.50%</td></tr><tr><td class="txt">6</td><td class="txt">소비자서비스</td><td class="num" style="color:#e74c3c;font-weight:600">-0.10%</td><td class="num" style="color:#1a9e75;font-weight:600">+0.50%</td><td class="num" style="color:#1a9e75;font-weight:600">+4.80%</td><td class="num" style="color:#1a9e75;font-weight:600">+9.99%</td></tr><tr><td class="txt">7</td><td class="txt">해운</td><td class="num" style="color:#1a9e75;font-weight:600">+0.99%</td><td class="num" style="color:#e74c3c;font-weight:600">-0.65%</td><td class="num" style="color:#1a9e75;font-weight:600">+4.57%</td><td class="num" style="color:#1a9e75;font-weight:600">+2.57%</td></tr><tr><td class="txt">8</td><td class="txt">상업및전문서비스</td><td class="num" style="color:#1a9e75;font-weight:600">+0.03%</td><td class="num" style="color:#e74c3c;font-weight:600">-0.87%</td><td class="num" style="color:#1a9e75;font-weight:600">+3.75%</td><td class="num" style="color:#1a9e75;font-weight:600">+6.36%</td></tr><tr><td class="txt">9</td><td class="txt">상업은행</td><td class="num" style="color:#1a9e75;font-weight:600">+0.72%</td><td class="num" style="color:#1a9e75;font-weight:600">+2.14%</td><td class="num" style="color:#1a9e75;font-weight:600">+3.73%</td><td class="num" style="color:#1a9e75;font-weight:600">+14.59%</td></tr><tr><td class="txt">10</td><td class="txt">복합기업</td><td class="num" style="color:#1a9e75;font-weight:600">+0.30%</td><td class="num" style="color:#1a9e75;font-weight:600">+6.76%</td><td class="num" style="color:#1a9e75;font-weight:600">+3.65%</td><td class="num" style="color:#1a9e75;font-weight:600">+23.99%</td></tr><tr><td class="txt">11</td><td class="txt">무역회사</td><td class="num" style="color:#1a9e75;font-weight:600">+0.66%</td><td class="num" style="color:#1a9e75;font-weight:600">+4.99%</td><td class="num" style="color:#1a9e75;font-weight:600">+3.04%</td><td class="num" style="color:#1a9e75;font-weight:600">+10.63%</td></tr><tr><td class="txt">12</td><td class="txt">건강관리장비및서비스</td><td class="num" style="color:#1a9e75;font-weight:600">+0.54%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.26%</td><td class="num" style="color:#1a9e75;font-weight:600">+2.53%</td><td class="num" style="color:#1a9e75;font-weight:600">+13.19%</td></tr><tr><td class="txt">13</td><td class="txt">바이오</td><td class="num" style="color:#1a9e75;font-weight:600">+0.83%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.04%</td><td class="num" style="color:#1a9e75;font-weight:600">+2.45%</td><td class="num" style="color:#1a9e75;font-weight:600">+17.05%</td></tr><tr><td class="txt">14</td><td class="txt">음식료및담배생산</td><td class="num" style="color:#1a9e75;font-weight:600">+0.64%</td><td class="num" style="color:#e74c3c;font-weight:600">-0.87%</td><td class="num" style="color:#1a9e75;font-weight:600">+2.21%</td><td class="num" style="color:#1a9e75;font-weight:600">+4.24%</td></tr><tr><td class="txt">15</td><td class="txt">보험</td><td class="num" style="color:#1a9e75;font-weight:600">+0.13%</td><td class="num" style="color:#e74c3c;font-weight:600">-0.17%</td><td class="num" style="color:#1a9e75;font-weight:600">+2.10%</td><td class="num" style="color:#1a9e75;font-weight:600">+13.32%</td></tr><tr><td class="txt">16</td><td class="txt">레져서비스및제품</td><td class="num" style="color:#1a9e75;font-weight:600">+0.31%</td><td class="num" style="color:#1a9e75;font-weight:600">+0.36%</td><td class="num" style="color:#1a9e75;font-weight:600">+2.02%</td><td class="num" style="color:#1a9e75;font-weight:600">+3.73%</td></tr><tr><td class="txt">17</td><td class="txt">섬유의복및호화제품</td><td class="num" style="color:#e74c3c;font-weight:600">-0.47%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.62%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.93%</td><td class="num" style="color:#1a9e75;font-weight:600">+0.29%</td></tr><tr><td class="txt">18</td><td class="txt">화학</td><td class="num" style="color:#1a9e75;font-weight:600">+0.22%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.36%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.74%</td><td class="num" style="color:#1a9e75;font-weight:600">+0.17%</td></tr><tr><td class="txt">19</td><td class="txt">운송인프라(도로선로)</td><td class="num" style="color:#1a9e75;font-weight:600">+0.16%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.20%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.37%</td><td class="num" style="color:#1a9e75;font-weight:600">+4.83%</td></tr><tr><td class="txt">20</td><td class="txt">우주항공및국방</td><td class="num" style="color:#1a9e75;font-weight:600">+0.12%</td><td class="num" style="color:#1a9e75;font-weight:600">+4.50%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.23%</td><td class="num" style="color:#1a9e75;font-weight:600">+5.71%</td></tr><tr><td class="txt">21</td><td class="txt">가정및개인용품</td><td class="num" style="color:#1a9e75;font-weight:600">+0.20%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.80%</td><td class="num" style="color:#1a9e75;font-weight:600">+1.05%</td><td class="num" style="color:#1a9e75;font-weight:600">+3.64%</td></tr><tr><td class="txt">22</td><td class="txt">음식료소매</td><td class="num" style="color:#1a9e75;font-weight:600">+0.79%</td><td class="num" style="color:#e74c3c;font-weight:600">-0.55%</td><td class="num" style="color:#1a9e75;font-weight:600">+0.41%</td><td class="num" style="color:#e74c3c;font-weight:600">-1.22%</td></tr><tr><td class="txt">23</td><td class="txt">기계및전기장비</td><td class="num" style="color:#1a9e75;font-weight:600">+0.57%</td><td class="num" style="color:#1a9e75;font-weight:600">+6.72%</td><td class="num" style="color:#1a9e75;font-weight:600">+0.17%</td><td class="num" style="color:#1a9e75;font-weight:600">+2.59%</td></tr><tr><td class="txt">24</td><td class="txt">제약</td><td class="num" style="color:#1a9e75;font-weight:600">+0.72%</td><td class="num" style="color:#1a9e75;font-weight:600">+0.24%</td><td class="num" style="color:#1a9e75;font-weight:600">+0.17%</td><td class="num" style="color:#1a9e75;font-weight:600">+12.30%</td></tr><tr><td class="txt">25</td><td class="txt">건설및건축제폼</td><td class="num" style="color:#1a9e75;font-weight:600">+0.25%</td><td class="num" style="color:#1a9e75;font-weight:600">+4.66%</td><td class="num" style="color:#e74c3c;font-weight:600">-0.58%</td><td class="num" style="color:#e74c3c;font-weight:600">-5.52%</td></tr><tr><td class="txt">26</td><td class="txt">미디어</td><td class="num" style="color:#e74c3c;font-weight:600">-0.24%</td><td class="num" style="color:#1a9e75;font-weight:600">+6.92%</td><td class="num" style="color:#e74c3c;font-weight:600">-1.09%</td><td class="num" style="color:#e74c3c;font-weight:600">-6.84%</td></tr><tr><td class="txt">27</td><td class="txt">자동차관련부품</td><td class="num" style="color:#1a9e75;font-weight:600">+0.23%</td><td class="num" style="color:#e74c3c;font-weight:600">-0.84%</td><td class="num" style="color:#e74c3c;font-weight:600">-1.14%</td><td class="num" style="color:#e74c3c;font-weight:600">-0.34%</td></tr><tr><td class="txt">28</td><td class="txt">항공사및항공운송</td><td class="num" style="color:#1a9e75;font-weight:600">+0.22%</td><td class="num" style="color:#1a9e75;font-weight:600">+3.75%</td><td class="num" style="color:#e74c3c;font-weight:600">-1.73%</td><td class="num" style="color:#1a9e75;font-weight:600">+12.36%</td></tr><tr><td class="txt">29</td><td class="txt">건축자재</td><td class="num" style="color:#1a9e75;font-weight:600">+0.32%</td><td class="num" style="color:#1a9e75;font-weight:600">+4.06%</td><td class="num" style="color:#e74c3c;font-weight:600">-4.38%</td><td class="num" style="color:#e74c3c;font-weight:600">-5.05%</td></tr><tr><td class="txt">30</td><td class="txt">자동차</td><td class="num" style="color:#1a9e75;font-weight:600">+0.23%</td><td class="num" style="color:#1a9e75;font-weight:600">+2.86%</td><td class="num" style="color:#e74c3c;font-weight:600">-15.51%</td><td class="num" style="color:#e74c3c;font-weight:600">-11.98%</td></tr></tbody></table></div></div></div>
+<div class="card"><div class="ct">4. 업종별 등락률 상위 (usa23100)</div><div class="tbl-wrap"><table><thead><tr><th>순위</th><th>티커</th><th>시가</th><th>현재가</th><th>등락률</th><th>거래량</th><th>종목명</th></tr></thead><tbody><tr><td class="txt">1</td><td class="txt" data-ticker="CLRO" class="ticker-hover">CLRO</td><td class="num">9.75</td><td class="num">9.75</td><td class="num" style="color:#1a9e75;font-weight:600">+164.95%</td><td class="num">1,196만</td><td class="txt">클리어원</td></tr><tr><td class="txt">2</td><td class="txt" data-ticker="PAVS" class="ticker-hover">PAVS</td><td class="num">9.47</td><td class="num">9.47</td><td class="num" style="color:#1a9e75;font-weight:600">+92.87%</td><td class="num">873만</td><td class="txt">파라노부스 엔터테인먼트 테크놀로지</td></tr></tbody></table></div></div>
+  </div>
+
+  <div id="naverChartPopup" tabindex="-1">
+    <div class="popup-header">
+      <button id="naverPopupClose">&#x2715;</button>
+      <div class="popup-title" id="naverPopupTitle">-</div>
+      <a id="naverPopupLink" class="popup-link" href="#" target="_blank" rel="noopener noreferrer">네이버증권↗</a>
+    </div>
+    <div class="naver-charts-grid">
+      <div class="naver-chart-card">
+        <div class="naver-chart-lab">일봉</div>
+        <div class="naver-chart-wrap">
+          <img id="naverImgDaily" alt="일봉">
+          <div class="naver-chart-loading show" id="naverLoadingDaily">로딩중...</div>
+        </div>
+      </div>
+      <div class="naver-chart-card">
+        <div class="naver-chart-lab">주봉</div>
+        <div class="naver-chart-wrap">
+          <img id="naverImgWeekly" alt="주봉">
+          <div class="naver-chart-loading show" id="naverLoadingWeekly">로딩중...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var NAVER_SUFFIX_TRY = ['.O', '.P', '', '.N', '.A', '.K'];
+    var resolvedCode = {};
+    var popup      = document.getElementById('naverChartPopup');
+    var titleEl    = document.getElementById('naverPopupTitle');
+    var linkEl     = document.getElementById('naverPopupLink');
+    var imgDaily   = document.getElementById('naverImgDaily');
+    var imgWeekly  = document.getElementById('naverImgWeekly');
+    var loadDaily  = document.getElementById('naverLoadingDaily');
+    var loadWeekly = document.getElementById('naverLoadingWeekly');
+    var hoverTimer = null;
+    var pinned = false;
+    var curEl = null;   // 현재 차트가 가리키는 셀 (D/S 단축키 이동 기준)
+
+    function withTs(u) { return u + '?t=' + Date.now(); }
+    function dailyUrl(c)  { return withTs('https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/day/'  + c + '_end.png'); }
+    function weeklyUrl(c) { return withTs('https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/week/' + c + '_end.png'); }
+    function pageUrl(c)   { return 'https://m.stock.naver.com/worldstock/stock/' + c + '/total'; }
+
+    function resolveCode(ticker, cb) {
+      var T = String(ticker || '').replace(/[*]/g, '').toUpperCase();
+      if (!T) { cb(null); return; }
+      if (resolvedCode[T]) { cb(resolvedCode[T]); return; }
+      var candidates = NAVER_SUFFIX_TRY.map(function (s) { return T + s; });
+      var i = 0;
+      function tryNext() {
+        if (i >= candidates.length) { cb(null); return; }
+        var code = candidates[i++];
+        var probe = new Image();
+        probe.onload  = function () { resolvedCode[T] = code; cb(code); };
+        probe.onerror = tryNext;
+        probe.src = withTs('https://ssl.pstatic.net/imgfinance/chart/mobile/world/item/candle/day/' + code + '_end.png');
+      }
+      tryNext();
+    }
+
+    function loadInto(imgEl, loadingEl, url) {
+      loadingEl.classList.add('show');
+      imgEl.style.opacity = '0.35';
+      var p = new Image();
+      p.onload  = function () { imgEl.src = url; imgEl.style.opacity = '1'; loadingEl.classList.remove('show'); };
+      p.onerror = function () { imgEl.removeAttribute('src'); imgEl.style.opacity = '1'; loadingEl.classList.remove('show'); };
+      p.src = url;
+    }
+
+    function loadCharts(ticker) {
+      var T = String(ticker || '').replace(/[*]/g, '').toUpperCase();
+      titleEl.textContent = T + ' (resolving...)';
+      linkEl.href = '#';
+      loadDaily.classList.add('show');
+      loadWeekly.classList.add('show');
+      imgDaily.removeAttribute('src');
+      imgWeekly.removeAttribute('src');
+      resolveCode(T, function (code) {
+        if (!code) {
+          titleEl.textContent = T + '  (조회 실패)';
+          loadDaily.classList.remove('show');
+          loadWeekly.classList.remove('show');
+          return;
+        }
+        titleEl.textContent = T + '  [' + code + ']';
+        linkEl.href = pageUrl(code);
+        loadInto(imgDaily,  loadDaily,  dailyUrl(code));
+        loadInto(imgWeekly, loadWeekly, weeklyUrl(code));
+      });
+    }
+
+    function placePopup(cx, cy) {
+      if (window.innerWidth <= 767) return;
+      var rectW = Math.min(1060, window.innerWidth - 20);
+      var rectH = window.innerWidth <= 1000 ? 700 : 460;
+      var x = cx + 18, y = cy + 18;
+      if (x + rectW > window.innerWidth  - 8) x = cx - rectW - 12;
+      if (y + rectH > window.innerHeight - 8) y = cy - rectH - 12;
+      if (x < 8) x = 8; if (y < 8) y = 8;
+      popup.style.left = x + 'px'; popup.style.top = y + 'px';
+      popup.style.transform = 'none';
+    }
+
+    function openPopup()  {
+      popup.style.display = 'block'; document.body.classList.add('naver-popup-open');
+      try { if (document.activeElement === document.body || document.activeElement === null) popup.focus({preventScroll:true}); } catch (e) {}
+    }
+    function closePopup() {
+      popup.style.display = 'none'; pinned = false; document.body.classList.remove('naver-popup-open');
+      document.removeEventListener('mousemove', unpinOnMove);
+    }
+    function unpinOnMove(e) {
+      if (popup.contains(e.target)) return;
+      document.removeEventListener('mousemove', unpinOnMove); pinned = false;
+      setTimeout(function () { if (!pinned) closePopup(); }, 120);
+    }
+    function kbPin() {
+      pinned = true; clearTimeout(hoverTimer);
+      document.removeEventListener('mousemove', unpinOnMove);
+      document.addEventListener('mousemove', unpinOnMove);
+    }
+
+    document.getElementById('naverPopupClose').addEventListener('click', closePopup);
+    popup.addEventListener('mouseenter', function () { pinned = true; });
+    popup.addEventListener('mouseleave', function () { pinned = false; closePopup(); });
+
+    document.querySelectorAll('td[data-ticker]').forEach(function (el) {
+      el.addEventListener('mouseenter', function (e) {
+        if (window.innerWidth <= 767) return;
+        clearTimeout(hoverTimer);
+        hoverTimer = setTimeout(function () {
+          placePopup(e.clientX, e.clientY);
+          openPopup();
+          curEl = el;
+          loadCharts(el.getAttribute('data-ticker') || '');
+        }, 140);
+      });
+      el.addEventListener('mousemove', function (e) {
+        if (popup.style.display === 'block' && !pinned) placePopup(e.clientX, e.clientY);
+      });
+      el.addEventListener('mouseleave', function () {
+        clearTimeout(hoverTimer);
+        setTimeout(function () { if (!pinned) closePopup(); }, 120);
+      });
+      el.addEventListener('click', function (e) {
+        if (window.innerWidth > 767) return;
+        e.stopPropagation();
+        openPopup();
+        curEl = el;
+        loadCharts(el.getAttribute('data-ticker') || '');
+      });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (popup.style.display !== 'block') return;
+      var tg = e.target, tag = tg && tg.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || (tg && tg.isContentEditable)) return;
+      var k = e.key;
+      if (k === 'Tab' || k === 'Escape') { e.preventDefault(); closePopup(); return; }
+      var dir = 0;
+      if (k === 's' || k === 'S' || k === 'ArrowUp') dir = -1;
+      else if (k === 'd' || k === 'D' || k === 'ArrowDown') dir = 1;
+      if (dir === 0 || !curEl) return;
+      e.preventDefault();
+      var all = Array.prototype.slice.call(document.querySelectorAll('td[data-ticker]'));
+      var i = all.indexOf(curEl);
+      if (i < 0) return;
+      i += dir;
+      if (i < 0 || i >= all.length) return;
+      var nt = all[i];
+      kbPin();
+      curEl = nt;
+      loadCharts(nt.getAttribute('data-ticker') || '');
+      nt.scrollIntoView({block:'nearest'});
+    });
+  })();
+  </script>
+</body>
+</html>

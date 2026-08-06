@@ -1,0 +1,133 @@
+﻿base_market	base_ticker	base_name	lev_market	lev_ticker	lev_name	lev_mult	match_type	note
+KR	091160	반도체	KR	494310	KODEX 반도체레버리지	2	EXACT_2X	KR 반도체 레버리지 중 거래량 우위
+KR	091180	자동차					NO_2X	2x ?? ??
+KR	305720	이차전	KR	462330	KODEX 2차전지산업레버리지	2	EXACT_2X	2차전지 산업 직접 매칭
+KR	117460	에너지	KR	117460	에너지	1	SELF_FORCED	?????: ????/???? ???? ?? ??
+KR	244580	바이오					NO_2X	2x ?? ??
+KR	091170	은행주					NO_2X	2x ?? ??
+KR	102970	증권주					NO_2X	2x ?? ??
+KR	117680	철강주					NO_2X	2x ?? ??
+KR	117700	건설주					NO_2X	2x ?? ??
+KR	139230	조선주	KR	0080Y0	SOL 조선TOP3플러스레버리지	2	EXACT_2X	조선 테마 직접 매칭
+KR	228790	화장품					NO_2X	2x ?? ??
+KR	495050	밸류업					NO_2X	2x ?? ??
+KR	069500	코스피	KR	122630	KODEX 레버리지	2	EXACT_2X	KOSPI200 대표 2x
+KR	229200	코스닥	KR	233740	KODEX 코스닥150레버리지	2	EXACT_2X	코스닥150 대표 2x
+KR	487230	전력인					NO_2X	2x ?? ??
+KR	449450	방산주	KR	0100K0	KODEX 방산TOP10레버리지	2	EXACT_2X	방산 테마 직접 매칭
+KR	475050	K팝					NO_2X	2x ?? ??
+KR	371160	항셈테	KR	438320	TIGER 차이나항셍테크레버리지(합성 H)	2	EXACT_2X	항셍테크 직접 매칭
+KR	455850	반소부	KR	494310	KODEX 반도체레버리지	2	PROXY_2X	반도체 소재/부품은 broad 반도체로 대체
+KR	0051G0	에셈알					NO_2X	2x ?? ??
+KR	0038A0	미로봇					NO_2X	2x ?? ??
+KR	0048K0	중로봇					NO_2X	2x ?? ??
+KR	0023A0	양자컴					NO_2X	2x ?? ??
+KR	195930	유로스	KR	195930	유로스	1	SELF_FORCED	?????: ????/???? ???? ?? ??
+KR	377990	신재생					NO_2X	2x ?? ??
+KR	411060	금현물	KR	225130	ACE 골드선물 레버리지(합성 H)	2	PROXY_2X	현물 금을 금선물 2x로 대체
+KR	478150	우주방					NO_2X	2x ?? ??
+KR	453810	인디아	KR	236350	TIGER 인도니프티50레버리지(합성)	2	EXACT_2X	인도 대표 2x
+KR	446770	톱반도	KR	494310	KODEX 반도체레버리지	2	PROXY_2X	반도체 TOP 계열을 broad 반도체로 대체
+KR	434730	원자력					NO_2X	2x ?? ??
+KR	469070	ai로봇					NO_2X	2x ?? ??
+KR	449180	에센피	KR	225040	TIGER 미국S&P500레버리지(합성 H)	2	EXACT_2X	S&P500 직접 매칭
+KR	449190	나스닥	KR	418660	TIGER 미국나스닥100레버리지(합성)	2	EXACT_2X	Nasdaq100 대표 2x
+KR	241180	니케이	KR	241180	니케이	1	SELF_FORCED	?????: ????/???? ???? ?? ??
+KR	147970	티모멘					NO_2X	2x ?? ??
+KR	325020	케모멘					NO_2X	2x ?? ??
+US	ARKF	ARK Fintech Innovation					NO_2X	2x ?? ??
+US	ARKK	ARK Innovation	US	TARK	AXS 2X Innovation ETF	2	EXACT_2X	ARKK 2x 대체
+US	ARKW	ARK Next Generation Internet					NO_2X	2x ?? ??
+US	BOTZ	Global Robotics & AI	US	UBOT	Direxion Daily Robotics & AI Bull 2X ETF	2	PROXY_2X	로봇/AI 테마 프록시
+US	CARZ	Global Auto					NO_2X	3x? ???? ??; 2x ?? ??
+US	CIBR	Cybersecurity	US	UCYB	ProShares Ultra Nasdaq Cybersecurity	2	EXACT_2X	사이버보안 2x
+US	COPX	Copper Miners	US	COPZ	Defiance Daily Target 2X Long Copper Miners ETF	2	EXACT_2X	구리 채굴주 2x
+US	DBA	Agriculture					NO_2X	2x ?? ??
+US	DIA	Dow 30	US	DDM	ProShares Ultra Dow30	2	EXACT_2X	Dow 30 대표 2x
+US	EFA	MSCI EAFE	US	EFO	ProShares Ultra MSCI EAFE	2	EXACT_2X	EAFE 2x
+US	EIDO	Indonesia					NO_2X	2x ?? ??
+US	EIS	Israel					NO_2X	2x ?? ??
+US	EMGF	Emerging Multifactor					NO_2X	2x ?? ??
+US	ENZL	New Zealand					NO_2X	2x ?? ??
+US	EPHE	Philippines					NO_2X	2x ?? ??
+US	ETHA	Ethereum Spot	US	ETHT	ProShares Ultra Ether ETF	2	EXACT_2X	이더리움 2x
+US	EWA	Australia					NO_2X	2x ?? ??
+US	EWC	Canada					NO_2X	2x ?? ??
+US	EWG	Germany					NO_2X	2x ?? ??
+US	EWH	Hong Kong					NO_2X	2x ?? ??
+US	EWI	Italy					NO_2X	2x ?? ??
+US	EWJ	Japan	US	EWJ	Japan	1	SELF_FORCED	?????: ????/???? ???? ?? ??
+US	EWL	Switzerland					NO_2X	2x ?? ??
+US	EWM	Malaysia					NO_2X	2x ?? ??
+US	EWP	Spain					NO_2X	2x ?? ??
+US	EWQ	France					NO_2X	2x ?? ??
+US	EWS	Singapore					NO_2X	2x ?? ??
+US	EWT	Taiwan	US	EWT	Taiwan	1	SELF_FORCED	?????: ????/???? ???? ?? ??
+US	EWU	United Kingdom					NO_2X	2x ?? ??
+US	EWW	Mexico					NO_2X	3x? ???? ??; 2x ?? ??
+US	EWY	South Korea					NO_2X	3x? ???? ??; 2x ?? ??
+US	EWZ	Brazil	US	EWZ	Brazil	1	SELF_FORCED	?????: ????/???? ???? ?? ??
+US	EZA	South Africa					NO_2X	2x ?? ??
+US	EZU	Eurozone	US	UPV	ProShares Ultra FTSE Europe	2	PROXY_2X	유로존 대신 유럽 2x
+US	FXI	China Large Cap	US	XPP	ProShares Ultra FTSE China 50	2	EXACT_2X	중국 대형주 2x
+US	GLD	Gold	US	UGL	ProShares Ultra Gold	2	EXACT_2X	금 2x
+US	GMOM	Global Momentum					NO_2X	2x ?? ??
+US	GREK	Greece					NO_2X	2x ?? ??
+US	GRID	Smart Grid Infrastructure					NO_2X	2x ?? ??
+US	GUNR	Natural Resources					NO_2X	2x ?? ??
+US	HYG	High Yield Bond	US	UJB	ProShares Ultra High Yield	2	EXACT_2X	하이일드 2x
+US	IBB	Nasdaq Biotech	US	BIB	ProShares Ultra Nasdaq Biotechnology	2	EXACT_2X	Nasdaq Biotech 2x
+US	IBIT	Bitcoin Spot	US	BITU	ProShares Ultra Bitcoin ETF	2	EXACT_2X	비트코인 2x
+US	ICLN	Clean Energy					NO_2X	2x ?? ??
+US	IGV	Software					NO_2X	2x ?? ??
+US	IJH	S&P MidCap 400	US	MVV	ProShares Ultra MidCap400	2	EXACT_2X	중형주 2x
+US	INDA	India	US	INDA	India	1	SELF_FORCED	?????: ????/???? ???? ?? ??
+US	ITA	Aerospace & Defense					NO_2X	3x? ???? ??; 2x ?? ??
+US	ITB	Home Construction					NO_2X	3x? ???? ??; 2x ?? ??
+US	IWM	Russell 2000	US	UWM	ProShares Ultra Russell2000	2	EXACT_2X	러셀2000 2x
+US	JETS	Airlines					NO_2X	3x? ???? ??; 2x ?? ??
+US	KBE	Banks					NO_2X	3x? ???? ??; 2x ?? ??
+US	KRE	Regional Banks					NO_2X	3x? ???? ??; 2x ?? ??
+US	KSA	Saudi Arabia					NO_2X	2x ?? ??
+US	LIT	Lithium & Battery Tech					NO_2X	2x ?? ??
+US	MTUM	Momentum					NO_2X	2x ?? ??
+US	PAVE	Infrastructure	US	XPAV	CORGI U.S. Infrastructure 2X Daily ETF	2	PROXY_2X	미국 인프라 2x
+US	PDBC	Broad Commodities					NO_2X	2x ?? ??
+US	PDP	Dorsey Wright Momentum					NO_2X	2x ?? ??
+US	PICK	Global Metals & Mining					NO_2X	2x ?? ??
+US	PTF	Technology Momentum					NO_2X	2x ?? ??
+US	QMOM	Quant Momentum					NO_2X	2x ?? ??
+US	QQQ	Nasdaq 100	US	QLD	ProShares Ultra QQQ	2	EXACT_2X	Nasdaq100 대표 2x
+US	REMX	Rare Earth/Strategic Metals					NO_2X	2x ?? ??
+US	SCHD	Dividend					NO_2X	2x ?? ??
+US	SCZ	EAFE Small Cap					NO_2X	2x ?? ??
+US	SLV	Silver	US	AGQ	ProShares Ultra Silver	2	EXACT_2X	은 2x
+US	SMH	Semiconductor	US	USD	ProShares Ultra Semiconductors	2	EXACT_2X	반도체 2x
+US	SPY	S&P 500	US	SSO	ProShares Ultra S&P500	2	EXACT_2X	S&P500 대표 2x
+US	SRVR	Data Center & Infrastructure Real Estate					NO_2X	2x ?? ??
+US	SVXY	Short VIX Futures					NO_2X	2x ?? ??
+US	TAN	Solar					NO_2X	2x ?? ??
+US	THD	Thailand					NO_2X	2x ?? ??
+US	TLT	20+ Year Treasury	US	UBT	ProShares Ultra 20+ Year Treasury	2	EXACT_2X	장기채 2x
+US	TUR	Turkey					NO_2X	2x ?? ??
+US	UNG	Natural Gas	US	BOIL	ProShares Ultra Bloomberg Natural Gas	2	EXACT_2X	천연가스 2x
+US	URA	Uranium	US	URA	Uranium	1	SELF_FORCED	?????: ????/???? ???? ?? ??
+US	VGK	Europe	US	UPV	ProShares Ultra FTSE Europe	2	EXACT_2X	유럽 2x
+US	VNM	Vietnam					NO_2X	2x ?? ??
+US	VNQ	Real Estate	US	URE	ProShares Ultra Real Estate	2	EXACT_2X	부동산 2x
+US	VTV	Value					NO_2X	2x ?? ??
+US	VUG	Growth					NO_2X	2x ?? ??
+US	VWO	Emerging Markets	US	EET	ProShares Ultra MSCI Emerging Markets	2	EXACT_2X	신흥국 2x
+US	VYM	High Dividend					NO_2X	2x ?? ??
+US	XBI	S&P Biotech					NO_2X	3x? ???? ??; 2x ?? ??
+US	XLB	Materials	US	UYM	ProShares Ultra Materials	2	EXACT_2X	소재 2x
+US	XLC	Communication Services	US	LTL	ProShares Ultra Communication Services	2	EXACT_2X	커뮤니케이션 2x
+US	XLE	Energy	US	DIG	ProShares Ultra Energy	2	EXACT_2X	에너지 2x
+US	XLF	Financials	US	UYG	ProShares Ultra Financials	2	EXACT_2X	금융 2x
+US	XLI	Industrials	US	UXI	ProShares Ultra Industrials	2	EXACT_2X	산업재 2x
+US	XLK	Technology	US	ROM	ProShares Ultra Technology	2	EXACT_2X	기술주 2x
+US	XLP	Consumer Staples	US	UGE	ProShares Ultra Consumer Staples	2	EXACT_2X	필수소비재 2x
+US	XLU	Utilities	US	UPW	ProShares Ultra Utilities	2	EXACT_2X	유틸리티 2x
+US	XLV	Healthcare	US	RXL	ProShares Ultra Health Care	2	EXACT_2X	헬스케어 2x
+US	XLY	Consumer Discretionary	US	UCC	ProShares Ultra Consumer Discretionary	2	EXACT_2X	임의소비재 2x
+US	XME	Metals & Mining					NO_2X	2x ?? ??

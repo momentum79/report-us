@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>로그 저장 경로 표</title>
+<style>
+body{font-family:'Malgun Gothic','Segoe UI',sans-serif;margin:24px;background:#f8fafc;color:#111827}
+table{border-collapse:collapse;width:100%;background:white}
+th,td{border:1px solid #d1d5db;padding:9px 11px;font-size:14px;vertical-align:top}
+th{background:#eef2f7}code{font-family:Consolas,monospace;word-break:break-all}
+</style>
+</head>
+<body>
+<h1>로그 저장 경로 표</h1>
+<p>CSV 파일은 모두 <code>0_</code> 접두사를 붙였고, 최신 날짜가 위에 오도록 정렬됩니다.</p>
+<table>
+<thead><tr><th>No</th><th>구분</th><th>저장 경로</th><th>파일 이름</th><th>전체 경로</th><th>저장 내용</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>주문 실행 저널</td><td><code>D:\py\0order</code></td><td><code>0_trade_journal.csv</code></td><td><code>D:\py\0order\0_trade_journal.csv</code></td><td>자동매수/자동매도 주문 단위 기록. 최신 주문이 위에 저장됨</td></tr>
+<tr><td>2</td><td>1887 매매일지 CSV</td><td><code>D:\py\0tradechart</code></td><td><code>0_매매일지.csv</code></td><td><code>D:\py\0tradechart\0_매매일지.csv</code></td><td>1887 계좌 매매일지. 최신 날짜가 위에 저장됨</td></tr>
+<tr><td>3</td><td>8042 매매일지 CSV</td><td><code>D:\py\0tradechart</code></td><td><code>0_매매일지_8042.csv</code></td><td><code>D:\py\0tradechart\0_매매일지_8042.csv</code></td><td>8042 계좌 매매일지. 최신 날짜가 위에 저장됨</td></tr>
+<tr><td>4</td><td>1887 차트용 매수/매도 누적 로그</td><td><code>D:\py\0tradechart</code></td><td><code>sell_log_1887.json</code></td><td><code>D:\py\0tradechart\sell_log_1887.json</code></td><td>종목별 세션 단위 매수/매도 누적 JSON</td></tr>
+<tr><td>5</td><td>8042 차트용 매수/매도 누적 로그</td><td><code>D:\py\0tradechart</code></td><td><code>sell_log_8042.json</code></td><td><code>D:\py\0tradechart\sell_log_8042.json</code></td><td>8042 계좌 종목별 매수/매도 누적 JSON</td></tr>
+<tr><td>6</td><td>매도 사유 로그</td><td><code>D:\py\0tradechart</code></td><td><code>sell_reason_YYYYMMDD.json</code></td><td><code>D:\py\0tradechart\sell_reason_YYYYMMDD.json</code></td><td>날짜별 체결 매도 사유</td></tr>
+<tr><td>7</td><td>거래대금 추적 CSV</td><td><code>D:\py\0_당일거래대금</code></td><td><code>0_snapshot_track.csv</code></td><td><code>D:\py\0_당일거래대금\0_snapshot_track.csv</code></td><td>당일 거래대금 상위 종목 추적. 최신 날짜가 위에 저장됨</td></tr>
+<tr><td>8</td><td>거래대금 Top CSV</td><td><code>D:\py\0_당일거래대금</code></td><td><code>0_daily_top_volume.csv</code></td><td><code>D:\py\0_당일거래대금\0_daily_top_volume.csv</code></td><td>거래대금 상위/상승률 필터 누적. 최신 날짜가 위에 저장됨</td></tr>
+<tr><td>9</td><td>거래대금 백업 CSV</td><td><code>D:\py\0_당일거래대금</code></td><td><code>0_snapshot_track_backup_YYYYMMDD_HHMMSS.csv</code></td><td><code>D:\py\0_당일거래대금\0_snapshot_track_backup_YYYYMMDD_HHMMSS.csv</code></td><td>snapshot_track 백업 CSV</td></tr>
+<tr><td>10</td><td>8042 구형 매매 로그</td><td><code>D:\py\0order</code></td><td><code>0_trade_log_8042.csv</code></td><td><code>D:\py\0order\0_trade_log_8042.csv</code></td><td>구형 8042 매수/매도 이력</td></tr>
+</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,110 @@
+[
+  {
+    "round": "1회차 09:00",
+    "time": "09:00:25",
+    "stocks": [
+      {
+        "code": "214370",
+        "name": "케어젠",
+        "ordered_qty": 6,
+        "hold_qty": 6,
+        "stage": "1단계",
+        "result": "주문성공",
+        "order_detail": "1단계A익절(+5%) | 1단계B손절(-4.4%)"
+      },
+      {
+        "code": "003490",
+        "name": "대한항공",
+        "ordered_qty": 2,
+        "hold_qty": 2,
+        "stage": "1단계",
+        "result": "주문성공",
+        "order_detail": "1단계A1익절(+3.0%) | 1단계A2익절(+3.5%)"
+      }
+    ]
+  },
+  {
+    "round": "2회차 09:05",
+    "time": "09:05:29",
+    "stocks": [
+      {
+        "code": "214370",
+        "name": "케어젠",
+        "ordered_qty": 2,
+        "hold_qty": 2,
+        "stage": "0단계",
+        "result": "주문성공",
+        "order_detail": "0단계긴급(-4.7%)-30% | 0단계잔량손절(-4.4%)"
+      },
+      {
+        "code": "003490",
+        "name": "대한항공",
+        "ordered_qty": 2,
+        "hold_qty": 2,
+        "stage": "1단계",
+        "result": "주문성공",
+        "order_detail": "전일저가-3틱50%매도 | 1단계A1익절(+3.0%)"
+      }
+    ]
+  },
+  {
+    "round": "3회차 09:10",
+    "time": "09:10:26",
+    "stocks": [
+      {
+        "code": "003490",
+        "name": "대한항공",
+        "ordered_qty": 1,
+        "hold_qty": 1,
+        "stage": "1단계",
+        "result": "주문성공",
+        "order_detail": "1단계A1익절(+3.0%)"
+      }
+    ]
+  },
+  {
+    "round": "4회차 09:15",
+    "time": "09:15:20",
+    "stocks": [
+      {
+        "code": "003490",
+        "name": "대한항공",
+        "ordered_qty": 1,
+        "hold_qty": 1,
+        "stage": "1단계",
+        "result": "주문성공",
+        "order_detail": "1단계A1익절(+3.0%)"
+      }
+    ]
+  },
+  {
+    "round": "5회차 09:20",
+    "time": "09:20:20",
+    "stocks": [
+      {
+        "code": "003490",
+        "name": "대한항공",
+        "ordered_qty": 1,
+        "hold_qty": 1,
+        "stage": "1단계",
+        "result": "주문성공",
+        "order_detail": "1단계A1익절(+3.0%)"
+      }
+    ]
+  },
+  {
+    "round": "6회차 09:25",
+    "time": "09:25:19",
+    "stocks": [
+      {
+        "code": "003490",
+        "name": "대한항공",
+        "ordered_qty": 1,
+        "hold_qty": 1,
+        "stage": "1단계",
+        "result": "초반실패청산(시가붕괴)+Stage1재발행",
+        "order_detail": "1단계초반실패청산50%(시가붕괴)"
+      }
+    ]
+  }
+]

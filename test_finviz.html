@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Finviz Chart Size Test</title>
+  <style>
+    :root {
+      --ink: #123047;
+      --line: #e67e22;
+      --soft: #eef2f4;
+      --card: #ffffff;
+      --muted: #607080;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 18px 22px 36px;
+      background: #f3f6f7;
+      color: var(--ink);
+      font-family: Arial, "Malgun Gothic", sans-serif;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--line);
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 12px 0 18px;
+      flex-wrap: wrap;
+    }
+
+    .ticker-btn,
+    .reload-btn {
+      border: 1px solid #cbd5df;
+      background: #fff;
+      color: var(--ink);
+      border-radius: 6px;
+      padding: 7px 11px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .ticker-btn.active {
+      background: #e67e22;
+      border-color: #e67e22;
+      color: #fff;
+    }
+
+    .manual-ticker {
+      width: 92px;
+      height: 34px;
+      border: 1px solid #cbd5df;
+      border-radius: 6px;
+      padding: 0 9px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .stage {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid #d9e1e6;
+    }
+
+    .stage-title {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 8px;
+      white-space: nowrap;
+    }
+
+    .stage-title h2 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .stage-title span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .scroll-strip {
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .sample-popup {
+      display: inline-block;
+      background: var(--card);
+      border: 1px solid #bdc3c7;
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .popup-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      height: 36px;
+      margin-bottom: 8px;
+      white-space: nowrap;
+    }
+
+    .close-dot {
+      display: flex;
+      width: 28px;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #e74c3c;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .popup-title {
+      min-width: 48px;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .popup-link {
+      color: #2980b9;
+      font-size: 13px;
+      text-decoration: none;
+      margin-left: 14px;
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .chart-card {
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+
+    .chart-label {
+      height: 24px;
+      padding: 5px 8px 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .chart-wrap {
+      position: relative;
+      background: white;
+    }
+
+    .chart-wrap img {
+      display: block;
+      background: white;
+    }
+
+    .original-popup { width: 880px; }
+    .original-popup .charts-grid { grid-template-columns: 1fr 1fr; }
+    .original-popup .chart-card { width: auto; }
+    .original-popup .chart-wrap { width: 100%; min-height: 220px; }
+    .original-popup img { width: 100%; height: auto; }
+
+    .size45-popup .chart-wrap,
+    .size45-popup img {
+      width: 601px;
+      height: 345px;
+    }
+
+    .size50-popup .chart-wrap,
+    .size50-popup img {
+      width: 661px;
+      height: 387px;
+    }
+
+    .redbox-popup .chart-wrap,
+    .redbox-popup img {
+      width: 780px;
+      height: 470px;
+    }
+
+    .fixed-sample img {
+      object-fit: fill;
+    }
+
+    @media (max-width: 767px) {
+      body { padding: 12px 10px 24px; }
+      h1 { font-size: 22px; }
+      .stage-title { white-space: normal; display: block; }
+      .stage-title span { display: block; margin-top: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Finviz Chart Size Test</h1>
+
+  <div class="toolbar" aria-label="Ticker selector">
+    <button class="ticker-btn active" type="button" data-ticker="JPM">JPM</button>
+    <button class="ticker-btn" type="button" data-ticker="CAT">CAT</button>
+    <button class="ticker-btn" type="button" data-ticker="BAC">BAC</button>
+    <button class="ticker-btn" type="button" data-ticker="NVDA">NVDA</button>
+    <input class="manual-ticker" id="manualTicker" type="text" value="JPM" maxlength="12" aria-label="Ticker">
+    <button class="reload-btn" id="loadTicker" type="button">Load</button>
+  </div>
+
+  <section class="stage">
+    <div class="stage-title">
+      <h2>1 / Original</h2>
+      <span>Current us_summary popup: 880px wide, 2 columns, image height follows Finviz ratio.</span>
+    </div>
+    <div class="scroll-strip">
+      <div class="sample-popup original-popup">
+        <div class="popup-header">
+          <div class="close-dot">x</div>
+          <div class="popup-title ticker-label">JPM</div>
+          <a class="popup-link finviz-link" href="https://finviz.com/quote.ashx?t=JPM" target="_blank" rel="noopener noreferrer">finviz open</a>
+          <a class="popup-link tv-link" href="https://www.tradingview.com/symbols/JPM/" target="_blank" rel="noopener noreferrer">TradingView</a>
+        </div>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="chart-label">Daily</div>
+            <div class="chart-wrap"><img class="daily-img" alt="daily chart"></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-label">Weekly</div>
+            <div class="chart-wrap"><img class="weekly-img" alt="weekly chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-title">
+      <h2>2 / Size 4.5</h2>
+      <span>Per chart box: 601 x 345px. Between original size 3 and red-box size 6.</span>
+    </div>
+    <div class="scroll-strip">
+      <div class="sample-popup size45-popup fixed-sample">
+        <div class="popup-header">
+          <div class="close-dot">x</div>
+          <div class="popup-title ticker-label">JPM</div>
+          <a class="popup-link finviz-link" href="https://finviz.com/quote.ashx?t=JPM" target="_blank" rel="noopener noreferrer">finviz open</a>
+          <a class="popup-link tv-link" href="https://www.tradingview.com/symbols/JPM/" target="_blank" rel="noopener noreferrer">TradingView</a>
+        </div>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="chart-label">Daily</div>
+            <div class="chart-wrap"><img class="daily-img" alt="daily chart"></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-label">Weekly</div>
+            <div class="chart-wrap"><img class="weekly-img" alt="weekly chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-title">
+      <h2>3 / Size 5</h2>
+      <span>Per chart box: 661 x 387px. Slightly larger than size 4.5.</span>
+    </div>
+    <div class="scroll-strip">
+      <div class="sample-popup size50-popup fixed-sample">
+        <div class="popup-header">
+          <div class="close-dot">x</div>
+          <div class="popup-title ticker-label">JPM</div>
+          <a class="popup-link finviz-link" href="https://finviz.com/quote.ashx?t=JPM" target="_blank" rel="noopener noreferrer">finviz open</a>
+          <a class="popup-link tv-link" href="https://www.tradingview.com/symbols/JPM/" target="_blank" rel="noopener noreferrer">TradingView</a>
+        </div>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="chart-label">Daily</div>
+            <div class="chart-wrap"><img class="daily-img" alt="daily chart"></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-label">Weekly</div>
+            <div class="chart-wrap"><img class="weekly-img" alt="weekly chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="stage-title">
+      <h2>4 / Red-box Estimate</h2>
+      <span>Per chart box: 780 x 470px. Previous size 6 sample.</span>
+    </div>
+    <div class="scroll-strip">
+      <div class="sample-popup redbox-popup fixed-sample">
+        <div class="popup-header">
+          <div class="close-dot">x</div>
+          <div class="popup-title ticker-label">JPM</div>
+          <a class="popup-link finviz-link" href="https://finviz.com/quote.ashx?t=JPM" target="_blank" rel="noopener noreferrer">finviz open</a>
+          <a class="popup-link tv-link" href="https://www.tradingview.com/symbols/JPM/" target="_blank" rel="noopener noreferrer">TradingView</a>
+        </div>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="chart-label">Daily</div>
+            <div class="chart-wrap"><img class="daily-img" alt="daily chart"></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-label">Weekly</div>
+            <div class="chart-wrap"><img class="weekly-img" alt="weekly chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var buttons = Array.from(document.querySelectorAll('.ticker-btn'));
+      var input = document.getElementById('manualTicker');
+      var loadButton = document.getElementById('loadTicker');
+
+      function cleanTicker(value) {
+        return String(value || 'JPM').toUpperCase().replace(/[^A-Z0-9.\-]/g, '').slice(0, 12) || 'JPM';
+      }
+
+      function chartUrl(ticker, period) {
+        return 'https://charts2.finviz.com/chart.ashx?t=' + encodeURIComponent(ticker) + '&ty=c&ta=1&p=' + period + '&s=l&t=' + Date.now();
+      }
+
+      function setTicker(value) {
+        var ticker = cleanTicker(value);
+        input.value = ticker;
+        buttons.forEach(function (button) {
+          button.classList.toggle('active', button.getAttribute('data-ticker') === ticker);
+        });
+        document.querySelectorAll('.ticker-label').forEach(function (el) {
+          el.textContent = ticker;
+        });
+        document.querySelectorAll('.finviz-link').forEach(function (el) {
+          el.href = 'https://finviz.com/quote.ashx?t=' + encodeURIComponent(ticker);
+        });
+        document.querySelectorAll('.tv-link').forEach(function (el) {
+          el.href = 'https://www.tradingview.com/symbols/' + encodeURIComponent(ticker) + '/';
+        });
+        document.querySelectorAll('.daily-img').forEach(function (img) {
+          img.src = chartUrl(ticker, 'd');
+        });
+        document.querySelectorAll('.weekly-img').forEach(function (img) {
+          img.src = chartUrl(ticker, 'w');
+        });
+      }
+
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          setTicker(button.getAttribute('data-ticker'));
+        });
+      });
+
+      loadButton.addEventListener('click', function () {
+        setTicker(input.value);
+      });
+
+      input.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') setTicker(input.value);
+      });
+
+      setTicker('JPM');
+    })();
+  </script>
+</body>
+</html>

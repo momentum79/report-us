@@ -1,0 +1,133 @@
+base_market	base_ticker	base_name	lev_market	lev_ticker	lev_name	lev_mult	match_type	note
+KR	091160	반도체	KR	494310	KODEX 반도체레버리지	2	EXACT_2X	KR 반도체 레버리지 중 거래량 우위
+KR	091180	자동차	KR	091180	자동차	1	SELF	매칭 레버리지 없음
+KR	305720	이차전	KR	462330	KODEX 2차전지산업레버리지	2	EXACT_2X	2차전지 산업 직접 매칭
+KR	117460	에너지	KR	243890	TIGER 200에너지화학레버리지	2	PROXY_2X	에너지/화학 업종 프록시
+KR	244580	바이오	KR	244580	바이오	1	SELF	매칭 레버리지 없음
+KR	091170	은행주	KR	091170	은행주	1	SELF	매칭 레버리지 없음
+KR	102970	증권주	KR	102970	증권주	1	SELF	매칭 레버리지 없음
+KR	117680	철강주	KR	117680	철강주	1	SELF	매칭 레버리지 없음
+KR	117700	건설주	KR	117700	건설주	1	SELF	매칭 레버리지 없음
+KR	139230	조선주	KR	0080Y0	SOL 조선TOP3플러스레버리지	2	EXACT_2X	조선 테마 직접 매칭
+KR	228790	화장품	KR	228790	화장품	1	SELF	매칭 레버리지 없음
+KR	495050	밸류업	KR	495050	밸류업	1	SELF	매칭 레버리지 없음
+KR	069500	코스피	KR	122630	KODEX 레버리지	2	EXACT_2X	KOSPI200 대표 2x
+KR	229200	코스닥	KR	233740	KODEX 코스닥150레버리지	2	EXACT_2X	코스닥150 대표 2x
+KR	487230	전력인	KR	487230	전력인	1	SELF	매칭 레버리지 없음
+KR	449450	방산주	KR	0100K0	KODEX 방산TOP10레버리지	2	EXACT_2X	방산 테마 직접 매칭
+KR	475050	K팝	KR	475050	K팝	1	SELF	매칭 레버리지 없음
+KR	371160	항셈테	KR	438320	TIGER 차이나항셍테크레버리지(합성 H)	2	EXACT_2X	항셍테크 직접 매칭
+KR	455850	반소부	KR	494310	KODEX 반도체레버리지	2	PROXY_2X	반도체 소재/부품은 broad 반도체로 대체
+KR	0051G0	에셈알	KR	0051G0	에셈알	1	SELF	매칭 레버리지 없음
+KR	0038A0	미로봇	KR	0038A0	미로봇	1	SELF	매칭 레버리지 없음
+KR	0048K0	중로봇	KR	0048K0	중로봇	1	SELF	매칭 레버리지 없음
+KR	0023A0	양자컴	KR	0023A0	양자컴	1	SELF	매칭 레버리지 없음
+KR	195930	유로스	KR	225050	TIGER 유로스탁스레버리지(합성 H)	2	EXACT_2X	유로스탁스 직접 매칭
+KR	377990	신재생	KR	377990	신재생	1	SELF	매칭 레버리지 없음
+KR	411060	금현물	KR	225130	ACE 골드선물 레버리지(합성 H)	2	PROXY_2X	현물 금을 금선물 2x로 대체
+KR	478150	우주방	KR	478150	우주방	1	SELF	매칭 레버리지 없음
+KR	453810	인디아	KR	236350	TIGER 인도니프티50레버리지(합성)	2	EXACT_2X	인도 대표 2x
+KR	446770	톱반도	KR	494310	KODEX 반도체레버리지	2	PROXY_2X	반도체 TOP 계열을 broad 반도체로 대체
+KR	434730	원자력	KR	434730	원자력	1	SELF	매칭 레버리지 없음
+KR	469070	ai로봇	KR	469070	ai로봇	1	SELF	매칭 레버리지 없음
+KR	449180	에센피	KR	225040	TIGER 미국S&P500레버리지(합성 H)	2	EXACT_2X	S&P500 직접 매칭
+KR	449190	나스닥	KR	418660	TIGER 미국나스닥100레버리지(합성)	2	EXACT_2X	Nasdaq100 대표 2x
+KR	241180	니케이	KR	196030	ACE 일본TOPIX레버리지(H)	2	PROXY_2X	니케이 직접 2x 부재로 TOPIX 2x 사용
+KR	147970	티모멘	KR	147970	티모멘	1	SELF	매칭 레버리지 없음
+KR	325020	케모멘	KR	325020	케모멘	1	SELF	매칭 레버리지 없음
+US	ARKF	ARK Fintech Innovation	US	ARKF	ARK Fintech Innovation	1	SELF	매칭 레버리지 없음
+US	ARKK	ARK Innovation	US	TARK	AXS 2X Innovation ETF	2	EXACT_2X	ARKK 2x 대체
+US	ARKW	ARK Next Generation Internet	US	ARKW	ARK Next Generation Internet	1	SELF	ARKK/TARK 대체는 가능하나 직접 매칭 아님
+US	BOTZ	Global Robotics & AI	US	UBOT	Direxion Daily Robotics & AI Bull 2X ETF	2	PROXY_2X	로봇/AI 테마 프록시
+US	CARZ	Global Auto	US	CARU	MAX Auto Industry 3X ETN	3	PROXY_3X	자동차 레버리지 대표 후보
+US	CIBR	Cybersecurity	US	UCYB	ProShares Ultra Nasdaq Cybersecurity	2	EXACT_2X	사이버보안 2x
+US	COPX	Copper Miners	US	COPZ	Defiance Daily Target 2X Long Copper Miners ETF	2	EXACT_2X	구리 채굴주 2x
+US	DBA	Agriculture	US	DBA	Agriculture	1	SELF	매칭 레버리지 없음
+US	DIA	Dow 30	US	DDM	ProShares Ultra Dow30	2	EXACT_2X	Dow 30 대표 2x
+US	EFA	MSCI EAFE	US	EFO	ProShares Ultra MSCI EAFE	2	EXACT_2X	EAFE 2x
+US	EIDO	Indonesia	US	EIDO	Indonesia	1	SELF	매칭 레버리지 없음
+US	EIS	Israel	US	EIS	Israel	1	SELF	매칭 레버리지 없음
+US	EMGF	Emerging Multifactor	US	EMGF	Emerging Multifactor	1	SELF	매칭 레버리지 없음
+US	ENZL	New Zealand	US	ENZL	New Zealand	1	SELF	매칭 레버리지 없음
+US	EPHE	Philippines	US	EPHE	Philippines	1	SELF	매칭 레버리지 없음
+US	ETHA	Ethereum Spot	US	ETHT	ProShares Ultra Ether ETF	2	EXACT_2X	이더리움 2x
+US	EWA	Australia	US	EWA	Australia	1	SELF	매칭 레버리지 없음
+US	EWC	Canada	US	EWC	Canada	1	SELF	매칭 레버리지 없음
+US	EWG	Germany	US	EWG	Germany	1	SELF	매칭 레버리지 없음
+US	EWH	Hong Kong	US	EWH	Hong Kong	1	SELF	중국 레버리지와 성격 차이로 본주 유지
+US	EWI	Italy	US	EWI	Italy	1	SELF	매칭 레버리지 없음
+US	EWJ	Japan	US	EZJ	ProShares Ultra MSCI Japan	2	EXACT_2X	일본 2x
+US	EWL	Switzerland	US	EWL	Switzerland	1	SELF	매칭 레버리지 없음
+US	EWM	Malaysia	US	EWM	Malaysia	1	SELF	매칭 레버리지 없음
+US	EWP	Spain	US	EWP	Spain	1	SELF	매칭 레버리지 없음
+US	EWQ	France	US	EWQ	France	1	SELF	매칭 레버리지 없음
+US	EWS	Singapore	US	EWS	Singapore	1	SELF	매칭 레버리지 없음
+US	EWT	Taiwan	US	XTAI	CORGI Taiwan 2X Daily ETF	2	EXACT_2X	대만 2x
+US	EWU	United Kingdom	US	EWU	United Kingdom	1	SELF	매칭 레버리지 없음
+US	EWW	Mexico	US	MEXX	Direxion Daily MSCI Mexico Bull 3X ETF	3	EXACT_3X	멕시코 대표 레버리지
+US	EWY	South Korea	US	KORU	Direxion Daily MSCI South Korea Bull 3X ETF	3	EXACT_3X	한국 대표 레버리지
+US	EWZ	Brazil	US	BRZU	Direxion Daily MSCI Brazil Bull 2X ETF	2	EXACT_2X	브라질 2x
+US	EZA	South Africa	US	EZA	South Africa	1	SELF	매칭 레버리지 없음
+US	EZU	Eurozone	US	UPV	ProShares Ultra FTSE Europe	2	PROXY_2X	유로존 대신 유럽 2x
+US	FXI	China Large Cap	US	XPP	ProShares Ultra FTSE China 50	2	EXACT_2X	중국 대형주 2x
+US	GLD	Gold	US	UGL	ProShares Ultra Gold	2	EXACT_2X	금 2x
+US	GMOM	Global Momentum	US	GMOM	Global Momentum	1	SELF	매칭 레버리지 없음
+US	GREK	Greece	US	GREK	Greece	1	SELF	매칭 레버리지 없음
+US	GRID	Smart Grid Infrastructure	US	GRID	Smart Grid Infrastructure	1	SELF	직접 매칭 부재
+US	GUNR	Natural Resources	US	GUNR	Natural Resources	1	SELF	직접 매칭 부재
+US	HYG	High Yield Bond	US	UJB	ProShares Ultra High Yield	2	EXACT_2X	하이일드 2x
+US	IBB	Nasdaq Biotech	US	BIB	ProShares Ultra Nasdaq Biotechnology	2	EXACT_2X	Nasdaq Biotech 2x
+US	IBIT	Bitcoin Spot	US	BITU	ProShares Ultra Bitcoin ETF	2	EXACT_2X	비트코인 2x
+US	ICLN	Clean Energy	US	ICLN	Clean Energy	1	SELF	매칭 레버리지 없음
+US	IGV	Software	US	IGV	Software	1	SELF	매칭 레버리지 없음
+US	IJH	S&P MidCap 400	US	MVV	ProShares Ultra MidCap400	2	EXACT_2X	중형주 2x
+US	INDA	India	US	INDL	Direxion Daily MSCI India Bull 2X ETF	2	EXACT_2X	인도 2x
+US	ITA	Aerospace & Defense	US	DFEN	Direxion Daily Aerospace & Defense Bull 3X ETF	3	EXACT_3X	항공우주/방산 대표 레버리지
+US	ITB	Home Construction	US	NAIL	Direxion Daily Homebuilders & Supplies Bull 3X ETF	3	EXACT_3X	홈빌더 대표 레버리지
+US	IWM	Russell 2000	US	UWM	ProShares Ultra Russell2000	2	EXACT_2X	러셀2000 2x
+US	JETS	Airlines	US	JETU	MAX Airlines 3X ETN	3	PROXY_3X	항공 레버리지 대표 후보
+US	KBE	Banks	US	BNKU	MicroSectors U.S. Big Banks 3X ETN	3	PROXY_3X	은행 업종 대표 레버리지 후보
+US	KRE	Regional Banks	US	DPST	Direxion Daily Regional Banks Bull 3X ETF	3	EXACT_3X	지역은행 대표 레버리지
+US	KSA	Saudi Arabia	US	KSA	Saudi Arabia	1	SELF	매칭 레버리지 없음
+US	LIT	Lithium & Battery Tech	US	LIT	Lithium & Battery Tech	1	SELF	매칭 레버리지 없음
+US	MTUM	Momentum	US	MTUM	Momentum	1	SELF	매칭 레버리지 없음
+US	PAVE	Infrastructure	US	XPAV	CORGI U.S. Infrastructure 2X Daily ETF	2	PROXY_2X	미국 인프라 2x
+US	PDBC	Broad Commodities	US	PDBC	Broad Commodities	1	SELF	매칭 레버리지 없음
+US	PDP	Dorsey Wright Momentum	US	PDP	Dorsey Wright Momentum	1	SELF	매칭 레버리지 없음
+US	PICK	Global Metals & Mining	US	PICK	Global Metals & Mining	1	SELF	매칭 레버리지 없음
+US	PTF	Technology Momentum	US	PTF	Technology Momentum	1	SELF	ROM 대체 가능하나 직접 매칭 아님
+US	QMOM	Quant Momentum	US	QMOM	Quant Momentum	1	SELF	매칭 레버리지 없음
+US	QQQ	Nasdaq 100	US	QLD	ProShares Ultra QQQ	2	EXACT_2X	Nasdaq100 대표 2x
+US	REMX	Rare Earth/Strategic Metals	US	REMX	Rare Earth/Strategic Metals	1	SELF	매칭 레버리지 없음
+US	SCHD	Dividend	US	SCHD	Dividend	1	SELF	매칭 레버리지 없음
+US	SCZ	EAFE Small Cap	US	SCZ	EAFE Small Cap	1	SELF	매칭 레버리지 없음
+US	SLV	Silver	US	AGQ	ProShares Ultra Silver	2	EXACT_2X	은 2x
+US	SMH	Semiconductor	US	USD	ProShares Ultra Semiconductors	2	EXACT_2X	반도체 2x
+US	SPY	S&P 500	US	SSO	ProShares Ultra S&P500	2	EXACT_2X	S&P500 대표 2x
+US	SRVR	Data Center & Infrastructure Real Estate	US	SRVR	Data Center & Infrastructure Real Estate	1	SELF	URE 대체는 가능하나 성격 차이
+US	SVXY	Short VIX Futures	US	SVXY	Short VIX Futures	1	SELF	이미 변동성 특수 상품
+US	TAN	Solar	US	TAN	Solar	1	SELF	매칭 레버리지 없음
+US	THD	Thailand	US	THD	Thailand	1	SELF	매칭 레버리지 없음
+US	TLT	20+ Year Treasury	US	UBT	ProShares Ultra 20+ Year Treasury	2	EXACT_2X	장기채 2x
+US	TUR	Turkey	US	TUR	Turkey	1	SELF	매칭 레버리지 없음
+US	UNG	Natural Gas	US	BOIL	ProShares Ultra Bloomberg Natural Gas	2	EXACT_2X	천연가스 2x
+US	URA	Uranium	US	URAA	Direxion Daily Uranium Industry Bull 2X ETF	2	EXACT_2X	우라늄 2x
+US	VGK	Europe	US	UPV	ProShares Ultra FTSE Europe	2	EXACT_2X	유럽 2x
+US	VNM	Vietnam	US	VNM	Vietnam	1	SELF	매칭 레버리지 없음
+US	VNQ	Real Estate	US	URE	ProShares Ultra Real Estate	2	EXACT_2X	부동산 2x
+US	VTV	Value	US	VTV	Value	1	SELF	매칭 레버리지 없음
+US	VUG	Growth	US	VUG	Growth	1	SELF	대표 2x 부재로 본주 유지
+US	VWO	Emerging Markets	US	EET	ProShares Ultra MSCI Emerging Markets	2	EXACT_2X	신흥국 2x
+US	VYM	High Dividend	US	VYM	High Dividend	1	SELF	매칭 레버리지 없음
+US	XBI	S&P Biotech	US	LABU	Direxion Daily S&P Biotech Bull 3X ETF	3	EXACT_3X	S&P Biotech 대표 레버리지
+US	XLB	Materials	US	UYM	ProShares Ultra Materials	2	EXACT_2X	소재 2x
+US	XLC	Communication Services	US	LTL	ProShares Ultra Communication Services	2	EXACT_2X	커뮤니케이션 2x
+US	XLE	Energy	US	DIG	ProShares Ultra Energy	2	EXACT_2X	에너지 2x
+US	XLF	Financials	US	UYG	ProShares Ultra Financials	2	EXACT_2X	금융 2x
+US	XLI	Industrials	US	UXI	ProShares Ultra Industrials	2	EXACT_2X	산업재 2x
+US	XLK	Technology	US	ROM	ProShares Ultra Technology	2	EXACT_2X	기술주 2x
+US	XLP	Consumer Staples	US	UGE	ProShares Ultra Consumer Staples	2	EXACT_2X	필수소비재 2x
+US	XLU	Utilities	US	UPW	ProShares Ultra Utilities	2	EXACT_2X	유틸리티 2x
+US	XLV	Healthcare	US	RXL	ProShares Ultra Health Care	2	EXACT_2X	헬스케어 2x
+US	XLY	Consumer Discretionary	US	UCC	ProShares Ultra Consumer Discretionary	2	EXACT_2X	임의소비재 2x
+US	XME	Metals & Mining	US	XME	Metals & Mining	1	SELF	매칭 레버리지 없음
