@@ -1,5 +1,5 @@
 {
-  "update_time": "2026-08-07 11:51:25",
+  "update_time": "2026-08-07 12:17:35",
   "ai_core_score": 12.15,
   "ai_core_raw_score": 12.15,
   "ai_core_dedup_score": 10.62,
@@ -106,7 +106,7 @@
       "name": "MSFT",
       "Signal_sco": 15.5,
       "return_3m": 21.39,
-      "Final_score": 0.9577,
+      "Final_score": 0.9578,
       "baskets": [
         "AI_CLOUD_HYPERSCALER",
         "AI_AGENT_AUTOMATION_RPA"
@@ -117,7 +117,7 @@
       "name": "HXGBY",
       "Signal_sco": 15.5,
       "return_3m": 19.74,
-      "Final_score": 0.9549,
+      "Final_score": 0.955,
       "baskets": [
         "AI_ROBOT_COMPONENT"
       ]
@@ -127,20 +127,9 @@
       "name": "EMR",
       "Signal_sco": 15.5,
       "return_3m": 12.99,
-      "Final_score": 0.9087,
+      "Final_score": 0.9086,
       "baskets": [
         "AI_FACTORY_AUTOMATION"
-      ]
-    },
-    {
-      "ticker": "018260",
-      "name": "삼성에스디에스",
-      "Signal_sco": 12.5,
-      "return_3m": 23.26,
-      "Final_score": 0.89,
-      "baskets": [
-        "AI_DATA_PIPELINE_DATABASE",
-        "AI_SOFTWARE_PLATFORM"
       ]
     },
     {
@@ -148,7 +137,7 @@
       "name": "S",
       "Signal_sco": 14.5,
       "return_3m": 27.13,
-      "Final_score": 0.8862,
+      "Final_score": 0.886,
       "baskets": [
         "AI_CYBER_SECURITY"
       ]
@@ -158,10 +147,21 @@
       "name": "HPE",
       "Signal_sco": 14.5,
       "return_3m": 70.34,
-      "Final_score": 0.8849,
+      "Final_score": 0.8846,
       "baskets": [
         "AI_CPU_SERVER",
         "AI_DATACENTER_REIT_SERVER"
+      ]
+    },
+    {
+      "ticker": "018260",
+      "name": "삼성에스디에스",
+      "Signal_sco": 12.5,
+      "return_3m": 22.42,
+      "Final_score": 0.883,
+      "baskets": [
+        "AI_DATA_PIPELINE_DATABASE",
+        "AI_SOFTWARE_PLATFORM"
       ]
     },
     {
@@ -169,7 +169,7 @@
       "name": "ANET",
       "Signal_sco": 15.0,
       "return_3m": 40.97,
-      "Final_score": 0.8766,
+      "Final_score": 0.8762,
       "baskets": [
         "AI_NETWORKING_SWITCH_DPU"
       ]
@@ -179,7 +179,7 @@
       "name": "NOW",
       "Signal_sco": 14.5,
       "return_3m": 28.27,
-      "Final_score": 0.8723,
+      "Final_score": 0.872,
       "baskets": [
         "AI_SOFTWARE_PLATFORM",
         "AI_AGENT_AUTOMATION_RPA"
@@ -226,7 +226,7 @@
             "name": "MSFT",
             "display": "MSFT",
             "Signal_sco": 15.5,
-            "Final_score": 0.9577,
+            "Final_score": 0.9578,
             "trend": "GREEN"
           },
           {
@@ -234,7 +234,7 @@
             "name": "ADBE",
             "display": "ADBE",
             "Signal_sco": 11.75,
-            "Final_score": 0.8408,
+            "Final_score": 0.841,
             "trend": "GREEN"
           },
           {
@@ -250,7 +250,7 @@
             "name": "GOOGL",
             "display": "GOOGL",
             "Signal_sco": 6.75,
-            "Final_score": 0.5942,
+            "Final_score": 0.5939,
             "trend": "LIME"
           },
           {
@@ -258,7 +258,7 @@
             "name": "ORCL",
             "display": "ORCL",
             "Signal_sco": 1.5,
-            "Final_score": 0.4572,
+            "Final_score": 0.457,
             "trend": "GREEN"
           }
         ]
@@ -289,7 +289,7 @@
             "name": "HPE",
             "display": "HPE",
             "Signal_sco": 14.5,
-            "Final_score": 0.8849,
+            "Final_score": 0.8846,
             "trend": "LIME"
           },
           {
@@ -297,7 +297,7 @@
             "name": "DELL",
             "display": "DELL",
             "Signal_sco": 12.25,
-            "Final_score": 0.773,
+            "Final_score": 0.7724,
             "trend": "-"
           },
           {
@@ -313,7 +313,7 @@
             "name": "NVDA",
             "display": "NVDA",
             "Signal_sco": 11.5,
-            "Final_score": 0.7631,
+            "Final_score": 0.763,
             "trend": "LIME"
           },
           {
@@ -321,7 +321,7 @@
             "name": "AVGO",
             "display": "AVGO",
             "Signal_sco": 10.75,
-            "Final_score": 0.7229,
+            "Final_score": 0.7227,
             "trend": "LIME"
           }
         ]
@@ -351,7 +351,7 @@
             "name": "심텍",
             "display": "222800(심텍)",
             "Signal_sco": 3.5,
-            "Final_score": 0.4817,
+            "Final_score": 0.4743,
             "trend": "LIME"
           },
           {
@@ -359,7 +359,7 @@
             "name": "TSM",
             "display": "TSM",
             "Signal_sco": 3.5,
-            "Final_score": 0.52,
+            "Final_score": 0.5196,
             "trend": "-"
           },
           {
@@ -367,7 +367,7 @@
             "name": "STX",
             "display": "STX",
             "Signal_sco": 2.5,
-            "Final_score": 0.4983,
+            "Final_score": 0.4979,
             "trend": "LIME"
           },
           {
@@ -375,7 +375,7 @@
             "name": "삼성전기",
             "display": "009150(삼성전기)",
             "Signal_sco": 2.25,
-            "Final_score": 0.4671,
+            "Final_score": 0.4724,
             "trend": "-"
           },
           {
@@ -383,7 +383,7 @@
             "name": "WDC",
             "display": "WDC",
             "Signal_sco": 1.75,
-            "Final_score": 0.3326,
+            "Final_score": 0.3317,
             "trend": "PURPLE"
           }
         ]
@@ -411,7 +411,7 @@
             "name": "ANET",
             "display": "ANET",
             "Signal_sco": 15.0,
-            "Final_score": 0.8766,
+            "Final_score": 0.8762,
             "trend": "LIME"
           },
           {
@@ -419,7 +419,7 @@
             "name": "CSCO",
             "display": "CSCO",
             "Signal_sco": 12.75,
-            "Final_score": 0.7875,
+            "Final_score": 0.7872,
             "trend": "LIME"
           },
           {
@@ -427,7 +427,7 @@
             "name": "NVDA",
             "display": "NVDA",
             "Signal_sco": 11.5,
-            "Final_score": 0.7631,
+            "Final_score": 0.763,
             "trend": "LIME"
           },
           {
@@ -435,7 +435,7 @@
             "name": "AVGO",
             "display": "AVGO",
             "Signal_sco": 10.75,
-            "Final_score": 0.7229,
+            "Final_score": 0.7227,
             "trend": "LIME"
           },
           {
@@ -443,7 +443,7 @@
             "name": "COHR",
             "display": "COHR",
             "Signal_sco": 6.75,
-            "Final_score": 0.6044,
+            "Final_score": 0.6042,
             "trend": "LIME"
           }
         ]
@@ -481,7 +481,7 @@
             "name": "NVT",
             "display": "NVT",
             "Signal_sco": 7.5,
-            "Final_score": 0.6399,
+            "Final_score": 0.6397,
             "trend": "LIME"
           },
           {
@@ -489,7 +489,7 @@
             "name": "HUBB",
             "display": "HUBB",
             "Signal_sco": 6.5,
-            "Final_score": 0.6442,
+            "Final_score": 0.644,
             "trend": "LIME"
           },
           {
@@ -497,7 +497,7 @@
             "name": "GRID",
             "display": "GRID",
             "Signal_sco": 6.25,
-            "Final_score": 0.5937,
+            "Final_score": 0.5934,
             "trend": "LIME"
           },
           {
@@ -505,7 +505,7 @@
             "name": "PWR",
             "display": "PWR",
             "Signal_sco": 6.25,
-            "Final_score": 0.5744,
+            "Final_score": 0.5741,
             "trend": "LIME"
           }
         ]
@@ -532,7 +532,7 @@
             "name": "HPE",
             "display": "HPE",
             "Signal_sco": 14.5,
-            "Final_score": 0.8849,
+            "Final_score": 0.8846,
             "trend": "LIME"
           },
           {
@@ -540,7 +540,7 @@
             "name": "DELL",
             "display": "DELL",
             "Signal_sco": 12.25,
-            "Final_score": 0.773,
+            "Final_score": 0.7724,
             "trend": "-"
           },
           {
@@ -548,7 +548,7 @@
             "name": "DLR",
             "display": "DLR",
             "Signal_sco": 10.75,
-            "Final_score": 0.7415,
+            "Final_score": 0.7414,
             "trend": "GREEN"
           },
           {
@@ -556,7 +556,7 @@
             "name": "EQIX",
             "display": "EQIX",
             "Signal_sco": 8.5,
-            "Final_score": 0.6536,
+            "Final_score": 0.6533,
             "trend": "LIME"
           },
           {
@@ -564,7 +564,7 @@
             "name": "SRVR",
             "display": "SRVR",
             "Signal_sco": 4.5,
-            "Final_score": 0.5544,
+            "Final_score": 0.5542,
             "trend": "GREEN"
           }
         ]
@@ -603,7 +603,7 @@
             "name": "MSFT",
             "display": "MSFT",
             "Signal_sco": 15.5,
-            "Final_score": 0.9577,
+            "Final_score": 0.9578,
             "trend": "GREEN"
           },
           {
@@ -619,7 +619,7 @@
             "name": "CIBR",
             "display": "CIBR",
             "Signal_sco": 14.5,
-            "Final_score": 0.8325,
+            "Final_score": 0.8321,
             "trend": "LIME"
           },
           {
@@ -627,7 +627,7 @@
             "name": "NET",
             "display": "NET",
             "Signal_sco": 14.5,
-            "Final_score": 0.8594,
+            "Final_score": 0.859,
             "trend": "LIME"
           }
         ]
@@ -668,7 +668,7 @@
             "name": "MSFT",
             "display": "MSFT",
             "Signal_sco": 15.5,
-            "Final_score": 0.9577,
+            "Final_score": 0.9578,
             "trend": "GREEN"
           },
           {
@@ -684,7 +684,7 @@
             "name": "CIBR",
             "display": "CIBR",
             "Signal_sco": 14.5,
-            "Final_score": 0.8325,
+            "Final_score": 0.8321,
             "trend": "LIME"
           },
           {
@@ -692,7 +692,7 @@
             "name": "NET",
             "display": "NET",
             "Signal_sco": 14.5,
-            "Final_score": 0.8594,
+            "Final_score": 0.859,
             "trend": "LIME"
           }
         ]
@@ -719,7 +719,7 @@
             "name": "HPE",
             "display": "HPE",
             "Signal_sco": 14.5,
-            "Final_score": 0.8849,
+            "Final_score": 0.8846,
             "trend": "LIME"
           },
           {
@@ -727,7 +727,7 @@
             "name": "DELL",
             "display": "DELL",
             "Signal_sco": 12.25,
-            "Final_score": 0.773,
+            "Final_score": 0.7724,
             "trend": "-"
           },
           {
@@ -735,7 +735,7 @@
             "name": "DLR",
             "display": "DLR",
             "Signal_sco": 10.75,
-            "Final_score": 0.7415,
+            "Final_score": 0.7414,
             "trend": "GREEN"
           },
           {
@@ -743,7 +743,7 @@
             "name": "EQIX",
             "display": "EQIX",
             "Signal_sco": 8.5,
-            "Final_score": 0.6536,
+            "Final_score": 0.6533,
             "trend": "LIME"
           },
           {
@@ -751,7 +751,7 @@
             "name": "SRVR",
             "display": "SRVR",
             "Signal_sco": 4.5,
-            "Final_score": 0.5544,
+            "Final_score": 0.5542,
             "trend": "GREEN"
           }
         ]
@@ -779,7 +779,7 @@
             "name": "ANET",
             "display": "ANET",
             "Signal_sco": 15.0,
-            "Final_score": 0.8766,
+            "Final_score": 0.8762,
             "trend": "LIME"
           },
           {
@@ -787,7 +787,7 @@
             "name": "CSCO",
             "display": "CSCO",
             "Signal_sco": 12.75,
-            "Final_score": 0.7875,
+            "Final_score": 0.7872,
             "trend": "LIME"
           },
           {
@@ -795,7 +795,7 @@
             "name": "NVDA",
             "display": "NVDA",
             "Signal_sco": 11.5,
-            "Final_score": 0.7631,
+            "Final_score": 0.763,
             "trend": "LIME"
           },
           {
@@ -803,7 +803,7 @@
             "name": "AVGO",
             "display": "AVGO",
             "Signal_sco": 10.75,
-            "Final_score": 0.7229,
+            "Final_score": 0.7227,
             "trend": "LIME"
           },
           {
@@ -811,7 +811,7 @@
             "name": "COHR",
             "display": "COHR",
             "Signal_sco": 6.75,
-            "Final_score": 0.6044,
+            "Final_score": 0.6042,
             "trend": "LIME"
           }
         ]
@@ -839,7 +839,7 @@
             "name": "MSFT",
             "display": "MSFT",
             "Signal_sco": 15.5,
-            "Final_score": 0.9577,
+            "Final_score": 0.9578,
             "trend": "GREEN"
           },
           {
@@ -847,7 +847,7 @@
             "name": "ADBE",
             "display": "ADBE",
             "Signal_sco": 11.75,
-            "Final_score": 0.8408,
+            "Final_score": 0.841,
             "trend": "GREEN"
           },
           {
@@ -863,7 +863,7 @@
             "name": "GOOGL",
             "display": "GOOGL",
             "Signal_sco": 6.75,
-            "Final_score": 0.5942,
+            "Final_score": 0.5939,
             "trend": "LIME"
           },
           {
@@ -871,7 +871,7 @@
             "name": "ORCL",
             "display": "ORCL",
             "Signal_sco": 1.5,
-            "Final_score": 0.4572,
+            "Final_score": 0.457,
             "trend": "GREEN"
           }
         ]
@@ -902,7 +902,7 @@
             "name": "HPE",
             "display": "HPE",
             "Signal_sco": 14.5,
-            "Final_score": 0.8849,
+            "Final_score": 0.8846,
             "trend": "LIME"
           },
           {
@@ -910,7 +910,7 @@
             "name": "DELL",
             "display": "DELL",
             "Signal_sco": 12.25,
-            "Final_score": 0.773,
+            "Final_score": 0.7724,
             "trend": "-"
           },
           {
@@ -926,7 +926,7 @@
             "name": "NVDA",
             "display": "NVDA",
             "Signal_sco": 11.5,
-            "Final_score": 0.7631,
+            "Final_score": 0.763,
             "trend": "LIME"
           },
           {
@@ -934,7 +934,7 @@
             "name": "AVGO",
             "display": "AVGO",
             "Signal_sco": 10.75,
-            "Final_score": 0.7229,
+            "Final_score": 0.7227,
             "trend": "LIME"
           }
         ]
@@ -972,7 +972,7 @@
             "name": "NVT",
             "display": "NVT",
             "Signal_sco": 7.5,
-            "Final_score": 0.6399,
+            "Final_score": 0.6397,
             "trend": "LIME"
           },
           {
@@ -980,7 +980,7 @@
             "name": "HUBB",
             "display": "HUBB",
             "Signal_sco": 6.5,
-            "Final_score": 0.6442,
+            "Final_score": 0.644,
             "trend": "LIME"
           },
           {
@@ -988,7 +988,7 @@
             "name": "GRID",
             "display": "GRID",
             "Signal_sco": 6.25,
-            "Final_score": 0.5937,
+            "Final_score": 0.5934,
             "trend": "LIME"
           },
           {
@@ -996,7 +996,7 @@
             "name": "PWR",
             "display": "PWR",
             "Signal_sco": 6.25,
-            "Final_score": 0.5744,
+            "Final_score": 0.5741,
             "trend": "LIME"
           }
         ]
@@ -1026,7 +1026,7 @@
             "name": "심텍",
             "display": "222800(심텍)",
             "Signal_sco": 3.5,
-            "Final_score": 0.4817,
+            "Final_score": 0.4743,
             "trend": "LIME"
           },
           {
@@ -1034,7 +1034,7 @@
             "name": "TSM",
             "display": "TSM",
             "Signal_sco": 3.5,
-            "Final_score": 0.52,
+            "Final_score": 0.5196,
             "trend": "-"
           },
           {
@@ -1042,7 +1042,7 @@
             "name": "STX",
             "display": "STX",
             "Signal_sco": 2.5,
-            "Final_score": 0.4983,
+            "Final_score": 0.4979,
             "trend": "LIME"
           },
           {
@@ -1050,7 +1050,7 @@
             "name": "삼성전기",
             "display": "009150(삼성전기)",
             "Signal_sco": 2.25,
-            "Final_score": 0.4671,
+            "Final_score": 0.4724,
             "trend": "-"
           },
           {
@@ -1058,7 +1058,7 @@
             "name": "WDC",
             "display": "WDC",
             "Signal_sco": 1.75,
-            "Final_score": 0.3326,
+            "Final_score": 0.3317,
             "trend": "PURPLE"
           }
         ]
@@ -1091,7 +1091,7 @@
           "display": "MSFT",
           "Signal_sco": 15.5,
           "return_3m": 21.39,
-          "Final_score": 0.9577,
+          "Final_score": 0.9578,
           "trend": "GREEN"
         },
         {
@@ -1100,7 +1100,7 @@
           "display": "NOW",
           "Signal_sco": 14.5,
           "return_3m": 28.27,
-          "Final_score": 0.8723,
+          "Final_score": 0.872,
           "trend": "GREEN"
         },
         {
@@ -1109,7 +1109,7 @@
           "display": "CRM",
           "Signal_sco": 12.5,
           "return_3m": 5.5,
-          "Final_score": 0.842,
+          "Final_score": 0.8421,
           "trend": "GREEN"
         },
         {
@@ -1118,7 +1118,7 @@
           "display": "PLTR",
           "Signal_sco": 8.75,
           "return_3m": 13.9,
-          "Final_score": 0.8072,
+          "Final_score": 0.8073,
           "trend": "GREEN"
         }
       ]
@@ -1148,7 +1148,7 @@
           "display": "NOW",
           "Signal_sco": 14.5,
           "return_3m": 28.27,
-          "Final_score": 0.8723,
+          "Final_score": 0.872,
           "trend": "GREEN"
         },
         {
@@ -1157,7 +1157,7 @@
           "display": "CRM",
           "Signal_sco": 12.5,
           "return_3m": 5.5,
-          "Final_score": 0.842,
+          "Final_score": 0.8421,
           "trend": "GREEN"
         },
         {
@@ -1165,8 +1165,8 @@
           "name": "삼성에스디에스",
           "display": "018260(삼성에스디에스)",
           "Signal_sco": 12.5,
-          "return_3m": 23.26,
-          "Final_score": 0.89,
+          "return_3m": 22.42,
+          "Final_score": 0.883,
           "trend": "LIME"
         },
         {
@@ -1175,7 +1175,7 @@
           "display": "ADBE",
           "Signal_sco": 11.75,
           "return_3m": 5.72,
-          "Final_score": 0.8408,
+          "Final_score": 0.841,
           "trend": "GREEN"
         }
       ]
@@ -1205,7 +1205,7 @@
           "display": "NET",
           "Signal_sco": 14.5,
           "return_3m": 46.98,
-          "Final_score": 0.8594,
+          "Final_score": 0.859,
           "trend": "LIME"
         },
         {
@@ -1214,7 +1214,7 @@
           "display": "MDB",
           "Signal_sco": 12.5,
           "return_3m": 25.57,
-          "Final_score": 0.7856,
+          "Final_score": 0.7853,
           "trend": "LIME"
         },
         {
@@ -1222,8 +1222,8 @@
           "name": "삼성에스디에스",
           "display": "018260(삼성에스디에스)",
           "Signal_sco": 12.5,
-          "return_3m": 23.26,
-          "Final_score": 0.89,
+          "return_3m": 22.42,
+          "Final_score": 0.883,
           "trend": "LIME"
         },
         {
@@ -1232,7 +1232,7 @@
           "display": "DDOG",
           "Signal_sco": 10.25,
           "return_3m": 13.33,
-          "Final_score": 0.6008,
+          "Final_score": 0.6,
           "trend": "PURPLE"
         }
       ]
@@ -1253,7 +1253,7 @@
           "display": "CIBR",
           "Signal_sco": 14.5,
           "return_3m": 27.9,
-          "Final_score": 0.8325,
+          "Final_score": 0.8321,
           "trend": "LIME"
         },
         {
@@ -1262,7 +1262,7 @@
           "display": "S",
           "Signal_sco": 14.5,
           "return_3m": 27.13,
-          "Final_score": 0.8862,
+          "Final_score": 0.886,
           "trend": "LIME"
         },
         {
@@ -1271,7 +1271,7 @@
           "display": "CRWD",
           "Signal_sco": 14.0,
           "return_3m": 52.98,
-          "Final_score": 0.8591,
+          "Final_score": 0.8587,
           "trend": "LIME"
         },
         {
@@ -1280,7 +1280,7 @@
           "display": "FTNT",
           "Signal_sco": 12.5,
           "return_3m": 38.7,
-          "Final_score": 0.7791,
+          "Final_score": 0.7785,
           "trend": "LIME"
         },
         {
@@ -1289,7 +1289,7 @@
           "display": "HACK",
           "Signal_sco": 12.25,
           "return_3m": 32.62,
-          "Final_score": 0.7872,
+          "Final_score": 0.7868,
           "trend": "LIME"
         }
       ]
@@ -1310,7 +1310,7 @@
           "display": "ANET",
           "Signal_sco": 15.0,
           "return_3m": 40.97,
-          "Final_score": 0.8766,
+          "Final_score": 0.8762,
           "trend": "LIME"
         },
         {
@@ -1319,7 +1319,7 @@
           "display": "CSCO",
           "Signal_sco": 12.75,
           "return_3m": 22.91,
-          "Final_score": 0.7875,
+          "Final_score": 0.7872,
           "trend": "LIME"
         },
         {
@@ -1328,7 +1328,7 @@
           "display": "NVDA",
           "Signal_sco": 11.5,
           "return_3m": -0.09,
-          "Final_score": 0.7631,
+          "Final_score": 0.763,
           "trend": "LIME"
         },
         {
@@ -1337,7 +1337,7 @@
           "display": "AVGO",
           "Signal_sco": 10.75,
           "return_3m": -1.68,
-          "Final_score": 0.7229,
+          "Final_score": 0.7227,
           "trend": "LIME"
         },
         {
@@ -1346,7 +1346,7 @@
           "display": "MRVL",
           "Signal_sco": 4.75,
           "return_3m": 23.27,
-          "Final_score": 0.5154,
+          "Final_score": 0.5146,
           "trend": "-"
         }
       ]
@@ -1367,7 +1367,7 @@
           "display": "AME",
           "Signal_sco": 16.0,
           "return_3m": 8.44,
-          "Final_score": 0.8689,
+          "Final_score": 0.8687,
           "trend": "LIME"
         },
         {
@@ -1376,7 +1376,7 @@
           "display": "HXGBY",
           "Signal_sco": 15.5,
           "return_3m": 19.74,
-          "Final_score": 0.9549,
+          "Final_score": 0.955,
           "trend": "LIME"
         },
         {
@@ -1385,7 +1385,7 @@
           "display": "TER",
           "Signal_sco": 10.0,
           "return_3m": 5.02,
-          "Final_score": 0.7281,
+          "Final_score": 0.7279,
           "trend": "LIME"
         },
         {
@@ -1393,8 +1393,8 @@
           "name": "에스피지",
           "display": "058610(에스피지)",
           "Signal_sco": 6.5,
-          "return_3m": -25.46,
-          "Final_score": 0.6929,
+          "return_3m": -25.76,
+          "Final_score": 0.6927,
           "trend": "LIME"
         },
         {
@@ -1403,7 +1403,7 @@
           "display": "BOTZ",
           "Signal_sco": 3.25,
           "return_3m": -10.53,
-          "Final_score": 0.5265,
+          "Final_score": 0.5263,
           "trend": "GREEN"
         }
       ]
@@ -1424,7 +1424,7 @@
           "display": "NET",
           "Signal_sco": 14.5,
           "return_3m": 46.98,
-          "Final_score": 0.8594,
+          "Final_score": 0.859,
           "trend": "LIME"
         },
         {
@@ -1433,7 +1433,7 @@
           "display": "PANW",
           "Signal_sco": 12.25,
           "return_3m": 68.25,
-          "Final_score": 0.8356,
+          "Final_score": 0.8353,
           "trend": "LIME"
         },
         {
@@ -1451,7 +1451,7 @@
           "display": "DDOG",
           "Signal_sco": 10.25,
           "return_3m": 13.33,
-          "Final_score": 0.6008,
+          "Final_score": 0.6,
           "trend": "PURPLE"
         },
         {
@@ -1460,7 +1460,7 @@
           "display": "OKTA",
           "Signal_sco": 8.25,
           "return_3m": 75.68,
-          "Final_score": 0.6848,
+          "Final_score": 0.6842,
           "trend": "-"
         }
       ]
@@ -1490,7 +1490,7 @@
           "display": "SCCO",
           "Signal_sco": 13.0,
           "return_3m": 5.8,
-          "Final_score": 0.8227,
+          "Final_score": 0.8226,
           "trend": "LIME"
         },
         {
@@ -1508,7 +1508,7 @@
           "display": "COPX",
           "Signal_sco": 9.75,
           "return_3m": -1.38,
-          "Final_score": 0.7687,
+          "Final_score": 0.7688,
           "trend": "LIME"
         },
         {
@@ -1517,7 +1517,7 @@
           "display": "REMX",
           "Signal_sco": -3.75,
           "return_3m": -32.97,
-          "Final_score": 0.2808,
+          "Final_score": 0.2804,
           "trend": "-"
         }
       ]
@@ -1538,7 +1538,7 @@
           "display": "HPE",
           "Signal_sco": 14.5,
           "return_3m": 70.34,
-          "Final_score": 0.8849,
+          "Final_score": 0.8846,
           "trend": "LIME"
         },
         {
@@ -1547,7 +1547,7 @@
           "display": "DELL",
           "Signal_sco": 12.25,
           "return_3m": 77.45,
-          "Final_score": 0.773,
+          "Final_score": 0.7724,
           "trend": "-"
         },
         {
@@ -1556,7 +1556,7 @@
           "display": "DLR",
           "Signal_sco": 10.75,
           "return_3m": -1.22,
-          "Final_score": 0.7415,
+          "Final_score": 0.7414,
           "trend": "GREEN"
         },
         {
@@ -1565,7 +1565,7 @@
           "display": "EQIX",
           "Signal_sco": 8.5,
           "return_3m": -2.59,
-          "Final_score": 0.6536,
+          "Final_score": 0.6533,
           "trend": "LIME"
         },
         {
@@ -1574,7 +1574,7 @@
           "display": "SRVR",
           "Signal_sco": 4.5,
           "return_3m": -10.75,
-          "Final_score": 0.5544,
+          "Final_score": 0.5542,
           "trend": "GREEN"
         }
       ]
@@ -1595,7 +1595,7 @@
           "display": "MSFT",
           "Signal_sco": 15.5,
           "return_3m": 21.39,
-          "Final_score": 0.9577,
+          "Final_score": 0.9578,
           "trend": "GREEN"
         },
         {
@@ -1613,7 +1613,7 @@
           "display": "GOOGL",
           "Signal_sco": 6.75,
           "return_3m": -7.89,
-          "Final_score": 0.5942,
+          "Final_score": 0.5939,
           "trend": "LIME"
         },
         {
@@ -1622,7 +1622,7 @@
           "display": "ORCL",
           "Signal_sco": 1.5,
           "return_3m": -25.73,
-          "Final_score": 0.4572,
+          "Final_score": 0.457,
           "trend": "GREEN"
         },
         {
@@ -1631,7 +1631,7 @@
           "display": "META",
           "Signal_sco": -6.5,
           "return_3m": -1.4,
-          "Final_score": 0.2915,
+          "Final_score": 0.291,
           "trend": "RED"
         }
       ]
@@ -1661,7 +1661,7 @@
           "display": "AVGO",
           "Signal_sco": 10.75,
           "return_3m": -1.68,
-          "Final_score": 0.7229,
+          "Final_score": 0.7227,
           "trend": "LIME"
         },
         {
@@ -1670,7 +1670,7 @@
           "display": "GOOGL",
           "Signal_sco": 6.75,
           "return_3m": -7.89,
-          "Final_score": 0.5942,
+          "Final_score": 0.5939,
           "trend": "LIME"
         },
         {
@@ -1679,7 +1679,7 @@
           "display": "MRVL",
           "Signal_sco": 4.75,
           "return_3m": 23.27,
-          "Final_score": 0.5154,
+          "Final_score": 0.5146,
           "trend": "-"
         }
       ]
@@ -1700,7 +1700,7 @@
           "display": "EMR",
           "Signal_sco": 15.5,
           "return_3m": 12.99,
-          "Final_score": 0.9087,
+          "Final_score": 0.9086,
           "trend": "LIME"
         },
         {
@@ -1709,7 +1709,7 @@
           "display": "CGNX",
           "Signal_sco": 10.75,
           "return_3m": 0.31,
-          "Final_score": 0.7095,
+          "Final_score": 0.7093,
           "trend": "LIME"
         },
         {
@@ -1718,7 +1718,7 @@
           "display": "ROBO",
           "Signal_sco": 8.0,
           "return_3m": -4.54,
-          "Final_score": 0.6318,
+          "Final_score": 0.6316,
           "trend": "LIME"
         },
         {
@@ -1727,7 +1727,7 @@
           "display": "090360(로보스타)",
           "Signal_sco": 7.5,
           "return_3m": 13.05,
-          "Final_score": 0.7693,
+          "Final_score": 0.7694,
           "trend": "LIME"
         },
         {
@@ -1736,7 +1736,7 @@
           "display": "ABBNY",
           "Signal_sco": 4.0,
           "return_3m": -6.37,
-          "Final_score": 0.5153,
+          "Final_score": 0.5149,
           "trend": "-"
         }
       ]
@@ -1757,7 +1757,7 @@
           "display": "NVDA",
           "Signal_sco": 11.5,
           "return_3m": -0.09,
-          "Final_score": 0.7631,
+          "Final_score": 0.763,
           "trend": "LIME"
         },
         {
@@ -1766,7 +1766,7 @@
           "display": "PTC",
           "Signal_sco": 9.5,
           "return_3m": 1.19,
-          "Final_score": 0.8004,
+          "Final_score": 0.8005,
           "trend": "GREEN"
         },
         {
@@ -1775,7 +1775,7 @@
           "display": "ADSK",
           "Signal_sco": 9.0,
           "return_3m": 2.71,
-          "Final_score": 0.7751,
+          "Final_score": 0.7752,
           "trend": "GREEN"
         },
         {
@@ -1784,7 +1784,7 @@
           "display": "SNPS",
           "Signal_sco": -0.5,
           "return_3m": -21.35,
-          "Final_score": 0.366,
+          "Final_score": 0.3655,
           "trend": "-"
         },
         {
@@ -1793,7 +1793,7 @@
           "display": "CDNS",
           "Signal_sco": -2.0,
           "return_3m": -7.08,
-          "Final_score": 0.3329,
+          "Final_score": 0.3323,
           "trend": "-"
         }
       ]
@@ -1814,7 +1814,7 @@
           "display": "HPE",
           "Signal_sco": 14.5,
           "return_3m": 70.34,
-          "Final_score": 0.8849,
+          "Final_score": 0.8846,
           "trend": "LIME"
         },
         {
@@ -1823,7 +1823,7 @@
           "display": "DELL",
           "Signal_sco": 12.25,
           "return_3m": 77.45,
-          "Final_score": 0.773,
+          "Final_score": 0.7724,
           "trend": "-"
         },
         {
@@ -1832,7 +1832,7 @@
           "display": "ARM",
           "Signal_sco": 2.0,
           "return_3m": 34.81,
-          "Final_score": 0.4856,
+          "Final_score": 0.4847,
           "trend": "-"
         },
         {
@@ -1841,7 +1841,7 @@
           "display": "SMCI",
           "Signal_sco": 2.0,
           "return_3m": -12.35,
-          "Final_score": 0.5203,
+          "Final_score": 0.5202,
           "trend": "GREEN"
         },
         {
@@ -1850,7 +1850,7 @@
           "display": "AMD",
           "Signal_sco": 0.25,
           "return_3m": 6.65,
-          "Final_score": 0.4154,
+          "Final_score": 0.4147,
           "trend": "PURPLE"
         }
       ]
@@ -1871,7 +1871,7 @@
           "display": "NVDA",
           "Signal_sco": 11.5,
           "return_3m": -0.09,
-          "Final_score": 0.7631,
+          "Final_score": 0.763,
           "trend": "LIME"
         },
         {
@@ -1880,7 +1880,7 @@
           "display": "AVGO",
           "Signal_sco": 10.75,
           "return_3m": -1.68,
-          "Final_score": 0.7229,
+          "Final_score": 0.7227,
           "trend": "LIME"
         },
         {
@@ -1889,7 +1889,7 @@
           "display": "MRVL",
           "Signal_sco": 4.75,
           "return_3m": 23.27,
-          "Final_score": 0.5154,
+          "Final_score": 0.5146,
           "trend": "-"
         },
         {
@@ -1898,7 +1898,7 @@
           "display": "ARM",
           "Signal_sco": 2.0,
           "return_3m": 34.81,
-          "Final_score": 0.4856,
+          "Final_score": 0.4847,
           "trend": "-"
         },
         {
@@ -1907,7 +1907,7 @@
           "display": "QCOM",
           "Signal_sco": -6.0,
           "return_3m": -32.23,
-          "Final_score": 0.1812,
+          "Final_score": 0.1806,
           "trend": "-"
         }
       ]
@@ -1937,7 +1937,7 @@
           "display": "NVT",
           "Signal_sco": 7.5,
           "return_3m": -5.69,
-          "Final_score": 0.6399,
+          "Final_score": 0.6397,
           "trend": "LIME"
         },
         {
@@ -1946,7 +1946,7 @@
           "display": "HUBB",
           "Signal_sco": 6.5,
           "return_3m": 3.9,
-          "Final_score": 0.6442,
+          "Final_score": 0.644,
           "trend": "LIME"
         },
         {
@@ -1955,7 +1955,7 @@
           "display": "GRID",
           "Signal_sco": 6.25,
           "return_3m": -6.74,
-          "Final_score": 0.5937,
+          "Final_score": 0.5934,
           "trend": "LIME"
         },
         {
@@ -1964,7 +1964,7 @@
           "display": "PWR",
           "Signal_sco": 6.25,
           "return_3m": -14.52,
-          "Final_score": 0.5744,
+          "Final_score": 0.5741,
           "trend": "LIME"
         }
       ]
@@ -1985,7 +1985,7 @@
           "display": "AVGO",
           "Signal_sco": 10.75,
           "return_3m": -1.68,
-          "Final_score": 0.7229,
+          "Final_score": 0.7227,
           "trend": "LIME"
         },
         {
@@ -1994,7 +1994,7 @@
           "display": "COHR",
           "Signal_sco": 6.75,
           "return_3m": -11.98,
-          "Final_score": 0.6044,
+          "Final_score": 0.6042,
           "trend": "LIME"
         },
         {
@@ -2012,7 +2012,7 @@
           "display": "MRVL",
           "Signal_sco": 4.75,
           "return_3m": 23.27,
-          "Final_score": 0.5154,
+          "Final_score": 0.5146,
           "trend": "-"
         },
         {
@@ -2021,7 +2021,7 @@
           "display": "CIEN",
           "Signal_sco": 0.75,
           "return_3m": -30.56,
-          "Final_score": 0.3456,
+          "Final_score": 0.3451,
           "trend": "-"
         }
       ]
@@ -2051,7 +2051,7 @@
           "display": "NVT",
           "Signal_sco": 7.5,
           "return_3m": -5.69,
-          "Final_score": 0.6399,
+          "Final_score": 0.6397,
           "trend": "LIME"
         },
         {
@@ -2060,7 +2060,7 @@
           "display": "TT",
           "Signal_sco": 5.5,
           "return_3m": 0.68,
-          "Final_score": 0.5958,
+          "Final_score": 0.5956,
           "trend": "LIME"
         },
         {
@@ -2069,7 +2069,7 @@
           "display": "CARR",
           "Signal_sco": -3.25,
           "return_3m": -2.57,
-          "Final_score": 0.3644,
+          "Final_score": 0.364,
           "trend": "PURPLE"
         },
         {
@@ -2078,7 +2078,7 @@
           "display": "VRT",
           "Signal_sco": -4.25,
           "return_3m": -25.19,
-          "Final_score": 0.2363,
+          "Final_score": 0.2357,
           "trend": "-"
         }
       ]
@@ -2099,7 +2099,7 @@
           "display": "ADBE",
           "Signal_sco": 11.75,
           "return_3m": 5.72,
-          "Final_score": 0.8408,
+          "Final_score": 0.841,
           "trend": "GREEN"
         },
         {
@@ -2108,7 +2108,7 @@
           "display": "GOOGL",
           "Signal_sco": 6.75,
           "return_3m": -7.89,
-          "Final_score": 0.5942,
+          "Final_score": 0.5939,
           "trend": "LIME"
         },
         {
@@ -2117,7 +2117,7 @@
           "display": "NFLX",
           "Signal_sco": 0.0,
           "return_3m": -13.76,
-          "Final_score": 0.4321,
+          "Final_score": 0.4318,
           "trend": "-"
         },
         {
@@ -2126,7 +2126,7 @@
           "display": "TTD",
           "Signal_sco": -3.5,
           "return_3m": -17.89,
-          "Final_score": 0.2961,
+          "Final_score": 0.2956,
           "trend": "GREEN"
         },
         {
@@ -2135,7 +2135,7 @@
           "display": "META",
           "Signal_sco": -6.5,
           "return_3m": -1.4,
-          "Final_score": 0.2915,
+          "Final_score": 0.291,
           "trend": "RED"
         }
       ]
@@ -2144,9 +2144,9 @@
       "basket": "AI_HEALTHCARE_BIO",
       "basket_kr": "AI_헬스케어바이오",
       "basket_name_kr": "AI_헬스케어바이오",
-      "score": 4.28,
+      "score": 4.24,
       "top3_avg": 5.58,
-      "all_avg": 1.23,
+      "all_avg": 1.1,
       "valid_count": 10,
       "member_count": 10,
       "top_members": [
@@ -2155,8 +2155,8 @@
           "name": "JLK",
           "display": "322510(JLK)",
           "Signal_sco": 6.5,
-          "return_3m": -7.16,
-          "Final_score": 0.7247,
+          "return_3m": -6.47,
+          "Final_score": 0.7261,
           "trend": "GREEN"
         },
         {
@@ -2165,7 +2165,7 @@
           "display": "IBB",
           "Signal_sco": 6.25,
           "return_3m": 13.53,
-          "Final_score": 0.6079,
+          "Final_score": 0.6075,
           "trend": "-"
         },
         {
@@ -2174,7 +2174,7 @@
           "display": "XBI",
           "Signal_sco": 4.0,
           "return_3m": 14.77,
-          "Final_score": 0.538,
+          "Final_score": 0.5374,
           "trend": "-"
         },
         {
@@ -2182,8 +2182,8 @@
           "name": "뷰노",
           "display": "338220(뷰노)",
           "Signal_sco": 2.5,
-          "return_3m": -33.22,
-          "Final_score": 0.4794,
+          "return_3m": -33.31,
+          "Final_score": 0.4782,
           "trend": "GREEN"
         },
         {
@@ -2191,8 +2191,8 @@
           "name": "딥노이드",
           "display": "315640(딥노이드)",
           "Signal_sco": 2.5,
-          "return_3m": -48.65,
-          "Final_score": 0.5388,
+          "return_3m": -48.4,
+          "Final_score": 0.5426,
           "trend": "GREEN"
         }
       ]
@@ -2213,7 +2213,7 @@
           "display": "BE",
           "Signal_sco": 3.5,
           "return_3m": -19.36,
-          "Final_score": 0.4334,
+          "Final_score": 0.4329,
           "trend": "-"
         }
       ]
@@ -2234,7 +2234,7 @@
           "display": "NVDA",
           "Signal_sco": 11.5,
           "return_3m": -0.09,
-          "Final_score": 0.7631,
+          "Final_score": 0.763,
           "trend": "LIME"
         },
         {
@@ -2243,7 +2243,7 @@
           "display": "SMH",
           "Signal_sco": 1.25,
           "return_3m": -0.84,
-          "Final_score": 0.4547,
+          "Final_score": 0.4542,
           "trend": "-"
         },
         {
@@ -2252,7 +2252,7 @@
           "display": "SOXX",
           "Signal_sco": 0.75,
           "return_3m": 0.0,
-          "Final_score": 0.4284,
+          "Final_score": 0.4279,
           "trend": "-"
         },
         {
@@ -2261,7 +2261,7 @@
           "display": "AMD",
           "Signal_sco": 0.25,
           "return_3m": 6.65,
-          "Final_score": 0.4154,
+          "Final_score": 0.4147,
           "trend": "PURPLE"
         },
         {
@@ -2269,8 +2269,8 @@
           "name": "ACE글로벌반도체TOP4",
           "display": "446770(ACE글로벌반도체TOP4)",
           "Signal_sco": -2.75,
-          "return_3m": -7.36,
-          "Final_score": 0.2926,
+          "return_3m": -7.05,
+          "Final_score": 0.2943,
           "trend": "PURPLE"
         }
       ]
@@ -2279,9 +2279,9 @@
       "basket": "AI_SEMI_EQUIPMENT",
       "basket_kr": "AI_반도체장비",
       "basket_name_kr": "AI_반도체장비",
-      "score": 2.52,
+      "score": 2.54,
       "top3_avg": 4.5,
-      "all_avg": -2.1,
+      "all_avg": -2.02,
       "valid_count": 13,
       "member_count": 13,
       "top_members": [
@@ -2291,7 +2291,7 @@
           "display": "TER",
           "Signal_sco": 10.0,
           "return_3m": 5.02,
-          "Final_score": 0.7281,
+          "Final_score": 0.7279,
           "trend": "LIME"
         },
         {
@@ -2300,7 +2300,7 @@
           "display": "AMAT",
           "Signal_sco": 2.5,
           "return_3m": 19.05,
-          "Final_score": 0.4836,
+          "Final_score": 0.4829,
           "trend": "-"
         },
         {
@@ -2309,7 +2309,7 @@
           "display": "LRCX",
           "Signal_sco": 1.0,
           "return_3m": 3.36,
-          "Final_score": 0.4044,
+          "Final_score": 0.4037,
           "trend": "-"
         },
         {
@@ -2318,7 +2318,7 @@
           "display": "ASML",
           "Signal_sco": 0.0,
           "return_3m": 8.99,
-          "Final_score": 0.4502,
+          "Final_score": 0.4497,
           "trend": "-"
         },
         {
@@ -2327,7 +2327,7 @@
           "display": "KLAC",
           "Signal_sco": -0.75,
           "return_3m": 4.85,
-          "Final_score": 0.3545,
+          "Final_score": 0.3537,
           "trend": "PURPLE"
         }
       ]
@@ -2348,7 +2348,7 @@
           "display": "ABBNY",
           "Signal_sco": 4.0,
           "return_3m": -6.37,
-          "Final_score": 0.5153,
+          "Final_score": 0.5149,
           "trend": "-"
         },
         {
@@ -2357,7 +2357,7 @@
           "display": "BOTZ",
           "Signal_sco": 3.25,
           "return_3m": -10.53,
-          "Final_score": 0.5265,
+          "Final_score": 0.5263,
           "trend": "GREEN"
         },
         {
@@ -2365,8 +2365,8 @@
           "name": "AI로봇ETF",
           "display": "469070(AI로봇ETF)",
           "Signal_sco": 2.5,
-          "return_3m": -30.98,
-          "Final_score": 0.556,
+          "return_3m": -31.05,
+          "Final_score": 0.5554,
           "trend": "GREEN"
         },
         {
@@ -2374,8 +2374,8 @@
           "name": "레인보우로보틱스",
           "display": "277810(레인보우로보틱스)",
           "Signal_sco": 1.0,
-          "return_3m": -47.02,
-          "Final_score": 0.4483,
+          "return_3m": -47.43,
+          "Final_score": 0.4422,
           "trend": "LIME"
         },
         {
@@ -2384,7 +2384,7 @@
           "display": "ISRG",
           "Signal_sco": -0.5,
           "return_3m": -11.03,
-          "Final_score": 0.3786,
+          "Final_score": 0.3781,
           "trend": "-"
         }
       ]
@@ -2423,7 +2423,7 @@
           "display": "HOOD",
           "Signal_sco": -1.5,
           "return_3m": 12.29,
-          "Final_score": 0.3143,
+          "Final_score": 0.3133,
           "trend": "RED"
         },
         {
@@ -2432,7 +2432,7 @@
           "display": "IBKR",
           "Signal_sco": -4.0,
           "return_3m": 1.41,
-          "Final_score": 0.3252,
+          "Final_score": 0.3246,
           "trend": "PURPLE"
         },
         {
@@ -2441,7 +2441,7 @@
           "display": "COIN",
           "Signal_sco": -11.0,
           "return_3m": -32.87,
-          "Final_score": 0.1335,
+          "Final_score": 0.1331,
           "trend": "RED"
         }
       ]
@@ -2461,8 +2461,8 @@
           "name": "삼성전기",
           "display": "009150(삼성전기)",
           "Signal_sco": 2.25,
-          "return_3m": 32.1,
-          "Final_score": 0.4671,
+          "return_3m": 33.09,
+          "Final_score": 0.4724,
           "trend": "-"
         },
         {
@@ -2470,8 +2470,8 @@
           "name": "삼화콘덴서",
           "display": "001820(삼화콘덴서)",
           "Signal_sco": -2.0,
-          "return_3m": 20.63,
-          "Final_score": 0.2999,
+          "return_3m": 21.26,
+          "Final_score": 0.3011,
           "trend": "-"
         }
       ]
@@ -2492,7 +2492,7 @@
           "display": "SMR",
           "Signal_sco": 2.25,
           "return_3m": -28.74,
-          "Final_score": 0.5028,
+          "Final_score": 0.5027,
           "trend": "GREEN"
         },
         {
@@ -2501,7 +2501,7 @@
           "display": "CEG",
           "Signal_sco": 1.5,
           "return_3m": -12.74,
-          "Final_score": 0.5102,
+          "Final_score": 0.51,
           "trend": "GREEN"
         },
         {
@@ -2509,8 +2509,8 @@
           "name": "원자력ETF",
           "display": "434730(원자력ETF)",
           "Signal_sco": 0.0,
-          "return_3m": -36.81,
-          "Final_score": 0.4143,
+          "return_3m": -36.78,
+          "Final_score": 0.4145,
           "trend": "-"
         },
         {
@@ -2519,7 +2519,7 @@
           "display": "0051G0(S&P500AI)",
           "Signal_sco": -2.5,
           "return_3m": -21.05,
-          "Final_score": 0.3606,
+          "Final_score": 0.3602,
           "trend": "-"
         },
         {
@@ -2528,7 +2528,7 @@
           "display": "NRG",
           "Signal_sco": -8.5,
           "return_3m": -12.98,
-          "Final_score": 0.1717,
+          "Final_score": 0.171,
           "trend": "RED"
         }
       ]
@@ -2537,9 +2537,9 @@
       "basket": "AI_ADV_PACKAGING_SUBSTRATE",
       "basket_kr": "AI_첨단패키징",
       "basket_name_kr": "AI_첨단패키징",
-      "score": -0.13,
+      "score": -0.15,
       "top3_avg": 1.17,
-      "all_avg": -3.17,
+      "all_avg": -3.22,
       "valid_count": 9,
       "member_count": 9,
       "top_members": [
@@ -2549,7 +2549,7 @@
           "display": "TSM",
           "Signal_sco": 3.5,
           "return_3m": 3.62,
-          "Final_score": 0.52,
+          "Final_score": 0.5196,
           "trend": "-"
         },
         {
@@ -2557,8 +2557,8 @@
           "name": "심텍",
           "display": "222800(심텍)",
           "Signal_sco": 3.5,
-          "return_3m": -2.87,
-          "Final_score": 0.4817,
+          "return_3m": -3.68,
+          "Final_score": 0.4743,
           "trend": "LIME"
         },
         {
@@ -2566,8 +2566,8 @@
           "name": "대덕전자",
           "display": "353200(대덕전자)",
           "Signal_sco": -3.5,
-          "return_3m": -19.14,
-          "Final_score": 0.3147,
+          "return_3m": -19.77,
+          "Final_score": 0.3081,
           "trend": "-"
         },
         {
@@ -2575,8 +2575,8 @@
           "name": "코리아써키트",
           "display": "007810(코리아써키트)",
           "Signal_sco": -4.5,
-          "return_3m": -44.5,
-          "Final_score": 0.1469,
+          "return_3m": -44.09,
+          "Final_score": 0.151,
           "trend": "-"
         },
         {
@@ -2585,7 +2585,7 @@
           "display": "007660(이수페타시스)",
           "Signal_sco": -5.0,
           "return_3m": -36.45,
-          "Final_score": 0.2292,
+          "Final_score": 0.2287,
           "trend": "-"
         }
       ]
@@ -2606,7 +2606,7 @@
           "display": "ARM",
           "Signal_sco": 2.0,
           "return_3m": 34.81,
-          "Final_score": 0.4856,
+          "Final_score": 0.4847,
           "trend": "-"
         },
         {
@@ -2615,7 +2615,7 @@
           "display": "AMD",
           "Signal_sco": 0.25,
           "return_3m": 6.65,
-          "Final_score": 0.4154,
+          "Final_score": 0.4147,
           "trend": "PURPLE"
         },
         {
@@ -2624,7 +2624,7 @@
           "display": "AAPL",
           "Signal_sco": -2.0,
           "return_3m": 6.74,
-          "Final_score": 0.4352,
+          "Final_score": 0.4348,
           "trend": "PURPLE"
         },
         {
@@ -2633,7 +2633,7 @@
           "display": "QCOM",
           "Signal_sco": -6.0,
           "return_3m": -32.23,
-          "Final_score": 0.1812,
+          "Final_score": 0.1806,
           "trend": "-"
         },
         {
@@ -2641,8 +2641,8 @@
           "name": "삼성전자",
           "display": "005930(삼성전자)",
           "Signal_sco": -6.25,
-          "return_3m": -16.49,
-          "Final_score": 0.2027,
+          "return_3m": -16.58,
+          "Final_score": 0.2013,
           "trend": "PURPLE"
         }
       ]
@@ -2663,7 +2663,7 @@
           "display": "STX",
           "Signal_sco": 2.5,
           "return_3m": 2.34,
-          "Final_score": 0.4983,
+          "Final_score": 0.4979,
           "trend": "LIME"
         },
         {
@@ -2672,7 +2672,7 @@
           "display": "WDC",
           "Signal_sco": 1.75,
           "return_3m": -12.44,
-          "Final_score": 0.3326,
+          "Final_score": 0.3317,
           "trend": "PURPLE"
         },
         {
@@ -2680,8 +2680,8 @@
           "name": "삼성전자",
           "display": "005930(삼성전자)",
           "Signal_sco": -6.25,
-          "return_3m": -16.49,
-          "Final_score": 0.2027,
+          "return_3m": -16.58,
+          "Final_score": 0.2013,
           "trend": "PURPLE"
         }
       ]
@@ -2701,8 +2701,8 @@
           "name": "우주방위",
           "display": "478150(우주방위)",
           "Signal_sco": 0.5,
-          "return_3m": -6.67,
-          "Final_score": 0.4433,
+          "return_3m": -6.45,
+          "Final_score": 0.4448,
           "trend": "-"
         },
         {
@@ -2720,7 +2720,7 @@
           "display": "JOBY",
           "Signal_sco": -0.5,
           "return_3m": -23.37,
-          "Final_score": 0.443,
+          "Final_score": 0.4428,
           "trend": "GREEN"
         },
         {
@@ -2729,7 +2729,7 @@
           "display": "MBLY",
           "Signal_sco": -4.75,
           "return_3m": -8.87,
-          "Final_score": 0.2785,
+          "Final_score": 0.2779,
           "trend": "RED"
         },
         {
@@ -2738,7 +2738,7 @@
           "display": "TSLA",
           "Signal_sco": -6.0,
           "return_3m": -28.2,
-          "Final_score": 0.1507,
+          "Final_score": 0.15,
           "trend": "RED"
         }
       ]
@@ -2759,7 +2759,7 @@
           "display": "SNPS",
           "Signal_sco": -0.5,
           "return_3m": -21.35,
-          "Final_score": 0.366,
+          "Final_score": 0.3655,
           "trend": "-"
         },
         {
@@ -2768,7 +2768,7 @@
           "display": "CDNS",
           "Signal_sco": -2.0,
           "return_3m": -7.08,
-          "Final_score": 0.3329,
+          "Final_score": 0.3323,
           "trend": "-"
         }
       ]
@@ -2789,7 +2789,7 @@
           "display": "TSM",
           "Signal_sco": 3.5,
           "return_3m": 3.62,
-          "Final_score": 0.52,
+          "Final_score": 0.5196,
           "trend": "-"
         },
         {
@@ -2797,8 +2797,8 @@
           "name": "삼성전자",
           "display": "005930(삼성전자)",
           "Signal_sco": -6.25,
-          "return_3m": -16.49,
-          "Final_score": 0.2027,
+          "return_3m": -16.58,
+          "Final_score": 0.2013,
           "trend": "PURPLE"
         }
       ]
@@ -2819,7 +2819,7 @@
           "display": "MU",
           "Signal_sco": 0.0,
           "return_3m": 10.85,
-          "Final_score": 0.4133,
+          "Final_score": 0.4127,
           "trend": "-"
         },
         {
@@ -2828,7 +2828,7 @@
           "display": "000660(SK하이닉스)",
           "Signal_sco": -4.75,
           "return_3m": -21.8,
-          "Final_score": 0.1701,
+          "Final_score": 0.1704,
           "trend": "PURPLE"
         },
         {
@@ -2836,8 +2836,8 @@
           "name": "삼성전자",
           "display": "005930(삼성전자)",
           "Signal_sco": -6.25,
-          "return_3m": -16.49,
-          "Final_score": 0.2027,
+          "return_3m": -16.58,
+          "Final_score": 0.2013,
           "trend": "PURPLE"
         },
         {
@@ -2845,8 +2845,8 @@
           "name": "KODEX반도체",
           "display": "091160(KODEX반도체)",
           "Signal_sco": -6.25,
-          "return_3m": -27.29,
-          "Final_score": 0.1326,
+          "return_3m": -27.36,
+          "Final_score": 0.1312,
           "trend": "PURPLE"
         }
       ]

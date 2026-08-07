@@ -165,7 +165,7 @@
             "name": "MSFT",
             "Signal_sco": 15.5,
             "return_3m": 21.39,
-            "Final_score": 0.9577,
+            "Final_score": 0.9578,
             "baskets": [
                 "AI_CLOUD_HYPERSCALER",
                 "AI_AGENT_AUTOMATION_RPA"
@@ -176,7 +176,7 @@
             "name": "HXGBY",
             "Signal_sco": 15.5,
             "return_3m": 19.74,
-            "Final_score": 0.9549,
+            "Final_score": 0.955,
             "baskets": [
                 "AI_ROBOT_COMPONENT"
             ]
@@ -186,20 +186,9 @@
             "name": "EMR",
             "Signal_sco": 15.5,
             "return_3m": 12.99,
-            "Final_score": 0.9087,
+            "Final_score": 0.9086,
             "baskets": [
                 "AI_FACTORY_AUTOMATION"
-            ]
-        },
-        {
-            "ticker": "018260",
-            "name": "삼성에스디에스",
-            "Signal_sco": 12.5,
-            "return_3m": 23.26,
-            "Final_score": 0.89,
-            "baskets": [
-                "AI_DATA_PIPELINE_DATABASE",
-                "AI_SOFTWARE_PLATFORM"
             ]
         },
         {
@@ -207,7 +196,7 @@
             "name": "S",
             "Signal_sco": 14.5,
             "return_3m": 27.13,
-            "Final_score": 0.8862,
+            "Final_score": 0.886,
             "baskets": [
                 "AI_CYBER_SECURITY"
             ]
@@ -217,10 +206,21 @@
             "name": "HPE",
             "Signal_sco": 14.5,
             "return_3m": 70.34,
-            "Final_score": 0.8849,
+            "Final_score": 0.8846,
             "baskets": [
                 "AI_CPU_SERVER",
                 "AI_DATACENTER_REIT_SERVER"
+            ]
+        },
+        {
+            "ticker": "018260",
+            "name": "삼성에스디에스",
+            "Signal_sco": 12.5,
+            "return_3m": 22.42,
+            "Final_score": 0.883,
+            "baskets": [
+                "AI_DATA_PIPELINE_DATABASE",
+                "AI_SOFTWARE_PLATFORM"
             ]
         },
         {
@@ -228,7 +228,7 @@
             "name": "ANET",
             "Signal_sco": 15.0,
             "return_3m": 40.97,
-            "Final_score": 0.8766,
+            "Final_score": 0.8762,
             "baskets": [
                 "AI_NETWORKING_SWITCH_DPU"
             ]
@@ -238,7 +238,7 @@
             "name": "NOW",
             "Signal_sco": 14.5,
             "return_3m": 28.27,
-            "Final_score": 0.8723,
+            "Final_score": 0.872,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
                 "AI_AGENT_AUTOMATION_RPA"
@@ -246,5 +246,5 @@
         }
     ],
     "ai_basket_count": 34,
-    "update_time": "2026-08-07 11:51:25"
+    "update_time": "2026-08-07 12:17:35"
 }
