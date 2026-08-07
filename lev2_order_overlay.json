@@ -1,5 +1,5 @@
 {
-  "asof": "2026-08-07 09:12:33",
+  "asof": "2026-08-07 12:01:52",
   "strategy": "F4_B_safe",
   "params": {
     "atr_thr": 1.5,
@@ -13,7 +13,10 @@
     "bad_colors": [
       "PURPLE",
       "RED"
-    ]
+    ],
+    "liq2_win": 10,
+    "liq2_min_eok_kr": 50,
+    "liq2_min_eok_us": 100
   },
   "index": {
     "qqq_color": "LIME",
@@ -27,16 +30,11 @@
     "qqq_ret60": 0.19067229718832124,
     "spy_ret20": 2.2415526058465085,
     "spy_ret60": 3.9577993032266834,
-    "kr_ret20": -14.594382912065928,
-    "kr_ret60": -15.598182735991928
+    "kr_ret20": -16.629066174029273,
+    "kr_ret60": -17.60895170789164
   },
   "error": "",
-  "swapped": [
-    {
-      "base": "XLF",
-      "lev": "UYG"
-    }
-  ],
+  "swapped": [],
   "rows": [
     {
       "base_ticker": "XLF",
@@ -45,12 +43,12 @@
       "lev_ticker": "UYG",
       "lev_market": "US",
       "gate_market": "US",
-      "final_order_ticker": "UYG",
+      "final_order_ticker": "XLF",
       "final_order_market": "US",
-      "order_symbol_or_prefix": "NY:UYG",
-      "is_lev2": true,
-      "lev_reason": "ATR 0.914<=1.5 + 지수수익률(US) + 유동성 $2.22M + 501봉 + safe(QQQ=LIME,SPY=LIME) 전부 통과",
-      "fallback_reason": "",
+      "order_symbol_or_prefix": "NY:XLF",
+      "is_lev2": false,
+      "lev_reason": "",
+      "fallback_reason": "거래대금 탈락 (10일 평균 47.5억 < 100억)",
       "atr_ratio": 0.9138,
       "index_ret20": -1.1931761604425883,
       "index_ret60": 0.19067229718832124,
@@ -58,33 +56,11 @@
       "spy_color": "LIME",
       "kr_color": "PURPLE",
       "liquidity_20d": 2216793.77,
+      "liquidity_10d_eok": 47.5,
+      "liq2_min_eok": 100,
       "age_bars": 501,
-      "order_qty": 93,
-      "order_amount": 13118600
-    },
-    {
-      "base_ticker": "195930",
-      "base_market": "KR",
-      "base_name": "",
-      "lev_ticker": "",
-      "lev_market": "",
-      "gate_market": "US",
-      "final_order_ticker": "195930",
-      "final_order_market": "KR",
-      "order_symbol_or_prefix": "KRX:195930",
-      "is_lev2": false,
-      "lev_reason": "",
-      "fallback_reason": "2x 매핑 없음 (NO_2X)",
-      "atr_ratio": 0.8764,
-      "index_ret20": -1.1931761604425883,
-      "index_ret60": 0.19067229718832124,
-      "qqq_color": "LIME",
-      "spy_color": "LIME",
-      "kr_color": "PURPLE",
-      "liquidity_20d": null,
-      "age_bars": null,
-      "order_qty": 421,
-      "order_amount": 10127155
+      "order_qty": 166,
+      "order_amount": 13660206
     },
     {
       "base_ticker": "EWQ",
@@ -106,9 +82,11 @@
       "spy_color": "LIME",
       "kr_color": "PURPLE",
       "liquidity_20d": null,
+      "liquidity_10d_eok": null,
+      "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 101,
-      "order_amount": 6812424
+      "order_qty": 166,
+      "order_amount": 11196658
     },
     {
       "base_ticker": "EWP",
@@ -130,9 +108,11 @@
       "spy_color": "LIME",
       "kr_color": "PURPLE",
       "liquidity_20d": null,
+      "liquidity_10d_eok": null,
+      "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 48,
-      "order_amount": 4234607
+      "order_qty": 94,
+      "order_amount": 8292772
     },
     {
       "base_ticker": "EWA",
@@ -154,9 +134,11 @@
       "spy_color": "LIME",
       "kr_color": "PURPLE",
       "liquidity_20d": null,
+      "liquidity_10d_eok": null,
+      "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 99,
-      "order_amount": 4233500
+      "order_qty": 96,
+      "order_amount": 4105212
     },
     {
       "base_ticker": "GREK",
@@ -178,9 +160,11 @@
       "spy_color": "LIME",
       "kr_color": "PURPLE",
       "liquidity_20d": null,
+      "liquidity_10d_eok": null,
+      "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 24,
-      "order_amount": 2796625
+      "order_qty": 30,
+      "order_amount": 3495781
     }
   ]
 }

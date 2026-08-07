@@ -62,6 +62,7 @@ def _load_asset_8042() -> int:
 
 ASSET_8042 = _load_asset_8042()
 PENSION_ASSET = 100_000_000  # 연금계좌 기준금액 (1억)
+LOW_AMT_THRESHOLD = 5_000_000_000  # 10일 평균 거래대금 50억 미만 → 행 회색 처리
 
 def _get_kor_price(ticker: str) -> float | None:
     """pykrx로 한국 ETF 현재가(당일/전일 종가) 조회"""
@@ -600,14 +601,16 @@ def _fmt_ref_num(v, mul=1.0, dp=1):
         return "-"
 
 
-def text_to_html_table(text, held_list=None, add_header=False, header_cols=None, low_signals_dict=None, idx_rel_map=None, lime_thresh_map=None, gann_fire_set=None, low_history=None, stab_map=None):
+def text_to_html_table(text, held_list=None, add_header=False, header_cols=None, low_signals_dict=None, idx_rel_map=None, lime_thresh_map=None, gann_fire_set=None, low_history=None, stab_map=None, low_amt_set=None):
     if low_signals_dict is None:
         low_signals_dict = {}
     if lime_thresh_map is None:
         lime_thresh_map = {}
     if gann_fire_set is None:
         gann_fire_set = set()
-    
+    if low_amt_set is None:
+        low_amt_set = set()
+
     if not text:
         return ""
     if len(text.strip().splitlines()) <= 2 and "없음" in text:
@@ -679,7 +682,12 @@ def text_to_html_table(text, held_list=None, add_header=False, header_cols=None,
         elif "PURPLE" in trend_val or trend_val == "-2":
             name_style = 'style="background-color:#9b59b6; color:white; font-weight:bold;"'
 
-        row_html = f'<tr class="warn-x">' if is_warn_x else "<tr>"
+        row_cls_list = []
+        if is_warn_x:
+            row_cls_list.append('warn-x')
+        if current_ticker in low_amt_set:
+            row_cls_list.append('low-amt')
+        row_html = f'<tr class="{" ".join(row_cls_list)}">' if row_cls_list else "<tr>"
 
         lt_pre = lime_thresh_map.get(current_ticker)
         sco_bg = ""
@@ -905,6 +913,7 @@ def main():
     low_signals_dict = {}
     idx_rel_map = {}
     lime_thresh_map = {}
+    low_amt_set = set()   # 10일 평균 거래대금 50억 미만
     low_signal_file = pathlib.Path(__file__).resolve().parent / "kr_etf_low_signals.json"
     if low_signal_file.exists():
         try:
@@ -918,6 +927,9 @@ def main():
                     idx_rel_map[ticker] = sig['idx_rel']
                 if sig.get('lime_label') and sig.get('lime_price') is not None:
                     lime_thresh_map[ticker] = (sig['lime_label'], sig['lime_price'])
+                _a10 = sig.get('amt10')
+                if _a10 is not None and _a10 < LOW_AMT_THRESHOLD:
+                    low_amt_set.add(ticker)
         except:
             pass
 
@@ -1124,7 +1136,8 @@ def main():
         lime_thresh_map=lime_thresh_map,
         gann_fire_set=gann_fire_set,
         low_history=low_history,
-        stab_map=stab_map
+        stab_map=stab_map,
+        low_amt_set=low_amt_set
     )
 
     final_order_html = _build_final_order_table(held_list, rank_block, s_data, idx_rel_map)
@@ -1206,6 +1219,9 @@ h2 {{
 
 .warn-x td {{ opacity: 0.55; }}
 .warn-x td.narrow, .warn-x td.name-col {{ text-decoration: line-through; color: #999 !important; }}
+
+/* 10일 평균 거래대금 50억 미만 — 행 전체 옅은 회색 */
+tr.low-amt td {{ background-color: #f2f2f2; }}
 
 .stats-summary-box {{
     background-color: #fffde7;
@@ -1516,7 +1532,7 @@ td[data-code] + td:hover {{ background-color: #e8f4f8 !important; }}
     <h2 style="border-bottom: 2px solid #e67e22;">🧾 주문용 최종 보유 목록 ({s_data.get('invest_pct_sc3', s_data.get('invest_pct', 0)):.1f}% / {s_data.get('invest_pct_s1', 0):.1f}%, sc3 / s1) <span style="font-size:0.7em; color:#000; font-weight:normal;">- {int(ASSET_8042 / 10000):,}만원 기준 {int(ASSET_8042 * s_data.get('invest_pct_sc3', s_data.get('invest_pct', 0)) / 100 / 10000):,}만원 ({int(ASSET_8042 * s_data.get('invest_pct_s1', 0) / 100 / 10000):,}만원)</span></h2>
     {final_order_html}
 
-    <h2>📊 종목 랭킹 (★: 랭킹상승)</h2>
+    <h2>📊 종목 랭킹 (★: 랭킹상승) <span style="font-size:0.7em; color:#000; font-weight:normal;">- 취소선:코스피하락, 노랑/주황:전환임박, 회색바탕: 50억미만(10일평균)</span></h2>
     {rank_html}
 
     <div class="right-sidebar" style="margin-top: 20px;">

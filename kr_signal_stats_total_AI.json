@@ -1,13 +1,13 @@
 {
-    "avg_sco": 3.3,
+    "avg_sco": 3.2,
     "total_cnt": 151,
     "valid_cnt": 150,
     "atr_excl_cnt": 0,
-    "sco_pos": 101,
-    "sco_neg": 49,
+    "sco_pos": 99,
+    "sco_neg": 51,
     "sco_strong": 28,
-    "sco_zone_neg": 49,
-    "sco_zone_weak": 59,
+    "sco_zone_neg": 51,
+    "sco_zone_weak": 57,
     "sco_zone_mid": 14,
     "sco_zone_strong": 28,
     "strong_count": 28,
@@ -62,15 +62,15 @@
         10,
         8
     ],
-    "ai_core_score": 12.19,
-    "ai_core_dedup_score": 10.63,
-    "ai_core_gap": 1.56,
+    "ai_core_score": 12.15,
+    "ai_core_dedup_score": 10.62,
+    "ai_core_gap": 1.53,
     "ai_core_state": "AI Strong",
     "ai_breadth_state": "Negative",
     "ai_breadth_strong": 7,
     "ai_breadth_mid": 7,
-    "ai_breadth_weak": 12,
-    "ai_breadth_negative": 8,
+    "ai_breadth_weak": 13,
+    "ai_breadth_negative": 7,
     "ai_duplicate_impact": {
         "total_entries": 50,
         "unique_ticker_count": 43,
@@ -82,7 +82,7 @@
             {
                 "ticker": "018260",
                 "count": 2,
-                "Signal_sco": 13.0
+                "Signal_sco": 12.5
             },
             {
                 "ticker": "CRM",
@@ -116,19 +116,19 @@
         {
             "basket": "AI_SOFTWARE_PLATFORM",
             "basket_name_kr": "AI_소프트웨어",
-            "score": 13.66,
+            "score": 13.53,
             "valid_count": 7
         },
         {
             "basket": "AI_DATA_PIPELINE_DATABASE",
             "basket_name_kr": "AI_데이터플랫폼",
-            "score": 13.6,
+            "score": 13.46,
             "valid_count": 7
         },
         {
             "basket": "AI_CYBER_SECURITY",
             "basket_name_kr": "AI_사이버보안",
-            "score": 12.9,
+            "score": 12.89,
             "valid_count": 12
         },
         {
@@ -144,7 +144,7 @@
             "name": "SNOW",
             "Signal_sco": 16.0,
             "return_3m": 109.9,
-            "Final_score": 0.991,
+            "Final_score": 1.0,
             "baskets": [
                 "AI_DATA_PIPELINE_DATABASE",
                 "AI_SOFTWARE_PLATFORM"
@@ -155,7 +155,7 @@
             "name": "PATH",
             "Signal_sco": 15.5,
             "return_3m": 31.33,
-            "Final_score": 0.9639,
+            "Final_score": 0.9742,
             "baskets": [
                 "AI_AGENT_AUTOMATION_RPA"
             ]
@@ -165,7 +165,7 @@
             "name": "MSFT",
             "Signal_sco": 15.5,
             "return_3m": 21.39,
-            "Final_score": 0.9568,
+            "Final_score": 0.9577,
             "baskets": [
                 "AI_CLOUD_HYPERSCALER",
                 "AI_AGENT_AUTOMATION_RPA"
@@ -176,20 +176,9 @@
             "name": "HXGBY",
             "Signal_sco": 15.5,
             "return_3m": 19.74,
-            "Final_score": 0.9539,
+            "Final_score": 0.9549,
             "baskets": [
                 "AI_ROBOT_COMPONENT"
-            ]
-        },
-        {
-            "ticker": "018260",
-            "name": "삼성에스디에스",
-            "Signal_sco": 13.0,
-            "return_3m": 26.6,
-            "Final_score": 0.9152,
-            "baskets": [
-                "AI_DATA_PIPELINE_DATABASE",
-                "AI_SOFTWARE_PLATFORM"
             ]
         },
         {
@@ -197,9 +186,20 @@
             "name": "EMR",
             "Signal_sco": 15.5,
             "return_3m": 12.99,
-            "Final_score": 0.8967,
+            "Final_score": 0.9087,
             "baskets": [
                 "AI_FACTORY_AUTOMATION"
+            ]
+        },
+        {
+            "ticker": "018260",
+            "name": "삼성에스디에스",
+            "Signal_sco": 12.5,
+            "return_3m": 23.26,
+            "Final_score": 0.89,
+            "baskets": [
+                "AI_DATA_PIPELINE_DATABASE",
+                "AI_SOFTWARE_PLATFORM"
             ]
         },
         {
@@ -207,7 +207,7 @@
             "name": "S",
             "Signal_sco": 14.5,
             "return_3m": 27.13,
-            "Final_score": 0.8743,
+            "Final_score": 0.8862,
             "baskets": [
                 "AI_CYBER_SECURITY"
             ]
@@ -217,7 +217,7 @@
             "name": "HPE",
             "Signal_sco": 14.5,
             "return_3m": 70.34,
-            "Final_score": 0.8732,
+            "Final_score": 0.8849,
             "baskets": [
                 "AI_CPU_SERVER",
                 "AI_DATACENTER_REIT_SERVER"
@@ -228,7 +228,7 @@
             "name": "ANET",
             "Signal_sco": 15.0,
             "return_3m": 40.97,
-            "Final_score": 0.8645,
+            "Final_score": 0.8766,
             "baskets": [
                 "AI_NETWORKING_SWITCH_DPU"
             ]
@@ -238,7 +238,7 @@
             "name": "NOW",
             "Signal_sco": 14.5,
             "return_3m": 28.27,
-            "Final_score": 0.8601,
+            "Final_score": 0.8723,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
                 "AI_AGENT_AUTOMATION_RPA"
@@ -246,5 +246,5 @@
         }
     ],
     "ai_basket_count": 34,
-    "update_time": "2026-08-07 09:02:52"
+    "update_time": "2026-08-07 11:51:25"
 }

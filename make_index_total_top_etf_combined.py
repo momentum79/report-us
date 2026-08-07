@@ -779,6 +779,8 @@ def read_data() -> list:
                     "type":        "KR" if is_kr else "US",
                     "is_kr":       is_kr,
                     "intensity":   is_intensity,
+                    "avg_tv_eok":  _f(row.get("avg_tv_eok", "")),
+                    "liq_min_eok": _f(row.get("liq_min_eok", "")),
                 })
     except Exception as e:
         print(f"[오류] CSV 읽기 실패: {e}")
@@ -1046,21 +1048,32 @@ def build_final_order_table(held_list: list, data: list, s_data: dict,
                 rebalancing_rows.append(f"{order_tk},{qty}")
                 lev_qty_map[tk] = (qty, int(qty_krw))
         else:
+            qty = 0
             qty_disp = qty_amt_disp = '-'
             if need_qty:
                 # 9-11: 수량 산출이 필요한 종목인데 현재가 조회 실패 → 전체 파일 생성 중단
                 order_build_failed = True
                 failed_tickers.append(tk)
 
-        # 연금 = YP(8042) 계좌 실잔고(holdings_8042.json, tag=="통합ETF"). 목표수량 계산과
-        # 무관하게 실제 산 수량을 그대로 보여준다(2x 대체와 무관 → 항상 본주 티커 기준).
-        pension_qty = actual_8042_qty.get(tk, 0)
-        if pension_qty > 0 and price and price > 0:
-            pension_krw = pension_qty * price if use_krx_price else pension_qty * price * USD_KRW_EFFECTIVE
-            pension_qty_disp = f'{pension_qty:,}주'
-            pension_amt_disp = f'{int(pension_krw / 10000):,}만원'
+        # 실제/차이 = YP(8042) 계좌 실잔고(holdings_8042.json, tag=="통합ETF").
+        # 목표수량이 2x 치환 티커 기준으로 산출되므로 실잔고도 같은 티커로 맞춘다.
+        # 그래야 차이(주수·금액)가 같은 단위끼리의 뺄셈이 된다.
+        actual_qty = actual_8042_qty.get(order_tk, 0)
+        unit_price_krw = None
+        if order_price and order_price > 0:
+            unit_price_krw = order_price if order_is_kr else order_price * USD_KRW_EFFECTIVE
+
+        actual_qty_disp = f'{actual_qty:,}주' if actual_qty > 0 else '-'
+
+        diff_qty = actual_qty - qty
+        if actual_qty == 0 and qty > 0:
+            diff_disp = '<span style="color:#c0392b;font-weight:bold;">사야됨</span>'
+        elif diff_qty == 0:
+            diff_disp = '-'
         else:
-            pension_qty_disp = pension_amt_disp = '-'
+            amt = f' ({int(abs(diff_qty) * unit_price_krw / 10000):,}만)' if unit_price_krw else ''
+            diff_color = '#c0392b' if diff_qty < 0 else '#1a6fd4'
+            diff_disp = f'<span style="color:{diff_color};">{diff_qty:+,}주{amt}</span>'
 
         if is_kr:
             # 한국종목: 티커 대신 종목명에 hover → 차트 (트리거 attr을 종목명 셀로 이동)
@@ -1091,8 +1104,8 @@ def build_final_order_table(held_list: list, data: list, s_data: dict,
             + lev_td +
             f'<td style="font-weight:bold;">{qty_disp}</td>'
             f'<td class="pc-only" style="color:#555;">{qty_amt_disp}</td>'
-            f'<td style="font-weight:bold;color:#8e44ad;">{pension_qty_disp}</td>'
-            f'<td class="pc-only" style="color:#8e44ad;">{pension_amt_disp}</td>'
+            f'<td style="font-weight:bold;color:#8e44ad;">{actual_qty_disp}</td>'
+            f'<td class="pc-only">{diff_disp}</td>'
             f'</tr>'
         )
 
@@ -1111,12 +1124,30 @@ def build_final_order_table(held_list: list, data: list, s_data: dict,
         '<th>Sco</th><th>비중</th><th>지수대비(%)</th>'
         '<th>2x</th>'
         '<th>수량</th><th class="pc-only">총액</th>'
-        '<th>연금</th><th class="pc-only">총액</th>'
+        '<th>실제</th><th class="pc-only">차이</th>'
         '</tr></thead>'
         '<tbody>\n'
         + '\n'.join(rows_html)
         + '\n</tbody></table>\n'
     )
+
+
+def build_liq_rejected_html(s_data: dict) -> str:
+    """거래대금 미달로 주문 목록에서 빠진 종목 안내. 없으면 아무것도 그리지 않는다."""
+    items = s_data.get("liq_rejected") or []
+    if not items:
+        return ""
+    parts = []
+    for d in items:
+        tk = str(d.get("ticker", "")).strip()
+        nm = str(d.get("name", "")).strip()
+        if not tk:
+            continue
+        parts.append(f"{tk}({nm})" if nm and nm != tk else tk)
+    if not parts:
+        return ""
+    return ('<div style="margin:-4px 0 14px;color:#c0392b;font-size:0.9em;font-weight:bold;">'
+            f'거래대금탈락: {", ".join(parts)}</div>')
 
 
 def build_stats_html(s_data: dict, data: list = None) -> str:
@@ -1281,6 +1312,7 @@ def main():
                                                 held_status, stats_status, price_map,
                                                 lev_overlay=lev_overlay,
                                                 qty_out=lev_qty_map)
+    liq_rejected_html = build_liq_rejected_html(s_data)
     # 주문기(allone)용 '전략 비중' JSON 생성(절대수량 아님). 각 계좌가 자체 총자산으로 수량 산출.
     build_target_weights(held_list, data, s_data, held_status, stats_status, price_map,
                          lev_overlay=lev_overlay)
@@ -1306,6 +1338,13 @@ def main():
             row_style = ' style="background-color: #CCFFFF;"'
         else:
             row_style = ""
+
+        # 💧 거래대금 미달 = 주문 후보에서 빠진 종목. 랭킹에는 남기되 Ticker/Name 만 옅은 빨강.
+        # CSV 에 유동성 컬럼이 없으면(구버전) 표시하지 않는다.
+        liq_min  = item.get("liq_min_eok")
+        liq_tv   = item.get("avg_tv_eok")
+        liq_fail = liq_min is not None and (liq_tv is None or liq_tv < liq_min)
+        row_cls  = ' class="liq-fail"' if liq_fail else ''
 
         chg = item.get("chg")
         chg_str = f"{chg:+.1f}%" if chg is not None else "-"
@@ -1367,7 +1406,7 @@ def main():
 
         name_cell = build_name_cell(item)
         rows_html += (
-            f'\n            <tr{row_style}>'
+            f'\n            <tr{row_cls}{row_style}>'
             + ticker_td
             + name_cell +
             f'<td class="{chg_cls}">{chg_str}</td>'
@@ -1421,6 +1460,9 @@ h3 {{ margin: 8px 0 4px 0; padding-bottom: 3px; color: #2c3e50; border-bottom: 2
 .styled-table td {{ text-align: center; }}
 .styled-table td.narrow {{ font-weight: bold; color: #2980b9; text-align: left; }}
 .styled-table td.name-col {{ max-width: 150px; overflow: hidden; text-overflow: ellipsis; text-align: left; }}
+/* 거래대금 미달(주문 후보 제외) — Ticker/Name 두 칸만 옅은 빨강 */
+.styled-table tr.liq-fail > td:nth-child(1),
+.styled-table tr.liq-fail > td:nth-child(2) {{ background-color: #fdeaea; }}
 .type-kr {{ color: #e74c3c; font-weight: bold; font-size: 0.75rem; }}
 .type-us {{ color: #3498db; font-weight: bold; font-size: 0.75rem; }}
 .sig-up {{ color: #27ae60; font-weight: bold; }}
@@ -1602,6 +1644,7 @@ body.naver-popup-open {{ overflow: hidden; }}
 
     <h2>🧾 주문용 최종 보유 목록 ({s_data.get('invest_pct', 0):.1f}%) <span style="font-size:0.7em; color:#000; font-weight:normal;">- {int(ASSET_8042 / 10000):,}만원 기준 {int(ASSET_8042 * s_data.get('invest_pct', 0) / 100 / 10000):,}만원</span></h2>
     {final_order_html}
+    {liq_rejected_html}
 
     <h3>📊 ETF 랭킹 &nbsp;<span style="font-size:0.8em;font-weight:normal;color:#555;">(노랑: 주문용 보유, 파랑: sco&ge;11 | Score=Final×100, Base=기본점수×100, Stab=안정성0~1)</span></h3>
     <table class="styled-table">
