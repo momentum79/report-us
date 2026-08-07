@@ -1,19 +1,19 @@
 {
-    "avg_sco": 4.3,
+    "avg_sco": 5.7,
     "total_cnt": 132,
     "valid_cnt": 132,
     "atr_excl_cnt": 0,
-    "sco_pos": 87,
-    "sco_neg": 45,
-    "sco_strong": 33,
-    "sco_zone_neg": 45,
-    "sco_zone_weak": 39,
-    "sco_zone_mid": 15,
-    "sco_zone_strong": 33,
-    "strong_count": 33,
-    "top3_avg_sco": 15.67,
+    "sco_pos": 103,
+    "sco_neg": 29,
+    "sco_strong": 42,
+    "sco_zone_neg": 29,
+    "sco_zone_weak": 49,
+    "sco_zone_mid": 12,
+    "sco_zone_strong": 42,
+    "strong_count": 42,
+    "top3_avg_sco": 16.0,
     "top3_avg_pos": 1.0,
-    "kospi_trend": "-",
+    "kospi_trend": "PURPLE",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
@@ -23,39 +23,39 @@
     "shanghai_trend": "GREEN",
     "hongkong_trend": "-",
     "brazil_trend": "-",
-    "kospi_mult": 0.2,
+    "kospi_mult": 0.1,
     "nasdaq_mult": 0.85,
-    "invest_pct": 48.8,
-    "invest_amount_total": 48781497,
+    "invest_pct": 84.0,
+    "invest_amount_total": 83979997,
     "internal_weights": [
-        28.7926,
-        25.7998,
-        16.5119,
-        10.3199,
-        10.3199,
-        8.2559
+        31.7786,
+        24.3465,
+        16.4018,
+        10.2512,
+        10.2512,
+        6.9708
     ],
     "n_holdings": 6,
     "holdings_tickers": [
-        "GREK",
         "XLF",
-        "EWP",
+        "195930",
         "EWQ",
+        "EWP",
         "EWA",
-        "EWS"
+        "GREK"
     ],
     "final_ratios": {
-        "GREK": 14.05,
-        "XLF": 12.59,
-        "EWP": 8.05,
-        "EWQ": 5.03,
-        "EWA": 5.03,
-        "EWS": 4.03
+        "XLF": 26.69,
+        "195930": 20.45,
+        "EWQ": 13.77,
+        "EWP": 8.61,
+        "EWA": 8.61,
+        "GREK": 5.85
     },
     "top3_tickers": [
-        "GREK",
         "XLF",
-        "EWP"
+        "195930",
+        "EWQ"
     ],
     "allocation_map_used": [
         31,
@@ -71,5 +71,5 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-08-06 21:11:53"
+    "update_time": "2026-08-07 09:02:09"
 }
