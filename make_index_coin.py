@@ -1225,6 +1225,24 @@ def build_html(data):
     .grid {{ justify-content: stretch; }}
     .grid-row1, .grid-row2, .grid-row3 {{ grid-template-columns: 1fr; }}
   }}
+
+  /* ───── 모바일 전용: SCO 분포 + 업비트 + 바이낸스 3블록만 노출 (PC 영향 없음) ───── */
+  @media (max-width: 767px) {{
+    body {{ padding: 10px; }}
+    .page-flex {{ flex-direction: column; align-items: stretch; }}
+    .page-left {{ width: 100%; min-width: 0; max-width: 100%; }}
+    .acct-wrap {{ width: 100%; flex-direction: column; }}
+    .ac-card {{ min-width: 0; max-width: 100%; flex: 0 0 auto; }}
+    .ac-binance {{ max-width: 100%; }}
+    table.ac-t {{ font-size: 0.86rem; }}
+    table.ac-t th, table.ac-t td {{ padding: 5px 4px; }}
+
+    /* 좌측 컬럼은 전부 감추고 SCO 분포 카드 하나만 되살림 */
+    .page-left > * {{ display: none; }}
+    .page-left > .grid-row1 {{ display: grid; grid-template-columns: 1fr; }}
+    .grid-row1 > .card {{ display: none; }}
+    .grid-row1 > .card-dist {{ display: flex; }}
+  }}
 </style>
 </head>
 <body>
