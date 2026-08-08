@@ -467,6 +467,10 @@ h3 {{ margin: 8px 0 4px 0; padding-bottom: 3px; color: #2c3e50; border-bottom: 2
     .styled-table th, .styled-table td {{ padding: 4px 5px; }}
     .pc-only {{ display: none !important; }}
 }}
+/* 모바일: Name 열 숨김 (좁은 화면에서 다른 지표를 더 보기 위함, PC는 그대로) */
+@media (max-width: 767px) {{
+    .styled-table th.name-col, .styled-table td.name-col {{ display: none !important; }}
+}}
 </style>
 </head>
 <body>
@@ -488,7 +492,7 @@ h3 {{ margin: 8px 0 4px 0; padding-bottom: 3px; color: #2c3e50; border-bottom: 2
         <thead>
             <tr>
                 <th>Ticker</th>
-                <th>Name</th>
+                <th class="name-col">Name</th>
                 <th>현재가</th>
                 <th>등락률(%)</th>
                 <th>위치</th>

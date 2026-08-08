@@ -263,7 +263,9 @@ const krAxisFmt=p=>{
   const v=Math.round(p);
   return Math.abs(v)>=1000000 ? Math.round(v/1000).toLocaleString()+'K' : v.toLocaleString();
 };
-const usAxisFmt=p=>p.toFixed(2);
+// 백만 이상은 38.4M 처럼 축약 — 가격축 라벨 폭이 줄어 차트 그리는 영역이 넓어진다
+const millFmt=v=>{const s=(v/1e6).toFixed(1);return (s.endsWith('.0')?s.slice(0,-2):s)+'M';};
+const usAxisFmt=p=>Math.abs(p)>=1e6 ? millFmt(p) : p.toFixed(2);
 const krPriceFormat={type:'custom',minMove:1,formatter:krAxisFmt};
 const usPriceFormat={type:'custom',minMove:0.01,formatter:usAxisFmt};
 
@@ -423,7 +425,8 @@ function renderCard(card, raw, isKr){
     priceFormat});
   candle.setData(raw.map(r=>({time:r[0],open:r[1],high:r[2],low:r[3],close:r[4]})));
   const vol = cChart.addHistogramSeries({priceScaleId:'',
-    priceFormat:{type:'custom',minMove:1,formatter:v=>Math.round(v/1000).toLocaleString()+'K'}});
+    priceFormat:{type:'custom',minMove:1,
+      formatter:v=>Math.abs(v)>=1e6?millFmt(v):Math.round(v/1000).toLocaleString()+'K'}});
   vol.priceScale().applyOptions({scaleMargins:{top:0.85,bottom:0}});
   vol.setData(raw.map(r=>({time:r[0],value:r[5],
     color:r[4]>=r[1]?VOL_UP:VOL_DOWN})));

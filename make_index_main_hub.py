@@ -859,7 +859,7 @@ def main():
 
     # --- 히스토리 동적 차트 ---
     chart_hist_html = """
-    <div style="background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 60%;">
+    <div class="regime-hist-box" style="background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 60%;">
         <div style="display: flex; gap: 6px; margin-bottom: 10px; justify-content: flex-end;">
             <button class="hist-btn" data-period="1M">1M</button>
             <button class="hist-btn" data-period="3M">3M</button>
@@ -867,7 +867,7 @@ def main():
             <button class="hist-btn" data-period="1Y">1Y</button>
             <button class="hist-btn active" data-period="ALL">ALL</button>
         </div>
-        <div style="position: relative; height: 420px; width: 100%;">
+        <div class="regime-hist-canvas" style="position: relative; height: 420px; width: 100%;">
             <canvas id="regimeHistoryChart"></canvas>
         </div>
     </div>
@@ -1190,6 +1190,11 @@ body {{
 }}
 @media screen and (max-width: 950px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {{
   .top-nav-container, .top-nav {{ display: none !important; }}
+}}
+/* 모바일: Market Regime History 를 화면폭에 꽉 채움 (PC 60% 유지) */
+@media (max-width: 767px) {{
+  .regime-hist-box {{ max-width: 100% !important; padding: 8px !important; }}
+  .regime-hist-canvas {{ height: 300px !important; }}
 }}
 
 /* ── Top3 Leadership 카드 (컴팩트) ── */
