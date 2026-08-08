@@ -39,7 +39,7 @@ Ticker Industry  Price($)  등락률(%)  Signal_sco  수익률(%)  Final_score N
 MSFT      📱TECH    499.99    0.03        16.0   22.88         0.98      -
 SCHW      🏦FINA    107.60   -0.06        16.0   19.32         0.98      -
 
-이전 Top4: ['BAC', 'SCHW', 'ADP', 'COF', 'ANET', 'BRK-B', 'AMGN', 'MET', 'TMO']
+이전 Top4: ['HPQ', 'BAC', 'MSFT', 'SCHW', 'ADP', 'AMGN', 'MET', 'ANET', 'BRK-B', 'TMO', 'COF']
 
 === 유지된 이전 Top4 (오늘 Top4 탈락했지만 sco>=11) ===
 Ticker Industry  Signal_sco  수익률(%)  Final_score
@@ -208,7 +208,7 @@ Ticker Industry  Price($)  등락률(%)  Signal_sco  수익률(%)  Final_score N
 MSFT      📱TECH    499.99    0.03        16.0   22.88         0.98      -
 SCHW      🏦FINA    107.60   -0.06        16.0   19.32         0.98      -
 
-이전 Top4: ['BAC', 'SCHW', 'ADP', 'COF', 'ANET', 'BRK-B', 'AMGN', 'MET', 'TMO']
+이전 Top4: ['HPQ', 'BAC', 'MSFT', 'SCHW', 'ADP', 'AMGN', 'MET', 'ANET', 'BRK-B', 'TMO', 'COF']
 
 === 유지된 이전 Top4 (오늘 Top4 탈락했지만 sco>=11) ===
 Ticker Industry  Signal_sco  수익률(%)  Final_score
@@ -255,4 +255,4 @@ Ticker Industry      ATR5    ATR60    ATR비율
 
 합계 검증: 172 == 172?
 
-[실행 시간] 20.42초
+[실행 시간] 33.94초

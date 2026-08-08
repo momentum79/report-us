@@ -1271,6 +1271,27 @@ def main():
 
     res['지수대비(%)'] = res.apply(calc_idx_relative, axis=1)
 
+    # ✅ 전체 유니버스 스냅샷 저장 (필터 없이 전 종목, TR 오더테이블 조회용)
+    try:
+        snapshot_tickers = {}
+        for _, r in res.iterrows():
+            snapshot_tickers[str(r['Ticker'])] = {
+                'sco': round(float(r['Signal_sco']), 2) if pd.notna(r['Signal_sco']) else None,
+                'final': round(float(r['Final_score']), 4) if pd.notna(r['Final_score']) else None,
+                'rtn': round(float(r['수익률(%)']), 2) if pd.notna(r['수익률(%)']) else None,
+                'pos': r.get('정배', '-'),
+                'color': r.get('추세', '-'),
+            }
+        snapshot_path = os.path.join("D:\\py\\report-us", "us_etf_all_signal_snapshot.json")
+        with open(snapshot_path, 'w', encoding='utf-8') as f:
+            json.dump({
+                'updated': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                'count': len(snapshot_tickers),
+                'tickers': snapshot_tickers,
+            }, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"⚠️ us_etf_all_signal_snapshot.json 저장 실패: {e}")
+
     print("\n=== US ETF Momentum Top ===")
 
     # ✅ 15개 컬럼 출력 (Name 제외)

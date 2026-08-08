@@ -279,6 +279,23 @@ def color_from_row(row):
     return "-"
 
 
+def _pos_label(close_series):
+    """종가와 이동평균 위치: 정배/역배/-"""
+    c = close_series.iloc[-1]
+    ma5 = close_series.rolling(5).mean().iloc[-1]
+    ma10 = close_series.rolling(10).mean().iloc[-1]
+    ma20 = close_series.rolling(20).mean().iloc[-1]
+    ma60 = close_series.rolling(60).mean().iloc[-1]
+    ma120 = close_series.rolling(120).mean().iloc[-1]
+    if pd.isna(ma120):
+        return "-"
+    if c >= ma5 >= ma10 >= ma20 >= ma60 >= ma120:
+        return "정배"
+    if c <= ma5 <= ma10 <= ma20 <= ma60 <= ma120:
+        return "역배"
+    return "-"
+
+
 def main():
     start_time = time.time()
 
@@ -486,6 +503,7 @@ def main():
                 "HighVol": is_high_volume,  # ✅ 추가
                 "NewSig": new_signal,        # ✅ 추가
                 "Color": color_state,
+                "Pos": _pos_label(close),
                 **sco_vals,
                 **rtn_vals,
                 **color_vals,
@@ -537,6 +555,27 @@ def main():
     )
 
     res = res.sort_values("Final_score", ascending=False).reset_index(drop=True)
+
+    # ✅ 전체 유니버스 스냅샷 저장 (필터 없이 전 종목, TR 오더테이블 조회용)
+    try:
+        snapshot_tickers = {}
+        for _, r in res.iterrows():
+            snapshot_tickers[str(r["Ticker"])] = {
+                "sco": round(float(r["Signal_sco"]), 2),
+                "final": round(float(r["Final_score"]), 4),
+                "rtn": round(float(r["수익률(%)"]), 2) if pd.notna(r["수익률(%)"]) else None,
+                "pos": r.get("Pos", "-"),
+                "color": r.get("Color", "-"),
+            }
+        snapshot_path = os.path.join(os.path.dirname(__file__), "us_finviz_all_signal_snapshot.json")
+        with open(snapshot_path, "w", encoding="utf-8") as f:
+            json.dump({
+                "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "count": len(snapshot_tickers),
+                "tickers": snapshot_tickers,
+            }, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"⚠️ us_finviz_all_signal_snapshot.json 저장 실패: {e}")
     order_a_df = res[
         res["OrderARecent2"]
     ].head(10).copy()

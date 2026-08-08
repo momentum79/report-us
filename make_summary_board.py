@@ -36,6 +36,7 @@ LEADER_TRACK_150   = BASE / "leader_tracking_150.json"
 LEADER_TRACK_ALL   = BASE / "leader_tracking.json"
 GANN_FIRE_150      = BASE / "kr150_gann_fire_set.json"
 REPORT_KR_SUMMARY  = BASE / "report_kr_summary.txt"
+KR_ALL_SNAPSHOT_JSON = BASE / "kr_all_signal_snapshot.json"  # 전체 유니버스 스냅샷(sco/final/pos/color) - TR 오더테이블 조회용
 GANN_FIRE_KR       = BASE / "kr_gann_fire_set.json"
 REPORT_VOLUME_JSON = BASE / "report_volume.json"
 NAVER_LEADER_POOL_JSON = BASE / "naver_leader_pool.json"
@@ -591,6 +592,14 @@ def _collect_kr_signal_items():
         for r in rows:
             set_field(r['ticker'], color=r.get('sig'))
 
+    # 🆕 위 소스에 없는 종목(저장티커는 있으나 Top30/신호 블록엔 안 뜨는 경우) 보강용 전체 유니버스 스냅샷
+    try:
+        snap = json.loads(KR_ALL_SNAPSHOT_JSON.read_text('utf-8'))
+        for code, v in (snap.get('tickers') or {}).items():
+            set_field(code, sco=v.get('sco'), final=v.get('final'), color=v.get('color'), pos=v.get('pos'))
+    except (OSError, ValueError):
+        pass
+
     return items
 
 
@@ -640,14 +649,15 @@ def build_kr_tr_order() -> str:
             f'<td>{c.get("price") or 0:,}</td><td>{chg}</td><td>{order_price:,}</td>'
             f'<td>{html.escape(str(sig.get("sco") or "-"))}</td><td>-</td>'
             f'<td>{html.escape(str(sig.get("final") or "-"))}</td>'
-            f'<td>{html.escape(str(sig.get("color") or "-"))}</td></tr>'
+            f'<td>{html.escape(str(sig.get("color") or "-"))}</td>'
+            f'<td>{html.escape(str(sig.get("pos") or "-"))}</td></tr>'
         )
 
     if not body:
-        body = '<tr><td colspan="10" style="color:#999;">매수 후보 없음</td></tr>'
+        body = '<tr><td colspan="11" style="color:#999;">매수 후보 없음</td></tr>'
 
     title = f'🎯 한국주식 TR 통합 주문 예상표 - {len(candidates)}종목, {budget:,.0f}원 기준'
-    headers = ['종목코드', '종목명', '구분', '현재가(원)', '등락률(%)', '주문가(원)', 'sco', '3M(%)', 'Final', 'Color']
+    headers = ['종목코드', '종목명', '구분', '현재가(원)', '등락률(%)', '주문가(원)', 'sco', '3M(%)', 'Final', 'Color', '위치']
     head = ''.join(f'<th>{h}</th>' for h in headers)
     return (f'<h3 class="sec-title tr-order-title" style="border-bottom-color:#e67e22;">{title}</h3>'
             f'<table class="styled-tableWide tr-order-table"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table>')

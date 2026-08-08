@@ -293,6 +293,35 @@ def _collect_us_signal_items():
             status=row.get("status", ""),
         )
 
+    # 🆕 위 소스에 없는 종목(저장티커는 있으나 ORDER A/VCP엔 안 뜨는 경우) 보강용 전체 유니버스 스냅샷
+    for snap_file, src_label in (
+        (BASE / "us_finviz_all_signal_snapshot.json", "Finviz全"),
+        (BASE / "us_main_all_signal_snapshot.json", "Main全"),
+        (BASE / "us_etf_all_signal_snapshot.json", "ETF全"),
+    ):
+        try:
+            snap = json.loads(snap_file.read_text("utf-8"))
+            for tk, v in (snap.get("tickers") or {}).items():
+                _add_or_merge_candidate(
+                    items, tk, src_label,
+                    sco=v.get("sco"), rtn=v.get("rtn"), final=v.get("final"),
+                    color=v.get("color"), pos=v.get("pos"),
+                )
+        except (OSError, ValueError):
+            pass
+
+    # 🆕 국가 ETF(EWY 등) 보강용: world_rank.json은 필터 없이 전 국가 ETF를 매일 갱신
+    try:
+        world = json.loads((BASE / "world_rank.json").read_text("utf-8"))
+        for row in world.get("data") or []:
+            _add_or_merge_candidate(
+                items, row.get("Ticker"), "World",
+                sco=row.get("sco"), rtn=row.get("Return3M"), final=row.get("Score"),
+                color=row.get("추세"), pos=row.get("정"),
+            )
+    except (OSError, ValueError):
+        pass
+
     return items
 
 
@@ -409,10 +438,11 @@ def build_us_tr_order():
             sig.get("final") or fallback.get("final") or "-",
             sig.get("color") or "-",
             sig.get("status") or "-",
+            sig.get("pos") or "-",
         ])
 
     title = f"🎯 미국주식 TR 통합 주문 예상표 - {len(candidates)}종목, ${budget:,.0f} 기준"
-    headers = ["Ticker", "구분", "Price($)", "등락률(%)", "sco", "3M(%)", "Final", "Color", "상태"]
+    headers = ["Ticker", "구분", "Price($)", "등락률(%)", "sco", "3M(%)", "Final", "Color", "상태", "위치"]
     table = mini_table(headers, rows, chg_cols={3})
     return f'<div class="us-tr-order"><h2>{title}</h2>\n{table}</div>'
 
@@ -552,17 +582,16 @@ def _safe(fn):
 
 def build_content():
     parts = []
-    # 왼쪽(VCP 후보)보다 오른쪽(TR 주문표)이 훨씬 길어서 왼쪽 밑에 빈 공간이 남으므로,
-    # 그 아래 있던 통합 주문 예상표를 오른쪽 컬럼으로 옮겨 오른쪽에 이어붙인다.
+    parts.append(f'<div class="section">{_safe(build_minervini2)}</div>')
+    parts.append(f'<div class="section">{_safe(build_top10_row)}</div>')
+    # 스크롤을 줄이려고 TR 주문표(45종목)와 $5,000 통합 주문표를 나란히 배치.
+    # 후보 종목 수가 매일 바뀌어서 높이가 안 맞을 수 있지만(빈 공간 발생 가능), 스크롤 단축이 우선.
     parts.append(
-        '<div class="section"><div class="us-top-split">'
-        f'<div class="us-top-left">{_safe(build_minervini2)}</div>'
-        f'<div class="us-top-right">{_safe(build_us_tr_order)}'
-        f'<div style="margin-top:14px;">{_safe(build_us_stock_order_integrated)}</div></div>'
+        '<div class="section"><div class="cols-tight">'
+        f'<div>{_safe(build_us_tr_order)}</div>'
+        f'<div>{_safe(build_us_stock_order_integrated)}</div>'
         '</div></div>'
     )
-    # 3·4 rows: Top10 / signals
-    parts.append(f'<div class="section">{_safe(build_top10_row)}</div>')
     parts.append(f'<div class="section">{_safe(build_signals_row)}</div>')
     return "\n".join(parts)
 
@@ -596,13 +625,9 @@ h2 {{ margin-top: 18px; margin-bottom: 8px; padding-bottom: 5px; color: #2c3e50;
 /* 내용 너비에 맞춰 붙여서 배치 (늘어나지 않음) - 우량주 Top10·주문용 Top4 한 줄용 */
 .cols-tight {{ display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }}
 .cols-tight > .col, .cols-tight > div {{ flex: 0 1 auto; min-width: 0; }}
-.us-top-split {{ display:flex; gap:18px; align-items:flex-start; }}
-.us-top-left {{ flex: 0 0 1134px; min-width:0; }}
-.us-top-right {{ flex: 1 1 auto; min-width:0; padding-top:0; }}
 .us-tr-order h2 {{ margin-top: 18px; font-size: 1.35em; }}
 .us-tr-order .styled-table {{ font-size: 15px; }}
 .us-tr-order .styled-table th, .us-tr-order .styled-table td {{ padding: 7px 12px; }}
-@media (max-width: 1600px) {{ .us-top-split {{ flex-direction:column; }} .us-top-left, .us-top-right {{ flex:1 1 auto; width:100%; }} }}
 
 .styled-table {{ width: auto; border-collapse: collapse; margin: 8px 0 14px 0; font-size: 13px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }}
 .styled-table thead tr {{ background: linear-gradient(135deg, #e67e22, #d35400); color: #fff; text-align: center; }}

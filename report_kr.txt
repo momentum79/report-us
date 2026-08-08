@@ -2,24 +2,22 @@ C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pykrx\__
   import pkg_resources
 ✅ NXT/선 종목 수: 625개
 
-📡 장중 감지 → 현재가 일괄 로드 중...
-⚠ 현재가 로드 실패 (장중 등락률 정확도 저하될 수 있음): module 'pykrx.stock' has no attribute 'get_market_ticker_and_price'
 🔄 v3 캐시 갱신(refresh) 시작...
 ================================================================
 🔄 v3 캐시 갱신  (최근 10일: 20260729~20260808)  [병렬 워커4]
    대상: 973종목  (NXT _AL: 601 / KRX pykrx: 372)
    기존 캐시 last_date: 2026-08-07
 ================================================================
-  진행 100/973  ok=100 fail=0  (15s)
-  진행 200/973  ok=200 fail=0  (30s)
-  진행 300/973  ok=299 fail=1  (43s)
-  진행 400/973  ok=399 fail=1  (57s)
-  진행 500/973  ok=499 fail=1  (72s)
-  진행 600/973  ok=598 fail=2  (85s)
-  진행 700/973  ok=698 fail=2  (98s)
-  진행 800/973  ok=798 fail=2  (113s)
-  진행 900/973  ok=898 fail=2  (130s)
-  진행 973/973  ok=970 fail=3  (143s)
+  진행 100/973  ok=100 fail=0  (23s)
+  진행 200/973  ok=200 fail=0  (46s)
+  진행 300/973  ok=299 fail=1  (63s)
+  진행 400/973  ok=399 fail=1  (83s)
+  진행 500/973  ok=499 fail=1  (103s)
+  진행 600/973  ok=598 fail=2  (120s)
+  진행 700/973  ok=698 fail=2  (138s)
+  진행 800/973  ok=798 fail=2  (159s)
+  진행 900/973  ok=898 fail=2  (182s)
+  진행 973/973  ok=970 fail=3  (199s)
 ----------------------------------------------------------------
 ✅ 갱신 완료: 신규 수집 970종목 / 실패 3
    갱신 후 last_date: 2026-08-07
@@ -143,6 +141,7 @@ C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pykrx\__
   processed_count: 938
   cache_last_date    : 2026-08-07
   expected_recent    : 2026-08-08
+⚠️ kr_all_signal_snapshot.json 저장 실패: cannot access local variable 'json' where it is not associated with a value
 
 ================================================================================
 📊 종합 Top30 (Final_score 기준)
@@ -274,5 +273,5 @@ Ticker      	Name                	 Signal_sco	    수익률(%)	Final_score	NewSi
 ✅ report_kr.txt 저장 완료: D:\py\report-us\report_kr_summary.txt
 
 ============================================================
-⏱  총 실행시간: 5분 36초 (336.8s)  [v3 캐시 모드]
+⏱  총 실행시간: 7분 33초 (453.9s)  [v3 캐시 모드]
 ============================================================
