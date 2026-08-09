@@ -1,66 +1,9 @@
 {
-  "generated_at": "2026-08-09 17:46:40",
+  "generated_at": "2026-08-10 08:03:29",
   "source_policy": "live volume-first A-grade; KR-all/KR150/Naver confirmation; current cumulative tracking; foreign+institution sell blocks A",
   "counts": {
     "a_grade": 0,
-    "watch": 1
+    "watch": 0
   },
-  "items": [
-    {
-      "ticker": "009150",
-      "name": "삼성전기",
-      "grade": "B",
-      "score": 60,
-      "sources": [
-        "leader_tracking_volume",
-        "legacy_leader_txt",
-        "report_volume_fi_plus",
-        "report_volume_trade"
-      ],
-      "hard_source_count": 1,
-      "reasons": [
-        "거래대금 트래킹 cum +13.84%",
-        "기존 leader txt",
-        "외인+기관 +448억",
-        "당일 거래대금 상위"
-      ],
-      "naver": null,
-      "report_volume": {
-        "rank": 3,
-        "pred_rank": 3,
-        "ticker": "009150",
-        "name": "삼성전기",
-        "change": 5.78,
-        "trade_amount": 2102049,
-        "today": 447.90999999999997,
-        "foreign_today": 216.07,
-        "organ_today": 231.84,
-        "total": -3991.12565,
-        "foreign": -6007.36118,
-        "organ": 2016.23553,
-        "nxt": "NXT선",
-        "snap_price": null,
-        "snap_rank": null,
-        "snap_pct": null,
-        "high_pct": null,
-        "low_pct": null,
-        "open_price": null
-      },
-      "tracking_cum_pct": {
-        "volume": 13.835376532399302
-      },
-      "foreign_inst_today_eok": 447.90999999999997,
-      "volume_rank": 3,
-      "today_change_pct": 5.78,
-      "volume_primary": true,
-      "today_volume_valid": true,
-      "confirm_count": 1,
-      "a_confirm_sources": [],
-      "a_confirm_count": 0,
-      "best_tracking_cum_pct": 13.835376532399302,
-      "collapse_reasons": [],
-      "foreign_inst_sell": false,
-      "early_phase": false
-    }
-  ]
+  "items": []
 }

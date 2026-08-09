@@ -43,6 +43,7 @@ make_weekly_performance.py ── 주간성과 요약 (보유자산 게시판 �
 import os
 import re
 import csv
+import sys
 import glob
 import json
 from datetime import datetime, date, timedelta
@@ -50,6 +51,9 @@ from collections import defaultdict
 
 BASE_DIR   = r"D:\py"
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+import trade_costs  # 수수료·증권거래세 요율 단일 원천
 SIGNAL_DIR = os.path.join(BASE_DIR, "0order", "intraday_signals")
 TR_LEDGER_DIR = os.path.join(BASE_DIR, "0order", "tr", "ledger")
 OUT_DIR      = SCRIPT_DIR
@@ -60,6 +64,26 @@ OUT_XLSX      = os.path.join(OUT_DIR, "weekly_performance.xlsx")       # 전체 
 
 # 웹페이지 표시 구간: 최근 8주(약 2달). 데이터 파일(full json/csv/xlsx)은 전체 보관.
 RECENT_WEEKS = 8
+
+# 미국 체결가는 달러, 한국은 원. 금액 합계를 내려면 통화를 맞춰야 한다.
+# 과거 체결일별 환율은 보관하지 않으므로 최신 환율 하나로 일괄 환산한다(근사).
+EQUITY_CSV = os.path.join(SCRIPT_DIR, "equity_daily.csv")
+USDKRW_FALLBACK = 1400.0
+
+
+def _latest_usdkrw():
+    try:
+        with open(EQUITY_CSV, encoding="utf-8-sig") as f:
+            rates = [float(r["usdkrw"]) for r in csv.DictReader(f)
+                     if str(r.get("account", "")).isdigit() and float(r.get("usdkrw") or 0) > 0]
+        if rates:
+            return rates[-1]
+    except Exception:
+        pass
+    return USDKRW_FALLBACK
+
+
+USDKRW = _latest_usdkrw()
 
 # ───────── 코인(업비트) 주간(월~일) 실현손익 설정 ─────────
 # 주식봇과 달리 코인은 주말도 거래되므로 월~일 7일 기준.
@@ -78,7 +102,7 @@ TAG_ORDER = [
     "통합",
     "주도주", "ROCKET", "ABC-VCP", "수동매매", "통합ETF",
     "2X단타", "삼닉v3_저2", "삼닉v3_추세", "삼닉v3_MA",
-    "5minHL", "5minHL2", "5minHL_미분류",
+    "5minHL", "5minHL2", "5minHL_동시", "5minHL_미분류",
     "KR_TR_ORD_A", "KR_TR_VOLUME_1", "KR_TR_VOLUME_2", "KR_TR_VCP1",
     "KR_TR_VCP2", "KR_TR_JEO2", "KR_TR_MA",
     "미국VCP", "US_TR_ORD_A", "US_TR_VOLUME_1", "US_TR_VOLUME_2",
@@ -93,7 +117,7 @@ TAG_UNIT = {
     "US_TR_ORD_A": "day", "US_TR_VOLUME_1": "day", "US_TR_VOLUME_2": "day",
     "US_TR_VCP1": "day", "US_TR_VCP2": "day", "US_TR_JEO2": "day", "US_TR_MA": "day",
     "2X단타": "min", "삼닉v3_저2": "min", "삼닉v3_추세": "min", "삼닉v3_MA": "min",
-    "5minHL": "min", "5minHL2": "min", "5minHL_미분류": "min",
+    "5minHL": "min", "5minHL2": "min", "5minHL_동시": "min", "5minHL_미분류": "min",
     "기타(8042)": "min", "저점사다리": "min", "통합": "mix",
 }
 
@@ -215,7 +239,9 @@ def resolve_performance_tag(fill):
             return "5minHL"
         if signal == "jeo2":
             return "5minHL2"
-        return "5minHL_미분류"
+        if signal == "jeo_both":
+            return "5minHL_동시"        # 저·저2 동시 발생. 임의 귀속하지 않고 분리 집계
+        return "5minHL_미분류"           # 2026-08-09 이전 체결(봇이 signal 미기록)
     # 8042 (lowhigh 포함) → 기타. lowhigh 는 build_round_trips 에서 이미 제외됨.
     return "기타(8042)"
 
@@ -283,7 +309,7 @@ def build_round_trips(fills):
                         exit_dt  = p["last_sell_dt"] or f["dt"]
                         hold_min = max(0.0, (exit_dt - entry_dt).total_seconds() / 60.0)
                         hold_day = max(0, (exit_dt.date() - entry_dt.date()).days)
-                        trips.append({
+                        trips.append(trade_costs.apply_to_trip({
                             "bot": p["owner"], "source": "intraday", "code": key[1], "name": p["name"],
                             "entry_dt": entry_dt, "exit_dt": exit_dt,
                             "avg_entry": avg_entry, "avg_exit": avg_exit,
@@ -291,7 +317,7 @@ def build_round_trips(fills):
                             "pnl_pct": pnl_pct,
                             "pnl_amt": p["sell_proceeds"] - avg_entry * p["sell_qty"],
                             "hold_min": hold_min, "hold_day": hold_day,
-                        })
+                        }))
                 open_pos.pop(key, None)
     return trips
 
@@ -353,7 +379,7 @@ def build_tr_ledger_round_trips():
             closed_qty = min(buy_qty, sell_qty)
             hold_min = max(0.0, (exit_dt - entry_dt).total_seconds() / 60.0)
             hold_day = max(0, (exit_dt.date() - entry_dt.date()).days)
-            trips.append({
+            trips.append(trade_costs.apply_to_trip({
                 "bot": tag, "source": "tr_ledger", "code": pos.get("code", ""), "name": pos.get("name", ""),
                 "entry_dt": entry_dt, "exit_dt": exit_dt,
                 "avg_entry": avg_entry, "avg_exit": avg_exit,
@@ -361,7 +387,7 @@ def build_tr_ledger_round_trips():
                 "pnl_pct": (avg_exit / avg_entry - 1.0) * 100.0,
                 "pnl_amt": (avg_exit - avg_entry) * closed_qty,
                 "hold_min": hold_min, "hold_day": hold_day,
-            })
+            }))
     return trips
 
 
@@ -376,26 +402,43 @@ def week_label(monday):
     return f"{monday.month:02d}/{monday.day:02d}~{fri.month:02d}/{fri.day:02d}"
 
 
+def _krw(t, field):
+    """체결통화 금액 → 원화. 미국 체결(USD)만 환산."""
+    v = float(t.get(field) or 0.0)
+    return v * USDKRW if t.get("ccy") == "USD" else v
+
+
 def summarize(trips, unit):
-    """라운드트립 리스트 → 그림4-2 지표 dict. unit: 'day'|'min'|'mix'."""
+    """라운드트립 리스트 → 그림4-2 지표 dict. unit: 'day'|'min'|'mix'.
+    승률·평균·손익비·기대값·PF 는 전부 수수료·세금 차감 후(net) 기준이다."""
     n = len(trips)
     if n == 0:
         return {"trades": 0, "winrate": None, "pl_ratio": None,
                 "avg_win": None, "avg_loss": None,
                 "max_win": None, "max_loss": None, "hold_win": None, "hold_loss": None,
-                "sum_pnl_amt": 0}
-    wins   = [t for t in trips if t["pnl_pct"] > 0]
-    losses = [t for t in trips if t["pnl_pct"] <= 0]
+                "expectancy": None, "expectancy_amt": None, "profit_factor": None,
+                "sum_pnl_amt": 0, "sum_pnl_gross": 0, "sum_fee_tax": 0}
+    wins   = [t for t in trips if t["net_pnl_pct"] > 0]
+    losses = [t for t in trips if t["net_pnl_pct"] <= 0]
 
     def avg(xs):
         return round(sum(xs) / len(xs), 2) if xs else None
 
-    # 손익비 = 평균수익금액 / 평균손실금액 (절대 원화 기준, 기준점 1.0)
-    win_amts  = [t["pnl_amt"] for t in wins]
-    loss_amts = [abs(t["pnl_amt"]) for t in losses]
+    # 손익비 = 평균수익금액 / 평균손실금액 (원화 환산, 기준점 1.0)
+    win_amts  = [_krw(t, "net_pnl_amt") for t in wins]
+    loss_amts = [abs(_krw(t, "net_pnl_amt")) for t in losses]
     avg_win_amt  = (sum(win_amts) / len(win_amts)) if win_amts else 0.0
     avg_loss_amt = (sum(loss_amts) / len(loss_amts)) if loss_amts else 0.0
     pl_ratio = round(avg_win_amt / avg_loss_amt, 2) if avg_loss_amt > 0 else None
+
+    # Profit Factor = 총이익 / 총손실. 1.0 이 손익분기, 1.5 이상이면 견고.
+    gross_profit = sum(win_amts)
+    gross_loss   = sum(loss_amts)
+    profit_factor = round(gross_profit / gross_loss, 2) if gross_loss > 0 else None
+
+    # Expectancy = 1거래당 기대 수익. %(통화무관)와 금액(원화) 둘 다 낸다.
+    expectancy     = round(sum(t["net_pnl_pct"] for t in trips) / n, 3)
+    expectancy_amt = int(round(sum(_krw(t, "net_pnl_amt") for t in trips) / n))
 
     # 통합(mix)은 일/분이 섞여 보유시간 평균이 무의미 → 보유 컬럼 공백
     if unit == "mix":
@@ -409,13 +452,18 @@ def summarize(trips, unit):
         "trades": n,
         "winrate": round(len(wins) / n * 100.0, 1),
         "pl_ratio": pl_ratio,
-        "avg_win":  avg([t["pnl_pct"] for t in wins]),
-        "avg_loss": avg([abs(t["pnl_pct"]) for t in losses]),
-        "max_win":  round(max([t["pnl_pct"] for t in wins]), 2) if wins else None,
-        "max_loss": round(max([abs(t["pnl_pct"]) for t in losses]), 2) if losses else None,
+        "avg_win":  avg([t["net_pnl_pct"] for t in wins]),
+        "avg_loss": avg([abs(t["net_pnl_pct"]) for t in losses]),
+        "max_win":  round(max([t["net_pnl_pct"] for t in wins]), 2) if wins else None,
+        "max_loss": round(max([abs(t["net_pnl_pct"]) for t in losses]), 2) if losses else None,
         "hold_win":  hold_win,
         "hold_loss": hold_loss,
-        "sum_pnl_amt": int(round(sum(t["pnl_amt"] for t in trips))),
+        "expectancy": expectancy,
+        "expectancy_amt": expectancy_amt,
+        "profit_factor": profit_factor,
+        "sum_pnl_amt":   int(round(sum(_krw(t, "net_pnl_amt") for t in trips))),
+        "sum_pnl_gross": int(round(sum(_krw(t, "pnl_amt") for t in trips))),
+        "sum_fee_tax":   int(round(sum(_krw(t, "fee_tax") for t in trips))),
     }
 
 
@@ -627,7 +675,9 @@ def write_json(report, path):
 
 CSV_HEADER = ["봇", "보유단위", "주", "총거래수", "승률(%)", "손익비",
               "평균수익(%)", "평균손실(%)", "최대수익(%)", "최대손실(%)",
-              "수익 평균보유", "손실 평균보유", "실현손익합(원)"]
+              "수익 평균보유", "손실 평균보유",
+              "기대값(%/거래)", "기대값(원/거래)", "PF",
+              "실현손익합(원,net)", "수수료·세금(원)", "실현손익합(원,gross)"]
 
 
 def _row(bot_key, unit, s):
@@ -636,7 +686,9 @@ def _row(bot_key, unit, s):
         return "" if v is None else v
     return [bot_key, unit, s.get("label", ""), s.get("trades", 0), g("winrate"), g("pl_ratio"),
             g("avg_win"), g("avg_loss"), g("max_win"), g("max_loss"),
-            g("hold_win"), g("hold_loss"), s.get("sum_pnl_amt", 0)]
+            g("hold_win"), g("hold_loss"),
+            g("expectancy"), g("expectancy_amt"), g("profit_factor"),
+            s.get("sum_pnl_amt", 0), s.get("sum_fee_tax", 0), s.get("sum_pnl_gross", 0)]
 
 
 def write_csv(report):
@@ -678,9 +730,9 @@ def write_xlsx(report):
         for c in ws[ws.max_row]:
             c.fill = tot_fill; c.font = Font(bold=True)
         ws.append([])
-    widths = [14, 9, 14, 9, 8, 8, 11, 11, 11, 11, 12, 12, 14]
+    widths = [14, 9, 14, 9, 8, 8, 11, 11, 11, 11, 12, 12, 13, 14, 7, 18, 15, 18]
     for i, wd in enumerate(widths, 1):
-        ws.column_dimensions[chr(64 + i)].width = wd
+        ws.column_dimensions[ws.cell(row=1, column=i).column_letter].width = wd
     wb.save(OUT_XLSX)
     print(f"  OK {os.path.relpath(OUT_XLSX, OUT_DIR)}")
 
@@ -719,8 +771,10 @@ def main():
     for b in full_report["bots"]:
         t = b["total"]
         wr = "-" if t["winrate"] is None else f"{t['winrate']}%"
-        print(f"   {b['key']:<12} 거래{t['trades']:>3}  승률{wr:>6}  "
-              f"평균수익{t['avg_win']}  평균손실{t['avg_loss']}  실현{t['sum_pnl_amt']:,}원")
+        pf = "-" if t["profit_factor"] is None else f"{t['profit_factor']}"
+        ex = "-" if t["expectancy"] is None else f"{t['expectancy']:+.2f}%"
+        print(f"   {b['key']:<12} 거래{t['trades']:>3}  승률{wr:>6}  기대값{ex:>8}  PF{pf:>6}  "
+              f"net {t['sum_pnl_amt']:>12,}원  (비용 {t['sum_fee_tax']:,}원)")
 
 
 if __name__ == "__main__":

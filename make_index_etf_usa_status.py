@@ -53,7 +53,7 @@ def fmt_cell(value, kind):
     return text
 
 
-def cell_html(value, kind, key=None):
+def cell_html(value, kind, key=None, truncate_name=False):
     text = html.escape(fmt_cell(value, kind))
     if key == "stk_cd" and text and not text.isdigit():  # 순수 숫자(업종코드)는 실제 티커가 아니므로 제외
         ticker_attr = f' data-ticker="{html.escape(str(value or "").strip().upper())}" class="ticker-hover"'
@@ -65,10 +65,12 @@ def cell_html(value, kind, key=None):
             sign = "+" if number > 0 else ""
             return f'<td class="num" style="color:{color};font-weight:600">{sign}{text}</td>'
     css = "num" if kind in ("price", "change", "int", "amt") else "txt"
+    if truncate_name and key == "stk_nm":
+        css += " name-cell"
     return f'<td class="{css}">{text}</td>'
 
 
-def section_html(sec):
+def section_html(sec, narrow=False):
     title = html.escape(f"{sec['num']}. {sec['title']} ({sec['api_id']})")
     columns = sec.get("columns") or []
     rows = sec.get("rows") or []
@@ -89,7 +91,7 @@ def section_html(sec):
         head = "".join(head_cells)
         trs = []
         for row in rows:
-            tds = "".join(cell_html(row.get(c["key"], ""), c["kind"], c["key"]) for c in columns)
+            tds = "".join(cell_html(row.get(c["key"], ""), c["kind"], c["key"], truncate_name=narrow) for c in columns)
             trs.append(f"<tr>{tds}</tr>")
         body = (
             '<div class="tbl-wrap"><table>'
@@ -113,7 +115,8 @@ def section_html(sec):
                 parts.append(f"{tk}({shown:+.0f}%,{reason})")
         note = f'<div class="note">↳ [네이버검증] 분할/왜곡 {len(dropped)}건 제외: {", ".join(parts)}</div>'
 
-    return f'<div class="card"><div class="ct">{title}</div>{body}{note}</div>'
+    card_class = "card narrow" if narrow else "card"
+    return f'<div class="{card_class}"><div class="ct">{title}</div>{body}{note}</div>'
 
 
 def main():
@@ -130,13 +133,13 @@ def main():
     PAIR_NUMS = ("2", "3")
     solo_before, pair_parts, solo_after = [], [], []
     for sec in sections:
-        piece = section_html(sec)
         if sec["num"] in PAIR_NUMS:
-            pair_parts.append(piece)
+            pair_parts.append(section_html(sec))
         elif pair_parts:
-            solo_after.append(piece)
+            # row-pair 아래에 오는 카드는 wrap 전체폭으로 늘어나지 않게(불필요한 여백 방지) 콘텐츠 폭만 사용
+            solo_after.append(section_html(sec, narrow=True))
         else:
-            solo_before.append(piece)
+            solo_before.append(section_html(sec))
     parts = list(solo_before)
     if pair_parts:
         parts.append(f'<div class="row-pair">{"".join(pair_parts)}</div>')
@@ -166,6 +169,8 @@ body{{background:var(--bg);color:var(--txt);font-family:'Segoe UI',Tahoma,Geneva
 .hdr .sub{{font-size:13px;color:#4a5568}}
 .wrap{{max-width:1320px;margin:0;display:flex;flex-direction:column;gap:16px}}
 .card{{background:#fff;border-radius:8px;padding:16px;box-shadow:0 2px 6px rgba(0,0,0,.08)}}
+.card.narrow{{align-self:flex-start}}
+.card.narrow td.name-cell{{max-width:120px;overflow:hidden;text-overflow:ellipsis}}
 .row-pair{{display:flex;align-items:flex-start;gap:0}}
 .row-pair .card+.card{{margin-left:20px;padding-left:20px;border-left:2px solid #d5e0de}}
 @media(max-width:900px){{
@@ -174,6 +179,7 @@ body{{background:var(--bg);color:var(--txt);font-family:'Segoe UI',Tahoma,Geneva
 }}
 .ct{{font-size:1.0em;font-weight:bold;color:#2c3e50;margin-bottom:12px;padding-bottom:4px;border-bottom:2px solid #3498db}}
 .tbl-wrap{{overflow-x:auto}}
+.row-pair .tbl-wrap{{max-height:410px;overflow-y:auto}}
 table{{border-collapse:collapse;width:auto;font-size:13px;white-space:nowrap}}
 thead th{{background:#f0f4f3;color:#4a5568;font-weight:700;text-align:left;padding:7px 10px;border-bottom:2px solid #d5e0de;position:sticky;top:0}}
 tbody td{{padding:6px 10px;border-bottom:1px solid #eef2f1}}
