@@ -213,7 +213,7 @@ h2.small-title {
 </head>
 <body>
 
-<p style="margin: 0 0 10px 0; color: #000; font-size: 0.9em;">Updated: 2026-08-09 11:46:12 <small style="color: #ccc; font-size: 10px;">v1.6</small></p>
+<p style="margin: 0 0 10px 0; color: #000; font-size: 0.9em;">Updated: 2026-08-09 17:53:12 <small style="color: #ccc; font-size: 10px;">v1.6</small></p>
 
 <h2>🎯 미국 VCP 매수 후보 (돌파/대기 분리)</h2>
 <h3 style="margin:8px 0 4px 0;color:#2c3e50;font-size:0.98em;">① VCP 돌파 매수 후보</h3>
@@ -351,7 +351,7 @@ h2.small-title {
 
 합계 검증: 754 == 754?</pre>
 
-<p class="meta">[실행 시간] 86.79초</p>
+<p class="meta">[실행 시간] 74.36초</p>
 
 
     <!-- TRADINGVIEW BACKUP (commented out for Naver migration; restore by removing this wrapper)
@@ -474,6 +474,8 @@ const TREND_BG_COLORS={
 // 매집분산 end4 (주봉 배경): black=매집전환(진입) / orange=분산 / lime=매집
 const TREND_BG_MAEJIB={
   black:'rgba(15,23,42,0.42)',orange:'rgba(255,140,0,0.17)',lime:'rgba(0,200,90,0.17)'};
+// canvas 오버레이 배경 사용 여부 — 2026-08-09 검증 완료, 코드 대기 (md/260809_차트_배경_canvas오버레이_주일선택가능.md)
+const BG_CANVAS_MODE = {D:false, W:false};
 const fmt=n=>{const a=Math.abs(n);return a>=1000?Math.round(n).toLocaleString():n.toFixed(2);};
 const axisFmt=n=>{const a=Math.abs(n);
   return a>=1000?Math.round(n).toLocaleString():(a>=1?n.toFixed(2):n.toFixed(3));};
@@ -707,6 +709,52 @@ function installBandOverlay(el,ch,priceSeries,bands){
   queueDraw();
   ch.timeScale().subscribeVisibleLogicalRangeChange(queueDraw);}
 
+function installTrendBgOverlay(el,ch,rows,bgMap){
+  el.style.position='relative';
+  const canvas=document.createElement('canvas');
+  canvas.className='trendbg-overlay';
+  canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;';
+  el.appendChild(canvas);
+  let raf=0;
+  function queueDraw(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;draw();});}
+  function draw(){
+    const dpr=window.devicePixelRatio||1,w=el.clientWidth,h=el.clientHeight;
+    if(!w||!h)return;
+    if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){
+      canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);
+      canvas.style.width=w+'px';canvas.style.height=h+'px';
+    }
+    const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+    const ts=ch.timeScale();
+    let spacing=6;
+    for(let i=0;i<rows.length-1;i++){
+      const x0=ts.timeToCoordinate(rows[i][0]),x1=ts.timeToCoordinate(rows[i+1][0]);
+      if(x0!=null&&x1!=null){spacing=x1-x0;break;}
+    }
+    // 같은 색 연속구간(run)을 하나의 사각형으로 묶어 한 번만 칠함.
+    // 경계는 겹치지 않게 이웃 봉과의 정중앙(midpoint)으로 계산 — 겹치면 색이 섞여 탁해지고,
+    // 틈을 두면 흰 선이 생기므로 그 중간(겹침도 틈도 없음)이 정답.
+    const coords=rows.map(b=>ts.timeToCoordinate(b[0]));
+    let i=0;
+    while(i<rows.length){
+      const tag=rows[i][6],col=tag&&bgMap[tag];
+      if(!col||col==='rgba(0,0,0,0)'){i++;continue;}
+      let j=i;
+      while(j+1<rows.length&&rows[j+1][6]===tag)j++;
+      const xi=coords[i],xj=coords[j];
+      if(xi!=null&&xj!=null){
+        const left=(i>0&&coords[i-1]!=null)?(coords[i-1]+xi)/2:xi-spacing/2;
+        const right=(j<rows.length-1&&coords[j+1]!=null)?(xj+coords[j+1])/2:xj+spacing/2;
+        ctx.fillStyle=col;ctx.fillRect(left,0,right-left,h);
+      }
+      i=j+1;
+    }
+  }
+  queueDraw();
+  ch.timeScale().subscribeVisibleLogicalRangeChange(queueDraw);
+  window.addEventListener('resize',queueDraw);
+}
+
 let charts=[], openTimer=null, closeTimer=null, pinned=false, curCode=null, curTd=null, stMode=false;
 function normCode(v,market){v=(v||'').replace(/[*]/g,'').trim().toUpperCase();return market==='KR'?v.padStart(6,'0'):v;}
 function metaOf(code){return META[code]||{market:'US'};}
@@ -722,11 +770,15 @@ function buildTF(prefix,rows,visBars,bgMap,code){
   const priceFormat=market==='KR'?KR_PRICE_FORMAT:PRICE_FORMAT;
   const ch=newCandle(el);
   if(bgMap){
-    const trendBand=ch.addHistogramSeries({priceScaleId:'trendbg',base:0,
-      priceLineVisible:false,lastValueVisible:false});
-    ch.priceScale('trendbg').applyOptions({scaleMargins:{top:0,bottom:0},visible:false});
-    trendBand.setData(rows.filter(b=>b[6]&&bgMap[b[6]]).map(b=>({
-      time:b[0],value:1,color:bgMap[b[6]]})));
+    if(BG_CANVAS_MODE[prefix]){
+      installTrendBgOverlay(el,ch,rows,bgMap);
+    }else{
+      const trendBand=ch.addHistogramSeries({priceScaleId:'trendbg',base:0,
+        priceLineVisible:false,lastValueVisible:false});
+      ch.priceScale('trendbg').applyOptions({scaleMargins:{top:0,bottom:0},visible:false});
+      trendBand.setData(rows.filter(b=>b[6]&&bgMap[b[6]]).map(b=>({
+        time:b[0],value:1,color:bgMap[b[6]]})));
+    }
   }
   const trackDates=(prefix==='D' ? (TRACK_D[code]||null) : null);
   if(trackDates&&trackDates.length){

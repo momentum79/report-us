@@ -1367,17 +1367,14 @@ def main():
     daily_theme_html     = build_daily_theme_section()
     yesterday_theme_html = build_yesterday_theme_section(cs_dict, rate_dict, tv_dict)
 
-    # 1~3줄(주도주/테마주 · 당일/전일 테마 · 거래대금+Top10)은 왼쪽, 오른쪽 여백에 TR 주문 예상표
-    # (오른쪽 TR표가 더 길어서 오른쪽에 맞춰 빈 공간이 남는 것을 막기 위해 3줄까지 왼쪽 컬럼에 채움)
-    top_left = (
+    # 1~3줄(주도주/테마주 · 당일/전일 테마 · 거래대금+Top10) 다음에 TR 주문 예상표를 이어서 배치 (단일 컬럼)
+    html_content = (
         section_wrap('📊 주도주/테마주', 'krall_row1', '#2980b9') +
         daily_theme_html +
         yesterday_theme_html +
-        section_wrap('📊 거래대금 + Top10', 'kr150', '#e74c3c')
-    )
-    html_content = (
-        f'<div class="top-split"><div class="top-left">{top_left}</div>'
-        f'<div class="top-right">{build_kr_tr_order()}{build_kr_tr_weekly()}</div></div>' +
+        section_wrap('📊 거래대금 + Top10', 'kr150', '#e74c3c') +
+        build_kr_tr_order() +
+        build_kr_tr_weekly() +
         # 4줄: SPOT/주도주들 (SPOT전종목 / KR150 주도주(오늘) / 주도주 전종목)
         section_wrap('📊 SPOT/주도주들', 'spot_judo', '#c0392b') +
         # 5줄: LIME/MOM
@@ -1410,10 +1407,6 @@ body {{
 .sec-title {{ font-size: 0.95em; font-weight: bold; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 4px; margin-bottom: 12px; margin-top:20px; max-width: 1134px; }}
 .cards-row {{ display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-start; align-items: flex-start; }}
 
-/* 상단 분할: 왼쪽=주도주/테마 카드(3장 폭), 오른쪽=TR 주문 예상표 */
-.top-split {{ display: flex; gap: 16px; align-items: flex-start; }}
-.top-left {{ flex: 0 0 1134px; min-width: 0; }}
-.top-right {{ flex: 1 1 auto; min-width: 0; }}
 .styled-tableWide {{ width: auto; max-width: 100%; border-collapse: collapse; margin: 5px 0 12px 0; font-size: 12px; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden; }}
 .styled-tableWide thead tr {{ background-color: #e67e22; color: #fff; text-align: left; }}
 .styled-tableWide th, .styled-tableWide td {{ padding: 4px 10px; border-bottom: 1px solid #eee; white-space: nowrap; }}
@@ -1424,11 +1417,6 @@ body {{
 .tr-order-table {{ font-size: 15px; }}
 .tr-order-table th, .tr-order-table td {{ padding: 7px 12px; }}
 .tr-order-table td.ticker-col {{ width: 86px; }}
-
-@media (max-width: 1600px) {{
-  .top-split {{ flex-direction: column; }}
-  .top-left, .top-right {{ flex: 1 1 auto; width: 100%; }}
-}}
 
 /* 카드 스타일 */
 .theme-card {{

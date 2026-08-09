@@ -115,14 +115,26 @@ function addCandleVolMa(ch){
       const x0=ts.timeToCoordinate(ROWS[i][0]), x1=ts.timeToCoordinate(ROWS[i+1][0]);
       if(x0!=null&&x1!=null){spacing=x1-x0;break;}
     }
-    ROWS.forEach(b=>{
-      const col=b[6]&&TREND_BG_COLORS[b[6]];
-      if(!col||col==='rgba(0,0,0,0)')return;
-      const x=ts.timeToCoordinate(b[0]);
-      if(x==null)return;
-      ctx.fillStyle=col;
-      ctx.fillRect(x-spacing/2-0.6, 0, spacing+1.2, h);   // 0.6px 겹쳐 그려서 서브픽셀 틈 제거
-    });
+    // 같은 색 연속구간(run)을 하나의 사각형으로 묶어 한 번만 칠한다.
+    // 경계는 "겹쳐서" 그리지 않고, 이웃 봉과의 정중앙(midpoint)으로 정확히 맞닿게 계산한다.
+    // 겹치면 서로 다른 반투명색이 섞여 탁한 줄이 생기고(색 전환구간에서 지저분해 보임),
+    // 틈을 두면 흰 선이 생긴다 — 그 중간인 "겹침도 틈도 없는 정확한 경계"가 정답.
+    const coords = ROWS.map(b=>ts.timeToCoordinate(b[0]));
+    let i=0;
+    while(i<ROWS.length){
+      const tag=ROWS[i][6], col=tag&&TREND_BG_COLORS[tag];
+      if(!col||col==='rgba(0,0,0,0)'){i++;continue;}
+      let j=i;
+      while(j+1<ROWS.length && ROWS[j+1][6]===tag) j++;
+      const xi=coords[i], xj=coords[j];
+      if(xi!=null&&xj!=null){
+        const left = (i>0 && coords[i-1]!=null) ? (coords[i-1]+xi)/2 : xi-spacing/2;
+        const right = (j<ROWS.length-1 && coords[j+1]!=null) ? (xj+coords[j+1])/2 : xj+spacing/2;
+        ctx.fillStyle=col;
+        ctx.fillRect(left, 0, right-left, h);
+      }
+      i=j+1;
+    }
   }
   addCandleVolMa(ch);
   ch.timeScale().setVisibleLogicalRange({from:ROWS.length-90,to:ROWS.length+3});
