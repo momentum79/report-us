@@ -663,6 +663,65 @@ def build_kr_tr_order() -> str:
             f'<table class="styled-tableWide tr-order-table"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table>')
 
 
+# ── TR 스크리너 CSV(kr_buy.csv)의 주봉 신호(주M) 1=매집 / 2=vol빵 ─────────────
+TR_KR_CSV = Path(r'D:\py\0order\tr\kr_buy.csv')
+JUM_LABEL = {'1': '매집', '2': 'vol빵'}
+
+
+def build_kr_tr_weekly() -> str:
+    title = '🎯 한국주식 TR 주봉 - 매집(1), vol빵(2)'
+    head_html = f'<h3 class="sec-title tr-order-title" style="border-bottom-color:#e67e22;">{title}</h3>'
+    try:
+        with TR_KR_CSV.open('r', encoding='utf-8-sig', newline='') as f:
+            src = list(csv.DictReader(f))
+    except OSError:
+        return (head_html + '<p style="padding-left:6px;color:#999;font-size:12px;">'
+                f'{html.escape(TR_KR_CSV.name)} 없음</p>')
+
+    picked = []
+    for r in src:
+        code = (r.get('주M') or '').strip()
+        if code not in JUM_LABEL:
+            continue
+        try:
+            sco = float((r.get('sco') or '').strip())
+        except ValueError:
+            sco = -99.0
+        picked.append((code, sco, r))
+    picked.sort(key=lambda x: (x[0] != '2', -x[1]))
+
+    body = ''
+    for jm, _sco, r in picked:
+        code = (r.get('심볼') or '').strip().zfill(6)
+        name = (r.get('설명') or '').strip() or code
+        try:
+            v = float((r.get('등락률(%)') or '').strip())
+            chg = f'<span style="color:{rate_color(v)};font-weight:600;">{"+" if v > 0 else ""}{v:.2f}%</span>'
+        except ValueError:
+            chg = '-'
+        try:
+            price = f'{int(float((r.get("가격") or "0").strip())):,}'
+        except ValueError:
+            price = '-'
+        name_html = (f'<span class="naver-trigger" data-code="{code}" data-name="{html.escape(name)}" '
+                     f'style="cursor:pointer;text-decoration:underline dotted;">{html.escape(name)}</span>')
+        body += (
+            f'<tr><td class="ticker-col">{code}</td><td>{name_html}</td>'
+            f'<td>{JUM_LABEL[jm]}</td><td>{price}</td><td>{chg}</td>'
+            f'<td>{html.escape((r.get("sco") or "-").strip())}</td>'
+            f'<td>{html.escape((r.get("3M(%)") or "-").strip())}</td>'
+            f'<td>{html.escape((r.get("위치") or "-").strip())}</td></tr>'
+        )
+
+    if not body:
+        body = '<tr><td colspan="8" style="color:#999;">해당 종목 없음</td></tr>'
+
+    headers = ['종목코드', '종목명', '구분', '현재가(원)', '등락률(%)', 'sco', '3M(%)', '위치']
+    head = ''.join(f'<th>{h}</th>' for h in headers)
+    return (head_html +
+            f'<table class="styled-tableWide tr-order-table"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table>')
+
+
 # ── 데이터 파싱 및 체결강도 요청 ───────────────────────────────────────────
 
 def extract_block(text, start_marker, end_markers):
@@ -1318,7 +1377,7 @@ def main():
     )
     html_content = (
         f'<div class="top-split"><div class="top-left">{top_left}</div>'
-        f'<div class="top-right">{build_kr_tr_order()}</div></div>' +
+        f'<div class="top-right">{build_kr_tr_order()}{build_kr_tr_weekly()}</div></div>' +
         # 4줄: SPOT/주도주들 (SPOT전종목 / KR150 주도주(오늘) / 주도주 전종목)
         section_wrap('📊 SPOT/주도주들', 'spot_judo', '#c0392b') +
         # 5줄: LIME/MOM

@@ -13,7 +13,6 @@
 import html
 import csv
 import json
-import math
 import re
 import sys
 from pathlib import Path
@@ -32,7 +31,6 @@ OUT_HTML = BASE / "us_summary.html"
 now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 TOP_N = 10
-US_ORDER_BUDGET = 5000.0
 
 
 CHG_UP_COLOR = "#16a34a"
@@ -342,51 +340,6 @@ def _us_top30_lookup():
     return out
 
 
-def build_us_stock_order_integrated():
-    items = _collect_us_signal_items()
-    candidates = list(items.values())
-    priced = [c for c in candidates if c.get("price") and c["price"] > 0]
-    pool = list(priced)
-    while pool:
-        per_ticker = US_ORDER_BUDGET / len(pool)
-        affordable = [c for c in pool if c["price"] <= per_ticker]
-        if len(affordable) == len(pool):
-            break
-        pool = affordable
-
-    qty_map = {}
-    per_ticker = US_ORDER_BUDGET / len(pool) if pool else 0.0
-    for c in pool:
-        qty = math.floor(per_ticker / c["price"])
-        if qty > 0:
-            qty_map[c["ticker"]] = qty
-
-    source_order = {"미Main": 0, "Finviz": 1, "VCP": 2}
-    rows = []
-    for c in candidates:
-        qty = qty_map.get(c["ticker"], 0)
-        est = qty * c["price"] if qty else 0.0
-        sources = "+".join(sorted(c.get("sources", []), key=lambda s: source_order.get(s, 99)))
-        rows.append([
-            c["ticker"],
-            f"{qty}주" if qty else "제외",
-            sources,
-            f"{c['price']:.2f}" if c.get("price") else "-",
-            c.get("chg", "-"),
-            c.get("sco", "-") or "-",
-            c.get("rtn", "-") or "-",
-            c.get("final", "-") or "-",
-            c.get("color", "-") or "-",
-            c.get("status", "-") or "-",
-            f"${est:,.0f}" if qty else "-",
-        ])
-
-    title = f"🎯 미국주식 통합 주문 예상표 - ${US_ORDER_BUDGET:,.0f} 기준"
-    headers = ["Ticker", "주문수량", "출처", "Price($)", "등락률(%)", "sco", "3M(%)", "Final", "Color", "상태", "예상금액"]
-    table = mini_table(headers, rows, chg_cols={4})
-    return f'<h2>{title}</h2>\n{table}'
-
-
 # ── Pine Screener TR 주문셋(us_pine_buy_1887.py / us_pine_lowbuy_1887.py) 예상표 ──
 TR_BUY_PLAN_JSON = BASE / "us_pine_buy_plan.json"
 TR_LOWBUY_PLAN_JSON = BASE / "us_pine_lowbuy_plan.json"
@@ -445,6 +398,47 @@ def build_us_tr_order():
     headers = ["Ticker", "구분", "Price($)", "등락률(%)", "sco", "3M(%)", "Final", "Color", "상태", "위치"]
     table = mini_table(headers, rows, chg_cols={3})
     return f'<div class="us-tr-order"><h2>{title}</h2>\n{table}</div>'
+
+
+# ── TR 스크리너 CSV(us_buy.csv)의 주봉 신호(주M) 1=매집 / 2=vol빵 ──────────────
+TR_US_CSV = Path(r"D:\py\0order\tr\us_buy.csv")
+JUM_LABEL = {"1": "매집", "2": "vol빵"}
+
+
+def build_us_tr_weekly():
+    title = "🎯 미국주식 TR 주봉 - 매집(1), vol빵(2)"
+    try:
+        with TR_US_CSV.open("r", encoding="utf-8-sig", newline="") as f:
+            src = list(csv.DictReader(f))
+    except OSError:
+        return (f'<h2>{title}</h2>\n<p style="padding-left:6px; color:#999; font-size:12px;">'
+                f'{html.escape(TR_US_CSV.name)} 없음</p>')
+
+    picked = []
+    for r in src:
+        code = (r.get("주M") or "").strip()
+        if code not in JUM_LABEL:
+            continue
+        try:
+            sco = float((r.get("sco") or "").strip())
+        except ValueError:
+            sco = -99.0
+        picked.append((code, sco, r))
+    picked.sort(key=lambda x: (x[0] != "2", -x[1]))
+
+    rows = [[
+        (r.get("심볼") or "-").strip(),
+        JUM_LABEL[code],
+        (r.get("가격") or "-").strip(),
+        (r.get("등락률(%)") or "-").strip(),
+        (r.get("sco") or "-").strip(),
+        (r.get("3M(%)") or "-").strip(),
+        (r.get("위치") or "-").strip(),
+    ] for code, _sco, r in picked]
+
+    headers = ["Ticker", "구분", "Price($)", "등락률(%)", "sco", "3M(%)", "위치"]
+    table = mini_table(headers, rows, chg_cols={3})
+    return f'<div class="us-tr-weekly"><h2>{title}</h2>\n{table}</div>'
 
 
 def _finviz_space_rows(block, drop_header=True):
@@ -584,12 +578,10 @@ def build_content():
     parts = []
     parts.append(f'<div class="section">{_safe(build_minervini2)}</div>')
     parts.append(f'<div class="section">{_safe(build_top10_row)}</div>')
-    # 스크롤을 줄이려고 TR 주문표(45종목)와 $5,000 통합 주문표를 나란히 배치.
-    # 후보 종목 수가 매일 바뀌어서 높이가 안 맞을 수 있지만(빈 공간 발생 가능), 스크롤 단축이 우선.
     parts.append(
         '<div class="section"><div class="cols-tight">'
         f'<div>{_safe(build_us_tr_order)}</div>'
-        f'<div>{_safe(build_us_stock_order_integrated)}</div>'
+        f'<div>{_safe(build_us_tr_weekly)}</div>'
         '</div></div>'
     )
     parts.append(f'<div class="section">{_safe(build_signals_row)}</div>')
@@ -625,7 +617,7 @@ h2 {{ margin-top: 18px; margin-bottom: 8px; padding-bottom: 5px; color: #2c3e50;
 /* 내용 너비에 맞춰 붙여서 배치 (늘어나지 않음) - 우량주 Top10·주문용 Top4 한 줄용 */
 .cols-tight {{ display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }}
 .cols-tight > .col, .cols-tight > div {{ flex: 0 1 auto; min-width: 0; }}
-.us-tr-order h2 {{ margin-top: 18px; font-size: 1.35em; }}
+.us-tr-order h2, .us-tr-weekly h2 {{ margin-top: 18px; font-size: 1.35em; }}
 .us-tr-order .styled-table {{ font-size: 15px; }}
 .us-tr-order .styled-table th, .us-tr-order .styled-table td {{ padding: 7px 12px; }}
 

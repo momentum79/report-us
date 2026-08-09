@@ -276,12 +276,26 @@ def ensure_kr_wk_warmup(tickers):
     return store
 
 
+def _merge_wk_with_fresh(wk_df, fresh_df):
+    """warmup 캐시(3년 과거 깊이)와 메인 원천(매일 갱신되는 최신 꼬리)을 날짜 기준 병합.
+    warmup은 최대 5~10일 뒤처질 수 있어 이번 주 봉이 누락/부분반영되는 문제가 있었음 →
+    이미 메모리에 로드된 메인 parquet(네트워크 0)로 꼬리만 채워 항상 최신 주봉이 되게 함."""
+    if fresh_df is None or fresh_df.empty:
+        return wk_df
+    if wk_df is None or wk_df.empty:
+        return fresh_df
+    merged = pd.concat([wk_df, fresh_df])
+    return merged[~merged.index.duplicated(keep="last")].sort_index()
+
+
 def weekly_rows_maejib(ticker, market="US"):
     """~3년 일봉 → W-FRI 주봉 → 매집분산 end4 색을 M4 유효봉에만 부착.
     반환: [[date,o,h,l,c,v,(end4)], ...] 최근 DISPLAY_WEEKS개. warmup 미확보 시 배경없는 주봉으로 폴백."""
     market = str(market or "US").upper()
     key = str(ticker).strip().zfill(6) if market == "KR" else str(ticker).strip().upper()
-    df = (_load_kr_wk_store() if market == "KR" else _load_wk_store()).get(key)
+    wk_df = (_load_kr_wk_store() if market == "KR" else _load_wk_store()).get(key)
+    fresh_df = _load_store(market).get(key)
+    df = _merge_wk_with_fresh(wk_df, fresh_df)
     if df is None or df.empty:
         return weekly_rows(daily_rows(ticker, market))
     d = df.copy(); d.index.name = "date"
