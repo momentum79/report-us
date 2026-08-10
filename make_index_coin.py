@@ -502,6 +502,7 @@ def card(title, color, body, raw=False, cls=""):
 
 # ── 보유현황 블록 (업비트 + 바이낸스 선물) — 우측 상단 컴팩트 ─────────────────
 COIN_HOLDINGS_JSON = Path(r"D:\py\coin\0txt\holdings_coin.json")
+WEEKLY_PERF_JSON = Path(r"D:\py\report-us\weekly_performance.json")
 
 
 def load_coin_holdings():
@@ -510,6 +511,18 @@ def load_coin_holdings():
     try:
         with open(COIN_HOLDINGS_JSON, encoding="utf-8") as f:
             return json.load(f)
+    except (OSError, json.JSONDecodeError):
+        return None
+
+
+def load_binance_futures_week():
+    """make_weekly_performance.py 가 sync_binance_futures_income_v1.py 원천으로
+    집계한 이번 주(월~일) 실현손익(REALIZED_PNL+COMMISSION+FUNDING_FEE, USDT)."""
+    if not WEEKLY_PERF_JSON.exists():
+        return None
+    try:
+        with open(WEEKLY_PERF_JSON, encoding="utf-8") as f:
+            return json.load(f).get("binance_futures_week")
     except (OSError, json.JSONDecodeError):
         return None
 
@@ -600,11 +613,25 @@ def _upbit_card(up):
     return card("🟦 업비트", "#1565c0", summ + table, raw=True, cls="ac-card")
 
 
-def _binance_card(bn, rate):
+def _week_pnl_row(week):
+    """coin.html 바이낸스 카드 하단에 붙는 '이번주 실현손익' 한 줄. 데이터 없으면 빈 문자열."""
+    if not week or not week.get("has_data"):
+        return ""
+    total = week.get("total") or 0.0
+    cls = "up" if total > 0 else ("down" if total < 0 else "")
+    sign = "+" if total > 0 else ""
+    return _sum_row(
+        f'이번주 실현손익({week.get("label", "")})',
+        f'<span class="{cls}">{sign}{total:.2f} USDT</span>',
+    )
+
+
+def _binance_card(bn, rate, week=None):
     subtitle = f'<small class="kw">USDT/KRW {int(round(rate)):,}원</small>' if rate else ""
     if not bn or not bn.get("ok"):
         msg = (bn or {}).get("error", "데이터 없음")
-        return card("🟨 바이낸스 선물", "#e08e0b", f'<div class="empty">{msg}</div>', raw=True, cls="ac-card")
+        body = f'<div class="empty">{msg}</div>' + _week_pnl_row(week)
+        return card("🟨 바이낸스 선물", "#e08e0b", body, raw=True, cls="ac-card")
     pnl = bn.get("pnl")
     pnl_cls = "up" if (pnl or 0) > 0 else ("down" if (pnl or 0) < 0 else "")
     summ = (
@@ -649,14 +676,14 @@ def _binance_card(bn, rate):
         for lab, cells in rows:
             body += f'<tr><td class="fld">{lab}</td>{cells}</tr>'
         table = f'<table class="ac-t ac-tv">{body}</table>'
-    return card(f"🟨 바이낸스 선물 {subtitle}", "#e08e0b", summ + table, raw=True, cls="ac-card ac-binance")
+    return card(f"🟨 바이낸스 선물 {subtitle}", "#e08e0b", summ + table + _week_pnl_row(week), raw=True, cls="ac-card ac-binance")
 
 
 def build_acct_block(ch):
     if not ch:
         return ""
     up = _upbit_card(ch.get("upbit"))
-    bn = _binance_card(ch.get("binance"), ch.get("usdt_krw"))
+    bn = _binance_card(ch.get("binance"), ch.get("usdt_krw"), load_binance_futures_week())
     return f'<div class="acct-wrap">{up}{bn}</div>'
 
 

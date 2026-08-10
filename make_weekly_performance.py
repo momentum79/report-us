@@ -97,6 +97,14 @@ COIN_SCALP_CSVS = [  # 우선순위: v3 있으면 v3, 없으면 v2
 COIN_MARKETS = {"KRW-BTC": "btc", "KRW-ETH": "eth"}
 COIN_WEEKDAYS = ["월", "화", "수", "목", "금", "토", "일"]
 
+# ───────── Binance USDT-M 선물 주간(월~일) 실현손익 설정 ─────────
+# 코인과 같은 이유로 별도 섹션: 수량이 소수(0.043 ETH 등)라 intraday_signals/TR ledger의
+# int() 수량 전제 파이프라인에 못 넣는다. 실현손익도 로컬 주문로그가 아니라
+# sync_binance_futures_income_v1.py 가 받아온 실제 income API(REALIZED_PNL/COMMISSION/
+# FUNDING_FEE) 기록만 신뢰 원천으로 쓴다 — 로컬 CSV는 "주문을 보냈다"만 기록하고
+# SL/TP(algo) 가 실제로 언제·얼마에 체결됐는지는 안 남기기 때문.
+BINANCE_FUT_INCOME_CSV = os.path.join(BASE_DIR, "coin_binan", "0_binance_usdt_futures_income_v1.csv")
+
 # 성과 tag 표시 순서 + 보유단위 ("day"=스윙 일, "min"=당일 분)
 TAG_ORDER = [
     "통합",
@@ -666,6 +674,66 @@ def build_coin_week(today=None):
     }
 
 
+def build_binance_futures_week(today=None):
+    """이번 주(월~일) Binance USDT-M 선물 실현손익(net, REALIZED_PNL+COMMISSION+FUNDING_FEE
+    합산, USDT) → 웹 table 구조. 원천 = sync_binance_futures_income_v1.py 가 받아온
+    income API 기록(0_binance_usdt_futures_income_v1.csv). 심볼이 고정 2개(BTC/ETH)인
+    코인과 달리 가변적이라 day row에 등장한 심볼을 동적으로 컬럼화한다."""
+    if today is None:
+        today = date.today()
+    monday = today - timedelta(days=today.weekday())
+
+    daily = defaultdict(lambda: defaultdict(float))  # {iso_date: {symbol: net_usdt}}
+    symbols_seen = set()
+    if os.path.exists(BINANCE_FUT_INCOME_CSV):
+        with open(BINANCE_FUT_INCOME_CSV, encoding="utf-8-sig") as f:
+            for row in csv.DictReader(f):
+                try:
+                    income = float(row.get("income") or 0)
+                except ValueError:
+                    continue
+                if income == 0:
+                    continue
+                day = str(row.get("time_iso", ""))[:10]
+                if not day:
+                    continue
+                sym = row.get("symbol") or "기타"
+                daily[day][sym] += income
+                symbols_seen.add(sym)
+
+    symbols_out = sorted(symbols_seen)
+    days = []
+    total = 0.0
+    any_val = False
+    for i in range(7):
+        d = monday + timedelta(days=i)
+        iso = d.isoformat()
+        day_data = daily.get(iso, {})
+        row = {"label": f"{d.month}/{d.day} {COIN_WEEKDAYS[i]}"}
+        day_total = 0.0
+        day_has_data = iso in daily
+        for sym in symbols_out:
+            v = day_data.get(sym)
+            row[sym] = round(v, 2) if v else None
+            if v:
+                day_total += v
+        row["total"] = round(day_total, 2) if day_has_data else None
+        if day_has_data:
+            any_val = True
+        total += day_total
+        days.append(row)
+
+    sunday = monday + timedelta(days=6)
+    return {
+        "label": f"{monday.month}/{monday.day}~{sunday.month}/{sunday.day}",
+        "unit": "USDT",
+        "symbols": symbols_out,
+        "total": round(total, 2),
+        "has_data": any_val,
+        "days": days,
+    }
+
+
 # ───────── 출력 ─────────
 def write_json(report, path):
     with open(path, "w", encoding="utf-8") as f:
@@ -764,6 +832,10 @@ def main():
     web_report["us_vcp"] = build_us_vcp(fills, weeks_limit=RECENT_WEEKS)
     uv = web_report["us_vcp"]
     print(f"  미국VCP 매수 포착: {uv['total']['count']}건 (${uv['total']['amount']:,.0f})")
+    # Binance USDT-M 선물 이번 주(월~일) 실현손익 미니표 데이터 부착
+    web_report["binance_futures_week"] = build_binance_futures_week()
+    bf = web_report["binance_futures_week"]
+    print(f"  Binance선물 이번주({bf['label']}) 실현손익 합: {bf['total']:,.2f} USDT")
     write_json(web_report, OUT_JSON)
 
     # 콘솔 요약(전체기간)
