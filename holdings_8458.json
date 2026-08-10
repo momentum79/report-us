@@ -1,15 +1,15 @@
 {
   "account": "8458",
-  "updated": "2026-08-10 08:07:52",
+  "updated": "2026-08-10 12:04:38",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 6285011,
+    "total_asset": 6334616,
     "tot_pur_amt": 6039185,
-    "tot_evlt_amt": 6223585,
-    "tot_evlt_pl": 182590,
-    "tot_prft_rt": 3.02,
-    "stock_ratio": 99.0226588306687,
+    "tot_evlt_amt": 6273200,
+    "tot_evlt_pl": 232195,
+    "tot_prft_rt": 3.84,
+    "stock_ratio": 99.03047003954146,
     "cash": 62346,
     "tdy_realized_pl": 0
   },
@@ -19,49 +19,36 @@
       "stock_name": "KODEX 200타겟위클리커버드콜",
       "quantity": 257,
       "avg_price": 0,
-      "current_price": 18895,
-      "profit_rate": 3.07,
-      "eval_amount": 4856015,
+      "current_price": 18960,
+      "profit_rate": 3.42,
+      "eval_amount": 4872720,
       "nxt": "",
-      "cntr_str": null
+      "cntr_str": 114.72
     },
     {
       "stock_code": "494300",
       "stock_name": "KODEX 미국나스닥100데일리커버드콜OTM",
       "quantity": 110,
       "avg_price": 0,
-      "current_price": 9355,
-      "profit_rate": 3.57,
-      "eval_amount": 1029050,
+      "current_price": 9445,
+      "profit_rate": 4.57,
+      "eval_amount": 1038950,
       "nxt": "",
-      "cntr_str": null
+      "cntr_str": 61.93
     },
     {
       "stock_code": "0198A0",
       "stock_name": "KIWOOM 코스닥150커버드콜액티브",
       "quantity": 39,
       "avg_price": 0,
-      "current_price": 8680,
-      "profit_rate": 0.76,
-      "eval_amount": 338520,
+      "current_price": 9270,
+      "profit_rate": 7.61,
+      "eval_amount": 361530,
       "nxt": "",
-      "cntr_str": null
+      "cntr_str": 96.44
     }
   ],
   "us_holdings": [
-    {
-      "ticker": "XLF",
-      "stock_name": "금융주 SPDR ETF",
-      "quantity": 43,
-      "avg_price": 57.6888,
-      "current_price": 57.6,
-      "profit_rate": -0.29,
-      "eval_amount_usd": 2476.8,
-      "eval_amount": 3492288,
-      "buy_date": "",
-      "candle": "",
-      "tag": ""
-    },
     {
       "ticker": "EWQ",
       "stock_name": "MSCI 프랑스 아이셰어즈 ETF",
@@ -91,12 +78,25 @@
     {
       "ticker": "EWA",
       "stock_name": "MSCI 호주 아이셰어즈 ETF",
-      "quantity": 24,
-      "avg_price": 30.36,
+      "quantity": 29,
+      "avg_price": 30.3272,
       "current_price": 30.41,
-      "profit_rate": 0.02,
-      "eval_amount_usd": 729.84,
-      "eval_amount": 1029074,
+      "profit_rate": 0.13,
+      "eval_amount_usd": 881.89,
+      "eval_amount": 1243464,
+      "buy_date": "",
+      "candle": "",
+      "tag": ""
+    },
+    {
+      "ticker": "XLF",
+      "stock_name": "금융주 SPDR ETF",
+      "quantity": 15,
+      "avg_price": 57.6888,
+      "current_price": 57.61,
+      "profit_rate": -0.27,
+      "eval_amount_usd": 864.15,
+      "eval_amount": 1218451,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -116,14 +116,14 @@
     }
   ],
   "us_summary": {
-    "us_stock_krw": 10285681,
-    "usd_cash": null,
-    "usd_cash_krw": null,
-    "rate": null,
-    "total_asset_total": null,
-    "eval_pl_usd": -8.32,
-    "eval_pl_krw": null,
-    "tdy_realized_pl_usd": 0.0,
-    "tdy_realized_pl_krw": 0
+    "us_stock_krw": 8226234,
+    "usd_cash": 3665.76,
+    "usd_cash_krw": 5205746,
+    "rate": 1420.1,
+    "total_asset_total": 13553253,
+    "eval_pl_usd": -4.48,
+    "eval_pl_krw": -6362,
+    "tdy_realized_pl_usd": -3.66,
+    "tdy_realized_pl_krw": -5162
   }
 }

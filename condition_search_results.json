@@ -1,6 +1,6 @@
 {
-  "update_time": "2026-08-10 08:00:04",
-  "elapsed_sec": 2.9,
+  "update_time": "2026-08-10 11:55:14",
+  "elapsed_sec": 9.7,
   "too_many_threshold": 10,
   "target_conditions": [
     {
@@ -46,10 +46,66 @@
     {
       "seq": "2",
       "name": "예상체결상위",
-      "total_count": 0,
+      "total_count": 5,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "0039P0",
+          "name": "매드업",
+          "price": 9690,
+          "rate": 0.147,
+          "volume": 3357130,
+          "trade_amount_eok": 332.31552615,
+          "contract_strength": "83.79",
+          "nxt": ""
+        },
+        {
+          "rank": 2,
+          "code": "010170",
+          "name": "대한광통신",
+          "price": 13860,
+          "rate": 2.094,
+          "volume": 32700046,
+          "trade_amount_eok": 4347.99,
+          "contract_strength": "117.58",
+          "nxt": ""
+        },
+        {
+          "rank": 3,
+          "code": "017900",
+          "name": "광전자",
+          "price": 9040,
+          "rate": 1.575,
+          "volume": 14276681,
+          "trade_amount_eok": 1302.89,
+          "contract_strength": "93.30",
+          "nxt": ""
+        },
+        {
+          "rank": 4,
+          "code": "024840",
+          "name": "KBI메탈",
+          "price": 5310,
+          "rate": 1.04,
+          "volume": 5854221,
+          "trade_amount_eok": 308.65376094,
+          "contract_strength": "107.30",
+          "nxt": ""
+        },
+        {
+          "rank": 5,
+          "code": "347700",
+          "name": "스피어",
+          "price": 24800,
+          "rate": 0.759,
+          "volume": 2032649,
+          "trade_amount_eok": 517.34643725,
+          "contract_strength": "85.02",
+          "nxt": ""
+        }
+      ],
       "error": ""
     },
     {
@@ -64,10 +120,33 @@
     {
       "seq": "5",
       "name": "★ 삘추세231230",
-      "total_count": 0,
+      "total_count": 2,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "079550",
+          "name": "LIG디펜스앤에어로스",
+          "price": 821000,
+          "rate": 1.08,
+          "volume": 100810,
+          "trade_amount_eok": 1328.52,
+          "contract_strength": "114.77",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 2,
+          "code": "329180",
+          "name": "HD현대중공업",
+          "price": 533000,
+          "rate": 0.534,
+          "volume": 200508,
+          "trade_amount_eok": 1404.88,
+          "contract_strength": "134.90",
+          "nxt": "NXT"
+        }
+      ],
       "error": ""
     }
   ]

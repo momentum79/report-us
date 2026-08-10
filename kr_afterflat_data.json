@@ -1,22 +1,38 @@
 {
-  "update_time": "2026-08-10 08:01:57",
-  "total_count": 1,
+  "update_time": "2026-08-10 11:56:14",
+  "total_count": 2,
   "stocks": [
     {
-      "ticker": "035720",
-      "ticker_num": "35720",
-      "name": "카카오",
-      "close": 39900.0,
-      "change": 4.177545691906004,
-      "nxt": "선",
-      "market_cap_uk": 169661,
+      "ticker": "011200",
+      "ticker_num": "11200",
+      "name": "HMM",
+      "close": 21400.0,
+      "change": -2.0594965675057253,
+      "nxt": "NXT선",
+      "market_cap_uk": 201852,
+      "squeeze_days": 9,
+      "ma_gap_pct": 1.27,
+      "price_range_pct": 10.52,
+      "sma5": 21340.0,
+      "sma10": 20904.0,
+      "sma20": 20641.0,
+      "sma60": 19970.0
+    },
+    {
+      "ticker": "033780",
+      "ticker_num": "33780",
+      "name": "KT&G",
+      "close": 184000.0,
+      "change": -1.9189765458422214,
+      "nxt": "NXT",
+      "market_cap_uk": 189661,
       "squeeze_days": 8,
-      "ma_gap_pct": 2.62,
-      "price_range_pct": 13.56,
-      "sma5": 38290.0,
-      "sma10": 37300.0,
-      "sma20": 36347.5,
-      "sma60": 38066.67
+      "ma_gap_pct": 0.99,
+      "price_range_pct": 10.63,
+      "sma5": 181160.0,
+      "sma10": 181340.0,
+      "sma20": 179565.0,
+      "sma60": 179476.67
     }
   ]
 }
