@@ -1,5 +1,5 @@
 {
-    "avg_sco": 3.8,
+    "avg_sco": 4.0,
     "total_cnt": 151,
     "valid_cnt": 150,
     "atr_excl_cnt": 0,
@@ -62,9 +62,9 @@
         10,
         8
     ],
-    "ai_core_score": 12.6,
-    "ai_core_dedup_score": 11.68,
-    "ai_core_gap": 0.92,
+    "ai_core_score": 12.66,
+    "ai_core_dedup_score": 11.72,
+    "ai_core_gap": 0.94,
     "ai_core_state": "AI Strong",
     "ai_breadth_state": "Mixed",
     "ai_breadth_strong": 8,
@@ -116,19 +116,19 @@
         {
             "basket": "AI_SOFTWARE_PLATFORM",
             "basket_name_kr": "AI_소프트웨어",
-            "score": 14.42,
+            "score": 14.48,
             "valid_count": 7
         },
         {
             "basket": "AI_DATA_PIPELINE_DATABASE",
             "basket_name_kr": "AI_데이터플랫폼",
-            "score": 13.77,
+            "score": 13.84,
             "valid_count": 7
         },
         {
             "basket": "AI_CYBER_SECURITY",
             "basket_name_kr": "AI_사이버보안",
-            "score": 13.22,
+            "score": 13.32,
             "valid_count": 12
         },
         {
@@ -165,7 +165,7 @@
             "name": "MSFT",
             "Signal_sco": 16.0,
             "return_3m": 22.88,
-            "Final_score": 0.963,
+            "Final_score": 0.9613,
             "baskets": [
                 "AI_CLOUD_HYPERSCALER",
                 "AI_AGENT_AUTOMATION_RPA"
@@ -176,7 +176,7 @@
             "name": "HXGBY",
             "Signal_sco": 16.0,
             "return_3m": 22.24,
-            "Final_score": 0.9518,
+            "Final_score": 0.9602,
             "baskets": [
                 "AI_ROBOT_COMPONENT"
             ]
@@ -186,21 +186,9 @@
             "name": "S",
             "Signal_sco": 15.0,
             "return_3m": 35.96,
-            "Final_score": 0.9349,
+            "Final_score": 0.9589,
             "baskets": [
                 "AI_CYBER_SECURITY"
-            ]
-        },
-        {
-            "ticker": "PLTR",
-            "name": "PLTR",
-            "Signal_sco": 14.25,
-            "return_3m": 26.48,
-            "Final_score": 0.9345,
-            "baskets": [
-                "AI_DATA_PIPELINE_DATABASE",
-                "AI_SOFTWARE_PLATFORM",
-                "AI_AGENT_AUTOMATION_RPA"
             ]
         },
         {
@@ -208,8 +196,20 @@
             "name": "NOW",
             "Signal_sco": 15.0,
             "return_3m": 40.31,
-            "Final_score": 0.9185,
+            "Final_score": 0.9408,
             "baskets": [
+                "AI_SOFTWARE_PLATFORM",
+                "AI_AGENT_AUTOMATION_RPA"
+            ]
+        },
+        {
+            "ticker": "PLTR",
+            "name": "PLTR",
+            "Signal_sco": 14.25,
+            "return_3m": 26.48,
+            "Final_score": 0.9331,
+            "baskets": [
+                "AI_DATA_PIPELINE_DATABASE",
                 "AI_SOFTWARE_PLATFORM",
                 "AI_AGENT_AUTOMATION_RPA"
             ]
@@ -219,7 +219,7 @@
             "name": "CRWD",
             "Signal_sco": 14.5,
             "return_3m": 57.03,
-            "Final_score": 0.9083,
+            "Final_score": 0.9301,
             "baskets": [
                 "AI_CYBER_SECURITY"
             ]
@@ -229,7 +229,7 @@
             "name": "HPE",
             "Signal_sco": 15.0,
             "return_3m": 76.68,
-            "Final_score": 0.8872,
+            "Final_score": 0.9064,
             "baskets": [
                 "AI_CPU_SERVER",
                 "AI_DATACENTER_REIT_SERVER"
@@ -240,7 +240,7 @@
             "name": "NET",
             "Signal_sco": 14.0,
             "return_3m": 60.75,
-            "Final_score": 0.8816,
+            "Final_score": 0.902,
             "baskets": [
                 "AI_DATA_PIPELINE_DATABASE",
                 "AI_DATA_IDENTITY_SECURITY"
@@ -248,5 +248,5 @@
         }
     ],
     "ai_basket_count": 34,
-    "update_time": "2026-08-10 07:59:10"
+    "update_time": "2026-08-10 18:12:15"
 }
