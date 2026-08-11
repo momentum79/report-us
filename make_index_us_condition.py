@@ -85,7 +85,7 @@ def stock_row(row):
     industry = short_name(row.get("industry", ""))
     yahoo_code = re.sub(r"[^A-Za-z0-9.\-]", "", code)
     link = f"https://finance.yahoo.com/quote/{yahoo_code}" if yahoo_code else "#"
-    ticker_attr = f' data-ticker="{html.escape(yahoo_code)}"' if yahoo_code else ""
+    ticker_attr = f' data-v4-ticker="{html.escape(yahoo_code)}"' if yahoo_code else ""
     return f"""
       <div class="stock-row">
         <span class="stock-code{' ticker-hover' if yahoo_code else ''}"{ticker_attr}>
@@ -435,8 +435,16 @@ body.naver-popup-open{{overflow:hidden}}
 </body>
 </html>
 """
+    from chart_popup_v4 import build_chart_popup as _bcp_v4
+
+    _tickers = sorted(set(re.findall(r'data-v4-ticker="([^"]+)"', page)))
+    page = page.replace(
+        "</body>",
+        _bcp_v4(_tickers, market="US", trigger_attr="data-v4-ticker", include_kospi=False) + "\n</body>",
+        1,
+    )
     OUT_HTML.write_text(page, encoding="utf-8")
-    print(f"[OK] us_condition.html updated at {OUT_HTML}")
+    print(f"[OK] us_condition.html updated at {OUT_HTML} (V4 차트 {len(_tickers)}종목)")
 
 
 if __name__ == "__main__":

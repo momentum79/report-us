@@ -95,6 +95,8 @@ def daily_rows(ticker, market="US"):
     df = _load_store(market).get(key)
     if market == "KR":
         df = _pick_fresher(df, _load_kr_wk_store().get(key))
+    else:
+        df = _pick_fresher(df, _load_wk_store().get(key))
     if df is None or df.empty:
         return []
     out = []

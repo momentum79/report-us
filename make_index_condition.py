@@ -87,7 +87,7 @@ def stock_row(stock):
         <span class="stock-cs">{cs_badge(stock.get("contract_strength", "-"))}</span>
         <span class="stock-nxt">{nxt_html}</span>
         <span class="stock-name" title="{html.escape(name)}">
-          <span class="naver-trigger" data-code="{html.escape(code)}" data-name="{html.escape(name)}">{html.escape(short) if short else "-"}</span>
+          <span class="chart-v4-trigger" data-code="{html.escape(code)}" data-name="{html.escape(name)}">{html.escape(short) if short else "-"}</span>
         </span>
       </div>"""
 
@@ -227,7 +227,7 @@ body {{ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 2
 .stock-code {{ min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:700; color:#2c3e50; }}
 .stock-name {{ min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }}
 .sn-amt {{ white-space:nowrap; text-align:right; }}
-.naver-trigger {{ font-size:0.82em; color:#2980b9; cursor:pointer; text-decoration:underline dotted; }}
+.chart-v4-trigger {{ font-size:0.82em; color:#2980b9; cursor:pointer; text-decoration:underline dotted; }}
 .stock-rate {{ font-weight: bold; text-align:right; white-space:nowrap; }}
 .stock-cs {{ font-weight: bold; text-align:right; white-space:nowrap; }}
 .stock-nxt {{ text-align: right; white-space: nowrap; }}
@@ -389,8 +389,17 @@ body.naver-popup-open {{ overflow:hidden; }}
 </body>
 </html>
 """
+    import re as _re
+    from chart_popup_v4 import build_chart_popup as _bcp_v4
+
+    _codes = sorted(set(_re.findall(r'data-code="([^"]+)"', page)))
+    page = page.replace(
+        "</body>",
+        _bcp_v4(_codes, market="KR", trigger_attr="data-code", include_kospi=False) + "\n</body>",
+        1,
+    )
     OUT_HTML.write_text(page, encoding="utf-8")
-    print(f"[OK] kor_condition.html updated at {OUT_HTML}")
+    print(f"[OK] kor_condition.html updated at {OUT_HTML} (V4 차트 {_codes and len(_codes) or 0}종목)")
 
 
 if __name__ == "__main__":

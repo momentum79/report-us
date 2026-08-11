@@ -6,7 +6,8 @@ import re
 from pathlib import Path
 from datetime import datetime, timedelta
 from collections import defaultdict
-from chart_popup_v2 import build_chart_popup, fetch_daily, fetch_kospi_daily
+from chart_popup_v2 import fetch_daily, fetch_kospi_daily
+from chart_popup_v4 import build_chart_popup
 
 BASE = Path(r"D:\py\report-us")
 REPORT_JSON       = BASE / "report_volume.json"
@@ -990,12 +991,14 @@ def main():
 
     main_table_html = build_table(stocks, theme_map, theme_filter, signal_marks)
 
-    # 호버 가능한 모든 종목코드(data-code) 수집 → V2 인터랙티브 차트 팝업 빌드
+    # 호버 가능한 모든 종목코드(data-code) 수집 → V4 인터랙티브 차트 팝업 빌드
     codes = set(re.findall(r'data-code="([0-9A-Za-z]{1,6})"',
                            leader_table_html + leader_table_b_html + tracking_volume_html + main_table_html + intraday_chart_html + overlap_html))
     track_dates = {str(t).zfill(6): [v["added_date"]]
                    for t, v in tracking_volume.items() if v.get("added_date")}
-    popup_block = build_chart_popup(sorted(codes), cache_key="volume",
+    popup_block = build_chart_popup(sorted(codes), market="KR",
+                                    trigger_attr="data-code",
+                                    include_kospi=False,
                                     track_dates=track_dates)
 
     page = f"""<!doctype html>
@@ -1093,7 +1096,7 @@ h2 {{
 @media screen and (max-width: 950px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {{
   .top-nav-container, .top-nav {{ display: none !important; }}
 }}
-/* === Chart Popup (V2) CSS는 build_chart_popup()이 주입 === */
+/* === Chart Popup (V4) CSS는 build_chart_popup()이 주입 === */
 </style>
 </head>
 <body>

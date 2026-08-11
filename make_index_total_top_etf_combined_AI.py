@@ -48,7 +48,7 @@ def _load_asset_8042() -> int:
         pass
     return 0
 
-ASSET_8042 = _load_asset_8042()
+ASSET_8042 = 10_000_000  # AI 관찰판 수량/총액 기준금액 (1천만원 고정)
 PENSION_ASSET = 100_000_000  # 연금계좌 기준금액 (1억)
 
 def _get_kor_price(ticker: str) -> float | None:
@@ -1704,7 +1704,10 @@ def build_final_order_table(held_list: list, data: list, s_data: dict) -> str:
     price_map = {}
     for tk in held_list:
         use_krx_price = len(tk) == 6 and tk[:2].isdigit()
-        price_map[tk] = _get_kor_price(tk) if use_krx_price else _get_us_price(tk)
+        live_price = _get_kor_price(tk) if use_krx_price else _get_us_price(tk)
+        if live_price is None:
+            live_price = data_map.get(tk, {}).get("close_today")
+        price_map[tk] = live_price
 
     rows_html = []
     rebalancing_rows = []
@@ -1773,7 +1776,7 @@ def build_final_order_table(held_list: list, data: list, s_data: dict) -> str:
 
         ticker_display = tk + ("**" if item.get("intensity") else "")
 
-        # 수량 셀: 추정자산 × 종목비중% / 현재가 (소수점 버림)
+        # 수량 셀: 기준금액 × 종목비중% / 현재가 (소수점 버림)
         is_kr = item.get("is_kr", tk.isdigit() and len(tk) == 6)
         # 가격 단위는 가격 조회 출처(pykrx=KRW / yfinance=USD)를 따라가야 한다
         use_krx_price = len(tk) == 6 and tk[:2].isdigit()
