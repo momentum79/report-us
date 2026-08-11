@@ -1,9 +1,64 @@
 {
-  "generated_at": "2026-08-11 16:49:53",
+  "generated_at": "2026-08-11 22:02:22",
   "source_policy": "live volume-first A-grade; KR-all/KR150/Naver confirmation; current cumulative tracking; foreign+institution sell blocks A",
   "counts": {
     "a_grade": 0,
-    "watch": 0
+    "watch": 1
   },
-  "items": []
+  "items": [
+    {
+      "ticker": "005935",
+      "name": "삼성전자우",
+      "grade": "B",
+      "score": 52,
+      "sources": [
+        "leader_tracking_volume",
+        "legacy_leader_txt",
+        "report_volume_fi_plus"
+      ],
+      "hard_source_count": 1,
+      "reasons": [
+        "거래대금 트래킹 last +26.49%",
+        "기존 leader txt",
+        "외인+기관 +318억"
+      ],
+      "naver": null,
+      "report_volume": {
+        "rank": 16,
+        "pred_rank": 23,
+        "ticker": "005935",
+        "name": "삼성전자우",
+        "change": 4.77,
+        "trade_amount": 444474,
+        "today": 317.92,
+        "foreign_today": 128.3,
+        "organ_today": 189.62,
+        "total": -1931.8453199999994,
+        "foreign": -2321.4338879999996,
+        "organ": 389.588568,
+        "nxt": "",
+        "snap_price": null,
+        "snap_rank": null,
+        "snap_pct": null,
+        "high_pct": null,
+        "low_pct": null,
+        "open_price": 170000
+      },
+      "tracking_cum_pct": {
+        "volume": null
+      },
+      "foreign_inst_today_eok": 317.92,
+      "volume_rank": 16,
+      "today_change_pct": 4.77,
+      "volume_primary": true,
+      "today_volume_valid": false,
+      "confirm_count": 1,
+      "a_confirm_sources": [],
+      "a_confirm_count": 0,
+      "best_tracking_cum_pct": null,
+      "collapse_reasons": [],
+      "foreign_inst_sell": false,
+      "early_phase": false
+    }
+  ]
 }
