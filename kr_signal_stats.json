@@ -1,22 +1,22 @@
 {
-    "avg_sco": 0.7,
+    "avg_sco": 0.8,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
-    "sco_pos": 21,
-    "sco_neg": 14,
+    "sco_pos": 20,
+    "sco_neg": 15,
     "sco_strong": 2,
     "strong_count": 2,
-    "top3_avg_sco": 14.25,
+    "top3_avg_sco": 15.12,
     "top3_avg_pos": 1.0,
-    "kospi_trend": "PURPLE",
+    "kospi_trend": "-",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
     "euro_trend": "-",
-    "india_trend": "-",
+    "india_trend": "RED",
     "nikkei_trend": "-",
-    "kospi_mult": 0.1,
+    "kospi_mult": 0.2,
     "nasdaq_mult": 0.85,
     "invest_pct": 49.8,
     "invest_amount_total": 49750000,
@@ -45,9 +45,9 @@
         }
     ],
     "invest_pct_sc3": 49.8,
-    "invest_pct_s1": 46.8,
+    "invest_pct_s1": 72.3,
     "invest_amount_sc3": 49750000,
-    "invest_amount_s1": 46784740,
+    "invest_amount_s1": 72261580,
     "per_ticker_alloc_sc3": [
         {
             "ticker": "228790",
@@ -78,10 +78,10 @@
             "industry": "화장품",
             "is_kospi": true,
             "internal_weight": 50.9537,
-            "market_mult": 0.1,
-            "floor_mult": 0.0,
-            "effective_mult": 0.1,
-            "effective_pct": 5.0954
+            "market_mult": 0.2,
+            "floor_mult": 0.6,
+            "effective_mult": 0.6,
+            "effective_pct": 30.5722
         },
         {
             "ticker": "449180",
@@ -89,7 +89,7 @@
             "is_kospi": false,
             "internal_weight": 49.0463,
             "market_mult": 0.85,
-            "floor_mult": 0.55,
+            "floor_mult": 0.6,
             "effective_mult": 0.85,
             "effective_pct": 41.6894
         }
@@ -99,12 +99,12 @@
         "kr_bucket_pct": 0.25,
         "us_state": "LIME",
         "us_bucket_pct": 0.8,
-        "last_date": "2026-08-10",
-        "updated_today": false
+        "last_date": "2026-08-11",
+        "updated_today": true
     },
     "sc3_ok": true,
-    "trade_date": "2026-08-10",
-    "vol63_median": 31.0,
+    "trade_date": "2026-08-11",
+    "vol63_median": 31.2,
     "internal_weights": [
         50.9537,
         49.0463
@@ -121,5 +121,5 @@
         55,
         45
     ],
-    "update_time": "2026-08-10 18:14:25"
+    "update_time": "2026-08-11 16:47:10"
 }
