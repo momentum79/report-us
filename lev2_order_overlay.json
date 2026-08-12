@@ -1,5 +1,5 @@
 {
-  "asof": "2026-08-12 22:38:09",
+  "asof": "2026-08-13 08:48:03",
   "strategy": "F4_B_safe",
   "params": {
     "atr_thr": 1.5,
@@ -26,10 +26,10 @@
     "kr_safe": true,
     "us_ret_ok": true,
     "kr_ret_ok": false,
-    "qqq_ret20": 1.0268335633327075,
-    "qqq_ret60": 2.2823117716760155,
-    "spy_ret20": 2.430417164268839,
-    "spy_ret60": 4.597730856563942,
+    "qqq_ret20": 0.8303873343757928,
+    "qqq_ret60": 2.0834242709216078,
+    "spy_ret20": 2.34231034736776,
+    "spy_ret60": 4.507759797419797,
     "kr_ret20": -5.706901432889799,
     "kr_ret60": -11.724975206046306
   },
@@ -59,8 +59,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 1838,
-      "order_amount": 8372090
+      "order_qty": 1837,
+      "order_amount": 8367535
     },
     {
       "base_ticker": "CIBR",
@@ -74,19 +74,19 @@
       "order_symbol_or_prefix": "ND:CIBR",
       "is_lev2": false,
       "lev_reason": "",
-      "fallback_reason": "유동성 탈락 (20일 평균 거래대금 $0.72M < $1M)",
-      "atr_ratio": 0.9559,
-      "index_ret20": 1.0268335633327075,
-      "index_ret60": 2.2823117716760155,
+      "fallback_reason": "유동성 탈락 (20일 평균 거래대금 $0.76M < $1M)",
+      "atr_ratio": 0.9609,
+      "index_ret20": 0.8303873343757928,
+      "index_ret60": 2.0834242709216078,
       "qqq_color": "LIME",
       "spy_color": "LIME",
       "kr_color": "-",
-      "liquidity_20d": 720564.68,
-      "liquidity_10d_eok": 15.4,
+      "liquidity_20d": 763807.44,
+      "liquidity_10d_eok": 16.3,
       "liq2_min_eok": 100,
-      "age_bars": 502,
+      "age_bars": 501,
       "order_qty": 71,
-      "order_amount": 10117830
+      "order_amount": 10038462
     },
     {
       "base_ticker": "IGV",
@@ -101,9 +101,9 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "2x 매핑 없음 (NO_2X)",
-      "atr_ratio": 0.9247,
-      "index_ret20": 1.0268335633327075,
-      "index_ret60": 2.2823117716760155,
+      "atr_ratio": 0.9642,
+      "index_ret20": 0.8303873343757928,
+      "index_ret60": 2.0834242709216078,
       "qqq_color": "LIME",
       "spy_color": "LIME",
       "kr_color": "-",
@@ -112,7 +112,7 @@
       "liq2_min_eok": null,
       "age_bars": null,
       "order_qty": 44,
-      "order_amount": 6474106
+      "order_amount": 6470059
     },
     {
       "base_ticker": "EWS",
@@ -127,9 +127,9 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "2x 매핑 없음 (NO_2X)",
-      "atr_ratio": 1.1949,
-      "index_ret20": 1.0268335633327075,
-      "index_ret60": 2.2823117716760155,
+      "atr_ratio": 1.2738,
+      "index_ret20": 0.8303873343757928,
+      "index_ret60": 2.0834242709216078,
       "qqq_color": "LIME",
       "spy_color": "LIME",
       "kr_color": "-",
@@ -137,8 +137,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 94,
-      "order_amount": 4498398
+      "order_qty": 93,
+      "order_amount": 4463702
     },
     {
       "base_ticker": "EWP",
@@ -153,9 +153,9 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "2x 매핑 없음 (NO_2X)",
-      "atr_ratio": 0.6217,
-      "index_ret20": 1.0268335633327075,
-      "index_ret60": 2.2823117716760155,
+      "atr_ratio": 0.675,
+      "index_ret20": 0.8303873343757928,
+      "index_ret60": 2.0834242709216078,
       "qqq_color": "LIME",
       "spy_color": "LIME",
       "kr_color": "-",
@@ -164,7 +164,7 @@
       "liq2_min_eok": null,
       "age_bars": null,
       "order_qty": 50,
-      "order_amount": 4448052
+      "order_amount": 4431072
     },
     {
       "base_ticker": "EWQ",
@@ -179,9 +179,9 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "2x 매핑 없음 (NO_2X)",
-      "atr_ratio": 0.4889,
-      "index_ret20": 1.0268335633327075,
-      "index_ret60": 2.2823117716760155,
+      "atr_ratio": 0.5179,
+      "index_ret20": 0.8303873343757928,
+      "index_ret60": 2.0834242709216078,
       "qqq_color": "LIME",
       "spy_color": "LIME",
       "kr_color": "-",
@@ -190,7 +190,7 @@
       "liq2_min_eok": null,
       "age_bars": null,
       "order_qty": 53,
-      "order_amount": 3569387
+      "order_amount": 3576511
     }
   ]
 }
