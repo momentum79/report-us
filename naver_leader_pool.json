@@ -1,229 +1,201 @@
 {
-  "generated_at": "2026-08-13 15:55:26",
+  "generated_at": "2026-08-14 08:00:14",
   "source_policy": "live volume-first A-grade; KR-all/KR150/Naver confirmation; current cumulative tracking; foreign+institution sell blocks A",
   "counts": {
-    "a_grade": 3,
+    "a_grade": 0,
     "watch": 4
   },
   "items": [
     {
       "ticker": "000660",
       "name": "SK하이닉스",
-      "grade": "A",
-      "score": 112,
+      "grade": "B",
+      "score": 94,
       "sources": [
         "naver",
         "naver_change_4",
         "naver_trade_3t",
         "leader_tracking_volume",
-        "legacy_leader_txt",
-        "report_volume_fi_plus",
-        "report_volume_trade"
+        "legacy_leader_txt"
       ],
       "hard_source_count": 2,
       "reasons": [
         "네이버 테마 통과",
         "네이버 등락률 5.92%",
         "네이버 거래대금 73855억",
-        "거래대금 트래킹 cum -4.99%",
-        "기존 leader txt",
-        "외인+기관 +5449억",
-        "당일 거래대금 상위"
+        "거래대금 트래킹 cum -5.29%",
+        "기존 leader txt"
       ],
       "naver": {
         "theme": "반도체 대표주(생산)",
         "name": "SK하이닉스",
         "chg_pct": 5.92,
-        "trade_eok": 73855.13,
-        "open": 1579000.0,
-        "high": 1634000.0,
-        "close": 1596000.0,
+        "trade_eok": 73855.29,
+        "open": 1593000.0,
+        "high": 1593000.0,
+        "close": 1593000.0,
         "ohlc_ok": true,
         "ok_wick": true,
         "passed": true
       },
-      "report_volume": {
-        "rank": 2,
-        "pred_rank": 2,
-        "ticker": "000660",
-        "name": "SK하이닉스",
-        "change": 6.18,
-        "trade_amount": 11043332,
-        "today": 5448.59,
-        "foreign_today": 2583.13,
-        "organ_today": 2865.46,
-        "total": 16208.98401,
-        "foreign": 9457.34447,
-        "organ": 6751.63954,
-        "nxt": "NXT선",
-        "snap_price": null,
-        "snap_rank": null,
-        "snap_pct": null,
-        "high_pct": null,
-        "low_pct": null,
-        "open_price": 1579000
-      },
+      "report_volume": null,
       "tracking_cum_pct": {
-        "volume": -4.99405469678954
+        "volume": -5.291319857312726
       },
-      "close_position": 0.3090909090909091,
-      "foreign_inst_today_eok": 5448.59,
-      "volume_rank": 2,
-      "today_change_pct": 6.18,
+      "close_position": null,
+      "today_change_pct": 5.92,
       "volume_primary": true,
-      "today_volume_valid": true,
+      "today_volume_valid": false,
       "confirm_count": 2,
       "a_confirm_sources": [
         "naver"
       ],
       "a_confirm_count": 1,
-      "best_tracking_cum_pct": -4.99405469678954,
+      "best_tracking_cum_pct": -5.291319857312726,
       "collapse_reasons": [],
       "foreign_inst_sell": false,
-      "early_phase": false
+      "early_phase": true
+    },
+    {
+      "ticker": "005930",
+      "name": "삼성전자",
+      "grade": "B",
+      "score": 94,
+      "sources": [
+        "naver",
+        "naver_change_4",
+        "naver_trade_3t",
+        "leader_tracking_volume",
+        "legacy_leader_txt"
+      ],
+      "hard_source_count": 2,
+      "reasons": [
+        "네이버 테마 통과",
+        "네이버 등락률 4.89%",
+        "네이버 거래대금 94998억",
+        "거래대금 트래킹 cum +2.10%",
+        "기존 leader txt"
+      ],
+      "naver": {
+        "theme": "반도체 대표주(생산)",
+        "name": "삼성전자",
+        "chg_pct": 4.89,
+        "trade_eok": 94997.96,
+        "open": 268000.0,
+        "high": 268000.0,
+        "close": 268000.0,
+        "ohlc_ok": true,
+        "ok_wick": true,
+        "passed": true
+      },
+      "report_volume": null,
+      "tracking_cum_pct": {
+        "volume": 2.0952380952381056
+      },
+      "close_position": null,
+      "today_change_pct": 4.89,
+      "volume_primary": true,
+      "today_volume_valid": false,
+      "confirm_count": 2,
+      "a_confirm_sources": [
+        "naver"
+      ],
+      "a_confirm_count": 1,
+      "best_tracking_cum_pct": 2.0952380952381056,
+      "collapse_reasons": [],
+      "foreign_inst_sell": false,
+      "early_phase": true
     },
     {
       "ticker": "009150",
       "name": "삼성전기",
-      "grade": "A",
-      "score": 110,
+      "grade": "B",
+      "score": 92,
       "sources": [
         "naver",
         "naver_change_10",
         "naver_trade_1t",
         "leader_tracking_volume",
-        "legacy_leader_txt",
-        "report_volume_fi_plus",
-        "report_volume_trade"
+        "legacy_leader_txt"
       ],
       "hard_source_count": 2,
       "reasons": [
         "네이버 테마 통과",
         "네이버 등락률 12.58%",
         "네이버 거래대금 17393억",
-        "거래대금 트래킹 cum +31.87%",
-        "기존 leader txt",
-        "외인+기관 +574억",
-        "당일 거래대금 상위"
+        "거래대금 트래킹 cum +31.61%",
+        "기존 leader txt"
       ],
       "naver": {
         "theme": "S7(삼성전자/SK하이닉스 등)",
         "name": "삼성전기",
         "chg_pct": 12.58,
         "trade_eok": 17393.03,
-        "open": 1371000.0,
-        "high": 1548000.0,
-        "close": 1501000.0,
+        "open": 1503000.0,
+        "high": 1503000.0,
+        "close": 1503000.0,
         "ohlc_ok": true,
         "ok_wick": true,
         "passed": true
       },
-      "report_volume": {
-        "rank": 3,
-        "pred_rank": 4,
-        "ticker": "009150",
-        "name": "삼성전기",
-        "change": 12.58,
-        "trade_amount": 3259089,
-        "today": 573.98,
-        "foreign_today": 97.91,
-        "organ_today": 476.07,
-        "total": 3743.5350100000005,
-        "foreign": 2380.77192,
-        "organ": 1362.7630900000001,
-        "nxt": "NXT선",
-        "snap_price": null,
-        "snap_rank": null,
-        "snap_pct": null,
-        "high_pct": null,
-        "low_pct": null,
-        "open_price": 1371000
-      },
+      "report_volume": null,
       "tracking_cum_pct": {
-        "volume": 31.873905429071804
+        "volume": 31.611208406304737
       },
-      "close_position": 0.7344632768361582,
-      "foreign_inst_today_eok": 573.98,
-      "volume_rank": 3,
+      "close_position": null,
       "today_change_pct": 12.58,
       "volume_primary": true,
-      "today_volume_valid": true,
+      "today_volume_valid": false,
       "confirm_count": 2,
       "a_confirm_sources": [
         "naver"
       ],
       "a_confirm_count": 1,
-      "best_tracking_cum_pct": 31.873905429071804,
+      "best_tracking_cum_pct": 31.611208406304737,
       "collapse_reasons": [],
       "foreign_inst_sell": false,
-      "early_phase": false
+      "early_phase": true
     },
     {
       "ticker": "402340",
       "name": "SK스퀘어",
-      "grade": "A",
-      "score": 102,
+      "grade": "B",
+      "score": 84,
       "sources": [
         "naver",
         "naver_change_4",
         "naver_trade_5000",
         "leader_tracking_volume",
-        "legacy_leader_txt",
-        "report_volume_fi_plus",
-        "report_volume_trade"
+        "legacy_leader_txt"
       ],
       "hard_source_count": 2,
       "reasons": [
         "네이버 테마 통과",
         "네이버 등락률 9.08%",
-        "네이버 거래대금 8426억",
+        "네이버 거래대금 8430억",
         "거래대금 트래킹 cum +7.61%",
-        "기존 leader txt",
-        "외인+기관 +187억",
-        "당일 거래대금 상위"
+        "기존 leader txt"
       ],
       "naver": {
         "theme": "S7(삼성전자/SK하이닉스 등)",
         "name": "SK스퀘어",
         "chg_pct": 9.08,
-        "trade_eok": 8426.08,
-        "open": 1063000.0,
-        "high": 1150000.0,
-        "close": 1116000.0,
+        "trade_eok": 8429.52,
+        "open": 1117000.0,
+        "high": 1117000.0,
+        "close": 1117000.0,
         "ohlc_ok": true,
         "ok_wick": true,
         "passed": true
       },
-      "report_volume": {
-        "rank": 6,
-        "pred_rank": 7,
-        "ticker": "402340",
-        "name": "SK스퀘어",
-        "change": 9.18,
-        "trade_amount": 1245900,
-        "today": 187.45999999999998,
-        "foreign_today": -79.32,
-        "organ_today": 266.78,
-        "total": 2491.0278799999996,
-        "foreign": 2395.4485799999998,
-        "organ": 95.57929999999999,
-        "nxt": "NXT선",
-        "snap_price": null,
-        "snap_rank": null,
-        "snap_pct": null,
-        "high_pct": null,
-        "low_pct": null,
-        "open_price": 1063000
-      },
+      "report_volume": null,
       "tracking_cum_pct": {
         "volume": 7.610789980732169
       },
-      "close_position": 0.6091954022988506,
-      "foreign_inst_today_eok": 187.45999999999998,
-      "volume_rank": 6,
-      "today_change_pct": 9.18,
+      "close_position": null,
+      "today_change_pct": 9.08,
       "volume_primary": true,
-      "today_volume_valid": true,
+      "today_volume_valid": false,
       "confirm_count": 2,
       "a_confirm_sources": [
         "naver"
@@ -232,82 +204,7 @@
       "best_tracking_cum_pct": 7.610789980732169,
       "collapse_reasons": [],
       "foreign_inst_sell": false,
-      "early_phase": false
-    },
-    {
-      "ticker": "005930",
-      "name": "삼성전자",
-      "grade": "B",
-      "score": 92,
-      "sources": [
-        "naver",
-        "naver_change_4",
-        "naver_trade_3t",
-        "leader_tracking_volume",
-        "legacy_leader_txt",
-        "report_volume_trade"
-      ],
-      "hard_source_count": 2,
-      "reasons": [
-        "네이버 테마 통과",
-        "네이버 등락률 4.89%",
-        "네이버 거래대금 94997억",
-        "거래대금 트래킹 cum +1.52%",
-        "기존 leader txt",
-        "외인+기관 -1148억",
-        "당일 거래대금 상위"
-      ],
-      "naver": {
-        "theme": "반도체 대표주(생산)",
-        "name": "삼성전자",
-        "chg_pct": 4.89,
-        "trade_eok": 94996.83,
-        "open": 265000.0,
-        "high": 271000.0,
-        "close": 266500.0,
-        "ohlc_ok": true,
-        "ok_wick": true,
-        "passed": true
-      },
-      "report_volume": {
-        "rank": 1,
-        "pred_rank": 1,
-        "ticker": "005930",
-        "name": "삼성전자",
-        "change": 4.31,
-        "trade_amount": 13417377,
-        "today": -1147.76,
-        "foreign_today": -1299.91,
-        "organ_today": 152.15,
-        "total": 27065.111765,
-        "foreign": 24163.35681,
-        "organ": 2901.754955,
-        "nxt": "NXT선",
-        "snap_price": null,
-        "snap_rank": null,
-        "snap_pct": null,
-        "high_pct": null,
-        "low_pct": null,
-        "open_price": 265000
-      },
-      "tracking_cum_pct": {
-        "volume": 1.5238095238095273
-      },
-      "close_position": 0.25,
-      "foreign_inst_today_eok": -1147.76,
-      "volume_rank": 1,
-      "today_change_pct": 4.31,
-      "volume_primary": true,
-      "today_volume_valid": true,
-      "confirm_count": 2,
-      "a_confirm_sources": [
-        "naver"
-      ],
-      "a_confirm_count": 1,
-      "best_tracking_cum_pct": 1.5238095238095273,
-      "collapse_reasons": [],
-      "foreign_inst_sell": true,
-      "early_phase": false
+      "early_phase": true
     }
   ]
 }

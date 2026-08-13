@@ -1,4 +1,4 @@
-C:\Users\uidg9619\AppData\Local\Programs\Python\Python313\Lib\site-packages\pykrx\__init__.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pykrx\__init__.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   import pkg_resources
 ✅ 한국 ETF 캐시 업데이트 완료: 35개 종목
 
@@ -8,7 +8,7 @@ C:\Users\uidg9619\AppData\Local\Programs\Python\Python313\Lib\site-packages\pykr
   유지: 449180 (sco=13.5)
 
 최종 보유 종목 (2개): ['228790', '449180']
-[코스피 단계적 비중] up_days=3(재실행(스킵)) → multiplier=0.4 (등락: +3.89%)
+[코스피 단계적 비중] up_days=3(카운팅) → multiplier=0.4 (등락: +3.89%)
 [나스닥 단계적 비중] LIME(위치1) → multiplier=0.85
 
 [변동성 감점형 내부비중 조정]
@@ -33,7 +33,7 @@ C:\Users\uidg9619\AppData\Local\Programs\Python\Python313\Lib\site-packages\pykr
 ✅ 저점 신호 데이터가 'D:\py\report-us\kr_etf_low_signals.json'에 저장되었습니다.
 ✅ kr_etf_gann_fire_set.json 저장 완료 (🔥 2개)
 ✅ kr_etf_stab.json 저장 완료 (35개)
-✅ 시장온도 히스토리 저장 완료 → 'D:\py\report-us\top3_etf_track.json'  (총 388일)
+✅ 시장온도 히스토리 저장 완료 → 'D:\py\report-us\top3_etf_track.json'  (총 389일)
 
 [벤치마크 추세]  코스피: -  /  코스닥: GREEN
                  에센피: LIME  /  나스닥: LIME
@@ -84,4 +84,4 @@ Ticker      Name                    등락    위치    Sco      RSI     정   5
 
 [ATR 트레일링(-10%)로 제외 - 최근 2주] 없음
 
-[실행 소요 시간]: 11.78초
+[실행 소요 시간]: 10.33초

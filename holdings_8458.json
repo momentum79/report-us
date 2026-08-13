@@ -1,16 +1,16 @@
 {
   "account": "8458",
-  "updated": "2026-08-13 16:01:42",
+  "updated": "2026-08-14 08:04:40",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 6663756,
+    "total_asset": 9270306,
     "tot_pur_amt": 6039185,
     "tot_evlt_amt": 6602380,
     "tot_evlt_pl": 561335,
     "tot_prft_rt": 9.29,
-    "stock_ratio": 99.07895787300735,
-    "cash": 62346,
+    "stock_ratio": 71.22073424544993,
+    "cash": 2668896,
     "tdy_realized_pl": 0
   },
   "holdings": [
@@ -23,7 +23,7 @@
       "profit_rate": 10.19,
       "eval_amount": 5191400,
       "nxt": "",
-      "cntr_str": 97.42
+      "cntr_str": null
     },
     {
       "stock_code": "494300",
@@ -34,7 +34,7 @@
       "profit_rate": 5.23,
       "eval_amount": 1045550,
       "nxt": "",
-      "cntr_str": 114.34
+      "cntr_str": null
     },
     {
       "stock_code": "0198A0",
@@ -45,19 +45,45 @@
       "profit_rate": 8.77,
       "eval_amount": 365430,
       "nxt": "",
-      "cntr_str": 106.56
+      "cntr_str": null
     }
   ],
   "us_holdings": [
     {
-      "ticker": "EWQ",
-      "stock_name": "MSCI 프랑스 아이셰어즈 ETF",
-      "quantity": 42,
-      "avg_price": 47.87,
-      "current_price": 47.51,
-      "profit_rate": -0.89,
-      "eval_amount_usd": 1995.42,
-      "eval_amount": 2831002,
+      "ticker": "CIBR",
+      "stock_name": "나스닥 사이버보안 퍼스트 트러스트 ETF",
+      "quantity": 23,
+      "avg_price": 100.78,
+      "current_price": 102.6414,
+      "profit_rate": 1.7,
+      "eval_amount_usd": 2360.7522,
+      "eval_amount": 3349907,
+      "buy_date": "",
+      "candle": "",
+      "tag": ""
+    },
+    {
+      "ticker": "IGV",
+      "stock_name": "소프트웨어 아이셰어즈 ETF",
+      "quantity": 14,
+      "avg_price": 104.02,
+      "current_price": 106.1921,
+      "profit_rate": 1.94,
+      "eval_amount_usd": 1486.6894,
+      "eval_amount": 2109612,
+      "buy_date": "",
+      "candle": "",
+      "tag": ""
+    },
+    {
+      "ticker": "EWS",
+      "stock_name": "싱가포르 아이셰어즈 ETF",
+      "quantity": 30,
+      "avg_price": 33.555,
+      "current_price": 33.51,
+      "profit_rate": -0.27,
+      "eval_amount_usd": 1005.3,
+      "eval_amount": 1426520,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -65,65 +91,39 @@
     {
       "ticker": "EWP",
       "stock_name": "스페인 아이셰어즈 ETF",
-      "quantity": 24,
+      "quantity": 16,
       "avg_price": 62.67,
-      "current_price": 63.39,
-      "profit_rate": 1.0,
-      "eval_amount_usd": 1521.36,
-      "eval_amount": 2158429,
+      "current_price": 62.7654,
+      "profit_rate": 0.01,
+      "eval_amount_usd": 1004.2464,
+      "eval_amount": 1425025,
       "buy_date": "",
       "candle": "",
       "tag": ""
     },
     {
-      "ticker": "XLF",
-      "stock_name": "금융주 SPDR ETF",
-      "quantity": 15,
-      "avg_price": 57.6888,
-      "current_price": 58.01,
-      "profit_rate": 0.41,
-      "eval_amount_usd": 870.15,
-      "eval_amount": 1234525,
-      "buy_date": "",
-      "candle": "",
-      "tag": ""
-    },
-    {
-      "ticker": "EWA",
-      "stock_name": "MSCI 호주 아이셰어즈 ETF",
-      "quantity": 29,
-      "avg_price": 30.3272,
-      "current_price": 29.89,
-      "profit_rate": -1.58,
-      "eval_amount_usd": 866.81,
-      "eval_amount": 1229786,
-      "buy_date": "",
-      "candle": "",
-      "tag": ""
-    },
-    {
-      "ticker": "GREK",
-      "stock_name": "MSCI 그리스 글로벌엑스 ETF",
-      "quantity": 7,
-      "avg_price": 82.75,
-      "current_price": 82.0857,
-      "profit_rate": -0.94,
-      "eval_amount_usd": 574.5999,
-      "eval_amount": 815213,
+      "ticker": "EWQ",
+      "stock_name": "MSCI 프랑스 아이셰어즈 ETF",
+      "quantity": 17,
+      "avg_price": 47.87,
+      "current_price": 47.37,
+      "profit_rate": -1.18,
+      "eval_amount_usd": 805.29,
+      "eval_amount": 1142706,
       "buy_date": "",
       "candle": "",
       "tag": ""
     }
   ],
   "us_summary": {
-    "us_stock_krw": 8268955,
-    "usd_cash": 3665.78,
-    "usd_cash_krw": 5187078,
-    "rate": 1415.0,
-    "total_asset_total": 13496524,
-    "eval_pl_usd": -10.35,
-    "eval_pl_krw": -14645,
-    "tdy_realized_pl_usd": 0.0,
-    "tdy_realized_pl_krw": 0
+    "us_stock_krw": 9453770,
+    "usd_cash": null,
+    "usd_cash_krw": null,
+    "rate": null,
+    "total_asset_total": null,
+    "eval_pl_usd": 64.9,
+    "eval_pl_krw": null,
+    "tdy_realized_pl_usd": -24.26,
+    "tdy_realized_pl_krw": -34426
   }
 }

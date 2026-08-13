@@ -1,15 +1,15 @@
 {
-    "avg_sco": 6.6,
+    "avg_sco": 6.7,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 107,
-    "sco_neg": 23,
-    "sco_strong": 48,
-    "sco_zone_neg": 23,
-    "sco_zone_weak": 45,
-    "sco_zone_mid": 14,
-    "sco_zone_strong": 48,
+    "sco_pos": 109,
+    "sco_neg": 21,
+    "sco_strong": 46,
+    "sco_zone_neg": 21,
+    "sco_zone_weak": 47,
+    "sco_zone_mid": 16,
+    "sco_zone_strong": 46,
     "strong_count": 42,
     "top3_avg_sco": 15.33,
     "top3_avg_pos": 1.0,
@@ -25,45 +25,41 @@
     "brazil_trend": "RED",
     "kospi_mult": 0.4,
     "nasdaq_mult": 0.85,
-    "invest_pct": 77.8,
-    "invest_amount_total": 77780819,
+    "invest_pct": 80.6,
+    "invest_amount_total": 80618553,
     "internal_weights": [
-        28.8767,
-        24.6575,
-        15.7808,
-        10.9589,
-        10.9589,
-        8.7671
+        34.0206,
+        27.8351,
+        17.5258,
+        10.3093,
+        10.3093
     ],
-    "n_holdings": 6,
+    "n_holdings": 5,
     "holdings_tickers": [
-        "228790",
         "CIBR",
         "IGV",
-        "EWS",
+        "228790",
         "EWP",
-        "EWQ"
+        "EWS"
     ],
     "final_ratios": {
-        "228790": 17.33,
-        "CIBR": 20.96,
-        "IGV": 13.41,
-        "EWS": 9.32,
-        "EWP": 9.32,
-        "EWQ": 7.45
+        "CIBR": 28.92,
+        "IGV": 23.66,
+        "228790": 10.52,
+        "EWP": 8.76,
+        "EWS": 8.76
     },
     "top3_tickers": [
-        "228790",
         "CIBR",
-        "IGV"
+        "IGV",
+        "228790"
     ],
     "allocation_map_used": [
-        31,
-        25,
-        16,
+        33,
+        27,
+        20,
         10,
-        10,
-        8
+        10
     ],
     "score_model": {
         "name": "vol_stability_v1",
@@ -71,7 +67,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-08-13 08:41:18",
+    "update_time": "2026-08-14 07:54:54",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 50,
