@@ -15,6 +15,7 @@
 #
 # 실행:  python chart_popup_v4.py   →  report-us/chart_v4_test.html  (NVDA 자동표시)
 import os, sys, json, time, webbrowser, importlib
+import importlib.util   # find_spec (셔틀 판정) — importlib 만 import 하면 util 이 없을 수 있다
 import datetime as _dt
 
 import numpy as np
@@ -159,18 +160,55 @@ def _save_wk_store(store):
         print(f"  [wk warmup] 캐시 저장 실패: {e}")
 
 
+def _is_naver_shim(yf):
+    """회사 셔틀(company_shim/yfinance.py)인지 판정.
+    shim 은 네이버 해외차트 API = 원주가라 auto_adjust 인자를 무시한다(shim 자체 주석).
+    버전 문자열과 모듈 경로를 둘 다 본다 — 하나가 바뀌어도 오탐/미탐이 안 나게."""
+    ver = str(getattr(yf, "__version__", "")).lower()
+    path = str(getattr(yf, "__file__", "") or "").lower().replace("/", "\\")
+    return ("naver" in ver) or ("shim" in ver) or ("company_shim" in path)
+
+
+def _shim_on_path():
+    """yfinance 를 import 하지 않고 셔틀 여부만 확인(import 비용 회피용).
+    need 가 비면 지금처럼 yfinance import 자체를 건너뛰어야 해서 미리 알아야 한다."""
+    try:
+        spec = importlib.util.find_spec("yfinance")
+        origin = str(getattr(spec, "origin", "") or "").lower().replace("/", "\\")
+        return "company_shim" in origin
+    except Exception:
+        return False
+
+
 def ensure_wk_warmup(tickers):
-    """부족/오래된 종목만 ~3년 일봉을 받아 warmup 캐시 갱신 (yfinance/네이버shim)."""
+    """부족/오래된 종목만 ~3년 일봉을 받아 warmup 캐시 갱신 (yfinance/네이버shim).
+
+    ※ 회사 셔틀로 받은 원주가는 '메모리에만' 두고 parquet 에 저장하지 않는다.
+      us_wk_warmup.parquet 는 git 추적 파일이라, 한 번 원주가가 들어가면 집으로 전염된다
+      (2026-08-14 실측: 배당주 44종목 오염, BDX 는 2년 전 가격이 33% 부풀려짐).
+      다만 화면 영향은 작다 — _merge_wk_with_fresh 가 keep="last" 라 메인 일봉(수정주가)과
+      겹치는 최근 ~2.3년은 전부 덮어써지고, warmup 단독 구간(가장 오래된 ~10개월)만 남는다.
+      실측 교정 효과 = 표시봉의 0.8%(각 종목 가장 오래된 봉 1개), 현재색 변경 0종목.
+      그래도 막는 이유: 추적 파일이 조용히 갈리는 것 자체가 위험하고(메인 일봉 캐시가 짧거나
+      없는 머신에선 이 원주가가 그대로 화면에 나온다), 막는 비용이 0이다.
+      회사 실행분도 이번 런에서는 배경이 그려지고, 집 실행 때 수정주가로 파일이 채워진다.
+      ※ VSCO 는 야후에 없어(상장폐지/심볼변경) 네이버 원주가가 유일 원천 → 예외로 남겨둠."""
     store = _load_wk_store()
     today = _dt.date.today()
     min_days = int(WK_YEARS * 365 * 0.9)
+    # 셔틀에서는 '며칠 늦음'을 이유로 재수집하지 않는다. 저장을 안 하니 매 실행 반복될 뿐인데,
+    # 최근 꼬리는 어차피 _merge_wk_with_fresh 가 메인 일봉으로 메워준다(5~10일 지연 대비 장치).
+    # → 회사 실행이 집보다 느려지는 일이 없다. 아예 없는/너무 짧은 종목만 받는다.
+    shim = _shim_on_path()
     need = []
     for tk in tickers:
         g = store.get(tk)
         if g is None or g.empty:
             need.append(tk); continue
         last = g.index.max().date(); first = g.index.min().date()
-        if (today - last).days > 5 or (today - first).days < min_days:
+        if (today - first).days < min_days:
+            need.append(tk); continue
+        if not shim and (today - last).days > 5:
             need.append(tk)
     if not need:
         return store
@@ -195,7 +233,11 @@ def ensure_wk_warmup(tickers):
             store[tk] = df.sort_index()
         except Exception as e:
             print(f"  [wk warmup] {tk} 수집 실패: {e}")
-    _save_wk_store(store)
+    if _is_naver_shim(yf):
+        print(f"  [wk warmup] 네이버 셔틀(원주가) 감지 → 캐시 저장 생략 "
+              f"(이번 실행만 메모리 사용, 집 실행 때 수정주가로 저장)")
+    else:
+        _save_wk_store(store)
     return store
 
 
