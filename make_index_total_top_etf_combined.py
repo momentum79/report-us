@@ -781,6 +781,8 @@ def read_data() -> list:
                     "intensity":   is_intensity,
                     "avg_tv_eok":  _f(row.get("avg_tv_eok", "")),
                     "liq_min_eok": _f(row.get("liq_min_eok", "")),
+                    "min_tv_eok":      _f(row.get("min_tv_eok", "")),
+                    "liq_min_day_eok": _f(row.get("liq_min_day_eok", "")),
                 })
     except Exception as e:
         print(f"[오류] CSV 읽기 실패: {e}")
@@ -1339,12 +1341,25 @@ def main():
         else:
             row_style = ""
 
-        # 💧 거래대금 미달 = 주문 후보에서 빠진 종목. 랭킹에는 남기되 Ticker/Name 만 옅은 빨강.
+        # 💧 거래대금 미달 = 주문 후보에서 빠진 종목. 랭킹에는 남기되 행 전체에 취소선.
+        #    ① 20일 평균 < liq_min_eok  또는  ② 20일 최저일 < liq_min_day_eok  이면 탈락.
         # CSV 에 유동성 컬럼이 없으면(구버전) 표시하지 않는다.
-        liq_min  = item.get("liq_min_eok")
-        liq_tv   = item.get("avg_tv_eok")
-        liq_fail = liq_min is not None and (liq_tv is None or liq_tv < liq_min)
-        row_cls  = ' class="liq-fail"' if liq_fail else ''
+        liq_min   = item.get("liq_min_eok")
+        liq_tv    = item.get("avg_tv_eok")
+        liq_dmin  = item.get("liq_min_day_eok")
+        liq_tvmin = item.get("min_tv_eok")
+        liq_fail  = liq_min is not None and (liq_tv is None or liq_tv < liq_min)
+        if not liq_fail and liq_dmin is not None:
+            liq_fail = liq_tvmin is None or liq_tvmin < liq_dmin
+        row_cls   = ' class="liq-fail"' if liq_fail else ''
+        if liq_fail:
+            _tv_s  = "-" if liq_tv    is None else f"{liq_tv:,.0f}"
+            _tvm_s = "-" if liq_tvmin is None else f"{liq_tvmin:,.0f}"
+            _mn_s  = "-" if liq_min   is None else f"{liq_min:,.0f}"
+            _dmn_s = "-" if liq_dmin  is None else f"{liq_dmin:,.0f}"
+            row_cls += (f' title="거래대금 미달 → 주문 제외 | '
+                        f'20일평균 {_tv_s}억(기준 {_mn_s}억), '
+                        f'최저일 {_tvm_s}억(기준 {_dmn_s}억)"')
 
         chg = item.get("chg")
         chg_str = f"{chg:+.1f}%" if chg is not None else "-"
@@ -1460,7 +1475,14 @@ h3 {{ margin: 8px 0 4px 0; padding-bottom: 3px; color: #2c3e50; border-bottom: 2
 .styled-table td {{ text-align: center; }}
 .styled-table td.narrow {{ font-weight: bold; color: #2980b9; text-align: left; }}
 .styled-table td.name-col {{ max-width: 150px; overflow: hidden; text-overflow: ellipsis; text-align: left; }}
-/* 거래대금 미달(주문 후보 제외) — Ticker/Name 두 칸만 옅은 빨강 */
+/* 거래대금 미달(주문 후보 제외) — 행 전체 취소선 + 흐리게. 스코어는 그대로 읽힌다. */
+.styled-table tr.liq-fail > td {{
+  text-decoration: line-through;
+  text-decoration-color: #c0392b;
+  text-decoration-thickness: 2px;
+  opacity: 0.5;
+}}
+/* 배지(위치/추세)는 inline-block 이라 취소선이 안 걸린다 → 흐리게만 */
 .styled-table tr.liq-fail > td:nth-child(1),
 .styled-table tr.liq-fail > td:nth-child(2) {{ background-color: #fdeaea; }}
 .type-kr {{ color: #e74c3c; font-weight: bold; font-size: 0.75rem; }}
@@ -1646,7 +1668,8 @@ body.naver-popup-open {{ overflow: hidden; }}
     {final_order_html}
     {liq_rejected_html}
 
-    <h3>📊 ETF 랭킹 &nbsp;<span style="font-size:0.8em;font-weight:normal;color:#555;">(노랑: 주문용 보유, 파랑: sco&ge;11 | Score=Final×100, Base=기본점수×100, Stab=안정성0~1)</span></h3>
+    <h3>📊 ETF 랭킹 &nbsp;<span style="font-size:0.8em;font-weight:normal;color:#555;">(노랑: 주문용 보유, 파랑: sco&ge;11 | Score=Final×100, Base=기본점수×100, Stab=안정성0~1)</span><br>
+    <span style="font-size:0.78em;font-weight:normal;color:#c0392b;"><s>취소선</s>: 거래대금 미달로 <b>주문 제외</b> (20거래일 당일제외 · 평균 KR 200억/US 1,000억 또는 최저일 KR 80억/US 400억 미만) — 스코어는 참고용으로 계속 표시</span></h3>
     <table class="styled-table">
         <thead>
             <tr>

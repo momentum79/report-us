@@ -805,6 +805,58 @@ def write_xlsx(report):
     print(f"  OK {os.path.relpath(OUT_XLSX, OUT_DIR)}")
 
 
+def _vw(s):
+    """콘솔 표시 폭 (CJK/이모지 = 2칸)."""
+    import unicodedata
+    return sum(2 if unicodedata.east_asian_width(c) in ("W", "F") else 1 for c in str(s))
+
+
+def _pad(s, width, right=False):
+    s = str(s)
+    gap = " " * max(width - _vw(s), 0)
+    return (gap + s) if right else (s + gap)
+
+
+def print_bot_summary(report, indent="  ", show_zero=True):
+    """봇별 전체기간 요약표. 한글 봇이름이 섞여도 열이 맞도록 표시폭 기준 정렬."""
+    rows = []
+    for b in report["bots"]:
+        t = b["total"]
+        rows.append({
+            "key":    b["key"],
+            "trades": t["trades"],
+            "wr":     "-" if t["winrate"] is None else f"{t['winrate']}%",
+            "ex":     "-" if t["expectancy"] is None else f"{t['expectancy']:+.2f}%",
+            "pf":     "-" if t["profit_factor"] is None else f"{t['profit_factor']}",
+            "net":    f"{t['sum_pnl_amt']:,}원",
+            "fee":    f"{t['sum_fee_tax']:,}원",
+        })
+    live = [r for r in rows if r["trades"] > 0]
+    idle = [r for r in rows if r["trades"] == 0]
+
+    w_key = max([_vw(r["key"]) for r in rows] + [_vw("봇")])
+    w_net = max([_vw(r["net"]) for r in live] + [_vw("순손익")])
+    w_fee = max([_vw(r["fee"]) for r in live] + [_vw("비용")])
+    head = (indent + _pad("봇", w_key) + "  " + _pad("거래", 5, True) + "  " + _pad("승률", 7, True)
+            + "  " + _pad("기대값", 8, True) + "  " + _pad("PF", 6, True)
+            + "  " + _pad("순손익", w_net, True) + "  " + _pad("비용", w_fee, True))
+    line = indent + "-" * (_vw(head) - _vw(indent))
+
+    print(f"\n{indent}[봇별 전체기간 요약]  (웹 표시=최근 {RECENT_WEEKS}주)")
+    print(line)
+    print(head)
+    print(line)
+    for r in live:
+        print(indent + _pad(r["key"], w_key) + "  " + _pad(r["trades"], 5, True)
+              + "  " + _pad(r["wr"], 7, True) + "  " + _pad(r["ex"], 8, True)
+              + "  " + _pad(r["pf"], 6, True)
+              + "  " + _pad(r["net"], w_net, True)
+              + "  " + _pad(r["fee"], w_fee, True))
+    print(line)
+    if idle and show_zero:
+        print(f"{indent}거래 0건: " + ", ".join(r["key"] for r in idle))
+
+
 def main():
     print("── 주간성과 집계 (intraday + Pine TR tag 기반) ──")
     fills = load_fills()
@@ -839,14 +891,7 @@ def main():
     write_json(web_report, OUT_JSON)
 
     # 콘솔 요약(전체기간)
-    print(f"\n  [봇별 전체기간 요약]  (웹 표시=최근 {RECENT_WEEKS}주)")
-    for b in full_report["bots"]:
-        t = b["total"]
-        wr = "-" if t["winrate"] is None else f"{t['winrate']}%"
-        pf = "-" if t["profit_factor"] is None else f"{t['profit_factor']}"
-        ex = "-" if t["expectancy"] is None else f"{t['expectancy']:+.2f}%"
-        print(f"   {b['key']:<12} 거래{t['trades']:>3}  승률{wr:>6}  기대값{ex:>8}  PF{pf:>6}  "
-              f"net {t['sum_pnl_amt']:>12,}원  (비용 {t['sum_fee_tax']:,}원)")
+    print_bot_summary(full_report)
 
 
 if __name__ == "__main__":

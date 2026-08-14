@@ -1,19 +1,19 @@
 {
-    "avg_sco": 6.7,
+    "avg_sco": 6.9,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 109,
-    "sco_neg": 21,
+    "sco_pos": 112,
+    "sco_neg": 18,
     "sco_strong": 46,
-    "sco_zone_neg": 21,
-    "sco_zone_weak": 47,
+    "sco_zone_neg": 18,
+    "sco_zone_weak": 50,
     "sco_zone_mid": 16,
     "sco_zone_strong": 46,
-    "strong_count": 42,
+    "strong_count": 33,
     "top3_avg_sco": 15.33,
     "top3_avg_pos": 1.0,
-    "kospi_trend": "-",
+    "kospi_trend": "LIME",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
@@ -23,10 +23,10 @@
     "shanghai_trend": "-",
     "hongkong_trend": "-",
     "brazil_trend": "RED",
-    "kospi_mult": 0.4,
+    "kospi_mult": 0.8,
     "nasdaq_mult": 0.85,
-    "invest_pct": 80.6,
-    "invest_amount_total": 80618553,
+    "invest_pct": 84.1,
+    "invest_amount_total": 84123708,
     "internal_weights": [
         34.0206,
         27.8351,
@@ -45,7 +45,7 @@
     "final_ratios": {
         "CIBR": 28.92,
         "IGV": 23.66,
-        "228790": 10.52,
+        "228790": 14.02,
         "EWP": 8.76,
         "EWS": 8.76
     },
@@ -67,12 +67,14 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-08-14 07:54:54",
+    "update_time": "2026-08-14 15:16:49",
     "liq_rejected": [],
     "liq_thresholds": {
-        "KR": 50,
-        "US": 100,
-        "lookback": 10,
+        "KR": 200,
+        "US": 1000,
+        "KR_min_day": 80,
+        "US_min_day": 400,
+        "lookback": 20,
         "usd_krw": 1450
     }
 }
