@@ -70,7 +70,58 @@ def _load_asset_8042() -> int:
         pass
     return 0
 
-def _load_combined_asset_8042() -> tuple[int, float]:
+def _manual_managed_value_krw(fx_order, token, raw_kr: dict) -> tuple[int, list]:
+    """8042 계좌의 '사용자 직접관리' 종목 평가금 합(원화).
+
+    리밸런싱(allone)이 protected 로 절대 건드리지 않는 자금이라, 통합총자산에서 빼야
+    실제로 top6 ETF 에 쓸 수 있는 예산이 된다. 이걸 안 빼면 게시판 수량/금액이 항상
+    동원 가능한 현금보다 크게 나와 매수 부족이 난다.
+    종목 리스트는 실제 주문기(no_lev)에서 그대로 가져와 게시판/주문기 기준을 일치시킨다.
+    · 실제 '보유 중'인 것만 집계(리스트에 있어도 미보유면 0원)
+    · 파킹ETF(459580)는 차감하지 않음 — 주문기가 매도해 현금화하는 대상
+    · KR = kt00018 의 rmnd_qty × cur_prc / US = ust21070 의 evlt_amt_krw
+    조회/파싱 실패 → RuntimeError(fail-closed). 0원으로 삼키면 예전 과대 사이징으로
+    조용히 되돌아가므로 파일 생성을 중단한다.
+    반환: (manual_krw, items[{ticker, qty, krw}])"""
+    import allone_260712_ypykjw_fx_no_lev as live_order   # 주문기와 동일한 직접관리 리스트
+
+    items, total = [], 0
+    if "acnt_evlt_remn_indv_tot" not in (raw_kr or {}):
+        raise RuntimeError("kt00018 에 acnt_evlt_remn_indv_tot 없음 → 직접관리 평가금 산출 불가")
+    for row in raw_kr.get("acnt_evlt_remn_indv_tot") or []:
+        ticker = str(row.get("stk_cd", "")).lstrip("A").strip()
+        if ticker not in live_order.MANUAL_STOCKS_2X:
+            continue
+        qty = int(str(row.get("rmnd_qty", "0")).replace(",", "").strip() or 0)
+        price = int(str(row.get("cur_prc", "0")).replace(",", "").strip() or 0)
+        if qty <= 0:
+            continue
+        if price <= 0:
+            raise RuntimeError(f"직접관리 KR {ticker} 현재가 비정상({price})")
+        items.append({"ticker": ticker, "qty": qty, "krw": qty * price})
+        total += qty * price
+
+    us_data = fx_order.call_us_acnt_api(token, "ust21070", {"stex_tp": "", "stk_cd": ""})
+    if "result_list" not in us_data:
+        raise RuntimeError("ust21070 에 result_list 없음 → 직접관리 평가금 산출 불가")
+    for row in us_data.get("result_list") or []:
+        ticker = str(row.get("stk_cd", "")).strip().upper()
+        if not ticker or not live_order.is_us_protected_ticker(ticker):
+            continue
+        qty = int(str(row.get("poss_qty", "0")).replace(",", "").strip() or 0)
+        if qty <= 0:
+            continue
+        amt = fx_order.as_decimal(row.get("evlt_amt_krw"))
+        if amt is None or amt <= 0:
+            raise RuntimeError(f"직접관리 US {ticker} 원화평가금(evlt_amt_krw) 비정상")
+        items.append({"ticker": ticker, "qty": qty, "krw": int(amt)})
+        total += int(amt)
+    return total, items
+
+
+def _load_combined_asset_8042() -> tuple[int, float, int, int]:
+    """반환: (투자가능자산, USD환율, 통합총자산, 직접관리평가금).
+    수량 산출 기준은 투자가능자산 = 통합총자산 − 직접관리평가금 이다."""
     try:
         order_dir = Path(__file__).resolve().parent.parent / "0order"
         if str(order_dir) not in sys.path:
@@ -103,12 +154,24 @@ def _load_combined_asset_8042() -> tuple[int, float]:
                 usd_rate = None
         if usd_rate is None:
             raise RuntimeError("USD rate unavailable from ust21120/ust31301; stop rebalancing file generation")
-        return int(snap["combined_total_krw"]), float(usd_rate)
+        total = int(snap["combined_total_krw"])
+        manual, manual_items = _manual_managed_value_krw(fx_order, token, snap.get("raw_kr") or {})
+        investable = total - manual
+        if investable <= 0:
+            raise RuntimeError(f"investable asset <= 0 (total {total:,} - manual {manual:,})")
+        print(f"[통합자산] 총자산 {total:,}원 − 직접관리 {manual:,}원 = 투자가능 {investable:,}원")
+        for it in manual_items:
+            print(f"           · {it['ticker']:<8} {it['qty']:>6}주  {it['krw']:>14,}원")
+        return investable, float(usd_rate), total, manual
     except Exception as e:
         raise RuntimeError(f"combined asset lookup failed; stop rebalancing file generation: {e}") from e
 
 # 9-12: 모듈 임포트 시 네트워크/API 호출 금지. 실제 값은 main() 에서 채운다.
+# ASSET_8042 = 수량 산출 기준 = '투자가능자산'(통합총자산 − 사용자 직접관리 종목 평가금).
+#   직접관리분은 주문기가 protected 로 안 건드리는 돈이라 예산에 넣으면 매수 부족이 난다.
 ASSET_8042 = 0
+ASSET_8042_TOTAL = 0     # 통합총자산(표시용)
+ASSET_8042_MANUAL = 0    # 직접관리 평가금(표시용)
 USD_KRW_EFFECTIVE = None
 
 # 통합증거금 자산액은 API 조회로만 얻어지므로, 이 값을 쓰는 다른 스크립트(auto_trade_kpi 등)를
@@ -119,8 +182,12 @@ COMBINED_ASSET_JSON = Path(__file__).resolve().parent / "asset_combined_8042.jso
 def _save_combined_asset_snapshot() -> None:
     if not ASSET_8042 or ASSET_8042 <= 0:
         return
-    payload = {
-        "combined_asset_krw": int(ASSET_8042),
+    payload: dict = {
+        # combined_asset_krw 는 종전 의미 그대로 '통합총자산'을 유지한다(하위호환).
+        # 수량/금액 산출 기준은 investable_asset_krw 다 — 소비자는 이 값을 우선 읽어야 한다.
+        "combined_asset_krw": int(ASSET_8042_TOTAL or ASSET_8042),
+        "manual_managed_krw": int(ASSET_8042_MANUAL),
+        "investable_asset_krw": int(ASSET_8042),
         "usd_krw": float(USD_KRW_EFFECTIVE) if USD_KRW_EFFECTIVE else None,
         "updated_at": datetime.now().isoformat(timespec="seconds"),
     }
@@ -128,7 +195,9 @@ def _save_combined_asset_snapshot() -> None:
     try:
         tmp.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
         tmp.replace(COMBINED_ASSET_JSON)
-        print(f"[통합자산] 저장: {COMBINED_ASSET_JSON.name} ({ASSET_8042:,}원)")
+        print(f"[통합자산] 저장: {COMBINED_ASSET_JSON.name} "
+              f"(총자산 {int(ASSET_8042_TOTAL or ASSET_8042):,}원 / "
+              f"투자가능 {ASSET_8042:,}원)")
     except Exception as e:
         print(f"[통합자산] 저장 실패(무시): {e}")
 # YP(8042) 계좌 실잔고. make_holdings_json.py가 Kiwoom 잔고 API로 채운다.
@@ -1290,9 +1359,10 @@ def _stab_color(v) -> str:
 
 
 def main():
-    global ASSET_8042, USD_KRW_EFFECTIVE
+    global ASSET_8042, ASSET_8042_TOTAL, ASSET_8042_MANUAL, USD_KRW_EFFECTIVE
     # 9-12: 통합자산·환율 조회를 여기(main)에서 수행. 실패 시 예외로 중단(파일 미생성).
-    ASSET_8042, USD_KRW_EFFECTIVE = _load_combined_asset_8042()
+    (ASSET_8042, USD_KRW_EFFECTIVE,
+     ASSET_8042_TOTAL, ASSET_8042_MANUAL) = _load_combined_asset_8042()
     _save_combined_asset_snapshot()
     data        = read_data()
     low_history = update_low_history(data)
@@ -1664,7 +1734,7 @@ body.naver-popup-open {{ overflow: hidden; }}
 
     {top5_section_html}
 
-    <h2>🧾 주문용 최종 보유 목록 ({s_data.get('invest_pct', 0):.1f}%) <span style="font-size:0.7em; color:#000; font-weight:normal;">- {int(ASSET_8042 / 10000):,}만원 기준 {int(ASSET_8042 * s_data.get('invest_pct', 0) / 100 / 10000):,}만원</span></h2>
+    <h2>🧾 주문용 최종 보유 목록 ({s_data.get('invest_pct', 0):.1f}%) <span style="font-size:0.7em; color:#000; font-weight:normal;">- 총자산 {int((ASSET_8042_TOTAL or ASSET_8042) / 10000):,}만원 − 직접관리 {int(ASSET_8042_MANUAL / 10000):,}만원 = 기준 {int(ASSET_8042 / 10000):,}만원 → 목표 {int(ASSET_8042 * s_data.get('invest_pct', 0) / 100 / 10000):,}만원</span></h2>
     {final_order_html}
     {liq_rejected_html}
 

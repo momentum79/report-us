@@ -411,6 +411,19 @@ body.v4-open{overflow:hidden;}
   #v4pop{position:fixed!important;left:2vw!important;top:50%!important;
     transform:translateY(-50%);width:96vw!important;max-height:86dvh!important;padding:8px;}
   #v4pop .cchart{height:260px;}#v4pop .rchart{height:90px;}
+  /* 헤더 1줄 압축(모바일 전용): render/봉수 표기 제거 + ✕ 종목명 차트 S 일봉 주봉 을 한 줄에.
+     → 헤더가 2줄→1줄로 줄어든 만큼 차트 세트가 위로 올라와 RSI 잘림이 줄어듦. PC는 위 규칙 그대로. */
+  #v4pop #v4Ms{display:none;}
+  #v4pop .popup-header{flex-wrap:nowrap;gap:5px;margin-bottom:3px;}
+  #v4pop .popup-title{font-size:12.5px;flex:1 1 auto;min-width:0;
+    overflow:hidden;text-overflow:ellipsis;}   /* 이름 길면 말줄임(줄바꿈 금지) */
+  #v4pop .popup-link{font-size:11px;flex-shrink:0;}
+  #v4Close{width:24px;height:24px;font-size:15px;}
+  #v4stBtn{width:34px;height:24px;font-size:13px;margin-left:4px;}
+  #v4pop .popTabs{margin-left:3px;gap:3px;flex-shrink:0;}
+  #v4pop .popTab{padding:3px 8px;font-size:11px;}
+  #v4pop .collab{padding:1px 2px 2px;}
+  #v4pop .rlab{padding:2px 8px 0;}
 }
 """
 

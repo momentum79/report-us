@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14 08:00",
+  "generated_at": "2026-08-14 17:58",
   "sections": [
     {
       "num": "1",
@@ -48,19 +48,15 @@
           "kind": "text"
         }
       ],
-      "rows": [
+      "rows": [],
+      "dropped": [
         {
-          "rank": "1",
-          "stk_cd": "SNXX",
-          "_start_price": "-10.48000",
-          "_end_price": "+14.8000",
-          "flu_rt": "+41.22",
-          "_start_volume": "203988910",
-          "_end_volume": "88544667",
-          "stk_nm": "TRADR SNDK DAILY 2X"
+          "ticker": "SNXX",
+          "shown": 62.53,
+          "actual": 34.44656488549618,
+          "reason": "기준가괴리11%"
         }
       ],
-      "dropped": [],
       "error": null
     },
     {
@@ -110,128 +106,7 @@
           "kind": "text"
         }
       ],
-      "rows": [
-        {
-          "rank": "1",
-          "stk_cd": "SOXL",
-          "_end_price": "+146.2000",
-          "flu_rt": "+2.84",
-          "_trde_amt": "3934240245.6",
-          "_start_volume": "55969962",
-          "_end_volume": "26909988",
-          "stk_nm": "미국 반도체 3배 디렉시온 ETF"
-        },
-        {
-          "rank": "2",
-          "stk_cd": "TQQQ",
-          "_end_price": "+77.2399",
-          "flu_rt": "+3.54",
-          "_trde_amt": "2603543537.9164004",
-          "_start_volume": "46867327",
-          "_end_volume": "33707236",
-          "stk_nm": "QQQ 레버리지 3배 프로셰어즈 ETF"
-        },
-        {
-          "rank": "3",
-          "stk_cd": "SOXS",
-          "_end_price": "-39.8201",
-          "flu_rt": "-2.81",
-          "_trde_amt": "-1364124452.7782998",
-          "_start_volume": "51002296",
-          "_end_volume": "34257183",
-          "stk_nm": "미국 반도체 인버스 3배 디렉시온 ETF"
-        },
-        {
-          "rank": "4",
-          "stk_cd": "SNXX",
-          "_end_price": "+14.8000",
-          "flu_rt": "+33.69",
-          "_trde_amt": "1310461071.6000001",
-          "_start_volume": "76315925",
-          "_end_volume": "88544667",
-          "stk_nm": "TRADR SNDK DAILY 2X"
-        },
-        {
-          "rank": "5",
-          "stk_cd": "SQQQ",
-          "_end_price": "-36.0000",
-          "flu_rt": "-3.54",
-          "_trde_amt": "-1001695428.0",
-          "_start_volume": "41761511",
-          "_end_volume": "27824873",
-          "stk_nm": "QQQ 인버스 3배 프로셰어즈 ETF"
-        },
-        {
-          "rank": "6",
-          "stk_cd": "MUU",
-          "_end_price": "+31.7600",
-          "flu_rt": "+11.32",
-          "_trde_amt": "948442528.0",
-          "_start_volume": "38770413",
-          "_end_volume": "29862800",
-          "stk_nm": "마이크론 테크놀로지 2배 디렉시온 ETF"
-        },
-        {
-          "rank": "7",
-          "stk_cd": "SNDQ",
-          "_end_price": "-16.5790",
-          "flu_rt": "-30.75",
-          "_trde_amt": "-328665842.85400003",
-          "_start_volume": "12366320",
-          "_end_volume": "19824226",
-          "stk_nm": "TRADR SNDK DAILY -2X"
-        },
-        {
-          "rank": "8",
-          "stk_cd": "NVDL",
-          "_end_price": "+36.9300",
-          "flu_rt": "+1.48",
-          "_trde_amt": "291981727.08",
-          "_start_volume": "13505202",
-          "_end_volume": "7906356",
-          "stk_nm": "엔비디아 2배 그래닛셰어즈 ETF"
-        },
-        {
-          "rank": "9",
-          "stk_cd": "KORU",
-          "_end_price": "+21.8987",
-          "flu_rt": "+7.77",
-          "_trde_amt": "269915733.55370003",
-          "_start_volume": "25245716",
-          "_end_volume": "12325651",
-          "stk_nm": "한국 3배 레버리지 디렉시온 ETF"
-        },
-        {
-          "rank": "10",
-          "stk_cd": "QID",
-          "_end_price": "-13.5990",
-          "flu_rt": "-2.31",
-          "_trde_amt": "-245940213.231",
-          "_start_volume": "25845525",
-          "_end_volume": "18085169",
-          "stk_nm": "QQQ 인버스 2배 프로셰어즈 ETF"
-        },
-        {
-          "rank": "11",
-          "stk_cd": "SNDU",
-          "_end_price": "+23.0400",
-          "flu_rt": "+33.03",
-          "_trde_amt": "191313031.68",
-          "_start_volume": "8906718",
-          "_end_volume": "8303517",
-          "stk_nm": "T-REX SNDK DAILY 2X"
-        },
-        {
-          "rank": "12",
-          "stk_cd": "SPXS",
-          "_end_price": "-23.5500",
-          "flu_rt": "-2.04",
-          "_trde_amt": "-169675300.8",
-          "_start_volume": "10531931",
-          "_end_volume": "7204896",
-          "stk_nm": "S&P 500 인버스 3배 디렉시온 ETF"
-        }
-      ],
+      "rows": [],
       "dropped": [],
       "error": null
     },
@@ -275,243 +150,243 @@
       "rows": [
         {
           "rank": "1",
-          "stk_nm": "금속및채광",
-          "perf_1d": "-2.22",
-          "perf_5d": "2.07",
-          "perf_1m": "13.62",
-          "perf_3m": "-2.67"
+          "stk_nm": "가정용내구재",
+          "perf_1d": "0.06",
+          "perf_5d": "1.03",
+          "perf_1m": "11.76",
+          "perf_3m": "23.05"
         },
         {
           "rank": "2",
-          "stk_nm": "가정용내구재",
-          "perf_1d": "1.33",
-          "perf_5d": "2.81",
-          "perf_1m": "11.67",
-          "perf_3m": "23.36"
+          "stk_nm": "금속및채광",
+          "perf_1d": "0.09",
+          "perf_5d": "-2.18",
+          "perf_1m": "10.80",
+          "perf_3m": "-1.35"
         },
         {
           "rank": "3",
           "stk_nm": "소재산업(기타)",
-          "perf_1d": "-0.42",
-          "perf_5d": "-0.20",
-          "perf_1m": "9.94",
-          "perf_3m": "17.62"
+          "perf_1d": "0.07",
+          "perf_5d": "-1.38",
+          "perf_1m": "10.23",
+          "perf_3m": "17.80"
         },
         {
           "rank": "4",
           "stk_nm": "우주항공및국방",
-          "perf_1d": "-0.52",
-          "perf_5d": "0.60",
-          "perf_1m": "7.34",
-          "perf_3m": "6.32"
+          "perf_1d": "0.21",
+          "perf_5d": "0.15",
+          "perf_1m": "7.64",
+          "perf_3m": "7.14"
         },
         {
           "rank": "5",
-          "stk_nm": "도/소매",
-          "perf_1d": "-0.66",
-          "perf_5d": "-2.13",
-          "perf_1m": "6.85",
-          "perf_3m": "2.93"
+          "stk_nm": "바이오",
+          "perf_1d": "0.05",
+          "perf_5d": "1.35",
+          "perf_1m": "7.33",
+          "perf_3m": "21.66"
         },
         {
           "rank": "6",
-          "stk_nm": "에너지및관련서비스",
-          "perf_1d": "0.12",
-          "perf_5d": "3.85",
-          "perf_1m": "6.59",
-          "perf_3m": "4.67"
+          "stk_nm": "건강관리장비및서비스",
+          "perf_1d": "0.23",
+          "perf_5d": "1.27",
+          "perf_1m": "7.13",
+          "perf_3m": "13.48"
         },
         {
           "rank": "7",
-          "stk_nm": "바이오",
-          "perf_1d": "-0.40",
-          "perf_5d": "3.37",
-          "perf_1m": "6.51",
-          "perf_3m": "21.49"
+          "stk_nm": "도/소매",
+          "perf_1d": "0.09",
+          "perf_5d": "-3.07",
+          "perf_1m": "6.86",
+          "perf_3m": "3.64"
         },
         {
           "rank": "8",
-          "stk_nm": "복합기업",
-          "perf_1d": "-1.14",
-          "perf_5d": "-2.70",
-          "perf_1m": "5.02",
-          "perf_3m": "21.98"
+          "stk_nm": "에너지및관련서비스",
+          "perf_1d": "0.26",
+          "perf_5d": "5.09",
+          "perf_1m": "6.30",
+          "perf_3m": "3.93"
         },
         {
           "rank": "9",
-          "stk_nm": "상업은행",
-          "perf_1d": "0.14",
-          "perf_5d": "1.40",
-          "perf_1m": "4.42",
-          "perf_3m": "19.31"
+          "stk_nm": "무역회사",
+          "perf_1d": "1.77",
+          "perf_5d": "1.08",
+          "perf_1m": "5.24",
+          "perf_3m": "10.37"
         },
         {
           "rank": "10",
-          "stk_nm": "건강관리장비및서비스",
-          "perf_1d": "-0.50",
-          "perf_5d": "2.03",
-          "perf_1m": "3.91",
-          "perf_3m": "13.44"
+          "stk_nm": "복합기업",
+          "perf_1d": "0.06",
+          "perf_5d": "-2.00",
+          "perf_1m": "5.11",
+          "perf_3m": "23.37"
         },
         {
           "rank": "11",
-          "stk_nm": "기계및전기장비",
-          "perf_1d": "-0.57",
-          "perf_5d": "0.13",
-          "perf_1m": "3.52",
-          "perf_3m": "4.87"
+          "stk_nm": "제약",
+          "perf_1d": "-0.08",
+          "perf_5d": "0.90",
+          "perf_1m": "4.72",
+          "perf_3m": "13.04"
         },
         {
           "rank": "12",
           "stk_nm": "소비자서비스",
-          "perf_1d": "-0.04",
-          "perf_5d": "-1.38",
-          "perf_1m": "3.24",
-          "perf_3m": "9.34"
+          "perf_1d": "0.07",
+          "perf_5d": "-1.92",
+          "perf_1m": "3.98",
+          "perf_3m": "9.68"
         },
         {
           "rank": "13",
-          "stk_nm": "화학",
-          "perf_1d": "0.04",
-          "perf_5d": "-0.18",
-          "perf_1m": "3.20",
-          "perf_3m": "1.10"
+          "stk_nm": "상업은행",
+          "perf_1d": "0.12",
+          "perf_5d": "1.22",
+          "perf_1m": "3.69",
+          "perf_3m": "18.69"
         },
         {
           "rank": "14",
-          "stk_nm": "해운",
-          "perf_1d": "1.17",
-          "perf_5d": "1.52",
-          "perf_1m": "3.11",
-          "perf_3m": "4.47"
+          "stk_nm": "상업및전문서비스",
+          "perf_1d": "0.17",
+          "perf_5d": "-0.45",
+          "perf_1m": "3.33",
+          "perf_3m": "10.97"
         },
         {
           "rank": "15",
-          "stk_nm": "제약",
-          "perf_1d": "0.23",
-          "perf_5d": "1.63",
-          "perf_1m": "2.92",
-          "perf_3m": "12.84"
+          "stk_nm": "화학",
+          "perf_1d": "0.01",
+          "perf_5d": "-0.46",
+          "perf_1m": "3.14",
+          "perf_3m": "1.53"
         },
         {
           "rank": "16",
-          "stk_nm": "무역회사",
-          "perf_1d": "0.14",
-          "perf_5d": "-0.19",
-          "perf_1m": "2.78",
-          "perf_3m": "11.29"
+          "stk_nm": "음식료소매",
+          "perf_1d": "-0.10",
+          "perf_5d": "0.74",
+          "perf_1m": "3.12",
+          "perf_3m": "-3.73"
         },
         {
           "rank": "17",
-          "stk_nm": "음식료소매",
-          "perf_1d": "0.76",
-          "perf_5d": "0.59",
-          "perf_1m": "2.49",
-          "perf_3m": "-3.32"
+          "stk_nm": "기계및전기장비",
+          "perf_1d": "0.43",
+          "perf_5d": "0.61",
+          "perf_1m": "2.87",
+          "perf_3m": "4.50"
         },
         {
           "rank": "18",
-          "stk_nm": "건설및건축제폼",
-          "perf_1d": "0.27",
-          "perf_5d": "0.86",
-          "perf_1m": "2.44",
-          "perf_3m": "-4.29"
+          "stk_nm": "레져서비스및제품",
+          "perf_1d": "0.10",
+          "perf_5d": "0.25",
+          "perf_1m": "2.29",
+          "perf_3m": "5.65"
         },
         {
           "rank": "19",
-          "stk_nm": "상업및전문서비스",
-          "perf_1d": "0.60",
-          "perf_5d": "0.33",
-          "perf_1m": "2.32",
-          "perf_3m": "11.45"
+          "stk_nm": "해운",
+          "perf_1d": "-0.05",
+          "perf_5d": "1.98",
+          "perf_1m": "2.12",
+          "perf_3m": "4.30"
         },
         {
           "rank": "20",
-          "stk_nm": "레져서비스및제품",
-          "perf_1d": "-0.07",
-          "perf_5d": "-0.04",
-          "perf_1m": "1.52",
-          "perf_3m": "6.34"
+          "stk_nm": "운송인프라(도로선로)",
+          "perf_1d": "0.23",
+          "perf_5d": "1.37",
+          "perf_1m": "2.01",
+          "perf_3m": "7.60"
         },
         {
           "rank": "21",
-          "stk_nm": "운송인프라(도로선로)",
-          "perf_1d": "0.89",
-          "perf_5d": "2.21",
-          "perf_1m": "0.92",
-          "perf_3m": "9.47"
+          "stk_nm": "가정및개인용품",
+          "perf_1d": "0.13",
+          "perf_5d": "-0.79",
+          "perf_1m": "1.43",
+          "perf_3m": "5.39"
         },
         {
           "rank": "22",
-          "stk_nm": "가정및개인용품",
-          "perf_1d": "0.58",
-          "perf_5d": "-1.22",
-          "perf_1m": "-0.07",
-          "perf_3m": "5.52"
+          "stk_nm": "보험",
+          "perf_1d": "-0.01",
+          "perf_5d": "-1.35",
+          "perf_1m": "0.84",
+          "perf_3m": "12.27"
         },
         {
           "rank": "23",
-          "stk_nm": "자동차관련부품",
-          "perf_1d": "0.73",
-          "perf_5d": "3.20",
-          "perf_1m": "-0.17",
-          "perf_3m": "-0.94"
+          "stk_nm": "음식료및담배생산",
+          "perf_1d": "0.04",
+          "perf_5d": "-2.94",
+          "perf_1m": "0.59",
+          "perf_3m": "-1.73"
         },
         {
           "rank": "24",
-          "stk_nm": "항공사및항공운송",
-          "perf_1d": "1.74",
-          "perf_5d": "1.27",
-          "perf_1m": "-0.42",
-          "perf_3m": "14.87"
+          "stk_nm": "건설및건축제폼",
+          "perf_1d": "0.34",
+          "perf_5d": "-0.34",
+          "perf_1m": "0.53",
+          "perf_3m": "-5.66"
         },
         {
           "rank": "25",
-          "stk_nm": "보험",
-          "perf_1d": "0.76",
-          "perf_5d": "-2.02",
-          "perf_1m": "-0.43",
-          "perf_3m": "13.18"
+          "stk_nm": "자동차관련부품",
+          "perf_1d": "-0.10",
+          "perf_5d": "-0.37",
+          "perf_1m": "-0.26",
+          "perf_3m": "-3.04"
         },
         {
           "rank": "26",
-          "stk_nm": "음식료및담배생산",
-          "perf_1d": "1.48",
-          "perf_5d": "-2.33",
+          "stk_nm": "항공사및항공운송",
+          "perf_1d": "-0.10",
+          "perf_5d": "0.47",
           "perf_1m": "-0.57",
-          "perf_3m": "-1.06"
+          "perf_3m": "13.51"
         },
         {
           "rank": "27",
-          "stk_nm": "건축자재",
-          "perf_1d": "-0.49",
-          "perf_5d": "0.62",
-          "perf_1m": "-1.78",
-          "perf_3m": "-0.38"
+          "stk_nm": "섬유의복및호화제품",
+          "perf_1d": "0.24",
+          "perf_5d": "-4.92",
+          "perf_1m": "-1.68",
+          "perf_3m": "3.64"
         },
         {
           "rank": "28",
           "stk_nm": "미디어",
-          "perf_1d": "1.42",
-          "perf_5d": "-1.22",
-          "perf_1m": "-1.90",
-          "perf_3m": "-8.61"
+          "perf_1d": "0.21",
+          "perf_5d": "-0.81",
+          "perf_1m": "-2.81",
+          "perf_3m": "-8.19"
         },
         {
           "rank": "29",
-          "stk_nm": "섬유의복및호화제품",
-          "perf_1d": "-1.57",
-          "perf_5d": "-4.88",
-          "perf_1m": "-2.96",
-          "perf_3m": "3.42"
+          "stk_nm": "건축자재",
+          "perf_1d": "0.01",
+          "perf_5d": "-1.92",
+          "perf_1m": "-3.25",
+          "perf_3m": "0.24"
         },
         {
           "rank": "30",
           "stk_nm": "자동차",
-          "perf_1d": "3.07",
-          "perf_5d": "5.08",
-          "perf_1m": "-7.92",
-          "perf_3m": "-15.20"
+          "perf_1d": "0.38",
+          "perf_5d": "2.73",
+          "perf_1m": "-8.11",
+          "perf_3m": "-15.46"
         }
       ],
       "dropped": [],
@@ -522,135 +397,8 @@
       "api_id": "usa23100",
       "title": "업종별 등락률 상위",
       "highlight_column": null,
-      "columns": [
-        {
-          "key": "rank",
-          "label": "순위",
-          "kind": "text"
-        },
-        {
-          "key": "stk_cd",
-          "label": "티커",
-          "kind": "text"
-        },
-        {
-          "key": "_start_price",
-          "label": "시가",
-          "kind": "price"
-        },
-        {
-          "key": "_end_price",
-          "label": "현재가",
-          "kind": "price"
-        },
-        {
-          "key": "flu_rt",
-          "label": "등락률",
-          "kind": "change"
-        },
-        {
-          "key": "_end_volume",
-          "label": "거래량",
-          "kind": "int"
-        },
-        {
-          "key": "stk_nm",
-          "label": "종목명",
-          "kind": "text"
-        }
-      ],
-      "rows": [
-        {
-          "rank": "1",
-          "stk_cd": "FGI",
-          "_start_price": "+8.4700",
-          "_end_price": "+11.6200",
-          "flu_rt": "+145.67",
-          "_end_volume": "61356470",
-          "stk_nm": "FGI 인더스트리스"
-        },
-        {
-          "rank": "2",
-          "stk_cd": "CAPR",
-          "_start_price": "+4.2200",
-          "_end_price": "+7.0200",
-          "flu_rt": "+67.54",
-          "_end_volume": "9269982",
-          "stk_nm": "캐프리코 테라퓨틱스"
-        },
-        {
-          "rank": "3",
-          "stk_cd": "ARX",
-          "_start_price": "+19.6100",
-          "_end_price": "+19.5200",
-          "flu_rt": "+43.42",
-          "_end_volume": "46652762",
-          "stk_nm": "엑셀러런트 홀딩스"
-        },
-        {
-          "rank": "4",
-          "stk_cd": "SNDG",
-          "_start_price": "-6.8600",
-          "_end_price": "+9.1995",
-          "flu_rt": "+33.71",
-          "_end_volume": "5875166",
-          "stk_nm": "LEVERAGE SHARES SNDK DAILY 2X"
-        },
-        {
-          "rank": "5",
-          "stk_cd": "SNXX",
-          "_start_price": "-11.0150",
-          "_end_price": "+14.8000",
-          "flu_rt": "+33.69",
-          "_end_volume": "88544667",
-          "stk_nm": "TRADR SNDK DAILY 2X"
-        },
-        {
-          "rank": "6",
-          "stk_cd": "SNDU",
-          "_start_price": "-17.2300",
-          "_end_price": "+23.0400",
-          "flu_rt": "+33.03",
-          "_end_volume": "8303517",
-          "stk_nm": "T-REX SNDK DAILY 2X"
-        },
-        {
-          "rank": "7",
-          "stk_cd": "OMER",
-          "_start_price": "+16.8680",
-          "_end_price": "+17.1800",
-          "flu_rt": "+25.31",
-          "_end_volume": "8390454",
-          "stk_nm": "오메로스"
-        },
-        {
-          "rank": "8",
-          "stk_cd": "AVAH",
-          "_start_price": "+10.0900",
-          "_end_price": "+11.1600",
-          "flu_rt": "+23.31",
-          "_end_volume": "7556773",
-          "stk_nm": "애비아나 헬스케어 홀딩스"
-        },
-        {
-          "rank": "9",
-          "stk_cd": "WDAY",
-          "_start_price": "+177.4400",
-          "_end_price": "+205.1300",
-          "flu_rt": "+17.02",
-          "_end_volume": "12356606",
-          "stk_nm": "워크데이"
-        },
-        {
-          "rank": "10",
-          "stk_cd": "SNDK",
-          "_start_price": "-1339.4020",
-          "_end_price": "+1565.5000",
-          "flu_rt": "+16.46",
-          "_end_volume": "16010304",
-          "stk_nm": "샌디스크"
-        }
-      ],
+      "columns": [],
+      "rows": [],
       "dropped": [],
       "error": null
     }

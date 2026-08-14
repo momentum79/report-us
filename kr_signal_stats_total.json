@@ -19,7 +19,7 @@
     "nasdaq_trend": "LIME",
     "euro_trend": "LIME",
     "india_trend": "RED",
-    "nikkei_trend": "-",
+    "nikkei_trend": "LIME",
     "shanghai_trend": "-",
     "hongkong_trend": "-",
     "brazil_trend": "RED",
@@ -67,7 +67,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-08-14 15:16:49",
+    "update_time": "2026-08-14 17:51:26",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
