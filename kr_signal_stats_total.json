@@ -3,16 +3,16 @@
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 112,
-    "sco_neg": 18,
-    "sco_strong": 46,
-    "sco_zone_neg": 18,
-    "sco_zone_weak": 50,
-    "sco_zone_mid": 16,
-    "sco_zone_strong": 46,
-    "strong_count": 33,
-    "top3_avg_sco": 15.33,
-    "top3_avg_pos": 1.0,
+    "sco_pos": 108,
+    "sco_neg": 22,
+    "sco_strong": 48,
+    "sco_zone_neg": 22,
+    "sco_zone_weak": 48,
+    "sco_zone_mid": 12,
+    "sco_zone_strong": 48,
+    "strong_count": 35,
+    "top3_avg_sco": 14.67,
+    "top3_avg_pos": 1.67,
     "kospi_trend": "LIME",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "LIME",
@@ -25,34 +25,34 @@
     "brazil_trend": "RED",
     "kospi_mult": 0.8,
     "nasdaq_mult": 0.85,
-    "invest_pct": 84.1,
-    "invest_amount_total": 84123708,
+    "invest_pct": 83.5,
+    "invest_amount_total": 83524458,
     "internal_weights": [
-        34.0206,
-        27.8351,
-        17.5258,
-        10.3093,
-        10.3093
+        29.5108,
+        28.4061,
+        21.0416,
+        10.5208,
+        10.5208
     ],
     "n_holdings": 5,
     "holdings_tickers": [
+        "228790",
         "CIBR",
         "IGV",
-        "228790",
         "EWP",
         "EWS"
     ],
     "final_ratios": {
-        "CIBR": 28.92,
-        "IGV": 23.66,
-        "228790": 14.02,
-        "EWP": 8.76,
-        "EWS": 8.76
+        "228790": 23.61,
+        "CIBR": 24.15,
+        "IGV": 17.89,
+        "EWP": 8.94,
+        "EWS": 8.94
     },
     "top3_tickers": [
+        "228790",
         "CIBR",
-        "IGV",
-        "228790"
+        "IGV"
     ],
     "allocation_map_used": [
         33,
@@ -67,8 +67,18 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-08-14 22:21:41",
-    "liq_rejected": [],
+    "update_time": "2026-08-15 05:07:57",
+    "liq_rejected": [
+        {
+            "ticker": "GREK",
+            "name": "GREK",
+            "avg_tv_eok": 99.6,
+            "min_tv_eok": 14.1,
+            "min_eok": 1000,
+            "min_day_eok": 400,
+            "fail_on": "avg"
+        }
+    ],
     "liq_thresholds": {
         "KR": 200,
         "US": 1000,

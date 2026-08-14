@@ -1,202 +1,16 @@
 {
-  "generated_at": "2026-08-14 22:28:23",
+  "generated_at": "2026-08-15 05:13:21",
   "source_policy": "live volume-first A-grade; KR-all/KR150/Naver confirmation; current cumulative tracking; foreign+institution sell blocks A",
   "counts": {
-    "a_grade": 1,
-    "watch": 6
+    "a_grade": 0,
+    "watch": 8
   },
   "items": [
-    {
-      "ticker": "005380",
-      "name": "현대차",
-      "grade": "A",
-      "score": 107,
-      "sources": [
-        "naver",
-        "naver_change_4",
-        "naver_trade_5000",
-        "close_position_high",
-        "leader_tracking_volume",
-        "legacy_leader_txt",
-        "report_volume_fi_plus",
-        "report_volume_trade"
-      ],
-      "hard_source_count": 2,
-      "reasons": [
-        "네이버 테마 통과",
-        "네이버 등락률 8.24%",
-        "네이버 거래대금 5379억",
-        "종가 위치 0.99",
-        "거래대금 트래킹 cum +0.00%",
-        "기존 leader txt",
-        "외인+기관 +393억",
-        "당일 거래대금 상위"
-      ],
-      "naver": {
-        "theme": "자동차 대표주",
-        "name": "현대차",
-        "chg_pct": 8.24,
-        "trade_eok": 5379.07,
-        "open": 423000.0,
-        "high": 460000.0,
-        "close": 459500.0,
-        "ohlc_ok": true,
-        "ok_wick": true,
-        "passed": true
-      },
-      "report_volume": {
-        "rank": 8,
-        "pred_rank": 21,
-        "ticker": "005380",
-        "name": "현대차",
-        "change": 9.8,
-        "trade_amount": 1079604,
-        "today": 392.81,
-        "foreign_today": 251.47,
-        "organ_today": 141.34,
-        "total": 299.36876000000007,
-        "foreign": 842.7475000000001,
-        "organ": -543.37874,
-        "nxt": "NXT선",
-        "snap_price": 443000,
-        "snap_rank": 6,
-        "snap_pct": 3.72,
-        "high_pct": 3.84,
-        "low_pct": -5.19,
-        "open_price": 423000
-      },
-      "tracking_cum_pct": {
-        "volume": 0.0
-      },
-      "close_position": 0.9864864864864865,
-      "foreign_inst_today_eok": 392.81,
-      "volume_rank": 8,
-      "today_change_pct": 9.8,
-      "volume_primary": true,
-      "today_volume_valid": true,
-      "confirm_count": 2,
-      "a_confirm_sources": [
-        "naver"
-      ],
-      "a_confirm_count": 1,
-      "best_tracking_cum_pct": 0.0,
-      "collapse_reasons": [],
-      "foreign_inst_sell": false,
-      "early_phase": false
-    },
-    {
-      "ticker": "005935",
-      "name": "삼성전자우",
-      "grade": "B",
-      "score": 52,
-      "sources": [
-        "leader_tracking_volume",
-        "legacy_leader_txt",
-        "report_volume_fi_plus"
-      ],
-      "hard_source_count": 1,
-      "reasons": [
-        "거래대금 트래킹 last +26.49%",
-        "기존 leader txt",
-        "외인+기관 +4억"
-      ],
-      "naver": null,
-      "report_volume": {
-        "rank": 13,
-        "pred_rank": 8,
-        "ticker": "005935",
-        "name": "삼성전자우",
-        "change": 4.15,
-        "trade_amount": 744107,
-        "today": 4.280000000000001,
-        "foreign_today": 52.86,
-        "organ_today": -48.58,
-        "total": -927.6522520000001,
-        "foreign": -1204.848379,
-        "organ": 277.196127,
-        "nxt": "",
-        "snap_price": null,
-        "snap_rank": null,
-        "snap_pct": null,
-        "high_pct": null,
-        "low_pct": null,
-        "open_price": 191600
-      },
-      "tracking_cum_pct": {
-        "volume": null
-      },
-      "foreign_inst_today_eok": 4.280000000000001,
-      "volume_rank": 13,
-      "today_change_pct": 4.15,
-      "volume_primary": true,
-      "today_volume_valid": false,
-      "confirm_count": 1,
-      "a_confirm_sources": [],
-      "a_confirm_count": 0,
-      "best_tracking_cum_pct": null,
-      "collapse_reasons": [],
-      "foreign_inst_sell": false,
-      "early_phase": false
-    },
-    {
-      "ticker": "066570",
-      "name": "LG전자",
-      "grade": "B",
-      "score": 52,
-      "sources": [
-        "leader_tracking_volume",
-        "legacy_leader_txt",
-        "report_volume_fi_plus"
-      ],
-      "hard_source_count": 1,
-      "reasons": [
-        "거래대금 트래킹 cum +5.13%",
-        "기존 leader txt",
-        "외인+기관 +5억"
-      ],
-      "naver": null,
-      "report_volume": {
-        "rank": 12,
-        "pred_rank": 14,
-        "ticker": "066570",
-        "name": "LG전자",
-        "change": 4.12,
-        "trade_amount": 756011,
-        "today": 5.390000000000001,
-        "foreign_today": 52.06,
-        "organ_today": -46.67,
-        "total": 2290.15327,
-        "foreign": 1726.2964599999998,
-        "organ": 563.8568100000001,
-        "nxt": "NXT선",
-        "snap_price": 215500,
-        "snap_rank": 7,
-        "snap_pct": -0.23,
-        "high_pct": 4.41,
-        "low_pct": -4.18,
-        "open_price": 209500
-      },
-      "tracking_cum_pct": {
-        "volume": 5.134474327628369
-      },
-      "foreign_inst_today_eok": 5.390000000000001,
-      "volume_rank": 12,
-      "today_change_pct": 4.12,
-      "volume_primary": true,
-      "today_volume_valid": false,
-      "confirm_count": 1,
-      "a_confirm_sources": [],
-      "a_confirm_count": 0,
-      "best_tracking_cum_pct": 5.134474327628369,
-      "collapse_reasons": [],
-      "foreign_inst_sell": false,
-      "early_phase": false
-    },
     {
       "ticker": "000660",
       "name": "SK하이닉스",
       "grade": "B",
-      "score": 40,
+      "score": 50,
       "sources": [
         "leader_tracking_volume",
         "legacy_leader_txt",
@@ -206,7 +20,6 @@
       "reasons": [
         "거래대금 트래킹 cum -0.89%",
         "기존 leader txt",
-        "외인+기관 -6890억",
         "당일 거래대금 상위"
       ],
       "naver": null,
@@ -220,16 +33,16 @@
         "today": -6889.87,
         "foreign_today": -3639.5,
         "organ_today": -3250.37,
-        "total": 23247.05994,
-        "foreign": 21050.68853,
-        "organ": 2196.3714100000007,
+        "total": 18608.90348,
+        "foreign": 24833.09766,
+        "organ": -6224.19418,
         "nxt": "NXT선",
-        "snap_price": 1676000,
-        "snap_rank": 1,
-        "snap_pct": -0.54,
-        "high_pct": 1.43,
-        "low_pct": -2.98,
-        "open_price": 1675000
+        "snap_price": null,
+        "snap_rank": null,
+        "snap_pct": null,
+        "high_pct": null,
+        "low_pct": null,
+        "open_price": null
       },
       "tracking_cum_pct": {
         "volume": -0.8917954815695572
@@ -244,14 +57,79 @@
       "a_confirm_count": 0,
       "best_tracking_cum_pct": -0.8917954815695572,
       "collapse_reasons": [],
-      "foreign_inst_sell": true,
-      "early_phase": false
+      "foreign_inst_sell": false,
+      "early_phase": true
+    },
+    {
+      "ticker": "005380",
+      "name": "현대차",
+      "grade": "B",
+      "score": 50,
+      "sources": [
+        "leader_tracking_volume",
+        "legacy_leader_txt",
+        "report_volume_trade"
+      ],
+      "hard_source_count": 1,
+      "reasons": [
+        "거래대금 트래킹 cum +0.00%",
+        "기존 leader txt",
+        "당일 거래대금 상위"
+      ],
+      "naver": {
+        "theme": "자동차 대표주",
+        "name": "현대차",
+        "chg_pct": 8.24,
+        "trade_eok": 5379.07,
+        "open": null,
+        "high": null,
+        "close": null,
+        "ohlc_ok": false,
+        "ok_wick": false,
+        "passed": false
+      },
+      "report_volume": {
+        "rank": 8,
+        "pred_rank": 21,
+        "ticker": "005380",
+        "name": "현대차",
+        "change": 9.8,
+        "trade_amount": 1079604,
+        "today": 392.81,
+        "foreign_today": 251.47,
+        "organ_today": 141.34,
+        "total": 833.287295,
+        "foreign": 887.78917,
+        "organ": -54.50187500000001,
+        "nxt": "NXT선",
+        "snap_price": null,
+        "snap_rank": null,
+        "snap_pct": null,
+        "high_pct": null,
+        "low_pct": null,
+        "open_price": null
+      },
+      "tracking_cum_pct": {
+        "volume": 0.0
+      },
+      "foreign_inst_today_eok": 392.81,
+      "volume_rank": 8,
+      "today_change_pct": 9.8,
+      "volume_primary": true,
+      "today_volume_valid": true,
+      "confirm_count": 1,
+      "a_confirm_sources": [],
+      "a_confirm_count": 0,
+      "best_tracking_cum_pct": 0.0,
+      "collapse_reasons": [],
+      "foreign_inst_sell": false,
+      "early_phase": true
     },
     {
       "ticker": "009150",
       "name": "삼성전기",
       "grade": "B",
-      "score": 40,
+      "score": 50,
       "sources": [
         "leader_tracking_volume",
         "legacy_leader_txt",
@@ -261,7 +139,6 @@
       "reasons": [
         "거래대금 트래킹 cum +37.22%",
         "기존 leader txt",
-        "외인+기관 -1442억",
         "당일 거래대금 상위"
       ],
       "naver": null,
@@ -275,16 +152,16 @@
         "today": -1441.75,
         "foreign_today": -1550.95,
         "organ_today": 109.2,
-        "total": 4090.9416500000007,
-        "foreign": 2560.0676300000005,
-        "organ": 1530.87402,
+        "total": -3117.9415799999997,
+        "foreign": -3937.3703699999996,
+        "organ": 819.42879,
         "nxt": "NXT선",
         "snap_price": null,
         "snap_rank": null,
         "snap_pct": null,
         "high_pct": null,
         "low_pct": null,
-        "open_price": 1580000
+        "open_price": null
       },
       "tracking_cum_pct": {
         "volume": 37.21541155866901
@@ -299,14 +176,14 @@
       "a_confirm_count": 0,
       "best_tracking_cum_pct": 37.21541155866901,
       "collapse_reasons": [],
-      "foreign_inst_sell": true,
-      "early_phase": false
+      "foreign_inst_sell": false,
+      "early_phase": true
     },
     {
       "ticker": "402340",
       "name": "SK스퀘어",
       "grade": "B",
-      "score": 40,
+      "score": 50,
       "sources": [
         "leader_tracking_volume",
         "legacy_leader_txt",
@@ -316,7 +193,6 @@
       "reasons": [
         "거래대금 트래킹 cum +12.24%",
         "기존 leader txt",
-        "외인+기관 -80억",
         "당일 거래대금 상위"
       ],
       "naver": null,
@@ -330,16 +206,16 @@
         "today": -79.94,
         "foreign_today": -215.74,
         "organ_today": 135.8,
-        "total": 3479.5001199999997,
-        "foreign": 2226.18566,
-        "organ": 1253.3144599999998,
+        "total": 1051.2919399999998,
+        "foreign": -77.77068000000003,
+        "organ": 1129.06262,
         "nxt": "NXT선",
         "snap_price": null,
         "snap_rank": null,
         "snap_pct": null,
         "high_pct": null,
         "low_pct": null,
-        "open_price": 1153000
+        "open_price": null
       },
       "tracking_cum_pct": {
         "volume": 12.235067437379566
@@ -354,8 +230,200 @@
       "a_confirm_count": 0,
       "best_tracking_cum_pct": 12.235067437379566,
       "collapse_reasons": [],
-      "foreign_inst_sell": true,
-      "early_phase": false
+      "foreign_inst_sell": false,
+      "early_phase": true
+    },
+    {
+      "ticker": "005935",
+      "name": "삼성전자우",
+      "grade": "B",
+      "score": 42,
+      "sources": [
+        "leader_tracking_volume",
+        "legacy_leader_txt"
+      ],
+      "hard_source_count": 1,
+      "reasons": [
+        "거래대금 트래킹 last +26.49%",
+        "기존 leader txt"
+      ],
+      "naver": null,
+      "report_volume": {
+        "rank": 13,
+        "pred_rank": 8,
+        "ticker": "005935",
+        "name": "삼성전자우",
+        "change": 4.15,
+        "trade_amount": 744107,
+        "today": 4.280000000000001,
+        "foreign_today": 52.86,
+        "organ_today": -48.58,
+        "total": 2065.1281280000003,
+        "foreign": 1911.9958680000002,
+        "organ": 153.13226000000003,
+        "nxt": "",
+        "snap_price": null,
+        "snap_rank": null,
+        "snap_pct": null,
+        "high_pct": null,
+        "low_pct": null,
+        "open_price": null
+      },
+      "tracking_cum_pct": {
+        "volume": null
+      },
+      "foreign_inst_today_eok": 4.280000000000001,
+      "volume_rank": 13,
+      "today_change_pct": 4.15,
+      "volume_primary": true,
+      "today_volume_valid": true,
+      "confirm_count": 1,
+      "a_confirm_sources": [],
+      "a_confirm_count": 0,
+      "best_tracking_cum_pct": null,
+      "collapse_reasons": [],
+      "foreign_inst_sell": false,
+      "early_phase": true
+    },
+    {
+      "ticker": "066570",
+      "name": "LG전자",
+      "grade": "B",
+      "score": 42,
+      "sources": [
+        "leader_tracking_volume",
+        "legacy_leader_txt"
+      ],
+      "hard_source_count": 1,
+      "reasons": [
+        "거래대금 트래킹 cum +5.13%",
+        "기존 leader txt"
+      ],
+      "naver": null,
+      "report_volume": {
+        "rank": 12,
+        "pred_rank": 14,
+        "ticker": "066570",
+        "name": "LG전자",
+        "change": 4.12,
+        "trade_amount": 756011,
+        "today": 5.390000000000001,
+        "foreign_today": 52.06,
+        "organ_today": -46.67,
+        "total": 403.51722000000007,
+        "foreign": 539.8256100000001,
+        "organ": -136.30839,
+        "nxt": "NXT선",
+        "snap_price": null,
+        "snap_rank": null,
+        "snap_pct": null,
+        "high_pct": null,
+        "low_pct": null,
+        "open_price": null
+      },
+      "tracking_cum_pct": {
+        "volume": 5.134474327628369
+      },
+      "foreign_inst_today_eok": 5.390000000000001,
+      "volume_rank": 12,
+      "today_change_pct": 4.12,
+      "volume_primary": true,
+      "today_volume_valid": true,
+      "confirm_count": 1,
+      "a_confirm_sources": [],
+      "a_confirm_count": 0,
+      "best_tracking_cum_pct": 5.134474327628369,
+      "collapse_reasons": [],
+      "foreign_inst_sell": false,
+      "early_phase": true
+    },
+    {
+      "ticker": "017670",
+      "name": "SK텔레콤",
+      "grade": "B",
+      "score": 0,
+      "sources": [],
+      "hard_source_count": 0,
+      "reasons": [],
+      "naver": null,
+      "report_volume": {
+        "rank": 17,
+        "pred_rank": 29,
+        "ticker": "017670",
+        "name": "SK텔레콤",
+        "change": 9.99,
+        "trade_amount": 539417,
+        "today": 504.13,
+        "foreign_today": 384.77,
+        "organ_today": 119.36,
+        "total": 925.064225,
+        "foreign": 527.105522,
+        "organ": 397.958703,
+        "nxt": "NXT선",
+        "snap_price": null,
+        "snap_rank": null,
+        "snap_pct": null,
+        "high_pct": null,
+        "low_pct": null,
+        "open_price": null
+      },
+      "tracking_cum_pct": {},
+      "foreign_inst_today_eok": 504.13,
+      "volume_rank": 17,
+      "today_change_pct": 9.99,
+      "volume_primary": true,
+      "today_volume_valid": true,
+      "confirm_count": 0,
+      "a_confirm_sources": [],
+      "a_confirm_count": 0,
+      "best_tracking_cum_pct": null,
+      "collapse_reasons": [],
+      "foreign_inst_sell": false,
+      "early_phase": true
+    },
+    {
+      "ticker": "042660",
+      "name": "한화오션",
+      "grade": "B",
+      "score": 0,
+      "sources": [],
+      "hard_source_count": 0,
+      "reasons": [],
+      "naver": null,
+      "report_volume": {
+        "rank": 20,
+        "pred_rank": 59,
+        "ticker": "042660",
+        "name": "한화오션",
+        "change": 6.17,
+        "trade_amount": 489912,
+        "today": -42.83,
+        "foreign_today": -101.02,
+        "organ_today": 58.19,
+        "total": 253.33295200000003,
+        "foreign": 568.713911,
+        "organ": -315.380959,
+        "nxt": "NXT선",
+        "snap_price": null,
+        "snap_rank": null,
+        "snap_pct": null,
+        "high_pct": null,
+        "low_pct": null,
+        "open_price": null
+      },
+      "tracking_cum_pct": {},
+      "foreign_inst_today_eok": -42.83,
+      "volume_rank": 20,
+      "today_change_pct": 6.17,
+      "volume_primary": true,
+      "today_volume_valid": true,
+      "confirm_count": 0,
+      "a_confirm_sources": [],
+      "a_confirm_count": 0,
+      "best_tracking_cum_pct": null,
+      "collapse_reasons": [],
+      "foreign_inst_sell": false,
+      "early_phase": true
     }
   ]
 }
