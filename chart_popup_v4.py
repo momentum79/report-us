@@ -220,19 +220,38 @@ def ensure_wk_warmup(tickers):
     start = (today - _dt.timedelta(days=int(WK_YEARS * 365) + 10)).strftime("%Y-%m-%d")
     end   = (today + _dt.timedelta(days=1)).strftime("%Y-%m-%d")
     print(f"  [wk warmup] {len(need)}종목 ~{WK_YEARS}년 일봉 수집 중…")
-    for tk in need:
+    # 회사망은 yfinance 를 차단한다(c1time_real 은 셔틀도 안 켬). 막힌 연결은 TCP 타임아웃까지
+    # 수십 초를 잡아먹어 bat 전체가 늘어진다. 반면 '없는 심볼'은 야후가 즉답이라 집에서 0.4~2.8초다.
+    # → 소요시간으로 둘을 구분해, 응답 자체가 안 오는 실패가 2번 연속이면 남은 종목을 포기한다.
+    #   일봉/주봉 모두 로컬 캐시 읽기라 포기해도 차트는 그대로 그려진다(새 종목만 배경 없음).
+    SLOW_FAIL_SEC = 8.0
+    slow_fails = 0
+    for i, tk in enumerate(need):
+        t0 = time.time()
+        ok = False
         try:
             df = yf.download(tk, start=start, end=end, auto_adjust=True,
                              progress=False, threads=False)
-            if df is None or df.empty:
-                continue
-            if isinstance(df.columns, pd.MultiIndex):
-                df.columns = df.columns.get_level_values(0)
-            df = df[COLS].dropna()
-            df.index = pd.to_datetime(df.index)
-            store[tk] = df.sort_index()
+            if df is not None and not df.empty:
+                if isinstance(df.columns, pd.MultiIndex):
+                    df.columns = df.columns.get_level_values(0)
+                df = df[COLS].dropna()
+                df.index = pd.to_datetime(df.index)
+                store[tk] = df.sort_index()
+                ok = True
         except Exception as e:
             print(f"  [wk warmup] {tk} 수집 실패: {e}")
+        if ok:
+            slow_fails = 0
+            continue
+        if time.time() - t0 >= SLOW_FAIL_SEC:
+            slow_fails += 1
+            if slow_fails >= 2:
+                print(f"  [wk warmup] 응답 없음 2회 연속 → 네트워크 불가로 판단, "
+                      f"남은 {len(need) - i - 1}종목 생략 (기존 캐시로 차트는 정상 생성)")
+                break
+        else:
+            slow_fails = 0
     if _is_naver_shim(yf):
         print(f"  [wk warmup] 네이버 셔틀(원주가) 감지 → 캐시 저장 생략 "
               f"(이번 실행만 메모리 사용, 집 실행 때 수정주가로 저장)")
