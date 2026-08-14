@@ -1,16 +1,16 @@
 {
   "account": "8042",
-  "updated": "2026-08-14 20:52:34",
+  "updated": "2026-08-14 21:20:20",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 24105299,
+    "total_asset": 19105302,
     "tot_pur_amt": 12669662,
     "tot_evlt_amt": 15905975,
     "tot_evlt_pl": 3229204,
     "tot_prft_rt": 25.49,
-    "stock_ratio": 65.98538769421612,
-    "cash": 6496404,
+    "stock_ratio": 83.25424533985382,
+    "cash": 1496407,
     "tdy_realized_pl": 69706
   },
   "holdings": [
@@ -123,13 +123,33 @@
   ],
   "us_summary": {
     "us_stock_krw": 3476605,
-    "usd_cash": 7985.14,
-    "usd_cash_krw": 11298175,
+    "usd_cash": 11564.57,
+    "usd_cash_krw": 16362708,
     "rate": 1414.9,
-    "total_asset_total": 28561595,
+    "total_asset_total": 28556698,
     "eval_pl_usd": 1.17,
     "eval_pl_krw": 1655,
     "tdy_realized_pl_usd": -16.58,
-    "tdy_realized_pl_krw": -23568
+    "tdy_realized_pl_krw": -23568,
+    "won_entr": 1496407,
+    "fx": {
+      "USD": {
+        "cash_krw": 16362708,
+        "stock_krw": 3459854,
+        "rate": 1414.9
+      },
+      "JPY": {
+        "cash_krw": -69433,
+        "stock_krw": 7307162,
+        "rate": 887.33
+      },
+      "CNY": {
+        "cash_krw": 0,
+        "stock_krw": 0,
+        "rate": 209.75
+      }
+    },
+    "fx_other_krw": 7237729,
+    "fx_other_stock_krw": 7307162
   }
 }
