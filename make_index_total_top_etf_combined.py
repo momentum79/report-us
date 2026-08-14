@@ -98,7 +98,7 @@ def _manual_managed_value_krw(fx_order, token, raw_kr: dict) -> tuple[int, list]
             continue
         if price <= 0:
             raise RuntimeError(f"직접관리 KR {ticker} 현재가 비정상({price})")
-        items.append({"ticker": ticker, "qty": qty, "krw": qty * price})
+        items.append({"market": "KR", "ticker": ticker, "qty": qty, "krw": qty * price})
         total += qty * price
 
     us_data = fx_order.call_us_acnt_api(token, "ust21070", {"stex_tp": "", "stk_cd": ""})
@@ -114,7 +114,7 @@ def _manual_managed_value_krw(fx_order, token, raw_kr: dict) -> tuple[int, list]
         amt = fx_order.as_decimal(row.get("evlt_amt_krw"))
         if amt is None or amt <= 0:
             raise RuntimeError(f"직접관리 US {ticker} 원화평가금(evlt_amt_krw) 비정상")
-        items.append({"ticker": ticker, "qty": qty, "krw": int(amt)})
+        items.append({"market": "US", "ticker": ticker, "qty": qty, "krw": int(amt)})
         total += int(amt)
     return total, items
 
@@ -156,12 +156,45 @@ def _load_combined_asset_8042() -> tuple[int, float, int, int]:
             raise RuntimeError("USD rate unavailable from ust21120/ust31301; stop rebalancing file generation")
         total = int(snap["combined_total_krw"])
         manual, manual_items = _manual_managed_value_krw(fx_order, token, snap.get("raw_kr") or {})
-        investable = total - manual
+
+        # 투자가능자산 = 이 전략이 실제로 회전시킬 수 있는 자산만.
+        #   (국내주식 − 직접관리 KR) + 원화예수금 + USD예수금 + (USD주식 − 직접관리 US)
+        # USD 아닌 통화 줄(JPY/CNY…)은 통째로 제외한다 — 이 전략은 KR/US 만 매매하고,
+        # 일본주식은 ust21070(해외잔고)에 안 나와서 티커 리스트로는 못 거른다. 평가금과
+        # 매수로 생긴 마이너스 예수금을 같이 빼야 순포지션만 정확히 빠진다.
+        # 산식 근거/실측은 allone_260712_ypykjw_fx_no_lev.get_investable_asset_krw docstring 참조.
+        # 주문기와 반드시 같은 산식이어야 게시판 수량 == 실제 주문 수량이 된다.
+        raw_us = snap.get("raw_us") or {}
+        kr_stock = int(snap["kr_stock_value_krw"])
+        won_entr = int(snap["krw_cash"])
+        usd_cash = usd_stock = 0
+        excluded = []
+        for row in raw_us.get("result_list") or []:
+            crnc = str(row.get("crnc_code", "")).upper()
+            entr = int(fx_order.as_decimal(row.get("chg_entr")) or 0)
+            evlt = int(fx_order.as_decimal(row.get("chg_evlt_amt")) or 0)
+            if crnc == "USD":
+                usd_cash += entr
+                usd_stock += evlt
+            elif entr or evlt:
+                excluded.append((crnc, entr, evlt))
+        manual_kr = sum(it["krw"] for it in manual_items if it["market"] == "KR")
+        manual_us = sum(it["krw"] for it in manual_items if it["market"] == "US")
+
+        investable = (kr_stock - manual_kr) + won_entr + usd_cash + (usd_stock - manual_us)
         if investable <= 0:
             raise RuntimeError(f"investable asset <= 0 (total {total:,} - manual {manual:,})")
-        print(f"[통합자산] 총자산 {total:,}원 − 직접관리 {manual:,}원 = 투자가능 {investable:,}원")
+        print(f"[통합자산] 총자산 {total:,}원 → 투자가능 {investable:,}원")
+        print(f"           + 국내주식     {kr_stock:>14,}")
+        print(f"           + 원화 예수금  {won_entr:>14,}")
+        print(f"           + USD 예수금   {usd_cash:>14,}")
+        print(f"           + USD 주식     {usd_stock:>14,}")
+        print(f"           − 직접관리     {manual:>14,}")
         for it in manual_items:
-            print(f"           · {it['ticker']:<8} {it['qty']:>6}주  {it['krw']:>14,}원")
+            print(f"               · {it['ticker']:<8} {it['qty']:>6}주 {it['krw']:>13,}")
+        for crnc, entr, evlt in excluded:
+            print(f"           − 전략외 통화 {crnc:<4} 주식 {evlt:>13,} / 예수금 {entr:>13,} "
+                  f"/ 순 {entr + evlt:>13,}")
         return investable, float(usd_rate), total, manual
     except Exception as e:
         raise RuntimeError(f"combined asset lookup failed; stop rebalancing file generation: {e}") from e
@@ -1734,7 +1767,7 @@ body.naver-popup-open {{ overflow: hidden; }}
 
     {top5_section_html}
 
-    <h2>🧾 주문용 최종 보유 목록 ({s_data.get('invest_pct', 0):.1f}%) <span style="font-size:0.7em; color:#000; font-weight:normal;">- 총자산 {int((ASSET_8042_TOTAL or ASSET_8042) / 10000):,}만원 − 직접관리 {int(ASSET_8042_MANUAL / 10000):,}만원 = 기준 {int(ASSET_8042 / 10000):,}만원 → 목표 {int(ASSET_8042 * s_data.get('invest_pct', 0) / 100 / 10000):,}만원</span></h2>
+    <h2>🧾 주문용 최종 보유 목록 ({s_data.get('invest_pct', 0):.1f}%) <span style="font-size:0.7em; color:#000; font-weight:normal;">- 총자산 {int((ASSET_8042_TOTAL or ASSET_8042) / 10000):,}만원 − 직접관리/전략외 {int(((ASSET_8042_TOTAL or ASSET_8042) - ASSET_8042) / 10000):,}만원 = 기준 {int(ASSET_8042 / 10000):,}만원 → 목표 {int(ASSET_8042 * s_data.get('invest_pct', 0) / 100 / 10000):,}만원</span></h2>
     {final_order_html}
     {liq_rejected_html}
 

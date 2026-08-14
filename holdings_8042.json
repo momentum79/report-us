@@ -1,15 +1,15 @@
 {
   "account": "8042",
-  "updated": "2026-08-14 18:01:54",
+  "updated": "2026-08-14 20:52:34",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 24107836,
-    "tot_pur_amt": 12215162,
-    "tot_evlt_amt": 15452975,
-    "tot_evlt_pl": 3231751,
-    "tot_prft_rt": 26.46,
-    "stock_ratio": 64.09938660608111,
+    "total_asset": 24105299,
+    "tot_pur_amt": 12669662,
+    "tot_evlt_amt": 15905975,
+    "tot_evlt_pl": 3229204,
+    "tot_prft_rt": 25.49,
+    "stock_ratio": 65.98538769421612,
     "cash": 6496404,
     "tdy_realized_pl": 69706
   },
@@ -67,6 +67,19 @@
       "tag": "통합ETF"
     },
     {
+      "stock_code": "005380",
+      "stock_name": "현대차",
+      "quantity": 2,
+      "avg_price": 0,
+      "current_price": 453000,
+      "profit_rate": 9.83,
+      "eval_amount": 906000,
+      "nxt": "N선",
+      "cntr_str": 130.1,
+      "candle": "",
+      "tag": ""
+    },
+    {
       "stock_code": "005930",
       "stock_name": "삼성전자",
       "quantity": 2,
@@ -80,19 +93,6 @@
       "tag": ""
     },
     {
-      "stock_code": "005380",
-      "stock_name": "현대차",
-      "quantity": 1,
-      "avg_price": 0,
-      "current_price": 453000,
-      "profit_rate": 22.65,
-      "eval_amount": 453000,
-      "nxt": "N선",
-      "cntr_str": 130.11,
-      "candle": "",
-      "tag": ""
-    },
-    {
       "stock_code": "498400",
       "stock_name": "KODEX 200타겟위클리커버드콜",
       "quantity": 16,
@@ -101,7 +101,7 @@
       "profit_rate": 9.11,
       "eval_amount": 332000,
       "nxt": "",
-      "cntr_str": 129.59,
+      "cntr_str": 129.58,
       "candle": "",
       "tag": ""
     }
@@ -112,23 +112,23 @@
       "stock_name": "스페인 아이셰어즈 ETF",
       "quantity": 39,
       "avg_price": 62.67,
-      "current_price": 62.67,
-      "profit_rate": -0.13,
-      "eval_amount_usd": 2444.13,
-      "eval_amount": 3474941,
+      "current_price": 62.7,
+      "profit_rate": -0.09,
+      "eval_amount_usd": 2445.3,
+      "eval_amount": 3476605,
       "buy_date": "2026-08-08",
       "candle": "일봉",
       "tag": "통합ETF"
     }
   ],
   "us_summary": {
-    "us_stock_krw": 3474941,
+    "us_stock_krw": 3476605,
     "usd_cash": 7985.14,
     "usd_cash_krw": 11298175,
     "rate": 1414.9,
-    "total_asset_total": 28559940,
-    "eval_pl_usd": 0.0,
-    "eval_pl_krw": 0,
+    "total_asset_total": 28561595,
+    "eval_pl_usd": 1.17,
+    "eval_pl_krw": 1655,
     "tdy_realized_pl_usd": -16.58,
     "tdy_realized_pl_krw": -23568
   }
