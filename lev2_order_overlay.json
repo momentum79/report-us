@@ -1,5 +1,5 @@
 {
-  "asof": "2026-08-14 20:53:33",
+  "asof": "2026-08-14 22:33:09",
   "strategy": "F4_B_safe",
   "params": {
     "atr_thr": 1.5,
@@ -26,10 +26,10 @@
     "kr_safe": true,
     "us_ret_ok": true,
     "kr_ret_ok": true,
-    "qqq_ret20": 3.7014483939775467,
-    "qqq_ret60": 3.7102626877431044,
-    "spy_ret20": 3.617864881661448,
-    "spy_ret60": 5.311037591837797,
+    "qqq_ret20": 5.449204360810089,
+    "qqq_ret60": 4.5172608559624905,
+    "spy_ret20": 4.683232464801668,
+    "spy_ret60": 6.047183064380346,
     "kr_ret20": 1.1757567957639603,
     "kr_ret60": -3.5280711750010907
   },
@@ -48,19 +48,19 @@
       "order_symbol_or_prefix": "ND:CIBR",
       "is_lev2": false,
       "lev_reason": "",
-      "fallback_reason": "유동성 탈락 (20일 평균 거래대금 $0.78M < $1M)",
-      "atr_ratio": 0.943,
-      "index_ret20": 3.7014483939775467,
-      "index_ret60": 3.7102626877431044,
+      "fallback_reason": "유동성 탈락 (20일 평균 거래대금 $0.77M < $1M)",
+      "atr_ratio": 0.7902,
+      "index_ret20": 5.449204360810089,
+      "index_ret60": 4.5172608559624905,
       "qqq_color": "LIME",
       "spy_color": "LIME",
       "kr_color": "LIME",
-      "liquidity_20d": 780554.57,
+      "liquidity_20d": 765730.21,
       "liquidity_10d_eok": 11.3,
       "liq2_min_eok": 1000,
-      "age_bars": 501,
-      "order_qty": 54,
-      "order_amount": 7808550
+      "age_bars": 502,
+      "order_qty": 44,
+      "order_amount": 6334507
     },
     {
       "base_ticker": "IGV",
@@ -75,9 +75,9 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "2x 매핑 없음 (NO_2X)",
-      "atr_ratio": 0.9455,
-      "index_ret20": 3.7014483939775467,
-      "index_ret60": 3.7102626877431044,
+      "atr_ratio": 0.7703,
+      "index_ret20": 5.449204360810089,
+      "index_ret60": 4.5172608559624905,
       "qqq_color": "LIME",
       "spy_color": "LIME",
       "kr_color": "LIME",
@@ -85,8 +85,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 42,
-      "order_amount": 6315774
+      "order_qty": 35,
+      "order_amount": 5243831
     },
     {
       "base_ticker": "228790",
@@ -111,8 +111,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 865,
-      "order_amount": 3827625
+      "order_qty": 707,
+      "order_amount": 3128475
     },
     {
       "base_ticker": "EWP",
@@ -127,9 +127,9 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "2x 매핑 없음 (NO_2X)",
-      "atr_ratio": 0.5916,
-      "index_ret20": 3.7014483939775467,
-      "index_ret60": 3.7102626877431044,
+      "atr_ratio": 0.512,
+      "index_ret20": 5.449204360810089,
+      "index_ret60": 4.5172608559624905,
       "qqq_color": "LIME",
       "spy_color": "LIME",
       "kr_color": "LIME",
@@ -137,8 +137,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 26,
-      "order_amount": 2305466
+      "order_qty": 21,
+      "order_amount": 1866861
     },
     {
       "base_ticker": "EWS",
@@ -153,9 +153,9 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "2x 매핑 없음 (NO_2X)",
-      "atr_ratio": 1.2011,
-      "index_ret20": 3.7014483939775467,
-      "index_ret60": 3.7102626877431044,
+      "atr_ratio": 0.9373,
+      "index_ret20": 5.449204360810089,
+      "index_ret60": 4.5172608559624905,
       "qqq_color": "LIME",
       "spy_color": "LIME",
       "kr_color": "LIME",
@@ -163,8 +163,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 50,
-      "order_amount": 2368542
+      "order_qty": 41,
+      "order_amount": 1954387
     }
   ]
 }

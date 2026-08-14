@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-14 20:48:37",
+  "generated_at": "2026-08-14 22:28:23",
   "source_policy": "live volume-first A-grade; KR-all/KR150/Naver confirmation; current cumulative tracking; foreign+institution sell blocks A",
   "counts": {
     "a_grade": 1,
-    "watch": 5
+    "watch": 6
   },
   "items": [
     {
@@ -27,7 +27,7 @@
         "네이버 등락률 8.24%",
         "네이버 거래대금 5379억",
         "종가 위치 0.99",
-        "거래대금 트래킹 cum +0.99%",
+        "거래대금 트래킹 cum +0.00%",
         "기존 leader txt",
         "외인+기관 +393억",
         "당일 거래대금 상위"
@@ -66,7 +66,7 @@
         "open_price": 423000
       },
       "tracking_cum_pct": {
-        "volume": 0.9890109890109855
+        "volume": 0.0
       },
       "close_position": 0.9864864864864865,
       "foreign_inst_today_eok": 392.81,
@@ -79,7 +79,7 @@
         "naver"
       ],
       "a_confirm_count": 1,
-      "best_tracking_cum_pct": 0.9890109890109855,
+      "best_tracking_cum_pct": 0.0,
       "collapse_reasons": [],
       "foreign_inst_sell": false,
       "early_phase": false
@@ -134,6 +134,60 @@
       "a_confirm_sources": [],
       "a_confirm_count": 0,
       "best_tracking_cum_pct": null,
+      "collapse_reasons": [],
+      "foreign_inst_sell": false,
+      "early_phase": false
+    },
+    {
+      "ticker": "066570",
+      "name": "LG전자",
+      "grade": "B",
+      "score": 52,
+      "sources": [
+        "leader_tracking_volume",
+        "legacy_leader_txt",
+        "report_volume_fi_plus"
+      ],
+      "hard_source_count": 1,
+      "reasons": [
+        "거래대금 트래킹 cum +5.13%",
+        "기존 leader txt",
+        "외인+기관 +5억"
+      ],
+      "naver": null,
+      "report_volume": {
+        "rank": 12,
+        "pred_rank": 14,
+        "ticker": "066570",
+        "name": "LG전자",
+        "change": 4.12,
+        "trade_amount": 756011,
+        "today": 5.390000000000001,
+        "foreign_today": 52.06,
+        "organ_today": -46.67,
+        "total": 2290.15327,
+        "foreign": 1726.2964599999998,
+        "organ": 563.8568100000001,
+        "nxt": "NXT선",
+        "snap_price": 215500,
+        "snap_rank": 7,
+        "snap_pct": -0.23,
+        "high_pct": 4.41,
+        "low_pct": -4.18,
+        "open_price": 209500
+      },
+      "tracking_cum_pct": {
+        "volume": 5.134474327628369
+      },
+      "foreign_inst_today_eok": 5.390000000000001,
+      "volume_rank": 12,
+      "today_change_pct": 4.12,
+      "volume_primary": true,
+      "today_volume_valid": false,
+      "confirm_count": 1,
+      "a_confirm_sources": [],
+      "a_confirm_count": 0,
+      "best_tracking_cum_pct": 5.134474327628369,
       "collapse_reasons": [],
       "foreign_inst_sell": false,
       "early_phase": false
