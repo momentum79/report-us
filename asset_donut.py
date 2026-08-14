@@ -203,24 +203,35 @@ def build_card_html(accounts=COMBINED_ACCOUNTS, base=None):
 
 
 DONUT_CSS = r"""
-/* ── 투자비중/통화비중 도넛 카드 (asset_donut.py) ── */
-.adn-card { background:#fff; padding:14px; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,0.1); box-sizing:border-box; width:300px; max-width:100%; }
-.adn-top { display:flex; align-items:flex-start; justify-content:center; gap:8px; margin-bottom:8px; }
-.adn-unit { display:flex; flex-direction:column; align-items:center; flex:0 0 auto; }
-.adn-title { font-weight:bold; color:#2c3e50; font-size:0.85rem; line-height:1.3; margin-bottom:13px; white-space:nowrap; }
-.adn-wrap { position:relative; width:126px; height:126px; flex:0 0 auto; }
+/* ── 투자비중/통화비중 도넛 카드 (asset_donut.py) ──
+   치수는 --adn-d(도넛 지름) 하나에 연동. 좁은 화면에서는 미디어쿼리로 --adn-d 만 줄이면 된다. */
+.adn-card { background:#fff; padding:14px; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,0.1); box-sizing:border-box; width:100%; max-width:430px; }
+.adn-top { display:flex; align-items:flex-start; justify-content:center; gap:12px; margin-bottom:10px; }
+/* 도넛은 카드 폭을 반씩 나눠 갖는다(최대 190px). 화면이 넓으면 커지고 좁으면 줄어든다. */
+.adn-unit { display:flex; flex-direction:column; align-items:center; flex:1 1 0; min-width:0; }
+.adn-title { font-weight:bold; color:#2c3e50; font-size:1.05rem; line-height:1.3; margin-bottom:14px; white-space:nowrap; }
+.adn-wrap { position:relative; width:100%; max-width:190px; height:auto; aspect-ratio:1/1; flex:0 0 auto; }
 .adn-wrap svg { width:100%; height:100%; }
 .adn-lbl { font-size:8px; font-weight:bold; fill:#fff; text-anchor:middle; dominant-baseline:central; }
-.adn-out { position:absolute; transform:translate(-50%,-50%); font-size:0.58rem; font-weight:bold; white-space:nowrap; pointer-events:none; }
+.adn-out { position:absolute; transform:translate(-50%,-50%); font-size:0.8rem; font-weight:bold; white-space:nowrap; pointer-events:none; }
 .adn-center { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; }
-.adn-num { font-size:0.9rem; font-weight:bold; color:#2c3e50; }
-.adn-legend { font-size:0.9rem; border-top:1px solid #f1f1f1; padding-top:6px; }
-.adn-row { display:grid; grid-template-columns:78px minmax(0,1fr) minmax(0,1fr); align-items:baseline; padding:3px 0; column-gap:6px; }
+.adn-num { font-size:1.3rem; font-weight:bold; color:#2c3e50; }
+.adn-legend { font-size:1.2rem; border-top:1px solid #f1f1f1; padding-top:8px; }
+.adn-row { display:grid; grid-template-columns:108px minmax(0,1fr) minmax(0,1fr); align-items:baseline; padding:4px 0; column-gap:8px; }
 .adn-name { display:flex; align-items:center; color:#555; }
-.adn-dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:5px; flex:0 0 auto; }
+.adn-dot { display:inline-block; width:12px; height:12px; border-radius:50%; margin-right:7px; flex:0 0 auto; }
 .adn-val { font-weight:bold; color:#2c3e50; white-space:nowrap; text-align:right; }
-.adn-amt { color:#2c3e50; white-space:nowrap; text-align:right; font-size:0.86rem; }
+.adn-amt { color:#2c3e50; white-space:nowrap; text-align:right; font-size:1.1rem; }
 .adn-total .adn-name, .adn-total .adn-amt { font-weight:bold; }
+/* 폰(카드 폭이 화면을 넘는 구간) — 도넛만 줄이면 나머지는 따라온다 */
+@media (max-width:480px) {
+  .adn-card { --adn-d:130px; padding:12px; width:300px; }
+  .adn-title { font-size:0.9rem; margin-bottom:12px; }
+  .adn-num { font-size:0.95rem; }
+  .adn-legend { font-size:0.92rem; }
+  .adn-row { grid-template-columns:80px minmax(0,1fr) minmax(0,1fr); }
+  .adn-amt { font-size:0.88rem; }
+}
 """
 
 

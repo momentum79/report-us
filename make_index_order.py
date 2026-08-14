@@ -157,16 +157,17 @@ def build_content():
     us_etf = _safe(frag_us_etf_order)
     country = _safe(frag_country_top5)
 
+    # 2) 시장 뱃지 — 레일 바깥(전체 폭)에 둔다. 안에 넣으면 도넛이 뱃지 높이만큼 위로 올라가
+    #    아래 '주문용 최종 보유 목록' 제목선과 시작 높이가 어긋난다.
+    badges_html = f'<div class="section">{badges}</div>'
+
     parts = []
-    # 2) 시장 뱃지
-    parts.append(f'<div class="section">{badges}</div>')
     # (도넛 리더십 + AI Core Regime 은 상황판(main_hub)으로 이동)
     # 4) 통합 주문표 | Top5 | 투자·통화비중 도넛
     parts.append(
         '<div class="section"><div class="cols-tight">'
         f'<div>{total_tbl}</div>'
         f'<div>{top5}</div>'
-        f'<div>{donut}</div>'
         '</div></div>'
     )
     # 5) 한국 주문표 | Top3
@@ -186,7 +187,14 @@ def build_content():
     # 8) 국가별 랭킹 Top5
     parts.append(f'<div class="section country-rank-section"><h2>🌍 국가별 랭킹 Top5</h2>{country}</div>')
 
-    return "\n".join(parts)
+    # 도넛 카드는 오른쪽 레일로 뺀다. 첫 행(.cols-tight) 안에 두면 그 행 높이가 카드 높이까지
+    # 늘어나 왼쪽 표들 아래로 빈 공간이 크게 생긴다(flex 행 높이 = 가장 큰 항목).
+    body = "\n".join(parts)
+    if not donut:
+        return badges_html + "\n" + body
+    return (badges_html + '\n<div class="ord-shell">'
+            f'<main class="ord-main">{body}</main>'
+            f'<aside class="ord-side">{donut}</aside></div>')
 
 
 CSS = r"""
@@ -355,6 +363,23 @@ td[data-code] + td:hover { background:#e8f4f8 !important; }
 
 from asset_donut import DONUT_CSS as _DONUT_CSS   # noqa: E402  (CSS 는 위 CSS 정의 뒤에 붙여야 함)
 CSS += _DONUT_CSS
+# 본문 | 도넛 레일 2열. 도넛을 첫 행 안에 두면 그 행이 카드 높이만큼 늘어나 빈 공간이 생긴다.
+CSS += r"""
+/* 본문 | 도넛 레일. 규칙 3가지 — 셋 다 실측으로 정한 값이다.
+   1) 본문은 제 내용 폭만 쓴다(flex:0 0 auto). 1fr/stretch 로 늘리면 도넛이 화면 오른쪽 끝까지
+      밀려 가운데가 텅 빈다.
+   2) 자리가 모자라면 '레일이' 먼저 양보한다(본문 shrink 0 / 레일 shrink 1).
+      반대로 두면 본문 2행(1241px 필요)이 줄바꿈돼 Top3 가 표 아래로 떨어진다.
+   3) 레일 290~430px. 2000px 화면이면 430(도넛 크게), 1580px 화면이면 ~300 으로 자동 축소.
+   1560px 미만은 둘을 나란히 둘 수 없어(1241+290+16) 도넛을 아래로 내린다. */
+.ord-shell { display:flex; gap:16px; align-items:flex-start; }
+.ord-main { flex:0 0 auto; min-width:0; }
+.ord-side { flex:0 1 430px; min-width:290px; }
+@media (max-width:1560px) {
+  .ord-shell { display:block; }
+  .ord-side { max-width:430px; margin-top:14px; }
+}
+"""
 
 
 POPUP_JS = r"""
