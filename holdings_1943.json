@@ -1,16 +1,16 @@
 {
   "account": "1943",
-  "updated": "2026-08-14 14:45:36",
+  "updated": "2026-08-14 16:20:49",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 9404468,
+    "total_asset": 9595302,
     "tot_pur_amt": 6038860,
-    "tot_evlt_amt": 6739775,
-    "tot_evlt_pl": 699035,
-    "tot_prft_rt": 11.58,
-    "stock_ratio": 71.66566997729164,
-    "cash": 2665683,
+    "tot_evlt_amt": 6752015,
+    "tot_evlt_pl": 711275,
+    "tot_prft_rt": 11.78,
+    "stock_ratio": 70.36792588706432,
+    "cash": 2844277,
     "tdy_realized_pl": 0
   },
   "holdings": [
@@ -19,33 +19,33 @@
       "stock_name": "KODEX 200타겟위클리커버드콜",
       "quantity": 257,
       "avg_price": 0,
-      "current_price": 20715,
-      "profit_rate": 13.01,
-      "eval_amount": 5323755,
+      "current_price": 20750,
+      "profit_rate": 13.2,
+      "eval_amount": 5332750,
       "nxt": "",
-      "cntr_str": 127.12
+      "cntr_str": 129.59
     },
     {
       "stock_code": "494300",
       "stock_name": "KODEX 미국나스닥100데일리커버드콜OTM",
       "quantity": 110,
       "avg_price": 0,
-      "current_price": 9565,
-      "profit_rate": 5.9,
-      "eval_amount": 1052150,
+      "current_price": 9575,
+      "profit_rate": 6.01,
+      "eval_amount": 1053250,
       "nxt": "",
-      "cntr_str": 108.53
+      "cntr_str": 112.36
     },
     {
       "stock_code": "0198A0",
       "stock_name": "KIWOOM 코스닥150커버드콜액티브",
       "quantity": 39,
       "avg_price": 0,
-      "current_price": 9330,
-      "profit_rate": 8.27,
-      "eval_amount": 363870,
+      "current_price": 9385,
+      "profit_rate": 8.91,
+      "eval_amount": 366015,
       "nxt": "",
-      "cntr_str": 63.59
+      "cntr_str": 66.96
     }
   ],
   "us_holdings": [
@@ -54,10 +54,10 @@
       "stock_name": "나스닥 사이버보안 퍼스트 트러스트 ETF",
       "quantity": 23,
       "avg_price": 100.65,
-      "current_price": 102.49,
-      "profit_rate": 1.68,
-      "eval_amount_usd": 2357.27,
-      "eval_amount": 3351448,
+      "current_price": 102.47,
+      "profit_rate": 1.66,
+      "eval_amount_usd": 2356.81,
+      "eval_amount": 3350794,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -67,10 +67,23 @@
       "stock_name": "소프트웨어 아이셰어즈 ETF",
       "quantity": 14,
       "avg_price": 104.08,
-      "current_price": 106.2,
-      "profit_rate": 1.89,
-      "eval_amount_usd": 1486.8,
-      "eval_amount": 2113857,
+      "current_price": 106.21,
+      "profit_rate": 1.9,
+      "eval_amount_usd": 1486.94,
+      "eval_amount": 2114056,
+      "buy_date": "",
+      "candle": "",
+      "tag": ""
+    },
+    {
+      "ticker": "EWP",
+      "stock_name": "스페인 아이셰어즈 ETF",
+      "quantity": 20,
+      "avg_price": 62.67,
+      "current_price": 62.67,
+      "profit_rate": -0.13,
+      "eval_amount_usd": 1253.4,
+      "eval_amount": 1782021,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -87,43 +100,17 @@
       "buy_date": "",
       "candle": "",
       "tag": ""
-    },
-    {
-      "ticker": "EWP",
-      "stock_name": "스페인 아이셰어즈 ETF",
-      "quantity": 16,
-      "avg_price": 62.67,
-      "current_price": 62.67,
-      "profit_rate": -0.13,
-      "eval_amount_usd": 1002.72,
-      "eval_amount": 1425617,
-      "buy_date": "",
-      "candle": "",
-      "tag": ""
-    },
-    {
-      "ticker": "EWQ",
-      "stock_name": "MSCI 프랑스 아이셰어즈 ETF",
-      "quantity": 17,
-      "avg_price": 47.86,
-      "current_price": 47.37,
-      "profit_rate": -1.16,
-      "eval_amount_usd": 805.29,
-      "eval_amount": 1144921,
-      "buy_date": "",
-      "candle": "",
-      "tag": ""
     }
   ],
   "us_summary": {
-    "us_stock_krw": 9463848,
-    "usd_cash": 1060.47,
-    "usd_cash_krw": 1500466,
+    "us_stock_krw": 8674876,
+    "usd_cash": 1487.25,
+    "usd_cash_krw": 2104315,
     "rate": 1414.9,
-    "total_asset_total": 13584402,
-    "eval_pl_usd": 61.42,
-    "eval_pl_krw": 86903,
-    "tdy_realized_pl_usd": 0.0,
-    "tdy_realized_pl_krw": 0
+    "total_asset_total": 13581675,
+    "eval_pl_usd": 69.43,
+    "eval_pl_krw": 98236,
+    "tdy_realized_pl_usd": -10.25,
+    "tdy_realized_pl_krw": -14570
   }
 }
