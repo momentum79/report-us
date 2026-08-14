@@ -140,9 +140,16 @@ def _safe(fn, *a):
         return f'<p style="color:#c0392b;">[{fn.__name__} 오류] {_html.escape(str(e))}</p>'
 
 
+def frag_asset_donut():
+    """투자비중 + 통화비중 도넛 카드 (보유자산 게시판과 동일). holdings_*.json 직접 읽음."""
+    from asset_donut import build_card_html
+    return build_card_html()
+
+
 def build_content():
     badges = _safe(frag_badges)
     top5 = _safe(frag_top5)
+    donut = _safe(frag_asset_donut)
     total_tbl = _safe(frag_total_order_table)
     kr_top3 = _safe(frag_kr_top3)
     kr_tbl = _safe(frag_kr_order_table)
@@ -154,11 +161,12 @@ def build_content():
     # 2) 시장 뱃지
     parts.append(f'<div class="section">{badges}</div>')
     # (도넛 리더십 + AI Core Regime 은 상황판(main_hub)으로 이동)
-    # 4) 통합 주문표 | Top5
+    # 4) 통합 주문표 | Top5 | 투자·통화비중 도넛
     parts.append(
         '<div class="section"><div class="cols-tight">'
         f'<div>{total_tbl}</div>'
         f'<div>{top5}</div>'
+        f'<div>{donut}</div>'
         '</div></div>'
     )
     # 5) 한국 주문표 | Top3
@@ -344,6 +352,9 @@ td[data-code] + td:hover { background:#e8f4f8 !important; }
 .ord-pop-imgs img { width:480px; max-width:46vw; height:auto; background:#fff; border:1px solid #eee; border-radius:6px; }
 @media (max-width:767px) { #ordPopup { left:2vw !important; width:96vw; top:50% !important; transform:translateY(-50%); } .ord-pop-imgs img { width:100%; max-width:100%; } }
 """
+
+from asset_donut import DONUT_CSS as _DONUT_CSS   # noqa: E402  (CSS 는 위 CSS 정의 뒤에 붙여야 함)
+CSS += _DONUT_CSS
 
 
 POPUP_JS = r"""
