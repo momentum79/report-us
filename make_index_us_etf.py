@@ -9,7 +9,10 @@ import io
 
 # ── 현재가 조회 ────────────────────────────────────────────
 BUDGET  = 1_000_000   # 백만원 (종목당 투자금액)
-USD_KRW = 1450        # 환율 (수동 변경 가능)
+# 환율은 fx_rate.json(= bat 앞단 `fx_rate.py --save` 산출물) 에서 읽는다. API 무호출.
+#   캐시가 없거나 24시간 넘게 묵으면 1450 폴백 + 경고.
+from fx_rate import get_usdkrw   # noqa: E402
+USD_KRW = get_usdkrw(1450)
 
 # ── 미국 현재가: 키움 usa20100 우선(yfinance 라이브바 NaN 회피) + yfinance 폴백 ──
 #   정규장 중=cur_prc(현재가) / 정규장 아님=base_close_pric(전일종가, 프리·애프터 왜곡 회피)

@@ -21,7 +21,10 @@ from datetime import datetime, date, timedelta
 from html import escape
 
 # ── 현재가 조회 ────────────────────────────────────────────
-USD_KRW = 1450        # 환율 (수동 변경 가능)
+# 환율은 fx_rate.json(= bat 앞단 `fx_rate.py --save` 산출물) 에서 읽는다. API 무호출.
+#   캐시가 없거나 24시간 넘게 묵으면 1450 폴백 + 경고.
+from fx_rate import get_usdkrw   # noqa: E402
+USD_KRW = get_usdkrw(1450)
 
 def _load_asset_8042() -> int:
     """asset_8042.json에서 추정자산(십만원 절하) 읽기. 없으면 API 직접 호출."""
