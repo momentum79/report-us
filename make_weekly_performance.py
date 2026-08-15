@@ -80,7 +80,12 @@ def _latest_usdkrw():
             return rates[-1]
     except Exception:
         pass
-    return USDKRW_FALLBACK
+    # equity_daily.csv 가 아직 없을 때만 fx_rate.json(공용 캐시) → 그것도 없으면 상수.
+    try:
+        from fx_rate import get_usdkrw
+        return get_usdkrw(USDKRW_FALLBACK)
+    except Exception:
+        return USDKRW_FALLBACK
 
 
 USDKRW = _latest_usdkrw()
@@ -108,7 +113,7 @@ BINANCE_FUT_INCOME_CSV = os.path.join(BASE_DIR, "coin_binan", "0_binance_usdt_fu
 # 성과 tag 표시 순서 + 보유단위 ("day"=스윙 일, "min"=당일 분)
 TAG_ORDER = [
     "통합",
-    "주도주", "ROCKET", "ABC-VCP", "수동매매", "통합ETF",
+    "주도주", "ROCKET", "ABC-VCP", "TV알림", "수동매매", "통합ETF",
     "2X단타", "삼닉v3_저2", "삼닉v3_추세", "삼닉v3_MA",
     "5minHL", "5minHL2", "5minHL_동시", "5minHL_미분류",
     "KR_TR_ORD_A", "KR_TR_VOLUME_1", "KR_TR_VOLUME_2", "KR_TR_VCP1",
@@ -118,7 +123,8 @@ TAG_ORDER = [
     "미국수동", "저점사다리", "기타(8042)",
 ]
 TAG_UNIT = {
-    "주도주": "day", "ROCKET": "day", "ABC-VCP": "day", "수동매매": "day", "통합ETF": "day",
+    "주도주": "day", "ROCKET": "day", "ABC-VCP": "day", "TV알림": "day",
+    "수동매매": "day", "통합ETF": "day",
     "미국VCP": "day", "미국수동": "day",
     "KR_TR_ORD_A": "day", "KR_TR_VOLUME_1": "day", "KR_TR_VOLUME_2": "day",
     "KR_TR_VCP1": "day", "KR_TR_VCP2": "day", "KR_TR_JEO2": "day", "KR_TR_MA": "day",
@@ -129,9 +135,45 @@ TAG_UNIT = {
     "기타(8042)": "min", "저점사다리": "min", "통합": "mix",
 }
 
+# 사람이 직접 낸 주문으로 분류되는 태그. 이 태그의 '매도'는 어느 봇 물량을 판 건지
+# 알 수 없으므로 자기 서랍이 비면 같은 종목의 봇 서랍에서 FIFO 로 흡수한다
+# (build_round_trips 참고). 매수는 그대로 이 태그의 포지션이 된다.
+MANUAL_TAGS = {"수동매매", "미국수동"}
+
 # 오래된 이름을 쓰는 보조 출력부와의 호환용 alias.
 BOT_ORDER = TAG_ORDER
 BOT_UNIT = TAG_UNIT
+
+
+# ───────── 컷오프 리셋 (make_position_baseline.py 산출물) ─────────
+# fill 스트림 replay 만으로는 스트림 시작 이전 보유분·계좌이관을 따라갈 수 없어
+# 트래커 잔량이 실제 계좌와 크게 어긋난다. 특정 날짜에 실제 잔고로 한 번 맞추고
+# 그 이후부터 깨끗하게 집계한다. 컷오프 이전 주차는 기존 로직 그대로 보존한다.
+BASELINE_GLOB = os.path.join(BASE_DIR, "0order", "position_baseline_*.json")
+
+
+def load_baseline():
+    """가장 최근 position_baseline_*.json. 없으면 None(=리셋 없이 기존 동작)."""
+    paths = sorted(glob.glob(BASELINE_GLOB))
+    if not paths:
+        return None
+    try:
+        with open(paths[-1], encoding="utf-8") as f:
+            data = json.load(f)
+        data["_path"] = paths[-1]
+        return data
+    except Exception as e:
+        print(f"  ⚠ baseline 읽기 실패({os.path.basename(paths[-1])}): {e}")
+        return None
+
+
+BASELINE = load_baseline()
+CUTOFF_DATE = (BASELINE or {}).get("cutoff_date") or None
+
+
+def _after_cutoff(fill):
+    """이 체결이 컷오프 당일 이후인가. 컷오프 미설정이면 항상 False(기존 동작 유지)."""
+    return bool(CUTOFF_DATE) and str(fill.get("date", "")) >= CUTOFF_DATE
 
 
 # ───────── fill 이벤트 수집 (make_danta_journal.py 와 동일 스키마) ─────────
@@ -162,9 +204,14 @@ def load_fills():
                 continue
             tm  = str(ev.get("tm", "") or "").strip()
             ono = str(ev.get("ord_no", "") or "").strip()
-            # 교차파일 중복제거: (acct,ord_no,side,qty,price,tm) 최초 1건
+            # 교차파일 중복제거: (acct,ord_no,side,qty,price,tm,slot) 최초 1건.
+            # slot 을 키에 넣는 이유: 8042CHU3 는 한 주문(ord_no)을 slot 별로 나눠
+            # 기록한다(예: 30주 매수 = slot"trend" 15주 + slot"ma" 15주, ord_no 동일).
+            # slot 이 빠지면 두 줄이 완전히 같아 보여 뒤엣것이 중복으로 버려지고,
+            # 그 slot 의 매도는 짝을 못 찾아 통째로 폐기된다(2026-08-03 122630 등 3건).
             if ono:
-                dk = (str(ev.get("acct", "")), ono, side, qty, price, tm)
+                dk = (str(ev.get("acct", "")), ono, side, qty, price, tm,
+                      str(ev.get("slot") or ""))
                 if dk in seen:
                     continue
                 seen.add(dk)
@@ -198,11 +245,16 @@ def load_fills():
     # *DIP ↔ 원계좌 교차기록 중복제거: 같은 날 같은 ord_no 가 1887DIP/8042DIP 로도 잡혀있으면
     # sync_1887_fills.py/sync_8042_fills.py 가 태깅 없이 재생성한 acct="1887"/"8042" 사본을
     # 버린다(*DIP 쪽이 정확한 전략태그를 갖는 원본이므로 그쪽만 남긴다).
-    for dip_acct, base_acct in (("1887DIP", "1887"), ("8042DIP", "8042")):
-        dip_ordnos = {(f["date"], f["ord_no"]) for f in fills if f["acct"] == dip_acct and f["ord_no"]}
-        if dip_ordnos:
+    # 8042CHU3(삼닉v3) 도 같은 구조다. 봇은 slot 을 실어 acct="8042CHU3" 로 기록하는데,
+    # 장 마감 후 동기화가 같은 ord_no 를 slot 없이 acct="8042CHU"/"8042" 로 재기록한다
+    # (origin="manual", logged_at 22:53 대). slot 있는 8042CHU3 쪽이 원본이므로 그쪽만 남긴다.
+    for src_acct, dup_acct in (("1887DIP", "1887"), ("8042DIP", "8042"),
+                               ("8042CHU3", "8042CHU"), ("8042CHU3", "8042"),
+                               ("8042DIP", "8042CHU")):
+        src_ordnos = {(f["date"], f["ord_no"]) for f in fills if f["acct"] == src_acct and f["ord_no"]}
+        if src_ordnos:
             fills = [f for f in fills
-                     if not (f["acct"] == base_acct and f["ord_no"] and (f["date"], f["ord_no"]) in dip_ordnos)]
+                     if not (f["acct"] == dup_acct and f["ord_no"] and (f["date"], f["ord_no"]) in src_ordnos)]
     fills.sort(key=lambda x: x["dt"])
     return fills
 
@@ -223,6 +275,8 @@ def resolve_performance_tag(fill):
             return "ABC-VCP"
         if s == "leader":
             return "주도주"
+        if s == "tvalert":
+            return "TV알림"                     # 자체청산 봇. 사람 주문 아님
         return "수동매매"                       # manual/미태깅 → 사람이 직접 낸 주문
     if acct == "1887US":
         if s == "usvcp":
@@ -243,14 +297,25 @@ def resolve_performance_tag(fill):
             return "삼닉v3_MA"
         return "삼닉v3_미분류"
     if acct == "2773":
+        if signal == "reconcile":
+            return "수동매매"            # reconcile_2773.py 가 남긴 '사람이 MTS에서 청산' 보정분
         if signal == "jeo":
             return "5minHL"
         if signal == "jeo2":
             return "5minHL2"
         if signal == "jeo_both":
             return "5minHL_동시"        # 저·저2 동시 발생. 임의 귀속하지 않고 분리 집계
-        return "5minHL_미분류"           # 2026-08-09 이전 체결(봇이 signal 미기록)
-    # 8042 (lowhigh 포함) → 기타. lowhigh 는 build_round_trips 에서 이미 제외됨.
+        if s:
+            return "5minHL_미분류"       # 봇인데 signal 만 빠진 경우
+        # 컷오프 이후: 봇은 반드시 strategy 를 실어 기록한다(0_low_high_5min_danta.py).
+        # 따라서 strategy 가 비어있으면 사람이 직접 낸 주문이다.
+        # 컷오프 이전 체결은 봇도 strategy 를 안 실었으므로 기존 분류를 유지한다.
+        return "수동매매" if _after_cutoff(fill) else "5minHL_미분류"
+    if acct == "8042":
+        # 본계좌. lowhigh(실험용)는 build_round_trips 에서 별도 제외된다.
+        if s and s != "lowhigh":
+            return "기타(8042)"
+        return "수동매매" if _after_cutoff(fill) else "기타(8042)"
     return "기타(8042)"
 
 
@@ -260,12 +325,29 @@ def resolve_owner(acct, strategy):
 
 
 # ───────── 포지션 lifecycle → 완결 라운드트립 ─────────
-def build_round_trips(fills):
+def build_round_trips(fills, baseline=None, verbose=True):
     """계좌(silo)+종목+성과tag별 평균단가 lifecycle 재구성.
     flat→매수…→flat 한 사이클 = 1 라운드트립(완결거래).
-    매수가 성과tag를 확정하고, 매도는 같은 tag의 열린 포지션에 흡수한다."""
+    매수가 성과tag를 확정하고, 매도는 그 포지션에 흡수한다.
+
+    컷오프(baseline) 가 있으면 그 날짜 첫 체결 직전에 열린 포지션을 전부 버리고
+    실제 계좌잔고로 다시 시딩한다. 컷오프 이전 주차는 기존 동작 그대로 남는다.
+
+    수동매도 흡수(컷오프 이후에만):
+      사람이 MTS 에서 판 매도는 어느 봇 물량인지 알 수 없다. 자기 서랍(수동매매)이
+      부족하면 같은 (계좌,종목)의 다른 봇 서랍을 '먼저 산 것부터' 흡수한다.
+      → 봇이 사고 사람이 판 거래도 매수 소유봇 성과로 귀속된다.
+      귀속 순서(FIFO)는 규칙이지 사실이 아니다. 증권사는 어느 물량을 팔았는지
+      기록하지 않으므로, LIFO 로 바꾸면 봇별 성과가 달라진다.
+    """
+    if baseline is None:
+        baseline = BASELINE
     open_pos = {}      # (acct, code, performance_tag) → dict
     trips = []
+    cutoff = (baseline or {}).get("cutoff_date")
+    seeded = False
+    stats = {"seeded": 0, "absorbed": 0, "absorbed_qty": 0,
+             "dropped": 0, "dropped_qty": 0}
 
     def new_pos(owner, name):
         return {"owner": owner, "name": name,
@@ -274,7 +356,68 @@ def build_round_trips(fills):
                 "first_buy_dt": None, "last_sell_dt": None,
                 "held": 0}  # 현재 보유수량
 
+    def close_trip(code, p, fallback_dt):
+        """held<=0 인 포지션 → 라운드트립 확정."""
+        if p["buy_qty"] <= 0 or p["sell_qty"] <= 0:
+            return
+        avg_entry = p["buy_cost"] / p["buy_qty"]
+        avg_exit  = p["sell_proceeds"] / p["sell_qty"]
+        if avg_entry <= 0:
+            return
+        entry_dt = p["first_buy_dt"]
+        exit_dt  = p["last_sell_dt"] or fallback_dt
+        trips.append(trade_costs.apply_to_trip({
+            "bot": p["owner"], "source": "intraday", "code": code, "name": p["name"],
+            "entry_dt": entry_dt, "exit_dt": exit_dt,
+            "avg_entry": avg_entry, "avg_exit": avg_exit,
+            "qty": p["sell_qty"],
+            "pnl_pct": (avg_exit / avg_entry - 1.0) * 100.0,
+            "pnl_amt": p["sell_proceeds"] - avg_entry * p["sell_qty"],
+            "hold_min": max(0.0, (exit_dt - entry_dt).total_seconds() / 60.0),
+            "hold_day": max(0, (exit_dt.date() - entry_dt.date()).days),
+        }))
+
+    def seed_from_baseline():
+        """컷오프 시점: 그때까지의 열린 포지션(유령 포함) 전량 폐기 후 실제 잔고로 재시딩."""
+        open_pos.clear()
+        try:
+            entry_dt = datetime.strptime(cutoff, "%Y-%m-%d").replace(hour=9)
+        except Exception:
+            entry_dt = datetime.now()
+        for b in (baseline.get("positions") or []):
+            qty = int(b.get("qty") or 0)
+            px  = float(b.get("entry_price") or 0)
+            if qty <= 0 or px <= 0:
+                continue
+            key = (b["acct"], b["code"], b["tag"])
+            p = open_pos.get(key)
+            if p is None:
+                p = new_pos(b["tag"], b.get("name", ""))
+                p["first_buy_dt"] = entry_dt
+                open_pos[key] = p
+            p["buy_qty"]  += qty
+            p["buy_cost"] += qty * px
+            p["held"]     += qty
+            stats["seeded"] += 1
+
+    def consume(key, p, want, price, dt):
+        """포지션 p 에서 want 만큼 매도 흡수. 완결되면 trip 확정하고 서랍을 비운다."""
+        take = min(want, p["held"])
+        if take <= 0:
+            return 0
+        p["sell_qty"]      += take
+        p["sell_proceeds"] += take * price
+        p["held"]          -= take
+        p["last_sell_dt"]   = dt
+        if p["held"] <= 0:
+            close_trip(key[1], p, dt)
+            open_pos.pop(key, None)
+        return take
+
     for f in fills:
+        if cutoff and not seeded and f["date"] >= cutoff:
+            seed_from_baseline()
+            seeded = True
         perf_tag = resolve_performance_tag(f)
         if perf_tag is None:
             continue
@@ -297,37 +440,147 @@ def build_round_trips(fills):
             p["buy_cost"] += f["qty"] * f["price"]
             p["held"]     += f["qty"]
         else:  # sell
+            need = f["qty"]
             p = open_pos.get(key)
-            if p is None or p["held"] <= 0:
-                # 대응 매수 없는 매도(데이터 이전 보유분 등) → 무시
-                continue
-            sell_qty = min(f["qty"], p["held"])
-            p["sell_qty"]      += sell_qty
-            p["sell_proceeds"] += sell_qty * f["price"]
-            p["held"]          -= sell_qty
-            p["last_sell_dt"]   = f["dt"]
-            if p["held"] <= 0:
-                # 완결 — 라운드트립 확정
-                if p["buy_qty"] > 0 and p["sell_qty"] > 0:
-                    avg_entry = p["buy_cost"] / p["buy_qty"]
-                    avg_exit  = p["sell_proceeds"] / p["sell_qty"]
-                    if avg_entry > 0:
-                        pnl_pct = (avg_exit / avg_entry - 1.0) * 100.0
-                        entry_dt = p["first_buy_dt"]
-                        exit_dt  = p["last_sell_dt"] or f["dt"]
-                        hold_min = max(0.0, (exit_dt - entry_dt).total_seconds() / 60.0)
-                        hold_day = max(0, (exit_dt.date() - entry_dt.date()).days)
-                        trips.append(trade_costs.apply_to_trip({
-                            "bot": p["owner"], "source": "intraday", "code": key[1], "name": p["name"],
-                            "entry_dt": entry_dt, "exit_dt": exit_dt,
-                            "avg_entry": avg_entry, "avg_exit": avg_exit,
-                            "qty": p["sell_qty"],
-                            "pnl_pct": pnl_pct,
-                            "pnl_amt": p["sell_proceeds"] - avg_entry * p["sell_qty"],
-                            "hold_min": hold_min, "hold_day": hold_day,
-                        }))
-                open_pos.pop(key, None)
+            if p is not None and p["held"] > 0:
+                need -= consume(key, p, need, f["price"], f["dt"])
+            # 자기 태그 서랍으로 다 못 채운 매도는 같은 (계좌,종목)의 다른 서랍에서 흡수한다.
+            # 매도 태그를 신뢰할 수 없는 경로가 여럿이기 때문:
+            #   · 사람이 MTS 에서 판 매도 → 어느 봇 물량인지 정보 자체가 없음
+            #   · 2773 봇은 매수에만 signal 을 싣고 매도엔 안 실음(place_order 호출부)
+            #   · rocket 이 산 걸 출근 자동매도(leader 태그)가 파는 등 봇 간 교차청산
+            # 정확한 태그 일치를 먼저 쓰므로, 삼닉v3 처럼 한 종목을 MA/추세 두 슬롯으로
+            # 동시 보유하며 각자 자기 태그로 파는 경우의 분리 집계는 그대로 유지된다.
+            if need > 0 and _after_cutoff(f):
+                cands = sorted(
+                    [(v["first_buy_dt"] or datetime.max, k) for k, v in open_pos.items()
+                     if v["held"] > 0 and k[0] == f["acct"] and k[1] == f["code"] and k != key],
+                    key=lambda x: x[0])
+                for _, k2 in cands:
+                    if need <= 0:
+                        break
+                    p2 = open_pos.get(k2)
+                    if p2 is None or p2["held"] <= 0:
+                        continue
+                    got = consume(k2, p2, need, f["price"], f["dt"])
+                    if got > 0:
+                        need -= got
+                        stats["absorbed"] += 1
+                        stats["absorbed_qty"] += got
+            if need > 0:
+                # 대응 매수를 끝내 못 찾은 매도. 예전엔 조용히 사라졌다 → 카운트해서 드러낸다.
+                stats["dropped"] += 1
+                stats["dropped_qty"] += need
+
+    # 컷오프 날짜는 지났는데 그 이후 체결이 하나도 없으면(봇 휴장·무거래) 위 루프에서
+    # 시딩이 안 걸린다. 그대로 두면 컷오프 이전 유령이 계속 남으므로 여기서 시딩한다.
+    if cutoff and not seeded and date.today().isoformat() >= cutoff:
+        seed_from_baseline()
+        seeded = True
+
+    # 미청산 포지션을 남겨 둔다(check_position_drift 가 실제 잔고와 대조).
+    global LAST_OPEN_POS
+    LAST_OPEN_POS = {k: v for k, v in open_pos.items() if v["held"] > 0}
+
+    if verbose:
+        if seeded:
+            where = os.path.basename((baseline or {}).get("_path", ""))
+            print(f"  컷오프 {cutoff} — 베이스라인 {stats['seeded']}종목 시딩 ({where})")
+        elif cutoff:
+            print(f"  컷오프 {cutoff} 예정 — 아직 도래 전이라 기존 집계 유지")
+        if stats["absorbed"]:
+            print(f"  수동매도 흡수: {stats['absorbed']}건 {stats['absorbed_qty']}주 (봇 서랍에서 FIFO)")
+        if stats["dropped"]:
+            print(f"  ⚠ 짝 못 찾은 매도: {stats['dropped']}건 {stats['dropped_qty']}주 "
+                  f"(집계 제외 — 컷오프 이전 보유분이면 정상)")
     return trips
+
+
+# 마지막 build_round_trips 의 미청산 포지션. check_position_drift 가 읽는다.
+LAST_OPEN_POS = {}
+
+# 게시판 계좌라벨 → 실제 증권계좌. 드리프트 대조용.
+SILO_TO_ACCOUNT = {
+    "1887": "1887", "1887US": "1887", "1887DIP": "1887",
+    "8042": "8042", "8042ETF": "8042", "8042CHU": "8042",
+    "8042CHU3": "8042", "8042DIP": "8042",
+    "2773": "2773",
+}
+
+
+def check_position_drift(verbose=True):
+    """트래커 미청산 + TR장부 미청산  vs  실제 계좌잔고 대조.
+
+    둘이 어긋나면 집계가 조용히 틀어진다. 실제로 컷오프 전까지
+    8042 228790 이 트래커 1953주 vs 실제 225주까지 벌어져 있었다.
+    주 원인은 fill 로 안 잡히는 경로다 — 계좌 간 대체입출고(7/31 0193T0/0193W0
+    1887→8042 이관), 사람이 MTS 에서 낸 청산, 스트림 시작 이전 보유분.
+    소급 복구는 불가능하므로 '드러내는' 것이 목적이다. 크게 벌어지면
+    make_position_baseline.py 로 컷오프를 다시 잡는다.
+
+    반환: [(계좌, 종목, 트래커수량, 실제수량, 차이), ...]  (차이 있는 것만)
+    """
+    tracked = defaultdict(int)
+    for (silo, code, _tag), p in LAST_OPEN_POS.items():
+        acct = SILO_TO_ACCOUNT.get(silo, silo)
+        tracked[(acct, str(code).upper())] += int(p["held"])
+
+    # TR 자체장부 미청산분도 실제 보유이므로 합산한다.
+    for filename, acct in (("tr_ledger_2773_KR.json", "2773"),
+                           ("tr_ledger_1887_US.json", "1887")):
+        path = os.path.join(TR_LEDGER_DIR, filename)
+        if not os.path.exists(path):
+            continue
+        try:
+            with open(path, encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            continue
+        for pos in (data.get("positions") or {}).values():
+            rem = int(pos.get("remaining_strategy_qty", 0) or 0)
+            if rem > 0:
+                tracked[(acct, str(pos.get("code", "")).upper())] += rem
+
+    actual = defaultdict(int)
+    have_balance = False
+    for fname, acct in (("holdings_1887.json", "1887"),
+                        ("holdings_8042.json", "8042"),
+                        ("holdings_2773.json", "2773")):
+        path = os.path.join(SCRIPT_DIR, fname)
+        if not os.path.exists(path):
+            continue
+        try:
+            with open(path, encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception:
+            continue
+        have_balance = True
+        for h in (data.get("holdings") or []):
+            code = str(h.get("stock_code") or "").upper()
+            if code:
+                actual[(acct, code)] += int(h.get("quantity") or 0)
+        for h in (data.get("us_holdings") or []):
+            code = str(h.get("ticker") or "").upper()
+            if code and code != "NONE":
+                actual[(acct, code)] += int(h.get("quantity") or 0)
+
+    if not have_balance:
+        return []
+
+    diffs = []
+    for k in sorted(set(tracked) | set(actual)):
+        t, a = tracked.get(k, 0), actual.get(k, 0)
+        if t != a:
+            diffs.append((k[0], k[1], t, a, t - a))
+
+    if verbose and diffs:
+        print(f"\n  ⚠ 잔고 드리프트 {len(diffs)}건 (트래커+TR장부 vs 실제계좌)")
+        for acct, code, t, a, d in diffs[:20]:
+            print(f"     {acct:5s} {code:8s} 트래커 {t:>6}주  실제 {a:>6}주  차이 {d:>+6}")
+        if len(diffs) > 20:
+            print(f"     … 외 {len(diffs)-20}건")
+        print("     크게 벌어졌으면: python 0order/make_position_baseline.py --apply 로 컷오프 재설정")
+    return diffs
 
 
 def _parse_dt(value, fallback_day=None):
@@ -867,6 +1120,7 @@ def main():
     print(f"  intraday 완결 라운드트립: {len(intraday_trips)}건")
     print(f"  TR ledger 완결 라운드트립: {len(tr_trips)}건")
     print(f"  전체 완결 라운드트립: {len(trips)}건")
+    check_position_drift()
 
     # 전체 누적(분석용): full json + csv + xlsx
     full_report = build_report(trips)
