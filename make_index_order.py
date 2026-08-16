@@ -42,6 +42,21 @@ def cut(text, start, end, include_end=True, start_from=0):
     return text[i:(j + len(end)) if include_end else j]
 
 
+def cut_div_block(text, start, start_from=0):
+    """start(여는 <div ...>) 부터 그 div 가 닫히는 </div> 까지 depth 를 세어 정확히 추출.
+    '</div>\\n' 같은 문자열 매칭으로 자르면 조각의 div 개폐가 어긋나, 남는 </div> 하나가
+    바깥 컨테이너(<main class="ord-main">/.ord-shell)를 조기에 닫아버린다."""
+    i = text.find(start, start_from)
+    if i < 0:
+        return ""
+    depth = 0
+    for m in re.finditer(r'<div\b[^>]*>|</div\s*>', text[i:]):
+        depth += -1 if m.group(0).startswith('</') else 1
+        if depth == 0:
+            return text[i:i + m.end()]
+    return text[i:]
+
+
 def cut_before(text, start, before):
     """start ~ (before 최초 등장 직전) 조각 추출."""
     i = text.find(start)
@@ -61,7 +76,7 @@ def frag_badges():
 
 def frag_top5():
     h = _read("total_etf_combined.html")
-    return cut(h, '<div class="t5-section">', '</div>\n')
+    return cut_div_block(h, '<div class="t5-section">')
 
 
 def frag_total_order_table():
@@ -135,9 +150,28 @@ def frag_ai_core():
 
 def _safe(fn, *a):
     try:
-        return fn(*a) or ""
+        return _balance_div(fn(*a) or "", fn.__name__)
     except Exception as e:
         return f'<p style="color:#c0392b;">[{fn.__name__} 오류] {_html.escape(str(e))}</p>'
+
+
+def _balance_div(frag, who=""):
+    """조각의 <div> 개폐 균형 보정. 남는 </div> 하나가 바깥 레일(.ord-shell)을 조기에
+    닫아 도넛 카드가 페이지 맨 아래로 튕겨나가는 사고를 막는다."""
+    opens = len(re.findall(r'<div\b', frag))
+    closes = len(re.findall(r'</div\s*>', frag))
+    if opens == closes:
+        return frag
+    print(f"[warn] {who}: div 개폐 불균형 (open={opens}, close={closes}) → 보정")
+    if opens > closes:
+        return frag + '</div>' * (opens - closes)
+    # 남는 </div> 는 뒤에서부터 제거
+    for _ in range(closes - opens):
+        k = frag.rstrip().rfind('</div>')
+        if k < 0:
+            break
+        frag = frag[:k] + frag[k + 6:]
+    return frag
 
 
 def frag_asset_donut():
