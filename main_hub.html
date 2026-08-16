@@ -347,14 +347,26 @@ body {
   text-align: right;
   border-bottom: 1px solid #f0f2f4;
 }
-.auto-kpi-table th:first-child,
-.auto-kpi-table td:first-child { text-align: left; }
-.auto-kpi-table th:nth-child(2),
-.auto-kpi-table td:nth-child(2) {
+/* 열 위치가 아니라 클래스로 잡는다 - 표 앞에 KR·US 열이 붙어도 어긋나지 않게. */
+.auto-kpi-table th.kpi-date,
+.auto-kpi-table td.kpi-date { text-align: left; }
+.auto-kpi-table th.kpi-run,
+.auto-kpi-table td.kpi-run {
   text-align: center;
   padding-left: 2px;
   padding-right: 2px;
 }
+.auto-kpi-table th.kpi-mkt,
+.auto-kpi-table td.kpi-mkt {
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 800;
+}
+.auto-kpi-table th.kpi-mkt { font-size: 13px; color: #7f8c8d; font-weight: 700; }
+.auto-kpi-table td.mkt-y  { color: #1f8f4d; }
+.auto-kpi-table td.mkt-n  { color: #c0392b; }
+.auto-kpi-table td.mkt-na { color: #b9c2c9; font-weight: 600; }
 .auto-kpi-table th {
   color: #2c3e50;
   font-weight: 800;
@@ -370,11 +382,13 @@ body {
 }
 .auto-kpi-table th.kpi-tk { font-size: 12.5px; color: #7f8c8d; }
 .auto-kpi-table td.kpi-actual { color: #2c3e50; font-weight: 700; }
-.auto-kpi-table th:nth-child(5),
-.auto-kpi-table td:nth-child(5) { border-right: 1px solid #e6eaee; }
+.auto-kpi-table th.kpi-actual,
+.auto-kpi-table td.kpi-actual { border-right: 1px solid #e6eaee; }
+.auto-kpi-table th.kpi-mkt:nth-child(2),
+.auto-kpi-table td.kpi-mkt:nth-child(2) { border-right: 1px solid #e6eaee; }
 .auto-kpi-table tr:last-child td { border-bottom: none; }
-.auto-kpi-table tr.kpi-yes td:nth-child(2) { color: #1f8f4d; font-weight: 800; }
-.auto-kpi-table tr.kpi-no td:nth-child(2) { color: #c0392b; font-weight: 800; }
+.auto-kpi-table tr.kpi-yes td.kpi-run { color: #1f8f4d; font-weight: 800; }
+.auto-kpi-table tr.kpi-no td.kpi-run { color: #c0392b; font-weight: 800; }
 .auto-kpi-title {
   font-size: 13px;
   font-weight: 700;
@@ -519,6 +533,8 @@ body {
   .auto-kpi-card { width: 100%; overflow-x: auto; }
   .auto-kpi-table th.kpi-tk,
   .auto-kpi-table td.kpi-tk { padding: 4px 4px; font-size: 11px; }
+  .auto-kpi-table th.kpi-mkt,
+  .auto-kpi-table td.kpi-mkt { padding: 4px 3px; font-size: 13px; }
 }
 
 /* ── AI Core Regime 박스 (미국요약/AI 관찰판에서 이동) ── */
@@ -571,7 +587,7 @@ body {
   <!-- 상단 2열: 왼쪽 Market Trend + 오른쪽 TODAY'S REGIME 카드 -->
   <div class="top-summary-row">
     <div class="left-panel">
-      <div class="meta" style="margin-bottom: 5px;">Updated: 2026-08-15 11:19:59</div>
+      <div class="meta" style="margin-bottom: 5px;">Updated: 2026-08-16 10:27:28</div>
       <div class="section-title">Market Trend</div>
       <table class="trend-table">
         <thead>
@@ -593,7 +609,7 @@ body {
       <div class="summary-row">
         <span class="badge">avg sco <b>6.9</b></span>
         <span class="badge">유니버스 <b>130개</b></span>
-        <span class="badge">투자비중 <b>83.5%</b></span>
+        <span class="badge">투자비중 <b>77.6%</b></span>
       </div>
     </div>
 
@@ -601,7 +617,7 @@ body {
       
     <div class="regime-card-title">
       <span class="regime-card-title-main">TODAY'S REGIME</span>
-      <span class="regime-prev-date">(전일대비 2026-08-14)</span>
+      <span class="regime-prev-date">(전일대비 2026-08-15)</span>
     </div>
     <div class="regime-card-grid">
       <div class="regime-metric-card regime-score-card">
@@ -610,19 +626,19 @@ body {
           <div class="regime-score-value">35</div>
           <div class="regime-score-sub">/ 100</div>
         </div>
-        <div class="regime-delta diff-bad">▼ -0.1 <span class="regime-prev-label">(전일 35.1)</span></div>
+        <div class="regime-delta diff-zero">0 <span class="regime-prev-label">(전일 35)</span></div>
       </div>
       <div class="regime-metric-card regime-state-card">
         <div class="regime-metric-label">시장판정</div>
         <div class="regime-state-value" style="color:#d35400;">약세 경계</div>
       </div>
-      <div class="regime-metric-card">  <div class="regime-metric-label">Strong Zone</div>  <div class="regime-metric-value">11개 / 130개</div>  <div class="regime-delta diff-good">▲ +1 <span class="regime-prev-label">(전일 10개)</span></div></div>
-      <div class="regime-metric-card">  <div class="regime-metric-label">Risk Zone</div>  <div class="regime-metric-value">54개 / 130개</div>  <div class="regime-delta diff-good">▼ -1 <span class="regime-prev-label">(전일 55개)</span></div></div>
-      <div class="regime-metric-card">  <div class="regime-metric-label">Worst Zone</div>  <div class="regime-metric-value">20개 / 130개</div>  <div class="regime-delta diff-bad">▲ +4 <span class="regime-prev-label">(전일 16개)</span></div></div>
+      <div class="regime-metric-card">  <div class="regime-metric-label">Strong Zone</div>  <div class="regime-metric-value">11개 / 130개</div>  <div class="regime-delta diff-zero">0 <span class="regime-prev-label">(전일 11개)</span></div></div>
+      <div class="regime-metric-card">  <div class="regime-metric-label">Risk Zone</div>  <div class="regime-metric-value">54개 / 130개</div>  <div class="regime-delta diff-zero">0 <span class="regime-prev-label">(전일 54개)</span></div></div>
+      <div class="regime-metric-card">  <div class="regime-metric-label">Worst Zone</div>  <div class="regime-metric-value">20개 / 130개</div>  <div class="regime-delta diff-zero">0 <span class="regime-prev-label">(전일 20개)</span></div></div>
     </div>
     <div class="regime-comment">
       <span class="regime-comment-tag">💬 COMMENT</span>
-      <span class="regime-comment-text">리더십 구역이 확대되고 약세 구역이 감소하고 있습니다. 시장 내부 개선 흐름이 나타나고 있습니다.</span>
+      <span class="regime-comment-text">시장 방향성이 뚜렷하지 않습니다. 강한 ETF와 약한 ETF가 혼재되어 있어 신규 매수는 선별적으로 접근하세요.</span>
     </div>
     
     </div>
@@ -677,7 +693,7 @@ body {
 </div>
       </div>
     </div>
-    <div class="auto-kpi-card auto-kpi-month"><div class="auto-kpi-title">최근 20거래일&nbsp;&nbsp;8/20 · 40%</div><table class="auto-kpi-table"><thead><tr><th>날짜</th><th>실행</th><th>비중</th><th>금액</th><th class="kpi-actual">실투</th><th class="kpi-tk">T1</th><th class="kpi-tk">T2</th><th class="kpi-tk">T3</th><th class="kpi-tk">T4</th><th class="kpi-tk">T5</th><th class="kpi-tk">T6</th></tr></thead><tbody><tr class="kpi-yes"><td>8/14</td><td>Y</td><td>84.1%</td><td>1,877만</td><td class="kpi-actual">445만</td><td class="kpi-tk">228790</td><td class="kpi-tk">CIBR</td><td class="kpi-tk">IGV</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWS</td><td class="kpi-tk"></td></tr><tr class="kpi-no"><td>8/13</td><td>N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk">CIBR</td><td class="kpi-tk">IGV</td><td class="kpi-tk">228790</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWS</td><td class="kpi-tk"></td></tr><tr class="kpi-no"><td>8/12</td><td>N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk">228790</td><td class="kpi-tk">CIBR</td><td class="kpi-tk">IGV</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWQ</td></tr><tr class="kpi-no"><td>8/11</td><td>N</td><td>82.7%</td><td>3,951만</td><td class="kpi-actual">1,671만</td><td class="kpi-tk">IGV</td><td class="kpi-tk">EWS</td><td class="kpi-tk">CIBR</td><td class="kpi-tk">EWP</td><td class="kpi-tk">228790</td><td class="kpi-tk">EWQ</td></tr><tr class="kpi-yes"><td>8/10</td><td>Y</td><td>85.0%</td><td>4,071만</td><td class="kpi-actual">2,243만</td><td class="kpi-tk">IGV</td><td class="kpi-tk">EWQ</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWA</td><td class="kpi-tk">XLF</td><td class="kpi-tk">GREK</td></tr><tr class="kpi-no"><td>8/7</td><td>N</td><td>85.0%</td><td>4,193만</td><td class="kpi-actual">2,776만</td><td class="kpi-tk">IGV</td><td class="kpi-tk">EWQ</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWA</td><td class="kpi-tk">XLF</td><td class="kpi-tk">GREK</td></tr><tr class="kpi-no"><td>8/6</td><td>N</td><td>48.8%</td><td>2,322만</td><td class="kpi-actual">730만</td><td class="kpi-tk">GREK</td><td class="kpi-tk">XLF</td><td class="kpi-tk">EWQ</td><td class="kpi-tk">EWA</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWU</td></tr><tr class="kpi-yes"><td>8/5</td><td>Y</td><td>27.3%</td><td>1,473만</td><td class="kpi-actual">111만</td><td class="kpi-tk">EWS</td><td class="kpi-tk">GREK</td><td class="kpi-tk">EWA</td><td class="kpi-tk">XLF</td><td class="kpi-tk">EWU</td><td class="kpi-tk">SCHD</td></tr><tr class="kpi-no"><td>8/3</td><td>N</td><td>6.3%</td><td>286만</td><td class="kpi-actual">163만</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWU</td><td class="kpi-tk">GREK</td><td class="kpi-tk">XLF</td><td class="kpi-tk">SCHD</td><td class="kpi-tk"></td></tr><tr class="kpi-no"><td>7/31</td><td>N</td><td>8.3%</td><td>385만</td><td class="kpi-actual">163만</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWU</td><td class="kpi-tk">GREK</td><td class="kpi-tk">XLF</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">VYM</td></tr><tr class="kpi-no"><td>7/30</td><td>N</td><td>8.3%</td><td>290만</td><td class="kpi-actual">318만</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWU</td><td class="kpi-tk">XLF</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">VTV</td><td class="kpi-tk">VYM</td></tr><tr class="kpi-no"><td>7/29</td><td>N</td><td>12.7%</td><td>439만</td><td class="kpi-actual">323만</td><td class="kpi-tk">VYM</td><td class="kpi-tk">VTV</td><td class="kpi-tk">EWS</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">VNQ</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td>7/27</td><td>Y</td><td>32.4%</td><td>1,447만</td><td class="kpi-actual">963만</td><td class="kpi-tk">VYM</td><td class="kpi-tk">EWS</td><td class="kpi-tk">VTV</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">XLE</td><td class="kpi-tk">VNQ</td></tr><tr class="kpi-no"><td>7/24</td><td>N</td><td>28.6%</td><td>1,315만</td><td class="kpi-actual">567만</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">XLE</td><td class="kpi-tk">VYM</td><td class="kpi-tk">VTV</td><td class="kpi-tk">PDBC</td><td class="kpi-tk">VNQ</td></tr><tr class="kpi-no"><td>7/23</td><td>N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk">XLE</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">DBA</td><td class="kpi-tk">ENZL</td><td class="kpi-tk">THD</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td>7/22</td><td>Y</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk">THD</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">ENZL</td><td class="kpi-tk">XLE</td><td class="kpi-tk">VNQ</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td>7/21</td><td>Y</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk">VNQ</td><td class="kpi-tk">KBE</td><td class="kpi-tk">ENZL</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">XLF</td><td class="kpi-tk"></td></tr><tr class="kpi-no"><td>7/20</td><td>N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk">KBE</td><td class="kpi-tk">EWC</td><td class="kpi-tk">EWS</td><td class="kpi-tk">XLF</td><td class="kpi-tk">ENZL</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td>7/16</td><td>Y</td><td>-</td><td>139만</td><td class="kpi-actual">-</td><td class="kpi-tk">EWS</td><td class="kpi-tk">XLF</td><td class="kpi-tk">KBE</td><td class="kpi-tk">SVXY</td><td class="kpi-tk">CIBR</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td>7/15</td><td>Y</td><td>-</td><td>246만</td><td class="kpi-actual">-</td><td class="kpi-tk">EWS</td><td class="kpi-tk">XLF</td><td class="kpi-tk">CIBR</td><td class="kpi-tk">KBE</td><td class="kpi-tk">SVXY</td><td class="kpi-tk"></td></tr></tbody></table></div>
+    <div class="auto-kpi-card auto-kpi-month"><div class="auto-kpi-title">최근 20거래일&nbsp;&nbsp;8/20 · - / - / 40%</div><table class="auto-kpi-table"><thead><tr><th class="kpi-mkt">KR</th><th class="kpi-mkt">US</th><th class="kpi-date">날짜</th><th class="kpi-run">실행</th><th>비중</th><th>금액</th><th class="kpi-actual">실투</th><th class="kpi-tk">T1</th><th class="kpi-tk">T2</th><th class="kpi-tk">T3</th><th class="kpi-tk">T4</th><th class="kpi-tk">T5</th><th class="kpi-tk">T6</th></tr></thead><tbody><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/14</td><td class="kpi-run">Y</td><td>84.1%</td><td>1,877만</td><td class="kpi-actual">445만</td><td class="kpi-tk">228790</td><td class="kpi-tk">CIBR</td><td class="kpi-tk">IGV</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWS</td><td class="kpi-tk"></td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/13</td><td class="kpi-run">N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk">CIBR</td><td class="kpi-tk">IGV</td><td class="kpi-tk">228790</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWS</td><td class="kpi-tk"></td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/12</td><td class="kpi-run">N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk">228790</td><td class="kpi-tk">CIBR</td><td class="kpi-tk">IGV</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWQ</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/11</td><td class="kpi-run">N</td><td>82.7%</td><td>3,951만</td><td class="kpi-actual">1,671만</td><td class="kpi-tk">IGV</td><td class="kpi-tk">EWS</td><td class="kpi-tk">CIBR</td><td class="kpi-tk">EWP</td><td class="kpi-tk">228790</td><td class="kpi-tk">EWQ</td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/10</td><td class="kpi-run">Y</td><td>85.0%</td><td>4,071만</td><td class="kpi-actual">2,243만</td><td class="kpi-tk">IGV</td><td class="kpi-tk">EWQ</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWA</td><td class="kpi-tk">XLF</td><td class="kpi-tk">GREK</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/7</td><td class="kpi-run">N</td><td>85.0%</td><td>4,193만</td><td class="kpi-actual">2,776만</td><td class="kpi-tk">IGV</td><td class="kpi-tk">EWQ</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWA</td><td class="kpi-tk">XLF</td><td class="kpi-tk">GREK</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/6</td><td class="kpi-run">N</td><td>48.8%</td><td>2,322만</td><td class="kpi-actual">730만</td><td class="kpi-tk">GREK</td><td class="kpi-tk">XLF</td><td class="kpi-tk">EWQ</td><td class="kpi-tk">EWA</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWU</td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/5</td><td class="kpi-run">Y</td><td>27.3%</td><td>1,473만</td><td class="kpi-actual">111만</td><td class="kpi-tk">EWS</td><td class="kpi-tk">GREK</td><td class="kpi-tk">EWA</td><td class="kpi-tk">XLF</td><td class="kpi-tk">EWU</td><td class="kpi-tk">SCHD</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/3</td><td class="kpi-run">N</td><td>6.3%</td><td>286만</td><td class="kpi-actual">163만</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWU</td><td class="kpi-tk">GREK</td><td class="kpi-tk">XLF</td><td class="kpi-tk">SCHD</td><td class="kpi-tk"></td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/31</td><td class="kpi-run">N</td><td>8.3%</td><td>385만</td><td class="kpi-actual">163만</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWU</td><td class="kpi-tk">GREK</td><td class="kpi-tk">XLF</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">VYM</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/30</td><td class="kpi-run">N</td><td>8.3%</td><td>290만</td><td class="kpi-actual">318만</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWU</td><td class="kpi-tk">XLF</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">VTV</td><td class="kpi-tk">VYM</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/29</td><td class="kpi-run">N</td><td>12.7%</td><td>439만</td><td class="kpi-actual">323만</td><td class="kpi-tk">VYM</td><td class="kpi-tk">VTV</td><td class="kpi-tk">EWS</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">VNQ</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/27</td><td class="kpi-run">Y</td><td>32.4%</td><td>1,447만</td><td class="kpi-actual">963만</td><td class="kpi-tk">VYM</td><td class="kpi-tk">EWS</td><td class="kpi-tk">VTV</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">XLE</td><td class="kpi-tk">VNQ</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/24</td><td class="kpi-run">N</td><td>28.6%</td><td>1,315만</td><td class="kpi-actual">567만</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">XLE</td><td class="kpi-tk">VYM</td><td class="kpi-tk">VTV</td><td class="kpi-tk">PDBC</td><td class="kpi-tk">VNQ</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/23</td><td class="kpi-run">N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk">XLE</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">DBA</td><td class="kpi-tk">ENZL</td><td class="kpi-tk">THD</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/22</td><td class="kpi-run">Y</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk">THD</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">ENZL</td><td class="kpi-tk">XLE</td><td class="kpi-tk">VNQ</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/21</td><td class="kpi-run">Y</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk">VNQ</td><td class="kpi-tk">KBE</td><td class="kpi-tk">ENZL</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">XLF</td><td class="kpi-tk"></td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/20</td><td class="kpi-run">N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk">KBE</td><td class="kpi-tk">EWC</td><td class="kpi-tk">EWS</td><td class="kpi-tk">XLF</td><td class="kpi-tk">ENZL</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/16</td><td class="kpi-run">Y</td><td>-</td><td>139만</td><td class="kpi-actual">-</td><td class="kpi-tk">EWS</td><td class="kpi-tk">XLF</td><td class="kpi-tk">KBE</td><td class="kpi-tk">SVXY</td><td class="kpi-tk">CIBR</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/15</td><td class="kpi-run">Y</td><td>-</td><td>246만</td><td class="kpi-actual">-</td><td class="kpi-tk">EWS</td><td class="kpi-tk">XLF</td><td class="kpi-tk">CIBR</td><td class="kpi-tk">KBE</td><td class="kpi-tk">SVXY</td><td class="kpi-tk"></td></tr></tbody></table></div>
   </div>
 
   <!-- 하단: Market Regime 차트 + 히스토리 -->
@@ -28616,6 +28632,50 @@ if (typeof Chart !== 'undefined' && typeof ChartDataLabels !== 'undefined') {
   },
   {
     "date": "2026-08-15",
+    "Worst": 20,
+    "Neutral": 15,
+    "Recovery": 1,
+    "HotVeryHot": 0,
+    "total_universe": 130,
+    "avg_sco": 6.87,
+    "avg_3m": 0.86,
+    "Other": 94,
+    "Worst_pct": 15.38,
+    "Neutral_pct": 11.54,
+    "Recovery_pct": 0.77,
+    "HotVeryHot_pct": 0.0,
+    "Other_pct": 72.31,
+    "cell_<0__<0%": NaN,
+    "cell_<0__0~15%": NaN,
+    "cell_<0__15~30%": NaN,
+    "cell_<0__30%+": NaN,
+    "cell_0~7__<0%": NaN,
+    "cell_0~7__0~15%": NaN,
+    "cell_0~7__15~30%": NaN,
+    "cell_0~7__30%+": NaN,
+    "cell_8~10__<0%": NaN,
+    "cell_8~10__0~15%": NaN,
+    "cell_8~10__15~30%": NaN,
+    "cell_8~10__30%+": NaN,
+    "cell_11+__<0%": NaN,
+    "cell_11+__0~15%": NaN,
+    "cell_11+__15~30%": NaN,
+    "cell_11+__30%+": NaN,
+    "QQQ_close": 731.07,
+    "SPY_close": NaN,
+    "sco_strong": 48.0,
+    "sco_mid": 12.0,
+    "sco_weak": 48.0,
+    "sco_neg": 22.0,
+    "regime_raw_avg": 6.2538,
+    "regime_map_score": 35.0,
+    "strong_zone_cnt": 11.0,
+    "risk_zone_cnt": 54.0,
+    "worst_zone_cnt": 20.0,
+    "regime_state": "약세 경계"
+  },
+  {
+    "date": "2026-08-16",
     "Worst": 20,
     "Neutral": 15,
     "Recovery": 1,

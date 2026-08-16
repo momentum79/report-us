@@ -13,20 +13,20 @@
     "strong_count": 35,
     "top3_avg_sco": 14.67,
     "top3_avg_pos": 1.67,
-    "kospi_trend": "LIME",
+    "kospi_trend": "GREEN",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
     "euro_trend": "LIME",
     "india_trend": "RED",
-    "nikkei_trend": "LIME",
+    "nikkei_trend": "GREEN",
     "shanghai_trend": "-",
     "hongkong_trend": "-",
     "brazil_trend": "RED",
-    "kospi_mult": 0.8,
+    "kospi_mult": 0.6,
     "nasdaq_mult": 0.85,
-    "invest_pct": 83.5,
-    "invest_amount_total": 83524458,
+    "invest_pct": 77.6,
+    "invest_amount_total": 77622301,
     "internal_weights": [
         29.5108,
         28.4061,
@@ -43,7 +43,7 @@
         "EWS"
     ],
     "final_ratios": {
-        "228790": 23.61,
+        "228790": 17.71,
         "CIBR": 24.15,
         "IGV": 17.89,
         "EWP": 8.94,
@@ -67,7 +67,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-08-15 13:09:31",
+    "update_time": "2026-08-16 10:27:28",
     "liq_rejected": [
         {
             "ticker": "GREK",

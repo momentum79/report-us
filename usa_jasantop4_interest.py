@@ -206,7 +206,7 @@ def check_coloryp_logic(df):
     df['HLv7'] = df.HLd7.replace(0, np.nan).ffill().fillna(0)
     # TV: sum = m0ang + m1ang + m2ang + m3ang + m4ang (5개 이평 각도 합)
     df['ang_sum'] = df['m0ang'] + df['m1ang'] + df['m2ang'] + df['m3ang'] + df['m4ang']
-    df['lime_final'] = compute_lime_final(df.close, df.HLv99, df.HLv7, df.HLv71, df.M1, df.M2)
+    df['lime_final'] = compute_lime_final(df.close, df.HLv99, df.HLv7, df.HLv71, df.M1, df.M2, df.M3, df.m3s)
     return df
 
 

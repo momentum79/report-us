@@ -18,6 +18,7 @@ PNG_HIST   = BASE / "market_regime_history_total.png"
 OUT_HTML   = BASE / "main_hub.html"
 AUTO_TRADE_KPI_FILE = BASE / "auto_trade_execution.json"
 AUTO_TRADE_MARKER_FILE = BASE / "auto_trade_allone_marker.json"
+TR_RUN_MARKER_FILE = BASE / "tr_run_marker.json"    # KR/US 매수 bat 실행마커 (0order/tr/tr_run_marker.py)
 HOLDINGS_DAILY_CSV = BASE / "etf_history" / "holdings_daily.csv"
 AI_CORE_FILE = BASE / "total_etf_combined_AI.html"
 
@@ -300,6 +301,31 @@ def _fmt_actual_manwon(v):
     return f"{int(v):,}만" if v > 0 else "0"
 
 
+def _load_tr_run_marker():
+    """{날짜: {"KR": {"ran": True, ...}, "US": {...}}} — KR/US 매수 bat 실행마커."""
+    try:
+        data = json.loads(TR_RUN_MARKER_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def _tr_run_yn(marker, date_key, market, known_from):
+    """그날 그 시장 매수 bat 을 돌렸는지 Y/N.
+    마커가 생기기 전 날짜는 판정 근거가 없으므로 N 이 아니라 '-'(미상)."""
+    day = marker.get(date_key)
+    rec = day.get(market) if isinstance(day, dict) else None
+    if isinstance(rec, dict) and rec.get("ran"):
+        return "Y"
+    if known_from and date_key >= known_from:
+        return "N"
+    return "-"
+
+
+def _rate_text(ran, judged):
+    return f"{round(ran / judged * 100):.0f}%" if judged else "-"
+
+
 def build_auto_trade_kpi_html():
     """Compact weekly auto-trade execution KPI."""
     try:
@@ -324,13 +350,15 @@ def build_auto_trade_kpi_html():
         amount_text = _fmt_amount_manwon(rec.get("amount_manwon"))
         row_cls = " kpi-yes" if yn == "Y" else (" kpi-no" if yn == "N" else "")
         rows.append(
-            f'<tr class="{row_cls}"><td>{d.month}/{d.day}</td><td>{yn}</td><td>{pct_text}</td><td>{amount_text}</td></tr>'
+            f'<tr class="{row_cls}"><td class="kpi-date">{d.month}/{d.day}</td>'
+            f'<td class="kpi-run">{yn}</td><td>{pct_text}</td><td>{amount_text}</td></tr>'
         )
 
     return (
         '<div class="auto-kpi-card">'
         '<table class="auto-kpi-table">'
-        '<thead><tr><th>날짜</th><th>실행</th><th>비중</th><th>금액</th></tr></thead>'
+        '<thead><tr><th class="kpi-date">날짜</th><th class="kpi-run">실행</th>'
+        '<th>비중</th><th>금액</th></tr></thead>'
         f'<tbody>{"".join(rows)}</tbody>'
         '</table>'
         '</div>'
@@ -393,7 +421,11 @@ def _recent_trade_dates(limit):
 
 
 def build_auto_trade_recent_html():
-    """최근 20거래일 롤링 실행 이력 표(최신일이 위) + 그날 주문용 최종 보유 티커 T1~T6."""
+    """최근 20거래일 롤링 실행 이력 표(최신일이 위) + 그날 주문용 최종 보유 티커 T1~T6.
+
+    맨 앞 KR·US 열은 D:\\py\\0order\\tr 매수 bat 을 그날 돌렸는지만 Y/N 으로 남긴다.
+      KR = 0000_kr_buy.bat / US = 0000_us_buy.bat 또는 0000_us_buy-회사.bat (둘 중 하나면 Y)
+    제목의 비율은 KR / US / 통합ETF 순서."""
     try:
         data = json.loads(AUTO_TRADE_KPI_FILE.read_text(encoding="utf-8"))
     except Exception:
@@ -413,6 +445,9 @@ def build_auto_trade_recent_html():
     # 실행여부를 판정할 근거가 아예 생기기 전 날짜는 N 이 아니라 '-' (미상)으로 둔다.
     known_from = min([*by_date, *marker], default="")
 
+    tr_marker = _load_tr_run_marker()
+    tr_known_from = min(tr_marker, default="")
+
     dates = _recent_trade_dates(RECENT_TRADE_DAYS)
     if not dates:
         return ""
@@ -420,6 +455,8 @@ def build_auto_trade_recent_html():
 
     rows = []
     ran_days = judged_days = 0
+    tr_ran = {"KR": 0, "US": 0}
+    tr_judged = {"KR": 0, "US": 0}
     for key in reversed(dates):
         try:
             d = datetime.strptime(key, "%Y-%m-%d")
@@ -444,13 +481,23 @@ def build_auto_trade_recent_html():
         actual_text = _fmt_actual_manwon(rec.get("actual_manwon"))
         row_cls = "kpi-yes" if yn == "Y" else ("kpi-no" if yn == "N" else "")
 
+        mkt_cells = ""
+        for market in ("KR", "US"):
+            m_yn = _tr_run_yn(tr_marker, key, market, tr_known_from)
+            if m_yn != "-":
+                tr_judged[market] += 1
+                tr_ran[market] += (m_yn == "Y")
+            m_cls = "mkt-y" if m_yn == "Y" else ("mkt-n" if m_yn == "N" else "mkt-na")
+            mkt_cells += f'<td class="kpi-mkt {m_cls}">{m_yn}</td>'
+
         tks = holdings.get(key, [])
         tk_cells = "".join(
             f'<td class="kpi-tk">{tks[i] if i < len(tks) else ""}</td>'
             for i in range(RECENT_TICKER_COLS)
         )
         rows.append(
-            f'<tr class="{row_cls}"><td>{d.month}/{d.day}</td><td>{yn}</td>'
+            f'<tr class="{row_cls}">{mkt_cells}'
+            f'<td class="kpi-date">{d.month}/{d.day}</td><td class="kpi-run">{yn}</td>'
             f'<td>{pct_text}</td><td>{amount_text}</td>'
             f'<td class="kpi-actual">{actual_text}</td>{tk_cells}</tr>'
         )
@@ -458,14 +505,19 @@ def build_auto_trade_recent_html():
     if not rows:
         return ""
 
-    rate_text = f"{round(ran_days / judged_days * 100):.0f}%" if judged_days else "-%"
+    rate_text = _rate_text(ran_days, judged_days) if judged_days else "-%"
+    # 비율 3개 = KR / US / 통합ETF
+    rates_text = " / ".join([_rate_text(tr_ran["KR"], tr_judged["KR"]),
+                             _rate_text(tr_ran["US"], tr_judged["US"]),
+                             rate_text])
     tk_head = "".join(f'<th class="kpi-tk">T{i + 1}</th>' for i in range(RECENT_TICKER_COLS))
 
     return (
         '<div class="auto-kpi-card auto-kpi-month">'
-        f'<div class="auto-kpi-title">최근 {len(dates)}거래일&nbsp;&nbsp;{ran_days}/{judged_days} · {rate_text}</div>'
+        f'<div class="auto-kpi-title">최근 {len(dates)}거래일&nbsp;&nbsp;{ran_days}/{judged_days} · {rates_text}</div>'
         '<table class="auto-kpi-table">'
-        f'<thead><tr><th>날짜</th><th>실행</th><th>비중</th><th>금액</th>'
+        f'<thead><tr><th class="kpi-mkt">KR</th><th class="kpi-mkt">US</th>'
+        f'<th class="kpi-date">날짜</th><th class="kpi-run">실행</th><th>비중</th><th>금액</th>'
         f'<th class="kpi-actual">실투</th>{tk_head}</tr></thead>'
         f'<tbody>{"".join(rows)}</tbody>'
         '</table>'
@@ -1248,14 +1300,26 @@ body {{
   text-align: right;
   border-bottom: 1px solid #f0f2f4;
 }}
-.auto-kpi-table th:first-child,
-.auto-kpi-table td:first-child {{ text-align: left; }}
-.auto-kpi-table th:nth-child(2),
-.auto-kpi-table td:nth-child(2) {{
+/* 열 위치가 아니라 클래스로 잡는다 - 표 앞에 KR·US 열이 붙어도 어긋나지 않게. */
+.auto-kpi-table th.kpi-date,
+.auto-kpi-table td.kpi-date {{ text-align: left; }}
+.auto-kpi-table th.kpi-run,
+.auto-kpi-table td.kpi-run {{
   text-align: center;
   padding-left: 2px;
   padding-right: 2px;
 }}
+.auto-kpi-table th.kpi-mkt,
+.auto-kpi-table td.kpi-mkt {{
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 800;
+}}
+.auto-kpi-table th.kpi-mkt {{ font-size: 13px; color: #7f8c8d; font-weight: 700; }}
+.auto-kpi-table td.mkt-y  {{ color: #1f8f4d; }}
+.auto-kpi-table td.mkt-n  {{ color: #c0392b; }}
+.auto-kpi-table td.mkt-na {{ color: #b9c2c9; font-weight: 600; }}
 .auto-kpi-table th {{
   color: #2c3e50;
   font-weight: 800;
@@ -1271,11 +1335,13 @@ body {{
 }}
 .auto-kpi-table th.kpi-tk {{ font-size: 12.5px; color: #7f8c8d; }}
 .auto-kpi-table td.kpi-actual {{ color: #2c3e50; font-weight: 700; }}
-.auto-kpi-table th:nth-child(5),
-.auto-kpi-table td:nth-child(5) {{ border-right: 1px solid #e6eaee; }}
+.auto-kpi-table th.kpi-actual,
+.auto-kpi-table td.kpi-actual {{ border-right: 1px solid #e6eaee; }}
+.auto-kpi-table th.kpi-mkt:nth-child(2),
+.auto-kpi-table td.kpi-mkt:nth-child(2) {{ border-right: 1px solid #e6eaee; }}
 .auto-kpi-table tr:last-child td {{ border-bottom: none; }}
-.auto-kpi-table tr.kpi-yes td:nth-child(2) {{ color: #1f8f4d; font-weight: 800; }}
-.auto-kpi-table tr.kpi-no td:nth-child(2) {{ color: #c0392b; font-weight: 800; }}
+.auto-kpi-table tr.kpi-yes td.kpi-run {{ color: #1f8f4d; font-weight: 800; }}
+.auto-kpi-table tr.kpi-no td.kpi-run {{ color: #c0392b; font-weight: 800; }}
 .auto-kpi-title {{
   font-size: 13px;
   font-weight: 700;
@@ -1420,6 +1486,8 @@ body {{
   .auto-kpi-card {{ width: 100%; overflow-x: auto; }}
   .auto-kpi-table th.kpi-tk,
   .auto-kpi-table td.kpi-tk {{ padding: 4px 4px; font-size: 11px; }}
+  .auto-kpi-table th.kpi-mkt,
+  .auto-kpi-table td.kpi-mkt {{ padding: 4px 3px; font-size: 13px; }}
 }}
 
 /* ── AI Core Regime 박스 (미국요약/AI 관찰판에서 이동) ── */

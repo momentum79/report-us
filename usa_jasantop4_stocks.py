@@ -91,7 +91,7 @@ def check_coloryp_condition(df):
     angle_4 = (df[['m0ang', 'm1ang', 'm2ang', 'm3ang']] <= 0).all(axis=1)
 
     # Color 상태
-    df['is_lime'] = compute_lime_final(df['close'], df['HLv99'], df['HLv7'], df['HLv71'], df['M1'], df['M2'])
+    df['is_lime'] = compute_lime_final(df['close'], df['HLv99'], df['HLv7'], df['HLv71'], df['M1'], df['M2'], df['M3'], df['m3s'])
     df['is_green'] = (df['HLv99'] >= 1) & (df['HLv71'] == 1) & ~df['is_lime']
     df['is_red'] = ((df['HLv99'] <= -1) & (df['HLv71'] <= -1)) | angle_all | angle_4
 

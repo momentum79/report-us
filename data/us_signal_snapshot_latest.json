@@ -1,6 +1,6 @@
 {
-  "date": "2026-08-15",
-  "created_at": "2026-08-15 11:24:34",
+  "date": "2026-08-16",
+  "created_at": "2026-08-16 10:31:17",
   "version": 1,
   "policy": {
     "paper_buy": "1 share per unique ticker per snapshot day",
@@ -36,8 +36,8 @@
     "EBC",
     "FDX",
     "FITB",
+    "FTI",
     "GD",
-    "HLT",
     "HPQ",
     "HTH",
     "IMO",
@@ -50,7 +50,6 @@
     "JPM",
     "KKR",
     "MBX",
-    "MPWR",
     "MSGS",
     "MT",
     "NESR",
@@ -450,32 +449,6 @@
       "hold_ok": true
     },
     {
-      "source": "finviz",
-      "section": "signal_lime",
-      "rank": 5,
-      "ticker": "MPWR",
-      "signal": "LIME",
-      "signal_sco": 1402.01,
-      "rtn_3m_pct": 2.9,
-      "trend": "LIME",
-      "close": 1402.010009765625,
-      "trend_date": "2026-08-14",
-      "hold_ok": true
-    },
-    {
-      "source": "finviz",
-      "section": "signal_lime",
-      "rank": 6,
-      "ticker": "HLT",
-      "signal": "LIME",
-      "signal_sco": 327.3,
-      "rtn_3m_pct": 2.02,
-      "trend": "LIME",
-      "close": 327.29998779296875,
-      "trend_date": "2026-08-14",
-      "hold_ok": true
-    },
-    {
       "source": "us_main",
       "section": "main_quality_top10",
       "rank": 1,
@@ -799,6 +772,18 @@
       "source": "us_main",
       "section": "signal_lime",
       "rank": 6,
+      "ticker": "FTI",
+      "signal": "LIME",
+      "price": 78.62,
+      "trend": "LIME",
+      "close": 78.61599731445312,
+      "trend_date": "2026-08-14",
+      "hold_ok": true
+    },
+    {
+      "source": "us_main",
+      "section": "signal_lime",
+      "rank": 7,
       "ticker": "NGVT",
       "signal": "LIME",
       "price": 76.78,
@@ -810,7 +795,7 @@
     {
       "source": "us_main",
       "section": "signal_lime",
-      "rank": 7,
+      "rank": 8,
       "ticker": "AIR",
       "signal": "LIME",
       "price": 145.39,
@@ -822,7 +807,7 @@
     {
       "source": "us_main",
       "section": "signal_lime",
-      "rank": 8,
+      "rank": 9,
       "ticker": "INDB",
       "signal": "LIME",
       "price": 85.94,
@@ -834,24 +819,12 @@
     {
       "source": "us_main",
       "section": "signal_lime",
-      "rank": 9,
+      "rank": 10,
       "ticker": "RTX",
       "signal": "LIME",
       "price": 222.94,
       "trend": "LIME",
       "close": 222.94000244140625,
-      "trend_date": "2026-08-14",
-      "hold_ok": true
-    },
-    {
-      "source": "us_main",
-      "section": "signal_lime",
-      "rank": 10,
-      "ticker": "GD",
-      "signal": "LIME",
-      "price": 395.73,
-      "trend": "LIME",
-      "close": 395.7300109863281,
       "trend_date": "2026-08-14",
       "hold_ok": true
     },
@@ -1078,10 +1051,10 @@
       "price": 31.02,
       "pivot": 30.77,
       "pivot_dist_pct": 0.81,
-      "trend": "LIME",
+      "trend": "-",
       "close": 31.020000457763672,
       "trend_date": "2026-08-14",
-      "hold_ok": true
+      "hold_ok": false
     },
     {
       "source": "minervini",
@@ -1112,10 +1085,10 @@
       "price": 133.325,
       "pivot": 129.96,
       "pivot_dist_pct": 2.59,
-      "trend": "LIME",
+      "trend": "-",
       "close": 133.3249969482422,
       "trend_date": "2026-08-14",
-      "hold_ok": true
+      "hold_ok": false
     },
     {
       "source": "minervini",
