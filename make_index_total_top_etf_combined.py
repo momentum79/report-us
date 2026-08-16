@@ -662,6 +662,92 @@ def build_top5_section_global(held_list: list, data: list = None) -> str:
     )
 
 
+# ══════════ 통합ETF 주간성과 카드 ══════════
+# 보유자산 게시판(holdings.html)의 주간성과 탭에 있는 '통합ETF' 카드를 그대로 여기에도 싣는다.
+# 접기/펴기(+/−, 최근 2주만 보기)까지 동일 동작.
+#
+# 원천은 make_weekly_performance.py 가 만든 weekly_performance.json.
+# 0000_h1time_real.bat 기준 그쪽(289행)이 이 파일(303행)보다 먼저 도므로 항상 당일 값이다.
+# 런타임 fetch 가 아니라 생성 시점에 박아넣는 이유: 이 게시판은 정적 HTML 이라
+# 파일 하나만 열어도(로컬/모바일 저장본) 값이 보여야 하기 때문.
+WEEKLY_PERF_JSON = BASE / "weekly_performance.json"
+WEEKLY_PERF_TAG  = "통합ETF"
+
+
+def _wp_cell(v, suffix="", loss=False):
+    if v is None or v == "":
+        return '<td style="text-align:right;color:#bbb;">-</td>'
+    if loss:
+        n = float(v)
+        return f'<td style="text-align:right;">{("-" + str(n)) if n > 0 else n}%</td>'
+    txt = f"{v:,}" if isinstance(v, (int, float)) else v
+    return f'<td style="text-align:right;">{txt}{suffix}</td>'
+
+
+def _wp_ratio(v):
+    if v is None or v == "":
+        return '<td style="text-align:center;color:#bbb;">-</td>'
+    cls = "wp-good" if float(v) >= 1 else "wp-bad"
+    return f'<td style="text-align:center;" class="{cls}">{float(v):.2f}</td>'
+
+
+def build_weekly_perf_card(tag: str = WEEKLY_PERF_TAG) -> str:
+    """weekly_performance.json → 지정 tag 의 주간성과 카드 HTML. 실패 시 빈 문자열."""
+    try:
+        data = json.loads(WEEKLY_PERF_JSON.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"[경고] 주간성과 JSON 읽기 실패 → 카드 생략: {e}")
+        return ""
+    bot = next((b for b in (data.get("bots") or []) if b.get("key") == tag), None)
+    if not bot:
+        print(f"[경고] 주간성과에 '{tag}' tag 없음 → 카드 생략")
+        return ""
+
+    unit = bot.get("unit", "일")
+    is_mix = (unit == "혼합")
+    hold_hdr = "" if is_mix else f"<th>수익<br>보유({unit})</th><th>손실<br>보유({unit})</th>"
+
+    def row(s, is_total, idx):
+        cls = "wp-total" if is_total else ("wp-extra-week" if idx >= 2 else "")
+        hold = "" if is_mix else _wp_cell(s.get("hold_win")) + _wp_cell(s.get("hold_loss"))
+        amt = s.get("sum_pnl_amt") or 0
+        pnl_cls = "wp-pos" if amt >= 0 else "wp-neg"
+        return (
+            f'<tr class="{cls}"><td>{s.get("label","")}</td>'
+            f'<td style="text-align:center;">{s.get("trades",0)}</td>'
+            + _wp_cell(s.get("winrate"), "%")
+            + _wp_ratio(s.get("pl_ratio"))
+            + _wp_cell(s.get("expectancy"), "%")
+            + _wp_ratio(s.get("profit_factor"))
+            + _wp_cell(s.get("avg_win"), "%")
+            + _wp_cell(s.get("avg_loss"), "%")
+            + _wp_cell(s.get("max_win"), "%")
+            + _wp_cell(s.get("max_loss"), loss=True)
+            + hold
+            + f'<td style="text-align:right;" class="{pnl_cls}">'
+              f'{"+" if amt >= 0 else ""}{amt:,}</td></tr>'
+        )
+
+    rows = "".join(row(w, False, i) for i, w in enumerate(reversed(bot.get("weeks") or [])))
+    rows += row(bot.get("total") or {}, True, 999)
+
+    note = "자산배분 리밸런싱 · 주간성과 게시판의 '통합' 합산에는 미포함"
+    return (
+        '<div id="wp-card-alloc" class="wp-card wp-collapsed">'
+        '<div class="wp-title">'
+        '<button class="wp-fold-btn" type="button" onclick="toggleWeeklyCard(\'wp-card-alloc\', this)"'
+        ' title="최근 2주만 보기/전체 보기">+</button>'
+        f'{tag} <span class="wp-unit">보유단위: {unit}, 8042 · {note}</span></div>'
+        '<div class="wp-tablewrap"><table class="wp-table"><thead><tr>'
+        '<th>주(월~금)</th><th>거래</th><th>승률</th><th>손익비</th>'
+        '<th title="1거래당 기대수익(수수료·세금 차감 후)">기대값</th>'
+        '<th title="총이익/총손실. 1.0=본전, 1.5+=견고">PF</th>'
+        '<th>평균수익</th><th>평균손실</th><th>최대수익</th><th>최대손실</th>'
+        f'{hold_hdr}<th title="수수료·증권거래세 차감 후">실현손익</th>'
+        f'</tr></thead><tbody>{rows}</tbody></table></div></div>'
+    )
+
+
 def read_held_list() -> tuple:
     """(status, list) 반환. 파일없음/읽기실패(입력오류)와 정상 빈목록을 구분한다."""
     if not TOP6_FILE.exists():
@@ -1405,6 +1491,7 @@ def main():
     stats_html  = build_stats_html(s_data, data)
 
     top5_section_html = build_top5_section_global(held_list, data)
+    weekly_perf_html = build_weekly_perf_card()
     lev_overlay = build_lev2_overlay(held_list)
     lev_order_tickers = [
         v for k, v in (lev_overlay.get("orders", {}) if lev_overlay else {}).items()
@@ -1743,6 +1830,34 @@ body.naver-popup-open {{ overflow: hidden; }}
   .t5-cards-row {{ overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }}
   .t5-card {{ min-width: 100px; max-width: 140px; }}
 }}
+/* ══ 주문표 | Top5 2열 (요약-주문 게시판 .cols-tight 와 동일) ══ */
+.cols-tight {{ display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }}
+.cols-tight > div {{ flex: 0 1 auto; min-width: 0; }}
+.cols-tight .t5-section {{ margin: 0; }}
+/* 왼쪽 표 제목선과 오른쪽 Top5 제목선의 시작 높이를 맞춘다 */
+.cols-tight > div > h2 {{ margin-top: 0; }}
+.cols-tight .t5-section-title {{ font-size: 1.0em; margin-top: 0; }}
+/* ══ 주간성과 카드 (holdings.html 주간성과 탭과 동일) ══ */
+/* box-sizing 없으면 padding+border(30px) 가 max-width 밖에 더해져 좁은 화면에서 삐져나온다 */
+.wp-card {{ background:#fff; border:1px solid #e5d5d5; border-radius:10px; padding:12px 14px;
+            box-shadow:0 1px 3px rgba(0,0,0,.05); overflow:hidden; margin:0 0 14px 0;
+            width:fit-content; max-width:100%; box-sizing:border-box; }}
+.wp-title {{ font-weight:700; font-size:15px; color:#8B0000; margin-bottom:8px;
+             border-bottom:2px solid #8B0000; padding-bottom:5px; }}
+.wp-unit {{ font-weight:400; font-size:11px; color:#999; margin-left:6px; }}
+.wp-tablewrap {{ overflow-x:auto; }}
+.wp-table {{ width:100%; border-collapse:collapse; font-size:11px; table-layout:auto; }}
+.wp-table th {{ background:#f6eeee; color:#5a3a3a; padding:3px 6px; border:1px solid #ecdede;
+                white-space:normal; word-break:keep-all; line-height:1.15; font-weight:600; }}
+.wp-table td {{ padding:3px 6px; border:1px solid #f0e8e8; white-space:nowrap; }}
+.wp-table tr.wp-total td {{ background:#faf3f3; font-weight:700; border-top:2px solid #d8b8b8; }}
+.wp-pos {{ color:#c0392b; font-weight:700; }} .wp-neg {{ color:#2673aa; font-weight:700; }}
+.wp-good {{ color:#1a8a3a; font-weight:700; }} .wp-bad {{ color:#c0392b; font-weight:700; }}
+.wp-fold-btn {{ display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px;
+                margin-right:7px; border:1px solid #cfa6a6; border-radius:3px; background:#fff7f7;
+                color:#8B0000; font-size:14px; font-weight:700; line-height:1; cursor:pointer; vertical-align:1px; }}
+.wp-fold-btn:hover {{ background:#f6eeee; }}
+.wp-collapsed .wp-extra-week {{ display:none; }}
 </style>
 </head>
 <body>
@@ -1765,11 +1880,16 @@ body.naver-popup-open {{ overflow: hidden; }}
     </div>
     {stats_html}
 
-    {top5_section_html}
+    <div class="cols-tight">
+        <div>
+            <h2>🧾 주문용 최종 보유 목록 ({s_data.get('invest_pct', 0):.1f}%) <span style="font-size:0.7em; color:#000; font-weight:normal;">- 총자산 {int((ASSET_8042_TOTAL or ASSET_8042) / 10000):,}만원 − 직접관리/전략외 {int(((ASSET_8042_TOTAL or ASSET_8042) - ASSET_8042) / 10000):,}만원 = 기준 {int(ASSET_8042 / 10000):,}만원 → 목표 {int(ASSET_8042 * s_data.get('invest_pct', 0) / 100 / 10000):,}만원</span></h2>
+            {final_order_html}
+            {liq_rejected_html}
+        </div>
+        <div>{top5_section_html}</div>
+    </div>
 
-    <h2>🧾 주문용 최종 보유 목록 ({s_data.get('invest_pct', 0):.1f}%) <span style="font-size:0.7em; color:#000; font-weight:normal;">- 총자산 {int((ASSET_8042_TOTAL or ASSET_8042) / 10000):,}만원 − 직접관리/전략외 {int(((ASSET_8042_TOTAL or ASSET_8042) - ASSET_8042) / 10000):,}만원 = 기준 {int(ASSET_8042 / 10000):,}만원 → 목표 {int(ASSET_8042 * s_data.get('invest_pct', 0) / 100 / 10000):,}만원</span></h2>
-    {final_order_html}
-    {liq_rejected_html}
+    {weekly_perf_html}
 
     <h3>📊 ETF 랭킹 &nbsp;<span style="font-size:0.8em;font-weight:normal;color:#555;">(노랑: 주문용 보유, 파랑: sco&ge;11 | Score=Final×100, Base=기본점수×100, Stab=안정성0~1)</span><br>
     <span style="font-size:0.78em;font-weight:normal;color:#c0392b;"><s>취소선</s>: 거래대금 미달로 <b>주문 제외</b> (20거래일 당일제외 · 평균 KR 200억/US 1,000억 또는 최저일 KR 80억/US 400억 미만) — 스코어는 참고용으로 계속 표시</span></h3>
@@ -1801,6 +1921,13 @@ body.naver-popup-open {{ overflow: hidden; }}
     </table>
 </div>
 <script>
+// 주간성과 카드 접기/펴기 (holdings.html 과 동일 동작: 접힘=최근 2주만)
+function toggleWeeklyCard(cardId, btn) {{
+    var card = document.getElementById(cardId);
+    if (!card) return;
+    var collapsed = card.classList.toggle('wp-collapsed');
+    if (btn) btn.textContent = collapsed ? '+' : '−';
+}}
 document.addEventListener('DOMContentLoaded', function() {{
     var titles = Array.from(document.querySelectorAll('h2, h3'));
     var targetTitle = titles.find(t => t.innerText.includes('ETF 랭킹'));

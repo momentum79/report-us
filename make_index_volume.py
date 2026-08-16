@@ -3,11 +3,15 @@ import json
 import html
 import csv
 import re
+import sys
 from pathlib import Path
 from datetime import datetime, timedelta
 from collections import defaultdict
 from chart_popup_v2 import fetch_daily, fetch_kospi_daily
 from chart_popup_v4 import build_chart_popup
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from trading_day import is_kr_trading_day, last_kr_trading_day  # noqa: E402
 
 BASE = Path(r"D:\py\report-us")
 REPORT_JSON       = BASE / "report_volume.json"
@@ -509,6 +513,9 @@ def update_leader_tracking_volume(stocks, theme_filter):
     - 최초 등장 날짜(added_date) 기록, 이후 last_seen_date 갱신
     - TRACKING_DAYS일 이상 지난 항목 자동 삭제
     - reburst_today: 하루 이상 공백 후 재등장 시 True
+    - 휴장일에는 갱신하지 않고 직전 거래일 상태를 그대로 반환
+      (토/일에 돌리면 last_seen_date·pct_history에 휴장일 날짜가 쌓여
+       주도주 판정이 흔들리던 문제 방지)
     """
     today_str     = datetime.now().strftime("%Y-%m-%d")
     yesterday_str = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
@@ -521,6 +528,11 @@ def update_leader_tracking_volume(stocks, theme_filter):
             tracking = {}
     else:
         tracking = {}
+
+    if not is_kr_trading_day(today_str):
+        print(f"[휴장일] {today_str} — 거래대금 주도주 트래킹 갱신 생략, "
+              f"직전 거래일({last_kr_trading_day(today_str)}) 상태 유지 ({len(tracking)}종목)")
+        return tracking
 
     tracking = {k: v for k, v in tracking.items() if v.get("added_date", "") >= cutoff}
 

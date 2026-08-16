@@ -17,6 +17,10 @@
     "kosdaq_trend": "GREEN",
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
+    "kospi_sco": 1.75,
+    "kosdaq_sco": 3.5,
+    "sp500_sco": 14.5,
+    "nasdaq_sco": 11.0,
     "euro_trend": "LIME",
     "india_trend": "RED",
     "nikkei_trend": "GREEN",
@@ -67,7 +71,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-08-16 10:27:28",
+    "update_time": "2026-08-16 12:54:41",
     "liq_rejected": [
         {
             "ticker": "GREK",

@@ -81,34 +81,35 @@ def tab_converge(data):
     def _table(rows, kind):
         is_watch = (kind == "watch")
         head = ["Ticker", "종목명", "폭%", "등락률", "당일대금"]
-        if is_watch:
-            head += ["돌파거리", "돌파가"]
+        # WATCH=돌파 전(남은 거리) / FIRE=돌파 후(넘은 폭). 둘 다 돌파가를 함께 표시.
+        head += ["돌파거리", "돌파가"] if is_watch else ["돌파가", "초과%"]
         head += ["시총", "NXT"]
         h = "<table><thead><tr>" + "".join(f"<th>{x}</th>" for x in head) + "</tr></thead><tbody>"
         body = []
         for s in rows:
             nxt = '<span class="nxt-bold">NXT</span>' if s.get("nxt") == "NXT" else ""
             cap = f'{s.get("market_cap_uk", 0):,}억' if s.get("market_cap_uk") else "-"
-            dist = ""
-            if is_watch:
-                close = s.get("close")
-                trigger = s.get("trigger_price")
-                try:
-                    dist_pct = (float(trigger) - float(close)) / float(close) * 100
-                    dist = f'<td>+{dist_pct:.1f}%</td>'
-                except (TypeError, ValueError, ZeroDivisionError):
-                    dist = '<td>-</td>'
-            trig = f'<td>{fnum(s.get("trigger_price"))}</td>' if is_watch else ""
+            close = s.get("close")
+            trigger = s.get("trigger_price")
+            try:
+                c, t = float(close), float(trigger)
+                if c <= 0 or t <= 0:
+                    raise ValueError
+                # WATCH: 돌파가까지 남은 %, FIRE: 종가가 돌파가를 넘은 %
+                pct = (t - c) / c * 100 if is_watch else (c / t - 1.0) * 100
+                gap = f'<td class="{"" if is_watch else "up"}">+{pct:.1f}%</td>'
+            except (TypeError, ValueError, ZeroDivisionError):
+                gap = '<td>-</td>'
+            trig = f'<td>{fnum(trigger)}</td>'
             body.append(
                 "<tr>" + _cell(s.get("ticker", ""), s.get("name", ""))
                 + f'<td>{s.get("spread_pct", "-")}%</td>'
                 + f'<td>{_chg(s.get("change"))}</td>'
                 + f'<td>{fnum(s.get("tv_today_uk"))}억</td>'
-                + dist
-                + trig
+                + (gap + trig if is_watch else trig + gap)
                 + f'<td>{cap}</td><td>{nxt}</td></tr>')
         if not rows:
-            body.append(f'<tr><td colspan="{9 if is_watch else 7}" class="empty-msg">해당 없음</td></tr>')
+            body.append('<tr><td colspan="9" class="empty-msg">해당 없음</td></tr>')
         return h + "".join(body) + "</tbody></table>"
 
     out.append(f'<h2 class="sec">🟢 FIRE — 첫 동시돌파 (매수 트리거) · {len(fire)}개</h2>')
@@ -185,7 +186,7 @@ def generate_html():
                font-weight:bold; font-size:0.95rem; border-bottom:3px solid transparent; }}
         .nav-item:hover {{ color:#fff; background-color:#3d566e; }}
         .nav-item.active {{ color:#fff; background-color:#34495e; border-bottom-color:#3498db; }}
-        .container {{ padding:10px; max-width:520px; margin:0; }}
+        .container {{ padding:10px; max-width:640px; margin:0; }}
         .title {{ font-size:1.2em; font-weight:bold; color:#2c3e50; margin:0 0 4px 0; }}
         .sub {{ font-size:0.8em; color:#7f8c8d; margin:0 0 8px 0; }}
         .update-time {{ display:block; font-size:0.8em; color:#7f8c8d; margin:0 0 12px 0; }}
@@ -202,7 +203,8 @@ def generate_html():
         .up {{ color:#27ae60; font-weight:bold; }}
         .down {{ color:#e74c3c; font-weight:bold; }}
         .nxt-bold {{ color:#8e44ad; font-weight:bold; }}
-        @media (max-width:600px) {{ .container {{ max-width:100%; }} th,td {{ padding:6px 4px; font-size:0.76rem; }} }}
+        @media (max-width:600px) {{ .container {{ max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; }}
+               th,td {{ padding:6px 4px; font-size:0.76rem; }} }}
     @media screen and (max-width: 950px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {{
   .top-nav-container, .top-nav {{ display: none !important; }}
 }}

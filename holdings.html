@@ -545,7 +545,15 @@ body.naver-popup-open { overflow: hidden; }
                           'KR_TR_JEO2':'2773','KR_TR_MA':'2773','US_TR_ORD_A':'1887(US)','US_TR_VOLUME_1':'1887(US)',
                           'US_TR_VOLUME_2':'1887(US)','US_TR_VCP1':'1887(US)','US_TR_VCP2':'1887(US)','US_TR_JEO2':'1887(US)','US_TR_MA':'1887(US)'};
 
-        function renderWeeklyBot(bot) {
+        // 그룹 라벨. bot=자동매매 / alloc=자산배분 / manual=사람이 직접 매수
+        const WP_AGG = new Set(['통합', '수동합계']);   // 합산 행(개별 태그 아님) — 중복합산 방지
+        const WP_GROUP_NOTE = {
+            '통합': '봇 태그만 합산 · 수동/자산배분 제외',
+            '수동합계': '참고용 · 통합에 미포함',
+            '통합ETF': '자산배분 리밸런싱 · 통합에 미포함',
+        };
+
+        function renderWeeklyBot(bot, extraCls) {
             const unit = bot.unit;              // '일' | '분' | '혼합'
             const isMix = (unit === '혼합');
             const collapsible = bot.key !== '통합';
@@ -580,8 +588,9 @@ body.naver-popup-open { overflow: hidden; }
             const toggle = collapsible
                 ? `<button class="wp-fold-btn" type="button" onclick="toggleWeeklyCard('${cardId}', this)" title="최근 2주만 보기/전체 보기">+</button>`
                 : '';
-            return `<div id="${cardId}" class="wp-card${collapsible ? ' wp-collapsed' : ''}">
-                <div class="wp-title">${toggle}${bot.key} <span class="wp-unit">보유단위: ${unit}${(BOT_ACCT[bot.key] ? ', ' + BOT_ACCT[bot.key] : '')}</span></div>
+            const note = WP_GROUP_NOTE[bot.key] ? ' · ' + WP_GROUP_NOTE[bot.key] : '';
+            return `<div id="${cardId}" class="wp-card${collapsible ? ' wp-collapsed' : ''}${extraCls ? ' ' + extraCls : ''}">
+                <div class="wp-title">${toggle}${bot.key} <span class="wp-unit">보유단위: ${unit}${(BOT_ACCT[bot.key] ? ', ' + BOT_ACCT[bot.key] : '')}${note}</span></div>
                 <div class="wp-tablewrap"><table class="wp-table">
                     <thead><tr>
                         <th>주(월~금)</th><th>거래</th><th>승률</th><th>손익비</th>
@@ -658,6 +667,53 @@ body.naver-popup-open { overflow: hidden; }
             </div>`;
         }
 
+        // 3개월(최대 13주) 태그별 누적표. "뭘 늘리고 뭘 죽일지" 판단용 — 이 게시판의 본목적.
+        // 서버(make_weekly_performance.py build_quarter)가 이미 그룹·손익순으로 정렬해 보낸다.
+        function renderQuarter(data) {
+            const q = data.quarter;
+            if (!q || !(q.rows || []).length) return '';
+            const GRP = {bot: '봇', alloc: '자산배분', manual: '수동'};
+            let rows = '';
+            let prevGrp = null;
+            q.rows.forEach(r => {
+                if (prevGrp !== null && r.group !== prevGrp) {
+                    rows += `<tr class="wp-qsep"><td colspan="10">${GRP[r.group] || r.group}</td></tr>`;
+                }
+                prevGrp = r.group;
+                const isAgg = WP_AGG.has(r.key);
+                const cls = (isAgg ? 'wp-total ' : '') + (r.group === 'manual' ? 'wp-muted' : '');
+                const amt = r.sum_pnl_amt || 0;
+                rows += `<tr class="${cls}">
+                    <td>${r.key}</td>
+                    <td style="text-align:center;">${r.trades}</td>
+                    <td style="text-align:center;color:#999;">${r.sell_events == null ? '-' : r.sell_events}</td>
+                    ${wpCell(r.winrate, '%')}
+                    ${wpRatio(r.pl_ratio)}
+                    ${wpCell(r.expectancy, '%')}
+                    ${wpRatio(r.profit_factor)}
+                    <td style="text-align:right;">${(r.expectancy_amt == null) ? '-' : r.expectancy_amt.toLocaleString()}</td>
+                    <td style="text-align:right;color:#999;">${(r.sum_fee_tax || 0).toLocaleString()}</td>
+                    <td style="text-align:right;" class="${amt >= 0 ? 'wp-pos' : 'wp-neg'}">${(amt >= 0 ? '+' : '')}${amt.toLocaleString()}</td>
+                </tr>`;
+            });
+            const scope = q.clamped_to_cutoff
+                ? `컷오프(${data.cutoff_date}) 이후 ${q.weeks}주`
+                : `최근 ${q.weeks}주`;
+            return `<div class="wp-card wp-solo wp-quarter">
+                <div class="wp-title">3개월 누적 (태그별) <span class="wp-unit">${q.label} · ${scope} · 봇 → 자산배분 → 수동 순, 그룹 안에서는 손익순</span></div>
+                <div class="wp-tablewrap"><table class="wp-table">
+                    <thead><tr>
+                        <th>tag</th><th title="완결 포지션 수">거래</th>
+                        <th title="부분매도 포함 매도 건수 (컷오프 이후만 집계)">매도</th>
+                        <th>승률</th><th>손익비</th><th>기대값</th><th>PF</th>
+                        <th title="1거래당 기대 손익(원)">기대값(원)</th>
+                        <th>비용</th><th>실현손익</th>
+                    </tr></thead>
+                    <tbody>${rows}</tbody>
+                </table></div>
+            </div>`;
+        }
+
         // 금주(최근 주) 봇별 실현손익 미니 요약표.
         // 데이터 기반: 이번주 거래가 있는 모든 봇(통합 제외)을 자동 나열.
         // 헤드라인 총계 = '통합'(전체 라운드트립 합) 금주 실현손익 → 통합ETF·수동매매·ABC-VCP 자동 포함.
@@ -671,20 +727,32 @@ body.naver-popup-open { overflow: hidden; }
             const wkOf = (b) => (b.weeks || []).find(x => x.week === latest);
             let body = '';
             let total = 0;
-            (data.bots || []).filter(b => b.key !== '통합').forEach(b => {
+            const grpSum = {bot: 0, alloc: 0, manual: 0};
+            // 합산 행(통합/수동합계)은 개별 태그와 중복이라 제외한다.
+            (data.bots || []).filter(b => !WP_AGG.has(b.key)).forEach(b => {
                 const inSplit = WEEKLY_SPLIT_TAGS.has(b.key);
                 if (opts.onlySplit && !inSplit) return;
                 if (opts.excludeSplit && inSplit) return;
                 const w = wkOf(b);
                 const amt = (w && w.sum_pnl_amt) || 0;
                 total += amt;
+                grpSum[b.group] = (grpSum[b.group] || 0) + amt;
                 const cls = amt >= 0 ? 'wp-pos' : 'wp-neg';
                 const nm = rename[b.key] || b.key;
-                const zeroCls = (!w || !w.trades) ? ' wp-zero' : '';
+                const zeroCls = ((!w || !w.trades) ? ' wp-zero' : '') + (b.group === 'manual' ? ' wp-muted' : '');
                 body += `<tr class="${zeroCls}"><td style="text-align:left;">${nm}</td>`
                      +  `<td style="text-align:center;">${(w && w.trades) || 0}</td>`
                      +  `<td style="text-align:right;" class="${cls}">${(amt>=0?'+':'')}${amt.toLocaleString()}원</td></tr>`;
             });
+            // 그룹 소계: 헤더 총계가 봇 성과인 것처럼 읽히지 않도록 내역을 붙인다.
+            if (!opts.onlySplit) {
+                const money = v => `${(v>=0?'+':'')}${v.toLocaleString()}원`;
+                [['bot','봇 합계'],['alloc','자산배분'],['manual','수동(참고)']].forEach(([g, lbl]) => {
+                    const v = grpSum[g] || 0;
+                    body += `<tr class="wp-grpsum"><td style="text-align:left;" colspan="2">${lbl}</td>`
+                         +  `<td style="text-align:right;" class="${v>=0?'wp-pos':'wp-neg'}">${money(v)}</td></tr>`;
+                });
+            }
             const totalCls = total >= 0 ? 'wp-pos' : 'wp-neg';
             const totalTxt = `${(total>=0?'+':'')}${total.toLocaleString()}원`;
             const title = opts.title || '금주 성과';
@@ -777,24 +845,45 @@ body.naver-popup-open { overflow: hidden; }
                     .wp-weeksum{width:100%;}
                     .wp-zero td{color:#aaa;}
                     .wp-mini-note{font-size:10px;color:#999;margin-top:4px;text-align:center;}
+                    /* 그룹 구분: 봇 / 자산배분 / 수동 */
+                    .wp-sec{max-width:1880px;margin:20px 0 10px;padding:6px 10px;border-left:4px solid #8B0000;background:#faf3f3;
+                            font-weight:700;font-size:14px;color:#8B0000;border-radius:0 6px 6px 0;}
+                    .wp-sec span{font-weight:400;font-size:11px;color:#999;margin-left:8px;}
+                    .wp-sec-muted{border-left-color:#b9b9b9;background:#f5f5f5;color:#777;}
+                    .wp-muted-card{opacity:.78;}
+                    .wp-muted-card .wp-title{color:#777;border-bottom-color:#c9c9c9;}
+                    .wp-muted td{color:#999;}
+                    .wp-grpsum td{background:#faf7f7;font-weight:700;border-top:1px solid #e3d3d3;}
+                    /* 3개월 누적표 */
+                    .wp-quarter .wp-table{font-size:12px;}
+                    .wp-quarter .wp-table td{padding:4px 6px;}
+                    .wp-qsep td{background:#f2eaea;color:#8B0000;font-weight:700;font-size:11px;padding:2px 6px !important;}
                     /* 카드 표가 좌우 스크롤 없이 다 보이려면 카드 폭 ≥ 약 690px 필요.
                        그 폭을 못 주는 구간부터 순서대로 레일 → 2열 을 아래로 떨군다. */
                     @media(max-width:1740px){.wp-shell{grid-template-columns:1fr;}.wp-side{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}}
                     @media(max-width:1400px){.wp-grid{grid-template-columns:1fr;}.wp-toparea{grid-template-columns:minmax(0,1fr) 320px;}}
                     @media(max-width:1080px){.wp-toparea{grid-template-columns:1fr;}.wp-topcoin,.wp-topmini{width:320px;max-width:100%;}}
                 </style>
-                <div class="wp-note">📊 최종 업데이트: ${data.updated || '-'} · 완결거래(매수→전량청산) 기준, 실현손익만 집계.
-                    당일봇=보유'분' / 스윙봇=보유'일'. 손익비=평균수익금액÷평균손실금액(기준 1.0). 미청산 포지션·체결로그(2026-06-11~) 이전 매매는 제외.</div>
+                <div class="wp-note">📊 최종 업데이트: ${data.updated || '-'} · <b>이 표는 봇 태그별 성과 비교용</b>이다 —
+                    맨 위 '통합'은 <b>봇 태그만</b> 합산하며 수동매매·통합ETF(자산배분)는 빠진다. 귀속 기준은 <b>매수 시점 태그</b>
+                    (봇이 산 걸 사람이 팔면 봇 성과, 사람이 산 걸 봇이 팔면 수동 성과).<br>
+                    거래건수·승률·PF·기대값 = 완결 포지션 기준 / 실현손익 금액 = ${data.realize_from
+                        ? `${data.realize_from} 주부터 <b>매도 시점</b> 기준(부분청산 포함)`
+                        : `완결 포지션 기준 (부분청산 반영은 컷오프 ${data.cutoff_date || '-'} 부터)`}.
+                    당일봇=보유'분' / 스윙봇=보유'일'. 손익비=평균수익금액÷평균손실금액(기준 1.0). 체결로그(2026-06-11~) 이전 매매는 제외.</div>
 `;
                 const allBots = data.bots || [];
                 const totBot = allBots.find(b => b.key === '통합');
-                const restBots = allBots.filter(b => b.key !== '통합');
+                const restBots = allBots.filter(b => b.key !== '통합' && b.group === 'bot');
+                const allocBots = allBots.filter(b => b.group === 'alloc');
+                const manualBots = allBots.filter(b => b.group === 'manual');
                 html += `<div class="wp-shell"><main class="wp-main">`;
                 if (totBot) html += `<div class="wp-toparea">
                     <div class="wp-solo">${renderWeeklyBot(totBot)}</div>
                     <div class="wp-topcoin">${renderCoinWeek(data)}</div>
                     <div class="wp-topmini">${renderWeeklySummary(data, {onlySplit:true, title:'단타/기타 성과'})}</div>
                 </div>`;
+                html += renderQuarter(data);
                 html += `<div class="wp-grid">`;
                 const byKey = new Map(restBots.map(b => [b.key, b]));
                 const pinePairs = [
@@ -809,13 +898,12 @@ body.naver-popup-open { overflow: hidden; }
                 const pineKeys = new Set(pinePairs.flat());
                 const normalOrder = [
                     '주도주', 'ROCKET',
-                    'ABC-VCP', '수동매매',
-                    '통합ETF', '2X단타',
-                    '삼닉v3_저2', '삼닉v3_추세',
-                    '삼닉v3_MA', '5minHL',
-                    '5minHL2', '5minHL_미분류',
-                    '미국VCP', '미국수동',
-                    '저점사다리', '기타(8042)',
+                    'ABC-VCP', 'TV알림',
+                    '2X단타', '삼닉v3_저2',
+                    '삼닉v3_추세', '삼닉v3_MA',
+                    '5minHL', '5minHL2',
+                    '5minHL_미분류', '미국VCP',
+                    '저점사다리',
                 ];
                 const rendered = new Set();
                 const renderKey = key => {
@@ -833,12 +921,26 @@ body.naver-popup-open { overflow: hidden; }
                     if (pineKeys.has(b.key)) renderKey(b.key);
                 });
                 html += renderUsVcpBoard(data);
+                html += `</div>`;
+                // ── 자산배분 / 수동: 봇 성과와 섞이지 않게 아래에 따로 뗀다 ──
+                if (allocBots.length) {
+                    html += `<div class="wp-sec">자산배분 <span>리밸런싱 · 통합 합산에서 제외</span></div>`;
+                    html += `<div class="wp-grid">`;
+                    allocBots.forEach(b => { html += renderWeeklyBot(b); });
+                    html += `</div>`;
+                }
+                if (manualBots.length) {
+                    html += `<div class="wp-sec wp-sec-muted">수동 <span>사람이 직접 매수 · 참고용 · 통합 합산에서 제외</span></div>`;
+                    html += `<div class="wp-grid">`;
+                    manualBots.forEach(b => { html += renderWeeklyBot(b, 'wp-muted-card'); });
+                    html += `</div>`;
+                }
                 const combined = await fetchCombinedAssetParts(COMBINED_DONUT_ACCS);
                 const combinedDonut = renderDonutCard(combined.parts, {
                     showUS: true,
                     currency: currencyBuckets(combined.parts),
                 });
-                html += `</div></main><aside class="wp-side">${combinedDonut}${renderWeeklySummary(data, {excludeSplit:true, title:'금주 성과'})}</aside></div>`;
+                html += `</main><aside class="wp-side">${combinedDonut}${renderWeeklySummary(data, {excludeSplit:true, title:'금주 성과'})}</aside></div>`;
                 area.innerHTML = html;
             } catch (err) {
                 console.error('[loadWeekly Error]', err);

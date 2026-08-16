@@ -1,9 +1,13 @@
 import html
 import re
 import json
+import sys
 from pathlib import Path
 from datetime import datetime, timedelta
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+from trading_day import is_kr_trading_day, last_kr_trading_day  # noqa: E402
 
 BASE = Path(__file__).resolve().parent
 REPORT_TXT = BASE.parent / "report_kr_summary.txt"
@@ -268,6 +272,8 @@ def update_leader_tracking(leader_block):
     - 최초 등장 날짜(added_date) 기록
     - 14일(2주) 이상 지난 항목은 자동 삭제
     - 동일 ticker 중복 추가 안 함 (날짜 갱신 없이 최초 날짜 유지)
+    - 휴장일에는 갱신하지 않고 직전 거래일 상태를 그대로 반환
+      (휴장일엔 주도주 블록이 비어 나와 트래킹이 통째로 지워지던 문제 방지)
     """
     today_str = datetime.now().strftime("%Y-%m-%d")
     cutoff = (datetime.now() - timedelta(days=14)).strftime("%Y-%m-%d")
@@ -280,6 +286,11 @@ def update_leader_tracking(leader_block):
             tracking = {}
     else:
         tracking = {}
+
+    if not is_kr_trading_day(today_str):
+        print(f"[휴장일] {today_str} — KR전종목 주도주 트래킹 갱신 생략, "
+              f"직전 거래일({last_kr_trading_day(today_str)}) 상태 유지 ({len(tracking)}종목)")
+        return tracking
 
     # 14일 지난 항목 제거
     tracking = {k: v for k, v in tracking.items() if v.get("added_date", "") >= cutoff}

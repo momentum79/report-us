@@ -6,9 +6,13 @@
 
 import csv
 import json
+import sys
 import pandas as pd
 from pathlib import Path
 from datetime import datetime, timedelta
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from trading_day import is_kr_trading_day, last_kr_trading_day  # noqa: E402
 
 
 NAVER_TXT         = Path(r"D:\py\0txt\00_1887_naver_thema.txt")
@@ -314,6 +318,8 @@ def roll_and_load_yesterday(daily_data: dict, fetched_at: str) -> dict:
     - 같은 날 재실행 시에는 yesterday를 건드리지 않고 today만 갱신
       → 종일 돌려도 "전일 테마"가 어제 데이터로 유지됨 (이전 버그: 매 실행마다 덮어써서
         2번째 실행부터 오늘 데이터가 전일로 표시되던 문제 수정)
+    - 휴장일(주말/공휴일)에는 아예 쓰지 않고 직전 거래일 스냅샷을 그대로 반환
+      → 토/일에 돌려서 금요일 데이터가 yesterday로 밀렸다가 사라지던 문제 방지
     반환: build_yesterday_section 용 flat dict (yesterday)
     """
     try:
@@ -330,6 +336,16 @@ def roll_and_load_yesterday(daily_data: dict, fetched_at: str) -> dict:
             store = json.loads(YESTERDAY_JSON.read_text(encoding="utf-8"))
         except Exception:
             store = {}
+
+    # 휴장일: 스냅샷 롤링/저장 없이 직전 거래일 상태 유지
+    if not is_kr_trading_day(today_str):
+        prev = last_kr_trading_day(today_str)
+        kept = store.get("yesterday") or {}
+        print(f"[휴장일] {today_str} — 전일 테마 스냅샷 갱신 생략, "
+              f"직전 거래일({prev}) 상태 유지 "
+              f"(today={(store.get('today') or {}).get('date_str', '-')}, "
+              f"yesterday={kept.get('date_str', '-')})")
+        return kept
 
     if "today" in store or "yesterday" in store:
         yesterday_snap = store.get("yesterday") or {}
@@ -454,7 +470,10 @@ def build_yesterday_section(yesterday_data: dict, daily_data: dict,
 # ── 테마주 트래킹 ──────────────────────────────────────────────────
 
 def update_theme_stock_tracking(daily_data: dict) -> dict:
-    """당일 테마 구성종목 누적 트래킹 (14일 보관)"""
+    """당일 테마 구성종목 누적 트래킹 (14일 보관).
+
+    휴장일에는 갱신하지 않고 직전 거래일 상태를 그대로 반환한다.
+    """
     today_str = datetime.now().strftime("%Y-%m-%d")
     cutoff    = (datetime.now() - timedelta(days=TRACKING_DAYS)).strftime("%Y-%m-%d")
 
@@ -466,6 +485,11 @@ def update_theme_stock_tracking(daily_data: dict) -> dict:
             tracking = {}
     else:
         tracking = {}
+
+    if not is_kr_trading_day(today_str):
+        print(f"[휴장일] {today_str} — 테마주 트래킹 갱신 생략, "
+              f"직전 거래일({last_kr_trading_day(today_str)}) 상태 유지 ({len(tracking)}종목)")
+        return tracking
 
     # 14일 지난 항목 제거
     tracking = {k: v for k, v in tracking.items()
@@ -711,7 +735,11 @@ def build_theme_tracking_table(tracking: dict) -> str:
 # ── 히스토리 사이드바 (PC 전용) ────────────────────────────────────
 
 def update_theme_history(daily_data: dict, fetched_at: str) -> dict:
-    """당일 테마 상위 3개명 → theme_history.json (7일치 보관)"""
+    """당일 테마 상위 3개명 → theme_history.json (7일치 보관).
+
+    휴장일에는 기록하지 않는다. 빈 항목이 들어가면 7일 창을 잡아먹어
+    실제 거래일 히스토리가 밀려나기 때문.
+    """
     try:
         date_str = fetched_at[:10]  # 'YYYY-MM-DD'
     except Exception:
@@ -727,6 +755,11 @@ def update_theme_history(daily_data: dict, fetched_at: str) -> dict:
             history = {}
     else:
         history = {}
+
+    if not is_kr_trading_day(date_str):
+        print(f"[휴장일] {date_str} — 테마 히스토리 기록 생략, "
+              f"직전 거래일({last_kr_trading_day(date_str)})까지 유지")
+        return history
 
     history[date_str] = names
 

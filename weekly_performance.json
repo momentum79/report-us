@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-16 10:34:51",
+  "updated": "2026-08-16 13:01:32",
   "weeks_limit": 8,
   "week_keys": [
     "2026-06-22",
@@ -21,6 +21,8 @@
     "2026-08-03": "08/03~08/07",
     "2026-08-10": "08/10~08/14"
   },
+  "realize_from": null,
+  "cutoff_date": "2026-08-17",
   "fx_usdkrw": {
     "2026-06-22": 1415.0,
     "2026-06-29": 1415.0,
@@ -34,6 +36,7 @@
   "bots": [
     {
       "key": "통합",
+      "group": "bot",
       "unit": "혼합",
       "weeks": [
         {
@@ -52,6 +55,7 @@
           "sum_pnl_amt": -224174,
           "sum_pnl_gross": -219740,
           "sum_fee_tax": 4434,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -72,6 +76,7 @@
           "sum_pnl_amt": 31442,
           "sum_pnl_gross": 36101,
           "sum_fee_tax": 4659,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -92,133 +97,141 @@
           "sum_pnl_amt": 21236,
           "sum_pnl_gross": 26414,
           "sum_fee_tax": 5178,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
         },
         {
-          "trades": 12,
-          "winrate": 58.3,
-          "pl_ratio": 8.1,
+          "trades": 10,
+          "winrate": 70.0,
+          "pl_ratio": 8.63,
           "avg_win": 7.98,
-          "avg_loss": 3.51,
+          "avg_loss": 4.11,
           "max_win": 11.14,
           "max_loss": 9.65,
           "hold_win": null,
           "hold_loss": null,
-          "expectancy": 3.19,
-          "expectancy_amt": 31606,
-          "profit_factor": 11.34,
-          "sum_pnl_amt": 379274,
-          "sum_pnl_gross": 381441,
-          "sum_fee_tax": 2167,
+          "expectancy": 4.349,
+          "expectancy_amt": 39530,
+          "profit_factor": 20.14,
+          "sum_pnl_amt": 395295,
+          "sum_pnl_gross": 396949,
+          "sum_fee_tax": 1654,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
         },
         {
-          "trades": 20,
-          "winrate": 50.0,
-          "pl_ratio": 1.7,
-          "avg_win": 5.84,
-          "avg_loss": 2.74,
+          "trades": 16,
+          "winrate": 56.2,
+          "pl_ratio": 3.14,
+          "avg_win": 6.33,
+          "avg_loss": 3.59,
           "max_win": 11.09,
           "max_loss": 11.77,
           "hold_win": null,
           "hold_loss": null,
-          "expectancy": 1.549,
-          "expectancy_amt": 3288,
-          "profit_factor": 1.7,
-          "sum_pnl_amt": 65757,
-          "sum_pnl_gross": 72944,
-          "sum_fee_tax": 7187,
+          "expectancy": 1.991,
+          "expectancy_amt": 7428,
+          "profit_factor": 4.04,
+          "sum_pnl_amt": 118846,
+          "sum_pnl_gross": 120120,
+          "sum_fee_tax": 1274,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
         },
         {
-          "trades": 29,
-          "winrate": 44.8,
-          "pl_ratio": 1.14,
-          "avg_win": 4.17,
-          "avg_loss": 3.17,
+          "trades": 18,
+          "winrate": 44.4,
+          "pl_ratio": 1.24,
+          "avg_win": 6.04,
+          "avg_loss": 3.37,
           "max_win": 13.51,
           "max_loss": 7.52,
           "hold_win": null,
           "hold_loss": null,
-          "expectancy": 0.116,
-          "expectancy_amt": -427,
-          "profit_factor": 0.93,
-          "sum_pnl_amt": -12396,
-          "sum_pnl_gross": -5715,
-          "sum_fee_tax": 6681,
+          "expectancy": 0.809,
+          "expectancy_amt": -52,
+          "profit_factor": 0.99,
+          "sum_pnl_amt": -927,
+          "sum_pnl_gross": 692,
+          "sum_fee_tax": 1619,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
         },
         {
-          "trades": 28,
-          "winrate": 17.9,
-          "pl_ratio": 1.15,
-          "avg_win": 0.8,
+          "trades": 25,
+          "winrate": 8.0,
+          "pl_ratio": 0.64,
+          "avg_win": 0.44,
           "avg_loss": 0.72,
-          "max_win": 2.2,
+          "max_win": 0.84,
           "max_loss": 2.28,
           "hold_win": null,
           "hold_loss": null,
-          "expectancy": -0.448,
-          "expectancy_amt": -6707,
-          "profit_factor": 0.25,
-          "sum_pnl_amt": -187786,
-          "sum_pnl_gross": -172206,
-          "sum_fee_tax": 15579,
+          "expectancy": -0.627,
+          "expectancy_amt": -9453,
+          "profit_factor": 0.06,
+          "sum_pnl_amt": -236325,
+          "sum_pnl_gross": -225000,
+          "sum_fee_tax": 11325,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
         },
         {
-          "trades": 7,
-          "winrate": 28.6,
-          "pl_ratio": 1.71,
-          "avg_win": 8.56,
-          "avg_loss": 3.88,
-          "max_win": 12.69,
+          "trades": 2,
+          "winrate": 0.0,
+          "pl_ratio": 0.0,
+          "avg_win": null,
+          "avg_loss": 8.41,
+          "max_win": null,
           "max_loss": 10.01,
           "hold_win": null,
           "hold_loss": null,
-          "expectancy": -0.327,
-          "expectancy_amt": -7621,
-          "profit_factor": 0.68,
-          "sum_pnl_amt": -53347,
-          "sum_pnl_gross": -37747,
-          "sum_fee_tax": 15600,
+          "expectancy": -8.407,
+          "expectancy_amt": -40645,
+          "profit_factor": 0.0,
+          "sum_pnl_amt": -81290,
+          "sum_pnl_gross": -80145,
+          "sum_fee_tax": 1145,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
         }
       ],
       "total": {
-        "trades": 232,
-        "winrate": 37.5,
-        "pl_ratio": 1.69,
-        "avg_win": 4.13,
-        "avg_loss": 2.63,
+        "trades": 207,
+        "winrate": 36.7,
+        "pl_ratio": 1.76,
+        "avg_win": 4.36,
+        "avg_loss": 2.71,
         "max_win": 17.35,
         "max_loss": 20.1,
         "hold_win": null,
         "hold_loss": null,
-        "expectancy": -0.098,
-        "expectancy_amt": 86,
-        "profit_factor": 1.01,
-        "sum_pnl_amt": 20006,
-        "sum_pnl_gross": 81491,
-        "sum_fee_tax": 61485,
+        "expectancy": -0.111,
+        "expectancy_amt": 116,
+        "profit_factor": 1.02,
+        "sum_pnl_amt": 24103,
+        "sum_pnl_gross": 55391,
+        "sum_fee_tax": 31288,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "주도주",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -237,6 +250,7 @@
           "sum_pnl_amt": -235428,
           "sum_pnl_gross": -232550,
           "sum_fee_tax": 2878,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -257,6 +271,7 @@
           "sum_pnl_amt": 58925,
           "sum_pnl_gross": 60000,
           "sum_fee_tax": 1075,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -277,6 +292,7 @@
           "sum_pnl_amt": -4171,
           "sum_pnl_gross": -2451,
           "sum_fee_tax": 1720,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -297,6 +313,7 @@
           "sum_pnl_amt": 342974,
           "sum_pnl_gross": 344105,
           "sum_fee_tax": 1131,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -317,6 +334,7 @@
           "sum_pnl_amt": 71497,
           "sum_pnl_gross": 72080,
           "sum_fee_tax": 583,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -337,6 +355,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -357,6 +376,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -377,6 +397,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -395,15 +416,17 @@
         "expectancy": 0.186,
         "expectancy_amt": 7085,
         "profit_factor": 1.76,
-        "sum_pnl_amt": 233799,
+        "sum_pnl_amt": 233797,
         "sum_pnl_gross": 241184,
-        "sum_fee_tax": 7385,
+        "sum_fee_tax": 7387,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "ROCKET",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -422,6 +445,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -442,6 +466,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -462,6 +487,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -482,6 +508,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -502,6 +529,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -522,6 +550,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -542,6 +571,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -562,6 +592,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -583,12 +614,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "ABC-VCP",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -607,6 +640,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -627,6 +661,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -647,6 +682,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -667,6 +703,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -687,6 +724,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -707,6 +745,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -727,6 +766,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -747,6 +787,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -768,12 +809,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "TV알림",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -792,6 +835,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -812,6 +856,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -832,6 +877,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -852,6 +898,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -872,6 +919,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -892,6 +940,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -912,6 +961,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -932,6 +982,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -953,382 +1004,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
-        "week": "TOTAL",
-        "label": "최근 8주"
-      }
-    },
-    {
-      "key": "수동매매",
-      "unit": "일",
-      "weeks": [
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-06-22",
-          "label": "06/22~06/26",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-06-29",
-          "label": "06/29~07/03",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-07-06",
-          "label": "07/06~07/10",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-07-13",
-          "label": "07/13~07/17",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-07-20",
-          "label": "07/20~07/24",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 9,
-          "winrate": 55.6,
-          "pl_ratio": 0.69,
-          "avg_win": 1.17,
-          "avg_loss": 4.19,
-          "max_win": 3.38,
-          "max_loss": 7.04,
-          "hold_win": 3.0,
-          "hold_loss": 1.75,
-          "expectancy": -1.213,
-          "expectancy_amt": -744,
-          "profit_factor": 0.86,
-          "sum_pnl_amt": -6692,
-          "sum_pnl_gross": -4553,
-          "sum_fee_tax": 2139,
-          "week": "2026-07-27",
-          "label": "07/27~07/31",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-08-03",
-          "label": "08/03~08/07",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 2,
-          "winrate": 100.0,
-          "pl_ratio": null,
-          "avg_win": 8.56,
-          "avg_loss": null,
-          "max_win": 12.69,
-          "max_loss": null,
-          "hold_win": 4.5,
-          "hold_loss": null,
-          "expectancy": 8.56,
-          "expectancy_amt": 57466,
-          "profit_factor": null,
-          "sum_pnl_amt": 114933,
-          "sum_pnl_gross": 115600,
-          "sum_fee_tax": 667,
-          "week": "2026-08-10",
-          "label": "08/10~08/14",
-          "fx_usdkrw": 1411.0
-        }
-      ],
-      "total": {
-        "trades": 11,
-        "winrate": 63.6,
-        "pl_ratio": 1.84,
-        "avg_win": 3.28,
-        "avg_loss": 4.19,
-        "max_win": 12.69,
-        "max_loss": 7.04,
-        "hold_win": 3.43,
-        "hold_loss": 1.75,
-        "expectancy": 0.564,
-        "expectancy_amt": 9840,
-        "profit_factor": 3.23,
-        "sum_pnl_amt": 108241,
-        "sum_pnl_gross": 111047,
-        "sum_fee_tax": 2806,
-        "week": "TOTAL",
-        "label": "최근 8주"
-      }
-    },
-    {
-      "key": "통합ETF",
-      "unit": "일",
-      "weeks": [
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-06-22",
-          "label": "06/22~06/26",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-06-29",
-          "label": "06/29~07/03",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-07-06",
-          "label": "07/06~07/10",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 2,
-          "winrate": 0.0,
-          "pl_ratio": 0.0,
-          "avg_win": null,
-          "avg_loss": 2.61,
-          "max_win": null,
-          "max_loss": 3.49,
-          "hold_win": null,
-          "hold_loss": 1.0,
-          "expectancy": -2.607,
-          "expectancy_amt": -8011,
-          "profit_factor": 0.0,
-          "sum_pnl_amt": -16021,
-          "sum_pnl_gross": -15508,
-          "sum_fee_tax": 513,
-          "week": "2026-07-13",
-          "label": "07/13~07/17",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 4,
-          "winrate": 25.0,
-          "pl_ratio": 0.07,
-          "avg_win": 1.37,
-          "avg_loss": 0.74,
-          "max_win": 1.37,
-          "max_loss": 1.32,
-          "hold_win": 1.0,
-          "hold_loss": 5.67,
-          "expectancy": -0.217,
-          "expectancy_amt": -13272,
-          "profit_factor": 0.02,
-          "sum_pnl_amt": -53089,
-          "sum_pnl_gross": -47176,
-          "sum_fee_tax": 5913,
-          "week": "2026-07-20",
-          "label": "07/20~07/24",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 2,
-          "winrate": 0.0,
-          "pl_ratio": 0.0,
-          "avg_win": null,
-          "avg_loss": 0.14,
-          "max_win": null,
-          "max_loss": 0.16,
-          "hold_win": null,
-          "hold_loss": 5.5,
-          "expectancy": -0.136,
-          "expectancy_amt": -2389,
-          "profit_factor": 0.0,
-          "sum_pnl_amt": -4777,
-          "sum_pnl_gross": -1854,
-          "sum_fee_tax": 2924,
-          "week": "2026-07-27",
-          "label": "07/27~07/31",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 3,
-          "winrate": 100.0,
-          "pl_ratio": null,
-          "avg_win": 1.04,
-          "avg_loss": null,
-          "max_win": 2.2,
-          "max_loss": null,
-          "hold_win": 14.0,
-          "hold_loss": null,
-          "expectancy": 1.042,
-          "expectancy_amt": 16180,
-          "profit_factor": null,
-          "sum_pnl_amt": 48540,
-          "sum_pnl_gross": 52794,
-          "sum_fee_tax": 4254,
-          "week": "2026-08-03",
-          "label": "08/03~08/07",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 3,
-          "winrate": 0.0,
-          "pl_ratio": 0.0,
-          "avg_win": null,
-          "avg_loss": 0.86,
-          "max_win": null,
-          "max_loss": 1.53,
-          "hold_win": null,
-          "hold_loss": 4.67,
-          "expectancy": -0.864,
-          "expectancy_amt": -28997,
-          "profit_factor": 0.0,
-          "sum_pnl_amt": -86990,
-          "sum_pnl_gross": -73203,
-          "sum_fee_tax": 13787,
-          "week": "2026-08-10",
-          "label": "08/10~08/14",
-          "fx_usdkrw": 1411.0
-        }
-      ],
-      "total": {
-        "trades": 14,
-        "winrate": 28.6,
-        "pl_ratio": 0.77,
-        "avg_win": 1.12,
-        "avg_loss": 1.03,
-        "max_win": 2.2,
-        "max_loss": 3.49,
-        "hold_win": 10.75,
-        "hold_loss": 4.4,
-        "expectancy": -0.416,
-        "expectancy_amt": -8024,
-        "profit_factor": 0.31,
-        "sum_pnl_amt": -112338,
-        "sum_pnl_gross": -84947,
-        "sum_fee_tax": 27391,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "2X단타",
+      "group": "bot",
       "unit": "분",
       "weeks": [
         {
@@ -1347,6 +1030,7 @@
           "sum_pnl_amt": 13680,
           "sum_pnl_gross": 15210,
           "sum_fee_tax": 1530,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -1367,6 +1051,7 @@
           "sum_pnl_amt": -57188,
           "sum_pnl_gross": -54359,
           "sum_fee_tax": 2829,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -1387,6 +1072,7 @@
           "sum_pnl_amt": 36789,
           "sum_pnl_gross": 40095,
           "sum_fee_tax": 3306,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -1407,6 +1093,7 @@
           "sum_pnl_amt": 52321,
           "sum_pnl_gross": 52844,
           "sum_fee_tax": 523,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -1427,6 +1114,7 @@
           "sum_pnl_amt": 45679,
           "sum_pnl_gross": 46340,
           "sum_fee_tax": 661,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -1447,6 +1135,7 @@
           "sum_pnl_amt": 13616,
           "sum_pnl_gross": 15177,
           "sum_fee_tax": 1561,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -1467,6 +1156,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -1487,6 +1177,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -1505,15 +1196,17 @@
         "expectancy": 0.188,
         "expectancy_amt": 783,
         "profit_factor": 1.2,
-        "sum_pnl_amt": 104898,
+        "sum_pnl_amt": 104897,
         "sum_pnl_gross": 115307,
-        "sum_fee_tax": 10409,
+        "sum_fee_tax": 10410,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "삼닉v3_저2",
+      "group": "bot",
       "unit": "분",
       "weeks": [
         {
@@ -1532,6 +1225,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -1552,6 +1246,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -1572,6 +1267,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -1592,6 +1288,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -1612,6 +1309,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -1632,6 +1330,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -1652,6 +1351,7 @@
           "sum_pnl_amt": -14641,
           "sum_pnl_gross": -13350,
           "sum_fee_tax": 1291,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -1672,6 +1372,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -1693,12 +1394,14 @@
         "sum_pnl_amt": -14641,
         "sum_pnl_gross": -13350,
         "sum_fee_tax": 1291,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "삼닉v3_추세",
+      "group": "bot",
       "unit": "분",
       "weeks": [
         {
@@ -1717,6 +1420,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -1737,6 +1441,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -1757,6 +1462,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -1777,6 +1483,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -1797,6 +1504,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -1817,6 +1525,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -1837,6 +1546,7 @@
           "sum_pnl_amt": -138394,
           "sum_pnl_gross": -133875,
           "sum_fee_tax": 4519,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -1857,6 +1567,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -1878,12 +1589,14 @@
         "sum_pnl_amt": -138394,
         "sum_pnl_gross": -133875,
         "sum_fee_tax": 4519,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "삼닉v3_MA",
+      "group": "bot",
       "unit": "분",
       "weeks": [
         {
@@ -1902,6 +1615,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -1922,6 +1636,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -1942,6 +1657,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -1962,6 +1678,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -1982,6 +1699,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -2002,6 +1720,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -2022,6 +1741,7 @@
           "sum_pnl_amt": -83290,
           "sum_pnl_gross": -77775,
           "sum_fee_tax": 5515,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -2042,6 +1762,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -2063,12 +1784,14 @@
         "sum_pnl_amt": -83290,
         "sum_pnl_gross": -77775,
         "sum_fee_tax": 5515,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "삼닉v3_미분류",
+      "group": "bot",
       "unit": "분",
       "weeks": [
         {
@@ -2087,6 +1810,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -2107,6 +1831,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -2127,6 +1852,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -2147,6 +1873,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -2167,6 +1894,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -2187,6 +1915,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -2207,6 +1936,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -2227,6 +1957,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -2248,12 +1979,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "5minHL",
+      "group": "bot",
       "unit": "분",
       "weeks": [
         {
@@ -2272,6 +2005,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -2292,6 +2026,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -2312,6 +2047,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -2332,6 +2068,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -2352,6 +2089,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -2372,6 +2110,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -2392,6 +2131,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -2412,6 +2152,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -2433,12 +2174,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "5minHL2",
+      "group": "bot",
       "unit": "분",
       "weeks": [
         {
@@ -2457,6 +2200,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -2477,6 +2221,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -2497,6 +2242,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -2517,6 +2263,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -2537,6 +2284,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -2557,6 +2305,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -2577,6 +2326,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -2597,6 +2347,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -2618,12 +2369,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "5minHL_동시",
+      "group": "bot",
       "unit": "분",
       "weeks": [
         {
@@ -2642,6 +2395,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -2662,6 +2416,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -2682,6 +2437,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -2702,6 +2458,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -2722,6 +2479,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -2742,6 +2500,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -2762,6 +2521,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -2782,6 +2542,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -2803,12 +2564,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "5minHL_미분류",
+      "group": "bot",
       "unit": "분",
       "weeks": [
         {
@@ -2827,6 +2590,7 @@
           "sum_pnl_amt": -2426,
           "sum_pnl_gross": -2400,
           "sum_fee_tax": 26,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -2847,6 +2611,7 @@
           "sum_pnl_amt": 29704,
           "sum_pnl_gross": 30460,
           "sum_fee_tax": 756,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -2867,6 +2632,7 @@
           "sum_pnl_amt": -11383,
           "sum_pnl_gross": -11230,
           "sum_fee_tax": 153,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -2887,6 +2653,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -2907,6 +2674,7 @@
           "sum_pnl_amt": 1670,
           "sum_pnl_gross": 1700,
           "sum_fee_tax": 30,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -2927,6 +2695,7 @@
           "sum_pnl_amt": -14543,
           "sum_pnl_gross": -14485,
           "sum_fee_tax": 58,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -2947,6 +2716,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -2967,6 +2737,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -2988,12 +2759,14 @@
         "sum_pnl_amt": 3022,
         "sum_pnl_gross": 4045,
         "sum_fee_tax": 1023,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "KR_TR_ORD_A",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -3012,6 +2785,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -3032,6 +2806,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -3052,6 +2827,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -3072,6 +2848,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -3092,6 +2869,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -3112,6 +2890,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -3132,6 +2911,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -3152,6 +2932,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -3173,12 +2954,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "KR_TR_VOLUME_1",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -3197,6 +2980,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -3217,6 +3001,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -3237,6 +3022,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -3257,6 +3043,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -3277,6 +3064,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -3297,6 +3085,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -3317,6 +3106,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -3337,6 +3127,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -3358,12 +3149,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "KR_TR_VOLUME_2",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -3382,6 +3175,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -3402,6 +3196,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -3422,6 +3217,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -3442,6 +3238,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -3462,6 +3259,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -3482,6 +3280,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -3502,6 +3301,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -3522,6 +3322,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -3543,12 +3344,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "KR_TR_VCP1",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -3567,6 +3370,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -3587,6 +3391,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -3607,6 +3412,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -3627,6 +3433,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -3647,6 +3454,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -3667,6 +3475,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -3687,6 +3496,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -3707,6 +3517,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -3728,12 +3539,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "KR_TR_VCP2",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -3752,6 +3565,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -3772,6 +3586,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -3792,6 +3607,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -3812,6 +3628,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -3832,6 +3649,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -3852,6 +3670,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -3872,6 +3691,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -3892,6 +3712,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -3913,12 +3734,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "KR_TR_JEO2",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -3937,6 +3760,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -3957,6 +3781,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -3977,6 +3802,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -3997,6 +3823,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -4017,6 +3844,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -4037,6 +3865,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -4057,6 +3886,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -4077,6 +3907,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -4098,12 +3929,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "KR_TR_MA",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -4122,6 +3955,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -4142,6 +3976,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -4162,6 +3997,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -4182,6 +4018,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -4202,6 +4039,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -4222,6 +4060,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -4242,6 +4081,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -4262,6 +4102,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -4283,12 +4124,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "KR_TR_ADD1",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -4307,6 +4150,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -4327,6 +4171,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -4347,6 +4192,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -4367,6 +4213,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -4387,6 +4234,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -4407,6 +4255,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -4427,6 +4276,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -4447,6 +4297,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -4468,12 +4319,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "미국VCP",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -4492,6 +4345,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -4512,6 +4366,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -4532,6 +4387,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -4552,6 +4408,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -4572,6 +4429,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -4592,6 +4450,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -4612,6 +4471,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -4632,6 +4492,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -4653,12 +4514,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "US_TR_ORD_A",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -4677,6 +4540,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -4697,6 +4561,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -4717,6 +4582,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -4737,6 +4603,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -4757,6 +4624,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -4777,6 +4645,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -4797,6 +4666,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -4817,6 +4687,7 @@
           "sum_pnl_amt": -71414,
           "sum_pnl_gross": -70465,
           "sum_fee_tax": 949,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -4838,12 +4709,14 @@
         "sum_pnl_amt": -71414,
         "sum_pnl_gross": -70465,
         "sum_fee_tax": 949,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "US_TR_VOLUME_1",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -4862,6 +4735,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -4882,6 +4756,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -4902,6 +4777,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -4922,6 +4798,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -4942,6 +4819,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -4962,6 +4840,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -4982,6 +4861,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -5002,6 +4882,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -5023,12 +4904,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "US_TR_VOLUME_2",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -5047,6 +4930,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -5067,6 +4951,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -5087,6 +4972,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -5107,6 +4993,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -5127,6 +5014,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -5147,6 +5035,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -5167,6 +5056,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -5187,6 +5077,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -5208,12 +5099,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "US_TR_VCP1",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -5232,6 +5125,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -5252,6 +5146,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -5272,6 +5167,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -5292,6 +5188,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -5312,6 +5209,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -5332,6 +5230,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -5352,6 +5251,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -5372,6 +5272,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -5393,12 +5294,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "US_TR_VCP2",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -5417,6 +5320,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -5437,6 +5341,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -5457,6 +5362,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -5477,6 +5383,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -5497,6 +5404,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -5517,6 +5425,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -5537,6 +5446,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -5557,6 +5467,7 @@
           "sum_pnl_amt": -9876,
           "sum_pnl_gross": -9679,
           "sum_fee_tax": 196,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -5578,12 +5489,14 @@
         "sum_pnl_amt": -9876,
         "sum_pnl_gross": -9679,
         "sum_fee_tax": 196,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "US_TR_JEO2",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -5602,6 +5515,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -5622,6 +5536,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -5642,6 +5557,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -5662,6 +5578,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -5682,6 +5599,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -5702,6 +5620,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -5722,6 +5641,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -5742,6 +5662,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -5763,12 +5684,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "US_TR_MA",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -5787,6 +5710,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -5807,6 +5731,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -5827,6 +5752,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -5847,6 +5773,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -5867,6 +5794,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -5887,6 +5815,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -5907,6 +5836,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -5927,6 +5857,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -5948,12 +5879,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "US_TR_ADD1",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -5972,6 +5905,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -5992,6 +5926,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -6012,6 +5947,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -6032,6 +5968,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -6052,6 +5989,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -6072,6 +6010,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -6092,6 +6031,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -6112,6 +6052,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -6133,12 +6074,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "US_TR_LEGACY",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -6157,6 +6100,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -6177,6 +6121,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -6197,6 +6142,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -6217,6 +6163,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -6237,6 +6184,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -6257,6 +6205,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -6277,6 +6226,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -6297,6 +6247,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -6318,12 +6269,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "US_TR_LEGACY_TREND",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -6342,6 +6295,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -6362,6 +6316,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -6382,6 +6337,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -6402,6 +6358,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -6422,6 +6379,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -6442,6 +6400,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -6462,6 +6421,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -6482,6 +6442,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -6503,12 +6464,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "US_TR_LEGACY_LOW",
+      "group": "bot",
       "unit": "일",
       "weeks": [
         {
@@ -6527,6 +6490,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -6547,6 +6511,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -6567,6 +6532,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -6587,6 +6553,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -6607,6 +6574,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -6627,6 +6595,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -6647,6 +6616,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -6667,6 +6637,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -6688,197 +6659,14 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
-        "week": "TOTAL",
-        "label": "최근 8주"
-      }
-    },
-    {
-      "key": "미국수동",
-      "unit": "일",
-      "weeks": [
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-06-22",
-          "label": "06/22~06/26",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-06-29",
-          "label": "06/29~07/03",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-07-06",
-          "label": "07/06~07/10",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-07-13",
-          "label": "07/13~07/17",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-07-20",
-          "label": "07/20~07/24",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-07-27",
-          "label": "07/27~07/31",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-08-03",
-          "label": "08/03~08/07",
-          "fx_usdkrw": 1415.0
-        },
-        {
-          "trades": 0,
-          "winrate": null,
-          "pl_ratio": null,
-          "avg_win": null,
-          "avg_loss": null,
-          "max_win": null,
-          "max_loss": null,
-          "hold_win": null,
-          "hold_loss": null,
-          "expectancy": null,
-          "expectancy_amt": null,
-          "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "week": "2026-08-10",
-          "label": "08/10~08/14",
-          "fx_usdkrw": 1411.0
-        }
-      ],
-      "total": {
-        "trades": 0,
-        "winrate": null,
-        "pl_ratio": null,
-        "avg_win": null,
-        "avg_loss": null,
-        "max_win": null,
-        "max_loss": null,
-        "hold_win": null,
-        "hold_loss": null,
-        "expectancy": null,
-        "expectancy_amt": null,
-        "profit_factor": null,
-        "sum_pnl_amt": 0,
-        "sum_pnl_gross": 0,
-        "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "저점사다리",
+      "group": "bot",
       "unit": "분",
       "weeks": [
         {
@@ -6897,6 +6685,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -6917,6 +6706,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -6937,6 +6727,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -6957,6 +6748,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -6977,6 +6769,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -6997,6 +6790,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -7017,6 +6811,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -7037,6 +6832,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -7058,12 +6854,794 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
+        "week": "TOTAL",
+        "label": "최근 8주"
+      }
+    },
+    {
+      "key": "통합ETF",
+      "group": "alloc",
+      "unit": "일",
+      "weeks": [
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-06-22",
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-06-29",
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-07-06",
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 2,
+          "winrate": 0.0,
+          "pl_ratio": 0.0,
+          "avg_win": null,
+          "avg_loss": 2.61,
+          "max_win": null,
+          "max_loss": 3.49,
+          "hold_win": null,
+          "hold_loss": 1.0,
+          "expectancy": -2.607,
+          "expectancy_amt": -8011,
+          "profit_factor": 0.0,
+          "sum_pnl_amt": -16021,
+          "sum_pnl_gross": -15508,
+          "sum_fee_tax": 513,
+          "sell_events": null,
+          "week": "2026-07-13",
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 4,
+          "winrate": 25.0,
+          "pl_ratio": 0.07,
+          "avg_win": 1.37,
+          "avg_loss": 0.74,
+          "max_win": 1.37,
+          "max_loss": 1.32,
+          "hold_win": 1.0,
+          "hold_loss": 5.67,
+          "expectancy": -0.217,
+          "expectancy_amt": -13272,
+          "profit_factor": 0.02,
+          "sum_pnl_amt": -53089,
+          "sum_pnl_gross": -47176,
+          "sum_fee_tax": 5913,
+          "sell_events": null,
+          "week": "2026-07-20",
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 2,
+          "winrate": 0.0,
+          "pl_ratio": 0.0,
+          "avg_win": null,
+          "avg_loss": 0.14,
+          "max_win": null,
+          "max_loss": 0.16,
+          "hold_win": null,
+          "hold_loss": 5.5,
+          "expectancy": -0.136,
+          "expectancy_amt": -2389,
+          "profit_factor": 0.0,
+          "sum_pnl_amt": -4777,
+          "sum_pnl_gross": -1854,
+          "sum_fee_tax": 2924,
+          "sell_events": null,
+          "week": "2026-07-27",
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 3,
+          "winrate": 100.0,
+          "pl_ratio": null,
+          "avg_win": 1.04,
+          "avg_loss": null,
+          "max_win": 2.2,
+          "max_loss": null,
+          "hold_win": 14.0,
+          "hold_loss": null,
+          "expectancy": 1.042,
+          "expectancy_amt": 16180,
+          "profit_factor": null,
+          "sum_pnl_amt": 48540,
+          "sum_pnl_gross": 52794,
+          "sum_fee_tax": 4254,
+          "sell_events": null,
+          "week": "2026-08-03",
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 3,
+          "winrate": 0.0,
+          "pl_ratio": 0.0,
+          "avg_win": null,
+          "avg_loss": 0.86,
+          "max_win": null,
+          "max_loss": 1.53,
+          "hold_win": null,
+          "hold_loss": 4.67,
+          "expectancy": -0.864,
+          "expectancy_amt": -28997,
+          "profit_factor": 0.0,
+          "sum_pnl_amt": -86990,
+          "sum_pnl_gross": -73203,
+          "sum_fee_tax": 13787,
+          "sell_events": null,
+          "week": "2026-08-10",
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
+        }
+      ],
+      "total": {
+        "trades": 14,
+        "winrate": 28.6,
+        "pl_ratio": 0.77,
+        "avg_win": 1.12,
+        "avg_loss": 1.03,
+        "max_win": 2.2,
+        "max_loss": 3.49,
+        "hold_win": 10.75,
+        "hold_loss": 4.4,
+        "expectancy": -0.416,
+        "expectancy_amt": -8024,
+        "profit_factor": 0.31,
+        "sum_pnl_amt": -112337,
+        "sum_pnl_gross": -84947,
+        "sum_fee_tax": 27391,
+        "sell_events": null,
+        "week": "TOTAL",
+        "label": "최근 8주"
+      }
+    },
+    {
+      "key": "수동합계",
+      "group": "manual",
+      "unit": "혼합",
+      "weeks": [
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-06-22",
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-06-29",
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-07-06",
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-07-13",
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-07-20",
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 9,
+          "winrate": 55.6,
+          "pl_ratio": 0.69,
+          "avg_win": 1.17,
+          "avg_loss": 4.19,
+          "max_win": 3.38,
+          "max_loss": 7.04,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": -1.213,
+          "expectancy_amt": -744,
+          "profit_factor": 0.86,
+          "sum_pnl_amt": -6692,
+          "sum_pnl_gross": -4553,
+          "sum_fee_tax": 2139,
+          "sell_events": null,
+          "week": "2026-07-27",
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-08-03",
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 2,
+          "winrate": 100.0,
+          "pl_ratio": null,
+          "avg_win": 8.56,
+          "avg_loss": null,
+          "max_win": 12.69,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": 8.56,
+          "expectancy_amt": 57466,
+          "profit_factor": null,
+          "sum_pnl_amt": 114933,
+          "sum_pnl_gross": 115600,
+          "sum_fee_tax": 667,
+          "sell_events": null,
+          "week": "2026-08-10",
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
+        }
+      ],
+      "total": {
+        "trades": 11,
+        "winrate": 63.6,
+        "pl_ratio": 1.84,
+        "avg_win": 3.28,
+        "avg_loss": 4.19,
+        "max_win": 12.69,
+        "max_loss": 7.04,
+        "hold_win": null,
+        "hold_loss": null,
+        "expectancy": 0.564,
+        "expectancy_amt": 9840,
+        "profit_factor": 3.23,
+        "sum_pnl_amt": 108241,
+        "sum_pnl_gross": 111047,
+        "sum_fee_tax": 2806,
+        "sell_events": null,
+        "week": "TOTAL",
+        "label": "최근 8주"
+      }
+    },
+    {
+      "key": "수동매매",
+      "group": "manual",
+      "unit": "일",
+      "weeks": [
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-06-22",
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-06-29",
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-07-06",
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-07-13",
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-07-20",
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 9,
+          "winrate": 55.6,
+          "pl_ratio": 0.69,
+          "avg_win": 1.17,
+          "avg_loss": 4.19,
+          "max_win": 3.38,
+          "max_loss": 7.04,
+          "hold_win": 3.0,
+          "hold_loss": 1.75,
+          "expectancy": -1.213,
+          "expectancy_amt": -744,
+          "profit_factor": 0.86,
+          "sum_pnl_amt": -6692,
+          "sum_pnl_gross": -4553,
+          "sum_fee_tax": 2139,
+          "sell_events": null,
+          "week": "2026-07-27",
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-08-03",
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 2,
+          "winrate": 100.0,
+          "pl_ratio": null,
+          "avg_win": 8.56,
+          "avg_loss": null,
+          "max_win": 12.69,
+          "max_loss": null,
+          "hold_win": 4.5,
+          "hold_loss": null,
+          "expectancy": 8.56,
+          "expectancy_amt": 57466,
+          "profit_factor": null,
+          "sum_pnl_amt": 114933,
+          "sum_pnl_gross": 115600,
+          "sum_fee_tax": 667,
+          "sell_events": null,
+          "week": "2026-08-10",
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
+        }
+      ],
+      "total": {
+        "trades": 11,
+        "winrate": 63.6,
+        "pl_ratio": 1.84,
+        "avg_win": 3.28,
+        "avg_loss": 4.19,
+        "max_win": 12.69,
+        "max_loss": 7.04,
+        "hold_win": 3.43,
+        "hold_loss": 1.75,
+        "expectancy": 0.564,
+        "expectancy_amt": 9840,
+        "profit_factor": 3.23,
+        "sum_pnl_amt": 108241,
+        "sum_pnl_gross": 111047,
+        "sum_fee_tax": 2806,
+        "sell_events": null,
+        "week": "TOTAL",
+        "label": "최근 8주"
+      }
+    },
+    {
+      "key": "미국수동",
+      "group": "manual",
+      "unit": "일",
+      "weeks": [
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-06-22",
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-06-29",
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-07-06",
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-07-13",
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-07-20",
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-07-27",
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-08-03",
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": null,
+          "week": "2026-08-10",
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
+        }
+      ],
+      "total": {
+        "trades": 0,
+        "winrate": null,
+        "pl_ratio": null,
+        "avg_win": null,
+        "avg_loss": null,
+        "max_win": null,
+        "max_loss": null,
+        "hold_win": null,
+        "hold_loss": null,
+        "expectancy": null,
+        "expectancy_amt": null,
+        "profit_factor": null,
+        "sum_pnl_amt": 0,
+        "sum_pnl_gross": 0,
+        "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     },
     {
       "key": "기타(8042)",
+      "group": "manual",
       "unit": "분",
       "weeks": [
         {
@@ -7082,6 +7660,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-22",
           "label": "06/22~06/26",
           "fx_usdkrw": 1415.0
@@ -7102,6 +7681,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-06-29",
           "label": "06/29~07/03",
           "fx_usdkrw": 1415.0
@@ -7122,6 +7702,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-06",
           "label": "07/06~07/10",
           "fx_usdkrw": 1415.0
@@ -7142,6 +7723,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-13",
           "label": "07/13~07/17",
           "fx_usdkrw": 1415.0
@@ -7162,6 +7744,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-20",
           "label": "07/20~07/24",
           "fx_usdkrw": 1415.0
@@ -7182,6 +7765,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-07-27",
           "label": "07/27~07/31",
           "fx_usdkrw": 1415.0
@@ -7202,6 +7786,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-03",
           "label": "08/03~08/07",
           "fx_usdkrw": 1415.0
@@ -7222,6 +7807,7 @@
           "sum_pnl_amt": 0,
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
+          "sell_events": null,
           "week": "2026-08-10",
           "label": "08/10~08/14",
           "fx_usdkrw": 1411.0
@@ -7243,11 +7829,285 @@
         "sum_pnl_amt": 0,
         "sum_pnl_gross": 0,
         "sum_fee_tax": 0,
+        "sell_events": null,
         "week": "TOTAL",
         "label": "최근 8주"
       }
     }
   ],
+  "quarter": {
+    "weeks": 10,
+    "from": "2026-06-08",
+    "to": "2026-08-10",
+    "label": "06/08~08/14",
+    "clamped_to_cutoff": false,
+    "rows": [
+      {
+        "trades": 224,
+        "winrate": 37.1,
+        "pl_ratio": 1.78,
+        "avg_win": 4.65,
+        "avg_loss": 2.75,
+        "max_win": 19.29,
+        "max_loss": 20.1,
+        "hold_win": null,
+        "hold_loss": null,
+        "expectancy": -0.007,
+        "expectancy_amt": 335,
+        "profit_factor": 1.05,
+        "sum_pnl_amt": 74970,
+        "sum_pnl_gross": 109751,
+        "sum_fee_tax": 34781,
+        "sell_events": null,
+        "key": "통합",
+        "group": "bot",
+        "unit": "혼합",
+        "label": "통합"
+      },
+      {
+        "trades": 50,
+        "winrate": 40.0,
+        "pl_ratio": 2.25,
+        "avg_win": 6.34,
+        "avg_loss": 3.31,
+        "max_win": 19.29,
+        "max_loss": 11.77,
+        "hold_win": 2.0,
+        "hold_loss": 1.47,
+        "expectancy": 0.551,
+        "expectancy_amt": 5693,
+        "profit_factor": 1.5,
+        "sum_pnl_amt": 284665,
+        "sum_pnl_gross": 295544,
+        "sum_fee_tax": 10879,
+        "sell_events": null,
+        "key": "주도주",
+        "group": "bot",
+        "unit": "일",
+        "label": "주도주"
+      },
+      {
+        "trades": 134,
+        "winrate": 41.8,
+        "pl_ratio": 1.67,
+        "avg_win": 4.45,
+        "avg_loss": 2.87,
+        "max_win": 17.35,
+        "max_loss": 20.1,
+        "hold_win": 600.88,
+        "hold_loss": 163.85,
+        "expectancy": 0.188,
+        "expectancy_amt": 783,
+        "profit_factor": 1.2,
+        "sum_pnl_amt": 104898,
+        "sum_pnl_gross": 115307,
+        "sum_fee_tax": 10409,
+        "sell_events": null,
+        "key": "2X단타",
+        "group": "bot",
+        "unit": "분",
+        "label": "2X단타"
+      },
+      {
+        "trades": 13,
+        "winrate": 38.5,
+        "pl_ratio": 1.71,
+        "avg_win": 1.83,
+        "avg_loss": 3.89,
+        "max_win": 4.6,
+        "max_loss": 7.52,
+        "hold_win": 1633.99,
+        "hold_loss": 2111.58,
+        "expectancy": -1.689,
+        "expectancy_amt": 232,
+        "profit_factor": 1.07,
+        "sum_pnl_amt": 3022,
+        "sum_pnl_gross": 4045,
+        "sum_fee_tax": 1023,
+        "sell_events": null,
+        "key": "5minHL_미분류",
+        "group": "bot",
+        "unit": "분",
+        "label": "5minHL_미분류"
+      },
+      {
+        "trades": 1,
+        "winrate": 0.0,
+        "pl_ratio": 0.0,
+        "avg_win": null,
+        "avg_loss": 6.8,
+        "max_win": null,
+        "max_loss": 6.8,
+        "hold_win": null,
+        "hold_loss": 5.0,
+        "expectancy": -6.802,
+        "expectancy_amt": -9876,
+        "profit_factor": 0.0,
+        "sum_pnl_amt": -9876,
+        "sum_pnl_gross": -9679,
+        "sum_fee_tax": 196,
+        "sell_events": null,
+        "key": "US_TR_VCP2",
+        "group": "bot",
+        "unit": "일",
+        "label": "US_TR_VCP2"
+      },
+      {
+        "trades": 3,
+        "winrate": 0.0,
+        "pl_ratio": 0.0,
+        "avg_win": null,
+        "avg_loss": 0.34,
+        "max_win": null,
+        "max_loss": 0.49,
+        "hold_win": null,
+        "hold_loss": 13.35,
+        "expectancy": -0.341,
+        "expectancy_amt": -4880,
+        "profit_factor": 0.0,
+        "sum_pnl_amt": -14641,
+        "sum_pnl_gross": -13350,
+        "sum_fee_tax": 1291,
+        "sell_events": null,
+        "key": "삼닉v3_저2",
+        "group": "bot",
+        "unit": "분",
+        "label": "삼닉v3_저2"
+      },
+      {
+        "trades": 1,
+        "winrate": 0.0,
+        "pl_ratio": 0.0,
+        "avg_win": null,
+        "avg_loss": 10.01,
+        "max_win": null,
+        "max_loss": 10.01,
+        "hold_win": null,
+        "hold_loss": 3.0,
+        "expectancy": -10.012,
+        "expectancy_amt": -71414,
+        "profit_factor": 0.0,
+        "sum_pnl_amt": -71414,
+        "sum_pnl_gross": -70465,
+        "sum_fee_tax": 949,
+        "sell_events": null,
+        "key": "US_TR_ORD_A",
+        "group": "bot",
+        "unit": "일",
+        "label": "US_TR_ORD_A"
+      },
+      {
+        "trades": 12,
+        "winrate": 16.7,
+        "pl_ratio": 0.72,
+        "avg_win": 0.44,
+        "avg_loss": 0.64,
+        "max_win": 0.84,
+        "max_loss": 1.81,
+        "hold_win": 14.12,
+        "hold_loss": 26.24,
+        "expectancy": -0.461,
+        "expectancy_amt": -6941,
+        "profit_factor": 0.14,
+        "sum_pnl_amt": -83290,
+        "sum_pnl_gross": -77775,
+        "sum_fee_tax": 5515,
+        "sell_events": null,
+        "key": "삼닉v3_MA",
+        "group": "bot",
+        "unit": "분",
+        "label": "삼닉v3_MA"
+      },
+      {
+        "trades": 10,
+        "winrate": 0.0,
+        "pl_ratio": 0.0,
+        "avg_win": null,
+        "avg_loss": 0.91,
+        "max_win": null,
+        "max_loss": 2.28,
+        "hold_win": null,
+        "hold_loss": 29.99,
+        "expectancy": -0.912,
+        "expectancy_amt": -13839,
+        "profit_factor": 0.0,
+        "sum_pnl_amt": -138394,
+        "sum_pnl_gross": -133875,
+        "sum_fee_tax": 4519,
+        "sell_events": null,
+        "key": "삼닉v3_추세",
+        "group": "bot",
+        "unit": "분",
+        "label": "삼닉v3_추세"
+      },
+      {
+        "trades": 14,
+        "winrate": 28.6,
+        "pl_ratio": 0.77,
+        "avg_win": 1.12,
+        "avg_loss": 1.03,
+        "max_win": 2.2,
+        "max_loss": 3.49,
+        "hold_win": 10.75,
+        "hold_loss": 4.4,
+        "expectancy": -0.416,
+        "expectancy_amt": -8024,
+        "profit_factor": 0.31,
+        "sum_pnl_amt": -112338,
+        "sum_pnl_gross": -84947,
+        "sum_fee_tax": 27391,
+        "sell_events": null,
+        "key": "통합ETF",
+        "group": "alloc",
+        "unit": "일",
+        "label": "통합ETF"
+      },
+      {
+        "trades": 11,
+        "winrate": 63.6,
+        "pl_ratio": 1.84,
+        "avg_win": 3.28,
+        "avg_loss": 4.19,
+        "max_win": 12.69,
+        "max_loss": 7.04,
+        "hold_win": null,
+        "hold_loss": null,
+        "expectancy": 0.564,
+        "expectancy_amt": 9840,
+        "profit_factor": 3.23,
+        "sum_pnl_amt": 108241,
+        "sum_pnl_gross": 111047,
+        "sum_fee_tax": 2806,
+        "sell_events": null,
+        "key": "수동합계",
+        "group": "manual",
+        "unit": "혼합",
+        "label": "수동합계"
+      },
+      {
+        "trades": 11,
+        "winrate": 63.6,
+        "pl_ratio": 1.84,
+        "avg_win": 3.28,
+        "avg_loss": 4.19,
+        "max_win": 12.69,
+        "max_loss": 7.04,
+        "hold_win": 3.43,
+        "hold_loss": 1.75,
+        "expectancy": 0.564,
+        "expectancy_amt": 9840,
+        "profit_factor": 3.23,
+        "sum_pnl_amt": 108241,
+        "sum_pnl_gross": 111047,
+        "sum_fee_tax": 2806,
+        "sell_events": null,
+        "key": "수동매매",
+        "group": "manual",
+        "unit": "일",
+        "label": "수동매매"
+      }
+    ]
+  },
   "coin_week": {
     "label": "8/10~8/16",
     "total": 0,

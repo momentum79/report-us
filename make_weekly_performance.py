@@ -203,9 +203,19 @@ COIN_WEEKDAYS = ["월", "화", "수", "목", "금", "토", "일"]
 BINANCE_FUT_INCOME_CSV = os.path.join(BASE_DIR, "coin_binan", "0_binance_usdt_futures_income_v1.csv")
 
 # 성과 tag 표시 순서 + 보유단위 ("day"=스윙 일, "min"=당일 분)
+#
+# ★ 그룹 분리 (2026-08-16 확정)
+#   이 게시판의 목적은 "내 전체 성적표"가 아니라 "봇 태그별 성과 비교"다.
+#   3개월 단위로 어느 태그를 늘리고 어느 태그를 죽일지 판단하는 게 목적이므로
+#   사람 판단이 섞인 거래는 통합 합산에서 빠져야 한다.
+#     bot    = 자동매매. 맨 위 '통합' 행은 이 그룹만 합산한다.
+#     alloc  = 자산배분 리밸런싱(통합ETF). 매매전략과 성격이 달라 별도 그룹.
+#     manual = 사람이 직접 매수한 태그. 하단 참고행으로만 남긴다.
+#   ※ 귀속 기준은 어디까지나 '매수 시점 태그'다. 봇이 산 걸 사람이 팔면 봇 성과,
+#     사람이 산 걸 봇이 팔면 수동 성과 (build_round_trips 의 FIFO 흡수 참고).
 TAG_ORDER = [
     "통합",
-    "주도주", "ROCKET", "ABC-VCP", "TV알림", "수동매매", "통합ETF",
+    "주도주", "ROCKET", "ABC-VCP", "TV알림",
     "2X단타", "삼닉v3_저2", "삼닉v3_추세", "삼닉v3_MA", "삼닉v3_미분류",
     "5minHL", "5minHL2", "5minHL_동시", "5minHL_미분류",
     "KR_TR_ORD_A", "KR_TR_VOLUME_1", "KR_TR_VOLUME_2", "KR_TR_VCP1",
@@ -213,7 +223,11 @@ TAG_ORDER = [
     "미국VCP", "US_TR_ORD_A", "US_TR_VOLUME_1", "US_TR_VOLUME_2",
     "US_TR_VCP1", "US_TR_VCP2", "US_TR_JEO2", "US_TR_MA", "US_TR_ADD1",
     "US_TR_LEGACY", "US_TR_LEGACY_TREND", "US_TR_LEGACY_LOW",
-    "미국수동", "저점사다리", "기타(8042)",
+    "저점사다리",
+    # ── 자산배분 (리밸런싱) ──
+    "통합ETF",
+    # ── 수동 (사람이 직접 매수) ──
+    "수동합계", "수동매매", "미국수동", "기타(8042)",
 ]
 TAG_UNIT = {
     "주도주": "day", "ROCKET": "day", "ABC-VCP": "day", "TV알림": "day",
@@ -229,13 +243,32 @@ TAG_UNIT = {
     "2X단타": "min", "삼닉v3_저2": "min", "삼닉v3_추세": "min", "삼닉v3_MA": "min",
     "삼닉v3_미분류": "min",
     "5minHL": "min", "5minHL2": "min", "5minHL_동시": "min", "5minHL_미분류": "min",
-    "기타(8042)": "min", "저점사다리": "min", "통합": "mix",
+    "기타(8042)": "min", "저점사다리": "min", "통합": "mix", "수동합계": "mix",
 }
 
 # 사람이 직접 낸 주문으로 분류되는 태그. 이 태그의 '매도'는 어느 봇 물량을 판 건지
 # 알 수 없으므로 자기 서랍이 비면 같은 종목의 봇 서랍에서 FIFO 로 흡수한다
 # (build_round_trips 참고). 매수는 그대로 이 태그의 포지션이 된다.
-MANUAL_TAGS = {"수동매매", "미국수동"}
+#   ※ 집계에서 빼면 안 된다. 봇이 산 물량을 사람이 판 매도가 흡수될 자리가 없어져
+#     그 봇 포지션이 영영 안 닫힌다. "통합 합산·표시에서 제외" 일 뿐이다.
+MANUAL_TAGS = {"수동매매", "미국수동", "기타(8042)"}
+
+# 자산배분(주간 리밸런싱). 매매전략이 아니라 비중조절이라 통합에 섞으면 비교가 흐려진다.
+ALLOC_TAGS = {"통합ETF"}
+
+# 그룹별 집계 행(개별 태그가 아니라 합산 행). key → (그룹, 합산 대상 판정)
+AGGREGATE_TAGS = {"통합": "bot", "수동합계": "manual"}
+
+
+def tag_group(tag):
+    """성과 tag → 그룹. 'bot' | 'alloc' | 'manual'"""
+    if tag in AGGREGATE_TAGS:
+        return AGGREGATE_TAGS[tag]
+    if tag in MANUAL_TAGS:
+        return "manual"
+    if tag in ALLOC_TAGS:
+        return "alloc"
+    return "bot"
 
 # 오래된 이름을 쓰는 보조 출력부와의 호환용 alias.
 BOT_ORDER = TAG_ORDER
@@ -271,6 +304,52 @@ CUTOFF_DATE = (BASELINE or {}).get("cutoff_date") or None
 def _after_cutoff(fill):
     """이 체결이 컷오프 당일 이후인가. 컷오프 미설정이면 항상 False(기존 동작 유지)."""
     return bool(CUTOFF_DATE) and str(fill.get("date", "")) >= CUTOFF_DATE
+
+
+# ───────── 부분청산 실현손익 (2026-08-16 확정) ─────────
+# 기존 집계는 포지션이 완전히 flat 될 때만 손익을 확정했다. 그러면 분할청산이
+# 전략의 본질인 태그(KR/US_TR_MA 의 MA5/10/20 1/3 청산, 추세태그의 고점 1/3,
+# 주도주의 잔량 보유)가 구조적으로 늦게·뭉쳐서 잡혀 태그별 비교가 왜곡된다.
+#
+# 결정: 금액은 매도 시점 / 건수는 포지션 완결 기준.
+#   · 주간 '실현손익' 금액  → 그 주에 일어난 모든 매도의 실현분 (REALIZATIONS)
+#   · 거래건수·승률·PF·기대값 → 완결 라운드트립 기준 (trips) — 기존 그대로
+#   분할청산 전략이 승률 계산에서 불리해지지 않게 하려는 것이다
+#   (고점 1/3 익절 + 잔량 손절을 1승 2패로 세지 않는다).
+#
+# 적용 시점은 컷오프(=베이스라인 리셋)부터. 그 이전 주차는 기존 완결 기준을 그대로
+# 보존해서 이미 보신 과거 숫자가 흔들리지 않게 한다.
+REALIZATIONS = []
+
+
+def realize_active():
+    """부분청산 회계가 켜졌는가. 컷오프가 실제로 도래해야 켠다.
+
+    도래 전에 켜면 TR 이월분 때문에 '아직 오지도 않은 컷오프 주' 행이 미리 생긴다.
+    build_round_trips 의 베이스라인 시딩도 같은 조건(도래 후)에서만 도므로 기준을 맞춘다.
+    """
+    return bool(CUTOFF_DATE) and date.today().isoformat() >= CUTOFF_DATE
+
+
+def realize_from_week():
+    """부분청산 회계를 적용하기 시작하는 주(월요일 iso). 컷오프 전이면 None(=기능 off)."""
+    if not realize_active():
+        return None
+    try:
+        return week_monday(datetime.strptime(CUTOFF_DATE, "%Y-%m-%d").date()).isoformat()
+    except Exception:
+        return None
+
+
+def _mk_realization(bot, source, code, name, entry_dt, exit_dt, qty, avg_entry, price):
+    """매도 1건의 실현손익 레코드. trip 과 같은 스키마라 _krw()/비용계산을 그대로 쓴다."""
+    return trade_costs.apply_to_trip({
+        "bot": bot, "source": source, "code": code, "name": name,
+        "entry_dt": entry_dt, "exit_dt": exit_dt,
+        "avg_entry": avg_entry, "avg_exit": price, "qty": qty,
+        "pnl_pct": ((price / avg_entry - 1.0) * 100.0) if avg_entry > 0 else 0.0,
+        "pnl_amt": (price - avg_entry) * qty,
+    })
 
 
 # ───────── fill 이벤트 수집 (make_danta_journal.py 와 동일 스키마) ─────────
@@ -441,7 +520,9 @@ def build_round_trips(fills, baseline=None, verbose=True):
         baseline = BASELINE
     open_pos = {}      # (acct, code, performance_tag) → dict
     trips = []
+    REALIZATIONS.clear()   # 재실행(full/web 2회 호출) 시 중복 누적 방지
     cutoff = (baseline or {}).get("cutoff_date")
+    realize_on = bool(cutoff) and realize_active()
     seeded = False
     stats = {"seeded": 0, "absorbed": 0, "absorbed_qty": 0,
              "dropped": 0, "dropped_qty": 0}
@@ -502,6 +583,14 @@ def build_round_trips(fills, baseline=None, verbose=True):
         take = min(want, p["held"])
         if take <= 0:
             return 0
+        # 부분청산 실현손익: 매도할 때마다 그 시점 평균단가로 기록한다.
+        # 컷오프 이전 매도는 남기지 않는다 — 어차피 seed_from_baseline() 이 그때 열려있던
+        # 포지션을 전량 폐기하고 실계좌 잔고로 다시 시딩하므로 원가 기준이 갈아엎어진다.
+        if realize_on and p["buy_qty"] > 0 and dt.date().isoformat() >= cutoff:
+            REALIZATIONS.append(_mk_realization(
+                p["owner"], "intraday", key[1], p["name"],
+                p["first_buy_dt"] or dt, dt, take,
+                p["buy_cost"] / p["buy_qty"], price))
         p["sell_qty"]      += take
         p["sell_proceeds"] += take * price
         p["held"]          -= take
@@ -695,9 +784,70 @@ def _parse_dt(value, fallback_day=None):
     return None
 
 
+def _tr_position_realizations(pos, tag, cutoff_date, carry_out):
+    """TR ledger 포지션 1개를 주문 시간순으로 replay → 매도 건별 실현손익.
+
+    ledger 는 완전청산 포지션만 성과로 내주는데(remaining_strategy_qty>0 이면 skip),
+    MA 1/3 청산·고점 1/3 익절이 바로 그 '완전청산 전' 상태라 성과가 통째로 안 잡힌다.
+    여기서 부분매도마다 그 시점 평균단가로 실현손익을 뽑는다.
+
+    컷오프 이전 매도는 두 갈래다.
+      · 컷오프 전에 완전청산된 포지션 → 그 주 trip 으로 이미 집계됨 → 버린다.
+      · 컷오프 시점에 아직 열려 있던 포지션 → 완결 기준으로도 집계된 적이 없고,
+        새 회계에서는 전량청산 시점에도 안 잡힌다 → carry_out 으로 넘겨 컷오프 주에 이월.
+        (intraday 쪽은 baseline 재시딩이 원가를 갈아엎으므로 이월하지 않는다)
+    """
+    evs = []
+    for o in (pos.get("orders") or []):
+        q = int(o.get("filled_qty", 0) or 0)
+        px = float(o.get("avg_fill_price") or o.get("order_price") or 0)
+        dt = _parse_dt(o.get("ordered_at"), o.get("trade_date"))
+        if q <= 0 or px <= 0 or dt is None:
+            continue
+        evs.append((dt, o.get("side"), q, px))
+    evs.sort(key=lambda x: x[0])
+
+    code = pos.get("code", "")
+    name = pos.get("name", "")
+    held, cost, first_buy = 0, 0.0, None
+    pending, out, crossed = [], [], False
+    for dt, side, q, px in evs:
+        if not crossed and dt.date().isoformat() >= cutoff_date:
+            crossed = True
+            if held > 0:
+                carry_out.extend(pending)
+            pending = []
+        if side == "BUY":
+            if held <= 0:
+                first_buy = dt
+            cost += q * px
+            held += q
+        elif side == "SELL":
+            take = min(q, held)
+            if take <= 0:
+                continue
+            avg = cost / held
+            r = _mk_realization(tag, "tr_ledger", code, name,
+                                first_buy or dt, dt, take, avg, px)
+            cost -= take * avg
+            held -= take
+            if crossed:
+                out.append(r)
+            else:
+                pending.append(r)
+                if held <= 0:
+                    pending = []      # 컷오프 전 완결 → trip 으로 이미 집계
+    if not crossed and held > 0:
+        carry_out.extend(pending)
+    return out
+
+
 def build_tr_ledger_round_trips():
-    """Pine TR ledger의 code|strategy_tag 포지션에서 완전 청산된 라운드트립을 만든다."""
+    """Pine TR ledger의 code|strategy_tag 포지션에서 완전 청산된 라운드트립을 만든다.
+    같은 replay 로 부분매도 실현손익(REALIZATIONS)도 함께 채운다."""
     trips = []
+    cutoff = CUTOFF_DATE if realize_active() else None
+    carry = []
     for filename in ("tr_ledger_2773_KR.json", "tr_ledger_1887_US.json"):
         path = os.path.join(TR_LEDGER_DIR, filename)
         if not os.path.exists(path):
@@ -714,6 +864,9 @@ def build_tr_ledger_round_trips():
             tag = pos.get("strategy_tag")
             if not tag:
                 continue
+            # 실현손익 replay 는 미청산 포지션도 대상 — 아래 완결 트립 로직보다 먼저 돈다.
+            if cutoff:
+                REALIZATIONS.extend(_tr_position_realizations(pos, tag, cutoff, carry))
             orders = pos.get("orders") or []
             buys = [o for o in orders if o.get("side") == "BUY" and int(o.get("filled_qty", 0) or 0) > 0]
             sells = [o for o in orders if o.get("side") == "SELL" and int(o.get("filled_qty", 0) or 0) > 0]
@@ -746,6 +899,19 @@ def build_tr_ledger_round_trips():
                 "pnl_amt": (avg_exit - avg_entry) * closed_qty,
                 "hold_min": hold_min, "hold_day": hold_day,
             }))
+
+    # 컷오프 시점 미청산 포지션의 이전 부분매도 → 컷오프 주로 이월(총손익 보존).
+    if carry and cutoff:
+        try:
+            cut_dt = datetime.strptime(cutoff, "%Y-%m-%d").replace(hour=9)
+        except Exception:
+            cut_dt = datetime.now()
+        for r in carry:
+            r["carry_in"] = r["exit_dt"].date().isoformat()
+            r["exit_dt"] = cut_dt
+        REALIZATIONS.extend(carry)
+        amt = sum(_krw(r, "net_pnl_amt") for r in carry)
+        print(f"  컷오프 이월(TR 미청산 포지션의 이전 부분매도): {len(carry)}건 {amt:,.0f}원")
     return trips
 
 
@@ -769,16 +935,33 @@ def _krw(t, field):
     return v * fx_for_week(week_monday(t["exit_dt"].date()))
 
 
-def summarize(trips, unit):
+def summarize(trips, unit, reals=None):
     """라운드트립 리스트 → 그림4-2 지표 dict. unit: 'day'|'min'|'mix'.
-    승률·평균·손익비·기대값·PF 는 전부 수수료·세금 차감 후(net) 기준이다."""
+    승률·평균·손익비·기대값·PF 는 전부 수수료·세금 차감 후(net) 기준이다.
+
+    reals 가 주어지면(컷오프 이후 주차) 실현손익 '금액' 3개 컬럼만 매도 건별 실현분으로
+    바꾼다. 거래건수·승률·PF·기대값은 그대로 완결 라운드트립 기준이다.
+    → 분할청산 전략이 승률에서 불리해지지 않으면서 금액은 제때 반영된다.
+    """
+    if reals is None:
+        amt_src, sells = trips, None
+    else:
+        amt_src, sells = reals, len(reals)
+    sums = {
+        "sum_pnl_amt":   int(round(sum(_krw(t, "net_pnl_amt") for t in amt_src))),
+        "sum_pnl_gross": int(round(sum(_krw(t, "pnl_amt") for t in amt_src))),
+        "sum_fee_tax":   int(round(sum(_krw(t, "fee_tax") for t in amt_src))),
+        "sell_events":   sells,
+    }
     n = len(trips)
     if n == 0:
-        return {"trades": 0, "winrate": None, "pl_ratio": None,
-                "avg_win": None, "avg_loss": None,
-                "max_win": None, "max_loss": None, "hold_win": None, "hold_loss": None,
-                "expectancy": None, "expectancy_amt": None, "profit_factor": None,
-                "sum_pnl_amt": 0, "sum_pnl_gross": 0, "sum_fee_tax": 0}
+        # 완결 포지션은 없어도 부분매도 실현손익은 있을 수 있다(잔량 보유 중).
+        empty = {"trades": 0, "winrate": None, "pl_ratio": None,
+                 "avg_win": None, "avg_loss": None,
+                 "max_win": None, "max_loss": None, "hold_win": None, "hold_loss": None,
+                 "expectancy": None, "expectancy_amt": None, "profit_factor": None}
+        empty.update(sums)
+        return empty
     wins   = [t for t in trips if t["net_pnl_pct"] > 0]
     losses = [t for t in trips if t["net_pnl_pct"] <= 0]
 
@@ -809,7 +992,7 @@ def summarize(trips, unit):
         hold_win  = avg([t[hk] for t in wins])
         hold_loss = avg([t[hk] for t in losses])
 
-    return {
+    out = {
         "trades": n,
         "winrate": round(len(wins) / n * 100.0, 1),
         "pl_ratio": pl_ratio,
@@ -822,56 +1005,80 @@ def summarize(trips, unit):
         "expectancy": expectancy,
         "expectancy_amt": expectancy_amt,
         "profit_factor": profit_factor,
-        "sum_pnl_amt":   int(round(sum(_krw(t, "net_pnl_amt") for t in trips))),
-        "sum_pnl_gross": int(round(sum(_krw(t, "pnl_amt") for t in trips))),
-        "sum_fee_tax":   int(round(sum(_krw(t, "fee_tax") for t in trips))),
     }
+    out.update(sums)
+    return out
 
 
 def build_report(trips, weeks_limit=None):
     """weeks_limit 지정 시 최근 N주만 포함(총계도 그 구간 기준 재계산).
     None 이면 전체 누적."""
-    all_weeks = sorted({week_monday(t["exit_dt"].date()) for t in trips})
+    reals = list(REALIZATIONS)
+    rf = realize_from_week()          # 이 주차부터 금액을 매도시점 실현으로 집계
+
+    def _wk(x):
+        return week_monday(x["exit_dt"].date())
+
+    all_weeks = sorted({_wk(t) for t in trips} |
+                       {_wk(r) for r in reals if rf and _wk(r).isoformat() >= rf})
     if weeks_limit:
         latest = max(all_weeks[-1] if all_weeks else week_monday(date.today()), week_monday(date.today()))
         keep = {latest - timedelta(days=7 * i) for i in range(weeks_limit)}
-        trips = [t for t in trips if week_monday(t["exit_dt"].date()) in keep]
+        trips = [t for t in trips if _wk(t) in keep]
+        reals = [r for r in reals if _wk(r) in keep]
         all_weeks = sorted(keep)
     elif not all_weeks:
         all_weeks = [week_monday(date.today())]
 
-    # 봇별 → 주별 그룹
+    # 태그별 → 주별 그룹
     by_bot = defaultdict(list)
     for t in trips:
         by_bot[t["bot"]].append(t)
-    # 통합
-    by_bot["통합"] = list(trips)
+    by_real = defaultdict(list)
+    for r in reals:
+        by_real[r["bot"]].append(r)
+
+    # 합산 행. '통합' 은 봇 그룹만 — 수동매매·통합ETF 는 섞지 않는다.
+    for agg, grp in AGGREGATE_TAGS.items():
+        by_bot[agg] = [t for t in trips if tag_group(t["bot"]) == grp]
+        by_real[agg] = [r for r in reals if tag_group(r["bot"]) == grp]
 
     week_keys = [w.isoformat() for w in all_weeks]
     week_labels = {w.isoformat(): week_label(w) for w in all_weeks}
 
     ordered_tags = list(BOT_ORDER)
-    for extra in sorted(k for k in by_bot.keys() if k not in ordered_tags):
+    for extra in sorted(k for k in set(by_bot) | set(by_real) if k not in ordered_tags):
         ordered_tags.append(extra)
+
+    def _summ(tag, unit, trip_list, real_list, use_reals):
+        return summarize(trip_list, unit, real_list if use_reals else None)
 
     bots_out = []
     for bot in ordered_tags:
         bt = by_bot.get(bot, [])
+        br = by_real.get(bot, [])
         unit = BOT_UNIT.get(bot, "min")
         weeks = []
         for w in all_weeks:
             wk = w.isoformat()
-            wt = [t for t in bt if week_monday(t["exit_dt"].date()).isoformat() == wk]
-            s = summarize(wt, unit)
+            use_reals = bool(rf) and wk >= rf
+            wt = [t for t in bt if _wk(t).isoformat() == wk]
+            wr = [r for r in br if _wk(r).isoformat() == wk]
+            s = _summ(bot, unit, wt, wr, use_reals)
             s["week"] = wk
             s["label"] = week_labels[wk]
             s["fx_usdkrw"] = round(fx_for_week(w), 2)   # 그 주 원화 환산에 쓴 환율(복기용)
             weeks.append(s)
+        # TOTAL 은 주차 합이라 컷오프 전/후가 섞인다 → 주차별로 고른 금액을 그대로 더한다.
         total = summarize(bt, unit)
+        for k in ("sum_pnl_amt", "sum_pnl_gross", "sum_fee_tax"):
+            total[k] = sum(w[k] for w in weeks)
+        total["sell_events"] = sum((w.get("sell_events") or 0) for w in weeks) or None
         total["week"] = "TOTAL"
         total["label"] = (f"최근 {weeks_limit}주" if weeks_limit else "전체")
         bots_out.append({
             "key": bot,
+            "group": tag_group(bot),
             "unit": ("일" if unit == "day" else ("분" if unit == "min" else "혼합")),
             "weeks": weeks,
             "total": total,
@@ -882,9 +1089,72 @@ def build_report(trips, weeks_limit=None):
         "weeks_limit": weeks_limit,
         "week_keys": week_keys,
         "week_labels": week_labels,
+        # 부분청산 회계가 켜지는 주(월요일). 이 주부터 실현손익 금액은 매도시점 기준.
+        "realize_from": rf,
+        "cutoff_date": CUTOFF_DATE,
         # 주차별 환산환율(=weekly_fx_snapshot.json 과 동일). 이 파일만 있어도 재현 가능.
         "fx_usdkrw": {w.isoformat(): round(fx_for_week(w), 2) for w in all_weeks},
         "bots": bots_out,
+        "quarter": build_quarter(by_bot, by_real, all_weeks, ordered_tags, rf),
+    }
+
+
+# ───────── 3개월 누적표 ─────────
+# 목적: 3개월 단위로 태그별 성적을 줄세워 "뭘 늘리고 뭘 죽일지" 판단.
+# 컷오프 리셋 이후 구간만 깨끗하므로, 컷오프가 창 안에 있으면 시작을 컷오프 주로 당긴다.
+QUARTER_WEEKS = 13
+
+
+def build_quarter(by_bot, by_real, all_weeks, ordered_tags, rf):
+    """최근 QUARTER_WEEKS 주 구간의 태그별 누적. 주간표와 같은 summarize 를 창 전체에 적용."""
+    if not all_weeks:
+        return None
+    end = all_weeks[-1]
+    start = end - timedelta(days=7 * (QUARTER_WEEKS - 1))
+    clamped = False
+    if rf and start.isoformat() < rf <= end.isoformat():
+        start = datetime.strptime(rf, "%Y-%m-%d").date()
+        clamped = True
+    weeks = [w for w in all_weeks if start <= w <= end]
+    if not weeks:
+        return None
+    wset = {w.isoformat() for w in weeks}
+    # 컷오프 이후 주차만 매도시점 실현 — 창이 컷오프를 걸치면 주차별로 갈라 더한다.
+    real_weeks = {w for w in wset if rf and w >= rf}
+    trip_weeks = wset - real_weeks
+
+    def inwin(x, keys):
+        return week_monday(x["exit_dt"].date()).isoformat() in keys
+
+    rows = []
+    for tag in ordered_tags:
+        bt = [t for t in by_bot.get(tag, []) if inwin(t, wset)]
+        amt_src = ([t for t in by_bot.get(tag, []) if inwin(t, trip_weeks)] +
+                   [r for r in by_real.get(tag, []) if inwin(r, real_weeks)])
+        if not bt and not amt_src:
+            continue
+        unit = BOT_UNIT.get(tag, "min")
+        s = summarize(bt, unit, amt_src)
+        # '매도' 열은 부분청산 회계가 켜진 주차에서만 의미가 있다(그 전 구간은 완결 기준).
+        s["sell_events"] = (len([r for r in by_real.get(tag, []) if inwin(r, real_weeks)])
+                            if real_weeks else None)
+        s["key"] = tag
+        s["group"] = tag_group(tag)
+        s["unit"] = ("일" if unit == "day" else ("분" if unit == "min" else "혼합"))
+        s["label"] = tag
+        rows.append(s)
+
+    # 봇(통합 → 태그별 손익순) → 자산배분 → 수동(수동합계 → 태그별)
+    order = {"bot": 0, "alloc": 1, "manual": 2}
+    rows.sort(key=lambda r: (order.get(r["group"], 9),
+                             r["key"] not in AGGREGATE_TAGS, -r["sum_pnl_amt"]))
+    keys = sorted(wset)
+    return {
+        "weeks": len(weeks),
+        "from": keys[0], "to": keys[-1],
+        "label": f"{week_label(weeks[0])[:5]}~{week_label(weeks[-1])[-5:]}",
+        "clamped_to_cutoff": clamped,
+        "rows": rows,
     }
 
 
@@ -1181,6 +1451,7 @@ def print_bot_summary(report, indent="  ", show_zero=True):
     for b in report["bots"]:
         t = b["total"]
         rows.append({
+            "group":  b.get("group", "bot"),
             "key":    b["key"],
             "trades": t["trades"],
             "wr":     "-" if t["winrate"] is None else f"{t['winrate']}%",
@@ -1200,11 +1471,19 @@ def print_bot_summary(report, indent="  ", show_zero=True):
             + "  " + _pad("순손익", w_net, True) + "  " + _pad("비용", w_fee, True))
     line = indent + "-" * (_vw(head) - _vw(indent))
 
-    print(f"\n{indent}[봇별 전체기간 요약]  (웹 표시=최근 {RECENT_WEEKS}주)")
+    print(f"\n{indent}[태그별 전체기간 요약]  (웹 표시=최근 {RECENT_WEEKS}주)")
+    print(f"{indent}'통합'=봇 태그만 합산. 자산배분(통합ETF)·수동은 별도 그룹.")
     print(line)
     print(head)
     print(line)
+    grp_label = {"bot": "[봇]", "alloc": "[자산배분]", "manual": "[수동 — 통합 미포함]"}
+    prev_grp = None
     for r in live:
+        if r["group"] != prev_grp:
+            if prev_grp is not None:
+                print(line)
+            print(indent + grp_label.get(r["group"], r["group"]))
+            prev_grp = r["group"]
         print(indent + _pad(r["key"], w_key) + "  " + _pad(r["trades"], 5, True)
               + "  " + _pad(r["wr"], 7, True) + "  " + _pad(r["ex"], 8, True)
               + "  " + _pad(r["pf"], 6, True)
@@ -1236,6 +1515,12 @@ def main():
 
     # 웹페이지 피드: 최근 N주만 (총계도 그 구간 기준)
     web_report = build_report(trips, weeks_limit=RECENT_WEEKS)
+    # 3개월 누적표는 웹 표시구간(8주)이 아니라 전체 데이터에서 뽑은 걸 쓴다.
+    web_report["quarter"] = full_report["quarter"]
+    q = web_report["quarter"]
+    if q:
+        print(f"  3개월 누적표: {q['label']} ({q['weeks']}주, 태그 {len(q['rows'])}개"
+              + (", 컷오프 이후로 제한" if q["clamped_to_cutoff"] else "") + ")")
     # 코인(업비트) 이번 주(월~일) 실현손익 미니표 데이터 부착
     web_report["coin_week"] = build_coin_week()
     cw = web_report["coin_week"]

@@ -67,6 +67,18 @@ def fmt_num(v, nd=0):
         return str(v)
 
 
+def _gap_pct(close, trigger, is_fire):
+    """FIRE: 종가가 돌파가를 넘은 폭(+). WATCH: 돌파가까지 남은 폭(+)."""
+    try:
+        c, t = float(close), float(trigger)
+        if c <= 0 or t <= 0:
+            return ""
+        pct = (c / t - 1.0) * 100 if is_fire else (t / c - 1.0) * 100
+        return f"{pct:+.2f}%"
+    except (TypeError, ValueError):
+        return ""
+
+
 def show_A():
     fp = os.path.join(BASE, "kr_converge_data.json")
     if not os.path.exists(fp):
@@ -80,17 +92,22 @@ def show_A():
           f"기준 수렴<={d.get('converge_max_pct','?')}%  "
           f"거래대금>={d.get('liq_min_uk','?')}억")
     print("=" * 66)
-    cols = [
-        ("코드", "ticker_num", 6, "left"),
-        ("종목명", "name", 16, "left"),
-        ("종가", "close", 9, "right"),
-        ("등락%", "change", 7, "right"),
-        ("당일거래대금", "tv_today_uk", 12, "right"),
-        ("돌파가", "trigger_price", 10, "right"),
-        ("수렴폭%", "spread_pct", 8, "right"),
-        ("NXT", "nxt", 8, "left"),
-    ]
-    for label, mark, lst in (("FIRE 발화", "🔥", fire), ("WATCH 관찰", "  ", watch)):
+    # 돌파가 옆 칸: FIRE=초과%(종가가 돌파가를 넘은 폭) / WATCH=돌파거리(돌파가까지 남은 폭)
+    def _cols(gap_head):
+        return [
+            ("코드", "ticker_num", 6, "left"),
+            ("종목명", "name", 16, "left"),
+            ("종가", "close", 9, "right"),
+            ("등락%", "change", 7, "right"),
+            ("당일거래대금", "tv_today_uk", 12, "right"),
+            ("돌파가", "trigger_price", 10, "right"),
+            (gap_head, "gap_pct", 8, "right"),
+            ("수렴폭%", "spread_pct", 8, "right"),
+            ("NXT", "nxt", 8, "left"),
+        ]
+
+    for label, mark, lst, is_fire in (("FIRE 발화", "🔥", fire, True),
+                                      ("WATCH 관찰", "  ", watch, False)):
         print()
         print("─" * 66)
         print(f" {mark} [{label}]  {len(lst)}종목")
@@ -105,10 +122,11 @@ def show_A():
             "change": fmt_num(s.get("change"), 2),
             "tv_today_uk": fmt_num(s.get("tv_today_uk")) + "억",
             "trigger_price": (fmt_num(s.get("trigger_price")) if s.get("trigger_price") else ""),
+            "gap_pct": _gap_pct(s.get("close"), s.get("trigger_price"), is_fire),
             "spread_pct": fmt_num(s.get("spread_pct"), 2),
             "nxt": s.get("nxt", ""),
         } for s in lst]
-        print_table(rows, cols)
+        print_table(rows, _cols("초과%" if is_fire else "돌파거리"))
     print()
 
 

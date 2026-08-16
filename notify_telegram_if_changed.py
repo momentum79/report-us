@@ -261,21 +261,49 @@ def read_trend_block():
             return []
         kospi  = last.get("kospi_trend", "-")
         nasdaq = last.get("nasdaq_trend", "-")
+        kospi_sco = last.get("kospi_sco")
+        nasdaq_sco = last.get("nasdaq_sco")
         spy = "-"
+        spy_sco = last.get("sp500_sco")
+        if TOTAL_STATS_JSON.exists():
+            try:
+                stats = json.loads(TOTAL_STATS_JSON.read_text(encoding='utf-8'))
+                if kospi_sco is None:
+                    kospi_sco = stats.get("kospi_sco")
+                if nasdaq_sco is None:
+                    nasdaq_sco = stats.get("nasdaq_sco")
+                if spy_sco is None:
+                    spy_sco = stats.get("sp500_sco")
+            except Exception:
+                pass
         if WORLD_RANK_JSON.exists():
             try:
                 wr = json.loads(WORLD_RANK_JSON.read_text(encoding='utf-8'))
                 for row in (wr.get("data") or []):
                     if row.get("Ticker") == "SPY":
                         spy = row.get("추세", "-")
+                        if spy_sco is None:
+                            spy_sco = row.get("sco")
                         break
             except Exception:
                 pass
+
+        def fmt_trend(trend, sco):
+            try:
+                v = float(sco)
+            except (TypeError, ValueError):
+                return str(trend)
+            if v.is_integer():
+                sco_txt = str(int(v))
+            else:
+                sco_txt = f"{v:.1f}"
+            return f"{trend} ({sco_txt})"
+
         return [
             "📈추세",
-            f"코스피: {kospi}",
-            f"에센피: {spy}",
-            f"나스닥: {nasdaq}",
+            f"코스피: {fmt_trend(kospi, kospi_sco)}",
+            f"에센피: {fmt_trend(spy, spy_sco)}",
+            f"나스닥: {fmt_trend(nasdaq, nasdaq_sco)}",
         ]
     except Exception:
         return []

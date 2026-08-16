@@ -2,11 +2,15 @@
 import json
 import html
 import re
+import sys
 import time
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from datetime import datetime, timedelta, date
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from trading_day import is_kr_trading_day, last_kr_trading_day  # noqa: E402
 
 BASE = Path(r"D:\py\report-us")
 REPORT_JSON = BASE / "report_kr_150.json"
@@ -671,6 +675,8 @@ def update_leader_tracking_150(leader_list):
     - 최초 등장 날짜(added_date) 기록
     - 14일(2주) 이상 지난 항목 자동 삭제
     - 동일 ticker 중복 추가 안 함 (최초 날짜 유지)
+    - 휴장일에는 갱신하지 않고 직전 거래일 상태를 그대로 반환
+      (휴장일엔 주도주 리스트가 비어 나와 트래킹이 통째로 지워지던 문제 방지)
     """
     today_str = datetime.now().strftime("%Y-%m-%d")
     cutoff = (datetime.now() - timedelta(days=14)).strftime("%Y-%m-%d")
@@ -682,6 +688,11 @@ def update_leader_tracking_150(leader_list):
             tracking = {}
     else:
         tracking = {}
+
+    if not is_kr_trading_day(today_str):
+        print(f"[휴장일] {today_str} — KR150 주도주 트래킹 갱신 생략, "
+              f"직전 거래일({last_kr_trading_day(today_str)}) 상태 유지 ({len(tracking)}종목)")
+        return tracking
 
     # 14일 지난 항목 제거
     tracking = {k: v for k, v in tracking.items() if v.get("added_date", "") >= cutoff}

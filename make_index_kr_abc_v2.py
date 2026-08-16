@@ -41,6 +41,17 @@ def _grade_badge(g):
     return f'<span style="display:inline-block;min-width:20px;padding:1px 6px;border-radius:10px;background:{color};color:#fff;font-weight:700;font-size:0.72rem;">{g}</span>'
 
 
+def _over_pct(close, trigger):
+    """FIRE 전용: 종가가 돌파가를 넘은 폭(%)."""
+    try:
+        c, t = float(close), float(trigger)
+        if c <= 0 or t <= 0:
+            return "-"
+        return f"+{(c / t - 1.0) * 100:.1f}%"
+    except (TypeError, ValueError):
+        return "-"
+
+
 def _num(v, nd=1):
     try:
         return f"{float(v):.{nd}f}"
@@ -69,7 +80,8 @@ def panel_v2(data):
     ]
 
     # 🟢 FIRE
-    fhead = ["Ticker", "종목명", "등급", "TOTAL", "SETUP(전)", "돌파", "등락률", "당일대금", "시총", "NXT"]
+    fhead = ["Ticker", "종목명", "등급", "TOTAL", "SETUP(전)", "돌파", "등락률", "당일대금",
+             "돌파가", "초과%", "시총", "NXT"]
     fh = ('<table class="v2-table"><thead><tr>'
           + "".join(f"<th>{x}</th>" for x in fhead) + "</tr></thead><tbody>")
     fbody = []
@@ -86,9 +98,11 @@ def panel_v2(data):
             + f'<td>{_num(s.get("breakout_score"))}</td>'
             + f'<td>{_chg(s.get("change"))}</td>'
             + f'<td>{fnum(s.get("tv_today_uk"))}억</td>'
+            + f'<td>{fnum(s.get("trigger_price"))}</td>'
+            + f'<td class="up">{_over_pct(s.get("close"), s.get("trigger_price"))}</td>'
             + f'<td>{cap}</td><td>{nxt}</td></tr>')
     if not fire:
-        fbody.append('<tr><td colspan="10" class="empty-msg">오늘 첫 동시돌파 없음</td></tr>')
+        fbody.append('<tr><td colspan="12" class="empty-msg">오늘 첫 동시돌파 없음</td></tr>')
     out.append(f'<h2 class="sec">🟢 V2 FIRE — 첫 동시돌파 · {len(fire)}개</h2>')
     out.append(fh + "".join(fbody) + "</tbody></table>")
 
@@ -147,8 +161,8 @@ def generate_html():
         .nav-item:hover {{ color:#fff; background-color:#3d566e; }}
         .nav-item.active {{ color:#fff; background-color:#34495e; border-bottom-color:#3498db; }}
         .abc-layout {{ display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap; padding:10px; }}
-        .container {{ padding:0; max-width:520px; margin:0; flex:0 0 auto; }}
-        .v2-container {{ flex:1 1 640px; max-width:820px; min-width:340px;
+        .container {{ padding:0; max-width:640px; margin:0; flex:0 0 auto; }}
+        .v2-container {{ flex:1 1 760px; max-width:950px; min-width:340px;
                background:#faf5ff; border:1px solid #e9d5ff; border-radius:10px; padding:12px 14px; }}
         .v2-head {{ font-size:1.1em; font-weight:800; color:#6b21a8; margin:0 0 8px 0; }}
         .title {{ font-size:1.2em; font-weight:bold; color:#2c3e50; margin:0 0 4px 0; }}
@@ -170,7 +184,10 @@ def generate_html():
         .v2-table th {{ background-color:#7c3aed; }}
         .v2-table td.hot {{ font-weight:800; color:#6b21a8; }}
         .v2-table .dim {{ color:#9ca3af; font-size:0.72rem; }}
-        @media (max-width:600px) {{ .container {{ max-width:100%; }} th,td {{ padding:6px 4px; font-size:0.76rem; }} }}
+        @media (max-width:600px) {{ .container {{ max-width:100%; }} th,td {{ padding:6px 4px; font-size:0.76rem; }}
+               /* 표가 넓어져도 페이지 전체가 아니라 패널 안에서만 가로 스크롤 */
+               .container, .v2-container {{ overflow-x:auto; -webkit-overflow-scrolling:touch; }}
+               .v2-container {{ min-width:0; box-sizing:border-box; }} }}
     @media screen and (max-width: 950px) and (orientation: landscape) and (hover: none) and (pointer: coarse) {{
   .top-nav-container, .top-nav {{ display: none !important; }}
 }}
