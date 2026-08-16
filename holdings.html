@@ -522,6 +522,14 @@ body.naver-popup-open { overflow: hidden; }
             return `<td style="text-align:right;" class="${cls}">${txt}${suffix || ''}</td>`;
         }
 
+        // 최대손실 셀: 값은 절대값(양수)으로 들어와서 손실임을 알기 어려움 → 표시만 "-" 접두
+        function wpCellLoss(v) {
+            if (v === null || v === undefined || v === '') return '<td style="text-align:right;color:#bbb;">-</td>';
+            const n = Number(v);
+            const txt = (n > 0) ? `-${n}` : `${n}`;
+            return `<td style="text-align:right;">${txt}%</td>`;
+        }
+
         // 손익비 셀: 기준점 1.0 대비 이상=녹색 / 미만=빨강
         function wpRatio(v) {
             if (v === null || v === undefined || v === '') return '<td style="text-align:center;color:#bbb;">-</td>';
@@ -543,12 +551,14 @@ body.naver-popup-open { overflow: hidden; }
             const collapsible = bot.key !== '통합';
             const cardId = `wp-card-${String(bot.key).replace(/[^a-zA-Z0-9가-힣_-]/g, '_')}`;
             const holdHdr = isMix ? '' :
-                `<th>수익 보유(${unit})</th><th>손실 보유(${unit})</th>`;
+                `<th>수익<br>보유(${unit})</th><th>손실<br>보유(${unit})</th>`;
             let rows = '';
             const mkRow = (s, isTotal, rowIndex) => {
                 const trCls = isTotal ? 'wp-total' : ((collapsible && rowIndex >= 2) ? 'wp-extra-week' : '');
+                // 보유'분'은 소수점이 의미 없어 정수 반올림(열 폭도 절약). '일'은 소수 유지.
+                const rnd = v => (unit === '분' && typeof v === 'number') ? Math.round(v) : v;
                 const hold = isMix ? '' :
-                    wpCell(s.hold_win, '') + wpCell(s.hold_loss, '');
+                    wpCell(rnd(s.hold_win), '') + wpCell(rnd(s.hold_loss), '');
                 const pnlColor = (s.sum_pnl_amt >= 0) ? 'wp-pos' : 'wp-neg';
                 return `<tr class="${trCls}">
                     <td>${s.label}</td>
@@ -560,7 +570,7 @@ body.naver-popup-open { overflow: hidden; }
                     ${wpCell(s.avg_win, '%')}
                     ${wpCell(s.avg_loss, '%')}
                     ${wpCell(s.max_win, '%')}
-                    ${wpCell(s.max_loss, '%')}
+                    ${wpCellLoss(s.max_loss)}
                     ${hold}
                     <td style="text-align:right;" class="${pnlColor}">${(s.sum_pnl_amt>=0?'+':'')}${(s.sum_pnl_amt||0).toLocaleString()}</td>
                 </tr>`;
@@ -736,22 +746,24 @@ body.naver-popup-open { overflow: hidden; }
                 const data = await res.json();
                 let html = `<style>
                     .wp-note{max-width:1880px;margin:0 auto 12px;font-size:11px;color:#999;line-height:1.5;}
-                    .wp-shell{display:grid;grid-template-columns:minmax(0,1400px) minmax(320px,420px);gap:18px;max-width:1880px;margin:0 auto;align-items:start;}
+                    .wp-shell{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,340px);gap:16px;max-width:1880px;margin:0 auto;align-items:start;}
                     .wp-main{min-width:0;}
-                    .wp-toparea{display:grid;grid-template-columns:minmax(0,690px) 330px 330px;gap:18px;align-items:start;margin:0 0 14px;}
-                    .wp-topcoin{width:330px;max-width:330px;}
-                    .wp-topmini{width:330px;max-width:330px;}
-                    .wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;}
+                    .wp-toparea{display:grid;grid-template-columns:minmax(0,1fr) 320px 320px;gap:16px;align-items:start;margin:0 0 14px;}
+                    .wp-topcoin{width:320px;max-width:320px;}
+                    .wp-topmini{width:320px;max-width:320px;}
+                    .wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start;}
                     .wp-card{background:#fff;border:1px solid #e5d5d5;border-radius:10px;padding:12px 14px;box-shadow:0 1px 3px rgba(0,0,0,.05);overflow:hidden;}
-                    .wp-solo{max-width:690px;margin:0 0 14px;min-width:0;}  /* grid 자식 기본 min-width:auto 라 표가 화면을 밀어냄 */
+                    .wp-solo{margin:0 0 14px;min-width:0;}  /* grid 자식 기본 min-width:auto 라 표가 화면을 밀어냄 */
                     .wp-title{font-weight:700;font-size:15px;color:#8B0000;margin-bottom:8px;border-bottom:2px solid #8B0000;padding-bottom:5px;}
                     .wp-unit{font-weight:400;font-size:11px;color:#999;margin-left:6px;}
+                    /* 좌우 스크롤 없이 카드 폭 안에 전 컬럼이 들어오게: 헤더는 줄바꿈 허용 + 여백 축소 */
                     .wp-tablewrap{overflow-x:auto;}
-                    .wp-table{width:100%;border-collapse:collapse;font-size:11px;}
-                    .wp-table th{background:#f6eeee;color:#5a3a3a;padding:4px 3px;border:1px solid #ecdede;white-space:nowrap;font-weight:600;}
-                    .wp-table td{padding:4px 3px;border:1px solid #f0e8e8;white-space:nowrap;}
+                    .wp-table{width:100%;border-collapse:collapse;font-size:11px;table-layout:auto;}
+                    .wp-table th{background:#f6eeee;color:#5a3a3a;padding:3px 2px;border:1px solid #ecdede;white-space:normal;word-break:keep-all;line-height:1.15;font-weight:600;}
+                    .wp-table td{padding:3px 2px;border:1px solid #f0e8e8;white-space:nowrap;}
                     .wp-table tr.wp-total td{background:#faf3f3;font-weight:700;border-top:2px solid #d8b8b8;}
-                    .wp-pos{color:#c0392b;} .wp-neg{color:#2673aa;}
+                    /* 손익 금액/비율: 이익=빨강 굵게 / 손실=파랑 굵게 (주간표·코인표·금주성과 공통) */
+                    .wp-pos{color:#c0392b;font-weight:700;} .wp-neg{color:#2673aa;font-weight:700;}
                     .wp-good{color:#1a8a3a;font-weight:700;} .wp-bad{color:#c0392b;font-weight:700;}
                     .wp-fold-btn{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;margin-right:7px;border:1px solid #cfa6a6;border-radius:3px;background:#fff7f7;color:#8B0000;font-size:14px;font-weight:700;line-height:1;cursor:pointer;vertical-align:1px;}
                     .wp-fold-btn:hover{background:#f6eeee;}
@@ -765,9 +777,11 @@ body.naver-popup-open { overflow: hidden; }
                     .wp-weeksum{width:100%;}
                     .wp-zero td{color:#aaa;}
                     .wp-mini-note{font-size:10px;color:#999;margin-top:4px;text-align:center;}
-                    @media(max-width:1280px){.wp-shell{grid-template-columns:1fr;}.wp-side{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}.wp-solo{max-width:100%;}.wp-toparea{grid-template-columns:minmax(0,690px) 330px 330px;}}
-                    @media(max-width:1080px){.wp-toparea{grid-template-columns:1fr;}.wp-topcoin,.wp-topmini{width:330px;max-width:100%;}}
-                    @media(max-width:900px){.wp-grid{grid-template-columns:1fr;}.wp-solo{max-width:100%;}}
+                    /* 카드 표가 좌우 스크롤 없이 다 보이려면 카드 폭 ≥ 약 690px 필요.
+                       그 폭을 못 주는 구간부터 순서대로 레일 → 2열 을 아래로 떨군다. */
+                    @media(max-width:1740px){.wp-shell{grid-template-columns:1fr;}.wp-side{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}}
+                    @media(max-width:1400px){.wp-grid{grid-template-columns:1fr;}.wp-toparea{grid-template-columns:minmax(0,1fr) 320px;}}
+                    @media(max-width:1080px){.wp-toparea{grid-template-columns:1fr;}.wp-topcoin,.wp-topmini{width:320px;max-width:100%;}}
                 </style>
                 <div class="wp-note">📊 최종 업데이트: ${data.updated || '-'} · 완결거래(매수→전량청산) 기준, 실현손익만 집계.
                     당일봇=보유'분' / 스윙봇=보유'일'. 손익비=평균수익금액÷평균손실금액(기준 1.0). 미청산 포지션·체결로그(2026-06-11~) 이전 매매는 제외.</div>

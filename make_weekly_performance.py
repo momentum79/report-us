@@ -66,9 +66,35 @@ OUT_XLSX      = os.path.join(OUT_DIR, "weekly_performance.xlsx")       # 전체 
 RECENT_WEEKS = 8
 
 # 미국 체결가는 달러, 한국은 원. 금액 합계를 내려면 통화를 맞춰야 한다.
-# 과거 체결일별 환율은 보관하지 않으므로 최신 환율 하나로 일괄 환산한다(근사).
+#
+# ★ 주차별 환율 스냅샷(복기 재현성)
+#   예전엔 "실행 시점의 최신 USDKRW 하나"로 전 기간을 일괄 환산했다. 그러면 몇 달 뒤
+#   다시 돌릴 때 과거 주차의 원화 금액이 통째로 바뀌어서 복기가 불가능하다.
+#   → 주(월요일) 단위로 실제 쓴 환율을 weekly_fx_snapshot.json 에 기록하고,
+#     한 번 기록된 과거 주차는 재실행해도 그 값을 그대로 재사용(=동결)한다.
+#     진행 중인 이번 주만 매 실행 갱신되고, 주가 끝나면 자연히 동결된다.
+#   ※ %지표(승률/PF/기대값%)는 통화무관이라 환율과 무관하게 원래부터 안정적.
 EQUITY_CSV = os.path.join(SCRIPT_DIR, "equity_daily.csv")
+FX_SNAPSHOT_JSON = os.path.join(SCRIPT_DIR, "weekly_fx_snapshot.json")
 USDKRW_FALLBACK = 1400.0
+
+
+def _equity_usdkrw_by_date():
+    """equity_daily.csv → {날짜(YYYY-MM-DD): usdkrw}. 계좌가 여러 행이면 마지막 값."""
+    out = {}
+    try:
+        with open(EQUITY_CSV, encoding="utf-8-sig") as f:
+            for r in csv.DictReader(f):
+                d = (r.get("date") or "").strip()
+                try:
+                    v = float(r.get("usdkrw") or 0)
+                except ValueError:
+                    continue
+                if d and v > 0:
+                    out[d] = v
+    except Exception:
+        pass
+    return out
 
 
 def _latest_usdkrw():
@@ -88,7 +114,73 @@ def _latest_usdkrw():
         return USDKRW_FALLBACK
 
 
-USDKRW = _latest_usdkrw()
+USDKRW = _latest_usdkrw()          # "오늘자" 환율 (신규/진행중 주차에만 쓰임)
+_EQUITY_FX = _equity_usdkrw_by_date()
+_FX_SNAP = {"rates": {}, "meta": {}}   # load_fx_snapshot() 이 채운다
+_FX_DIRTY = False
+
+
+def load_fx_snapshot():
+    """weekly_fx_snapshot.json 로드. 없으면 빈 상태로 시작(첫 실행 시 자동 생성)."""
+    global _FX_SNAP
+    try:
+        with open(FX_SNAPSHOT_JSON, encoding="utf-8") as f:
+            d = json.load(f)
+        _FX_SNAP = {"rates": d.get("rates") or {}, "meta": d.get("meta") or {}}
+    except Exception:
+        _FX_SNAP = {"rates": {}, "meta": {}}
+    return _FX_SNAP
+
+
+def _week_rate_from_equity(monday):
+    """그 주(월~금) equity_daily.csv 환율 중 가장 늦은 날 값. 없으면 None."""
+    for i in (4, 3, 2, 1, 0):
+        v = _EQUITY_FX.get((monday + timedelta(days=i)).isoformat())
+        if v:
+            return v, "equity_daily"
+    return None, None
+
+
+def fx_for_week(monday):
+    """해당 주(월요일 date)의 USD→KRW 환산율. 과거 주차는 스냅샷 고정값."""
+    global _FX_DIRTY
+    wk = monday.isoformat()
+    is_current = (monday == week_monday(date.today()))
+    if not is_current and wk in _FX_SNAP["rates"]:
+        return float(_FX_SNAP["rates"][wk])          # 동결 — 재실행해도 안 바뀜
+    rate, src = _week_rate_from_equity(monday)
+    if rate is None:
+        rate, src = USDKRW, "latest_fallback"        # 그 주 환율 기록이 없던 과거 구간
+    prev = _FX_SNAP["rates"].get(wk)
+    if prev is None or float(prev) != float(rate):
+        _FX_SNAP["rates"][wk] = round(float(rate), 4)
+        _FX_SNAP["meta"][wk] = {"src": src, "written": date.today().isoformat(),
+                                "status": "open" if is_current else "frozen"}
+        _FX_DIRTY = True
+    elif is_current:
+        _FX_SNAP["meta"].setdefault(wk, {})["status"] = "open"
+    return float(rate)
+
+
+def save_fx_snapshot():
+    if not _FX_DIRTY:
+        print(f"  FX 스냅샷 변경 없음 ({len(_FX_SNAP['rates'])}주 고정)")
+        return
+    # 주가 끝난 주차는 status 를 frozen 으로 확정
+    cur = week_monday(date.today()).isoformat()
+    for wk, m in _FX_SNAP["meta"].items():
+        if wk != cur:
+            m["status"] = "frozen"
+    payload = {
+        "_note": "주간성과 원화 환산에 쓴 주차별 USDKRW. 과거 주차는 재실행해도 고정 "
+                 "(복기 시 원화 금액 재현용). status=open 인 이번 주만 갱신된다.",
+        "updated": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "rates": dict(sorted(_FX_SNAP["rates"].items())),
+        "meta": dict(sorted(_FX_SNAP["meta"].items())),
+    }
+    with open(FX_SNAPSHOT_JSON, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+    print(f"  OK {os.path.relpath(FX_SNAPSHOT_JSON, OUT_DIR)} ({len(payload['rates'])}주)")
 
 # ───────── 코인(업비트) 주간(월~일) 실현손익 설정 ─────────
 # 주식봇과 달리 코인은 주말도 거래되므로 월~일 7일 기준.
@@ -114,12 +206,13 @@ BINANCE_FUT_INCOME_CSV = os.path.join(BASE_DIR, "coin_binan", "0_binance_usdt_fu
 TAG_ORDER = [
     "통합",
     "주도주", "ROCKET", "ABC-VCP", "TV알림", "수동매매", "통합ETF",
-    "2X단타", "삼닉v3_저2", "삼닉v3_추세", "삼닉v3_MA",
+    "2X단타", "삼닉v3_저2", "삼닉v3_추세", "삼닉v3_MA", "삼닉v3_미분류",
     "5minHL", "5minHL2", "5minHL_동시", "5minHL_미분류",
     "KR_TR_ORD_A", "KR_TR_VOLUME_1", "KR_TR_VOLUME_2", "KR_TR_VCP1",
-    "KR_TR_VCP2", "KR_TR_JEO2", "KR_TR_MA",
+    "KR_TR_VCP2", "KR_TR_JEO2", "KR_TR_MA", "KR_TR_ADD1",
     "미국VCP", "US_TR_ORD_A", "US_TR_VOLUME_1", "US_TR_VOLUME_2",
-    "US_TR_VCP1", "US_TR_VCP2", "US_TR_JEO2", "US_TR_MA",
+    "US_TR_VCP1", "US_TR_VCP2", "US_TR_JEO2", "US_TR_MA", "US_TR_ADD1",
+    "US_TR_LEGACY", "US_TR_LEGACY_TREND", "US_TR_LEGACY_LOW",
     "미국수동", "저점사다리", "기타(8042)",
 ]
 TAG_UNIT = {
@@ -128,9 +221,13 @@ TAG_UNIT = {
     "미국VCP": "day", "미국수동": "day",
     "KR_TR_ORD_A": "day", "KR_TR_VOLUME_1": "day", "KR_TR_VOLUME_2": "day",
     "KR_TR_VCP1": "day", "KR_TR_VCP2": "day", "KR_TR_JEO2": "day", "KR_TR_MA": "day",
+    "KR_TR_ADD1": "day",
     "US_TR_ORD_A": "day", "US_TR_VOLUME_1": "day", "US_TR_VOLUME_2": "day",
     "US_TR_VCP1": "day", "US_TR_VCP2": "day", "US_TR_JEO2": "day", "US_TR_MA": "day",
+    "US_TR_ADD1": "day",
+    "US_TR_LEGACY": "day", "US_TR_LEGACY_TREND": "day", "US_TR_LEGACY_LOW": "day",
     "2X단타": "min", "삼닉v3_저2": "min", "삼닉v3_추세": "min", "삼닉v3_MA": "min",
+    "삼닉v3_미분류": "min",
     "5minHL": "min", "5minHL2": "min", "5minHL_동시": "min", "5minHL_미분류": "min",
     "기타(8042)": "min", "저점사다리": "min", "통합": "mix",
 }
@@ -664,9 +761,12 @@ def week_label(monday):
 
 
 def _krw(t, field):
-    """체결통화 금액 → 원화. 미국 체결(USD)만 환산."""
+    """체결통화 금액 → 원화. 미국 체결(USD)만 환산.
+    환율은 '청산 주차'에 고정된 값(fx_for_week) — 과거 주차는 재실행해도 동일."""
     v = float(t.get(field) or 0.0)
-    return v * USDKRW if t.get("ccy") == "USD" else v
+    if t.get("ccy") != "USD":
+        return v
+    return v * fx_for_week(week_monday(t["exit_dt"].date()))
 
 
 def summarize(trips, unit):
@@ -765,6 +865,7 @@ def build_report(trips, weeks_limit=None):
             s = summarize(wt, unit)
             s["week"] = wk
             s["label"] = week_labels[wk]
+            s["fx_usdkrw"] = round(fx_for_week(w), 2)   # 그 주 원화 환산에 쓴 환율(복기용)
             weeks.append(s)
         total = summarize(bt, unit)
         total["week"] = "TOTAL"
@@ -781,6 +882,8 @@ def build_report(trips, weeks_limit=None):
         "weeks_limit": weeks_limit,
         "week_keys": week_keys,
         "week_labels": week_labels,
+        # 주차별 환산환율(=weekly_fx_snapshot.json 과 동일). 이 파일만 있어도 재현 가능.
+        "fx_usdkrw": {w.isoformat(): round(fx_for_week(w), 2) for w in all_weeks},
         "bots": bots_out,
     }
 
@@ -998,7 +1101,8 @@ CSV_HEADER = ["봇", "보유단위", "주", "총거래수", "승률(%)", "손익
               "평균수익(%)", "평균손실(%)", "최대수익(%)", "최대손실(%)",
               "수익 평균보유", "손실 평균보유",
               "기대값(%/거래)", "기대값(원/거래)", "PF",
-              "실현손익합(원,net)", "수수료·세금(원)", "실현손익합(원,gross)"]
+              "실현손익합(원,net)", "수수료·세금(원)", "실현손익합(원,gross)",
+              "환율(USDKRW)"]
 
 
 def _row(bot_key, unit, s):
@@ -1009,7 +1113,8 @@ def _row(bot_key, unit, s):
             g("avg_win"), g("avg_loss"), g("max_win"), g("max_loss"),
             g("hold_win"), g("hold_loss"),
             g("expectancy"), g("expectancy_amt"), g("profit_factor"),
-            s.get("sum_pnl_amt", 0), s.get("sum_fee_tax", 0), s.get("sum_pnl_gross", 0)]
+            s.get("sum_pnl_amt", 0), s.get("sum_fee_tax", 0), s.get("sum_pnl_gross", 0),
+            g("fx_usdkrw")]   # 전체(TOTAL) 행은 여러 주차가 섞여 공백
 
 
 def write_csv(report):
@@ -1051,7 +1156,7 @@ def write_xlsx(report):
         for c in ws[ws.max_row]:
             c.fill = tot_fill; c.font = Font(bold=True)
         ws.append([])
-    widths = [14, 9, 14, 9, 8, 8, 11, 11, 11, 11, 12, 12, 13, 14, 7, 18, 15, 18]
+    widths = [14, 9, 14, 9, 8, 8, 11, 11, 11, 11, 12, 12, 13, 14, 7, 18, 15, 18, 13]
     for i, wd in enumerate(widths, 1):
         ws.column_dimensions[ws.cell(row=1, column=i).column_letter].width = wd
     wb.save(OUT_XLSX)
@@ -1112,6 +1217,7 @@ def print_bot_summary(report, indent="  ", show_zero=True):
 
 def main():
     print("── 주간성과 집계 (intraday + Pine TR tag 기반) ──")
+    load_fx_snapshot()   # 과거 주차 환율 동결값 로드 (원화 금액 재현성)
     fills = load_fills()
     print(f"  fill 이벤트: {len(fills)}건")
     intraday_trips = build_round_trips(fills)
@@ -1143,6 +1249,7 @@ def main():
     bf = web_report["binance_futures_week"]
     print(f"  Binance선물 이번주({bf['label']}) 실현손익 합: {bf['total']:,.2f} USDT")
     write_json(web_report, OUT_JSON)
+    save_fx_snapshot()   # 이번 실행에서 쓴 주차별 환율 기록 → 다음 실행부터 고정
 
     # 콘솔 요약(전체기간)
     print_bot_summary(full_report)

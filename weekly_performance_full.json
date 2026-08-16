@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-15 11:28:12",
+  "updated": "2026-08-15 12:37:21",
   "weeks_limit": null,
   "week_keys": [
     "2026-06-08",
@@ -25,6 +25,18 @@
     "2026-08-03": "08/03~08/07",
     "2026-08-10": "08/10~08/14"
   },
+  "fx_usdkrw": {
+    "2026-06-08": 1415.0,
+    "2026-06-15": 1415.0,
+    "2026-06-22": 1415.0,
+    "2026-06-29": 1415.0,
+    "2026-07-06": 1415.0,
+    "2026-07-13": 1415.0,
+    "2026-07-20": 1415.0,
+    "2026-07-27": 1415.0,
+    "2026-08-03": 1415.0,
+    "2026-08-10": 1411.0
+  },
   "bots": [
     {
       "key": "통합",
@@ -47,7 +59,8 @@
           "sum_pnl_gross": -175500,
           "sum_fee_tax": 1322,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 14,
@@ -66,7 +79,8 @@
           "sum_pnl_gross": 229860,
           "sum_fee_tax": 2172,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 39,
@@ -85,7 +99,8 @@
           "sum_pnl_gross": -219740,
           "sum_fee_tax": 4434,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 55,
@@ -104,7 +119,8 @@
           "sum_pnl_gross": 36101,
           "sum_fee_tax": 4659,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 42,
@@ -123,7 +139,8 @@
           "sum_pnl_gross": 26414,
           "sum_fee_tax": 5178,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 12,
@@ -142,7 +159,8 @@
           "sum_pnl_gross": 381441,
           "sum_fee_tax": 2167,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 20,
@@ -161,7 +179,8 @@
           "sum_pnl_gross": 72944,
           "sum_fee_tax": 7187,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 29,
@@ -180,7 +199,8 @@
           "sum_pnl_gross": -5715,
           "sum_fee_tax": 6681,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 28,
@@ -199,12 +219,13 @@
           "sum_pnl_gross": -172206,
           "sum_fee_tax": 15579,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 7,
           "winrate": 28.6,
-          "pl_ratio": 1.7,
+          "pl_ratio": 1.71,
           "avg_win": 8.56,
           "avg_loss": 3.88,
           "max_win": 12.69,
@@ -212,13 +233,14 @@
           "hold_win": null,
           "hold_loss": null,
           "expectancy": -0.327,
-          "expectancy_amt": -7689,
+          "expectancy_amt": -7621,
           "profit_factor": 0.68,
-          "sum_pnl_amt": -53824,
-          "sum_pnl_gross": -38182,
-          "sum_fee_tax": 15642,
+          "sum_pnl_amt": -53347,
+          "sum_pnl_gross": -37747,
+          "sum_fee_tax": 15600,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -232,11 +254,11 @@
         "hold_win": null,
         "hold_loss": null,
         "expectancy": -0.005,
-        "expectancy_amt": 283,
+        "expectancy_amt": 285,
         "profit_factor": 1.04,
-        "sum_pnl_amt": 70396,
-        "sum_pnl_gross": 135416,
-        "sum_fee_tax": 65020,
+        "sum_pnl_amt": 70873,
+        "sum_pnl_gross": 135851,
+        "sum_fee_tax": 64978,
         "week": "TOTAL",
         "label": "전체"
       }
@@ -262,7 +284,8 @@
           "sum_pnl_gross": -175500,
           "sum_fee_tax": 1322,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 14,
@@ -281,7 +304,8 @@
           "sum_pnl_gross": 229860,
           "sum_fee_tax": 2172,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 11,
@@ -300,7 +324,8 @@
           "sum_pnl_gross": -232550,
           "sum_fee_tax": 2878,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 4,
@@ -319,7 +344,8 @@
           "sum_pnl_gross": 60000,
           "sum_fee_tax": 1075,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 8,
@@ -338,7 +364,8 @@
           "sum_pnl_gross": -2451,
           "sum_fee_tax": 1720,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 4,
@@ -357,7 +384,8 @@
           "sum_pnl_gross": 344105,
           "sum_fee_tax": 1131,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 6,
@@ -376,7 +404,8 @@
           "sum_pnl_gross": 72080,
           "sum_fee_tax": 583,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -395,7 +424,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -414,7 +444,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -433,7 +464,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -477,7 +509,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -496,7 +529,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -515,7 +549,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -534,7 +569,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -553,7 +589,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -572,7 +609,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -591,7 +629,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -610,7 +649,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -629,7 +669,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -648,7 +689,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -692,7 +734,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -711,7 +754,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -730,7 +774,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -749,7 +794,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -768,7 +814,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -787,7 +834,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -806,7 +854,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -825,7 +874,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -844,7 +894,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -863,7 +914,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -907,7 +959,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -926,7 +979,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -945,7 +999,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -964,7 +1019,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -983,7 +1039,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1002,7 +1059,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1021,7 +1079,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1040,7 +1099,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1059,7 +1119,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1078,7 +1139,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -1122,7 +1184,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1141,7 +1204,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1160,7 +1224,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1179,7 +1244,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1198,7 +1264,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1217,7 +1284,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1236,7 +1304,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 9,
@@ -1255,7 +1324,8 @@
           "sum_pnl_gross": -4553,
           "sum_fee_tax": 2139,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1274,7 +1344,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 2,
@@ -1293,7 +1364,8 @@
           "sum_pnl_gross": 115600,
           "sum_fee_tax": 667,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -1337,7 +1409,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1356,7 +1429,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1375,7 +1449,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1394,7 +1469,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1413,7 +1489,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 2,
@@ -1432,7 +1509,8 @@
           "sum_pnl_gross": -15508,
           "sum_fee_tax": 513,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 4,
@@ -1451,7 +1529,8 @@
           "sum_pnl_gross": -47176,
           "sum_fee_tax": 5913,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 2,
@@ -1470,7 +1549,8 @@
           "sum_pnl_gross": -1854,
           "sum_fee_tax": 2924,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 3,
@@ -1489,7 +1569,8 @@
           "sum_pnl_gross": 52794,
           "sum_fee_tax": 4254,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 3,
@@ -1502,13 +1583,14 @@
           "hold_win": null,
           "hold_loss": 4.67,
           "expectancy": -0.864,
-          "expectancy_amt": -29079,
+          "expectancy_amt": -28997,
           "profit_factor": 0.0,
-          "sum_pnl_amt": -87237,
-          "sum_pnl_gross": -73410,
-          "sum_fee_tax": 13827,
+          "sum_pnl_amt": -86990,
+          "sum_pnl_gross": -73203,
+          "sum_fee_tax": 13787,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -1522,11 +1604,11 @@
         "hold_win": 10.75,
         "hold_loss": 4.4,
         "expectancy": -0.416,
-        "expectancy_amt": -8042,
+        "expectancy_amt": -8024,
         "profit_factor": 0.31,
-        "sum_pnl_amt": -112585,
-        "sum_pnl_gross": -85155,
-        "sum_fee_tax": 27430,
+        "sum_pnl_amt": -112338,
+        "sum_pnl_gross": -84947,
+        "sum_fee_tax": 27391,
         "week": "TOTAL",
         "label": "전체"
       }
@@ -1552,7 +1634,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1571,7 +1654,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 27,
@@ -1590,7 +1674,8 @@
           "sum_pnl_gross": 15210,
           "sum_fee_tax": 1530,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 45,
@@ -1609,7 +1694,8 @@
           "sum_pnl_gross": -54359,
           "sum_fee_tax": 2829,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 31,
@@ -1628,7 +1714,8 @@
           "sum_pnl_gross": 40095,
           "sum_fee_tax": 3306,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 6,
@@ -1647,7 +1734,8 @@
           "sum_pnl_gross": 52844,
           "sum_fee_tax": 523,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 9,
@@ -1666,7 +1754,8 @@
           "sum_pnl_gross": 46340,
           "sum_fee_tax": 661,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 16,
@@ -1685,7 +1774,8 @@
           "sum_pnl_gross": 15177,
           "sum_fee_tax": 1561,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1704,7 +1794,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1723,7 +1814,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -1767,7 +1859,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1786,7 +1879,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1805,7 +1899,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1824,7 +1919,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1843,7 +1939,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1862,7 +1959,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1881,7 +1979,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1900,7 +1999,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 3,
@@ -1919,7 +2019,8 @@
           "sum_pnl_gross": -13350,
           "sum_fee_tax": 1291,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -1938,7 +2039,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -1982,7 +2084,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2001,7 +2104,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2020,7 +2124,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2039,7 +2144,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2058,7 +2164,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2077,7 +2184,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2096,7 +2204,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2115,7 +2224,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 10,
@@ -2134,7 +2244,8 @@
           "sum_pnl_gross": -133875,
           "sum_fee_tax": 4519,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2153,7 +2264,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -2197,7 +2309,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2216,7 +2329,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2235,7 +2349,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2254,7 +2369,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2273,7 +2389,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2292,7 +2409,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2311,7 +2429,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2330,7 +2449,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 12,
@@ -2349,7 +2469,8 @@
           "sum_pnl_gross": -77775,
           "sum_fee_tax": 5515,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2368,7 +2489,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -2387,6 +2509,231 @@
         "sum_pnl_amt": -83290,
         "sum_pnl_gross": -77775,
         "sum_fee_tax": 5515,
+        "week": "TOTAL",
+        "label": "전체"
+      }
+    },
+    {
+      "key": "삼닉v3_미분류",
+      "unit": "분",
+      "weeks": [
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-08",
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-15",
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-22",
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-29",
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-06",
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-13",
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-20",
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-27",
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-08-03",
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-08-10",
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
+        }
+      ],
+      "total": {
+        "trades": 0,
+        "winrate": null,
+        "pl_ratio": null,
+        "avg_win": null,
+        "avg_loss": null,
+        "max_win": null,
+        "max_loss": null,
+        "hold_win": null,
+        "hold_loss": null,
+        "expectancy": null,
+        "expectancy_amt": null,
+        "profit_factor": null,
+        "sum_pnl_amt": 0,
+        "sum_pnl_gross": 0,
+        "sum_fee_tax": 0,
         "week": "TOTAL",
         "label": "전체"
       }
@@ -2412,7 +2759,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2431,7 +2779,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2450,7 +2799,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2469,7 +2819,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2488,7 +2839,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2507,7 +2859,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2526,7 +2879,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2545,7 +2899,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2564,7 +2919,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2583,7 +2939,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -2627,7 +2984,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2646,7 +3004,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2665,7 +3024,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2684,7 +3044,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2703,7 +3064,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2722,7 +3084,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2741,7 +3104,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2760,7 +3124,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2779,7 +3144,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2798,7 +3164,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -2842,7 +3209,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2861,7 +3229,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2880,7 +3249,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2899,7 +3269,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2918,7 +3289,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2937,7 +3309,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2956,7 +3329,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2975,7 +3349,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -2994,7 +3369,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3013,7 +3389,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -3057,7 +3434,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3076,7 +3454,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 1,
@@ -3095,7 +3474,8 @@
           "sum_pnl_gross": -2400,
           "sum_fee_tax": 26,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 6,
@@ -3114,7 +3494,8 @@
           "sum_pnl_gross": 30460,
           "sum_fee_tax": 756,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 3,
@@ -3133,7 +3514,8 @@
           "sum_pnl_gross": -11230,
           "sum_fee_tax": 153,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3152,7 +3534,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 1,
@@ -3171,7 +3554,8 @@
           "sum_pnl_gross": 1700,
           "sum_fee_tax": 30,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 2,
@@ -3190,7 +3574,8 @@
           "sum_pnl_gross": -14485,
           "sum_fee_tax": 58,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3209,7 +3594,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3228,7 +3614,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -3272,7 +3659,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3291,7 +3679,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3310,7 +3699,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3329,7 +3719,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3348,7 +3739,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3367,7 +3759,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3386,7 +3779,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3405,7 +3799,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3424,7 +3819,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3443,7 +3839,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -3487,7 +3884,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3506,7 +3904,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3525,7 +3924,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3544,7 +3944,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3563,7 +3964,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3582,7 +3984,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3601,7 +4004,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3620,7 +4024,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3639,7 +4044,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3658,7 +4064,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -3702,7 +4109,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3721,7 +4129,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3740,7 +4149,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3759,7 +4169,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3778,7 +4189,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3797,7 +4209,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3816,7 +4229,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3835,7 +4249,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3854,7 +4269,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3873,7 +4289,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -3917,7 +4334,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3936,7 +4354,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3955,7 +4374,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3974,7 +4394,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -3993,7 +4414,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4012,7 +4434,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4031,7 +4454,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4050,7 +4474,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4069,7 +4494,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4088,7 +4514,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -4132,7 +4559,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4151,7 +4579,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4170,7 +4599,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4189,7 +4619,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4208,7 +4639,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4227,7 +4659,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4246,7 +4679,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4265,7 +4699,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4284,7 +4719,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4303,7 +4739,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -4347,7 +4784,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4366,7 +4804,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4385,7 +4824,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4404,7 +4844,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4423,7 +4864,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4442,7 +4884,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4461,7 +4904,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4480,7 +4924,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4499,7 +4944,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4518,7 +4964,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -4562,7 +5009,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4581,7 +5029,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4600,7 +5049,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4619,7 +5069,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4638,7 +5089,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4657,7 +5109,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4676,7 +5129,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4695,7 +5149,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4714,7 +5169,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4733,7 +5189,233 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
+        }
+      ],
+      "total": {
+        "trades": 0,
+        "winrate": null,
+        "pl_ratio": null,
+        "avg_win": null,
+        "avg_loss": null,
+        "max_win": null,
+        "max_loss": null,
+        "hold_win": null,
+        "hold_loss": null,
+        "expectancy": null,
+        "expectancy_amt": null,
+        "profit_factor": null,
+        "sum_pnl_amt": 0,
+        "sum_pnl_gross": 0,
+        "sum_fee_tax": 0,
+        "week": "TOTAL",
+        "label": "전체"
+      }
+    },
+    {
+      "key": "KR_TR_ADD1",
+      "unit": "일",
+      "weeks": [
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-08",
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-15",
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-22",
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-29",
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-06",
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-13",
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-20",
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-27",
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-08-03",
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-08-10",
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -4777,7 +5459,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4796,7 +5479,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4815,7 +5499,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4834,7 +5519,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4853,7 +5539,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4872,7 +5559,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4891,7 +5579,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4910,7 +5599,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4929,7 +5619,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -4948,7 +5639,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -4992,7 +5684,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5011,7 +5704,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5030,7 +5724,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5049,7 +5744,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5068,7 +5764,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5087,7 +5784,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5106,7 +5804,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5125,7 +5824,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5144,7 +5844,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 1,
@@ -5157,13 +5858,14 @@
           "hold_win": null,
           "hold_loss": 3.0,
           "expectancy": -10.012,
-          "expectancy_amt": -71616,
+          "expectancy_amt": -71414,
           "profit_factor": 0.0,
-          "sum_pnl_amt": -71616,
-          "sum_pnl_gross": -70665,
-          "sum_fee_tax": 951,
+          "sum_pnl_amt": -71414,
+          "sum_pnl_gross": -70465,
+          "sum_fee_tax": 949,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -5177,11 +5879,11 @@
         "hold_win": null,
         "hold_loss": 3.0,
         "expectancy": -10.012,
-        "expectancy_amt": -71616,
+        "expectancy_amt": -71414,
         "profit_factor": 0.0,
-        "sum_pnl_amt": -71616,
-        "sum_pnl_gross": -70665,
-        "sum_fee_tax": 951,
+        "sum_pnl_amt": -71414,
+        "sum_pnl_gross": -70465,
+        "sum_fee_tax": 949,
         "week": "TOTAL",
         "label": "전체"
       }
@@ -5207,7 +5909,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5226,7 +5929,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5245,7 +5949,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5264,7 +5969,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5283,7 +5989,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5302,7 +6009,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5321,7 +6029,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5340,7 +6049,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5359,7 +6069,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5378,7 +6089,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -5422,7 +6134,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5441,7 +6154,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5460,7 +6174,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5479,7 +6194,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5498,7 +6214,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5517,7 +6234,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5536,7 +6254,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5555,7 +6274,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5574,7 +6294,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5593,7 +6314,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -5637,7 +6359,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5656,7 +6379,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5675,7 +6399,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5694,7 +6419,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5713,7 +6439,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5732,7 +6459,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5751,7 +6479,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5770,7 +6499,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5789,7 +6519,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5808,7 +6539,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -5852,7 +6584,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5871,7 +6604,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5890,7 +6624,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5909,7 +6644,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5928,7 +6664,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5947,7 +6684,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5966,7 +6704,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -5985,7 +6724,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6004,7 +6744,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 1,
@@ -6017,13 +6758,14 @@
           "hold_win": null,
           "hold_loss": 5.0,
           "expectancy": -6.802,
-          "expectancy_amt": -9904,
+          "expectancy_amt": -9876,
           "profit_factor": 0.0,
-          "sum_pnl_amt": -9904,
-          "sum_pnl_gross": -9707,
-          "sum_fee_tax": 197,
+          "sum_pnl_amt": -9876,
+          "sum_pnl_gross": -9679,
+          "sum_fee_tax": 196,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -6037,11 +6779,11 @@
         "hold_win": null,
         "hold_loss": 5.0,
         "expectancy": -6.802,
-        "expectancy_amt": -9904,
+        "expectancy_amt": -9876,
         "profit_factor": 0.0,
-        "sum_pnl_amt": -9904,
-        "sum_pnl_gross": -9707,
-        "sum_fee_tax": 197,
+        "sum_pnl_amt": -9876,
+        "sum_pnl_gross": -9679,
+        "sum_fee_tax": 196,
         "week": "TOTAL",
         "label": "전체"
       }
@@ -6067,7 +6809,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6086,7 +6829,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6105,7 +6849,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6124,7 +6869,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6143,7 +6889,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6162,7 +6909,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6181,7 +6929,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6200,7 +6949,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6219,7 +6969,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6238,7 +6989,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -6282,7 +7034,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6301,7 +7054,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6320,7 +7074,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6339,7 +7094,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6358,7 +7114,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6377,7 +7134,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6396,7 +7154,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6415,7 +7174,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6434,7 +7194,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6453,7 +7214,908 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
+        }
+      ],
+      "total": {
+        "trades": 0,
+        "winrate": null,
+        "pl_ratio": null,
+        "avg_win": null,
+        "avg_loss": null,
+        "max_win": null,
+        "max_loss": null,
+        "hold_win": null,
+        "hold_loss": null,
+        "expectancy": null,
+        "expectancy_amt": null,
+        "profit_factor": null,
+        "sum_pnl_amt": 0,
+        "sum_pnl_gross": 0,
+        "sum_fee_tax": 0,
+        "week": "TOTAL",
+        "label": "전체"
+      }
+    },
+    {
+      "key": "US_TR_ADD1",
+      "unit": "일",
+      "weeks": [
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-08",
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-15",
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-22",
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-29",
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-06",
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-13",
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-20",
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-27",
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-08-03",
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-08-10",
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
+        }
+      ],
+      "total": {
+        "trades": 0,
+        "winrate": null,
+        "pl_ratio": null,
+        "avg_win": null,
+        "avg_loss": null,
+        "max_win": null,
+        "max_loss": null,
+        "hold_win": null,
+        "hold_loss": null,
+        "expectancy": null,
+        "expectancy_amt": null,
+        "profit_factor": null,
+        "sum_pnl_amt": 0,
+        "sum_pnl_gross": 0,
+        "sum_fee_tax": 0,
+        "week": "TOTAL",
+        "label": "전체"
+      }
+    },
+    {
+      "key": "US_TR_LEGACY",
+      "unit": "일",
+      "weeks": [
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-08",
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-15",
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-22",
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-29",
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-06",
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-13",
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-20",
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-27",
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-08-03",
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-08-10",
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
+        }
+      ],
+      "total": {
+        "trades": 0,
+        "winrate": null,
+        "pl_ratio": null,
+        "avg_win": null,
+        "avg_loss": null,
+        "max_win": null,
+        "max_loss": null,
+        "hold_win": null,
+        "hold_loss": null,
+        "expectancy": null,
+        "expectancy_amt": null,
+        "profit_factor": null,
+        "sum_pnl_amt": 0,
+        "sum_pnl_gross": 0,
+        "sum_fee_tax": 0,
+        "week": "TOTAL",
+        "label": "전체"
+      }
+    },
+    {
+      "key": "US_TR_LEGACY_TREND",
+      "unit": "일",
+      "weeks": [
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-08",
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-15",
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-22",
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-29",
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-06",
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-13",
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-20",
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-27",
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-08-03",
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-08-10",
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
+        }
+      ],
+      "total": {
+        "trades": 0,
+        "winrate": null,
+        "pl_ratio": null,
+        "avg_win": null,
+        "avg_loss": null,
+        "max_win": null,
+        "max_loss": null,
+        "hold_win": null,
+        "hold_loss": null,
+        "expectancy": null,
+        "expectancy_amt": null,
+        "profit_factor": null,
+        "sum_pnl_amt": 0,
+        "sum_pnl_gross": 0,
+        "sum_fee_tax": 0,
+        "week": "TOTAL",
+        "label": "전체"
+      }
+    },
+    {
+      "key": "US_TR_LEGACY_LOW",
+      "unit": "일",
+      "weeks": [
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-08",
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-15",
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-22",
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-06-29",
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-06",
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-13",
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-20",
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-07-27",
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-08-03",
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "week": "2026-08-10",
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -6497,7 +8159,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6516,7 +8179,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6535,7 +8199,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6554,7 +8219,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6573,7 +8239,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6592,7 +8259,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6611,7 +8279,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6630,7 +8299,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6649,7 +8319,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6668,7 +8339,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -6712,7 +8384,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6731,7 +8404,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6750,7 +8424,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6769,7 +8444,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6788,7 +8464,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6807,7 +8484,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6826,7 +8504,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6845,7 +8524,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6864,7 +8544,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6883,7 +8564,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
@@ -6927,7 +8609,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-08",
-          "label": "06/08~06/12"
+          "label": "06/08~06/12",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6946,7 +8629,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-15",
-          "label": "06/15~06/19"
+          "label": "06/15~06/19",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6965,7 +8649,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-22",
-          "label": "06/22~06/26"
+          "label": "06/22~06/26",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -6984,7 +8669,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-06-29",
-          "label": "06/29~07/03"
+          "label": "06/29~07/03",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -7003,7 +8689,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-06",
-          "label": "07/06~07/10"
+          "label": "07/06~07/10",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -7022,7 +8709,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-13",
-          "label": "07/13~07/17"
+          "label": "07/13~07/17",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -7041,7 +8729,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-20",
-          "label": "07/20~07/24"
+          "label": "07/20~07/24",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -7060,7 +8749,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-07-27",
-          "label": "07/27~07/31"
+          "label": "07/27~07/31",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -7079,7 +8769,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-03",
-          "label": "08/03~08/07"
+          "label": "08/03~08/07",
+          "fx_usdkrw": 1415.0
         },
         {
           "trades": 0,
@@ -7098,7 +8789,8 @@
           "sum_pnl_gross": 0,
           "sum_fee_tax": 0,
           "week": "2026-08-10",
-          "label": "08/10~08/14"
+          "label": "08/10~08/14",
+          "fx_usdkrw": 1411.0
         }
       ],
       "total": {
