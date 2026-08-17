@@ -256,18 +256,28 @@ MANUAL_TAGS = {"수동매매", "미국수동", "기타(8042)"}
 # 자산배분(주간 리밸런싱). 매매전략이 아니라 비중조절이라 통합에 섞으면 비교가 흐려진다.
 ALLOC_TAGS = {"통합ETF"}
 
+# 레거시 편입분(tr_migrate_us_1887.py). 새 장부 이전에 산 물량을 봇이 청산할 수 있게
+# 태그만 붙여둔 것이라 '봇 성과'가 아니다. 통합 합산·표시에서 뺀다.
+#   ※ MANUAL_TAGS 와 같은 이유로 TAG_ORDER 에서 지우면 안 된다. 집계에서 통째로 빼면
+#     이 물량을 판 매도가 FIFO 로 흡수될 자리가 없어져 다른 봇 포지션이 영영 안 닫힌다.
+#   ※ 청산이 다 끝나도 되돌리지 말 것. 닫힌 포지션 기록이 장부에 계속 남아 있어서
+#     빼는 순간 과거 레거시 손익이 통합에 되살아난다.
+LEGACY_TAGS = {"US_TR_LEGACY", "US_TR_LEGACY_TREND", "US_TR_LEGACY_LOW"}
+
 # 그룹별 집계 행(개별 태그가 아니라 합산 행). key → (그룹, 합산 대상 판정)
 AGGREGATE_TAGS = {"통합": "bot", "수동합계": "manual"}
 
 
 def tag_group(tag):
-    """성과 tag → 그룹. 'bot' | 'alloc' | 'manual'"""
+    """성과 tag → 그룹. 'bot' | 'alloc' | 'manual' | 'legacy'"""
     if tag in AGGREGATE_TAGS:
         return AGGREGATE_TAGS[tag]
     if tag in MANUAL_TAGS:
         return "manual"
     if tag in ALLOC_TAGS:
         return "alloc"
+    if tag in LEGACY_TAGS:
+        return "legacy"
     return "bot"
 
 # 오래된 이름을 쓰는 보조 출력부와의 호환용 alias.
@@ -1144,8 +1154,8 @@ def build_quarter(by_bot, by_real, all_weeks, ordered_tags, rf):
         s["label"] = tag
         rows.append(s)
 
-    # 봇(통합 → 태그별 손익순) → 자산배분 → 수동(수동합계 → 태그별)
-    order = {"bot": 0, "alloc": 1, "manual": 2}
+    # 봇(통합 → 태그별 손익순) → 자산배분 → 수동(수동합계 → 태그별) → 레거시
+    order = {"bot": 0, "alloc": 1, "manual": 2, "legacy": 3}
     rows.sort(key=lambda r: (order.get(r["group"], 9),
                              r["key"] not in AGGREGATE_TAGS, -r["sum_pnl_amt"]))
     keys = sorted(wset)
@@ -1476,7 +1486,8 @@ def print_bot_summary(report, indent="  ", show_zero=True):
     print(line)
     print(head)
     print(line)
-    grp_label = {"bot": "[봇]", "alloc": "[자산배분]", "manual": "[수동 — 통합 미포함]"}
+    grp_label = {"bot": "[봇]", "alloc": "[자산배분]", "manual": "[수동 — 통합 미포함]",
+                 "legacy": "[레거시 편입분 — 통합 미포함]"}
     prev_grp = None
     for r in live:
         if r["group"] != prev_grp:
