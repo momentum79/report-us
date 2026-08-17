@@ -492,7 +492,8 @@ def build_auto_trade_recent_html():
 
         tks = holdings.get(key, [])
         tk_cells = "".join(
-            f'<td class="kpi-tk">{tks[i] if i < len(tks) else ""}</td>'
+            f'<td class="kpi-tk{" kpi-tk-top" if i < 3 else ""}">'
+            f'{tks[i] if i < len(tks) else ""}</td>'
             for i in range(RECENT_TICKER_COLS)
         )
         rows.append(
@@ -510,7 +511,10 @@ def build_auto_trade_recent_html():
     rates_text = " / ".join([_rate_text(tr_ran["KR"], tr_judged["KR"]),
                              _rate_text(tr_ran["US"], tr_judged["US"]),
                              rate_text])
-    tk_head = "".join(f'<th class="kpi-tk">T{i + 1}</th>' for i in range(RECENT_TICKER_COLS))
+    tk_head = "".join(
+        f'<th class="kpi-tk{" kpi-tk-top" if i < 3 else ""}">T{i + 1}</th>'
+        for i in range(RECENT_TICKER_COLS)
+    )
 
     return (
         '<div class="auto-kpi-card auto-kpi-month">'
@@ -1334,6 +1338,9 @@ body {{
   color: #34495e;
 }}
 .auto-kpi-table th.kpi-tk {{ font-size: 12.5px; color: #7f8c8d; }}
+/* Top3(T1~T3)만 살짝 강조 */
+.auto-kpi-table td.kpi-tk-top {{ font-weight: 700; color: #1f2d3d; }}
+.auto-kpi-table th.kpi-tk-top {{ font-weight: 700; color: #566573; }}
 .auto-kpi-table td.kpi-actual {{ color: #2c3e50; font-weight: 700; }}
 .auto-kpi-table th.kpi-actual,
 .auto-kpi-table td.kpi-actual {{ border-right: 1px solid #e6eaee; }}

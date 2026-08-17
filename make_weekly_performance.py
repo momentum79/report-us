@@ -936,6 +936,18 @@ def week_label(monday):
     return f"{monday.month:02d}/{monday.day:02d}~{fri.month:02d}/{fri.day:02d}"
 
 
+_WDAY_KO = "월화수목금토일"
+
+
+def day_label(day_iso):
+    """'2026-08-17' → '08/17(월)'."""
+    try:
+        d = datetime.strptime(day_iso, "%Y-%m-%d").date()
+    except Exception:
+        return day_iso
+    return f"{d.month:02d}/{d.day:02d}({_WDAY_KO[d.weekday()]})"
+
+
 def _krw(t, field):
     """체결통화 금액 → 원화. 미국 체결(USD)만 환산.
     환율은 '청산 주차'에 고정된 값(fx_for_week) — 과거 주차는 재실행해도 동일."""
@@ -1106,6 +1118,92 @@ def build_report(trips, weeks_limit=None):
         "fx_usdkrw": {w.isoformat(): round(fx_for_week(w), 2) for w in all_weeks},
         "bots": bots_out,
         "quarter": build_quarter(by_bot, by_real, all_weeks, ordered_tags, rf),
+    }
+
+
+# ───────── 일별 버킷 (당일 성과 확인용) ─────────
+# 주간표는 월요일부터 뭉쳐서 "오늘 뭘 했나"가 안 보인다(월요일에만 우연히 보인다).
+# 라운드트립·실현손익 레코드는 둘 다 exit_dt 를 들고 있으므로 집계 규칙은 그대로 두고
+# 버킷만 주 → 날짜로 바꾼다. 새로 계산하는 값은 없다.
+def build_daily_report(trips, days_limit=None):
+    """일자별 태그 성과. build_report 의 주차 그룹핑을 날짜로 바꾼 판.
+
+    주간표와 숫자가 어긋나면 안 되므로 규칙을 그대로 따른다.
+      · 거래건수·승률·PF·기대값 = 완결 라운드트립(trips) 기준
+      · 컷오프 이후 '금액'      = 그 날 매도의 실현분(REALIZATIONS) 기준
+    realize_from_week() 가 주 월요일 iso 라서 날짜 문자열 비교로도 같은 구간이 잘린다.
+    → 한 주에 속한 일별 금액을 더하면 그 주의 주간 금액과 정확히 일치한다.
+
+    활동(완결거래·매도실현) 있는 날짜·태그만 담는다. 전 태그 × 전 거래일을 다 채우면
+    JSON 이 몇 배로 불어나는데 대부분이 0 행이라 쓸모가 없다.
+    days_limit 지정 시 활동 있는 날짜 중 최근 N 일만.
+    """
+    reals = list(REALIZATIONS)
+    rf = realize_from_week()
+
+    def _dk(x):
+        return x["exit_dt"].date().isoformat()
+
+    all_days = sorted({_dk(t) for t in trips} |
+                      {_dk(r) for r in reals if rf and _dk(r) >= rf})
+    if days_limit:
+        all_days = all_days[-days_limit:]
+    keep = set(all_days)
+
+    # (태그, 날짜) 로 미리 쪼개둔다. 날짜마다 전체 리스트를 훑으면 O(일×태그×건수).
+    by_bot_day = defaultdict(list)
+    by_real_day = defaultdict(list)
+    for t in trips:
+        dk = _dk(t)
+        if dk not in keep:
+            continue
+        by_bot_day[(t["bot"], dk)].append(t)
+        grp = tag_group(t["bot"])
+        for agg, g in AGGREGATE_TAGS.items():
+            if grp == g:
+                by_bot_day[(agg, dk)].append(t)
+    for r in reals:
+        dk = _dk(r)
+        if dk not in keep or not (rf and dk >= rf):
+            continue
+        by_real_day[(r["bot"], dk)].append(r)
+        grp = tag_group(r["bot"])
+        for agg, g in AGGREGATE_TAGS.items():
+            if grp == g:
+                by_real_day[(agg, dk)].append(r)
+
+    ordered_tags = list(BOT_ORDER)
+    seen_tags = {k for k, _ in by_bot_day} | {k for k, _ in by_real_day}
+    for extra in sorted(t for t in seen_tags if t not in ordered_tags):
+        ordered_tags.append(extra)
+
+    days_out = {}
+    for dk in all_days:
+        use_reals = bool(rf) and dk >= rf
+        rows = []
+        for bot in ordered_tags:
+            dt_trips = by_bot_day.get((bot, dk), [])
+            dt_reals = by_real_day.get((bot, dk), [])
+            if not dt_trips and not dt_reals:
+                continue
+            unit = BOT_UNIT.get(bot, "min")
+            s = summarize(dt_trips, unit, dt_reals if use_reals else None)
+            if not s["trades"] and not s["sum_pnl_amt"] and not (s.get("sell_events") or 0):
+                continue
+            s["key"] = bot
+            s["group"] = tag_group(bot)
+            s["unit"] = "일" if unit == "day" else ("분" if unit == "min" else "혼합")
+            s["day"] = dk
+            s["label"] = day_label(dk)
+            rows.append(s)
+        if rows:
+            days_out[dk] = {"label": day_label(dk), "rows": rows}
+
+    return {
+        "day_keys": [d for d in all_days if d in days_out],
+        "today": date.today().isoformat(),
+        "realize_from": rf,
+        "days": days_out,
     }
 
 
@@ -1505,6 +1603,60 @@ def print_bot_summary(report, indent="  ", show_zero=True):
         print(f"{indent}거래 0건: " + ", ".join(r["key"] for r in idle))
 
 
+def print_day_summary(report, day=None, indent="  "):
+    """하루치 태그별 성과. day 미지정이면 오늘. daily 블록이 없는 예전 json 이면 조용히 통과.
+
+    '거래'는 완결 라운드트립, '매도'는 부분청산 포함 매도 건수다. 두 값이 다른 게 정상이고
+    (예: 거래 0 · 매도 3 = 아직 완결 안 된 포지션의 분할매도), 금액은 매도 기준이라
+    거래 0 인 줄에도 손익이 찍힌다.
+    """
+    daily = (report or {}).get("daily")
+    if not daily:
+        return
+    dk = day or daily.get("today") or date.today().isoformat()
+    entry = (daily.get("days") or {}).get(dk)
+
+    print(f"\n{indent}[{day_label(dk)} 당일]  거래=완결 · 매도=부분청산 포함")
+    if not entry:
+        print(f"{indent}(완결·실현 없음)")
+        return
+
+    rows = []
+    for r in entry["rows"]:
+        rows.append({
+            "group":  r.get("group", "bot"),
+            "key":    r["key"],
+            "trades": r["trades"],
+            "sells":  r.get("sell_events") or 0,
+            "wr":     "-" if r["winrate"] is None else f"{r['winrate']}%",
+            "net":    f"{r['sum_pnl_amt']:,}원",
+            "fee":    f"{r['sum_fee_tax']:,}원",
+        })
+    w_key = max([_vw(r["key"]) for r in rows] + [_vw("봇")])
+    w_net = max([_vw(r["net"]) for r in rows] + [_vw("순손익")])
+    w_fee = max([_vw(r["fee"]) for r in rows] + [_vw("비용")])
+    head = (indent + _pad("봇", w_key) + "  " + _pad("거래", 5, True) + "  " + _pad("매도", 5, True)
+            + "  " + _pad("승률", 7, True)
+            + "  " + _pad("순손익", w_net, True) + "  " + _pad("비용", w_fee, True))
+    line = indent + "-" * (_vw(head) - _vw(indent))
+    grp_label = {"bot": "[봇]", "alloc": "[자산배분]", "manual": "[수동 — 통합 미포함]",
+                 "legacy": "[레거시 편입분 — 통합 미포함]"}
+    print(line)
+    print(head)
+    print(line)
+    prev_grp = None
+    for r in rows:
+        if r["group"] != prev_grp:
+            if prev_grp is not None:
+                print(line)
+            print(indent + grp_label.get(r["group"], r["group"]))
+            prev_grp = r["group"]
+        print(indent + _pad(r["key"], w_key) + "  " + _pad(r["trades"], 5, True)
+              + "  " + _pad(r["sells"], 5, True) + "  " + _pad(r["wr"], 7, True)
+              + "  " + _pad(r["net"], w_net, True) + "  " + _pad(r["fee"], w_fee, True))
+    print(line)
+
+
 def main():
     print("── 주간성과 집계 (intraday + Pine TR tag 기반) ──")
     load_fx_snapshot()   # 과거 주차 환율 동결값 로드 (원화 금액 재현성)
@@ -1520,6 +1672,12 @@ def main():
 
     # 전체 누적(분석용): full json + csv + xlsx
     full_report = build_report(trips)
+    # 일별 버킷은 full json 에만 붙인다(웹 피드 weekly_performance.json 은 그대로).
+    # csv/xlsx 는 report["bots"] 만 훑으므로 최상위 키가 늘어도 영향 없다.
+    full_report["daily"] = build_daily_report(trips)
+    d = full_report["daily"]
+    print(f"  일별 버킷: 활동일 {len(d['day_keys'])}일"
+          + (f" (오늘 {d['today']} 포함)" if d["today"] in d["days"] else f" (오늘 {d['today']} 활동없음)"))
     write_json(full_report, OUT_JSON_FULL)
     write_csv(full_report)
     write_xlsx(full_report)

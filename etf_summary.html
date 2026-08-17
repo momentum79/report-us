@@ -21,6 +21,37 @@ body {
 .sec-title { font-size: 0.95em; font-weight: bold; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 4px; margin-bottom: 12px; margin-top:20px; max-width: 1134px; }
 .cards-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-start; align-items: flex-start; }
 
+/* ── 본문 | 오른쪽 레일 2열 ──
+   본문 폭 1134px = 카드 3장(370×3 + gap 12×2). .sec-title 의 max-width 와 같은 값으로,
+   본문은 이 폭 이상으로 넓어지지 않는다(레일이 카드 3장 바로 오른쪽에서 시작).
+   자리가 모자라면 레일이 먼저 양보(본문 shrink 1 이지만 basis 고정, 레일 250~330px).
+   1450px 미만(1134+16+250+28)은 나란히 둘 수 없어 레일을 본문 아래로 내린다. */
+.sum-shell { display: flex; gap: 16px; align-items: flex-start; }
+.sum-main { flex: 0 1 1134px; min-width: 0; }
+.sum-side { flex: 0 1 330px; min-width: 250px; }
+@media (max-width: 1450px) {
+  .sum-shell { display: block; }
+  .sum-side { max-width: 370px; margin-top: 14px; }
+}
+
+/* 네이버 테마 Top15 카드.
+   margin-top 46px = 왼쪽 첫 섹션 제목(.sec-title)의 파란 밑줄과 이 카드 위쪽 녹색선의 높이를 맞춘 값.
+   (제목 margin-top 20 + 제목 글줄높이/패딩 26 실측) */
+.nvt-card { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; margin-top: 46px; }
+.nvt-head { padding: 9px 12px; background: #fafafa; border-bottom: 1px solid #eee; border-top: 3px solid #16a085; }
+.nvt-title { font-size: 0.88em; font-weight: bold; color: #2c3e50; }
+.nvt-sub { font-size: 0.72em; color: #95a5a6; margin-top: 2px; }
+.nvt-list { padding: 6px 12px 8px 12px; }
+.nvt-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; border-bottom: 1px solid #f5f5f5; font-size: 0.85em; }
+.nvt-row:last-child { border-bottom: none; }
+.nvt-rank { width: 18px; text-align: right; color: #b2bec3; font-size: 0.85em; flex-shrink: 0; }
+.nvt-name { flex: 1; min-width: 0; font-weight: bold; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nvt-chg { width: 58px; text-align: right; font-weight: bold; flex-shrink: 0; }
+/* 레일이 본문 아래로 내려간 1단 배치에선 줄맞춤용 46px 여백이 필요없다 */
+@media (max-width: 1450px) {
+  .nvt-card { margin-top: 0; }
+}
+
 .styled-tableWide { width: auto; max-width: 100%; border-collapse: collapse; margin: 5px 0 12px 0; font-size: 12px; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden; }
 .styled-tableWide thead tr { background-color: #e67e22; color: #fff; text-align: left; }
 .styled-tableWide th, .styled-tableWide td { padding: 4px 10px; border-bottom: 1px solid #eee; white-space: nowrap; }
@@ -130,10 +161,10 @@ body.naver-popup-open { overflow: hidden; }
 
 
 <div class="update-bar">
-  📡 업데이트: 2026-08-17 15:58:21 (제시된 종목들만 실시간 체결강도 업데이트 완료)
+  📡 업데이트: 2026-08-17 22:18:52 (제시된 종목들만 실시간 체결강도 업데이트 완료)
 </div>
 
-<div class="section"><h3 class="sec-title" style="border-bottom-color:#2980b9;">📊 주도주/테마주</h3><div class="cards-row">
+<div class="sum-shell"><main class="sum-main"><div class="section"><h3 class="sec-title" style="border-bottom-color:#2980b9;">📊 주도주/테마주</h3><div class="cards-row">
   <div class="theme-card ">
     <div class="card-header" style="border-top:3px solid #c0392b;">
       <div class="card-title-line">
@@ -628,7 +659,7 @@ body.naver-popup-open { overflow: hidden; }
         <span class="stock-nxt"></span>
       </div>
     </div>
-  </div></div></div>
+  </div></div></div></main><aside class="sum-side"><div class="nvt-card"><div class="nvt-head"><div class="nvt-title">🧭 네이버 테마 등락률 Top15</div><div class="nvt-sub">갱신: 08-17 22:05</div></div><div class="nvt-list"><div class="nvt-row"><span class="nvt-rank">1</span><span class="nvt-name">정유</span><span class="nvt-chg" style="color:#e74c3c;">+6.48%</span></div><div class="nvt-row"><span class="nvt-rank">2</span><span class="nvt-name">웹툰</span><span class="nvt-chg" style="color:#e74c3c;">+5.44%</span></div><div class="nvt-row"><span class="nvt-rank">3</span><span class="nvt-name">생명보험</span><span class="nvt-chg" style="color:#e74c3c;">+5.43%</span></div><div class="nvt-row"><span class="nvt-rank">4</span><span class="nvt-name">통신</span><span class="nvt-chg" style="color:#e74c3c;">+4.83%</span></div><div class="nvt-row"><span class="nvt-rank">5</span><span class="nvt-name">손해보험</span><span class="nvt-chg" style="color:#e74c3c;">+4.58%</span></div><div class="nvt-row"><span class="nvt-rank">6</span><span class="nvt-name">2차전지(생산)</span><span class="nvt-chg" style="color:#e74c3c;">+4.27%</span></div><div class="nvt-row"><span class="nvt-rank">7</span><span class="nvt-name">2차전지(나트륨이온)</span><span class="nvt-chg" style="color:#e74c3c;">+4.07%</span></div><div class="nvt-row"><span class="nvt-rank">8</span><span class="nvt-name">스마트카(SMART CAR)</span><span class="nvt-chg" style="color:#e74c3c;">+3.76%</span></div><div class="nvt-row"><span class="nvt-rank">9</span><span class="nvt-name">자동차 대표주</span><span class="nvt-chg" style="color:#e74c3c;">+3.72%</span></div><div class="nvt-row"><span class="nvt-rank">10</span><span class="nvt-name">LPG(액화석유가스)</span><span class="nvt-chg" style="color:#e74c3c;">+3.69%</span></div><div class="nvt-row"><span class="nvt-rank">11</span><span class="nvt-name">IT 대표주</span><span class="nvt-chg" style="color:#e74c3c;">+3.64%</span></div><div class="nvt-row"><span class="nvt-rank">12</span><span class="nvt-name">윤활유</span><span class="nvt-chg" style="color:#e74c3c;">+3.63%</span></div><div class="nvt-row"><span class="nvt-rank">13</span><span class="nvt-name">피지컬 AI/휴머노이드 로봇</span><span class="nvt-chg" style="color:#e74c3c;">+3.49%</span></div><div class="nvt-row"><span class="nvt-rank">14</span><span class="nvt-name">조선</span><span class="nvt-chg" style="color:#e74c3c;">+3.21%</span></div><div class="nvt-row"><span class="nvt-rank">15</span><span class="nvt-name">폐배터리</span><span class="nvt-chg" style="color:#e74c3c;">+3.08%</span></div></div></div></aside></div>
 
 <div id="naverChartPopup">
   <div class="popup-header">

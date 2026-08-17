@@ -41,6 +41,7 @@ GANN_FIRE_KR       = BASE / "kr_gann_fire_set.json"
 REPORT_VOLUME_JSON = BASE / "report_volume.json"
 NAVER_LEADER_POOL_JSON = BASE / "naver_leader_pool.json"
 YESTERDAY_JSON     = Path(r"D:\py\0txt\theme_yesterday.json")  # make_index_theme.py 가 관리(읽기 전용)
+NAVER_THEME_SUM_JSON = Path(r"D:\py\0txt\00_1887_naver_thema_summary.json")  # naver_theme_crawler.py 가 기록(읽기 전용)
 OUT_HTML           = BASE / "summary.html"
 OUT_ETF_HTML       = BASE / "etf_summary.html"
 TR_BUY_PLAN_JSON    = BASE / "kr_pine_buy_plan.json"      # 0order/tr/0000_kr_buy.bat(kr_pine_buy_1887.py) 이 기록
@@ -537,6 +538,51 @@ def build_yesterday_theme_section(cs_dict=None, rate_dict=None, tv_dict=None) ->
         pass
     return (f'<div class="section"><h3 class="sec-title" style="border-bottom-color:#e67e22;">'
             f'📅 전일 테마{date_label} — 오늘 등락률</h3><div class="cards-row">{cards_html}</div></div>')
+
+
+# ── 오른쪽 레일: 네이버 테마 등락률 Top15 ──────────────────────────────────
+
+def build_naver_theme_rail() -> str:
+    """네이버 테마 등락률 Top15 카드(오른쪽 레일용).
+    원천 = naver_theme_crawler.py 가 쓰는 00_1887_naver_thema_summary.json
+    (0bat/_run_summary.py 의 콘솔 [2] 섹션과 같은 데이터).
+    0000_h1time_real.bat 은 크롤러를 이 스크립트보다 먼저 돌리므로 항상 당일 값이다."""
+    try:
+        data = json.loads(NAVER_THEME_SUM_JSON.read_text(encoding='utf-8'))
+    except Exception:
+        return ''
+    themes = data.get('themes') or []
+    if not themes:
+        return ''
+
+    rows = ''
+    for t in themes:
+        try:
+            chg = float(t.get('change'))
+        except (TypeError, ValueError):
+            continue
+        color = '#e74c3c' if chg > 0 else ('#2980b9' if chg < 0 else '#7f8c8d')
+        rank = t.get('rank') or ''
+        rows += (
+            '<div class="nvt-row">'
+            f'<span class="nvt-rank">{html.escape(str(rank))}</span>'
+            f'<span class="nvt-name">{html.escape(str(t.get("name") or ""))}</span>'
+            f'<span class="nvt-chg" style="color:{color};">{chg:+.2f}%</span>'
+            '</div>'
+        )
+    if not rows:
+        return ''
+
+    upd = html.escape(str(data.get('updated') or ''))[5:16]  # 'MM-DD HH:MM'
+    return (
+        '<div class="nvt-card">'
+        '<div class="nvt-head">'
+        '<div class="nvt-title">🧭 네이버 테마 등락률 Top15</div>'
+        + (f'<div class="nvt-sub">갱신: {upd}</div>' if upd else '') +
+        '</div>'
+        f'<div class="nvt-list">{rows}</div>'
+        '</div>'
+    )
 
 
 # ── 한국주식 TR(Pine Screener) 통합 주문 예상표 ────────────────────────────
@@ -1383,6 +1429,14 @@ def main():
         section_wrap('📊 GANN 신호 [KR전종목]', 'krall_row2', '#2980b9')
     )
 
+    # 네이버 테마 Top15 는 오른쪽 레일로 뺀다. 카드 행(.cards-row) 안에 끼우면 flex 행 높이가
+    # 이 카드 높이까지 늘어나 왼쪽 카드들 아래로 빈 공간이 생긴다(주문 게시판 .ord-shell 과 동일 처리).
+    naver_rail = build_naver_theme_rail()
+    if naver_rail:
+        html_content = ('<div class="sum-shell">'
+                        f'<main class="sum-main">{html_content}</main>'
+                        f'<aside class="sum-side">{naver_rail}</aside></div>')
+
     def generate_page(nav_html=""):
         page = f"""<!doctype html>
 <html lang="ko">
@@ -1406,6 +1460,37 @@ body {{
 .section {{ margin-bottom: 14px; }}
 .sec-title {{ font-size: 0.95em; font-weight: bold; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 4px; margin-bottom: 12px; margin-top:20px; max-width: 1134px; }}
 .cards-row {{ display: flex; flex-wrap: wrap; gap: 12px; justify-content: flex-start; align-items: flex-start; }}
+
+/* ── 본문 | 오른쪽 레일 2열 ──
+   본문 폭 1134px = 카드 3장(370×3 + gap 12×2). .sec-title 의 max-width 와 같은 값으로,
+   본문은 이 폭 이상으로 넓어지지 않는다(레일이 카드 3장 바로 오른쪽에서 시작).
+   자리가 모자라면 레일이 먼저 양보(본문 shrink 1 이지만 basis 고정, 레일 250~330px).
+   1450px 미만(1134+16+250+28)은 나란히 둘 수 없어 레일을 본문 아래로 내린다. */
+.sum-shell {{ display: flex; gap: 16px; align-items: flex-start; }}
+.sum-main {{ flex: 0 1 1134px; min-width: 0; }}
+.sum-side {{ flex: 0 1 330px; min-width: 250px; }}
+@media (max-width: 1450px) {{
+  .sum-shell {{ display: block; }}
+  .sum-side {{ max-width: 370px; margin-top: 14px; }}
+}}
+
+/* 네이버 테마 Top15 카드.
+   margin-top 46px = 왼쪽 첫 섹션 제목(.sec-title)의 파란 밑줄과 이 카드 위쪽 녹색선의 높이를 맞춘 값.
+   (제목 margin-top 20 + 제목 글줄높이/패딩 26 실측) */
+.nvt-card {{ background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; margin-top: 46px; }}
+.nvt-head {{ padding: 9px 12px; background: #fafafa; border-bottom: 1px solid #eee; border-top: 3px solid #16a085; }}
+.nvt-title {{ font-size: 0.88em; font-weight: bold; color: #2c3e50; }}
+.nvt-sub {{ font-size: 0.72em; color: #95a5a6; margin-top: 2px; }}
+.nvt-list {{ padding: 6px 12px 8px 12px; }}
+.nvt-row {{ display: flex; align-items: center; gap: 8px; padding: 3px 0; border-bottom: 1px solid #f5f5f5; font-size: 0.85em; }}
+.nvt-row:last-child {{ border-bottom: none; }}
+.nvt-rank {{ width: 18px; text-align: right; color: #b2bec3; font-size: 0.85em; flex-shrink: 0; }}
+.nvt-name {{ flex: 1; min-width: 0; font-weight: bold; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }}
+.nvt-chg {{ width: 58px; text-align: right; font-weight: bold; flex-shrink: 0; }}
+/* 레일이 본문 아래로 내려간 1단 배치에선 줄맞춤용 46px 여백이 필요없다 */
+@media (max-width: 1450px) {{
+  .nvt-card {{ margin-top: 0; }}
+}}
 
 .styled-tableWide {{ width: auto; max-width: 100%; border-collapse: collapse; margin: 5px 0 12px 0; font-size: 12px; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-radius: 6px; overflow: hidden; }}
 .styled-tableWide thead tr {{ background-color: #e67e22; color: #fff; text-align: left; }}

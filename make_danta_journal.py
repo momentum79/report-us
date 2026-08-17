@@ -365,6 +365,11 @@ def main():
     except Exception as e:
         print(f"  ⚠ 1887 동기화 생략: {e}")
     try:
+        import sync_8042dip_fills            # 저점사다리(8042DIP) — 감시창 닫힌 뒤 체결 소급
+        sync_8042dip_fills.main()
+    except Exception as e:
+        print(f"  ⚠ 8042DIP(저점사다리) 동기화 생략: {e}")
+    try:
         import sync_allone_etf_fills         # allone 8042 통합ETF(국내+미국상장) → acct=8042ETF
         sync_allone_etf_fills.main()
     except Exception as e:
