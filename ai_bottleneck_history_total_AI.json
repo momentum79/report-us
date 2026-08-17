@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-17 22:16:05",
+  "updated_at": "2026-08-18 08:11:25",
   "window_note": "Compare today with 5 stored snapshots ago when available. Retains up to 5 years.",
   "snapshots": [
     {
@@ -3254,6 +3254,50 @@
         "SOFTWARE_ADOPTION": {
           "name_kr": "SW/데이터플랫폼",
           "score": 13.98,
+          "state": "HOT"
+        }
+      }
+    },
+    {
+      "date": "2026-08-18",
+      "update_time": "2026-08-18 08:05:07",
+      "headline": "데이터센터 가동 레이어 우세",
+      "location": "DATACENTER_DEPLOY",
+      "confidence": "LOW",
+      "layers": {
+        "DEMAND_CAPEX": {
+          "name_kr": "수요/CAPEX",
+          "score": 2.54,
+          "state": "SOFT"
+        },
+        "SILICON_COMPUTE": {
+          "name_kr": "칩/ASIC",
+          "score": 9.37,
+          "state": "WATCH"
+        },
+        "MEMORY_PACKAGING": {
+          "name_kr": "HBM/패키징/MLCC",
+          "score": 6.47,
+          "state": "SOFT"
+        },
+        "NETWORK_OPTICS": {
+          "name_kr": "네트워크/광통신",
+          "score": 10.34,
+          "state": "WATCH"
+        },
+        "POWER_COOLING": {
+          "name_kr": "전력/냉각",
+          "score": 7.77,
+          "state": "SOFT"
+        },
+        "DATACENTER_DEPLOY": {
+          "name_kr": "데이터센터/서버",
+          "score": 14.23,
+          "state": "VERY_HOT"
+        },
+        "SOFTWARE_ADOPTION": {
+          "name_kr": "SW/데이터플랫폼",
+          "score": 12.82,
           "state": "HOT"
         }
       }
