@@ -1,17 +1,17 @@
 {
   "account": "8042",
-  "updated": "2026-08-18 16:21:10",
+  "updated": "2026-08-19 08:46:31",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 19341565,
+    "total_asset": 19343804,
     "tot_pur_amt": 7180296,
     "tot_evlt_amt": 8659810,
     "tot_evlt_pl": 1477174,
     "tot_prft_rt": 20.57,
-    "stock_ratio": 44.77305740254214,
-    "cash": 4054094,
-    "tdy_realized_pl": 2060075
+    "stock_ratio": 44.76787502602901,
+    "cash": 3135141,
+    "tdy_realized_pl": 0
   },
   "holdings": [
     {
@@ -23,7 +23,7 @@
       "profit_rate": 16.44,
       "eval_amount": 3755810,
       "nxt": "",
-      "cntr_str": 91.19,
+      "cntr_str": 500.0,
       "candle": "",
       "tag": ""
     },
@@ -36,7 +36,7 @@
       "profit_rate": 21.17,
       "eval_amount": 1982000,
       "nxt": "",
-      "cntr_str": 87.07,
+      "cntr_str": 500.0,
       "candle": "",
       "tag": ""
     },
@@ -49,7 +49,7 @@
       "profit_rate": 47.18,
       "eval_amount": 1941000,
       "nxt": "",
-      "cntr_str": 92.07,
+      "cntr_str": 500.0,
       "candle": "",
       "tag": ""
     },
@@ -62,7 +62,7 @@
       "profit_rate": -2.11,
       "eval_amount": 981000,
       "nxt": "",
-      "cntr_str": 76.74,
+      "cntr_str": 0.0,
       "candle": "일봉",
       "tag": "통합ETF"
     }
@@ -73,44 +73,44 @@
       "stock_name": "스페인 아이셰어즈 ETF",
       "quantity": 39,
       "avg_price": 62.67,
-      "current_price": 62.4,
-      "profit_rate": -0.57,
-      "eval_amount_usd": 2433.6,
-      "eval_amount": 3449993,
+      "current_price": 62.08,
+      "profit_rate": -1.08,
+      "eval_amount_usd": 2421.12,
+      "eval_amount": 3420921,
       "buy_date": "2026-08-08",
       "candle": "일봉",
       "tag": "통합ETF"
     }
   ],
   "us_summary": {
-    "us_stock_krw": 3449993,
+    "us_stock_krw": 3420921,
     "usd_cash": 11564.56,
-    "usd_cash_krw": 16366165,
-    "rate": 1415.2,
-    "total_asset_total": 30520886,
-    "eval_pl_usd": -10.53,
-    "eval_pl_krw": -14902,
+    "usd_cash_krw": 16317594,
+    "rate": 1411.0,
+    "total_asset_total": 29497722,
+    "eval_pl_usd": -23.01,
+    "eval_pl_krw": -32467,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
-    "won_entr": 4054094,
+    "won_entr": 3135141,
     "fx": {
       "USD": {
-        "cash_krw": 16366165,
-        "stock_krw": 3444030,
-        "rate": 1415.2
+        "cash_krw": 16317594,
+        "stock_krw": 3416200,
+        "rate": 1411.0
       },
       "JPY": {
         "cash_krw": 0,
-        "stock_krw": 6656597,
-        "rate": 888.02
+        "stock_krw": 6628787,
+        "rate": 884.31
       },
       "CNY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 209.61
+        "rate": 209.24
       }
     },
-    "fx_other_krw": 6656597,
-    "fx_other_stock_krw": 6656597
+    "fx_other_krw": 6628787,
+    "fx_other_stock_krw": 6628787
   }
 }
