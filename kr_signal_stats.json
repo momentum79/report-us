@@ -1,97 +1,75 @@
 {
-    "avg_sco": 2.4,
+    "avg_sco": 2.7,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
-    "sco_pos": 27,
-    "sco_neg": 8,
-    "sco_strong": 3,
-    "strong_count": 3,
-    "top3_avg_sco": 13.5,
-    "top3_avg_pos": 1.0,
+    "sco_pos": 29,
+    "sco_neg": 6,
+    "sco_strong": 2,
+    "strong_count": 2,
+    "top3_avg_sco": 12.88,
+    "top3_avg_pos": 2.5,
     "kospi_trend": "GREEN",
     "kosdaq_trend": "GREEN",
-    "sp500_trend": "LIME",
+    "sp500_trend": "GREEN",
     "nasdaq_trend": "LIME",
     "euro_trend": "-",
     "india_trend": "RED",
     "nikkei_trend": "GREEN",
     "kospi_mult": 0.6,
     "nasdaq_mult": 0.85,
-    "invest_pct": 67.5,
-    "invest_amount_total": 67500000,
+    "invest_pct": 60.2,
+    "invest_amount_total": 60250000,
     "per_ticker_alloc": [
         {
             "ticker": "228790",
             "industry": "화장품",
             "is_kospi": true,
             "bucket": "KOSPI",
-            "internal_weight": 45.0,
+            "internal_weight": 55.0,
             "market_mult": 0.4,
             "floor_mult": null,
             "effective_mult": 0.4,
-            "effective_pct": 18.0
+            "effective_pct": 22.0
         },
         {
             "ticker": "449180",
             "industry": "에센피",
             "is_kospi": false,
             "bucket": "NASDAQ",
-            "internal_weight": 30.0,
-            "market_mult": 0.9,
+            "internal_weight": 45.0,
+            "market_mult": 0.85,
             "floor_mult": null,
-            "effective_mult": 0.9,
-            "effective_pct": 27.0
-        },
-        {
-            "ticker": "449190",
-            "industry": "나스닥",
-            "is_kospi": false,
-            "bucket": "NASDAQ",
-            "internal_weight": 25.0,
-            "market_mult": 0.9,
-            "floor_mult": null,
-            "effective_mult": 0.9,
-            "effective_pct": 22.5
+            "effective_mult": 0.85,
+            "effective_pct": 38.25
         }
     ],
-    "invest_pct_sc3": 67.5,
-    "invest_pct_s1": 74.7,
-    "invest_amount_sc3": 67500000,
-    "invest_amount_s1": 74745307,
+    "invest_pct_sc3": 60.2,
+    "invest_pct_s1": 71.9,
+    "invest_amount_sc3": 60250000,
+    "invest_amount_s1": 71941340,
     "per_ticker_alloc_sc3": [
         {
             "ticker": "228790",
             "industry": "화장품",
             "is_kospi": true,
             "bucket": "KOSPI",
-            "internal_weight": 45.0,
+            "internal_weight": 55.0,
             "market_mult": 0.4,
             "floor_mult": null,
             "effective_mult": 0.4,
-            "effective_pct": 18.0
+            "effective_pct": 22.0
         },
         {
             "ticker": "449180",
             "industry": "에센피",
             "is_kospi": false,
             "bucket": "NASDAQ",
-            "internal_weight": 30.0,
-            "market_mult": 0.9,
+            "internal_weight": 45.0,
+            "market_mult": 0.85,
             "floor_mult": null,
-            "effective_mult": 0.9,
-            "effective_pct": 27.0
-        },
-        {
-            "ticker": "449190",
-            "industry": "나스닥",
-            "is_kospi": false,
-            "bucket": "NASDAQ",
-            "internal_weight": 25.0,
-            "market_mult": 0.9,
-            "floor_mult": null,
-            "effective_mult": 0.9,
-            "effective_pct": 22.5
+            "effective_mult": 0.85,
+            "effective_pct": 38.25
         }
     ],
     "per_ticker_alloc_s1": [
@@ -99,62 +77,49 @@
             "ticker": "228790",
             "industry": "화장품",
             "is_kospi": true,
-            "internal_weight": 41.0188,
+            "internal_weight": 52.2346,
             "market_mult": 0.6,
-            "floor_mult": 0.6,
+            "floor_mult": 0.45,
             "effective_mult": 0.6,
-            "effective_pct": 24.6113
+            "effective_pct": 31.3408
         },
         {
             "ticker": "449180",
             "industry": "에센피",
             "is_kospi": false,
-            "internal_weight": 32.1716,
-            "market_mult": 0.85,
-            "floor_mult": 0.55,
-            "effective_mult": 0.85,
-            "effective_pct": 27.3458
-        },
-        {
-            "ticker": "449190",
-            "industry": "나스닥",
-            "is_kospi": false,
-            "internal_weight": 26.8097,
+            "internal_weight": 47.7654,
             "market_mult": 0.85,
             "floor_mult": 0.35,
             "effective_mult": 0.85,
-            "effective_pct": 22.7882
+            "effective_pct": 40.6006
         }
     ],
     "sc3_state": {
         "kr_state": "-",
         "kr_bucket_pct": 0.4,
         "us_state": "LIME",
-        "us_bucket_pct": 0.9,
-        "last_date": "2026-08-14",
-        "updated_today": false
+        "us_bucket_pct": 0.85,
+        "last_date": "2026-08-18",
+        "updated_today": true
     },
     "sc3_ok": true,
-    "trade_date": "2026-08-14",
-    "vol63_median": 22.9,
+    "trade_date": "2026-08-18",
+    "vol63_median": 31.1,
     "internal_weights": [
-        41.0188,
-        32.1716,
-        26.8097
+        52.2346,
+        47.7654
     ],
-    "n_holdings": 3,
+    "n_holdings": 2,
     "holdings_tickers": [
         "228790",
-        "449180",
-        "449190"
+        "449180"
     ],
     "top3_k_tickers": [
         "228790"
     ],
     "allocation_map_used": [
-        45,
-        30,
-        25
+        55,
+        45
     ],
-    "update_time": "2026-08-17 22:04:50"
+    "update_time": "2026-08-18 13:39:17"
 }

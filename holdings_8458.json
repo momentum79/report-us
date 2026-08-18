@@ -1,15 +1,15 @@
 {
   "account": "8458",
-  "updated": "2026-08-18 08:10:39",
+  "updated": "2026-08-18 13:47:55",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 9593561,
+    "total_asset": 9541136,
     "tot_pur_amt": 6323985,
-    "tot_evlt_amt": 7035215,
-    "tot_evlt_pl": 709270,
-    "tot_prft_rt": 11.22,
-    "stock_ratio": 73.33267594796135,
+    "tot_evlt_amt": 6982790,
+    "tot_evlt_pl": 656845,
+    "tot_prft_rt": 10.39,
+    "stock_ratio": 73.1861489030237,
     "cash": 2844216,
     "tdy_realized_pl": 0
   },
@@ -19,44 +19,44 @@
       "stock_name": "KODEX 200타겟위클리커버드콜",
       "quantity": 257,
       "avg_price": 0,
-      "current_price": 20750,
-      "profit_rate": 13.19,
-      "eval_amount": 5332750,
+      "current_price": 20640,
+      "profit_rate": 12.59,
+      "eval_amount": 5304480,
       "nxt": "",
-      "cntr_str": null
+      "cntr_str": 78.84
     },
     {
       "stock_code": "494300",
       "stock_name": "KODEX 미국나스닥100데일리커버드콜OTM",
       "quantity": 110,
       "avg_price": 0,
-      "current_price": 9575,
-      "profit_rate": 6.01,
-      "eval_amount": 1053250,
+      "current_price": 9485,
+      "profit_rate": 5.01,
+      "eval_amount": 1043350,
       "nxt": "",
-      "cntr_str": null
+      "cntr_str": 71.76
     },
     {
       "stock_code": "0198A0",
       "stock_name": "KIWOOM 코스닥150커버드콜액티브",
       "quantity": 39,
       "avg_price": 0,
-      "current_price": 9385,
-      "profit_rate": 8.95,
-      "eval_amount": 366015,
+      "current_price": 9200,
+      "profit_rate": 6.8,
+      "eval_amount": 358800,
       "nxt": "",
-      "cntr_str": null
+      "cntr_str": 77.87
     },
     {
       "stock_code": "228790",
       "stock_name": "TIGER 화장품",
       "quantity": 64,
       "avg_price": 0,
-      "current_price": 4425,
-      "profit_rate": -0.59,
-      "eval_amount": 283200,
+      "current_price": 4315,
+      "profit_rate": -3.06,
+      "eval_amount": 276160,
       "nxt": "",
-      "cntr_str": null
+      "cntr_str": 80.62
     }
   ],
   "us_holdings": [
@@ -65,10 +65,10 @@
       "stock_name": "나스닥 사이버보안 퍼스트 트러스트 ETF",
       "quantity": 23,
       "avg_price": 100.78,
-      "current_price": 97.61,
-      "profit_rate": -3.28,
-      "eval_amount_usd": 2245.03,
-      "eval_amount": 3182666,
+      "current_price": 97.96,
+      "profit_rate": -2.93,
+      "eval_amount_usd": 2253.08,
+      "eval_amount": 3194078,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -78,10 +78,10 @@
       "stock_name": "소프트웨어 아이셰어즈 ETF",
       "quantity": 14,
       "avg_price": 104.02,
-      "current_price": 101.66,
-      "profit_rate": -2.4,
-      "eval_amount_usd": 1423.24,
-      "eval_amount": 2017656,
+      "current_price": 101.6,
+      "profit_rate": -2.46,
+      "eval_amount_usd": 1422.4,
+      "eval_amount": 2016465,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -104,27 +104,33 @@
       "stock_name": "싱가포르 아이셰어즈 ETF",
       "quantity": 30,
       "avg_price": 33.555,
-      "current_price": 34.27,
-      "profit_rate": 1.98,
-      "eval_amount_usd": 1028.1,
-      "eval_amount": 1457485,
+      "current_price": 33.92,
+      "profit_rate": 0.94,
+      "eval_amount_usd": 1017.6,
+      "eval_amount": 1442600,
       "buy_date": "",
       "candle": "",
       "tag": ""
     }
   ],
   "us_summary": {
-    "us_stock_krw": 8427034,
-    "usd_cash": null,
-    "usd_cash_krw": null,
-    "rate": null,
-    "total_asset_total": null,
-    "eval_pl_usd": -89.9,
-    "eval_pl_krw": null,
+    "us_stock_krw": 8422370,
+    "usd_cash": 1474.88,
+    "usd_cash_krw": 2087250,
+    "rate": 1415.2,
+    "total_asset_total": 13339282,
+    "eval_pl_usd": -93.19,
+    "eval_pl_krw": -131882,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
-    "won_entr": null,
-    "fx": {},
+    "won_entr": 2844216,
+    "fx": {
+      "USD": {
+        "cash_krw": 2087250,
+        "stock_krw": 8407816,
+        "rate": 1415.2
+      }
+    },
     "fx_other_krw": 0,
     "fx_other_stock_krw": 0
   }

@@ -1,55 +1,55 @@
 {
   "account": "8042",
-  "updated": "2026-08-18 08:10:22",
+  "updated": "2026-08-18 13:47:44",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 19105302,
-    "tot_pur_amt": 12669662,
-    "tot_evlt_amt": 15905975,
-    "tot_evlt_pl": 3229204,
-    "tot_prft_rt": 25.49,
-    "stock_ratio": 83.25424533985382,
-    "cash": 4125768,
-    "tdy_realized_pl": 0
+    "total_asset": 19458365,
+    "tot_pur_amt": 6836518,
+    "tot_evlt_amt": 8456805,
+    "tot_evlt_pl": 1618027,
+    "tot_prft_rt": 23.67,
+    "stock_ratio": 43.46102563087906,
+    "cash": 4054094,
+    "tdy_realized_pl": 2039273
   },
   "holdings": [
     {
       "stock_code": "122630",
       "stock_name": "KODEX 레버리지",
-      "quantity": 54,
+      "quantity": 31,
       "avg_price": 0,
-      "current_price": 113525,
-      "profit_rate": 22.94,
-      "eval_amount": 6130350,
+      "current_price": 112030,
+      "profit_rate": 20.52,
+      "eval_amount": 3472930,
       "nxt": "",
-      "cntr_str": null,
-      "candle": "분봉",
-      "tag": "2x단타"
-    },
-    {
-      "stock_code": "0193W0",
-      "stock_name": "KODEX 삼성전자단일종목레버리지",
-      "quantity": 300,
-      "avg_price": 0,
-      "current_price": 13530,
-      "profit_rate": 53.89,
-      "eval_amount": 4059000,
-      "nxt": "",
-      "cntr_str": null,
+      "cntr_str": 92.31,
       "candle": "",
       "tag": ""
     },
     {
       "stock_code": "0193T0",
       "stock_name": "KODEX SK하이닉스단일종목레버리지",
-      "quantity": 300,
+      "quantity": 200,
       "avg_price": 0,
-      "current_price": 9780,
-      "profit_rate": 19.58,
-      "eval_amount": 2934000,
+      "current_price": 10180,
+      "profit_rate": 24.47,
+      "eval_amount": 2036000,
       "nxt": "",
-      "cntr_str": null,
+      "cntr_str": 82.91,
+      "candle": "",
+      "tag": ""
+    },
+    {
+      "stock_code": "0193W0",
+      "stock_name": "KODEX 삼성전자단일종목레버리지",
+      "quantity": 150,
+      "avg_price": 0,
+      "current_price": 13180,
+      "profit_rate": 49.91,
+      "eval_amount": 1977000,
+      "nxt": "",
+      "cntr_str": 90.03,
       "candle": "",
       "tag": ""
     },
@@ -58,52 +58,13 @@
       "stock_name": "TIGER 화장품",
       "quantity": 225,
       "avg_price": 0,
-      "current_price": 4425,
-      "profit_rate": -0.65,
-      "eval_amount": 995625,
+      "current_price": 4315,
+      "profit_rate": -3.12,
+      "eval_amount": 970875,
       "nxt": "",
-      "cntr_str": null,
+      "cntr_str": 80.62,
       "candle": "일봉",
       "tag": "통합ETF"
-    },
-    {
-      "stock_code": "005380",
-      "stock_name": "현대차",
-      "quantity": 2,
-      "avg_price": 0,
-      "current_price": 453000,
-      "profit_rate": 9.83,
-      "eval_amount": 906000,
-      "nxt": "N선",
-      "cntr_str": null,
-      "candle": "",
-      "tag": ""
-    },
-    {
-      "stock_code": "005930",
-      "stock_name": "삼성전자",
-      "quantity": 2,
-      "avg_price": 0,
-      "current_price": 274500,
-      "profit_rate": 17.65,
-      "eval_amount": 549000,
-      "nxt": "N선",
-      "cntr_str": null,
-      "candle": "",
-      "tag": ""
-    },
-    {
-      "stock_code": "498400",
-      "stock_name": "KODEX 200타겟위클리커버드콜",
-      "quantity": 16,
-      "avg_price": 0,
-      "current_price": 20750,
-      "profit_rate": 9.11,
-      "eval_amount": 332000,
-      "nxt": "",
-      "cntr_str": null,
-      "candle": "",
-      "tag": ""
     }
   ],
   "us_holdings": [
@@ -123,17 +84,33 @@
   ],
   "us_summary": {
     "us_stock_krw": 3449993,
-    "usd_cash": null,
-    "usd_cash_krw": null,
-    "rate": null,
-    "total_asset_total": null,
+    "usd_cash": 11564.56,
+    "usd_cash_krw": 16366165,
+    "rate": 1415.2,
+    "total_asset_total": 30553743,
     "eval_pl_usd": -10.53,
-    "eval_pl_krw": null,
+    "eval_pl_krw": -14902,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
-    "won_entr": null,
-    "fx": {},
-    "fx_other_krw": 0,
-    "fx_other_stock_krw": 0
+    "won_entr": 4054094,
+    "fx": {
+      "USD": {
+        "cash_krw": 16366165,
+        "stock_krw": 3444030,
+        "rate": 1415.2
+      },
+      "JPY": {
+        "cash_krw": 0,
+        "stock_krw": 6689454,
+        "rate": 888.02
+      },
+      "CNY": {
+        "cash_krw": 0,
+        "stock_krw": 0,
+        "rate": 209.61
+      }
+    },
+    "fx_other_krw": 6689454,
+    "fx_other_stock_krw": 6689454
   }
 }
