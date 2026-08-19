@@ -1,16 +1,16 @@
 {
   "account": "8042",
-  "updated": "2026-08-19 15:41:01",
+  "updated": "2026-08-20 08:27:00",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 18238004,
-    "tot_pur_amt": 7942146,
-    "tot_evlt_amt": 8311580,
-    "tot_evlt_pl": 367044,
-    "tot_prft_rt": 4.62,
-    "stock_ratio": 45.572859837074276,
-    "cash": 3139461,
+    "total_asset": 18228450,
+    "tot_pur_amt": 8198646,
+    "tot_evlt_amt": 8559080,
+    "tot_evlt_pl": 357490,
+    "tot_prft_rt": 4.36,
+    "stock_ratio": 46.95451341172727,
+    "cash": 10689594,
     "tdy_realized_pl": 0
   },
   "holdings": [
@@ -23,7 +23,7 @@
       "profit_rate": 1.89,
       "eval_amount": 4063080,
       "nxt": "",
-      "cntr_str": 101.92,
+      "cntr_str": null,
       "candle": "분봉",
       "tag": "저점사다리"
     },
@@ -36,7 +36,7 @@
       "profit_rate": 25.46,
       "eval_amount": 1654500,
       "nxt": "",
-      "cntr_str": 88.81,
+      "cntr_str": null,
       "candle": "",
       "tag": ""
     },
@@ -49,7 +49,7 @@
       "profit_rate": -1.39,
       "eval_amount": 1613000,
       "nxt": "",
-      "cntr_str": 96.13,
+      "cntr_str": null,
       "candle": "",
       "tag": ""
     },
@@ -62,9 +62,22 @@
       "profit_rate": -2.11,
       "eval_amount": 981000,
       "nxt": "",
-      "cntr_str": 117.23,
+      "cntr_str": null,
       "candle": "일봉",
       "tag": "통합ETF"
+    },
+    {
+      "stock_code": "005930",
+      "stock_name": "삼성전자",
+      "quantity": 1,
+      "avg_price": 0,
+      "current_price": 247500,
+      "profit_rate": -3.72,
+      "eval_amount": 247500,
+      "nxt": "N선",
+      "cntr_str": null,
+      "candle": "",
+      "tag": ""
     }
   ],
   "us_holdings": [
@@ -73,44 +86,44 @@
       "stock_name": "스페인 아이셰어즈 ETF",
       "quantity": 39,
       "avg_price": 62.67,
-      "current_price": 62.08,
-      "profit_rate": -1.08,
-      "eval_amount_usd": 2421.12,
-      "eval_amount": 3420921,
+      "current_price": 62.36,
+      "profit_rate": -0.63,
+      "eval_amount_usd": 2432.04,
+      "eval_amount": 3382724,
       "buy_date": "2026-08-08",
       "candle": "일봉",
       "tag": "통합ETF"
     }
   ],
   "us_summary": {
-    "us_stock_krw": 3420921,
+    "us_stock_krw": 3382724,
     "usd_cash": 11564.56,
-    "usd_cash_krw": 16317594,
-    "rate": 1411.0,
-    "total_asset_total": 29356131,
-    "eval_pl_usd": -23.01,
-    "eval_pl_krw": -32467,
+    "usd_cash_krw": 16219295,
+    "rate": 1402.5,
+    "total_asset_total": 36818389,
+    "eval_pl_usd": -12.09,
+    "eval_pl_krw": -16956,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
-    "won_entr": 3139461,
+    "won_entr": 10689594,
     "fx": {
       "USD": {
-        "cash_krw": 16317594,
-        "stock_krw": 3416200,
-        "rate": 1411.0
+        "cash_krw": 16219295,
+        "stock_krw": 3410936,
+        "rate": 1402.5
       },
       "JPY": {
         "cash_krw": 0,
-        "stock_krw": 6482876,
-        "rate": 884.31
+        "stock_krw": 6498564,
+        "rate": 886.45
       },
       "CNY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 209.24
+        "rate": 207.82
       }
     },
-    "fx_other_krw": 6482876,
-    "fx_other_stock_krw": 6482876
+    "fx_other_krw": 6498564,
+    "fx_other_stock_krw": 6498564
   }
 }
