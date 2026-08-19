@@ -1,25 +1,25 @@
 {
-    "avg_sco": 2.4,
+    "avg_sco": 1.0,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
-    "sco_pos": 29,
-    "sco_neg": 6,
+    "sco_pos": 26,
+    "sco_neg": 9,
     "sco_strong": 2,
     "strong_count": 2,
-    "top3_avg_sco": 12.88,
+    "top3_avg_sco": 12.25,
     "top3_avg_pos": 2.5,
-    "kospi_trend": "GREEN",
+    "kospi_trend": "-",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "GREEN",
-    "nasdaq_trend": "LIME",
+    "nasdaq_trend": "GREEN",
     "euro_trend": "-",
     "india_trend": "RED",
-    "nikkei_trend": "GREEN",
-    "kospi_mult": 0.6,
-    "nasdaq_mult": 0.8,
-    "invest_pct": 60.2,
-    "invest_amount_total": 60250000,
+    "nikkei_trend": "PURPLE",
+    "kospi_mult": 0.3,
+    "nasdaq_mult": 0.4,
+    "invest_pct": 46.2,
+    "invest_amount_total": 46250000,
     "per_ticker_alloc": [
         {
             "ticker": "228790",
@@ -27,10 +27,10 @@
             "is_kospi": true,
             "bucket": "KOSPI",
             "internal_weight": 55.0,
-            "market_mult": 0.4,
+            "market_mult": 0.35,
             "floor_mult": null,
-            "effective_mult": 0.4,
-            "effective_pct": 22.0
+            "effective_mult": 0.35,
+            "effective_pct": 19.25
         },
         {
             "ticker": "449180",
@@ -38,16 +38,16 @@
             "is_kospi": false,
             "bucket": "NASDAQ",
             "internal_weight": 45.0,
-            "market_mult": 0.85,
+            "market_mult": 0.6,
             "floor_mult": null,
-            "effective_mult": 0.85,
-            "effective_pct": 38.25
+            "effective_mult": 0.6,
+            "effective_pct": 27.0
         }
     ],
-    "invest_pct_sc3": 60.2,
-    "invest_pct_s1": 69.6,
-    "invest_amount_sc3": 60250000,
-    "invest_amount_s1": 69553072,
+    "invest_pct_sc3": 46.2,
+    "invest_pct_s1": 37.4,
+    "invest_amount_sc3": 46250000,
+    "invest_amount_s1": 37388267,
     "per_ticker_alloc_sc3": [
         {
             "ticker": "228790",
@@ -55,10 +55,10 @@
             "is_kospi": true,
             "bucket": "KOSPI",
             "internal_weight": 55.0,
-            "market_mult": 0.4,
+            "market_mult": 0.35,
             "floor_mult": null,
-            "effective_mult": 0.4,
-            "effective_pct": 22.0
+            "effective_mult": 0.35,
+            "effective_pct": 19.25
         },
         {
             "ticker": "449180",
@@ -66,10 +66,10 @@
             "is_kospi": false,
             "bucket": "NASDAQ",
             "internal_weight": 45.0,
-            "market_mult": 0.85,
+            "market_mult": 0.6,
             "floor_mult": null,
-            "effective_mult": 0.85,
-            "effective_pct": 38.25
+            "effective_mult": 0.6,
+            "effective_pct": 27.0
         }
     ],
     "per_ticker_alloc_s1": [
@@ -78,33 +78,33 @@
             "industry": "화장품",
             "is_kospi": true,
             "internal_weight": 52.2346,
-            "market_mult": 0.6,
-            "floor_mult": 0.45,
-            "effective_mult": 0.6,
-            "effective_pct": 31.3408
+            "market_mult": 0.3,
+            "floor_mult": 0.35,
+            "effective_mult": 0.35,
+            "effective_pct": 18.2821
         },
         {
             "ticker": "449180",
             "industry": "에센피",
             "is_kospi": false,
             "internal_weight": 47.7654,
-            "market_mult": 0.8,
+            "market_mult": 0.4,
             "floor_mult": 0.35,
-            "effective_mult": 0.8,
-            "effective_pct": 38.2123
+            "effective_mult": 0.4,
+            "effective_pct": 19.1061
         }
     ],
     "sc3_state": {
         "kr_state": "-",
-        "kr_bucket_pct": 0.4,
-        "us_state": "LIME",
-        "us_bucket_pct": 0.85,
-        "last_date": "2026-08-18",
-        "updated_today": false
+        "kr_bucket_pct": 0.35,
+        "us_state": "GREEN",
+        "us_bucket_pct": 0.6,
+        "last_date": "2026-08-19",
+        "updated_today": true
     },
     "sc3_ok": true,
-    "trade_date": "2026-08-18",
-    "vol63_median": 31.1,
+    "trade_date": "2026-08-19",
+    "vol63_median": 30.7,
     "internal_weights": [
         52.2346,
         47.7654
@@ -121,5 +121,5 @@
         55,
         45
     ],
-    "update_time": "2026-08-18 16:13:24"
+    "update_time": "2026-08-19 15:32:01"
 }

@@ -1,29 +1,42 @@
 {
   "account": "8042",
-  "updated": "2026-08-19 08:46:31",
+  "updated": "2026-08-19 15:41:01",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 19343804,
-    "tot_pur_amt": 7180296,
-    "tot_evlt_amt": 8659810,
-    "tot_evlt_pl": 1477174,
-    "tot_prft_rt": 20.57,
-    "stock_ratio": 44.76787502602901,
-    "cash": 3135141,
+    "total_asset": 18238004,
+    "tot_pur_amt": 7942146,
+    "tot_evlt_amt": 8311580,
+    "tot_evlt_pl": 367044,
+    "tot_prft_rt": 4.62,
+    "stock_ratio": 45.572859837074276,
+    "cash": 3139461,
     "tdy_realized_pl": 0
   },
   "holdings": [
     {
       "stock_code": "122630",
       "stock_name": "KODEX 레버리지",
-      "quantity": 34,
+      "quantity": 42,
       "avg_price": 0,
-      "current_price": 110465,
-      "profit_rate": 16.44,
-      "eval_amount": 3755810,
+      "current_price": 96740,
+      "profit_rate": 1.89,
+      "eval_amount": 4063080,
       "nxt": "",
-      "cntr_str": 500.0,
+      "cntr_str": 101.92,
+      "candle": "분봉",
+      "tag": "저점사다리"
+    },
+    {
+      "stock_code": "0193W0",
+      "stock_name": "KODEX 삼성전자단일종목레버리지",
+      "quantity": 150,
+      "avg_price": 0,
+      "current_price": 11030,
+      "profit_rate": 25.46,
+      "eval_amount": 1654500,
+      "nxt": "",
+      "cntr_str": 88.81,
       "candle": "",
       "tag": ""
     },
@@ -32,24 +45,11 @@
       "stock_name": "KODEX SK하이닉스단일종목레버리지",
       "quantity": 200,
       "avg_price": 0,
-      "current_price": 9910,
-      "profit_rate": 21.17,
-      "eval_amount": 1982000,
+      "current_price": 8065,
+      "profit_rate": -1.39,
+      "eval_amount": 1613000,
       "nxt": "",
-      "cntr_str": 500.0,
-      "candle": "",
-      "tag": ""
-    },
-    {
-      "stock_code": "0193W0",
-      "stock_name": "KODEX 삼성전자단일종목레버리지",
-      "quantity": 150,
-      "avg_price": 0,
-      "current_price": 12940,
-      "profit_rate": 47.18,
-      "eval_amount": 1941000,
-      "nxt": "",
-      "cntr_str": 500.0,
+      "cntr_str": 96.13,
       "candle": "",
       "tag": ""
     },
@@ -62,7 +62,7 @@
       "profit_rate": -2.11,
       "eval_amount": 981000,
       "nxt": "",
-      "cntr_str": 0.0,
+      "cntr_str": 117.23,
       "candle": "일봉",
       "tag": "통합ETF"
     }
@@ -87,12 +87,12 @@
     "usd_cash": 11564.56,
     "usd_cash_krw": 16317594,
     "rate": 1411.0,
-    "total_asset_total": 29497722,
+    "total_asset_total": 29356131,
     "eval_pl_usd": -23.01,
     "eval_pl_krw": -32467,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
-    "won_entr": 3135141,
+    "won_entr": 3139461,
     "fx": {
       "USD": {
         "cash_krw": 16317594,
@@ -101,7 +101,7 @@
       },
       "JPY": {
         "cash_krw": 0,
-        "stock_krw": 6628787,
+        "stock_krw": 6482876,
         "rate": 884.31
       },
       "CNY": {
@@ -110,7 +110,7 @@
         "rate": 209.24
       }
     },
-    "fx_other_krw": 6628787,
-    "fx_other_stock_krw": 6628787
+    "fx_other_krw": 6482876,
+    "fx_other_stock_krw": 6482876
   }
 }
