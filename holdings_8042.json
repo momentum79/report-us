@@ -1,68 +1,55 @@
 {
   "account": "8042",
-  "updated": "2026-08-20 12:51:22",
+  "updated": "2026-08-20 16:16:06",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 19538356,
-    "tot_pur_amt": 7652094,
-    "tot_evlt_amt": 9168735,
-    "tot_evlt_pl": 1514161,
-    "tot_prft_rt": 19.79,
-    "stock_ratio": 46.926849935583114,
+    "total_asset": 19478781,
+    "tot_pur_amt": 4594188,
+    "tot_evlt_amt": 4891200,
+    "tot_evlt_pl": 292231,
+    "tot_prft_rt": 6.36,
+    "stock_ratio": 25.110400902397334,
     "cash": 10689594,
-    "tdy_realized_pl": 151990
+    "tdy_realized_pl": 1315770
   },
   "holdings": [
     {
       "stock_code": "122630",
       "stock_name": "KODEX 레버리지",
-      "quantity": 42,
+      "quantity": 20,
       "avg_price": 0,
-      "current_price": 109515,
-      "profit_rate": 15.35,
-      "eval_amount": 4599630,
+      "current_price": 108710,
+      "profit_rate": 14.5,
+      "eval_amount": 2174200,
       "nxt": "",
-      "cntr_str": 99.61,
+      "cntr_str": 98.21,
+      "candle": "",
+      "tag": ""
+    },
+    {
+      "stock_code": "000660",
+      "stock_name": "SK하이닉스",
+      "quantity": 1,
+      "avg_price": 0,
+      "current_price": 1691000,
+      "profit_rate": -0.41,
+      "eval_amount": 1691000,
+      "nxt": "N선",
+      "cntr_str": 129.73,
       "candle": "분봉",
-      "tag": "저점사다리"
-    },
-    {
-      "stock_code": "0193T0",
-      "stock_name": "KODEX SK하이닉스단일종목레버리지",
-      "quantity": 200,
-      "avg_price": 0,
-      "current_price": 10185,
-      "profit_rate": 24.53,
-      "eval_amount": 2037000,
-      "nxt": "",
-      "cntr_str": 108.75,
-      "candle": "",
-      "tag": ""
-    },
-    {
-      "stock_code": "0193W0",
-      "stock_name": "KODEX 삼성전자단일종목레버리지",
-      "quantity": 117,
-      "avg_price": 0,
-      "current_price": 12940,
-      "profit_rate": 47.18,
-      "eval_amount": 1513980,
-      "nxt": "",
-      "cntr_str": 100.9,
-      "candle": "",
-      "tag": ""
+      "tag": "삼닉v3"
     },
     {
       "stock_code": "228790",
       "stock_name": "TIGER 화장품",
       "quantity": 225,
       "avg_price": 0,
-      "current_price": 4525,
-      "profit_rate": 1.6,
-      "eval_amount": 1018125,
+      "current_price": 4560,
+      "profit_rate": 2.38,
+      "eval_amount": 1026000,
       "nxt": "",
-      "cntr_str": 136.84,
+      "cntr_str": 146.58,
       "candle": "일봉",
       "tag": "통합ETF"
     }
@@ -87,7 +74,7 @@
     "usd_cash": 11564.56,
     "usd_cash_krw": 16219295,
     "rate": 1402.5,
-    "total_asset_total": 36696946,
+    "total_asset_total": 36706697,
     "eval_pl_usd": -12.09,
     "eval_pl_krw": -16956,
     "tdy_realized_pl_usd": 0.0,
@@ -101,7 +88,7 @@
       },
       "JPY": {
         "cash_krw": 0,
-        "stock_krw": 6377121,
+        "stock_krw": 6386872,
         "rate": 886.45
       },
       "CNY": {
@@ -110,7 +97,7 @@
         "rate": 207.82
       }
     },
-    "fx_other_krw": 6377121,
-    "fx_other_stock_krw": 6377121
+    "fx_other_krw": 6386872,
+    "fx_other_stock_krw": 6386872
   }
 }

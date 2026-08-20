@@ -1,5 +1,5 @@
 {
-    "avg_sco": -0.5,
+    "avg_sco": -0.6,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
@@ -7,7 +7,7 @@
     "sco_neg": 16,
     "sco_strong": 1,
     "strong_count": 1,
-    "top3_avg_sco": 12.25,
+    "top3_avg_sco": 13.75,
     "top3_avg_pos": 1.0,
     "kospi_trend": "-",
     "kosdaq_trend": "GREEN",
@@ -17,7 +17,7 @@
     "india_trend": "RED",
     "nikkei_trend": "PURPLE",
     "kospi_mult": 0.4,
-    "nasdaq_mult": 0.4,
+    "nasdaq_mult": 0.5,
     "invest_pct": 40.0,
     "invest_amount_total": 40000000,
     "per_ticker_alloc": [
@@ -34,9 +34,9 @@
         }
     ],
     "invest_pct_sc3": 40.0,
-    "invest_pct_s1": 40.0,
+    "invest_pct_s1": 50.0,
     "invest_amount_sc3": 40000000,
-    "invest_amount_s1": 40000000,
+    "invest_amount_s1": 50000000,
     "per_ticker_alloc_sc3": [
         {
             "ticker": "228790",
@@ -57,9 +57,9 @@
             "is_kospi": true,
             "internal_weight": 100.0,
             "market_mult": 0.4,
-            "floor_mult": 0.4,
-            "effective_mult": 0.4,
-            "effective_pct": 40.0
+            "floor_mult": 0.5,
+            "effective_mult": 0.5,
+            "effective_pct": 50.0
         }
     ],
     "sc3_state": {
@@ -68,11 +68,11 @@
         "us_state": "GREEN",
         "us_bucket_pct": 0.65,
         "last_date": "2026-08-20",
-        "updated_today": true
+        "updated_today": false
     },
     "sc3_ok": true,
     "trade_date": "2026-08-20",
-    "vol63_median": 48.7,
+    "vol63_median": 49.0,
     "internal_weights": [
         100.0
     ],
@@ -86,5 +86,5 @@
     "allocation_map_used": [
         100
     ],
-    "update_time": "2026-08-20 12:45:26"
+    "update_time": "2026-08-20 16:07:49"
 }
