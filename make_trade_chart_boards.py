@@ -19,6 +19,7 @@ tag 확정 규칙은 wp.resolve_performance_tag() 하나만 사용 → 주간성
 호출: make_index_trade_chart.main() 이 generate() 를 불러 option 목록을 받는다.
 """
 import os
+import re
 import sys
 import json
 import glob
@@ -118,8 +119,14 @@ def _label(latest_iso, name):
     return nm
 
 
+# KR 종목코드 = 6자리, 숫자로 시작(뒤에 영문 섞일 수 있음: 0193T0/0197X0 같은 단일종목 ETF).
+# isdigit() 만 쓰면 0193T0 이 US 로 잘못 분류돼 yfinance 로 새어나가고,
+# 다운로드 실패 -> "일봉 데이터 없음, skip" -> 게시판에서 해당 종목 차트가 사라진다.
+_KR_CODE_RE = re.compile(r"\d[0-9A-Z]{5}")
+
+
 def _market_of(code):
-    return "KR" if str(code).isdigit() else "US"
+    return "KR" if _KR_CODE_RE.fullmatch(str(code).strip().upper()) else "US"
 
 
 def _bar_label(date, hhmm):
