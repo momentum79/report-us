@@ -1,5 +1,5 @@
 {
-  "asof": "2026-08-20 08:27:52",
+  "asof": "2026-08-20 16:46:23",
   "strategy": "F4_B_safe",
   "params": {
     "atr_thr": 1.5,
@@ -25,13 +25,13 @@
     "us_safe": true,
     "kr_safe": true,
     "us_ret_ok": true,
-    "kr_ret_ok": false,
-    "qqq_ret20": 1.5212365315519838,
-    "qqq_ret60": -0.20346753939950446,
-    "spy_ret20": 2.896673203727218,
-    "spy_ret60": 3.140923562316944,
-    "kr_ret20": -5.709679212764773,
-    "kr_ret60": -17.141647396019934
+    "kr_ret_ok": true,
+    "qqq_ret20": 1.5212305947402083,
+    "qqq_ret60": -0.203472977116248,
+    "spy_ret20": 2.8966698331571727,
+    "spy_ret60": 3.1409259159916214,
+    "kr_ret20": 0.08603383997705105,
+    "kr_ret60": -12.113531867881921
   },
   "error": "",
   "swapped": [],
@@ -49,18 +49,18 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "거래대금 탈락 (20일 평균 16.0억 < 1000억)",
-      "atr_ratio": 1.3892,
-      "index_ret20": 1.5212365315519838,
-      "index_ret60": -0.20346753939950446,
+      "atr_ratio": 1.3904,
+      "index_ret20": 1.5212305947402083,
+      "index_ret60": -0.203472977116248,
       "qqq_color": "GREEN",
       "spy_color": "GREEN",
       "kr_color": "-",
-      "liquidity_20d": 1124954.43,
+      "liquidity_20d": 1130411.33,
       "liquidity_10d_eok": 16.0,
       "liq2_min_eok": 1000,
-      "age_bars": 501,
-      "order_qty": 21,
-      "order_amount": 5995350
+      "age_bars": 2753,
+      "order_qty": 19,
+      "order_amount": 5781441
     },
     {
       "base_ticker": "XBI",
@@ -76,8 +76,8 @@
       "lev_reason": "",
       "fallback_reason": "2x 매핑 없음 (NO_2X)",
       "atr_ratio": 1.1437,
-      "index_ret20": 1.5212365315519838,
-      "index_ret60": -0.20346753939950446,
+      "index_ret20": 1.5212305947402083,
+      "index_ret60": -0.203472977116248,
       "qqq_color": "GREEN",
       "spy_color": "GREEN",
       "kr_color": "-",
@@ -85,8 +85,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 19,
-      "order_amount": 4266531
+      "order_qty": 18,
+      "order_amount": 4280289
     },
     {
       "base_ticker": "XLV",
@@ -101,18 +101,18 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "유동성 탈락 (20일 평균 거래대금 $0.96M < $1M)",
-      "atr_ratio": 1.1586,
-      "index_ret20": 1.5212365315519838,
-      "index_ret60": -0.20346753939950446,
+      "atr_ratio": 1.1596,
+      "index_ret20": 1.5212305947402083,
+      "index_ret60": -0.203472977116248,
       "qqq_color": "GREEN",
       "spy_color": "GREEN",
       "kr_color": "-",
-      "liquidity_20d": 957955.58,
-      "liquidity_10d_eok": 13.6,
+      "liquidity_20d": 958561.42,
+      "liquidity_10d_eok": 13.5,
       "liq2_min_eok": 1000,
-      "age_bars": 501,
+      "age_bars": 2753,
       "order_qty": 10,
-      "order_amount": 2380463
+      "order_amount": 2463912
     },
     {
       "base_ticker": "228790",
@@ -127,9 +127,9 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "2x 매핑 없음 (NO_2X)",
-      "atr_ratio": 1.3131,
-      "index_ret20": -5.709679212764773,
-      "index_ret60": -17.141647396019934,
+      "atr_ratio": 0.9849,
+      "index_ret20": 0.08603383997705105,
+      "index_ret60": -12.113531867881921,
       "qqq_color": "GREEN",
       "spy_color": "GREEN",
       "kr_color": "-",
@@ -137,8 +137,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 222,
-      "order_amount": 967920
+      "order_qty": 304,
+      "order_amount": 1386240
     },
     {
       "base_ticker": "EWS",
@@ -153,9 +153,9 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "2x 매핑 없음 (NO_2X)",
-      "atr_ratio": 0.8341,
-      "index_ret20": 1.5212365315519838,
-      "index_ret60": -0.20346753939950446,
+      "atr_ratio": 0.8373,
+      "index_ret20": 1.5212305947402083,
+      "index_ret60": -0.203472977116248,
       "qqq_color": "GREEN",
       "spy_color": "GREEN",
       "kr_color": "-",
@@ -163,8 +163,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 38,
-      "order_amount": 1783783
+      "order_qty": 37,
+      "order_amount": 1749815
     },
     {
       "base_ticker": "XLE",
@@ -178,19 +178,19 @@
       "order_symbol_or_prefix": "NY:XLE",
       "is_lev2": false,
       "lev_reason": "",
-      "fallback_reason": "거래대금 탈락 (20일 평균 28.7억 < 1000억)",
-      "atr_ratio": 0.7952,
-      "index_ret20": 1.5212365315519838,
-      "index_ret60": -0.20346753939950446,
+      "fallback_reason": "거래대금 탈락 (20일 평균 28.6억 < 1000억)",
+      "atr_ratio": 0.7945,
+      "index_ret20": 1.5212305947402083,
+      "index_ret60": -0.203472977116248,
       "qqq_color": "GREEN",
       "spy_color": "GREEN",
       "kr_color": "-",
-      "liquidity_20d": 2016892.87,
-      "liquidity_10d_eok": 28.7,
+      "liquidity_20d": 2023706.65,
+      "liquidity_10d_eok": 28.6,
       "liq2_min_eok": 1000,
-      "age_bars": 501,
+      "age_bars": 2753,
       "order_qty": 29,
-      "order_amount": 2590024
+      "order_amount": 2585957
     }
   ]
 }
