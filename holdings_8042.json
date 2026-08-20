@@ -1,17 +1,17 @@
 {
   "account": "8042",
-  "updated": "2026-08-20 08:27:00",
+  "updated": "2026-08-20 12:51:22",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 18228450,
-    "tot_pur_amt": 8198646,
-    "tot_evlt_amt": 8559080,
-    "tot_evlt_pl": 357490,
-    "tot_prft_rt": 4.36,
-    "stock_ratio": 46.95451341172727,
+    "total_asset": 19538356,
+    "tot_pur_amt": 7652094,
+    "tot_evlt_amt": 9168735,
+    "tot_evlt_pl": 1514161,
+    "tot_prft_rt": 19.79,
+    "stock_ratio": 46.926849935583114,
     "cash": 10689594,
-    "tdy_realized_pl": 0
+    "tdy_realized_pl": 151990
   },
   "holdings": [
     {
@@ -19,37 +19,37 @@
       "stock_name": "KODEX 레버리지",
       "quantity": 42,
       "avg_price": 0,
-      "current_price": 96740,
-      "profit_rate": 1.89,
-      "eval_amount": 4063080,
+      "current_price": 109515,
+      "profit_rate": 15.35,
+      "eval_amount": 4599630,
       "nxt": "",
-      "cntr_str": null,
+      "cntr_str": 99.61,
       "candle": "분봉",
       "tag": "저점사다리"
-    },
-    {
-      "stock_code": "0193W0",
-      "stock_name": "KODEX 삼성전자단일종목레버리지",
-      "quantity": 150,
-      "avg_price": 0,
-      "current_price": 11030,
-      "profit_rate": 25.46,
-      "eval_amount": 1654500,
-      "nxt": "",
-      "cntr_str": null,
-      "candle": "",
-      "tag": ""
     },
     {
       "stock_code": "0193T0",
       "stock_name": "KODEX SK하이닉스단일종목레버리지",
       "quantity": 200,
       "avg_price": 0,
-      "current_price": 8065,
-      "profit_rate": -1.39,
-      "eval_amount": 1613000,
+      "current_price": 10185,
+      "profit_rate": 24.53,
+      "eval_amount": 2037000,
       "nxt": "",
-      "cntr_str": null,
+      "cntr_str": 108.75,
+      "candle": "",
+      "tag": ""
+    },
+    {
+      "stock_code": "0193W0",
+      "stock_name": "KODEX 삼성전자단일종목레버리지",
+      "quantity": 117,
+      "avg_price": 0,
+      "current_price": 12940,
+      "profit_rate": 47.18,
+      "eval_amount": 1513980,
+      "nxt": "",
+      "cntr_str": 100.9,
       "candle": "",
       "tag": ""
     },
@@ -58,26 +58,13 @@
       "stock_name": "TIGER 화장품",
       "quantity": 225,
       "avg_price": 0,
-      "current_price": 4360,
-      "profit_rate": -2.11,
-      "eval_amount": 981000,
+      "current_price": 4525,
+      "profit_rate": 1.6,
+      "eval_amount": 1018125,
       "nxt": "",
-      "cntr_str": null,
+      "cntr_str": 136.84,
       "candle": "일봉",
       "tag": "통합ETF"
-    },
-    {
-      "stock_code": "005930",
-      "stock_name": "삼성전자",
-      "quantity": 1,
-      "avg_price": 0,
-      "current_price": 247500,
-      "profit_rate": -3.72,
-      "eval_amount": 247500,
-      "nxt": "N선",
-      "cntr_str": null,
-      "candle": "",
-      "tag": ""
     }
   ],
   "us_holdings": [
@@ -100,7 +87,7 @@
     "usd_cash": 11564.56,
     "usd_cash_krw": 16219295,
     "rate": 1402.5,
-    "total_asset_total": 36818389,
+    "total_asset_total": 36696946,
     "eval_pl_usd": -12.09,
     "eval_pl_krw": -16956,
     "tdy_realized_pl_usd": 0.0,
@@ -114,7 +101,7 @@
       },
       "JPY": {
         "cash_krw": 0,
-        "stock_krw": 6498564,
+        "stock_krw": 6377121,
         "rate": 886.45
       },
       "CNY": {
@@ -123,7 +110,7 @@
         "rate": 207.82
       }
     },
-    "fx_other_krw": 6498564,
-    "fx_other_stock_krw": 6498564
+    "fx_other_krw": 6377121,
+    "fx_other_stock_krw": 6377121
   }
 }
