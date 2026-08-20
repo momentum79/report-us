@@ -1,6 +1,6 @@
 {
   "account": "1943",
-  "updated": "2026-08-20 16:16:22",
+  "updated": "2026-08-21 08:13:00",
   "success": true,
   "error": null,
   "summary": {
@@ -10,7 +10,7 @@
     "tot_evlt_pl": 629485,
     "tot_prft_rt": 9.78,
     "stock_ratio": 73.72135288454375,
-    "cash": 2913667,
+    "cash": 2519307,
     "tdy_realized_pl": 0
   },
   "holdings": [
@@ -23,7 +23,7 @@
       "profit_rate": 11.48,
       "eval_amount": 5551435,
       "nxt": "",
-      "cntr_str": 95.59
+      "cntr_str": null
     },
     {
       "stock_code": "494300",
@@ -34,7 +34,7 @@
       "profit_rate": 2.85,
       "eval_amount": 1021900,
       "nxt": "",
-      "cntr_str": 96.8
+      "cntr_str": null
     },
     {
       "stock_code": "0198A0",
@@ -45,45 +45,58 @@
       "profit_rate": 6.4,
       "eval_amount": 491310,
       "nxt": "",
-      "cntr_str": 170.19
+      "cntr_str": null
     }
   ],
   "us_holdings": [
     {
-      "ticker": "CIBR",
-      "stock_name": "나스닥 사이버보안 퍼스트 트러스트 ETF",
-      "quantity": 23,
-      "avg_price": 100.65,
-      "current_price": 95.8,
-      "profit_rate": -4.95,
-      "eval_amount_usd": 2203.4,
-      "eval_amount": 3064709,
+      "ticker": "IBB",
+      "stock_name": "바이오테크 아이셰어즈 ETF",
+      "quantity": 7,
+      "avg_price": 215.0,
+      "current_price": 211.24,
+      "profit_rate": -1.88,
+      "eval_amount_usd": 1478.68,
+      "eval_amount": 2062462,
       "buy_date": "",
       "candle": "",
       "tag": ""
     },
     {
-      "ticker": "IGV",
-      "stock_name": "소프트웨어 아이셰어즈 ETF",
-      "quantity": 14,
-      "avg_price": 104.08,
-      "current_price": 102.89,
-      "profit_rate": -1.28,
-      "eval_amount_usd": 1440.46,
-      "eval_amount": 2003535,
+      "ticker": "XBI",
+      "stock_name": "S&P 바이오 SPDR ETF",
+      "quantity": 7,
+      "avg_price": 168.72,
+      "current_price": 163.74,
+      "profit_rate": -3.08,
+      "eval_amount_usd": 1146.18,
+      "eval_amount": 1598691,
       "buy_date": "",
       "candle": "",
       "tag": ""
     },
     {
-      "ticker": "EWP",
-      "stock_name": "스페인 아이셰어즈 ETF",
-      "quantity": 20,
-      "avg_price": 62.67,
-      "current_price": 62.36,
-      "profit_rate": -0.63,
-      "eval_amount_usd": 1247.2,
-      "eval_amount": 1734730,
+      "ticker": "XLE",
+      "stock_name": "에너지 SPDR ETF",
+      "quantity": 11,
+      "avg_price": 64.0,
+      "current_price": 63.83,
+      "profit_rate": -0.4,
+      "eval_amount_usd": 702.13,
+      "eval_amount": 979330,
+      "buy_date": "",
+      "candle": "",
+      "tag": ""
+    },
+    {
+      "ticker": "XLV",
+      "stock_name": "헬스케어주 SPDR ETF",
+      "quantity": 4,
+      "avg_price": 174.89,
+      "current_price": 172.59,
+      "profit_rate": -1.45,
+      "eval_amount_usd": 690.36,
+      "eval_amount": 962914,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -91,35 +104,29 @@
     {
       "ticker": "EWS",
       "stock_name": "싱가포르 아이셰어즈 ETF",
-      "quantity": 30,
+      "quantity": 14,
       "avg_price": 33.555,
-      "current_price": 33.72,
-      "profit_rate": 0.35,
-      "eval_amount_usd": 1011.6,
-      "eval_amount": 1407034,
+      "current_price": 33.9,
+      "profit_rate": 0.88,
+      "eval_amount_usd": 474.6,
+      "eval_amount": 661972,
       "buy_date": "",
       "candle": "",
       "tag": ""
     }
   ],
   "us_summary": {
-    "us_stock_krw": 8210008,
-    "usd_cash": 1487.25,
-    "usd_cash_krw": 2085868,
-    "rate": 1402.5,
-    "total_asset_total": 13278015,
-    "eval_pl_usd": -129.46,
-    "eval_pl_krw": -181567,
-    "tdy_realized_pl_usd": 0.0,
-    "tdy_realized_pl_krw": 0,
-    "won_entr": 2913667,
-    "fx": {
-      "USD": {
-        "cash_krw": 2085868,
-        "stock_krw": 8278480,
-        "rate": 1402.5
-      }
-    },
+    "us_stock_krw": 6265369,
+    "usd_cash": null,
+    "usd_cash_krw": null,
+    "rate": null,
+    "total_asset_total": null,
+    "eval_pl_usd": -67.42,
+    "eval_pl_krw": null,
+    "tdy_realized_pl_usd": -150.27,
+    "tdy_realized_pl_krw": -209601,
+    "won_entr": null,
+    "fx": {},
     "fx_other_krw": 0,
     "fx_other_stock_krw": 0
   }

@@ -1,17 +1,17 @@
 {
   "account": "8042",
-  "updated": "2026-08-20 16:16:06",
+  "updated": "2026-08-21 08:12:38",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 19478781,
-    "tot_pur_amt": 4594188,
-    "tot_evlt_amt": 4891200,
-    "tot_evlt_pl": 292231,
-    "tot_prft_rt": 6.36,
-    "stock_ratio": 25.110400902397334,
-    "cash": 10689594,
-    "tdy_realized_pl": 1315770
+    "total_asset": 19475806,
+    "tot_pur_amt": 2900188,
+    "tot_evlt_amt": 3200200,
+    "tot_evlt_pl": 299112,
+    "tot_prft_rt": 10.31,
+    "stock_ratio": 16.43166911808425,
+    "cash": 9671114,
+    "tdy_realized_pl": 0
   },
   "holdings": [
     {
@@ -23,22 +23,9 @@
       "profit_rate": 14.5,
       "eval_amount": 2174200,
       "nxt": "",
-      "cntr_str": 98.21,
+      "cntr_str": null,
       "candle": "",
       "tag": ""
-    },
-    {
-      "stock_code": "000660",
-      "stock_name": "SK하이닉스",
-      "quantity": 1,
-      "avg_price": 0,
-      "current_price": 1691000,
-      "profit_rate": -0.41,
-      "eval_amount": 1691000,
-      "nxt": "N선",
-      "cntr_str": 129.73,
-      "candle": "분봉",
-      "tag": "삼닉v3"
     },
     {
       "stock_code": "228790",
@@ -49,55 +36,91 @@
       "profit_rate": 2.38,
       "eval_amount": 1026000,
       "nxt": "",
-      "cntr_str": 146.58,
+      "cntr_str": null,
       "candle": "일봉",
       "tag": "통합ETF"
     }
   ],
   "us_holdings": [
     {
-      "ticker": "EWP",
-      "stock_name": "스페인 아이셰어즈 ETF",
-      "quantity": 39,
-      "avg_price": 62.67,
-      "current_price": 62.36,
-      "profit_rate": -0.63,
-      "eval_amount_usd": 2432.04,
-      "eval_amount": 3382724,
-      "buy_date": "2026-08-08",
+      "ticker": "IBB",
+      "stock_name": "바이오테크 아이셰어즈 ETF",
+      "quantity": 18,
+      "avg_price": 215.0,
+      "current_price": 211.24,
+      "profit_rate": -1.88,
+      "eval_amount_usd": 3802.32,
+      "eval_amount": 5303475,
+      "buy_date": "2026-08-20",
+      "candle": "일봉",
+      "tag": "통합ETF"
+    },
+    {
+      "ticker": "XBI",
+      "stock_name": "S&P 바이오 SPDR ETF",
+      "quantity": 16,
+      "avg_price": 168.72,
+      "current_price": 163.74,
+      "profit_rate": -3.08,
+      "eval_amount_usd": 2619.84,
+      "eval_amount": 3654152,
+      "buy_date": "2026-08-20",
+      "candle": "일봉",
+      "tag": "통합ETF"
+    },
+    {
+      "ticker": "XLE",
+      "stock_name": "에너지 SPDR ETF",
+      "quantity": 26,
+      "avg_price": 64.0,
+      "current_price": 63.83,
+      "profit_rate": -0.4,
+      "eval_amount_usd": 1659.58,
+      "eval_amount": 2314782,
+      "buy_date": "2026-07-22",
+      "candle": "일봉",
+      "tag": "통합ETF"
+    },
+    {
+      "ticker": "XLV",
+      "stock_name": "헬스케어주 SPDR ETF",
+      "quantity": 9,
+      "avg_price": 174.95,
+      "current_price": 172.59,
+      "profit_rate": -1.48,
+      "eval_amount_usd": 1553.31,
+      "eval_amount": 2166556,
+      "buy_date": "2026-08-20",
+      "candle": "일봉",
+      "tag": "통합ETF"
+    },
+    {
+      "ticker": "EWS",
+      "stock_name": "싱가포르 아이셰어즈 ETF",
+      "quantity": 34,
+      "avg_price": 33.99,
+      "current_price": 33.9,
+      "profit_rate": -0.4,
+      "eval_amount_usd": 1152.6,
+      "eval_amount": 1607646,
+      "buy_date": "2026-08-05",
       "candle": "일봉",
       "tag": "통합ETF"
     }
   ],
   "us_summary": {
-    "us_stock_krw": 3382724,
-    "usd_cash": 11564.56,
-    "usd_cash_krw": 16219295,
-    "rate": 1402.5,
-    "total_asset_total": 36706697,
-    "eval_pl_usd": -12.09,
-    "eval_pl_krw": -16956,
-    "tdy_realized_pl_usd": 0.0,
-    "tdy_realized_pl_krw": 0,
-    "won_entr": 10689594,
-    "fx": {
-      "USD": {
-        "cash_krw": 16219295,
-        "stock_krw": 3410936,
-        "rate": 1402.5
-      },
-      "JPY": {
-        "cash_krw": 0,
-        "stock_krw": 6386872,
-        "rate": 886.45
-      },
-      "CNY": {
-        "cash_krw": 0,
-        "stock_krw": 0,
-        "rate": 207.82
-      }
-    },
-    "fx_other_krw": 6386872,
-    "fx_other_stock_krw": 6386872
+    "us_stock_krw": 15046611,
+    "usd_cash": null,
+    "usd_cash_krw": null,
+    "rate": null,
+    "total_asset_total": null,
+    "eval_pl_usd": -176.08,
+    "eval_pl_krw": null,
+    "tdy_realized_pl_usd": -14.38,
+    "tdy_realized_pl_krw": -20063,
+    "won_entr": null,
+    "fx": {},
+    "fx_other_krw": 0,
+    "fx_other_stock_krw": 0
   }
 }

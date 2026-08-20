@@ -1,69 +1,73 @@
 {
-    "avg_sco": 3.3,
+    "avg_sco": 1.8,
     "total_cnt": 151,
     "valid_cnt": 150,
     "atr_excl_cnt": 0,
-    "sco_pos": 110,
-    "sco_neg": 40,
-    "sco_strong": 9,
-    "sco_zone_neg": 40,
-    "sco_zone_weak": 76,
-    "sco_zone_mid": 25,
-    "sco_zone_strong": 9,
-    "strong_count": 9,
-    "top3_avg_sco": 12.67,
-    "top3_avg_pos": 2.0,
+    "sco_pos": 91,
+    "sco_neg": 59,
+    "sco_strong": 7,
+    "sco_zone_neg": 59,
+    "sco_zone_weak": 65,
+    "sco_zone_mid": 19,
+    "sco_zone_strong": 7,
+    "strong_count": 7,
+    "top3_avg_sco": 13.25,
+    "top3_avg_pos": 1.0,
     "kospi_trend": "-",
     "kosdaq_trend": "-",
-    "sp500_trend": "GREEN",
+    "sp500_trend": "-",
     "nasdaq_trend": "GREEN",
     "euro_trend": "-",
     "india_trend": "-",
     "nikkei_trend": "-",
-    "kospi_mult": 0.3,
-    "nasdaq_mult": 0.5,
-    "invest_pct": 50.0,
-    "invest_amount_total": 49999999,
+    "kospi_mult": 0.4,
+    "nasdaq_mult": 0.4,
+    "invest_pct": 45.1,
+    "invest_amount_total": 45098137,
     "internal_weights": [
-        45.5696,
-        30.3797,
-        24.0506
+        35.687,
+        30.5888,
+        25.4907,
+        8.2335
     ],
-    "n_holdings": 3,
+    "n_holdings": 4,
     "holdings_tickers": [
         "PATH",
-        "MDB",
+        "CRM",
+        "IBB",
         "ZS"
     ],
     "final_ratios": {
-        "PATH": 22.78,
-        "MDB": 15.19,
-        "ZS": 12.03
+        "PATH": 14.27,
+        "CRM": 12.24,
+        "IBB": 15.29,
+        "ZS": 3.29
     },
     "top3_tickers": [
         "PATH",
-        "MDB",
-        "ZS"
+        "CRM",
+        "IBB"
     ],
     "allocation_map_used": [
-        45,
+        35,
         30,
-        25
+        25,
+        10
     ],
-    "ai_core_score": 9.36,
-    "ai_core_dedup_score": 7.95,
-    "ai_core_gap": 1.41,
+    "ai_core_score": 8.66,
+    "ai_core_dedup_score": 7.15,
+    "ai_core_gap": 1.51,
     "ai_core_state": "AI Constructive",
     "ai_breadth_state": "Negative",
     "ai_breadth_strong": 0,
-    "ai_breadth_mid": 9,
-    "ai_breadth_weak": 22,
-    "ai_breadth_negative": 3,
+    "ai_breadth_mid": 7,
+    "ai_breadth_weak": 21,
+    "ai_breadth_negative": 6,
     "ai_duplicate_impact": {
         "total_entries": 47,
-        "unique_ticker_count": 36,
-        "duplicate_ratio": 0.234,
-        "duplicate_level": "보통",
+        "unique_ticker_count": 42,
+        "duplicate_ratio": 0.1064,
+        "duplicate_level": "낮음",
         "top_contributor": "PLTR",
         "top_contributor_count": 3,
         "top_contributors": [
@@ -75,22 +79,22 @@
             {
                 "ticker": "018260",
                 "count": 2,
-                "Signal_sco": 10.5
+                "Signal_sco": 9.5
             },
             {
                 "ticker": "CRM",
                 "count": 2,
-                "Signal_sco": 11.0
+                "Signal_sco": 11.75
             },
             {
-                "ticker": "DELL",
+                "ticker": "NOW",
                 "count": 2,
-                "Signal_sco": 9.75
+                "Signal_sco": 10.0
             },
             {
-                "ticker": "HPE",
-                "count": 2,
-                "Signal_sco": 9.5
+                "ticker": "001820",
+                "count": 1,
+                "Signal_sco": 8.5
             }
         ]
     },
@@ -98,72 +102,51 @@
         {
             "basket": "AI_AGENT_AUTOMATION_RPA",
             "basket_name_kr": "AI_에이전트자동화",
-            "score": 10.83,
+            "score": 10.9,
             "valid_count": 5
         },
         {
             "basket": "AI_SOFTWARE_PLATFORM",
             "basket_name_kr": "AI_소프트웨어",
-            "score": 10.33,
+            "score": 10.55,
             "valid_count": 7
         },
         {
-            "basket": "AI_DATACENTER_REIT_SERVER",
-            "basket_name_kr": "AI_데이터센터",
-            "score": 10.2,
-            "valid_count": 7
-        },
-        {
-            "basket": "AI_DATA_PIPELINE_DATABASE",
-            "basket_name_kr": "AI_데이터플랫폼",
-            "score": 9.9,
-            "valid_count": 7
+            "basket": "AI_HEALTHCARE_BIO",
+            "basket_name_kr": "AI_헬스케어바이오",
+            "score": 10.34,
+            "valid_count": 10
         },
         {
             "basket": "AI_PASSIVE_COMPONENT_MLCC",
             "basket_name_kr": "AI_MLCC수동부품",
-            "score": 9.5,
+            "score": 8.88,
             "valid_count": 2
+        },
+        {
+            "basket": "AI_DATA_PIPELINE_DATABASE",
+            "basket_name_kr": "AI_데이터플랫폼",
+            "score": 8.8,
+            "valid_count": 7
         }
     ],
     "top_ai_tickers": [
         {
             "ticker": "PATH",
             "name": "PATH",
-            "Signal_sco": 12.5,
-            "return_3m": 44.37,
-            "Final_score": 0.9461,
+            "Signal_sco": 12.0,
+            "return_3m": 43.55,
+            "Final_score": 0.9214,
             "baskets": [
                 "AI_AGENT_AUTOMATION_RPA"
-            ]
-        },
-        {
-            "ticker": "MDB",
-            "name": "MDB",
-            "Signal_sco": 11.5,
-            "return_3m": 35.08,
-            "Final_score": 0.9245,
-            "baskets": [
-                "AI_DATA_PIPELINE_DATABASE"
-            ]
-        },
-        {
-            "ticker": "ZS",
-            "name": "ZS",
-            "Signal_sco": 14.0,
-            "return_3m": 1.22,
-            "Final_score": 0.9066,
-            "baskets": [
-                "AI_CYBER_SECURITY",
-                "AI_DATA_IDENTITY_SECURITY"
             ]
         },
         {
             "ticker": "PLTR",
             "name": "PLTR",
             "Signal_sco": 10.75,
-            "return_3m": 27.99,
-            "Final_score": 0.8959,
+            "return_3m": 27.35,
+            "Final_score": 0.8848,
             "baskets": [
                 "AI_DATA_PIPELINE_DATABASE",
                 "AI_SOFTWARE_PLATFORM",
@@ -171,53 +154,53 @@
             ]
         },
         {
-            "ticker": "IBB",
-            "name": "IBB",
-            "Signal_sco": 15.0,
-            "return_3m": 28.56,
-            "Final_score": 0.8951,
+            "ticker": "CRM",
+            "name": "CRM",
+            "Signal_sco": 11.75,
+            "return_3m": 15.01,
+            "Final_score": 0.878,
             "baskets": [
-                "AI_HEALTHCARE_BIO"
-            ]
-        },
-        {
-            "ticker": "XBI",
-            "name": "XBI",
-            "Signal_sco": 15.0,
-            "return_3m": 28.91,
-            "Final_score": 0.8655,
-            "baskets": [
-                "AI_HEALTHCARE_BIO"
+                "AI_SOFTWARE_PLATFORM",
+                "AI_AGENT_AUTOMATION_RPA"
             ]
         },
         {
             "ticker": "NOW",
             "name": "NOW",
-            "Signal_sco": 9.0,
-            "return_3m": 24.55,
-            "Final_score": 0.8508,
+            "Signal_sco": 10.0,
+            "return_3m": 29.85,
+            "Final_score": 0.8754,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
                 "AI_AGENT_AUTOMATION_RPA"
             ]
         },
         {
-            "ticker": "CRM",
-            "name": "CRM",
-            "Signal_sco": 11.0,
-            "return_3m": 14.75,
-            "Final_score": 0.8486,
+            "ticker": "MDB",
+            "name": "MDB",
+            "Signal_sco": 9.5,
+            "return_3m": 36.77,
+            "Final_score": 0.8723,
             "baskets": [
-                "AI_SOFTWARE_PLATFORM",
-                "AI_AGENT_AUTOMATION_RPA"
+                "AI_DATA_PIPELINE_DATABASE"
             ]
         },
         {
             "ticker": "TEM",
             "name": "TEM",
-            "Signal_sco": 6.5,
-            "return_3m": 32.63,
-            "Final_score": 0.8141,
+            "Signal_sco": 9.5,
+            "return_3m": 42.84,
+            "Final_score": 0.8723,
+            "baskets": [
+                "AI_HEALTHCARE_BIO"
+            ]
+        },
+        {
+            "ticker": "IBB",
+            "name": "IBB",
+            "Signal_sco": 16.0,
+            "return_3m": 24.46,
+            "Final_score": 0.8616,
             "baskets": [
                 "AI_HEALTHCARE_BIO"
             ]
@@ -225,15 +208,35 @@
         {
             "ticker": "ADBE",
             "name": "ADBE",
-            "Signal_sco": 9.75,
-            "return_3m": 11.32,
-            "Final_score": 0.8033,
+            "Signal_sco": 10.75,
+            "return_3m": 13.19,
+            "Final_score": 0.8458,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
                 "AI_CONTENT_ADS_MEDIA"
             ]
+        },
+        {
+            "ticker": "XBI",
+            "name": "XBI",
+            "Signal_sco": 16.0,
+            "return_3m": 22.64,
+            "Final_score": 0.8295,
+            "baskets": [
+                "AI_HEALTHCARE_BIO"
+            ]
+        },
+        {
+            "ticker": "HXGBY",
+            "name": "HXGBY",
+            "Signal_sco": 9.5,
+            "return_3m": 16.1,
+            "Final_score": 0.821,
+            "baskets": [
+                "AI_ROBOT_COMPONENT"
+            ]
         }
     ],
     "ai_basket_count": 34,
-    "update_time": "2026-08-20 08:22:06"
+    "update_time": "2026-08-21 08:03:45"
 }

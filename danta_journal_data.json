@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-20 16:12:02",
+  "generated": "2026-08-21 08:10:33",
   "dates": [
     "2026-08-14",
     "2026-08-17",
@@ -657,6 +657,25 @@
     },
     {
       "date": "2026-08-20",
+      "acct": "1887US",
+      "code": "00000T",
+      "name": "에이티앤티",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 24,
+          "price": 25
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 24,
+      "avg": 25
+    },
+    {
+      "date": "2026-08-20",
       "acct": "8042CHU3",
       "code": "000660",
       "name": "SK하이닉스",
@@ -668,11 +687,285 @@
           "price": 1694000
         }
       ],
+      "sells": [
+        {
+          "tm": "16:30",
+          "qty": 1,
+          "price": 1688000,
+          "ord_no": "0632964"
+        }
+      ],
+      "realized": -6000,
+      "basis": 1694000,
+      "remain": 0,
+      "avg": 0
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "1887US",
+      "code": "000ABT",
+      "name": "애보트 래브러토리스",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 5,
+          "price": 114
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 5,
+      "avg": 114
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "1887US",
+      "code": "000BMY",
+      "name": "브리스톨 마이어스 스큅",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 9,
+          "price": 66
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 9,
+      "avg": 66
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "1887US",
+      "code": "000CSX",
+      "name": "CSX",
+      "strategy": "us_pine_lowbuy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 29,
+          "price": 51
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 29,
+      "avg": 51
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "8042ETF",
+      "code": "000EWP",
+      "name": "EWP",
+      "strategy": "allone",
+      "buys": [],
+      "sells": [
+        {
+          "tm": "09:00",
+          "qty": 39,
+          "price": 62,
+          "ord_no": ""
+        }
+      ],
+      "realized": 0,
+      "basis": 2418,
+      "remain": 0,
+      "avg": 0
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "8042ETF",
+      "code": "000EWS",
+      "name": "EWS",
+      "strategy": "allone",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 34,
+          "price": 34
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 166,
+      "avg": 33
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "1887US",
+      "code": "000HLT",
+      "name": "힐튼 월드와이드 홀딩스",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 332
+        }
+      ],
       "sells": [],
       "realized": 0,
       "basis": 0,
       "remain": 1,
-      "avg": 1694000
+      "avg": 332
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "8042ETF",
+      "code": "000IBB",
+      "name": "IBB",
+      "strategy": "allone",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 18,
+          "price": 215
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 18,
+      "avg": 215
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "1887US",
+      "code": "000LLY",
+      "name": "일라이 릴리",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 3,
+          "price": 1260
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 3,
+      "avg": 1260
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "1887US",
+      "code": "000NSC",
+      "name": "노퍽서던",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 349
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 1,
+      "avg": 349
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "1887US",
+      "code": "000TDS",
+      "name": "텔레폰 앤드 데이터 시스템스",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 19,
+          "price": 34
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 19,
+      "avg": 34
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "1887US",
+      "code": "000UNP",
+      "name": "유니언 퍼시픽",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 2,
+          "price": 305
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 2,
+      "avg": 305
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "8042ETF",
+      "code": "000XBI",
+      "name": "XBI",
+      "strategy": "allone",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 16,
+          "price": 168
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 16,
+      "avg": 168
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "8042ETF",
+      "code": "000XLE",
+      "name": "XLE",
+      "strategy": "allone",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 26,
+          "price": 64
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 88,
+      "avg": 60
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "8042ETF",
+      "code": "000XLV",
+      "name": "XLV",
+      "strategy": "allone",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 9,
+          "price": 175
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 9,
+      "avg": 175
     },
     {
       "date": "2026-08-20",
@@ -772,6 +1065,44 @@
     },
     {
       "date": "2026-08-20",
+      "acct": "1887US",
+      "code": "00ABBV",
+      "name": "애브비",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 2,
+          "price": 264
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 2,
+      "avg": 264
+    },
+    {
+      "date": "2026-08-20",
+      "acct": "1887US",
+      "code": "00CRUS",
+      "name": "시러스 로직",
+      "strategy": "us_pine_lowbuy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 12,
+          "price": 118
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 12,
+      "avg": 118
+    },
+    {
+      "date": "2026-08-20",
       "acct": "1887",
       "code": "010140",
       "name": "삼성중공업",
@@ -816,6 +1147,10 @@
       {
         "t": "2026-08-14 09:00",
         "s": "S"
+      },
+      {
+        "t": "2026-08-20 09:00",
+        "s": "S"
       }
     ],
     "000EWQ": [
@@ -831,6 +1166,10 @@
       },
       {
         "t": "2026-08-14 09:00",
+        "s": "B"
+      },
+      {
+        "t": "2026-08-20 09:00",
         "s": "B"
       }
     ],
@@ -1150,10 +1489,104 @@
         "s": "B"
       }
     ],
+    "00ABBV": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "000ABT": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "000BMY": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "000HLT": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "000NSC": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "00000T": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "000UNP": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "000TDS": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "000CSX": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "00CRUS": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "000LLY": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "000IBB": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "000XBI": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "000XLE": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
+    "000XLV": [
+      {
+        "t": "2026-08-20 09:00",
+        "s": "B"
+      }
+    ],
     "000660": [
       {
         "t": "2026-08-20 16:00",
         "s": "B"
+      },
+      {
+        "t": "2026-08-20 16:30",
+        "s": "S"
       }
     ]
   }
