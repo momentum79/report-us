@@ -1,14 +1,14 @@
 {
-    "avg_sco": 1.8,
+    "avg_sco": 1.1,
     "total_cnt": 151,
     "valid_cnt": 150,
     "atr_excl_cnt": 0,
-    "sco_pos": 91,
-    "sco_neg": 59,
+    "sco_pos": 85,
+    "sco_neg": 65,
     "sco_strong": 7,
-    "sco_zone_neg": 59,
-    "sco_zone_weak": 65,
-    "sco_zone_mid": 19,
+    "sco_zone_neg": 65,
+    "sco_zone_weak": 63,
+    "sco_zone_mid": 15,
     "sco_zone_strong": 7,
     "strong_count": 7,
     "top3_avg_sco": 13.25,
@@ -54,14 +54,14 @@
         25,
         10
     ],
-    "ai_core_score": 8.66,
-    "ai_core_dedup_score": 7.15,
-    "ai_core_gap": 1.51,
+    "ai_core_score": 8.27,
+    "ai_core_dedup_score": 6.98,
+    "ai_core_gap": 1.29,
     "ai_core_state": "AI Constructive",
     "ai_breadth_state": "Negative",
     "ai_breadth_strong": 0,
-    "ai_breadth_mid": 7,
-    "ai_breadth_weak": 21,
+    "ai_breadth_mid": 6,
+    "ai_breadth_weak": 22,
     "ai_breadth_negative": 6,
     "ai_duplicate_impact": {
         "total_entries": 47,
@@ -77,11 +77,6 @@
                 "Signal_sco": 10.75
             },
             {
-                "ticker": "018260",
-                "count": 2,
-                "Signal_sco": 9.5
-            },
-            {
                 "ticker": "CRM",
                 "count": 2,
                 "Signal_sco": 11.75
@@ -92,9 +87,14 @@
                 "Signal_sco": 10.0
             },
             {
+                "ticker": "SNOW",
+                "count": 2,
+                "Signal_sco": 7.5
+            },
+            {
                 "ticker": "001820",
                 "count": 1,
-                "Signal_sco": 8.5
+                "Signal_sco": 6.5
             }
         ]
     },
@@ -108,26 +108,26 @@
         {
             "basket": "AI_SOFTWARE_PLATFORM",
             "basket_name_kr": "AI_소프트웨어",
-            "score": 10.55,
+            "score": 10.3,
             "valid_count": 7
         },
         {
             "basket": "AI_HEALTHCARE_BIO",
             "basket_name_kr": "AI_헬스케어바이오",
-            "score": 10.34,
+            "score": 10.04,
             "valid_count": 10
         },
         {
-            "basket": "AI_PASSIVE_COMPONENT_MLCC",
-            "basket_name_kr": "AI_MLCC수동부품",
-            "score": 8.88,
-            "valid_count": 2
+            "basket": "AI_DATACENTER_REIT_SERVER",
+            "basket_name_kr": "AI_데이터센터",
+            "score": 8.7,
+            "valid_count": 7
         },
         {
-            "basket": "AI_DATA_PIPELINE_DATABASE",
-            "basket_name_kr": "AI_데이터플랫폼",
-            "score": 8.8,
-            "valid_count": 7
+            "basket": "AI_RAW_MATERIALS_COPPER_RAREEARTH",
+            "basket_name_kr": "AI_원자재",
+            "score": 8.15,
+            "valid_count": 5
         }
     ],
     "top_ai_tickers": [
@@ -146,7 +146,7 @@
             "name": "PLTR",
             "Signal_sco": 10.75,
             "return_3m": 27.35,
-            "Final_score": 0.8848,
+            "Final_score": 0.8854,
             "baskets": [
                 "AI_DATA_PIPELINE_DATABASE",
                 "AI_SOFTWARE_PLATFORM",
@@ -158,7 +158,7 @@
             "name": "CRM",
             "Signal_sco": 11.75,
             "return_3m": 15.01,
-            "Final_score": 0.878,
+            "Final_score": 0.88,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
                 "AI_AGENT_AUTOMATION_RPA"
@@ -169,20 +169,20 @@
             "name": "NOW",
             "Signal_sco": 10.0,
             "return_3m": 29.85,
-            "Final_score": 0.8754,
+            "Final_score": 0.8758,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
                 "AI_AGENT_AUTOMATION_RPA"
             ]
         },
         {
-            "ticker": "MDB",
-            "name": "MDB",
-            "Signal_sco": 9.5,
-            "return_3m": 36.77,
-            "Final_score": 0.8723,
+            "ticker": "IBB",
+            "name": "IBB",
+            "Signal_sco": 16.0,
+            "return_3m": 24.46,
+            "Final_score": 0.8735,
             "baskets": [
-                "AI_DATA_PIPELINE_DATABASE"
+                "AI_HEALTHCARE_BIO"
             ]
         },
         {
@@ -196,13 +196,13 @@
             ]
         },
         {
-            "ticker": "IBB",
-            "name": "IBB",
-            "Signal_sco": 16.0,
-            "return_3m": 24.46,
-            "Final_score": 0.8616,
+            "ticker": "MDB",
+            "name": "MDB",
+            "Signal_sco": 9.5,
+            "return_3m": 36.77,
+            "Final_score": 0.8723,
             "baskets": [
-                "AI_HEALTHCARE_BIO"
+                "AI_DATA_PIPELINE_DATABASE"
             ]
         },
         {
@@ -210,7 +210,7 @@
             "name": "ADBE",
             "Signal_sco": 10.75,
             "return_3m": 13.19,
-            "Final_score": 0.8458,
+            "Final_score": 0.8567,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
                 "AI_CONTENT_ADS_MEDIA"
@@ -221,7 +221,7 @@
             "name": "XBI",
             "Signal_sco": 16.0,
             "return_3m": 22.64,
-            "Final_score": 0.8295,
+            "Final_score": 0.8413,
             "baskets": [
                 "AI_HEALTHCARE_BIO"
             ]
@@ -231,12 +231,12 @@
             "name": "HXGBY",
             "Signal_sco": 9.5,
             "return_3m": 16.1,
-            "Final_score": 0.821,
+            "Final_score": 0.8348,
             "baskets": [
                 "AI_ROBOT_COMPONENT"
             ]
         }
     ],
     "ai_basket_count": 34,
-    "update_time": "2026-08-21 08:03:45"
+    "update_time": "2026-08-21 20:56:56"
 }

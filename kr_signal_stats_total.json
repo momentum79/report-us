@@ -1,24 +1,24 @@
 {
-    "avg_sco": 3.6,
+    "avg_sco": 3.0,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 97,
-    "sco_neg": 33,
+    "sco_pos": 88,
+    "sco_neg": 42,
     "sco_strong": 20,
-    "sco_zone_neg": 33,
-    "sco_zone_weak": 64,
-    "sco_zone_mid": 13,
+    "sco_zone_neg": 42,
+    "sco_zone_weak": 56,
+    "sco_zone_mid": 12,
     "sco_zone_strong": 20,
     "strong_count": 11,
-    "top3_avg_sco": 14.92,
+    "top3_avg_sco": 15.0,
     "top3_avg_pos": 1.0,
     "kospi_trend": "-",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "-",
     "nasdaq_trend": "GREEN",
-    "kospi_sco": 3.5,
-    "kosdaq_sco": 0.5,
+    "kospi_sco": 2.75,
+    "kosdaq_sco": -1.0,
     "sp500_sco": 4.5,
     "nasdaq_sco": 4.5,
     "euro_trend": "-",
@@ -29,8 +29,8 @@
     "brazil_trend": "PURPLE",
     "kospi_mult": 0.3,
     "nasdaq_mult": 0.4,
-    "invest_pct": 60.6,
-    "invest_amount_total": 60603673,
+    "invest_pct": 61.7,
+    "invest_amount_total": 61719159,
     "internal_weights": [
         32.5459,
         22.3097,
@@ -50,7 +50,7 @@
     ],
     "final_ratios": {
         "IBB": 19.53,
-        "228790": 11.15,
+        "228790": 12.27,
         "SVXY": 10.08,
         "XBI": 5.67,
         "XLV": 5.77,
@@ -75,13 +75,13 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-08-21 08:03:03",
+    "update_time": "2026-08-21 20:56:19",
     "liq_rejected": [
         {
             "ticker": "GREK",
             "name": "GREK",
-            "avg_tv_eok": 84.9,
-            "min_tv_eok": 13.8,
+            "avg_tv_eok": 84.4,
+            "min_tv_eok": 13.7,
             "min_eok": 1000,
             "min_day_eok": 400,
             "fail_on": "avg"
@@ -93,6 +93,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1412.5
+        "usd_krw": 1403.0
     }
 }
