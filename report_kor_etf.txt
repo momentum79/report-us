@@ -7,7 +7,7 @@ C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pykrx\__
   유지: 228790 (sco=14.0)
 
 최종 보유 종목 (1개): ['228790']
-[코스피 단계적 비중] up_days=3(재실행(스킵)) → multiplier=0.4 (등락: +1.65%)
+[코스피 단계적 비중] up_days=3(카운팅) → multiplier=0.4 (등락: +1.65%)
 [나스닥 단계적 비중] GREEN(위치4) → multiplier=0.4
 
 [변동성 감점형 내부비중 조정]
@@ -30,7 +30,7 @@ C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pykrx\__
 ✅ 저점 신호 데이터가 'D:\py\report-us\kr_etf_low_signals.json'에 저장되었습니다.
 ✅ kr_etf_gann_fire_set.json 저장 완료 (🔥 0개)
 ✅ kr_etf_stab.json 저장 완료 (35개)
-✅ 시장온도 히스토리 저장 완료 → 'D:\py\report-us\top3_etf_track.json'  (총 396일)
+✅ 시장온도 히스토리 저장 완료 → 'D:\py\report-us\top3_etf_track.json'  (총 397일)
 
 [벤치마크 추세]  코스피: -  /  코스닥: GREEN
                  에센피: GREEN  /  나스닥: GREEN
@@ -81,4 +81,4 @@ Ticker      Name                    등락    위치    Sco      RSI     정   5
 
 [ATR 트레일링(-10%)로 제외 - 최근 2주] 없음
 
-[실행 소요 시간]: 10.16초
+[실행 소요 시간]: 10.20초
