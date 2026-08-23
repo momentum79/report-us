@@ -542,6 +542,31 @@ body {
 
 /* ── AI Core Regime 박스 (미국요약/AI 관찰판에서 이동) ── */
 .ai-core-section { margin: 0; }
+
+/* ── 시장 온도 컬럼 (KR150에서 이동) ── */
+/* 좌측(리더십+AI Core) 옆 남는 폭을 그대로 채운다. 고정폭을 주면 우측에 빈 공간이 생긴다. */
+.market-temp-col {
+  flex: 1 1 380px;
+  min-width: 320px;
+  align-self: stretch;
+}
+.market-temp-col > div { height: 100%; box-sizing: border-box; }
+
+/* ── Market Regime Map + 20거래일 실행이력 2단 ── */
+.regime-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.regime-chart-col { flex: 1 1 520px; min-width: 0; }
+.regime-side-col  { flex: 0 1 auto; min-width: 0; max-width: 100%; overflow-x: auto; }
+.regime-side-col .auto-kpi-card { margin: 0; }
+
+@media (max-width: 767px) {
+  .market-temp-col { flex: 1 1 100%; min-width: 0; }
+  .regime-chart-col, .regime-side-col { flex: 1 1 100%; }
+}
 .ai-core-card { display:flex; gap:14px; background:linear-gradient(135deg,#fffbea,#fff5e1); border:1px solid #f0b400; padding:12px 14px; border-radius:10px; margin:6px 0 10px 0; box-shadow:0 2px 6px rgba(0,0,0,0.08); flex-wrap:wrap; width:fit-content; max-width:760px; align-self:flex-start; }
 .ai-core-left { flex:0 0 180px; min-width:170px; }
 .ai-core-right { flex:0 1 auto; min-width:220px; max-width:520px; }
@@ -590,7 +615,7 @@ body {
   <!-- 상단 2열: 왼쪽 Market Trend + 오른쪽 TODAY'S REGIME 카드 -->
   <div class="top-summary-row">
     <div class="left-panel">
-      <div class="meta" style="margin-bottom: 5px;">Updated: 2026-08-22 09:01:15</div>
+      <div class="meta" style="margin-bottom: 5px;">Updated: 2026-08-23 12:22:29</div>
       <div class="section-title">Market Trend</div>
       <table class="trend-table">
         <thead>
@@ -612,7 +637,7 @@ body {
       <div class="summary-row">
         <span class="badge">avg sco <b>2.8</b></span>
         <span class="badge">유니버스 <b>130개</b></span>
-        <span class="badge">투자비중 <b>62.3%</b></span>
+        <span class="badge">투자비중 <b>57.8%</b></span>
       </div>
     </div>
 
@@ -620,7 +645,7 @@ body {
       
     <div class="regime-card-title">
       <span class="regime-card-title-main">TODAY'S REGIME</span>
-      <span class="regime-prev-date">(전일대비 2026-08-21)</span>
+      <span class="regime-prev-date">(전일대비 2026-08-22)</span>
     </div>
     <div class="regime-card-grid">
       <div class="regime-metric-card regime-score-card">
@@ -629,15 +654,15 @@ body {
           <div class="regime-score-value">24.8</div>
           <div class="regime-score-sub">/ 100</div>
         </div>
-        <div class="regime-delta diff-good">▲ +0.5 <span class="regime-prev-label">(전일 24.3)</span></div>
+        <div class="regime-delta diff-zero">0 <span class="regime-prev-label">(전일 24.8)</span></div>
       </div>
       <div class="regime-metric-card regime-state-card">
         <div class="regime-metric-label">시장판정</div>
         <div class="regime-state-value" style="color:#c0392b;">약세 확산</div>
       </div>
-      <div class="regime-metric-card">  <div class="regime-metric-label">Strong Zone</div>  <div class="regime-metric-value">7개 / 130개</div>  <div class="regime-delta diff-good">▲ +2 <span class="regime-prev-label">(전일 5개)</span></div></div>
-      <div class="regime-metric-card">  <div class="regime-metric-label">Risk Zone</div>  <div class="regime-metric-value">72개 / 130개</div>  <div class="regime-delta diff-bad">▲ +1 <span class="regime-prev-label">(전일 71개)</span></div></div>
-      <div class="regime-metric-card">  <div class="regime-metric-label">Worst Zone</div>  <div class="regime-metric-value">43개 / 130개</div>  <div class="regime-delta diff-bad">▲ +5 <span class="regime-prev-label">(전일 38개)</span></div></div>
+      <div class="regime-metric-card">  <div class="regime-metric-label">Strong Zone</div>  <div class="regime-metric-value">7개 / 130개</div>  <div class="regime-delta diff-zero">0 <span class="regime-prev-label">(전일 7개)</span></div></div>
+      <div class="regime-metric-card">  <div class="regime-metric-label">Risk Zone</div>  <div class="regime-metric-value">72개 / 130개</div>  <div class="regime-delta diff-zero">0 <span class="regime-prev-label">(전일 72개)</span></div></div>
+      <div class="regime-metric-card">  <div class="regime-metric-label">Worst Zone</div>  <div class="regime-metric-value">43개 / 130개</div>  <div class="regime-delta diff-zero">0 <span class="regime-prev-label">(전일 43개)</span></div></div>
     </div>
     <div class="regime-comment">
       <span class="regime-comment-tag">💬 COMMENT</span>
@@ -658,21 +683,21 @@ body {
         <div class="ai-core-card">
   <div class="ai-core-left">
     <div class="ai-core-label">🤖 AI Core Regime</div>
-    <div class="ai-core-score" style="color:#3498db;">8.27</div>
+    <div class="ai-core-score" style="color:#3498db;">8.58</div>
     <div class="ai-core-state-row">
       <span class="ai-core-state" style="background:#3498db;">AI Constructive</span>
       <span class="ai-core-state ai-breadth-state" style="background:#dc2626;">Breadth Negative</span>
     </div>
     <div class="ai-core-rdg" title="Raw = Top10 basket 평균 / Dedup = 중복 ticker 1회만 카운트한 보정 / Gap이 클수록 특정 종목 의존">
-      <span class="ai-rdg-cell"><span class="ai-rdg-lbl">Raw</span><span class="ai-rdg-val">8.27</span></span>
-      <span class="ai-rdg-cell"><span class="ai-rdg-lbl">Dedup</span><span class="ai-rdg-val">6.98</span></span>
-      <span class="ai-rdg-cell"><span class="ai-rdg-lbl">Gap</span><span class="ai-rdg-val">+1.29</span></span>
+      <span class="ai-rdg-cell"><span class="ai-rdg-lbl">Raw</span><span class="ai-rdg-val">8.58</span></span>
+      <span class="ai-rdg-cell"><span class="ai-rdg-lbl">Dedup</span><span class="ai-rdg-val">7.04</span></span>
+      <span class="ai-rdg-cell"><span class="ai-rdg-lbl">Gap</span><span class="ai-rdg-val">+1.54</span></span>
     </div>
     <div class="ai-core-breadth">
-      <span class="ai-b-strong">강 0</span>
-      <span class="ai-b-mid">중 6</span>
-      <span class="ai-b-weak">약 22</span>
-      <span class="ai-b-neg">음 6</span>
+      <span class="ai-b-strong">강 2</span>
+      <span class="ai-b-mid">중 3</span>
+      <span class="ai-b-weak">약 20</span>
+      <span class="ai-b-neg">음 9</span>
     </div>
     <div class="ai-core-dup" title="Top10 basket의 top members 펼쳐서 ticker 등장횟수 분석">
       <span style="color:#555;">중복영향</span>
@@ -686,7 +711,7 @@ body {
   </div>
   <div class="ai-core-right">
     <div class="ai-top-title">🏆 Top AI Baskets</div>
-    <div class="ai-top-list"><div class="ai-top-row" title="AI_AGENT_AUTOMATION_RPA"><span class="ai-top-rank">#1</span><span class="ai-top-name">AI_에이전트자동화</span><span class="ai-top-score">10.90</span><span class="ai-top-cnt">5</span></div><div class="ai-top-row" title="AI_SOFTWARE_PLATFORM"><span class="ai-top-rank">#2</span><span class="ai-top-name">AI_소프트웨어</span><span class="ai-top-score">10.30</span><span class="ai-top-cnt">7</span></div><div class="ai-top-row" title="AI_HEALTHCARE_BIO"><span class="ai-top-rank">#3</span><span class="ai-top-name">AI_헬스케어바이오</span><span class="ai-top-score">10.04</span><span class="ai-top-cnt">10</span></div><div class="ai-top-row" title="AI_DATACENTER_REIT_SERVER"><span class="ai-top-rank">#4</span><span class="ai-top-name">AI_데이터센터</span><span class="ai-top-score">8.70</span><span class="ai-top-cnt">7</span></div><div class="ai-top-row" title="AI_RAW_MATERIALS_COPPER_RAREEARTH"><span class="ai-top-rank">#5</span><span class="ai-top-name">AI_원자재</span><span class="ai-top-score">8.15</span><span class="ai-top-cnt">5</span></div></div>
+    <div class="ai-top-list"><div class="ai-top-row" title="AI_AGENT_AUTOMATION_RPA"><span class="ai-top-rank">#1</span><span class="ai-top-name">AI_에이전트자동화</span><span class="ai-top-score">12.41</span><span class="ai-top-cnt">5</span></div><div class="ai-top-row" title="AI_SOFTWARE_PLATFORM"><span class="ai-top-rank">#2</span><span class="ai-top-name">AI_소프트웨어</span><span class="ai-top-score">12.20</span><span class="ai-top-cnt">7</span></div><div class="ai-top-row" title="AI_HEALTHCARE_BIO"><span class="ai-top-rank">#3</span><span class="ai-top-name">AI_헬스케어바이오</span><span class="ai-top-score">10.53</span><span class="ai-top-cnt">10</span></div><div class="ai-top-row" title="AI_RAW_MATERIALS_COPPER_RAREEARTH"><span class="ai-top-rank">#4</span><span class="ai-top-name">AI_원자재</span><span class="ai-top-score">9.36</span><span class="ai-top-cnt">5</span></div><div class="ai-top-row" title="AI_DATA_PIPELINE_DATABASE"><span class="ai-top-rank">#5</span><span class="ai-top-name">AI_데이터플랫폼</span><span class="ai-top-score">8.56</span><span class="ai-top-cnt">7</span></div></div>
     <div class="ai-core-help">
       <b>Raw</b> 핵심 AI 주도주 강도 ·
       <b>Dedup</b> AI 생태계 확산 강도 ·
@@ -696,13 +721,296 @@ body {
 </div>
       </div>
     </div>
-    <div class="auto-kpi-card auto-kpi-month"><div class="auto-kpi-title">최근 20거래일&nbsp;&nbsp;6/20 · 0% / 25% / 30%</div><table class="auto-kpi-table"><thead><tr><th class="kpi-mkt">KR</th><th class="kpi-mkt">US</th><th class="kpi-date">날짜</th><th class="kpi-run">실행</th><th>비중</th><th>금액</th><th class="kpi-actual">실투</th><th class="kpi-tk kpi-tk-top">T1</th><th class="kpi-tk kpi-tk-top">T2</th><th class="kpi-tk kpi-tk-top">T3</th><th class="kpi-tk">T4</th><th class="kpi-tk">T5</th><th class="kpi-tk">T6</th></tr></thead><tbody><tr class="kpi-no"><td class="kpi-mkt mkt-n">N</td><td class="kpi-mkt mkt-n">N</td><td class="kpi-date">8/21</td><td class="kpi-run">N</td><td>61.7%</td><td>1,850만</td><td class="kpi-actual">1,450만</td><td class="kpi-tk kpi-tk-top">IBB</td><td class="kpi-tk kpi-tk-top">228790</td><td class="kpi-tk kpi-tk-top">XBI</td><td class="kpi-tk">XLV</td><td class="kpi-tk">SVXY</td><td class="kpi-tk">XLE</td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-n">N</td><td class="kpi-mkt mkt-y">Y</td><td class="kpi-date">8/20</td><td class="kpi-run">Y</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk kpi-tk-top">IBB</td><td class="kpi-tk kpi-tk-top">228790</td><td class="kpi-tk kpi-tk-top">SVXY</td><td class="kpi-tk">XBI</td><td class="kpi-tk">XLV</td><td class="kpi-tk">XLE</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-n">N</td><td class="kpi-mkt mkt-n">N</td><td class="kpi-date">8/19</td><td class="kpi-run">N</td><td>58.4%</td><td>1,392만</td><td class="kpi-actual">440만</td><td class="kpi-tk kpi-tk-top">IBB</td><td class="kpi-tk kpi-tk-top">XBI</td><td class="kpi-tk kpi-tk-top">XLV</td><td class="kpi-tk">228790</td><td class="kpi-tk">EWS</td><td class="kpi-tk">XLE</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-n">N</td><td class="kpi-mkt mkt-n">N</td><td class="kpi-date">8/18</td><td class="kpi-run">N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk kpi-tk-top">228790</td><td class="kpi-tk kpi-tk-top">IBB</td><td class="kpi-tk kpi-tk-top">ITA</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWJ</td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/14</td><td class="kpi-run">Y</td><td>77.6%</td><td>1,732만</td><td class="kpi-actual">446만</td><td class="kpi-tk kpi-tk-top">228790</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">IBB</td><td class="kpi-tk">EWJ</td><td class="kpi-tk">CIBR</td><td class="kpi-tk">EWP</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/13</td><td class="kpi-run">N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk kpi-tk-top">CIBR</td><td class="kpi-tk kpi-tk-top">IGV</td><td class="kpi-tk kpi-tk-top">228790</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWS</td><td class="kpi-tk"></td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/12</td><td class="kpi-run">N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk kpi-tk-top">228790</td><td class="kpi-tk kpi-tk-top">CIBR</td><td class="kpi-tk kpi-tk-top">IGV</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWQ</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/11</td><td class="kpi-run">N</td><td>82.7%</td><td>3,951만</td><td class="kpi-actual">1,671만</td><td class="kpi-tk kpi-tk-top">IGV</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">CIBR</td><td class="kpi-tk">EWP</td><td class="kpi-tk">228790</td><td class="kpi-tk">EWQ</td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/10</td><td class="kpi-run">Y</td><td>85.0%</td><td>4,071만</td><td class="kpi-actual">2,243만</td><td class="kpi-tk kpi-tk-top">IGV</td><td class="kpi-tk kpi-tk-top">EWQ</td><td class="kpi-tk kpi-tk-top">EWP</td><td class="kpi-tk">EWA</td><td class="kpi-tk">XLF</td><td class="kpi-tk">GREK</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/7</td><td class="kpi-run">N</td><td>85.0%</td><td>4,193만</td><td class="kpi-actual">2,776만</td><td class="kpi-tk kpi-tk-top">IGV</td><td class="kpi-tk kpi-tk-top">EWQ</td><td class="kpi-tk kpi-tk-top">EWP</td><td class="kpi-tk">EWA</td><td class="kpi-tk">XLF</td><td class="kpi-tk">GREK</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/6</td><td class="kpi-run">N</td><td>48.8%</td><td>2,322만</td><td class="kpi-actual">730만</td><td class="kpi-tk kpi-tk-top">GREK</td><td class="kpi-tk kpi-tk-top">XLF</td><td class="kpi-tk kpi-tk-top">EWQ</td><td class="kpi-tk">EWA</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWU</td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/5</td><td class="kpi-run">Y</td><td>27.3%</td><td>1,473만</td><td class="kpi-actual">111만</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">GREK</td><td class="kpi-tk kpi-tk-top">EWA</td><td class="kpi-tk">XLF</td><td class="kpi-tk">EWU</td><td class="kpi-tk">SCHD</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/3</td><td class="kpi-run">N</td><td>6.3%</td><td>286만</td><td class="kpi-actual">163만</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">EWU</td><td class="kpi-tk kpi-tk-top">GREK</td><td class="kpi-tk">XLF</td><td class="kpi-tk">SCHD</td><td class="kpi-tk"></td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/31</td><td class="kpi-run">N</td><td>8.3%</td><td>385만</td><td class="kpi-actual">163만</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">EWU</td><td class="kpi-tk kpi-tk-top">GREK</td><td class="kpi-tk">XLF</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">VYM</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/30</td><td class="kpi-run">N</td><td>8.3%</td><td>290만</td><td class="kpi-actual">318만</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">EWU</td><td class="kpi-tk kpi-tk-top">XLF</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">VTV</td><td class="kpi-tk">VYM</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/29</td><td class="kpi-run">N</td><td>12.7%</td><td>439만</td><td class="kpi-actual">323만</td><td class="kpi-tk kpi-tk-top">VYM</td><td class="kpi-tk kpi-tk-top">VTV</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">VNQ</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/27</td><td class="kpi-run">Y</td><td>32.4%</td><td>1,447만</td><td class="kpi-actual">963만</td><td class="kpi-tk kpi-tk-top">VYM</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">VTV</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">XLE</td><td class="kpi-tk">VNQ</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/24</td><td class="kpi-run">N</td><td>28.6%</td><td>1,315만</td><td class="kpi-actual">567만</td><td class="kpi-tk kpi-tk-top">SCHD</td><td class="kpi-tk kpi-tk-top">XLE</td><td class="kpi-tk kpi-tk-top">VYM</td><td class="kpi-tk">VTV</td><td class="kpi-tk">PDBC</td><td class="kpi-tk">VNQ</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/23</td><td class="kpi-run">N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk kpi-tk-top">XLE</td><td class="kpi-tk kpi-tk-top">SCHD</td><td class="kpi-tk kpi-tk-top">DBA</td><td class="kpi-tk">ENZL</td><td class="kpi-tk">THD</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/22</td><td class="kpi-run">Y</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk kpi-tk-top">THD</td><td class="kpi-tk kpi-tk-top">SCHD</td><td class="kpi-tk kpi-tk-top">ENZL</td><td class="kpi-tk">XLE</td><td class="kpi-tk">VNQ</td><td class="kpi-tk"></td></tr></tbody></table></div>
+    <!-- 시장 온도 (KR150에서 이동) — 게이지/EMA 그래프 + 최근 30일 막대바(최신순) -->
+    <div class="market-temp-col">
+      <div style="
+      background:white; border-radius:8px; padding:12px 16px;
+      box-shadow:0 4px 6px rgba(0,0,0,0.1); margin-bottom:14px;
+      max-width:100%;">
+
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap;">
+    <span style="font-weight:bold; color:#2c3e50; font-size:0.95em;">🌡 시장 온도</span>
+    <span style="background:#fdedec; color:#e74c3c; font-weight:bold;
+                 padding:2px 10px; border-radius:12px; font-size:0.85em;
+                 border:1px solid #e74c3c;">침체 심화</span>
+    <span style="font-size:1.3em; font-weight:bold; color:#e74c3c;">23.8</span>
+    <span style="color:#aaa; font-size:0.8em;">/ 100</span>
   </div>
 
-  <!-- 하단: Market Regime 차트 + 히스토리 -->
+  <div style="background:#ecf0f1; border-radius:4px; height:8px; margin-bottom:10px; position:relative;">
+    <div style="background:#e74c3c; width:23.8%; height:100%; border-radius:4px;"></div>
+    <div style="position:absolute; left:35%; top:-3px; width:1px; height:14px; background:#bdc3c7;"></div>
+    <div style="position:absolute; left:45%; top:-3px; width:1px; height:14px; background:#bdc3c7;"></div>
+    <div style="position:absolute; left:55%; top:-3px; width:1px; height:14px; background:#bdc3c7;"></div>
+  </div>
+
+  <!-- 좌: EMA/분포 + 스파크라인 / 우: 최근 N일 막대바 (세로로 쌓으면 카드가 너무 길어져 옆 컬럼과 높이차가 생긴다) -->
+  <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
+    <div style="flex:0 0 auto; min-width:0;">
+      <div style="font-size:0.82em; color:#555; line-height:1.7;">
+        <div>EMA5 <b style="color:#27ae60;">32.2</b>
+             &nbsp; EMA20 <b style="color:#e74c3c;">28.8</b></div>
+        <div style="color:#999; font-size:0.95em;">
+          H:<b>3</b>(2%)
+          W:<b>5</b>(4%)
+          N:<b>48</b>(37%)
+          C:<b>73</b>(57%)
+        </div>
+      </div>
+      <div style="margin-top:6px;">
+        <svg width="260" height="60" viewBox="0 0 260 60" style="display:block; max-width:100%;">
+  
+  <polyline stroke="#e74c3c" points="0.0,3.0 4.4,4.1 8.8,5.6 13.2,7.2 17.6,8.9 22.0,10.3 26.4,11.6 30.8,13.6 35.3,15.8 39.7,18.4 44.1,21.1 48.5,23.0 52.9,23.8 57.3,23.4 61.7,21.6 66.1,19.9 70.5,19.3 74.9,19.9 79.3,21.8 83.7,24.4 88.1,27.1 92.5,29.8 96.9,32.4 101.4,34.5 105.8,36.3 110.2,37.4 114.6,38.2 119.0,38.3 123.4,38.0 127.8,37.9 132.2,38.4 136.6,38.8 141.0,39.7 145.4,40.8 149.8,41.7 154.2,42.6 158.6,43.6 163.1,44.5 167.5,45.2 171.9,45.8 176.3,45.5 180.7,44.7 185.1,44.5 189.5,44.8 193.9,45.3 198.3,46.0 202.7,46.6 207.1,47.0 211.5,46.8 215.9,45.8 220.3,43.2 224.7,40.3 229.2,37.6 233.6,34.9 238.0,32.5 242.4,29.8 246.8,27.6 251.2,26.5 255.6,26.5 260.0,27.2" fill="none" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline stroke="#27ae60" points="0.0,19.0 4.4,17.6 8.8,18.4 13.2,19.6 17.6,21.4 22.0,22.3 26.4,22.9 30.8,26.0 35.3,29.6 39.7,34.2 44.1,38.1 48.5,39.3 52.9,36.6 57.3,31.0 61.7,21.9 66.1,16.1 70.5,15.2 74.9,18.6 79.3,25.6 83.7,33.5 88.1,39.9 92.5,45.3 96.9,49.2 101.4,51.0 105.8,51.8 110.2,50.5 114.6,48.9 119.0,45.6 123.4,42.0 127.8,40.5 132.2,41.2 136.6,41.9 141.0,44.0 145.4,46.4 149.8,47.5 154.2,48.8 158.6,50.4 163.1,51.0 167.5,51.4 171.9,51.3 176.3,48.5 180.7,44.7 185.1,44.2 189.5,45.4 193.9,46.6 198.3,48.7 202.7,50.1 207.1,50.1 211.5,48.4 215.9,44.5 220.3,35.8 224.7,28.1 229.2,22.5 233.6,18.4 238.0,15.3 242.4,11.5 246.8,10.2 251.2,12.1 255.6,16.8 260.0,22.5" fill="none" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <polyline stroke="#3498db" points="0.0,14.1 4.4,14.9 8.8,19.9 13.2,22.0 17.6,24.9 22.0,24.1 26.4,24.1 30.8,32.1 35.3,36.9 39.7,43.5 44.1,45.9 48.5,41.6 52.9,31.3 57.3,19.9 61.7,3.7 66.1,4.5 70.5,13.3 74.9,25.5 79.3,39.5 83.7,49.3 88.1,52.8 92.5,55.9 96.9,57.0 101.4,54.6 105.8,53.6 110.2,47.7 114.6,45.9 119.0,39.0 123.4,34.7 127.8,37.7 132.2,42.4 136.6,43.5 141.0,48.0 145.4,51.2 149.8,49.8 154.2,51.4 158.6,53.6 163.1,52.2 167.5,52.2 171.9,51.2 176.3,42.7 180.7,37.1 185.1,43.2 189.5,47.7 193.9,49.1 198.3,52.8 202.7,53.0 207.1,50.1 211.5,45.1 215.9,36.6 220.3,18.3 224.7,12.7 229.2,11.4 233.6,10.1 238.0,9.0 242.4,4.0 246.8,7.4 251.2,15.9 255.6,26.3 260.0,33.9" fill="none" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>
+<div style="font-size:10px; color:#999; margin-top:2px; display:flex; gap:10px; flex-wrap:wrap;">
+  <span style="color:#3498db;">● MT</span>
+  <span style="color:#27ae60;">● EMA5</span>
+  <span style="color:#e74c3c;">● EMA20</span>
+  <span style="color:#bdc3c7;">— 50선</span>
+</div>
+      </div>
+    </div>
+    <div style="flex:1 1 260px; min-width:240px;">
+      <div style="min-width:0;">
+  <div style="font-size:0.78em; color:#7f8c8d; margin-bottom:4px;">
+    최근 30일 추이 <span style="color:#bbb;">(최신순 · 막대 최대 46 기준)</span>
+  </div>
+  <div style="">
+    <table style="width:100%; border-collapse:collapse; font-size:0.75em; line-height:1.3;">
+      <tr style="background:#f8fbff;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/21</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">23.8</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:52.1%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"><span style="color:#3498db; font-weight:bold; font-size:0.9em;">현재</span></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/20</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">29.5</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:64.4%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/19</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e67e22; white-space:nowrap; font-variant-numeric:tabular-nums;">37.0</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e67e22; width:80.9%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/18</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e67e22; white-space:nowrap; font-variant-numeric:tabular-nums;">43.2</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e67e22; width:94.5%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/14</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#f39c12; white-space:nowrap; font-variant-numeric:tabular-nums;">45.7</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#f39c12; width:100.0%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"><span style="color:#27ae60; font-weight:bold; font-size:0.9em;">고점</span></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/13</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e67e22; white-space:nowrap; font-variant-numeric:tabular-nums;">42.0</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e67e22; width:91.9%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/12</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e67e22; white-space:nowrap; font-variant-numeric:tabular-nums;">41.3</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e67e22; width:90.2%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/11</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e67e22; white-space:nowrap; font-variant-numeric:tabular-nums;">40.3</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e67e22; width:88.1%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/10</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e67e22; white-space:nowrap; font-variant-numeric:tabular-nums;">39.3</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e67e22; width:86.0%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/07</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e67e22; white-space:nowrap; font-variant-numeric:tabular-nums;">35.3</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e67e22; width:77.1%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/06</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">21.9</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:47.9%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/05</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">15.7</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:34.3%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/04</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">12.0</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:26.3%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">08/03</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">9.9</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:21.6%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/31</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">10.1</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:22.0%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/30</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">12.8</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:28.0%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/29</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">13.8</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:30.1%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/28</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">17.1</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:37.3%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/27</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">21.5</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:47.0%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/24</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">17.4</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:38.1%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/23</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">11.2</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:24.6%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/22</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">10.5</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:22.9%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/21</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">10.5</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:22.9%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/20</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">9.5</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:20.8%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"><span style="color:#e74c3c; font-weight:bold; font-size:0.9em;">저점</span></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/16</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">11.1</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:24.2%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/15</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">12.2</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:26.7%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/14</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">11.2</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:24.6%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/13</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">13.6</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:29.7%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/10</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">16.9</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:36.9%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr><tr style="background:transparent;">
+  <td style="padding:1px 5px 1px 0; color:#7f8c8d; white-space:nowrap; font-variant-numeric:tabular-nums;">07/09</td>
+  <td style="padding:1px 7px 1px 0; text-align:right; font-weight:bold; color:#e74c3c; white-space:nowrap; font-variant-numeric:tabular-nums;">17.6</td>
+  <td style="padding:1px 0; width:100%;">
+    <div style="background:#e74c3c; width:38.6%; height:8px; border-radius:2px; min-width:2px;"></div>
+  </td>
+  <td style="padding:1px 0 1px 5px; white-space:nowrap;"></td>
+</tr>
+    </table>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+
+  <!-- 하단: Market Regime 차트 + 20거래일 실행이력 + 히스토리 -->
   <div class="chart-section">
     <div class="section-title">Market Regime Map</div>
-    <img src="market_regime_total.png" alt="Market Regime Map" style="width:100%;max-width:900px;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+    <div class="regime-row">
+      <div class="regime-chart-col">
+        <img src="market_regime_total.png" alt="Market Regime Map" style="width:100%;max-width:900px;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+      </div>
+      <!-- 최근 20거래일 실행이력 (상단 우측에서 이동) -->
+      <div class="regime-side-col">
+        <div class="auto-kpi-card auto-kpi-month"><div class="auto-kpi-title">최근 20거래일&nbsp;&nbsp;6/20 · 0% / 25% / 30%</div><table class="auto-kpi-table"><thead><tr><th class="kpi-mkt">KR</th><th class="kpi-mkt">US</th><th class="kpi-date">날짜</th><th class="kpi-run">실행</th><th>비중</th><th>금액</th><th class="kpi-actual">실투</th><th class="kpi-tk kpi-tk-top">T1</th><th class="kpi-tk kpi-tk-top">T2</th><th class="kpi-tk kpi-tk-top">T3</th><th class="kpi-tk">T4</th><th class="kpi-tk">T5</th><th class="kpi-tk">T6</th></tr></thead><tbody><tr class="kpi-no"><td class="kpi-mkt mkt-n">N</td><td class="kpi-mkt mkt-n">N</td><td class="kpi-date">8/21</td><td class="kpi-run">N</td><td>61.7%</td><td>1,850만</td><td class="kpi-actual">1,450만</td><td class="kpi-tk kpi-tk-top">IBB</td><td class="kpi-tk kpi-tk-top">228790</td><td class="kpi-tk kpi-tk-top">XBI</td><td class="kpi-tk">XLV</td><td class="kpi-tk">SVXY</td><td class="kpi-tk">XLE</td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-n">N</td><td class="kpi-mkt mkt-y">Y</td><td class="kpi-date">8/20</td><td class="kpi-run">Y</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk kpi-tk-top">IBB</td><td class="kpi-tk kpi-tk-top">228790</td><td class="kpi-tk kpi-tk-top">SVXY</td><td class="kpi-tk">XBI</td><td class="kpi-tk">XLV</td><td class="kpi-tk">XLE</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-n">N</td><td class="kpi-mkt mkt-n">N</td><td class="kpi-date">8/19</td><td class="kpi-run">N</td><td>58.4%</td><td>1,392만</td><td class="kpi-actual">440만</td><td class="kpi-tk kpi-tk-top">IBB</td><td class="kpi-tk kpi-tk-top">XBI</td><td class="kpi-tk kpi-tk-top">XLV</td><td class="kpi-tk">228790</td><td class="kpi-tk">EWS</td><td class="kpi-tk">XLE</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-n">N</td><td class="kpi-mkt mkt-n">N</td><td class="kpi-date">8/18</td><td class="kpi-run">N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk kpi-tk-top">228790</td><td class="kpi-tk kpi-tk-top">IBB</td><td class="kpi-tk kpi-tk-top">ITA</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWJ</td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/14</td><td class="kpi-run">Y</td><td>77.6%</td><td>1,732만</td><td class="kpi-actual">446만</td><td class="kpi-tk kpi-tk-top">228790</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">IBB</td><td class="kpi-tk">EWJ</td><td class="kpi-tk">CIBR</td><td class="kpi-tk">EWP</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/13</td><td class="kpi-run">N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk kpi-tk-top">CIBR</td><td class="kpi-tk kpi-tk-top">IGV</td><td class="kpi-tk kpi-tk-top">228790</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWS</td><td class="kpi-tk"></td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/12</td><td class="kpi-run">N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk kpi-tk-top">228790</td><td class="kpi-tk kpi-tk-top">CIBR</td><td class="kpi-tk kpi-tk-top">IGV</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWP</td><td class="kpi-tk">EWQ</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/11</td><td class="kpi-run">N</td><td>82.7%</td><td>3,951만</td><td class="kpi-actual">1,671만</td><td class="kpi-tk kpi-tk-top">IGV</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">CIBR</td><td class="kpi-tk">EWP</td><td class="kpi-tk">228790</td><td class="kpi-tk">EWQ</td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/10</td><td class="kpi-run">Y</td><td>85.0%</td><td>4,071만</td><td class="kpi-actual">2,243만</td><td class="kpi-tk kpi-tk-top">IGV</td><td class="kpi-tk kpi-tk-top">EWQ</td><td class="kpi-tk kpi-tk-top">EWP</td><td class="kpi-tk">EWA</td><td class="kpi-tk">XLF</td><td class="kpi-tk">GREK</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/7</td><td class="kpi-run">N</td><td>85.0%</td><td>4,193만</td><td class="kpi-actual">2,776만</td><td class="kpi-tk kpi-tk-top">IGV</td><td class="kpi-tk kpi-tk-top">EWQ</td><td class="kpi-tk kpi-tk-top">EWP</td><td class="kpi-tk">EWA</td><td class="kpi-tk">XLF</td><td class="kpi-tk">GREK</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/6</td><td class="kpi-run">N</td><td>48.8%</td><td>2,322만</td><td class="kpi-actual">730만</td><td class="kpi-tk kpi-tk-top">GREK</td><td class="kpi-tk kpi-tk-top">XLF</td><td class="kpi-tk kpi-tk-top">EWQ</td><td class="kpi-tk">EWA</td><td class="kpi-tk">EWS</td><td class="kpi-tk">EWU</td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/5</td><td class="kpi-run">Y</td><td>27.3%</td><td>1,473만</td><td class="kpi-actual">111만</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">GREK</td><td class="kpi-tk kpi-tk-top">EWA</td><td class="kpi-tk">XLF</td><td class="kpi-tk">EWU</td><td class="kpi-tk">SCHD</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">8/3</td><td class="kpi-run">N</td><td>6.3%</td><td>286만</td><td class="kpi-actual">163만</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">EWU</td><td class="kpi-tk kpi-tk-top">GREK</td><td class="kpi-tk">XLF</td><td class="kpi-tk">SCHD</td><td class="kpi-tk"></td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/31</td><td class="kpi-run">N</td><td>8.3%</td><td>385만</td><td class="kpi-actual">163만</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">EWU</td><td class="kpi-tk kpi-tk-top">GREK</td><td class="kpi-tk">XLF</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">VYM</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/30</td><td class="kpi-run">N</td><td>8.3%</td><td>290만</td><td class="kpi-actual">318만</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">EWU</td><td class="kpi-tk kpi-tk-top">XLF</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">VTV</td><td class="kpi-tk">VYM</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/29</td><td class="kpi-run">N</td><td>12.7%</td><td>439만</td><td class="kpi-actual">323만</td><td class="kpi-tk kpi-tk-top">VYM</td><td class="kpi-tk kpi-tk-top">VTV</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">VNQ</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/27</td><td class="kpi-run">Y</td><td>32.4%</td><td>1,447만</td><td class="kpi-actual">963만</td><td class="kpi-tk kpi-tk-top">VYM</td><td class="kpi-tk kpi-tk-top">EWS</td><td class="kpi-tk kpi-tk-top">VTV</td><td class="kpi-tk">SCHD</td><td class="kpi-tk">XLE</td><td class="kpi-tk">VNQ</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/24</td><td class="kpi-run">N</td><td>28.6%</td><td>1,315만</td><td class="kpi-actual">567만</td><td class="kpi-tk kpi-tk-top">SCHD</td><td class="kpi-tk kpi-tk-top">XLE</td><td class="kpi-tk kpi-tk-top">VYM</td><td class="kpi-tk">VTV</td><td class="kpi-tk">PDBC</td><td class="kpi-tk">VNQ</td></tr><tr class="kpi-no"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/23</td><td class="kpi-run">N</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk kpi-tk-top">XLE</td><td class="kpi-tk kpi-tk-top">SCHD</td><td class="kpi-tk kpi-tk-top">DBA</td><td class="kpi-tk">ENZL</td><td class="kpi-tk">THD</td><td class="kpi-tk"></td></tr><tr class="kpi-yes"><td class="kpi-mkt mkt-na">-</td><td class="kpi-mkt mkt-na">-</td><td class="kpi-date">7/22</td><td class="kpi-run">Y</td><td>-</td><td>-</td><td class="kpi-actual">-</td><td class="kpi-tk kpi-tk-top">THD</td><td class="kpi-tk kpi-tk-top">SCHD</td><td class="kpi-tk kpi-tk-top">ENZL</td><td class="kpi-tk">XLE</td><td class="kpi-tk">VNQ</td><td class="kpi-tk"></td></tr></tbody></table></div>
+      </div>
+    </div>
     <div class="section-title" style="margin-top:14px;">Market Regime History</div>
     
     <div class="regime-hist-box" style="background: #fff; padding: 12px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); max-width: 60%;">
@@ -28943,6 +29251,50 @@ if (typeof Chart !== 'undefined' && typeof ChartDataLabels !== 'undefined') {
   },
   {
     "date": "2026-08-22",
+    "Worst": 43,
+    "Neutral": 20,
+    "Recovery": 1,
+    "HotVeryHot": 0,
+    "total_universe": 130,
+    "avg_sco": 2.76,
+    "avg_3m": -3.82,
+    "Other": 66,
+    "Worst_pct": 33.08,
+    "Neutral_pct": 15.38,
+    "Recovery_pct": 0.77,
+    "HotVeryHot_pct": 0.0,
+    "Other_pct": 50.77,
+    "cell_<0__<0%": NaN,
+    "cell_<0__0~15%": NaN,
+    "cell_<0__15~30%": NaN,
+    "cell_<0__30%+": NaN,
+    "cell_0~7__<0%": NaN,
+    "cell_0~7__0~15%": NaN,
+    "cell_0~7__15~30%": NaN,
+    "cell_0~7__30%+": NaN,
+    "cell_8~10__<0%": NaN,
+    "cell_8~10__0~15%": NaN,
+    "cell_8~10__15~30%": NaN,
+    "cell_8~10__30%+": NaN,
+    "cell_11+__<0%": NaN,
+    "cell_11+__0~15%": NaN,
+    "cell_11+__15~30%": NaN,
+    "cell_11+__30%+": NaN,
+    "QQQ_close": 713.44,
+    "SPY_close": NaN,
+    "sco_strong": 25.0,
+    "sco_mid": 12.0,
+    "sco_weak": 41.0,
+    "sco_neg": 52.0,
+    "regime_raw_avg": 4.7231,
+    "regime_map_score": 24.8,
+    "strong_zone_cnt": 7.0,
+    "risk_zone_cnt": 72.0,
+    "worst_zone_cnt": 43.0,
+    "regime_state": "약세 확산"
+  },
+  {
+    "date": "2026-08-23",
     "Worst": 43,
     "Neutral": 20,
     "Recovery": 1,

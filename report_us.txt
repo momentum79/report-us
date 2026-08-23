@@ -1,8 +1,8 @@
 [us_ohlcv_cache] READONLY 캐시미스 → 라이브 폴백(디스크 미기록): SATS
-$VSCO: possibly delisted; no price data found  (1d 2024-05-24 -> 2026-08-22) (Yahoo error = "No data found, symbol may be delisted")
+$VSCO: possibly delisted; no price data found  (1d 2024-05-25 -> 2026-08-23) (Yahoo error = "No data found, symbol may be delisted")
 
 1 Failed download:
-['VSCO']: possibly delisted; no price data found  (1d 2024-05-24 -> 2026-08-22) (Yahoo error = "No data found, symbol may be delisted")
+['VSCO']: possibly delisted; no price data found  (1d 2024-05-25 -> 2026-08-23) (Yahoo error = "No data found, symbol may be delisted")
 CSV에서 784개 티커 로드 완료: D:\py\korea\us.csv
 총 784개 티커 분석 시작...
 
@@ -88,7 +88,7 @@ FLNG       32.03   -0.09        12.5    4.82      3.82      52.28        87.42  
  KOF      112.19   -0.93        15.0    3.20      9.23      47.51        86.05      -
  FRO       43.67    0.25        16.0   28.52     11.15      38.66        85.83      -
 
-이전 Top4: ['FRO', 'FLNG', 'VTV', 'DBA', 'MRK', 'TECH', 'IUSV']
+이전 Top4: ['IUSV', 'FLNG', 'KOF', 'FRO', 'VTV', 'TECH', 'DBA']
 
 === 유지된 이전 Top4 (오늘 Top4 탈락했지만 sco>=11) ===
 Ticker  Signal_sco  수익률(%)  Final_score
@@ -132,4 +132,4 @@ Ticker  ATR5  ATR60  ATR비율
 
 합계 검증: 764 == 764?
 
-[실행 시간] 75.41초
+[실행 시간] 80.22초

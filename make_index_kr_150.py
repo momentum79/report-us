@@ -1584,23 +1584,8 @@ def main():
     else:
         sco_dist_html = ''
 
-    # f-string 바깥에서 미리 계산 (내부 중괄호 충돌 방지)
-    market_temp_html   = build_market_temp_section(market_temp)
-    # 모바일 한 줄용
-    _mt = market_temp or {}
-    _mt_status = _mt.get('status', '-')
-    _mt_today  = _mt.get('today')
-    today_for_mobile  = f"{_mt_today:.1f}" if _mt_today is not None else "-"
-    status_for_mobile = _mt_status
-    _status_colors = {
-        '상승 중':   ('#27ae60', '#eafaf1'),
-        '회복 중':   ('#2980b9', '#eaf4fb'),
-        '중립':      ('#7f8c8d', '#f2f3f4'),
-        '하락 중':   ('#e67e22', '#fef9e7'),
-        '침체 심화': ('#e74c3c', '#fdedec'),
-    }
-    _sc, _sbg = _status_colors.get(_mt_status, ('#7f8c8d', '#f2f3f4'))
-    _gauge_color = '#27ae60' if (_mt_today or 0) >= 55 else ('#f39c12' if (_mt_today or 0) >= 45 else ('#e67e22' if (_mt_today or 0) >= 35 else '#e74c3c'))
+    # 🌡 시장 온도 관련 계산은 상황판(main_hub.html)으로 이동했다.
+    #    (build_market_temp_section / .mt-box-pc / .mt-box-mobile 은 미사용 상태로 남겨둠)
     signal_table_html       = build_signal_table(signals)
     spot_table_html         = build_spot_table(signals)
     top30_table_html        = build_top30_table(top30, rank_maps=rank_maps, gann_fire_set=gann_fire_set, high52w_set=high52w_set, investor_dict=investor_dict)
@@ -1780,16 +1765,8 @@ td[data-code] + td.name-col:hover {{ background-color: #e8f4f8 !important; }}
 </p>
 <p style="margin: 0 0 15px 0; color: #7f8c8d; font-size: 0.85em;">{html.escape(summary_text)}</p>
 {sco_dist_html}
-<!-- PC: 기존 박스 그대로 -->
-<div class="mt-box-pc">
-{market_temp_html}
-</div>
-<!-- 모바일: 한 줄만 -->
-<div class="mt-box-mobile" style="display:none; margin-bottom:10px;">
-  <span style="font-weight:bold; color:#2c3e50; font-size:0.95em;">🌡 시장 온도</span>
-  <span style="background:{_sbg}; color:{_sc}; font-weight:bold; padding:2px 8px; border-radius:10px; font-size:0.85em; border:1px solid {_sc}; margin-left:6px;">{html.escape(status_for_mobile)}</span>
-  <span style="font-size:1.1em; font-weight:bold; color:{_gauge_color}; margin-left:6px;">{today_for_mobile}</span>
-</div>
+<!-- 🌡 시장 온도 박스는 2026-08-23 상황판(main_hub.html)으로 이동했다.
+     생성 코드는 report-us/market_temp_section.py 공용 모듈에 있다. -->
 <h3 class="signal-header">🚀 SPOT 신호 <span style="font-size:0.67em; color:#000; font-weight:normal; margin-left:8px;">9개월 신고가 98% + 거래량 전일×10 & 5일평균×2.5 + 거래대금 1000억 + MA10/20/60 위</span></h3>
 {spot_table_html}
 

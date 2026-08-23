@@ -1,5 +1,5 @@
 {
-  "asof": "2026-08-22 09:11:00",
+  "asof": "2026-08-23 12:33:05",
   "strategy": "F4_B_safe",
   "params": {
     "atr_thr": 1.5,
@@ -49,18 +49,18 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "ATR 게이트 탈락 (atr5/atr60=1.609 > 1.5)",
-      "atr_ratio": 1.6086,
+      "atr_ratio": 1.6089,
       "index_ret20": 4.2690356760814785,
       "index_ret60": -2.1948056066494526,
       "qqq_color": "GREEN",
       "spy_color": "-",
       "kr_color": "LIME",
-      "liquidity_20d": 1356390.91,
+      "liquidity_20d": 1356587.02,
       "liquidity_10d_eok": 19.0,
       "liq2_min_eok": 1000,
       "age_bars": 501,
-      "order_qty": 20,
-      "order_amount": 5873723
+      "order_qty": 18,
+      "order_amount": 5286351
     },
     {
       "base_ticker": "228790",
@@ -85,8 +85,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 816,
-      "order_amount": 3708720
+      "order_qty": 757,
+      "order_amount": 3440565
     },
     {
       "base_ticker": "XBI",
@@ -111,8 +111,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 12,
-      "order_amount": 2731060
+      "order_qty": 11,
+      "order_amount": 2503471
     },
     {
       "base_ticker": "XLV",
@@ -127,13 +127,13 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "유동성 탈락 (20일 평균 거래대금 $0.97M < $1M)",
-      "atr_ratio": 1.3714,
+      "atr_ratio": 1.3746,
       "index_ret20": 4.2690356760814785,
       "index_ret60": -2.1948056066494526,
       "qqq_color": "GREEN",
       "spy_color": "-",
       "kr_color": "LIME",
-      "liquidity_20d": 972285.95,
+      "liquidity_20d": 972182.25,
       "liquidity_10d_eok": 13.6,
       "liq2_min_eok": 1000,
       "age_bars": 501,
@@ -163,8 +163,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 22,
-      "order_amount": 1870325
+      "order_qty": 20,
+      "order_amount": 1700295
     },
     {
       "base_ticker": "XLE",
@@ -185,12 +185,12 @@
       "qqq_color": "GREEN",
       "spy_color": "-",
       "kr_color": "LIME",
-      "liquidity_20d": 1889289.03,
+      "liquidity_20d": 1891833.07,
       "liquidity_10d_eok": 26.5,
       "liq2_min_eok": 1000,
       "age_bars": 501,
-      "order_qty": 28,
-      "order_amount": 2486505
+      "order_qty": 26,
+      "order_amount": 2308897
     }
   ]
 }

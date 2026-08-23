@@ -10,6 +10,9 @@ import re
 from pathlib import Path
 from datetime import datetime, timedelta
 
+# 시장 온도 섹션 (KR150에서 이동 — 게시판 공용 모듈)
+from market_temp_section import build_market_temp_block, load_market_temp
+
 BASE       = Path(__file__).resolve().parent
 STATS_FILE = BASE / "kr_signal_stats_total.json"
 TRACK_FILE = BASE / "top3_etf_track_total.json"
@@ -954,6 +957,9 @@ def main():
     # 주간 5일창 KPI 표는 최근 거래일 표와 중복이라 제거 (build_auto_trade_kpi_html 미사용)
     auto_trade_month_html = build_auto_trade_recent_html()
     ai_core_html         = build_ai_core_html()
+    # 시장 온도: 컬럼을 꽉 채우고(max_width 100%), 막대바 30일은 스크롤 없이 전부 펼침
+    market_temp_html     = build_market_temp_block(
+        load_market_temp(), bar_days=30, max_width='100%', bar_max_height=None)
 
     page = f"""<!doctype html>
 <html lang="ko">
@@ -1499,6 +1505,31 @@ body {{
 
 /* ── AI Core Regime 박스 (미국요약/AI 관찰판에서 이동) ── */
 .ai-core-section {{ margin: 0; }}
+
+/* ── 시장 온도 컬럼 (KR150에서 이동) ── */
+/* 좌측(리더십+AI Core) 옆 남는 폭을 그대로 채운다. 고정폭을 주면 우측에 빈 공간이 생긴다. */
+.market-temp-col {{
+  flex: 1 1 380px;
+  min-width: 320px;
+  align-self: stretch;
+}}
+.market-temp-col > div {{ height: 100%; box-sizing: border-box; }}
+
+/* ── Market Regime Map + 20거래일 실행이력 2단 ── */
+.regime-row {{
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}}
+.regime-chart-col {{ flex: 1 1 520px; min-width: 0; }}
+.regime-side-col  {{ flex: 0 1 auto; min-width: 0; max-width: 100%; overflow-x: auto; }}
+.regime-side-col .auto-kpi-card {{ margin: 0; }}
+
+@media (max-width: 767px) {{
+  .market-temp-col {{ flex: 1 1 100%; min-width: 0; }}
+  .regime-chart-col, .regime-side-col {{ flex: 1 1 100%; }}
+}}
 .ai-core-card {{ display:flex; gap:14px; background:linear-gradient(135deg,#fffbea,#fff5e1); border:1px solid #f0b400; padding:12px 14px; border-radius:10px; margin:6px 0 10px 0; box-shadow:0 2px 6px rgba(0,0,0,0.08); flex-wrap:wrap; width:fit-content; max-width:760px; align-self:flex-start; }}
 .ai-core-left {{ flex:0 0 180px; min-width:170px; }}
 .ai-core-right {{ flex:0 1 auto; min-width:220px; max-width:520px; }}
@@ -1585,13 +1616,24 @@ body {{
         {ai_core_html}
       </div>
     </div>
-    {auto_trade_month_html}
+    <!-- 시장 온도 (KR150에서 이동) — 게이지/EMA 그래프 + 최근 30일 막대바(최신순) -->
+    <div class="market-temp-col">
+      {market_temp_html}
+    </div>
   </div>
 
-  <!-- 하단: Market Regime 차트 + 히스토리 -->
+  <!-- 하단: Market Regime 차트 + 20거래일 실행이력 + 히스토리 -->
   <div class="chart-section">
     <div class="section-title">Market Regime Map</div>
-    {chart_html}
+    <div class="regime-row">
+      <div class="regime-chart-col">
+        {chart_html}
+      </div>
+      <!-- 최근 20거래일 실행이력 (상단 우측에서 이동) -->
+      <div class="regime-side-col">
+        {auto_trade_month_html}
+      </div>
+    </div>
     <div class="section-title" style="margin-top:14px;">Market Regime History</div>
     {chart_hist_html}
   </div>
