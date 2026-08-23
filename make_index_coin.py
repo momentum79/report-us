@@ -712,6 +712,9 @@ POPUP_JS = r"""
   var colD=document.getElementById('cpColD');
   var cache={}, charts=[], curTab='5';
   var curSym=null, pinned=false, closeTimer=null, openTimer=null;
+  var TRIG='.sym[data-coin]';
+  var stBtn=document.getElementById('cpStBtn');
+  var stMode=false, curName='', curA=null;
   var hoverless = window.matchMedia('(hover: none)').matches;
 
   // 가격: 큰 값은 #,###K, 코인 소수가는 정밀 유지
@@ -811,6 +814,106 @@ POPUP_JS = r"""
     }
     return {jeo:jeo,jeo2:jeo2};
   }
+  // ── Supertrend (TradingView ta.supertrend 동일 공식) — S버튼/a키 토글 시 MA 대신 3종 표시 ──
+  var ST_PARAMS=[
+    {atr:10,factor:3,up:'rgba(8,153,129,0.5)', dn:'rgba(242,54,69,0.5)', bandUp:'rgba(8,153,129,0.10)', bandDn:'rgba(242,54,69,0.10)', w:1},
+    {atr:11,factor:2,up:'rgba(22,163,74,0.5)', dn:'rgba(239,68,68,0.5)', bandUp:'rgba(22,163,74,0.075)',bandDn:'rgba(239,68,68,0.075)',w:1},
+    {atr:12,factor:1,up:'rgba(101,163,13,0.5)',dn:'rgba(249,115,22,0.5)',bandUp:'rgba(101,163,13,0.06)',bandDn:'rgba(249,115,22,0.06)',w:1}
+  ];
+  function atrWilder(rows,p){
+    var n=rows.length, tr=new Array(n), atr=new Array(n).fill(null), i;
+    for(i=0;i<n;i++) tr[i]=(i===0)?(rows[i].high-rows[i].low)
+      :Math.max(rows[i].high-rows[i].low,
+                Math.abs(rows[i].high-rows[i-1].close),
+                Math.abs(rows[i].low-rows[i-1].close));
+    var s=0;
+    for(i=0;i<n;i++){
+      if(i<p){ s+=tr[i]; if(i===p-1) atr[i]=s/p; }
+      else atr[i]=(atr[i-1]*(p-1)+tr[i])/p;
+    }
+    return atr;
+  }
+  function supertrend(rows,factor,atrPeriod){
+    var n=rows.length, atr=atrWilder(rows,atrPeriod);
+    var st=new Array(n).fill(null), dir=new Array(n).fill(null);
+    var prevUpper=0, prevLower=0, prevST=0, i;
+    for(i=0;i<n;i++){
+      if(atr[i]==null){ st[i]=null; dir[i]=null; continue; }
+      var hl2=(rows[i].high+rows[i].low)/2;
+      var upper=hl2+factor*atr[i], lower=hl2-factor*atr[i];
+      var hasPrev=(i>0&&atr[i-1]!=null);
+      if(hasPrev){
+        var pc=rows[i-1].close;
+        lower=(lower>prevLower||pc<prevLower)?lower:prevLower;
+        upper=(upper<prevUpper||pc>prevUpper)?upper:prevUpper;
+      }
+      var d;
+      if(!hasPrev) d=1;
+      else if(prevST===prevUpper) d=(rows[i].close>upper)?-1:1;
+      else d=(rows[i].close<lower)?1:-1;
+      var v=(d===-1)?lower:upper;
+      st[i]=v; dir[i]=d; prevUpper=upper; prevLower=lower; prevST=v;
+    }
+    return {st:st,dir:dir};
+  }
+  function activeValue(p){ return (p&&p.value!=null)?Number(p.value):null; }
+  // bodyMid ↔ Supertrend 사이를 채울 상/하단 좌표쌍. 끊긴 구간은 time만 넣어 폴리곤을 분리.
+  function buildFillEnvelope(anchor,line){
+    if(!anchor.length||!line.length) return [];
+    var out=[], N=Math.min(anchor.length,line.length), i;
+    for(i=0;i<N;i++){
+      var a=activeValue(anchor[i]), v=activeValue(line[i]);
+      if(a==null||v==null||!isFinite(a)||!isFinite(v)){ out.push({time:anchor[i].time}); continue; }
+      out.push({time:anchor[i].time,upper:Math.max(a,v),lower:Math.min(a,v)});
+    }
+    return out;
+  }
+  // 음영밴드는 시리즈로 못 그려서 차트 위에 캔버스를 덧대고 직접 칠한다(v4와 동일 방식).
+  function installBandOverlay(el,ch,priceSeries,bands){
+    if(!bands.length) return;
+    el.style.position='relative';
+    var canvas=document.createElement('canvas');
+    canvas.className='st-band-overlay';
+    canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;';
+    el.appendChild(canvas);
+    var raf=0;
+    function queueDraw(){ if(raf)return; raf=requestAnimationFrame(function(){ raf=0; draw(); }); }
+    function draw(){
+      if(!canvas.isConnected) return;
+      var dpr=window.devicePixelRatio||1, w=el.clientWidth, h=el.clientHeight;
+      if(!w||!h) return;
+      if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){
+        canvas.width=Math.round(w*dpr); canvas.height=Math.round(h*dpr);
+        canvas.style.width=w+'px'; canvas.style.height=h+'px';
+      }
+      var ctx=canvas.getContext('2d');
+      ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,w,h);
+      try{
+        bands.forEach(function(band){
+          var upper=[], lower=[];
+          function flush(){
+            if(upper.length<2||lower.length<2){ upper=[]; lower=[]; return; }
+            ctx.beginPath(); ctx.moveTo(upper[0][0],upper[0][1]);
+            for(var i=1;i<upper.length;i++) ctx.lineTo(upper[i][0],upper[i][1]);
+            for(var j=lower.length-1;j>=0;j--) ctx.lineTo(lower[j][0],lower[j][1]);
+            ctx.closePath(); ctx.fillStyle=band.color; ctx.fill();
+            upper=[]; lower=[];
+          }
+          band.points.forEach(function(p){
+            if(p.upper==null||p.lower==null){ flush(); return; }
+            var x=ch.timeScale().timeToCoordinate(p.time);
+            var y1=priceSeries.priceToCoordinate(p.upper);
+            var y2=priceSeries.priceToCoordinate(p.lower);
+            if(x==null||y1==null||y2==null){ flush(); return; }
+            upper.push([x,y1]); lower.push([x,y2]);
+          });
+          flush();
+        });
+      }catch(e){}   /* 차트가 이미 remove 된 뒤 늦게 도는 프레임 방어 */
+    }
+    queueDraw();
+    ch.timeScale().subscribeVisibleLogicalRangeChange(queueDraw);
+  }
   function newCandle(el,intraday){
     return LWC.createChart(el,{width:el.clientWidth,height:el.clientHeight,
       layout:{background:{color:'#fff'},textColor:'#333',fontSize:11},
@@ -883,7 +986,16 @@ POPUP_JS = r"""
       lock=false;});};
     link(a,b,bS,bMap);link(b,a,aS,aMap);
   }
-  function destroy(){ charts.forEach(function(o){try{o.ch.remove();}catch(e){}}); charts=[]; }
+  function destroy(){
+    charts.forEach(function(o){try{o.ch.remove();}catch(e){}});
+    charts=[];
+    // ch.remove() 는 LWC 가 만든 요소만 지운다 — 우리가 덧댄 캔버스는 직접 치워야 누적 안 됨
+    ['cpChart5','cpChartD'].forEach(function(id){
+      var el=document.getElementById(id);
+      if(el) Array.prototype.forEach.call(el.querySelectorAll('.st-band-overlay'),
+        function(c){ c.remove(); });
+    });
+  }
   function resizeAll(){ charts.forEach(function(o){ if(o.el.clientWidth) o.ch.resize(o.el.clientWidth,o.el.clientHeight); }); }
 
   function buildPane(prefix,rows,intraday,maSet){
@@ -900,11 +1012,36 @@ POPUP_JS = r"""
     cs.setData(rows);
     vol.setData(rows.map(function(d){return{time:d.time,value:d.volume,
       color:d.close>=d.open?VOL_UP:VOL_DOWN};}));
-    maSet.forEach(function(m){
-      var ln=ch.addLineSeries({color:m[1],lineWidth:1,priceLineVisible:false,
-        lastValueVisible:false,crosshairMarkerVisible:false});
-      ln.setData(sma(rows,m[0]));
-    });
+    if(!stMode){
+      maSet.forEach(function(m){
+        var ln=ch.addLineSeries({color:m[1],lineWidth:1,priceLineVisible:false,
+          lastValueVisible:false,crosshairMarkerVisible:false});
+        ln.setData(sma(rows,m[0]));
+      });
+    }else{
+      // Supertrend 3종(10/3·11/2·12/1) — 선 3개 + 음영밴드(bodyMid↔Supertrend)
+      var STS=ST_PARAMS.map(function(sp){ return supertrend(rows,sp.factor,sp.atr); });
+      var bodyMid=rows.map(function(b){ return {time:b.time,value:(b.open+b.close)/2}; });
+      var stUp=STS.map(function(r){ return rows.map(function(b,i){
+        return (r.st[i]!=null&&r.dir[i]<0)?{time:b.time,value:r.st[i]}:{time:b.time}; }); });
+      var stDn=STS.map(function(r){ return rows.map(function(b,i){
+        return (r.st[i]!=null&&r.dir[i]>0)?{time:b.time,value:r.st[i]}:{time:b.time}; }); });
+      var bands=[];
+      ST_PARAMS.forEach(function(sp,si){
+        bands.push({color:sp.bandUp,points:buildFillEnvelope(bodyMid,stUp[si])});
+        bands.push({color:sp.bandDn,points:buildFillEnvelope(bodyMid,stDn[si])});
+      });
+      installBandOverlay(el,ch,cs,bands);
+      ST_PARAMS.forEach(function(sp,si){
+        var r=STS[si];
+        // autoscale 제외 — 멀리 벌어진 ST 선 때문에 캔들이 눈마드는 것 방지
+        var ln=ch.addLineSeries({color:sp.up,lineWidth:sp.w,priceLineVisible:false,
+          lastValueVisible:false,crosshairMarkerVisible:false,
+          autoscaleInfoProvider:function(){ return null; }});
+        ln.setData(rows.map(function(b,i){ return r.st[i]==null?{time:b.time}
+          :{time:b.time,value:r.st[i],color:r.dir[i]<0?sp.up:sp.dn}; }));
+      });
+    }
     // 저(빨간박스)/저2(검정 윗화살표) 저점신호 마커
     var sig=computeLowSignals(rows), marks=[];
     sig.jeo.forEach(function(t){marks.push({time:t,position:'belowBar',color:'#e11d1d',shape:'square',text:'저'});});
@@ -958,7 +1095,7 @@ POPUP_JS = r"""
     requestAnimationFrame(resizeAll);
   }
   function show(sym,name){
-    curSym=sym;
+    curSym=sym; curName=name||'';
     elTitle.textContent=(name?name+' ':'')+'('+sym+'/KRW)';
     elSub.textContent='로딩...'; elSub.style.color='#888';
     destroy();
@@ -988,7 +1125,11 @@ POPUP_JS = r"""
     pop.style.left=px+'px'; pop.style.top=py+'px';
   }
   function openPop(){ pop.style.display='block'; }
-  function closePop(){ pop.style.display='none'; curSym=null; pinned=false; }
+  function closePop(){
+    pop.style.display='none'; curSym=null; pinned=false; curA=null;
+    document.removeEventListener('mousemove',unpinOnMove);
+    if(stMode){ stMode=false; stBtn.classList.remove('on'); }
+  }
   function cancelClose(){ if(closeTimer){clearTimeout(closeTimer);closeTimer=null;} }
   function scheduleClose(){ cancelClose(); closeTimer=setTimeout(function(){ if(!pinned) closePop(); },180); }
 
@@ -1000,13 +1141,13 @@ POPUP_JS = r"""
       cancelClose();
       var x=e.clientX, y=e.clientY, sym=a.dataset.coin, name=a.dataset.name||'';
       clearTimeout(openTimer);
-      openTimer=setTimeout(function(){ openPop(); place(x,y); show(sym,name); },60);
+      openTimer=setTimeout(function(){ openPop(); place(x,y); show(sym,name); curA=a; },60);
     });
     a.addEventListener('mouseleave',function(){ clearTimeout(openTimer); scheduleClose(); });
     a.addEventListener('click',function(e){
       if(hoverless){ e.preventDefault(); openPop(); pinned=true;
         var r=a.getBoundingClientRect(); place(r.left, r.bottom);
-        show(a.dataset.coin, a.dataset.name||''); }
+        show(a.dataset.coin, a.dataset.name||''); curA=a; }
     });
   });
   pop.addEventListener('mouseenter',function(){ pinned=true; cancelClose(); });
@@ -1019,6 +1160,52 @@ POPUP_JS = r"""
   });
   window.addEventListener('resize',function(){
     if(pop.style.display==='block') resizeAll();
+  });
+
+  // ── 키보드: a=슈퍼트렌드 토글 · s/↑=이전종목 · d/↓=다음종목 · Esc/Tab=닫기 ──
+  function unpinOnMove(e){
+    if(pop.contains(e.target)) return;
+    document.removeEventListener('mousemove',unpinOnMove);
+    pinned=false; scheduleClose();
+  }
+  // 키로 이동하면 마우스가 팝업 밖에 있어 곧장 닫히므로, 다시 움직일 때까지 붙잡아 둔다.
+  function kbPin(){
+    pinned=true; cancelClose();
+    document.removeEventListener('mousemove',unpinOnMove);
+    document.addEventListener('mousemove',unpinOnMove);
+  }
+  function toggleST(){
+    stMode=!stMode;
+    stBtn.classList.toggle('on',stMode);
+    if(curSym && pop.style.display==='block') show(curSym,curName);
+  }
+  function navStock(dir){
+    if(pop.style.display!=='block'||!curA) return;
+    var all=Array.prototype.slice.call(document.querySelectorAll(TRIG));
+    var i=all.indexOf(curA);
+    if(i<0) return;
+    i+=dir;
+    if(i<0||i>=all.length) return;
+    var nt=all[i];
+    kbPin();
+    show(nt.dataset.coin, nt.dataset.name||'');
+    curA=nt;
+    nt.scrollIntoView({block:'nearest'});
+  }
+  stBtn.addEventListener('click',function(e){ e.stopPropagation(); toggleST(); });
+  document.addEventListener('keydown',function(e){
+    if(pop.style.display!=='block') return;
+    var tg=e.target, tag=tg&&tg.tagName;
+    if(tag==='INPUT'||tag==='TEXTAREA'||(tg&&tg.isContentEditable)) return;
+    var k=e.key;
+    if(k==='Tab'||k==='Escape'){ e.preventDefault(); closePop(); return; }
+    if(k==='a'||k==='A'){ if(e.repeat) return; e.preventDefault(); toggleST(); return; }
+    var dir=0;
+    if(k==='s'||k==='S'||k==='ArrowUp') dir=-1;
+    else if(k==='d'||k==='D'||k==='ArrowDown') dir=1;
+    if(dir===0) return;
+    e.preventDefault();
+    navStock(dir);
   });
 })();
 """
@@ -1225,7 +1412,11 @@ def build_html(data):
   #coinpop .cp-head {{ display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }}
   #coinpop .cp-title {{ font-weight: 700; font-size: 0.86rem; color: #2c3e50; }}
   #coinpop .cp-sub {{ font-size: 0.8rem; font-weight: 600; white-space: nowrap; }}
-  #coinpop .cp-tabs {{ display: none; margin-left: auto; gap: 6px; }}
+  #coinpop .cp-st {{ margin-left: auto; width: 46px; height: 24px; flex-shrink: 0;
+    cursor: pointer; border: 2px solid #7c3aed; background: #f5f3ff; color: #ef4444;
+    font-weight: 800; font-size: 13px; line-height: 1; border-radius: 6px; }}
+  #coinpop .cp-st.on {{ background: #7c3aed; color: #fff; }}
+  #coinpop .cp-tabs {{ display: none; margin-left: 6px; gap: 6px; }}
   #coinpop .cp-tab {{ padding: 4px 10px; border: 1px solid #bdc3c7; background: #f5f5f5;
     border-radius: 6px; font-size: 0.75rem; font-weight: 700; color: #34495e; cursor: pointer; }}
   #coinpop .cp-tab.active {{ background: #2980b9; color: #fff; border-color: #2980b9; }}
@@ -1238,6 +1429,7 @@ def build_html(data):
     #coinpop {{ width: 96vw; left: 2vw !important; }}
     #coinpop .cp-box {{ grid-template-columns: 1fr; }}
     #coinpop .cp-tabs {{ display: flex; }}
+    #coinpop .cp-st {{ width: 34px; height: 22px; font-size: 12px; }}
     #coinpop .cp-col.hidden {{ display: none; }}
     #coinpop .cp-chart {{ height: 230px; }}
     #coinpop .cp-rsi {{ height: 64px; }}
@@ -1293,6 +1485,8 @@ def build_html(data):
     <div class="cp-head">
       <span class="cp-title">-</span>
       <span class="cp-sub"></span>
+      <button class="cp-st" id="cpStBtn"
+              title="Supertrend 토글 (10/3·11/2·12/1) · a키">S</button>
       <div class="cp-tabs">
         <button class="cp-tab active" data-tab="5">5분봉</button>
         <button class="cp-tab" data-tab="d">일봉</button>
