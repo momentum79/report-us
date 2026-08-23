@@ -37,6 +37,7 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent
 REPORT_KR_150_JSON = BASE / "report_kr_150.json"
 MARKET_TEMP_CSV = BASE / "rank_history_kr150" / "market_temp_history.csv"
+KOR_ETF_HTML = BASE / "kor_etf.html"
 
 DEFAULT_BAR_DAYS = 30
 
@@ -94,7 +95,7 @@ def load_history_csv(limit=None):
     return rows[-limit:] if limit else rows
 
 
-def build_bar_table(history, days=DEFAULT_BAR_DAYS, max_height=None):
+def build_bar_table(history, days=DEFAULT_BAR_DAYS, max_height=None, max_width=None):
     """최근 N일 막대바. 최신 날짜가 맨 위(역순).
     max_height 를 주면 그 높이에서 내부 스크롤(예: '320px'), None 이면 전부 펼친다."""
     if not history:
@@ -136,7 +137,8 @@ def build_bar_table(history, days=DEFAULT_BAR_DAYS, max_height=None):
 </tr>''')
 
     scroll_style = f'max-height:{max_height}; overflow-y:auto;' if max_height else ''
-    return f'''<div style="min-width:0;">
+    width_style = f'max-width:{max_width};' if max_width else ''
+    return f'''<div style="min-width:0; {width_style}">
   <div style="font-size:0.78em; color:#7f8c8d; margin-bottom:4px;">
     최근 {len(recent)}일 추이 <span style="color:#bbb;">(최신순 · 막대 최대 {scale_max:.0f} 기준)</span>
   </div>
@@ -148,8 +150,290 @@ def build_bar_table(history, days=DEFAULT_BAR_DAYS, max_height=None):
 </div>'''
 
 
+def load_krx069500_close_history():
+    """kor_etf.html 의 DAILY 데이터에서 KRX:069500 종가를 읽는다."""
+    if not KOR_ETF_HTML.exists():
+        return []
+    try:
+        text = KOR_ETF_HTML.read_text(encoding="utf-8", errors="replace")
+    except Exception:
+        return []
+
+    key = '"069500":'
+    key_pos = text.find(key)
+    if key_pos < 0:
+        return []
+    start = text.find("[", key_pos + len(key))
+    if start < 0:
+        return []
+
+    depth = 0
+    in_str = False
+    escaped = False
+    end = None
+    for i, ch in enumerate(text[start:], start=start):
+        if in_str:
+            if escaped:
+                escaped = False
+            elif ch == "\\":
+                escaped = True
+            elif ch == '"':
+                in_str = False
+            continue
+        if ch == '"':
+            in_str = True
+        elif ch == "[":
+            depth += 1
+        elif ch == "]":
+            depth -= 1
+            if depth == 0:
+                end = i + 1
+                break
+    if end is None:
+        return []
+
+    try:
+        data = json.loads(text[start:end])
+    except Exception:
+        return []
+
+    rows = []
+    for rec in data:
+        try:
+            if len(rec) < 5:
+                continue
+            rows.append({"date": str(rec[0]), "close": float(rec[4])})
+        except Exception:
+            continue
+    rows.sort(key=lambda r: r["date"])
+    return rows
+
+
+def _last_value_on_or_before(rows, target_date):
+    """정확히 같은 휴장일이 없어도 해당 날짜 이전의 최신 값을 사용한다."""
+    best = None
+    for row in rows:
+        if row["date"] <= target_date:
+            best = row
+        else:
+            break
+    return None if best is None else best["close"]
+
+
+def _pearson(xs, ys):
+    if len(xs) < 3 or len(xs) != len(ys):
+        return None
+    mx = sum(xs) / len(xs)
+    my = sum(ys) / len(ys)
+    vx = sum((x - mx) ** 2 for x in xs)
+    vy = sum((y - my) ** 2 for y in ys)
+    if vx <= 0 or vy <= 0:
+        return None
+    cov = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+    return cov / (vx * vy) ** 0.5
+
+
+def _fmt_benchmark_value(value):
+    if value is None:
+        return "-"
+    if abs(value) >= 1000:
+        return f"{value:,.0f}"
+    return f"{value:.1f}"
+
+
+def build_line_chart(history, days=DEFAULT_BAR_DAYS, width=900, height=270,
+                     benchmark_rows=None, benchmark_label="KRX:069500"):
+    """최근 N일 시장온도 선 그래프. 날짜는 오래된 날짜가 왼쪽, 최신 날짜가 오른쪽."""
+    if not history:
+        return ''
+
+    recent = history[-days:]
+    if len(recent) < 2:
+        return ''
+
+    def _num(row, key, default=None):
+        try:
+            value = row.get(key, default)
+            if value is None:
+                return default
+            return float(value)
+        except Exception:
+            return default
+
+    mt_vals = [_num(h, 'MT', 0.0) for h in recent]
+    ema5_vals = [_num(h, 'ema5', _num(h, 'MT', 0.0)) for h in recent]
+    ema20_vals = [_num(h, 'ema20', _num(h, 'MT', 0.0)) for h in recent]
+    all_vals = mt_vals + ema5_vals + ema20_vals
+    b_vals = []
+    if benchmark_rows:
+        for h in recent:
+            b_vals.append(_last_value_on_or_before(benchmark_rows, h.get("date", "")))
+
+    raw_min = min(all_vals)
+    raw_max = max(all_vals)
+    ymin = max(0, int((raw_min - 5) // 10 * 10))
+    ymax = min(100, int(((raw_max + 15) // 10) * 10))
+    if ymax - ymin < 20:
+        ymax = min(100, ymin + 20)
+    yrange = (ymax - ymin) or 1
+
+    left, right, top, bottom = 44, 44, 8, 38
+    has_benchmark = any(v is not None for v in b_vals)
+    if has_benchmark:
+        left = 70
+    plot_w = width - left - right
+    plot_h = height - top - bottom
+    n = len(recent)
+
+    def x_at(i):
+        return round(left + plot_w * i / (n - 1), 1)
+
+    def y_at(v):
+        return round(top + (ymax - v) / yrange * plot_h, 1)
+
+    def make_path(vals):
+        return ' '.join(f'{x_at(i)},{y_at(v)}' for i, v in enumerate(vals))
+
+    bmin = bmax = brange = None
+    if has_benchmark:
+        valid_b = [v for v in b_vals if v is not None]
+        bmin = min(valid_b)
+        bmax = max(valid_b)
+        bpad = (bmax - bmin) * 0.12 or max(bmax * 0.02, 1)
+        bmin = bmin - bpad
+        bmax = bmax + bpad
+        brange = (bmax - bmin) or 1
+
+    def by_at(v):
+        return round(top + (bmax - v) / brange * plot_h, 1)
+
+    def make_optional_path(vals, y_func):
+        segments = []
+        current = []
+        for i, v in enumerate(vals):
+            if v is None:
+                if current:
+                    segments.append(current)
+                    current = []
+                continue
+            current.append(f'{x_at(i)},{y_func(v)}')
+        if current:
+            segments.append(current)
+        return segments
+
+    tick_count = 5
+    y_ticks = [round(ymin + (ymax - ymin) * i / (tick_count - 1), 1) for i in range(tick_count)]
+    y_grid = []
+    for t in y_ticks:
+        y = y_at(t)
+        label = f'{t:.0f}'
+        y_grid.append(
+            f'<line x1="{left}" y1="{y}" x2="{width - right}" y2="{y}" stroke="#edf0f2" stroke-width="1"/>'
+            f'<text x="{width - right + 8}" y="{y + 4}" text-anchor="start" font-size="10" fill="#3498db" font-weight="600">{label}</text>'
+        )
+
+    b_grid = []
+    if has_benchmark:
+        for i in range(tick_count):
+            t = bmin + (bmax - bmin) * i / (tick_count - 1)
+            y = by_at(t)
+            b_grid.append(
+                f'<text x="{left - 8}" y="{y + 4}" text-anchor="end" font-size="10" fill="#b8c0c7">{_fmt_benchmark_value(t)}</text>'
+            )
+
+    # 5개 내외의 날짜 라벨만 보여줘서 축이 복잡해지지 않게 한다.
+    label_idx = sorted(set([0, n - 1] + [round((n - 1) * r / 4) for r in range(1, 4)]))
+    x_labels = []
+    for i in label_idx:
+        md = html.escape(str(recent[i].get('date', ''))[5:].replace('-', '/'))
+        x = x_at(i)
+        x_labels.append(
+            f'<line x1="{x}" y1="{top}" x2="{x}" y2="{top + plot_h}" stroke="#f4f6f7" stroke-width="1"/>'
+            f'<text x="{x}" y="{height - 14}" text-anchor="middle" font-size="10" fill="#7f8c8d">{md}</text>'
+        )
+
+    latest = recent[-1]
+    latest_x = x_at(n - 1)
+    latest_y = y_at(mt_vals[-1])
+    peak_i = max(range(n), key=lambda i: mt_vals[i])
+    low_i = min(range(n), key=lambda i: mt_vals[i])
+
+    b_paths = ''
+    b_label = ''
+    corr_html = ''
+    if has_benchmark:
+        for seg in make_optional_path(b_vals, by_at):
+            if len(seg) >= 2:
+                circles = []
+                for pt in seg:
+                    cx, cy = pt.split(",", 1)
+                    circles.append(
+                        f'<circle cx="{cx}" cy="{cy}" r="2.5" fill="#95a5a6" opacity="0.48"/>'
+                    )
+                b_paths += (
+                    f'<polyline stroke="#95a5a6" points="{" ".join(seg)}" fill="none" '
+                    f'stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity="0.34"/>'
+                    f'{"".join(circles)}'
+                )
+        last_b_idx = max((i for i, v in enumerate(b_vals) if v is not None), default=None)
+        if last_b_idx is not None:
+            b_label = (
+                f'<circle cx="{x_at(last_b_idx)}" cy="{by_at(b_vals[last_b_idx])}" r="3" fill="#95a5a6" opacity="0.55"/>'
+                f'<text x="{left - 8}" y="{by_at(b_vals[last_b_idx]) + 4}" text-anchor="end" font-size="10" fill="#95a5a6" font-weight="600">'
+                f'{html.escape(benchmark_label)} {_fmt_benchmark_value(b_vals[last_b_idx])}</text>'
+            )
+
+        mt_changes, b_changes = [], []
+        prev_mt = prev_b = None
+        for mt, bv in zip(mt_vals, b_vals):
+            if bv is not None and prev_mt is not None and prev_b is not None:
+                mt_changes.append(mt - prev_mt)
+                b_changes.append(bv - prev_b)
+            if bv is not None:
+                prev_mt, prev_b = mt, bv
+        corr = _pearson(mt_changes, b_changes)
+        if corr is not None:
+            corr_html = f'<span style="color:#636e72;">· 30일 변화 상관 {corr:+.2f}</span>'
+
+    def mark_point(i, label, color, dy):
+        return (
+            f'<circle cx="{x_at(i)}" cy="{y_at(mt_vals[i])}" r="3.2" fill="{color}" stroke="white" stroke-width="1.5"/>'
+            f'<text x="{x_at(i) + 7}" y="{y_at(mt_vals[i]) + dy}" font-size="10" fill="{color}" font-weight="700">{label}</text>'
+        )
+
+    return f'''<div style="margin-top:8px; width:100%; max-width:{width}px;">
+  <svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" style="display:block; width:100%; height:auto;">
+    <rect x="{left}" y="{top}" width="{plot_w}" height="{plot_h}" fill="#fbfcfd" stroke="#e8ecef" stroke-width="1"/>
+    {''.join(b_grid)}
+    {''.join(y_grid)}
+    {''.join(x_labels)}
+    <line x1="{left}" y1="{top + plot_h}" x2="{width - right}" y2="{top + plot_h}" stroke="#ccd3d8" stroke-width="1"/>
+    <line x1="{left}" y1="{top}" x2="{left}" y2="{top + plot_h}" stroke="#ccd3d8" stroke-width="1"/>
+    <line x1="{width - right}" y1="{top}" x2="{width - right}" y2="{top + plot_h}" stroke="#ccd3d8" stroke-width="1"/>
+    {f'<text x="{left - 8}" y="{top + 8}" text-anchor="end" font-size="10" fill="#b8c0c7">{html.escape(benchmark_label)}</text>' if has_benchmark else ''}
+    <text x="{width - right + 8}" y="{top + 8}" font-size="10" fill="#3498db" font-weight="700">온도</text>
+    {b_paths}
+    <polyline stroke="#e74c3c" points="{make_path(ema20_vals)}" fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline stroke="#27ae60" points="{make_path(ema5_vals)}" fill="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline stroke="#3498db" points="{make_path(mt_vals)}" fill="none" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+    {mark_point(peak_i, '고점', '#27ae60', -7)}
+    {mark_point(low_i, '저점', '#e74c3c', 13)}
+    <circle cx="{latest_x}" cy="{latest_y}" r="4" fill="#3498db" stroke="white" stroke-width="1.7"/>
+    <text x="{width - right + 8}" y="{latest_y + 4}" text-anchor="start" font-size="10" fill="#3498db" font-weight="800">현재 {mt_vals[-1]:.1f}</text>
+    {b_label}
+  </svg>
+  <div style="font-size:10px; color:#999; margin-top:4px; display:flex; gap:12px; flex-wrap:wrap;">
+    <span style="color:#3498db;">● MT</span>
+    <span style="color:#27ae60;">● EMA5</span>
+    <span style="color:#e74c3c;">● EMA20</span>
+    {f'<span style="color:#95a5a6;">● {html.escape(benchmark_label)} 종가 참고</span>' if has_benchmark else ''}
+  </div>
+</div>'''
+
+
 def build_market_temp_block(mt_data, bar_days=DEFAULT_BAR_DAYS, show_bars=True,
-                            max_width='600px', bar_max_height=None):
+                            max_width='600px', bar_max_height=None,
+                            layout='side', bar_max_width=None, chart_days=None):
     """
     시장 온도 박스 HTML.
       mt_data       : report_kr_150.json 의 'market_temp' dict
@@ -157,6 +441,10 @@ def build_market_temp_block(mt_data, bar_days=DEFAULT_BAR_DAYS, show_bars=True,
       show_bars     : False 면 기존 박스만 (막대바 없음)
       max_width     : 박스 최대폭. 컬럼을 꽉 채우려면 '100%'
       bar_max_height: 막대바 내부 스크롤 높이. None 이면 전부 펼침
+      layout        : 'side'면 스파크라인/막대바 좌우 배치, 'stacked'면 스파크라인 위 + 막대바 아래 배치,
+                      'line'이면 축이 있는 큰 선 그래프만 표시
+      bar_max_width : 막대바 표의 최대폭. None 이면 컬럼 폭에 맞춤
+      chart_days    : 큰 선 그래프 표시 일수. None 이면 bar_days 와 동일
     """
     if not mt_data:
         return '<p style="color:#95a5a6; font-size:0.85em;">(시장 온도 데이터 없음)</p>'
@@ -223,7 +511,68 @@ def build_market_temp_block(mt_data, bar_days=DEFAULT_BAR_DAYS, show_bars=True,
     bars_html = ''
     if show_bars:
         src = history if len(history) >= bar_days else (load_history_csv() or history)
-        bars_html = build_bar_table(src, bar_days, max_height=bar_max_height)
+        bars_html = build_bar_table(src, bar_days, max_height=bar_max_height, max_width=bar_max_width)
+
+    line_chart_html = ''
+    if layout == 'line':
+        src = history if len(history) >= (chart_days or bar_days) else (load_history_csv() or history)
+        line_chart_html = build_line_chart(
+            src, chart_days or bar_days,
+            benchmark_rows=load_krx069500_close_history(),
+            benchmark_label="KRX:069500"
+        )
+
+    info_chart_html = f'''
+    <div style="min-width:0;">
+      <div style="font-size:0.82em; color:#555; line-height:1.7;">
+        <div>EMA5 <b style="color:#27ae60;">{ema5:.1f}</b>
+             &nbsp; EMA20 <b style="color:#e74c3c;">{ema20:.1f}</b></div>
+        <div style="color:#999; font-size:0.95em;">
+          H:<b>{H}</b>({H / T * 100:.0f}%)
+          W:<b>{W}</b>({W / T * 100:.0f}%)
+          N:<b>{N}</b>({N / T * 100:.0f}%)
+          C:<b>{C}</b>({C / T * 100:.0f}%)
+        </div>
+      </div>
+      <div style="margin-top:6px;">
+        {sparkline_svg if sparkline_svg else '<span style="font-size:0.8em;color:#aaa;">히스토리 누적 중...</span>'}
+      </div>
+    </div>'''
+
+    if layout == 'line':
+        body_html = f'''
+  <div style="display:block;">
+    <div style="font-size:0.82em; color:#555; line-height:1.7;">
+      <div>EMA5 <b style="color:#27ae60;">{ema5:.1f}</b>
+           &nbsp; EMA20 <b style="color:#e74c3c;">{ema20:.1f}</b></div>
+      <div style="color:#999; font-size:0.95em;">
+        H:<b>{H}</b>({H / T * 100:.0f}%)
+        W:<b>{W}</b>({W / T * 100:.0f}%)
+        N:<b>{N}</b>({N / T * 100:.0f}%)
+        C:<b>{C}</b>({C / T * 100:.0f}%)
+      </div>
+    </div>
+    {line_chart_html if line_chart_html else '<span style="font-size:0.8em;color:#aaa;">히스토리 누적 중...</span>'}
+  </div>'''
+    elif layout == 'stacked':
+        body_html = f'''
+  <div style="display:block;">
+    {info_chart_html}
+    <div style="margin-top:10px; width:100%;">
+      {bars_html}
+    </div>
+  </div>'''
+    else:
+        body_html = f'''
+  <!-- 좌: EMA/분포 + 스파크라인 / 우: 최근 N일 막대바 (세로로 쌓으면 카드가 너무 길어져 옆 컬럼과 높이차가 생긴다) -->
+  <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
+    <div style="flex:0 0 auto; min-width:0;">
+      {info_chart_html}
+    </div>
+    <div style="flex:1 1 260px; min-width:240px;">
+      {bars_html}
+    </div>
+  </div>'''
 
     return f'''<div style="
       background:white; border-radius:8px; padding:12px 16px;
@@ -246,27 +595,7 @@ def build_market_temp_block(mt_data, bar_days=DEFAULT_BAR_DAYS, show_bars=True,
     <div style="position:absolute; left:55%; top:-3px; width:1px; height:14px; background:#bdc3c7;"></div>
   </div>
 
-  <!-- 좌: EMA/분포 + 스파크라인 / 우: 최근 N일 막대바 (세로로 쌓으면 카드가 너무 길어져 옆 컬럼과 높이차가 생긴다) -->
-  <div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;">
-    <div style="flex:0 0 auto; min-width:0;">
-      <div style="font-size:0.82em; color:#555; line-height:1.7;">
-        <div>EMA5 <b style="color:#27ae60;">{ema5:.1f}</b>
-             &nbsp; EMA20 <b style="color:#e74c3c;">{ema20:.1f}</b></div>
-        <div style="color:#999; font-size:0.95em;">
-          H:<b>{H}</b>({H / T * 100:.0f}%)
-          W:<b>{W}</b>({W / T * 100:.0f}%)
-          N:<b>{N}</b>({N / T * 100:.0f}%)
-          C:<b>{C}</b>({C / T * 100:.0f}%)
-        </div>
-      </div>
-      <div style="margin-top:6px;">
-        {sparkline_svg if sparkline_svg else '<span style="font-size:0.8em;color:#aaa;">히스토리 누적 중...</span>'}
-      </div>
-    </div>
-    <div style="flex:1 1 260px; min-width:240px;">
-      {bars_html}
-    </div>
-  </div>
+  {body_html}
 </div>'''
 
 

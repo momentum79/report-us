@@ -911,8 +911,8 @@ def main():
         chart_html = '<p style="color:#999;font-size:12px;">차트 생성 대기 중...</p>'
     else:
         chart_html = (
-            f'<img src="{png_src}" alt="Market Regime Map" '
-            f'style="width:100%;max-width:900px;height:auto;border-radius:8px;'
+            f'<img class="regime-map-img" src="{png_src}" alt="Market Regime Map" '
+            f'style="width:900px;max-width:100%;height:auto;border-radius:8px;'
             f'box-shadow:0 2px 8px rgba(0,0,0,0.15);">'
         )
 
@@ -957,9 +957,10 @@ def main():
     # 주간 5일창 KPI 표는 최근 거래일 표와 중복이라 제거 (build_auto_trade_kpi_html 미사용)
     auto_trade_month_html = build_auto_trade_recent_html()
     ai_core_html         = build_ai_core_html()
-    # 시장 온도: 컬럼을 꽉 채우고(max_width 100%), 막대바 30일은 스크롤 없이 전부 펼침
+    # 시장 온도: 카드 폭을 제한하고, 막대 표 대신 날짜/점수축이 있는 큰 선 그래프 하나로 표시한다.
     market_temp_html     = build_market_temp_block(
-        load_market_temp(), bar_days=30, max_width='100%', bar_max_height=None)
+        load_market_temp(), bar_days=30, max_width='900px', bar_max_height=None,
+        show_bars=False, layout='line', chart_days=30)
 
     page = f"""<!doctype html>
 <html lang="ko">
@@ -1507,27 +1508,31 @@ body {{
 .ai-core-section {{ margin: 0; }}
 
 /* ── 시장 온도 컬럼 (KR150에서 이동) ── */
-/* 좌측(리더십+AI Core) 옆 남는 폭을 그대로 채운다. 고정폭을 주면 우측에 빈 공간이 생긴다. */
 .market-temp-col {{
-  flex: 1 1 380px;
+  flex: 0 1 900px;
   min-width: 320px;
-  align-self: stretch;
+  align-self: flex-start;
 }}
-.market-temp-col > div {{ height: 100%; box-sizing: border-box; }}
+.market-temp-col > div {{ box-sizing: border-box; }}
 
 /* ── Market Regime Map + 20거래일 실행이력 2단 ── */
 .regime-row {{
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
 }}
-.regime-chart-col {{ flex: 1 1 520px; min-width: 0; }}
+.regime-chart-col {{ flex: 0 0 auto; min-width: 0; }}
+.regime-map-img {{ display: block; }}
 .regime-side-col  {{ flex: 0 1 auto; min-width: 0; max-width: 100%; overflow-x: auto; }}
 .regime-side-col .auto-kpi-card {{ margin: 0; }}
 
 @media (max-width: 767px) {{
   .market-temp-col {{ flex: 1 1 100%; min-width: 0; }}
+  .regime-row {{ flex-wrap: wrap; width: 100%; overflow-x: visible; }}
   .regime-chart-col, .regime-side-col {{ flex: 1 1 100%; }}
 }}
 .ai-core-card {{ display:flex; gap:14px; background:linear-gradient(135deg,#fffbea,#fff5e1); border:1px solid #f0b400; padding:12px 14px; border-radius:10px; margin:6px 0 10px 0; box-shadow:0 2px 6px rgba(0,0,0,0.08); flex-wrap:wrap; width:fit-content; max-width:760px; align-self:flex-start; }}
