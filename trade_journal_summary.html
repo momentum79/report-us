@@ -55,17 +55,27 @@ tbody tr.cur{background:#eef4ff}
 <body>
 <div class="wrap">
   <div class="title"><span class="mark">■</span><h1>매매일지</h1></div>
-  <div class="sub"><span style="color:#999">8/20 당일</span> &nbsp; 1887: <b style="color:#666;font-weight:700">0원</b> &nbsp;,&nbsp; 8042: <b style="color:#E63946;font-weight:700">+289,101원</b></div>
+  <div class="sub"><span style="color:#999">8/24 당일</span> &nbsp; 1887: <b style="color:#666;font-weight:700">0원</b> &nbsp;,&nbsp; 8042: <b style="color:#3A86FF;font-weight:700">-1,602원</b></div>
   <table id="jtbl" tabindex="-1">
     <thead><tr><th data-type="str" onclick="sortTable(this,0)">날짜</th><th data-type="str" onclick="sortTable(this,1)">계좌</th><th data-type="str" onclick="sortTable(this,2)">구분</th><th data-type="str" onclick="sortTable(this,3)">장부</th><th data-type="str" onclick="sortTable(this,4)">티커</th><th data-type="str" onclick="sortTable(this,5)">종목명</th><th data-type="num" onclick="sortTable(this,6)">수익률</th><th data-type="num" onclick="sortTable(this,7)">실현손익</th></tr></thead>
     <tbody>
+    <tr>
+      <td data-v="20260824" class="c-date">8/24</td>
+      <td data-v="8042" class="c-acct" style="color:#E63946">8042</td>
+      <td data-v="손절"><span class="badge" style="background:#3A86FF">손</span></td>
+      <td data-v="주도주"><span class="badge" style="background:#3A86FF">주도주</span></td>
+      <td data-v="122630" class="c-tk">122630</td>
+      <td data-v="KODEX 레버리지" class="c-nm" data-chart="charts/20days/레버리지_8042.html">KODEX 레버리지</td>
+      <td data-v="-0.51" class="c-num" style="color:#3A86FF">-0.51%</td>
+      <td data-v="-1602" class="c-num" style="color:#3A86FF">-1,602</td>
+    </tr>
     <tr>
       <td data-v="20260820" class="c-date">8/20</td>
       <td data-v="8042" class="c-acct" style="color:#E63946">8042</td>
       <td data-v="익절"><span class="badge" style="background:#E63946">익</span></td>
       <td data-v="주도주"><span class="badge" style="background:#3A86FF">주도주</span></td>
       <td data-v="122630" class="c-tk">122630</td>
-      <td data-v="KODEX 레버리지" class="c-nm" data-chart="charts/board_leader/122630.html">KODEX 레버리지</td>
+      <td data-v="KODEX 레버리지" class="c-nm" data-chart="charts/20days/레버리지_8042.html">KODEX 레버리지</td>
       <td data-v="14.33" class="c-num" style="color:#E63946">+14.33%</td>
       <td data-v="299239" class="c-num" style="color:#E63946">+299,239</td>
     </tr>
@@ -89,30 +99,10 @@ tbody tr.cur{background:#eef4ff}
       <td data-v="-0.58" class="c-num" style="color:#3A86FF">-0.58%</td>
       <td data-v="-9876" class="c-num" style="color:#3A86FF">-9,876</td>
     </tr>
-    <tr>
-      <td data-v="20260819" class="c-date">8/19</td>
-      <td data-v="1887" class="c-acct" style="color:#3A86FF">1887</td>
-      <td data-v="손절"><span class="badge" style="background:#3A86FF">손</span></td>
-      <td data-v="주도주"><span class="badge" style="background:#3A86FF">주도주</span></td>
-      <td data-v="066570" class="c-tk">066570</td>
-      <td data-v="LG전자" class="c-nm" data-chart="charts/board_leader/066570.html">LG전자</td>
-      <td data-v="-4.31" class="c-num" style="color:#3A86FF">-4.31%</td>
-      <td data-v="-18551" class="c-num" style="color:#3A86FF">-18,551</td>
-    </tr>
-    <tr>
-      <td data-v="20260819" class="c-date">8/19</td>
-      <td data-v="1887" class="c-acct" style="color:#3A86FF">1887</td>
-      <td data-v="손절"><span class="badge" style="background:#3A86FF">손</span></td>
-      <td data-v="주도주"><span class="badge" style="background:#3A86FF">주도주</span></td>
-      <td data-v="010140" class="c-tk">010140</td>
-      <td data-v="삼성중공업" class="c-nm" data-chart="charts/20days/삼성중공업_1887.html">삼성중공업</td>
-      <td data-v="-9.08" class="c-num" style="color:#3A86FF">-9.08%</td>
-      <td data-v="-50605" class="c-num" style="color:#3A86FF">-50,605</td>
-    </tr>
     </tbody>
   </table>
-  <div class="total">합계 실현손익 &nbsp;<b style="color:#E63946">+219,945</b> 원</div>
-  <div class="foot">journal_summary.py · 2026.08.21 19:29</div>
+  <div class="total">합계 실현손익 &nbsp;<b style="color:#E63946">+287,499</b> 원</div>
+  <div class="foot">journal_summary.py · 2026.08.24 17:38</div>
 </div>
 <div id="chart-preview"><iframe id="chart-preview-frame" src="about:blank" scrolling="no"></iframe></div>
 <script>
