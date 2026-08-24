@@ -1,15 +1,15 @@
 {
   "account": "1943",
-  "updated": "2026-08-23 12:32:35",
+  "updated": "2026-08-24 11:45:34",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 9623352,
+    "total_asset": 9494837,
     "tot_pur_amt": 6433170,
-    "tot_evlt_amt": 7105105,
-    "tot_evlt_pl": 669935,
-    "tot_prft_rt": 10.41,
-    "stock_ratio": 73.831914285168,
+    "tot_evlt_amt": 6976570,
+    "tot_evlt_pl": 541420,
+    "tot_prft_rt": 8.42,
+    "stock_ratio": 73.47751204154426,
     "cash": 2519307,
     "tdy_realized_pl": 0
   },
@@ -19,33 +19,33 @@
       "stock_name": "KODEX 200타겟위클리커버드콜",
       "quantity": 271,
       "avg_price": 0,
-      "current_price": 20775,
-      "profit_rate": 13.06,
-      "eval_amount": 5630025,
+      "current_price": 20280,
+      "profit_rate": 10.37,
+      "eval_amount": 5495880,
       "nxt": "",
-      "cntr_str": 102.01
+      "cntr_str": 85.74
     },
     {
       "stock_code": "494300",
       "stock_name": "KODEX 미국나스닥100데일리커버드콜OTM",
       "quantity": 110,
       "avg_price": 0,
-      "current_price": 9165,
-      "profit_rate": 1.47,
-      "eval_amount": 1008150,
+      "current_price": 9110,
+      "profit_rate": 0.86,
+      "eval_amount": 1002100,
       "nxt": "",
-      "cntr_str": 82.71
+      "cntr_str": 79.27
     },
     {
       "stock_code": "0198A0",
       "stock_name": "KIWOOM 코스닥150커버드콜액티브",
       "quantity": 53,
       "avg_price": 0,
-      "current_price": 8810,
-      "profit_rate": 1.12,
-      "eval_amount": 466930,
+      "current_price": 9030,
+      "profit_rate": 3.65,
+      "eval_amount": 478590,
       "nxt": "",
-      "cntr_str": 84.16
+      "cntr_str": 154.06
     }
   ],
   "us_holdings": [
@@ -67,23 +67,10 @@
       "stock_name": "S&P 바이오 SPDR ETF",
       "quantity": 7,
       "avg_price": 168.72,
-      "current_price": 165.73,
-      "profit_rate": -1.91,
-      "eval_amount_usd": 1160.11,
-      "eval_amount": 1609652,
-      "buy_date": "",
-      "candle": "",
-      "tag": ""
-    },
-    {
-      "ticker": "XLE",
-      "stock_name": "에너지 SPDR ETF",
-      "quantity": 11,
-      "avg_price": 64.0,
-      "current_price": 63.64,
-      "profit_rate": -0.7,
-      "eval_amount_usd": 700.04,
-      "eval_amount": 971305,
+      "current_price": 166.28,
+      "profit_rate": -1.58,
+      "eval_amount_usd": 1163.96,
+      "eval_amount": 1614994,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -93,10 +80,23 @@
       "stock_name": "헬스케어주 SPDR ETF",
       "quantity": 4,
       "avg_price": 174.89,
-      "current_price": 174.62,
-      "profit_rate": -0.29,
-      "eval_amount_usd": 698.48,
-      "eval_amount": 969141,
+      "current_price": 174.91,
+      "profit_rate": -0.12,
+      "eval_amount_usd": 699.64,
+      "eval_amount": 970750,
+      "buy_date": "",
+      "candle": "",
+      "tag": ""
+    },
+    {
+      "ticker": "XLE",
+      "stock_name": "에너지 SPDR ETF",
+      "quantity": 11,
+      "avg_price": 64.0,
+      "current_price": 63.37,
+      "profit_rate": -1.12,
+      "eval_amount_usd": 697.07,
+      "eval_amount": 967184,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -116,21 +116,21 @@
     }
   ],
   "us_summary": {
-    "us_stock_krw": 6280281,
+    "us_stock_krw": 6283111,
     "usd_cash": 2810.42,
-    "usd_cash_krw": 3914915,
-    "rate": 1393.0,
-    "total_asset_total": 12739399,
-    "eval_pl_usd": -33.04,
-    "eval_pl_krw": -46024,
+    "usd_cash_krw": 3888497,
+    "rate": 1383.6,
+    "total_asset_total": 12673256,
+    "eval_pl_usd": -31.0,
+    "eval_pl_krw": -42891,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
     "won_entr": 2519307,
     "fx": {
       "USD": {
-        "cash_krw": 3914915,
-        "stock_krw": 6305177,
-        "rate": 1393.0
+        "cash_krw": 3888497,
+        "stock_krw": 6265452,
+        "rate": 1383.6
       }
     },
     "fx_other_krw": 0,
