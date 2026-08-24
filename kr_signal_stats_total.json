@@ -1,65 +1,65 @@
 {
-    "avg_sco": 2.8,
+    "avg_sco": 2.1,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 78,
-    "sco_neg": 52,
-    "sco_strong": 25,
-    "sco_zone_neg": 52,
-    "sco_zone_weak": 41,
-    "sco_zone_mid": 12,
-    "sco_zone_strong": 25,
+    "sco_pos": 77,
+    "sco_neg": 53,
+    "sco_strong": 24,
+    "sco_zone_neg": 53,
+    "sco_zone_weak": 42,
+    "sco_zone_mid": 11,
+    "sco_zone_strong": 24,
     "strong_count": 12,
-    "top3_avg_sco": 15.33,
+    "top3_avg_sco": 14.5,
     "top3_avg_pos": 1.0,
     "kospi_trend": "-",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "-",
     "nasdaq_trend": "GREEN",
-    "kospi_sco": 2.75,
+    "kospi_sco": 0.5,
     "kosdaq_sco": -1.0,
     "sp500_sco": 3.0,
-    "nasdaq_sco": 1.0,
+    "nasdaq_sco": 0.5,
     "euro_trend": "LIME",
     "india_trend": "RED",
     "nikkei_trend": "PURPLE",
     "shanghai_trend": "-",
-    "hongkong_trend": "LIME",
+    "hongkong_trend": "GREEN",
     "brazil_trend": "PURPLE",
-    "kospi_mult": 0.4,
+    "kospi_mult": 0.3,
     "nasdaq_mult": 0.4,
-    "invest_pct": 57.8,
-    "invest_amount_total": 57781945,
+    "invest_pct": 48.7,
+    "invest_amount_total": 48733338,
     "internal_weights": [
-        32.7522,
-        22.4511,
-        15.2139,
-        10.5652,
-        10.5652,
-        8.4522
+        28.2574,
+        26.8097,
+        15.4424,
+        10.1877,
+        10.7239,
+        8.5791
     ],
     "n_holdings": 6,
     "holdings_tickers": [
-        "IBB",
         "228790",
+        "IBB",
+        "ARKK",
         "XBI",
         "XLV",
-        "SVXY",
-        "XLE"
+        "SVXY"
     ],
     "final_ratios": {
-        "IBB": 18.24,
-        "228790": 11.46,
-        "XBI": 8.47,
-        "XLV": 5.88,
-        "SVXY": 5.88,
-        "XLE": 7.84
+        "228790": 14.52,
+        "IBB": 13.77,
+        "ARKK": 5.29,
+        "XBI": 5.23,
+        "XLV": 5.51,
+        "SVXY": 4.41
     },
     "top3_tickers": [
-        "IBB",
         "228790",
-        "XBI"
+        "IBB",
+        "ARKK"
     ],
     "allocation_map_used": [
         31,
@@ -75,13 +75,13 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-08-23 12:22:29",
+    "update_time": "2026-08-24 14:51:37",
     "liq_rejected": [
         {
-            "ticker": "GREK",
-            "name": "GREK",
-            "avg_tv_eok": 74.4,
-            "min_tv_eok": 13.7,
+            "ticker": "ARKF",
+            "name": "ARKF",
+            "avg_tv_eok": 67.2,
+            "min_tv_eok": 28.3,
             "min_eok": 1000,
             "min_day_eok": 400,
             "fail_on": "avg"
@@ -93,6 +93,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1403.0
+        "usd_krw": 1393.6
     }
 }
