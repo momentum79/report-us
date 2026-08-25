@@ -1,5 +1,5 @@
 {
-    "avg_sco": -4.6,
+    "avg_sco": -4.9,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
@@ -7,19 +7,19 @@
     "sco_neg": 26,
     "sco_strong": 1,
     "strong_count": 1,
-    "top3_avg_sco": 15.0,
+    "top3_avg_sco": 16.0,
     "top3_avg_pos": 1.0,
     "kospi_trend": "-",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "-",
-    "nasdaq_trend": "GREEN",
+    "nasdaq_trend": "-",
     "euro_trend": "-",
     "india_trend": "RED",
     "nikkei_trend": "PURPLE",
     "kospi_mult": 0.2,
-    "nasdaq_mult": 0.4,
-    "invest_pct": 40.0,
-    "invest_amount_total": 40000000,
+    "nasdaq_mult": 0.2,
+    "invest_pct": 35.0,
+    "invest_amount_total": 35000000,
     "per_ticker_alloc": [
         {
             "ticker": "228790",
@@ -27,15 +27,15 @@
             "is_kospi": true,
             "bucket": "KOSPI",
             "internal_weight": 100.0,
-            "market_mult": 0.4,
+            "market_mult": 0.35,
             "floor_mult": null,
-            "effective_mult": 0.4,
-            "effective_pct": 40.0
+            "effective_mult": 0.35,
+            "effective_pct": 35.0
         }
     ],
-    "invest_pct_sc3": 40.0,
+    "invest_pct_sc3": 35.0,
     "invest_pct_s1": 60.0,
-    "invest_amount_sc3": 40000000,
+    "invest_amount_sc3": 35000000,
     "invest_amount_s1": 60000000,
     "per_ticker_alloc_sc3": [
         {
@@ -44,10 +44,10 @@
             "is_kospi": true,
             "bucket": "KOSPI",
             "internal_weight": 100.0,
-            "market_mult": 0.4,
+            "market_mult": 0.35,
             "floor_mult": null,
-            "effective_mult": 0.4,
-            "effective_pct": 40.0
+            "effective_mult": 0.35,
+            "effective_pct": 35.0
         }
     ],
     "per_ticker_alloc_s1": [
@@ -64,15 +64,15 @@
     ],
     "sc3_state": {
         "kr_state": "-",
-        "kr_bucket_pct": 0.4,
-        "us_state": "GREEN",
-        "us_bucket_pct": 0.6,
-        "last_date": "2026-08-24",
-        "updated_today": false
+        "kr_bucket_pct": 0.35,
+        "us_state": "-",
+        "us_bucket_pct": 0.35,
+        "last_date": "2026-08-25",
+        "updated_today": true
     },
     "sc3_ok": true,
-    "trade_date": "2026-08-24",
-    "vol63_median": 49.2,
+    "trade_date": "2026-08-25",
+    "vol63_median": 49.0,
     "internal_weights": [
         100.0
     ],
@@ -86,5 +86,5 @@
     "allocation_map_used": [
         100
     ],
-    "update_time": "2026-08-25 08:03:36"
+    "update_time": "2026-08-25 12:44:54"
 }
