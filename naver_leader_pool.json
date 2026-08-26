@@ -1,9 +1,80 @@
 {
-  "generated_at": "2026-08-25 11:42:33",
+  "generated_at": "2026-08-26 17:53:01",
   "source_policy": "live volume-first A-grade; KR-all/KR150/Naver confirmation; current cumulative tracking; foreign+institution sell blocks A",
   "counts": {
-    "a_grade": 0,
-    "watch": 0
+    "a_grade": 1,
+    "watch": 1
   },
-  "items": []
+  "items": [
+    {
+      "ticker": "034020",
+      "name": "두산에너빌리티",
+      "grade": "A",
+      "score": 60,
+      "sources": [
+        "naver",
+        "naver_change_4",
+        "naver_trade_5000",
+        "report_volume_fi_plus",
+        "report_volume_trade"
+      ],
+      "hard_source_count": 1,
+      "reasons": [
+        "네이버 테마 통과",
+        "네이버 등락률 6.32%",
+        "네이버 거래대금 5442억",
+        "외인+기관 +674억",
+        "당일 거래대금 상위"
+      ],
+      "naver": {
+        "theme": "원자력발전",
+        "name": "두산에너빌리티",
+        "chg_pct": 6.32,
+        "trade_eok": 5441.73,
+        "open": 82100.0,
+        "high": 86700.0,
+        "close": 85700.0,
+        "ohlc_ok": true,
+        "ok_wick": true,
+        "passed": true
+      },
+      "report_volume": {
+        "rank": 8,
+        "pred_rank": 12,
+        "ticker": "034020",
+        "name": "두산에너빌리티",
+        "change": 6.2,
+        "trade_amount": 1075371,
+        "today": 674.03,
+        "foreign_today": 153.85,
+        "organ_today": 520.18,
+        "total": 2668.5436520000003,
+        "foreign": 1078.315248,
+        "organ": 1590.228404,
+        "nxt": "NXT",
+        "snap_price": null,
+        "snap_rank": null,
+        "snap_pct": null,
+        "high_pct": null,
+        "low_pct": null,
+        "open_price": 82100
+      },
+      "tracking_cum_pct": {},
+      "close_position": 0.782608695652174,
+      "foreign_inst_today_eok": 674.03,
+      "volume_rank": 8,
+      "today_change_pct": 6.2,
+      "volume_primary": true,
+      "today_volume_valid": true,
+      "confirm_count": 1,
+      "a_confirm_sources": [
+        "naver"
+      ],
+      "a_confirm_count": 1,
+      "best_tracking_cum_pct": null,
+      "collapse_reasons": [],
+      "foreign_inst_sell": false,
+      "early_phase": false
+    }
+  ]
 }
