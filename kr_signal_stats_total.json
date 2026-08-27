@@ -1,65 +1,65 @@
 {
-    "avg_sco": 3.2,
+    "avg_sco": 4.0,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 81,
-    "sco_neg": 49,
+    "sco_pos": 86,
+    "sco_neg": 44,
     "sco_strong": 36,
-    "sco_zone_neg": 49,
-    "sco_zone_weak": 37,
-    "sco_zone_mid": 8,
+    "sco_zone_neg": 44,
+    "sco_zone_weak": 38,
+    "sco_zone_mid": 12,
     "sco_zone_strong": 36,
     "strong_count": 17,
     "top3_avg_sco": 15.33,
-    "top3_avg_pos": 1.0,
+    "top3_avg_pos": 1.33,
     "kospi_trend": "GREEN",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "-",
     "nasdaq_trend": "-",
     "kospi_sco": 2.25,
-    "kosdaq_sco": -1.5,
+    "kosdaq_sco": -1.75,
     "sp500_sco": 3.0,
     "nasdaq_sco": -2.0,
     "euro_trend": "LIME",
     "india_trend": "RED",
     "nikkei_trend": "PURPLE",
     "shanghai_trend": "RED",
-    "hongkong_trend": "GREEN",
-    "brazil_trend": "-",
+    "hongkong_trend": "LIME",
+    "brazil_trend": "GREEN",
     "kospi_mult": 0.6,
-    "nasdaq_mult": 0.2,
-    "invest_pct": 50.8,
-    "invest_amount_total": 50759996,
+    "nasdaq_mult": 0.3,
+    "invest_pct": 56.5,
+    "invest_amount_total": 56529567,
     "internal_weights": [
-        30.8054,
-        24.8431,
-        15.0628,
-        10.4603,
-        10.4603,
-        8.3682
+        32.0579,
+        23.2678,
+        15.7187,
+        10.3413,
+        10.3413,
+        8.273
     ],
     "n_holdings": 6,
     "holdings_tickers": [
         "228790",
-        "COPX",
         "ETHA",
+        "COPX",
         "ARKK",
-        "IBB",
-        "SVXY"
+        "SVXY",
+        "IBB"
     ],
     "final_ratios": {
-        "228790": 15.64,
-        "COPX": 12.61,
-        "ETHA": 7.65,
-        "ARKK": 5.31,
-        "IBB": 5.31,
-        "SVXY": 4.25
+        "228790": 18.25,
+        "ETHA": 13.24,
+        "COPX": 8.95,
+        "ARKK": 5.89,
+        "SVXY": 5.89,
+        "IBB": 4.32
     },
     "top3_tickers": [
         "228790",
-        "COPX",
-        "ETHA"
+        "ETHA",
+        "COPX"
     ],
     "allocation_map_used": [
         31,
@@ -75,7 +75,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-08-26 13:01:09",
+    "update_time": "2026-08-27 17:06:14",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -83,6 +83,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1393.1
+        "usd_krw": 1394.6
     }
 }
