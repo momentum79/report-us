@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27 17:13:24",
+  "updated_at": "2026-08-27 21:41:15",
   "window_note": "Compare today with 5 stored snapshots ago when available.",
   "snapshots": [
     {
@@ -14145,9 +14145,9 @@
     },
     {
       "date": "2026-08-27",
-      "update_time": "2026-08-27 17:06:53",
-      "ai_core_score": 8.88,
-      "ai_core_dedup_score": 8.19,
+      "update_time": "2026-08-27 21:14:58",
+      "ai_core_score": 8.95,
+      "ai_core_dedup_score": 8.24,
       "ai_breadth_state": "Negative",
       "baskets": {
         "AI_RAW_MATERIALS_COPPER_RAREEARTH": {
@@ -14157,17 +14157,17 @@
         },
         "AI_FINTECH_TRADING": {
           "basket_name_kr": "AI_핀테크",
-          "score": 12.91,
+          "score": 13.08,
           "valid_count": 5
         },
         "AI_AGENT_AUTOMATION_RPA": {
           "basket_name_kr": "AI_에이전트자동화",
-          "score": 12.49,
+          "score": 12.71,
           "valid_count": 5
         },
         "AI_SOFTWARE_PLATFORM": {
           "basket_name_kr": "AI_소프트웨어",
-          "score": 10.44,
+          "score": 10.65,
           "valid_count": 7
         },
         "AI_HEALTHCARE_BIO": {
@@ -14192,7 +14192,7 @@
         },
         "AI_DATACENTER_REIT_SERVER": {
           "basket_name_kr": "AI_데이터센터",
-          "score": 5.27,
+          "score": 5.43,
           "valid_count": 7
         },
         "AI_PASSIVE_COMPONENT_MLCC": {
@@ -14210,6 +14210,11 @@
           "score": 4.42,
           "valid_count": 9
         },
+        "AI_CONTENT_ADS_MEDIA": {
+          "basket_name_kr": "AI_광고미디어",
+          "score": 4.04,
+          "valid_count": 5
+        },
         "AI_CPU_SERVER": {
           "basket_name_kr": "AI_CPU서버",
           "score": 3.92,
@@ -14220,10 +14225,10 @@
           "score": 3.89,
           "valid_count": 5
         },
-        "AI_CONTENT_ADS_MEDIA": {
-          "basket_name_kr": "AI_광고미디어",
-          "score": 3.89,
-          "valid_count": 5
+        "AI_ROBOT_COMPONENT": {
+          "basket_name_kr": "AI_로봇부품",
+          "score": 3.63,
+          "valid_count": 8
         },
         "AI_OPTICAL_PHOTONICS": {
           "basket_name_kr": "AI_광통신",
@@ -14237,8 +14242,13 @@
         },
         "AI_ASIC_CUSTOM_CHIP": {
           "basket_name_kr": "AI_맞춤칩ASIC",
-          "score": 2.56,
+          "score": 2.72,
           "valid_count": 4
+        },
+        "AI_CLOUD_HYPERSCALER": {
+          "basket_name_kr": "AI_클라우드",
+          "score": 2.03,
+          "valid_count": 5
         },
         "AI_AUTONOMOUS_VEHICLE_DRONE": {
           "basket_name_kr": "AI_자율주행드론",
@@ -14249,11 +14259,6 @@
           "basket_name_kr": "AI_사이버보안",
           "score": 1.95,
           "valid_count": 12
-        },
-        "AI_CLOUD_HYPERSCALER": {
-          "basket_name_kr": "AI_클라우드",
-          "score": 1.88,
-          "valid_count": 5
         },
         "AI_DATA_IDENTITY_SECURITY": {
           "basket_name_kr": "AI_데이터보안",
@@ -14267,7 +14272,7 @@
         },
         "AI_EDGE_DEVICE_ONDEVICE": {
           "basket_name_kr": "AI_온디바이스",
-          "score": 0.04,
+          "score": 0.19,
           "valid_count": 5
         },
         "AI_POWER_GRID_TRANSFORMER": {
@@ -14279,11 +14284,6 @@
           "basket_name_kr": "AI_GPU",
           "score": -0.89,
           "valid_count": 6
-        },
-        "AI_ROBOT_COMPONENT": {
-          "basket_name_kr": "AI_로봇부품",
-          "score": -0.91,
-          "valid_count": 7
         },
         "AI_ENERGY_NUCLEAR_SMR_GAS": {
           "basket_name_kr": "AI_에너지",
@@ -14297,8 +14297,8 @@
         },
         "AI_FACTORY_AUTOMATION": {
           "basket_name_kr": "AI_공장자동화",
-          "score": -1.45,
-          "valid_count": 9
+          "score": -1.35,
+          "valid_count": 10
         },
         "AI_ONSITE_POWER_FUELCELL": {
           "basket_name_kr": "AI_자가발전",
@@ -14307,8 +14307,8 @@
         },
         "AI_HUMANOID_ROBOT": {
           "basket_name_kr": "AI_휴머노이드",
-          "score": -3.38,
-          "valid_count": 6
+          "score": -2.67,
+          "valid_count": 7
         },
         "AI_EDA_DESIGN_TOOLS": {
           "basket_name_kr": "AI_EDA설계",
@@ -14317,7 +14317,7 @@
         },
         "AI_COOLING_THERMAL": {
           "basket_name_kr": "AI_냉각",
-          "score": -3.46,
+          "score": -3.43,
           "valid_count": 6
         }
       }

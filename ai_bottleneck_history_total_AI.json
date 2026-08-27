@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-27 17:13:24",
+  "updated_at": "2026-08-27 21:41:15",
   "window_note": "Compare today with 5 stored snapshots ago when available. Retains up to 5 years.",
   "snapshots": [
     {
@@ -3568,19 +3568,19 @@
     },
     {
       "date": "2026-08-27",
-      "update_time": "2026-08-27 17:06:53",
+      "update_time": "2026-08-27 21:14:58",
       "headline": "혼합/확산 국면",
       "location": "MIXED",
       "confidence": "LOW",
       "layers": {
         "DEMAND_CAPEX": {
           "name_kr": "수요/CAPEX",
-          "score": 2.88,
+          "score": 3.04,
           "state": "SOFT"
         },
         "SILICON_COMPUTE": {
           "name_kr": "칩/ASIC",
-          "score": 1.9,
+          "score": 1.93,
           "state": "SOFT"
         },
         "MEMORY_PACKAGING": {
@@ -3595,17 +3595,17 @@
         },
         "POWER_COOLING": {
           "name_kr": "전력/냉각",
-          "score": -1.7,
+          "score": -1.69,
           "state": "WEAK"
         },
         "DATACENTER_DEPLOY": {
           "name_kr": "데이터센터/서버",
-          "score": 5.27,
+          "score": 5.43,
           "state": "SOFT"
         },
         "SOFTWARE_ADOPTION": {
           "name_kr": "SW/데이터플랫폼",
-          "score": 6.41,
+          "score": 6.5,
           "state": "SOFT"
         }
       }
