@@ -1,18 +1,18 @@
 {
-    "avg_sco": 0.5,
+    "avg_sco": 1.1,
     "total_cnt": 151,
     "valid_cnt": 150,
     "atr_excl_cnt": 0,
-    "sco_pos": 77,
-    "sco_neg": 73,
-    "sco_strong": 18,
-    "sco_zone_neg": 73,
-    "sco_zone_weak": 50,
+    "sco_pos": 82,
+    "sco_neg": 68,
+    "sco_strong": 19,
+    "sco_zone_neg": 68,
+    "sco_zone_weak": 54,
     "sco_zone_mid": 9,
-    "sco_zone_strong": 18,
-    "strong_count": 18,
-    "top3_avg_sco": 15.17,
-    "top3_avg_pos": 1.33,
+    "sco_zone_strong": 19,
+    "strong_count": 19,
+    "top3_avg_sco": 14.25,
+    "top3_avg_pos": 1.0,
     "kospi_trend": "GREEN",
     "kosdaq_trend": "-",
     "sp500_trend": "-",
@@ -21,48 +21,48 @@
     "india_trend": "-",
     "nikkei_trend": "-",
     "kospi_mult": 0.6,
-    "nasdaq_mult": 0.3,
-    "invest_pct": 53.8,
-    "invest_amount_total": 53847184,
+    "nasdaq_mult": 0.4,
+    "invest_pct": 53.5,
+    "invest_amount_total": 53477156,
     "internal_weights": [
-        41.0188,
-        32.1716,
-        26.8097
+        45.6853,
+        28.934,
+        25.3807
     ],
     "n_holdings": 3,
     "holdings_tickers": [
-        "TEM",
         "PATH",
-        "FCX"
+        "TEM",
+        "PLTR"
     ],
     "final_ratios": {
-        "TEM": 18.46,
-        "PATH": 19.3,
-        "FCX": 16.09
+        "PATH": 27.41,
+        "TEM": 15.91,
+        "PLTR": 10.15
     },
     "top3_tickers": [
-        "TEM",
         "PATH",
-        "FCX"
+        "TEM",
+        "PLTR"
     ],
     "allocation_map_used": [
         45,
         30,
         25
     ],
-    "ai_core_score": 8.95,
-    "ai_core_dedup_score": 8.24,
-    "ai_core_gap": 0.71,
+    "ai_core_score": 9.4,
+    "ai_core_dedup_score": 8.2,
+    "ai_core_gap": 1.2,
     "ai_core_state": "AI Constructive",
     "ai_breadth_state": "Negative",
-    "ai_breadth_strong": 3,
-    "ai_breadth_mid": 2,
-    "ai_breadth_weak": 20,
-    "ai_breadth_negative": 9,
+    "ai_breadth_strong": 4,
+    "ai_breadth_mid": 1,
+    "ai_breadth_weak": 23,
+    "ai_breadth_negative": 6,
     "ai_duplicate_impact": {
-        "total_entries": 47,
-        "unique_ticker_count": 42,
-        "duplicate_ratio": 0.1064,
+        "total_entries": 50,
+        "unique_ticker_count": 44,
+        "duplicate_ratio": 0.12,
         "duplicate_level": "낮음",
         "top_contributor": "PLTR",
         "top_contributor_count": 3,
@@ -70,27 +70,27 @@
             {
                 "ticker": "PLTR",
                 "count": 3,
-                "Signal_sco": 11.5
+                "Signal_sco": 12.75
             },
             {
-                "ticker": "CRM",
-                "count": 2,
-                "Signal_sco": 12.0
-            },
-            {
-                "ticker": "NOW",
-                "count": 2,
-                "Signal_sco": 10.25
-            },
-            {
-                "ticker": "SNOW",
+                "ticker": "018260",
                 "count": 2,
                 "Signal_sco": 4.5
             },
             {
-                "ticker": "001820",
-                "count": 1,
-                "Signal_sco": 7.5
+                "ticker": "CRM",
+                "count": 2,
+                "Signal_sco": 13.0
+            },
+            {
+                "ticker": "NOW",
+                "count": 2,
+                "Signal_sco": 11.75
+            },
+            {
+                "ticker": "NVDA",
+                "count": 2,
+                "Signal_sco": 3.0
             }
         ]
     },
@@ -98,104 +98,61 @@
         {
             "basket": "AI_RAW_MATERIALS_COPPER_RAREEARTH",
             "basket_name_kr": "AI_원자재",
-            "score": 15.19,
-            "valid_count": 5
-        },
-        {
-            "basket": "AI_FINTECH_TRADING",
-            "basket_name_kr": "AI_핀테크",
-            "score": 13.08,
+            "score": 15.11,
             "valid_count": 5
         },
         {
             "basket": "AI_AGENT_AUTOMATION_RPA",
             "basket_name_kr": "AI_에이전트자동화",
-            "score": 12.71,
+            "score": 13.58,
+            "valid_count": 5
+        },
+        {
+            "basket": "AI_FINTECH_TRADING",
+            "basket_name_kr": "AI_핀테크",
+            "score": 12.78,
             "valid_count": 5
         },
         {
             "basket": "AI_SOFTWARE_PLATFORM",
             "basket_name_kr": "AI_소프트웨어",
-            "score": 10.65,
+            "score": 11.57,
             "valid_count": 7
         },
         {
             "basket": "AI_HEALTHCARE_BIO",
             "basket_name_kr": "AI_헬스케어바이오",
-            "score": 10.07,
+            "score": 10.14,
             "valid_count": 10
         }
     ],
     "top_ai_tickers": [
         {
-            "ticker": "TEM",
-            "name": "TEM",
-            "Signal_sco": 13.5,
-            "return_3m": 29.7,
-            "Final_score": 0.9509,
-            "baskets": [
-                "AI_HEALTHCARE_BIO"
-            ]
-        },
-        {
             "ticker": "PATH",
             "name": "PATH",
             "Signal_sco": 16.0,
-            "return_3m": 27.94,
-            "Final_score": 0.8924,
+            "return_3m": 50.49,
+            "Final_score": 0.9694,
             "baskets": [
                 "AI_AGENT_AUTOMATION_RPA"
             ]
         },
         {
-            "ticker": "FCX",
-            "name": "FCX",
-            "Signal_sco": 16.0,
-            "return_3m": 18.13,
-            "Final_score": 0.8851,
+            "ticker": "TEM",
+            "name": "TEM",
+            "Signal_sco": 14.0,
+            "return_3m": 42.46,
+            "Final_score": 0.96,
             "baskets": [
-                "AI_RAW_MATERIALS_COPPER_RAREEARTH"
-            ]
-        },
-        {
-            "ticker": "MRVL",
-            "name": "MRVL",
-            "Signal_sco": 11.0,
-            "return_3m": 11.73,
-            "Final_score": 0.8636,
-            "baskets": [
-                "AI_ASIC_CUSTOM_CHIP",
-                "AI_INFERENCE_OPTIMIZATION",
-                "AI_NETWORKING_SWITCH_DPU",
-                "AI_OPTICAL_PHOTONICS"
-            ]
-        },
-        {
-            "ticker": "403870",
-            "name": "HPSP",
-            "Signal_sco": 10.0,
-            "return_3m": 8.37,
-            "Final_score": 0.8574,
-            "baskets": [
-                "AI_SEMI_EQUIPMENT"
-            ]
-        },
-        {
-            "ticker": "222800",
-            "name": "심텍",
-            "Signal_sco": 8.0,
-            "return_3m": 26.65,
-            "Final_score": 0.8429,
-            "baskets": [
-                "AI_ADV_PACKAGING_SUBSTRATE"
+                "AI_HEALTHCARE_BIO"
             ]
         },
         {
             "ticker": "PLTR",
             "name": "PLTR",
-            "Signal_sco": 11.5,
-            "return_3m": 10.49,
-            "Final_score": 0.8413,
+            "Signal_sco": 12.75,
+            "return_3m": 22.19,
+            "Final_score": 0.9125,
             "baskets": [
                 "AI_DATA_PIPELINE_DATABASE",
                 "AI_SOFTWARE_PLATFORM",
@@ -203,36 +160,77 @@
             ]
         },
         {
-            "ticker": "COPX",
-            "name": "COPX",
-            "Signal_sco": 16.0,
-            "return_3m": 6.45,
-            "Final_score": 0.824,
+            "ticker": "CRM",
+            "name": "CRM",
+            "Signal_sco": 13.0,
+            "return_3m": 25.82,
+            "Final_score": 0.8628,
             "baskets": [
-                "AI_RAW_MATERIALS_COPPER_RAREEARTH"
+                "AI_SOFTWARE_PLATFORM",
+                "AI_AGENT_AUTOMATION_RPA"
+            ]
+        },
+        {
+            "ticker": "222800",
+            "name": "심텍",
+            "Signal_sco": 8.0,
+            "return_3m": 26.65,
+            "Final_score": 0.8387,
+            "baskets": [
+                "AI_ADV_PACKAGING_SUBSTRATE"
+            ]
+        },
+        {
+            "ticker": "403870",
+            "name": "HPSP",
+            "Signal_sco": 10.0,
+            "return_3m": 8.37,
+            "Final_score": 0.8376,
+            "baskets": [
+                "AI_SEMI_EQUIPMENT"
             ]
         },
         {
             "ticker": "SCCO",
             "name": "SCCO",
             "Signal_sco": 16.0,
-            "return_3m": 11.74,
-            "Final_score": 0.807,
+            "return_3m": 11.13,
+            "Final_score": 0.8087,
             "baskets": [
                 "AI_RAW_MATERIALS_COPPER_RAREEARTH"
             ]
         },
         {
-            "ticker": "084370",
-            "name": "유진테크",
-            "Signal_sco": 9.5,
-            "return_3m": 10.49,
-            "Final_score": 0.7932,
+            "ticker": "FCX",
+            "name": "FCX",
+            "Signal_sco": 16.0,
+            "return_3m": 9.61,
+            "Final_score": 0.8071,
             "baskets": [
-                "AI_SEMI_EQUIPMENT"
+                "AI_RAW_MATERIALS_COPPER_RAREEARTH"
+            ]
+        },
+        {
+            "ticker": "HOOD",
+            "name": "HOOD",
+            "Signal_sco": 13.0,
+            "return_3m": 24.5,
+            "Final_score": 0.7962,
+            "baskets": [
+                "AI_FINTECH_TRADING"
+            ]
+        },
+        {
+            "ticker": "COPX",
+            "name": "COPX",
+            "Signal_sco": 16.0,
+            "return_3m": 3.33,
+            "Final_score": 0.7815,
+            "baskets": [
+                "AI_RAW_MATERIALS_COPPER_RAREEARTH"
             ]
         }
     ],
     "ai_basket_count": 34,
-    "update_time": "2026-08-27 21:14:58"
+    "update_time": "2026-08-28 06:39:56"
 }
