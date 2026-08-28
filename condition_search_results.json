@@ -1,6 +1,6 @@
 {
-  "update_time": "2026-08-28 06:40:53",
-  "elapsed_sec": 3.0,
+  "update_time": "2026-08-28 21:24:58",
+  "elapsed_sec": 15.22,
   "too_many_threshold": 10,
   "target_conditions": [
     {
@@ -37,19 +37,175 @@
     {
       "seq": "1",
       "name": "120신고_거래",
-      "total_count": 0,
+      "total_count": 2,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "001210",
+          "name": "금호전기",
+          "price": 10680,
+          "rate": 2.993,
+          "volume": 25740562,
+          "trade_amount_eok": 2531.95,
+          "contract_strength": "104.22",
+          "nxt": ""
+        },
+        {
+          "rank": 2,
+          "code": "192820",
+          "name": "코스맥스",
+          "price": 303000,
+          "rate": 0.707,
+          "volume": 341107,
+          "trade_amount_eok": 1260.58,
+          "contract_strength": "164.22",
+          "nxt": "NXT선"
+        }
+      ],
       "error": ""
     },
     {
       "seq": "2",
       "name": "예상체결상위",
-      "total_count": 0,
+      "total_count": 12,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "000370",
+          "name": "한화손해보험",
+          "price": 8450,
+          "rate": 0.931,
+          "volume": 1887862,
+          "trade_amount_eok": 155.30320815,
+          "contract_strength": "220.75",
+          "nxt": ""
+        },
+        {
+          "rank": 2,
+          "code": "018000",
+          "name": "유니슨",
+          "price": 1214,
+          "rate": 0.649,
+          "volume": 17445691,
+          "trade_amount_eok": 216.19003266,
+          "contract_strength": "94.24",
+          "nxt": ""
+        },
+        {
+          "rank": 3,
+          "code": "020120",
+          "name": "키다리스튜디오",
+          "price": 6180,
+          "rate": 0.655,
+          "volume": 547913,
+          "trade_amount_eok": 26.4123162,
+          "contract_strength": "500.00",
+          "nxt": ""
+        },
+        {
+          "rank": 4,
+          "code": "024840",
+          "name": "KBI메탈",
+          "price": 5750,
+          "rate": 0.286,
+          "volume": 5652754,
+          "trade_amount_eok": 324.70137955,
+          "contract_strength": "85.53",
+          "nxt": ""
+        },
+        {
+          "rank": 5,
+          "code": "032940",
+          "name": "원익",
+          "price": 6700,
+          "rate": 0.966,
+          "volume": 2816282,
+          "trade_amount_eok": 199.65474335,
+          "contract_strength": "88.86",
+          "nxt": ""
+        },
+        {
+          "rank": 6,
+          "code": "034020",
+          "name": "두산에너빌리티",
+          "price": 88200,
+          "rate": 0.268,
+          "volume": 3536511,
+          "trade_amount_eok": 3045.3711655,
+          "contract_strength": "190.21",
+          "nxt": "NXT"
+        },
+        {
+          "rank": 7,
+          "code": "047770",
+          "name": "코데즈컴바인",
+          "price": 3620,
+          "rate": 0.478,
+          "volume": 1184794,
+          "trade_amount_eok": 41.16022792,
+          "contract_strength": "111.69",
+          "nxt": ""
+        },
+        {
+          "rank": 8,
+          "code": "064260",
+          "name": "다날",
+          "price": 5550,
+          "rate": 0.354,
+          "volume": 5376878,
+          "trade_amount_eok": 298.80144355,
+          "contract_strength": "99.73",
+          "nxt": ""
+        },
+        {
+          "rank": 9,
+          "code": "088350",
+          "name": "한화생명",
+          "price": 5950,
+          "rate": 0.858,
+          "volume": 8918369,
+          "trade_amount_eok": 515.33369975,
+          "contract_strength": "173.87",
+          "nxt": "선"
+        },
+        {
+          "rank": 10,
+          "code": "105560",
+          "name": "KB금융",
+          "price": 171600,
+          "rate": 0.208,
+          "volume": 880809,
+          "trade_amount_eok": 1394.4538425,
+          "contract_strength": "111.88",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 11,
+          "code": "204620",
+          "name": "글로벌텍스프리",
+          "price": 5960,
+          "rate": 1.528,
+          "volume": 4469089,
+          "trade_amount_eok": 259.71396485,
+          "contract_strength": "139.10",
+          "nxt": ""
+        },
+        {
+          "rank": 12,
+          "code": "462860",
+          "name": "더즌",
+          "price": 2950,
+          "rate": 0.592,
+          "volume": 11653519,
+          "trade_amount_eok": 359.92500403,
+          "contract_strength": "92.13",
+          "nxt": ""
+        }
+      ],
       "error": ""
     },
     {
@@ -64,10 +220,33 @@
     {
       "seq": "5",
       "name": "★ 삘추세231230",
-      "total_count": 0,
+      "total_count": 2,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "010950",
+          "name": "S-Oil",
+          "price": 149200,
+          "rate": 0.914,
+          "volume": 410755,
+          "trade_amount_eok": 908.28,
+          "contract_strength": "137.56",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 2,
+          "code": "018260",
+          "name": "삼성에스디에스",
+          "price": 243000,
+          "rate": 0.385,
+          "volume": 274452,
+          "trade_amount_eok": 661.9408225,
+          "contract_strength": "141.48",
+          "nxt": "NXT"
+        }
+      ],
       "error": ""
     }
   ]

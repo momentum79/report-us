@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28 06:49:26",
+  "updated_at": "2026-08-28 21:33:05",
   "window_note": "Compare today with 5 stored snapshots ago when available. Retains up to 5 years.",
   "snapshots": [
     {
@@ -3612,7 +3612,7 @@
     },
     {
       "date": "2026-08-28",
-      "update_time": "2026-08-28 06:39:56",
+      "update_time": "2026-08-28 21:23:16",
       "headline": "혼합/확산 국면",
       "location": "MIXED",
       "confidence": "LOW",
@@ -3624,12 +3624,12 @@
         },
         "SILICON_COMPUTE": {
           "name_kr": "칩/ASIC",
-          "score": 2.68,
+          "score": 2.6,
           "state": "SOFT"
         },
         "MEMORY_PACKAGING": {
           "name_kr": "HBM/패키징/MLCC",
-          "score": 2.93,
+          "score": 3.57,
           "state": "SOFT"
         },
         "NETWORK_OPTICS": {
@@ -3639,8 +3639,8 @@
         },
         "POWER_COOLING": {
           "name_kr": "전력/냉각",
-          "score": -0.64,
-          "state": "WEAK"
+          "score": 0.29,
+          "state": "SOFT"
         },
         "DATACENTER_DEPLOY": {
           "name_kr": "데이터센터/서버",
@@ -3649,7 +3649,7 @@
         },
         "SOFTWARE_ADOPTION": {
           "name_kr": "SW/데이터플랫폼",
-          "score": 7.33,
+          "score": 7.73,
           "state": "SOFT"
         }
       }

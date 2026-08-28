@@ -1,24 +1,24 @@
 {
-    "avg_sco": 4.3,
+    "avg_sco": 4.7,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 90,
-    "sco_neg": 40,
+    "sco_pos": 92,
+    "sco_neg": 38,
     "sco_strong": 36,
-    "sco_zone_neg": 40,
-    "sco_zone_weak": 42,
-    "sco_zone_mid": 12,
+    "sco_zone_neg": 38,
+    "sco_zone_weak": 43,
+    "sco_zone_mid": 13,
     "sco_zone_strong": 36,
     "strong_count": 19,
     "top3_avg_sco": 15.33,
-    "top3_avg_pos": 1.33,
+    "top3_avg_pos": 1.0,
     "kospi_trend": "GREEN",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "-",
     "nasdaq_trend": "-",
-    "kospi_sco": 2.25,
-    "kosdaq_sco": -1.75,
+    "kospi_sco": 2.0,
+    "kosdaq_sco": -1.0,
     "sp500_sco": 4.5,
     "nasdaq_sco": 0.0,
     "euro_trend": "GREEN",
@@ -27,7 +27,7 @@
     "shanghai_trend": "RED",
     "hongkong_trend": "LIME",
     "brazil_trend": "GREEN",
-    "kospi_mult": 0.6,
+    "kospi_mult": 0.4,
     "nasdaq_mult": 0.4,
     "invest_pct": 59.6,
     "invest_amount_total": 59580929,
@@ -35,8 +35,8 @@
         30.8539,
         23.5726,
         16.7627,
-        9.9529,
         10.4767,
+        9.9529,
         8.3814
     ],
     "n_holdings": 6,
@@ -44,16 +44,16 @@
         "228790",
         "ETHA",
         "ARKK",
-        "COPX",
         "SVXY",
+        "COPX",
         "IBB"
     ],
     "final_ratios": {
         "228790": 18.51,
         "ETHA": 14.14,
         "ARKK": 10.06,
-        "COPX": 5.97,
         "SVXY": 6.29,
+        "COPX": 5.97,
         "IBB": 4.61
     },
     "top3_tickers": [
@@ -75,14 +75,24 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-08-28 06:39:10",
-    "liq_rejected": [],
+    "update_time": "2026-08-28 21:22:38",
+    "liq_rejected": [
+        {
+            "ticker": "ARKF",
+            "name": "ARKF",
+            "avg_tv_eok": 68.7,
+            "min_tv_eok": 28.1,
+            "min_eok": 1000,
+            "min_day_eok": 400,
+            "fail_on": "avg"
+        }
+    ],
     "liq_thresholds": {
         "KR": 200,
         "US": 1000,
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1394.6
+        "usd_krw": 1390.3
     }
 }
