@@ -8,7 +8,7 @@ C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pykrx\__
 
 최종 보유 종목 (1개): ['228790']
 [코스피 단계적 비중] GREEN(위치4) → multiplier=0.4
-[나스닥 단계적 비중] up_days=3(재실행(스킵)) → multiplier=0.4 (등락: +0.66%)
+[나스닥 단계적 비중] up_days=2(재실행(스킵)) → multiplier=0.3 (등락: +0.66%)
 
 [변동성 감점형 내부비중 조정]
   Holdings vol63 중앙값: 50.5%
@@ -17,11 +17,11 @@ C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pykrx\__
 
 📊 전체 종목 Signal_sco 평균: -0.8  (전체 35개 / 유효 35개 / ATR제외 0개 포함)
    sco>=0 : 16개 / sco<0 : 19개 / sco>=11 : 1개
-[나스닥(출력용) 단계적 비중] up_days=3(재실행(스킵)) → multiplier=0.4 (등락: +0.66%)
+[나스닥(출력용) 단계적 비중] up_days=2(재실행(스킵)) → multiplier=0.3 (등락: +0.66%)
 
 [Holdings 투자비중 배분] (ALLOCATION_MAP[1])
  strong_count=1 / top3_avg_sco=15.00 / top3_avg_pos=1.00
- 코스피=GREEN(×0.4) / 나스닥=-(×0.4)
+ 코스피=GREEN(×0.4) / 나스닥=-(×0.3)
    [화장품] 조정비중100.0% × 코스피(0.4, floor=0.60→ eff=0.60) → 60,000,000원
  총 투자비중=60.0% / 총 투자금액=60,000,000원
 [s1]  총 투자비중=60.0% / 총 투자금액=60,000,000원
@@ -30,7 +30,7 @@ C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pykrx\__
 ✅ 저점 신호 데이터가 'D:\py\report-us\kr_etf_low_signals.json'에 저장되었습니다.
 ✅ kr_etf_gann_fire_set.json 저장 완료 (🔥 0개)
 ✅ kr_etf_stab.json 저장 완료 (35개)
-✅ 시장온도 히스토리 저장 완료 → 'D:\py\report-us\top3_etf_track.json'  (총 403일)
+✅ 시장온도 히스토리 저장 완료 → 'D:\py\report-us\top3_etf_track.json'  (총 404일)
 
 [벤치마크 추세]  코스피: GREEN  /  코스닥: GREEN
                  에센피: -  /  나스닥: -
@@ -81,4 +81,4 @@ Ticker      Name                    등락    위치    Sco      RSI     정   5
 
 [ATR 트레일링(-10%)로 제외 - 최근 2주] 없음
 
-[실행 소요 시간]: 10.13초
+[실행 소요 시간]: 10.00초
