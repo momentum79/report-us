@@ -1,7 +1,14 @@
 {
-  "updated": "2026-08-29 08:08:04",
-  "count": 777,
+  "updated": "2026-08-30 15:51:07",
+  "count": 776,
   "tickers": {
+    "GRAL": {
+      "sco": 16.0,
+      "final": 0.9942,
+      "rtn": 37.73,
+      "pos": "정배",
+      "color": "LIME"
+    },
     "ROP": {
       "sco": 16.0,
       "final": 0.9876,
@@ -46,35 +53,35 @@
     },
     "PAGP": {
       "sco": 16.0,
-      "final": 0.9633,
+      "final": 0.9631,
       "rtn": 14.45,
       "pos": "정배",
       "color": "LIME"
     },
     "GPC": {
       "sco": 15.0,
-      "final": 0.9629,
+      "final": 0.9627,
       "rtn": 41.44,
       "pos": "정배",
       "color": "LIME"
     },
     "SVXY": {
       "sco": 16.0,
-      "final": 0.9622,
+      "final": 0.9619,
       "rtn": 14.0,
       "pos": "정배",
       "color": "LIME"
     },
     "PAA": {
       "sco": 16.0,
-      "final": 0.9595,
+      "final": 0.9592,
       "rtn": 13.12,
       "pos": "정배",
       "color": "LIME"
     },
     "WT": {
       "sco": 15.0,
-      "final": 0.9578,
+      "final": 0.9576,
       "rtn": 31.38,
       "pos": "-",
       "color": "LIME"
@@ -123,7 +130,7 @@
     },
     "TMO": {
       "sco": 14.5,
-      "final": 0.9417,
+      "final": 0.9415,
       "rtn": 31.41,
       "pos": "-",
       "color": "-"
@@ -165,21 +172,14 @@
     },
     "TRIN": {
       "sco": 15.0,
-      "final": 0.9266,
+      "final": 0.9263,
       "rtn": 13.12,
       "pos": "-",
       "color": "-"
     },
-    "GRAL": {
-      "sco": 14.0,
-      "final": 0.9244,
-      "rtn": 30.87,
-      "pos": "-",
-      "color": "LIME"
-    },
     "ATKR": {
       "sco": 15.0,
-      "final": 0.9181,
+      "final": 0.918,
       "rtn": 10.48,
       "pos": "-",
       "color": "-"
@@ -200,7 +200,7 @@
     },
     "DBA": {
       "sco": 15.0,
-      "final": 0.9121,
+      "final": 0.912,
       "rtn": 8.67,
       "pos": "정배",
       "color": "LIME"
@@ -228,7 +228,7 @@
     },
     "CGAU": {
       "sco": 13.25,
-      "final": 0.9053,
+      "final": 0.9051,
       "rtn": 40.27,
       "pos": "-",
       "color": "-"
@@ -242,7 +242,7 @@
     },
     "BEN": {
       "sco": 14.0,
-      "final": 0.8997,
+      "final": 0.8994,
       "rtn": 15.24,
       "pos": "-",
       "color": "LIME"
@@ -263,21 +263,21 @@
     },
     "AMR": {
       "sco": 14.75,
-      "final": 0.8972,
+      "final": 0.8971,
       "rtn": 6.32,
       "pos": "-",
       "color": "LIME"
     },
     "VLO": {
       "sco": 13.0,
-      "final": 0.8956,
+      "final": 0.8954,
       "rtn": 35.29,
       "pos": "-",
       "color": "LIME"
     },
     "CRM": {
       "sco": 13.0,
-      "final": 0.8952,
+      "final": 0.895,
       "rtn": 34.65,
       "pos": "-",
       "color": "GREEN"
@@ -291,7 +291,7 @@
     },
     "UNP": {
       "sco": 13.5,
-      "final": 0.8878,
+      "final": 0.8877,
       "rtn": 17.27,
       "pos": "-",
       "color": "LIME"
@@ -312,31 +312,17 @@
     },
     "VWO": {
       "sco": 15.0,
-      "final": 0.8862,
+      "final": 0.8863,
       "rtn": 0.88,
       "pos": "정배",
       "color": "-"
     },
     "CMG": {
       "sco": 12.75,
-      "final": 0.8854,
+      "final": 0.8852,
       "rtn": 32.32,
       "pos": "정배",
       "color": "LIME"
-    },
-    "PLTR": {
-      "sco": 12.75,
-      "final": 0.8837,
-      "rtn": 31.01,
-      "pos": "-",
-      "color": "-"
-    },
-    "IBIT": {
-      "sco": 13.25,
-      "final": 0.8836,
-      "rtn": 18.65,
-      "pos": "-",
-      "color": "GREEN"
     },
     "GCT": {
       "sco": 12.5,
@@ -345,51 +331,65 @@
       "pos": "-",
       "color": "LIME"
     },
+    "IBIT": {
+      "sco": 13.25,
+      "final": 0.8836,
+      "rtn": 18.65,
+      "pos": "-",
+      "color": "GREEN"
+    },
+    "PLTR": {
+      "sco": 12.75,
+      "final": 0.8835,
+      "rtn": 31.01,
+      "pos": "-",
+      "color": "-"
+    },
     "IMNM": {
       "sco": 12.5,
-      "final": 0.8806,
+      "final": 0.8804,
       "rtn": 39.17,
       "pos": "-",
       "color": "-"
     },
     "GMAB": {
       "sco": 12.5,
-      "final": 0.8804,
+      "final": 0.8802,
       "rtn": 39.15,
       "pos": "-",
       "color": "-"
     },
     "MSFT": {
       "sco": 13.0,
-      "final": 0.8788,
+      "final": 0.8787,
       "rtn": 20.4,
       "pos": "-",
       "color": "-"
     },
     "RVMD": {
       "sco": 12.5,
-      "final": 0.878,
+      "final": 0.8778,
       "rtn": 33.26,
       "pos": "-",
       "color": "-"
     },
     "FNV": {
       "sco": 13.25,
-      "final": 0.8773,
+      "final": 0.8772,
       "rtn": 16.41,
       "pos": "-",
       "color": "LIME"
     },
     "TGT": {
       "sco": 12.5,
-      "final": 0.8769,
+      "final": 0.8767,
       "rtn": 31.76,
       "pos": "-",
       "color": "-"
     },
     "BDX": {
       "sco": 12.5,
-      "final": 0.8757,
+      "final": 0.8755,
       "rtn": 31.07,
       "pos": "-",
       "color": "-"
@@ -403,28 +403,28 @@
     },
     "LTC": {
       "sco": 13.0,
-      "final": 0.8724,
+      "final": 0.8723,
       "rtn": 17.54,
       "pos": "정배",
       "color": "LIME"
     },
     "ADBE": {
       "sco": 13.25,
-      "final": 0.8715,
+      "final": 0.8712,
       "rtn": 13.77,
       "pos": "-",
       "color": "GREEN"
     },
     "GILD": {
       "sco": 13.25,
-      "final": 0.8707,
+      "final": 0.8705,
       "rtn": 13.68,
       "pos": "-",
       "color": "GREEN"
     },
     "ACWV": {
       "sco": 14.0,
-      "final": 0.8705,
+      "final": 0.8704,
       "rtn": 5.74,
       "pos": "-",
       "color": "LIME"
@@ -452,63 +452,63 @@
     },
     "CNR": {
       "sco": 14.0,
-      "final": 0.8676,
+      "final": 0.8675,
       "rtn": 4.7,
       "pos": "-",
       "color": "LIME"
     },
     "TTC": {
       "sco": 13.5,
-      "final": 0.8654,
+      "final": 0.8653,
       "rtn": 9.36,
       "pos": "-",
       "color": "-"
     },
     "JOYY": {
       "sco": 13.0,
-      "final": 0.8637,
+      "final": 0.8635,
       "rtn": 13.87,
       "pos": "정배",
       "color": "-"
     },
     "CME": {
       "sco": 13.0,
-      "final": 0.8629,
+      "final": 0.8627,
       "rtn": 13.71,
       "pos": "-",
       "color": "LIME"
     },
     "FCX": {
       "sco": 13.5,
-      "final": 0.8625,
+      "final": 0.8624,
       "rtn": 8.49,
       "pos": "-",
       "color": "LIME"
     },
     "TECK": {
       "sco": 14.0,
-      "final": 0.8611,
+      "final": 0.861,
       "rtn": 3.28,
       "pos": "-",
       "color": "LIME"
     },
     "OSK": {
       "sco": 12.75,
-      "final": 0.859,
+      "final": 0.8588,
       "rtn": 15.27,
       "pos": "-",
       "color": "-"
     },
     "SSRM": {
       "sco": 12.0,
-      "final": 0.8573,
+      "final": 0.8572,
       "rtn": 29.2,
       "pos": "-",
       "color": "LIME"
     },
     "VZ": {
       "sco": 13.25,
-      "final": 0.8568,
+      "final": 0.8567,
       "rtn": 9.23,
       "pos": "-",
       "color": "LIME"
@@ -536,7 +536,7 @@
     },
     "ADSK": {
       "sco": 12.75,
-      "final": 0.854,
+      "final": 0.8537,
       "rtn": 13.53,
       "pos": "-",
       "color": "-"
@@ -550,28 +550,28 @@
     },
     "TRMD": {
       "sco": 12.5,
-      "final": 0.8518,
+      "final": 0.8516,
       "rtn": 15.8,
       "pos": "정배",
       "color": "LIME"
     },
     "NSC": {
       "sco": 12.5,
-      "final": 0.8499,
+      "final": 0.8496,
       "rtn": 14.73,
       "pos": "-",
       "color": "LIME"
     },
     "SCCO": {
       "sco": 13.5,
-      "final": 0.8494,
+      "final": 0.8493,
       "rtn": 4.19,
       "pos": "-",
       "color": "LIME"
     },
     "NOW": {
       "sco": 12.0,
-      "final": 0.8492,
+      "final": 0.8491,
       "rtn": 22.74,
       "pos": "정배",
       "color": "GREEN"
@@ -585,14 +585,14 @@
     },
     "WBD": {
       "sco": 13.25,
-      "final": 0.8489,
+      "final": 0.8488,
       "rtn": 6.56,
       "pos": "-",
       "color": "LIME"
     },
     "SCZ": {
       "sco": 13.5,
-      "final": 0.8478,
+      "final": 0.8477,
       "rtn": 3.82,
       "pos": "-",
       "color": "LIME"
@@ -613,28 +613,28 @@
     },
     "XLB": {
       "sco": 13.5,
-      "final": 0.8455,
+      "final": 0.8454,
       "rtn": 3.39,
       "pos": "-",
       "color": "LIME"
     },
     "CDE": {
       "sco": 12.25,
-      "final": 0.845,
+      "final": 0.8449,
       "rtn": 16.42,
       "pos": "-",
       "color": "LIME"
     },
     "ONC": {
       "sco": 11.5,
-      "final": 0.8438,
+      "final": 0.8436,
       "rtn": 31.44,
       "pos": "-",
       "color": "GREEN"
     },
     "NEM": {
       "sco": 12.0,
-      "final": 0.8434,
+      "final": 0.8433,
       "rtn": 19.08,
       "pos": "-",
       "color": "-"
@@ -648,7 +648,7 @@
     },
     "TFPM": {
       "sco": 12.25,
-      "final": 0.839,
+      "final": 0.8387,
       "rtn": 13.83,
       "pos": "-",
       "color": "LIME"
@@ -669,7 +669,7 @@
     },
     "CSX": {
       "sco": 12.5,
-      "final": 0.8362,
+      "final": 0.8361,
       "rtn": 10.42,
       "pos": "-",
       "color": "LIME"
@@ -683,7 +683,7 @@
     },
     "IBKR": {
       "sco": 12.5,
-      "final": 0.8348,
+      "final": 0.8347,
       "rtn": 9.97,
       "pos": "-",
       "color": "LIME"
@@ -695,33 +695,26 @@
       "pos": "-",
       "color": "-"
     },
-    "ECL": {
-      "sco": 12.25,
-      "final": 0.834,
-      "rtn": 12.46,
-      "pos": "-",
-      "color": "LIME"
-    },
     "BMY": {
       "sco": 11.5,
-      "final": 0.8338,
+      "final": 0.8337,
       "rtn": 23.05,
       "pos": "-",
       "color": "-"
     },
+    "ECL": {
+      "sco": 12.25,
+      "final": 0.8337,
+      "rtn": 12.46,
+      "pos": "-",
+      "color": "LIME"
+    },
     "XP": {
       "sco": 12.0,
-      "final": 0.8333,
+      "final": 0.8331,
       "rtn": 14.67,
       "pos": "-",
       "color": "GREEN"
-    },
-    "T": {
-      "sco": 12.25,
-      "final": 0.8324,
-      "rtn": 11.92,
-      "pos": "-",
-      "color": "LIME"
     },
     "HL": {
       "sco": 11.5,
@@ -737,30 +730,37 @@
       "pos": "정배",
       "color": "LIME"
     },
+    "T": {
+      "sco": 12.25,
+      "final": 0.8322,
+      "rtn": 11.92,
+      "pos": "-",
+      "color": "LIME"
+    },
     "FRO": {
       "sco": 11.0,
-      "final": 0.8292,
+      "final": 0.829,
       "rtn": 33.82,
       "pos": "-",
       "color": "LIME"
     },
     "PICK": {
       "sco": 13.5,
-      "final": 0.8287,
+      "final": 0.8286,
       "rtn": -1.09,
       "pos": "-",
       "color": "LIME"
     },
     "PSX": {
       "sco": 11.0,
-      "final": 0.8286,
+      "final": 0.8284,
       "rtn": 32.83,
       "pos": "-",
       "color": "LIME"
     },
     "TTEK": {
       "sco": 11.0,
-      "final": 0.8277,
+      "final": 0.8275,
       "rtn": 31.71,
       "pos": "-",
       "color": "LIME"
@@ -781,22 +781,22 @@
     },
     "PFE": {
       "sco": 12.0,
-      "final": 0.8252,
+      "final": 0.825,
       "rtn": 12.27,
       "pos": "-",
       "color": "-"
-    },
-    "PGR": {
-      "sco": 11.75,
-      "final": 0.8199,
-      "rtn": 13.07,
-      "pos": "-",
-      "color": "LIME"
     },
     "NVRI": {
       "sco": 11.0,
       "final": 0.8199,
       "rtn": 25.52,
+      "pos": "-",
+      "color": "LIME"
+    },
+    "PGR": {
+      "sco": 11.75,
+      "final": 0.8197,
+      "rtn": 13.07,
       "pos": "-",
       "color": "LIME"
     },
@@ -809,21 +809,21 @@
     },
     "IAG": {
       "sco": 11.0,
-      "final": 0.8163,
+      "final": 0.8162,
       "rtn": 22.34,
       "pos": "-",
       "color": "-"
     },
     "SKE": {
       "sco": 11.5,
-      "final": 0.8156,
+      "final": 0.8154,
       "rtn": 14.15,
       "pos": "-",
       "color": "-"
     },
     "OR": {
       "sco": 12.25,
-      "final": 0.8149,
+      "final": 0.8148,
       "rtn": 6.13,
       "pos": "-",
       "color": "LIME"
@@ -835,17 +835,17 @@
       "pos": "-",
       "color": "-"
     },
-    "WEX": {
-      "sco": 10.5,
-      "final": 0.8136,
-      "rtn": 35.27,
-      "pos": "-",
-      "color": "-"
-    },
     "AU": {
       "sco": 10.75,
       "final": 0.8135,
       "rtn": 26.77,
+      "pos": "-",
+      "color": "-"
+    },
+    "WEX": {
+      "sco": 10.5,
+      "final": 0.8134,
+      "rtn": 35.27,
       "pos": "-",
       "color": "-"
     },
@@ -858,7 +858,7 @@
     },
     "SBUX": {
       "sco": 11.5,
-      "final": 0.812,
+      "final": 0.8117,
       "rtn": 13.12,
       "pos": "정배",
       "color": "LIME"
@@ -872,17 +872,10 @@
     },
     "NDSN": {
       "sco": 11.5,
-      "final": 0.8093,
+      "final": 0.809,
       "rtn": 12.46,
       "pos": "-",
       "color": "-"
-    },
-    "SII": {
-      "sco": 12.25,
-      "final": 0.8087,
-      "rtn": 4.19,
-      "pos": "-",
-      "color": "LIME"
     },
     "JXN": {
       "sco": 10.5,
@@ -891,9 +884,16 @@
       "pos": "정배",
       "color": "-"
     },
+    "SII": {
+      "sco": 12.25,
+      "final": 0.8086,
+      "rtn": 4.19,
+      "pos": "-",
+      "color": "LIME"
+    },
     "GMOM": {
       "sco": 12.5,
-      "final": 0.808,
+      "final": 0.8079,
       "rtn": 2.24,
       "pos": "정배",
       "color": "-"
@@ -907,14 +907,14 @@
     },
     "EZPW": {
       "sco": 12.25,
-      "final": 0.8056,
+      "final": 0.8055,
       "rtn": 3.64,
       "pos": "-",
       "color": "LIME"
     },
     "KOF": {
       "sco": 12.0,
-      "final": 0.8053,
+      "final": 0.8052,
       "rtn": 5.74,
       "pos": "-",
       "color": "-"
@@ -935,14 +935,14 @@
     },
     "DIS": {
       "sco": 11.5,
-      "final": 0.8006,
+      "final": 0.8005,
       "rtn": 9.6,
       "pos": "-",
       "color": "-"
     },
     "CIB": {
       "sco": 10.0,
-      "final": 0.7979,
+      "final": 0.7977,
       "rtn": 36.82,
       "pos": "-",
       "color": "-"
@@ -956,35 +956,35 @@
     },
     "HCC": {
       "sco": 12.25,
-      "final": 0.7973,
+      "final": 0.7974,
       "rtn": 1.21,
       "pos": "-",
       "color": "LIME"
     },
     "ZETA": {
       "sco": 10.0,
-      "final": 0.7942,
+      "final": 0.794,
       "rtn": 31.24,
       "pos": "정배",
       "color": "LIME"
     },
     "BLK": {
       "sco": 10.5,
-      "final": 0.7928,
+      "final": 0.7927,
       "rtn": 18.18,
       "pos": "-",
       "color": "-"
     },
     "BVN": {
       "sco": 11.75,
-      "final": 0.7904,
+      "final": 0.7903,
       "rtn": 3.72,
       "pos": "-",
       "color": "LIME"
     },
     "AFRM": {
       "sco": 10.5,
-      "final": 0.7899,
+      "final": 0.7898,
       "rtn": 17.34,
       "pos": "-",
       "color": "LIME"
@@ -1012,35 +1012,35 @@
     },
     "BHP": {
       "sco": 11.5,
-      "final": 0.7865,
+      "final": 0.7864,
       "rtn": 4.73,
       "pos": "-",
       "color": "LIME"
     },
     "AMG": {
       "sco": 10.25,
-      "final": 0.786,
+      "final": 0.7859,
       "rtn": 19.02,
       "pos": "-",
       "color": "-"
     },
     "FLS": {
       "sco": 11.25,
-      "final": 0.7849,
+      "final": 0.7848,
       "rtn": 6.82,
       "pos": "-",
       "color": "LIME"
     },
     "APD": {
       "sco": 11.0,
-      "final": 0.7846,
+      "final": 0.7845,
       "rtn": 9.83,
       "pos": "정배",
       "color": "LIME"
     },
     "MT": {
       "sco": 11.5,
-      "final": 0.7844,
+      "final": 0.7843,
       "rtn": 4.42,
       "pos": "-",
       "color": "-"
@@ -1061,7 +1061,7 @@
     },
     "LECO": {
       "sco": 11.0,
-      "final": 0.7815,
+      "final": 0.7814,
       "rtn": 8.72,
       "pos": "-",
       "color": "-"
@@ -1089,7 +1089,7 @@
     },
     "B": {
       "sco": 10.75,
-      "final": 0.7747,
+      "final": 0.7746,
       "rtn": 9.05,
       "pos": "-",
       "color": "GREEN"
@@ -1103,7 +1103,7 @@
     },
     "AG": {
       "sco": 11.0,
-      "final": 0.7717,
+      "final": 0.7716,
       "rtn": 5.09,
       "pos": "-",
       "color": "-"
@@ -1117,42 +1117,42 @@
     },
     "HBM": {
       "sco": 12.0,
-      "final": 0.7704,
+      "final": 0.7703,
       "rtn": -3.4,
       "pos": "-",
       "color": "GREEN"
     },
     "EMGF": {
       "sco": 12.0,
-      "final": 0.77,
+      "final": 0.7699,
       "rtn": -3.41,
       "pos": "정배",
       "color": "GREEN"
     },
     "XLF": {
       "sco": 10.0,
-      "final": 0.7677,
+      "final": 0.7675,
       "rtn": 14.61,
       "pos": "-",
       "color": "-"
     },
     "ALSN": {
       "sco": 10.75,
-      "final": 0.7666,
+      "final": 0.7665,
       "rtn": 6.35,
       "pos": "-",
       "color": "-"
     },
     "SBH": {
       "sco": 9.0,
-      "final": 0.7654,
+      "final": 0.7652,
       "rtn": 37.0,
       "pos": "정배",
       "color": "LIME"
     },
     "CGON": {
       "sco": 9.0,
-      "final": 0.765,
+      "final": 0.7648,
       "rtn": 36.6,
       "pos": "-",
       "color": "-"
@@ -1166,49 +1166,49 @@
     },
     "TILE": {
       "sco": 9.0,
-      "final": 0.763,
+      "final": 0.7628,
       "rtn": 32.76,
       "pos": "-",
       "color": "-"
     },
-    "DE": {
-      "sco": 10.5,
-      "final": 0.7623,
-      "rtn": 7.42,
+    "GOLD": {
+      "sco": 9.75,
+      "final": 0.7622,
+      "rtn": 16.11,
       "pos": "-",
       "color": "LIME"
     },
-    "GOLD": {
-      "sco": 9.75,
-      "final": 0.7623,
-      "rtn": 16.11,
+    "DE": {
+      "sco": 10.5,
+      "final": 0.7622,
+      "rtn": 7.42,
       "pos": "-",
       "color": "LIME"
     },
     "SPB": {
       "sco": 10.0,
-      "final": 0.7591,
+      "final": 0.7588,
       "rtn": 11.95,
       "pos": "-",
       "color": "LIME"
     },
     "SBSW": {
       "sco": 10.25,
-      "final": 0.7574,
+      "final": 0.7573,
       "rtn": 8.92,
       "pos": "-",
       "color": "-"
     },
     "PCVX": {
       "sco": 9.0,
-      "final": 0.7571,
+      "final": 0.757,
       "rtn": 27.5,
       "pos": "-",
       "color": "-"
     },
     "DRD": {
       "sco": 9.75,
-      "final": 0.7569,
+      "final": 0.7566,
       "rtn": 13.72,
       "pos": "-",
       "color": "GREEN"
@@ -1222,63 +1222,63 @@
     },
     "NU": {
       "sco": 9.0,
-      "final": 0.7517,
+      "final": 0.7516,
       "rtn": 22.85,
       "pos": "-",
       "color": "-"
     },
     "KO": {
       "sco": 9.5,
-      "final": 0.751,
+      "final": 0.7508,
       "rtn": 14.57,
       "pos": "-",
       "color": "-"
     },
     "SDRL": {
       "sco": 10.5,
-      "final": 0.7503,
+      "final": 0.7502,
       "rtn": 3.86,
       "pos": "-",
       "color": "-"
     },
     "VRDN": {
       "sco": 8.5,
-      "final": 0.7502,
+      "final": 0.75,
       "rtn": 41.16,
       "pos": "-",
       "color": "GREEN"
     },
     "INSW": {
       "sco": 8.5,
-      "final": 0.7477,
+      "final": 0.7475,
       "rtn": 34.12,
       "pos": "-",
       "color": "-"
     },
     "KRYS": {
       "sco": 9.25,
-      "final": 0.7473,
+      "final": 0.7472,
       "rtn": 16.45,
       "pos": "-",
       "color": "LIME"
     },
     "QGEN": {
       "sco": 9.0,
-      "final": 0.7457,
+      "final": 0.7456,
       "rtn": 19.34,
       "pos": "-",
       "color": "-"
     },
     "WLDN": {
       "sco": 11.5,
-      "final": 0.7409,
+      "final": 0.7404,
       "rtn": -9.23,
       "pos": "-",
       "color": "GREEN"
     },
     "SLB": {
       "sco": 10.5,
-      "final": 0.7385,
+      "final": 0.7386,
       "rtn": 0.84,
       "pos": "-",
       "color": "LIME"
@@ -1299,70 +1299,70 @@
     },
     "HAS": {
       "sco": 9.25,
-      "final": 0.7374,
+      "final": 0.7372,
       "rtn": 12.85,
       "pos": "-",
       "color": "-"
     },
     "BTU": {
       "sco": 11.0,
-      "final": 0.7363,
+      "final": 0.7362,
       "rtn": -3.66,
       "pos": "-",
       "color": "GREEN"
     },
     "BETZ": {
       "sco": 10.0,
-      "final": 0.7355,
+      "final": 0.7354,
       "rtn": 4.47,
       "pos": "-",
       "color": "GREEN"
     },
     "FCFS": {
       "sco": 10.5,
-      "final": 0.7335,
+      "final": 0.7334,
       "rtn": -0.26,
       "pos": "-",
       "color": "GREEN"
     },
     "CEF": {
       "sco": 10.5,
-      "final": 0.7287,
+      "final": 0.7286,
       "rtn": -1.71,
       "pos": "-",
       "color": "-"
     },
     "ABBV": {
       "sco": 8.5,
-      "final": 0.7278,
+      "final": 0.7277,
       "rtn": 18.5,
       "pos": "-",
       "color": "GREEN"
     },
     "RIO": {
       "sco": 10.5,
-      "final": 0.7277,
+      "final": 0.7276,
       "rtn": -2.12,
       "pos": "-",
       "color": "GREEN"
     },
     "FDX": {
       "sco": 10.0,
-      "final": 0.7272,
+      "final": 0.7271,
       "rtn": 2.36,
       "pos": "-",
       "color": "LIME"
     },
     "SA": {
       "sco": 10.75,
-      "final": 0.7243,
+      "final": 0.7242,
       "rtn": -5.57,
       "pos": "-",
       "color": "GREEN"
     },
     "PAAS": {
       "sco": 10.0,
-      "final": 0.7226,
+      "final": 0.7227,
       "rtn": 0.88,
       "pos": "-",
       "color": "LIME"
@@ -1376,28 +1376,28 @@
     },
     "COP": {
       "sco": 9.0,
-      "final": 0.7212,
+      "final": 0.7211,
       "rtn": 10.22,
       "pos": "-",
       "color": "-"
     },
     "PAX": {
       "sco": 9.75,
-      "final": 0.721,
+      "final": 0.7209,
       "rtn": 2.98,
       "pos": "-",
       "color": "-"
     },
     "PM": {
       "sco": 9.0,
-      "final": 0.7202,
+      "final": 0.7201,
       "rtn": 9.97,
       "pos": "-",
       "color": "LIME"
     },
     "HTHT": {
       "sco": 9.25,
-      "final": 0.7191,
+      "final": 0.719,
       "rtn": 6.65,
       "pos": "-",
       "color": "GREEN"
@@ -1409,13 +1409,6 @@
       "pos": "-",
       "color": "-"
     },
-    "NESR": {
-      "sco": 7.5,
-      "final": 0.7165,
-      "rtn": 37.76,
-      "pos": "-",
-      "color": "LIME"
-    },
     "TMDX": {
       "sco": 7.75,
       "final": 0.7156,
@@ -1425,56 +1418,56 @@
     },
     "XLC": {
       "sco": 9.75,
-      "final": 0.7152,
+      "final": 0.7153,
       "rtn": 1.07,
       "pos": "-",
       "color": "GREEN"
     },
     "BEAM": {
       "sco": 10.0,
-      "final": 0.715,
+      "final": 0.7149,
       "rtn": -0.78,
       "pos": "-",
       "color": "GREEN"
     },
     "FTNT": {
       "sco": 8.5,
-      "final": 0.7147,
+      "final": 0.7144,
       "rtn": 13.33,
       "pos": "-",
       "color": "LIME"
     },
     "BCH": {
       "sco": 8.5,
-      "final": 0.7145,
+      "final": 0.7142,
       "rtn": 13.16,
       "pos": "-",
       "color": "GREEN"
     },
     "UPS": {
       "sco": 10.0,
-      "final": 0.7135,
+      "final": 0.7134,
       "rtn": -1.53,
       "pos": "-",
       "color": "GREEN"
     },
     "PHYS": {
       "sco": 9.75,
-      "final": 0.7132,
+      "final": 0.7133,
       "rtn": 0.72,
       "pos": "-",
       "color": "-"
     },
     "MC": {
       "sco": 9.5,
-      "final": 0.7124,
+      "final": 0.7123,
       "rtn": 2.91,
       "pos": "정배",
       "color": "-"
     },
     "GLD": {
       "sco": 9.75,
-      "final": 0.7109,
+      "final": 0.711,
       "rtn": 0.25,
       "pos": "-",
       "color": "-"
@@ -1488,35 +1481,35 @@
     },
     "APA": {
       "sco": 8.5,
-      "final": 0.7092,
+      "final": 0.709,
       "rtn": 11.76,
       "pos": "-",
       "color": "-"
     },
     "VGK": {
       "sco": 9.0,
-      "final": 0.7082,
+      "final": 0.7081,
       "rtn": 6.07,
       "pos": "-",
       "color": "-"
     },
     "TM": {
       "sco": 8.75,
-      "final": 0.7066,
+      "final": 0.7065,
       "rtn": 7.91,
       "pos": "-",
       "color": "-"
     },
     "IUSV": {
       "sco": 9.0,
-      "final": 0.7059,
+      "final": 0.7058,
       "rtn": 4.93,
       "pos": "-",
       "color": "-"
     },
     "MSTR": {
       "sco": 9.5,
-      "final": 0.7039,
+      "final": 0.704,
       "rtn": 0.6,
       "pos": "-",
       "color": "GREEN"
@@ -1530,56 +1523,56 @@
     },
     "DBC": {
       "sco": 9.25,
-      "final": 0.7009,
+      "final": 0.7008,
       "rtn": 1.65,
       "pos": "-",
       "color": "LIME"
     },
     "CNQ": {
       "sco": 9.0,
-      "final": 0.7009,
+      "final": 0.7008,
       "rtn": 3.82,
       "pos": "-",
       "color": "-"
     },
     "DELL": {
       "sco": 8.5,
-      "final": 0.6992,
+      "final": 0.6991,
       "rtn": 8.53,
       "pos": "-",
       "color": "-"
     },
     "OPCH": {
       "sco": 7.75,
-      "final": 0.6977,
+      "final": 0.6976,
       "rtn": 16.41,
       "pos": "-",
       "color": "-"
     },
     "MUX": {
       "sco": 9.25,
-      "final": 0.6872,
+      "final": 0.6871,
       "rtn": -2.06,
       "pos": "-",
       "color": "GREEN"
     },
     "VALE": {
       "sco": 9.5,
-      "final": 0.6871,
+      "final": 0.687,
       "rtn": -3.74,
       "pos": "-",
       "color": "GREEN"
     },
     "SQM": {
       "sco": 9.0,
-      "final": 0.6856,
+      "final": 0.6857,
       "rtn": 0.06,
       "pos": "-",
       "color": "LIME"
     },
     "SLAB": {
       "sco": 9.0,
-      "final": 0.6843,
+      "final": 0.6842,
       "rtn": -0.27,
       "pos": "-",
       "color": "-"
@@ -1593,14 +1586,14 @@
     },
     "SLX": {
       "sco": 9.25,
-      "final": 0.682,
+      "final": 0.6819,
       "rtn": -3.18,
       "pos": "-",
       "color": "-"
     },
     "EWY": {
       "sco": 10.0,
-      "final": 0.6815,
+      "final": 0.6813,
       "rtn": -15.38,
       "pos": "-",
       "color": "GREEN"
@@ -1614,14 +1607,14 @@
     },
     "EWTX": {
       "sco": 7.0,
-      "final": 0.6778,
+      "final": 0.6777,
       "rtn": 18.09,
       "pos": "-",
       "color": "-"
     },
     "ANET": {
       "sco": 7.5,
-      "final": 0.6775,
+      "final": 0.6773,
       "rtn": 12.05,
       "pos": "-",
       "color": "-"
@@ -1635,28 +1628,35 @@
     },
     "PPTA": {
       "sco": 8.5,
-      "final": 0.6753,
+      "final": 0.6754,
       "rtn": 1.37,
       "pos": "-",
       "color": "-"
     },
     "NXP": {
       "sco": 8.5,
-      "final": 0.6741,
+      "final": 0.6742,
       "rtn": 0.99,
       "pos": "-",
       "color": "-"
     },
     "UEC": {
       "sco": 9.5,
-      "final": 0.6707,
+      "final": 0.6704,
       "rtn": -11.99,
       "pos": "-",
       "color": "-"
     },
+    "NESR": {
+      "sco": 6.0,
+      "final": 0.6686,
+      "rtn": 41.71,
+      "pos": "-",
+      "color": "LIME"
+    },
     "MUFG": {
       "sco": 6.75,
-      "final": 0.6683,
+      "final": 0.6682,
       "rtn": 17.74,
       "pos": "-",
       "color": "LIME"
@@ -1677,56 +1677,56 @@
     },
     "CVE": {
       "sco": 7.5,
-      "final": 0.6648,
+      "final": 0.6647,
       "rtn": 7.72,
       "pos": "-",
       "color": "GREEN"
     },
     "EMBJ": {
       "sco": 6.0,
-      "final": 0.6646,
+      "final": 0.6644,
       "rtn": 31.87,
       "pos": "-",
       "color": "-"
     },
     "XLE": {
       "sco": 7.5,
-      "final": 0.6644,
+      "final": 0.6643,
       "rtn": 7.53,
       "pos": "-",
       "color": "GREEN"
     },
     "CVX": {
       "sco": 7.5,
-      "final": 0.664,
+      "final": 0.6639,
       "rtn": 7.33,
       "pos": "-",
       "color": "GREEN"
     },
     "NFLX": {
       "sco": 8.25,
-      "final": 0.6617,
+      "final": 0.6618,
       "rtn": 0.25,
       "pos": "-",
       "color": "GREEN"
     },
     "VTV": {
       "sco": 7.5,
-      "final": 0.6598,
+      "final": 0.6597,
       "rtn": 6.14,
       "pos": "-",
       "color": "-"
     },
     "CLMT": {
       "sco": 6.0,
-      "final": 0.6596,
+      "final": 0.6595,
       "rtn": 27.78,
       "pos": "-",
       "color": "-"
     },
     "WMB": {
       "sco": 7.75,
-      "final": 0.6587,
+      "final": 0.6586,
       "rtn": 3.65,
       "pos": "-",
       "color": "LIME"
@@ -1740,7 +1740,7 @@
     },
     "NE": {
       "sco": 8.25,
-      "final": 0.6576,
+      "final": 0.6575,
       "rtn": -0.85,
       "pos": "-",
       "color": "GREEN"
@@ -1754,42 +1754,42 @@
     },
     "IE": {
       "sco": 9.25,
-      "final": 0.6546,
+      "final": 0.6543,
       "rtn": -16.24,
       "pos": "-",
       "color": "-"
     },
     "DVN": {
       "sco": 7.5,
-      "final": 0.6484,
+      "final": 0.6483,
       "rtn": 3.26,
       "pos": "-",
       "color": "GREEN"
     },
     "AAPL": {
       "sco": 7.5,
-      "final": 0.6478,
+      "final": 0.6477,
       "rtn": 3.13,
       "pos": "정배",
       "color": "LIME"
     },
     "INTU": {
       "sco": 6.25,
-      "final": 0.6469,
+      "final": 0.6466,
       "rtn": 15.48,
       "pos": "-",
       "color": "-"
     },
     "EWJ": {
       "sco": 7.5,
-      "final": 0.6464,
+      "final": 0.6463,
       "rtn": 2.61,
       "pos": "-",
       "color": "-"
     },
     "GAP": {
       "sco": 6.5,
-      "final": 0.6441,
+      "final": 0.6438,
       "rtn": 11.83,
       "pos": "-",
       "color": "GREEN"
@@ -1803,7 +1803,7 @@
     },
     "AIQ": {
       "sco": 8.25,
-      "final": 0.6391,
+      "final": 0.6386,
       "rtn": -7.14,
       "pos": "정배",
       "color": "-"
@@ -1815,16 +1815,30 @@
       "pos": "-",
       "color": "RED"
     },
+    "AAUC": {
+      "sco": 8.0,
+      "final": 0.6321,
+      "rtn": -6.48,
+      "pos": "-",
+      "color": "GREEN"
+    },
+    "MBX": {
+      "sco": 4.75,
+      "final": 0.6314,
+      "rtn": 116.25,
+      "pos": "-",
+      "color": "RED"
+    },
     "CCJ": {
       "sco": 8.25,
-      "final": 0.6289,
+      "final": 0.6287,
       "rtn": -12.7,
       "pos": "-",
       "color": "-"
     },
     "FLNG": {
       "sco": 6.5,
-      "final": 0.6261,
+      "final": 0.626,
       "rtn": 5.92,
       "pos": "-",
       "color": "GREEN"
@@ -1852,14 +1866,14 @@
     },
     "PSLV": {
       "sco": 7.5,
-      "final": 0.6177,
+      "final": 0.6175,
       "rtn": -5.98,
       "pos": "-",
       "color": "-"
     },
     "NET": {
       "sco": 5.5,
-      "final": 0.6152,
+      "final": 0.615,
       "rtn": 13.01,
       "pos": "-",
       "color": "-"
@@ -1873,56 +1887,56 @@
     },
     "ESGU": {
       "sco": 6.5,
-      "final": 0.613,
+      "final": 0.6129,
       "rtn": 2.45,
       "pos": "-",
       "color": "-"
     },
     "NTRS": {
       "sco": 5.5,
-      "final": 0.6102,
+      "final": 0.6101,
       "rtn": 11.4,
       "pos": "-",
       "color": "-"
     },
     "NOV": {
       "sco": 6.5,
-      "final": 0.6097,
+      "final": 0.6098,
       "rtn": 1.25,
       "pos": "-",
       "color": "-"
     },
     "IMTM": {
       "sco": 6.5,
-      "final": 0.6095,
+      "final": 0.6096,
       "rtn": 1.23,
-      "pos": "-",
-      "color": "-"
-    },
-    "LIT": {
-      "sco": 7.5,
-      "final": 0.609,
-      "rtn": -9.97,
       "pos": "-",
       "color": "-"
     },
     "HSBC": {
       "sco": 5.5,
-      "final": 0.6089,
+      "final": 0.6088,
       "rtn": 11.1,
       "pos": "-",
       "color": "RED"
     },
+    "LIT": {
+      "sco": 7.5,
+      "final": 0.6085,
+      "rtn": -9.97,
+      "pos": "-",
+      "color": "-"
+    },
     "LEU": {
       "sco": 7.0,
-      "final": 0.6079,
+      "final": 0.6078,
       "rtn": -3.24,
       "pos": "-",
       "color": "RED"
     },
     "MEOH": {
       "sco": 7.25,
-      "final": 0.6056,
+      "final": 0.6051,
       "rtn": -7.5,
       "pos": "-",
       "color": "GREEN"
@@ -1936,45 +1950,38 @@
     },
     "AGI": {
       "sco": 6.75,
-      "final": 0.6024,
+      "final": 0.6023,
       "rtn": -2.66,
       "pos": "-",
       "color": "-"
     },
     "AZTA": {
       "sco": 4.0,
-      "final": 0.6023,
+      "final": 0.6021,
       "rtn": 37.92,
       "pos": "-",
       "color": "-"
     },
     "OXY": {
       "sco": 6.5,
-      "final": 0.6018,
+      "final": 0.6017,
       "rtn": -0.45,
       "pos": "-",
       "color": "-"
     },
     "ICUI": {
       "sco": 4.0,
-      "final": 0.6007,
+      "final": 0.6005,
       "rtn": 34.16,
       "pos": "-",
       "color": "-"
     },
     "FUBO": {
       "sco": 5.75,
-      "final": 0.5993,
+      "final": 0.5992,
       "rtn": 4.89,
       "pos": "-",
       "color": "GREEN"
-    },
-    "SMFG": {
-      "sco": 5.0,
-      "final": 0.5983,
-      "rtn": 12.84,
-      "pos": "-",
-      "color": "LIME"
     },
     "DNTH": {
       "sco": 4.25,
@@ -1982,6 +1989,13 @@
       "rtn": 24.56,
       "pos": "-",
       "color": "RED"
+    },
+    "SMFG": {
+      "sco": 5.0,
+      "final": 0.5981,
+      "rtn": 12.84,
+      "pos": "-",
+      "color": "LIME"
     },
     "USFD": {
       "sco": 4.0,
@@ -1992,7 +2006,7 @@
     },
     "FTI": {
       "sco": 5.0,
-      "final": 0.5946,
+      "final": 0.5944,
       "rtn": 11.7,
       "pos": "-",
       "color": "-"
@@ -2004,16 +2018,9 @@
       "pos": "-",
       "color": "-"
     },
-    "AAUC": {
-      "sco": 7.0,
-      "final": 0.5919,
-      "rtn": -10.53,
-      "pos": "-",
-      "color": "GREEN"
-    },
     "INVX": {
       "sco": 5.0,
-      "final": 0.5898,
+      "final": 0.5897,
       "rtn": 10.09,
       "pos": "-",
       "color": "-"
@@ -2027,28 +2034,28 @@
     },
     "PRAX": {
       "sco": 4.0,
-      "final": 0.5892,
+      "final": 0.5891,
       "rtn": 23.6,
       "pos": "-",
       "color": "-"
     },
     "VIST": {
       "sco": 6.75,
-      "final": 0.5874,
+      "final": 0.5868,
       "rtn": -8.39,
       "pos": "-",
       "color": "GREEN"
     },
     "MP": {
       "sco": 7.25,
-      "final": 0.5856,
+      "final": 0.5854,
       "rtn": -18.12,
       "pos": "-",
       "color": "-"
     },
     "FEZ": {
       "sco": 5.0,
-      "final": 0.5819,
+      "final": 0.5818,
       "rtn": 7.23,
       "pos": "-",
       "color": "-"
@@ -2062,17 +2069,10 @@
     },
     "YUM": {
       "sco": 5.25,
-      "final": 0.5771,
+      "final": 0.577,
       "rtn": 3.65,
       "pos": "-",
       "color": "LIME"
-    },
-    "SLV": {
-      "sco": 6.5,
-      "final": 0.5771,
-      "rtn": -9.35,
-      "pos": "-",
-      "color": "-"
     },
     "ATI": {
       "sco": 4.0,
@@ -2088,72 +2088,72 @@
       "pos": "-",
       "color": "-"
     },
+    "SLV": {
+      "sco": 6.5,
+      "final": 0.5765,
+      "rtn": -9.35,
+      "pos": "-",
+      "color": "-"
+    },
     "GS": {
       "sco": 5.75,
-      "final": 0.5765,
+      "final": 0.5764,
       "rtn": -0.68,
       "pos": "-",
       "color": "GREEN"
     },
-    "MBX": {
-      "sco": 3.0,
-      "final": 0.5742,
-      "rtn": 109.65,
-      "pos": "-",
-      "color": "RED"
-    },
     "CACI": {
       "sco": 3.75,
-      "final": 0.5733,
+      "final": 0.5732,
       "rtn": 18.96,
       "pos": "-",
       "color": "-"
     },
     "RVT": {
       "sco": 5.0,
-      "final": 0.5713,
+      "final": 0.5712,
       "rtn": 4.04,
       "pos": "-",
       "color": "-"
     },
     "HLF": {
       "sco": 4.5,
-      "final": 0.5706,
+      "final": 0.5705,
       "rtn": 9.13,
       "pos": "-",
       "color": "LIME"
     },
     "VUG": {
       "sco": 5.5,
-      "final": 0.5695,
+      "final": 0.5694,
       "rtn": -0.33,
       "pos": "-",
       "color": "-"
     },
     "NVDA": {
       "sco": 5.25,
-      "final": 0.5692,
+      "final": 0.5693,
       "rtn": 1.42,
       "pos": "-",
       "color": "-"
     },
     "MO": {
       "sco": 5.5,
-      "final": 0.5675,
+      "final": 0.5674,
       "rtn": -0.89,
       "pos": "-",
       "color": "GREEN"
     },
     "ELAN": {
       "sco": 5.5,
-      "final": 0.5648,
+      "final": 0.5647,
       "rtn": -1.87,
       "pos": "-",
       "color": "-"
     },
     "HP": {
       "sco": 4.0,
-      "final": 0.5608,
+      "final": 0.5607,
       "rtn": 11.31,
       "pos": "-",
       "color": "-"
@@ -2167,14 +2167,14 @@
     },
     "SNPS": {
       "sco": 6.0,
-      "final": 0.5586,
+      "final": 0.5583,
       "rtn": -11.13,
       "pos": "-",
       "color": "GREEN"
     },
     "JPM": {
       "sco": 3.25,
-      "final": 0.5581,
+      "final": 0.558,
       "rtn": 19.41,
       "pos": "-",
       "color": "RED"
@@ -2188,7 +2188,7 @@
     },
     "NVS": {
       "sco": 4.25,
-      "final": 0.5568,
+      "final": 0.5567,
       "rtn": 7.07,
       "pos": "-",
       "color": "GREEN"
@@ -2202,21 +2202,21 @@
     },
     "GKOS": {
       "sco": 2.5,
-      "final": 0.556,
+      "final": 0.5559,
       "rtn": 58.28,
       "pos": "-",
       "color": "-"
     },
     "CDNS": {
       "sco": 6.25,
-      "final": 0.5556,
+      "final": 0.5552,
       "rtn": -16.57,
       "pos": "-",
       "color": "GREEN"
     },
     "TIGO": {
       "sco": 4.0,
-      "final": 0.555,
+      "final": 0.5549,
       "rtn": 9.38,
       "pos": "-",
       "color": "-"
@@ -2230,7 +2230,7 @@
     },
     "CRVS": {
       "sco": 3.0,
-      "final": 0.5538,
+      "final": 0.5537,
       "rtn": 22.07,
       "pos": "-",
       "color": "-"
@@ -2244,49 +2244,56 @@
     },
     "LDOS": {
       "sco": 3.5,
-      "final": 0.5514,
+      "final": 0.5511,
       "rtn": 13.52,
       "pos": "-",
       "color": "-"
     },
     "OII": {
       "sco": 2.5,
-      "final": 0.5509,
+      "final": 0.5507,
       "rtn": 33.17,
       "pos": "-",
       "color": "RED"
     },
     "ALL": {
       "sco": 2.75,
-      "final": 0.5491,
+      "final": 0.549,
       "rtn": 24.48,
       "pos": "-",
       "color": "RED"
     },
     "MS": {
       "sco": 4.5,
-      "final": 0.5486,
+      "final": 0.5485,
       "rtn": 2.77,
       "pos": "-",
       "color": "-"
     },
     "WHD": {
       "sco": 3.0,
-      "final": 0.5478,
+      "final": 0.5477,
       "rtn": 18.45,
       "pos": "-",
       "color": "-"
     },
+    "LTM": {
+      "sco": 4.75,
+      "final": 0.5477,
+      "rtn": 0.37,
+      "pos": "-",
+      "color": "RED"
+    },
     "UUUU": {
       "sco": 6.0,
-      "final": 0.5443,
+      "final": 0.5441,
       "rtn": -18.5,
       "pos": "-",
       "color": "-"
     },
     "EMR": {
       "sco": 3.5,
-      "final": 0.5423,
+      "final": 0.5422,
       "rtn": 10.52,
       "pos": "-",
       "color": "-"
@@ -2300,24 +2307,17 @@
     },
     "INDA": {
       "sco": 4.0,
-      "final": 0.5401,
+      "final": 0.54,
       "rtn": 4.65,
       "pos": "-",
       "color": "RED"
     },
     "SUN": {
       "sco": 3.0,
-      "final": 0.5387,
+      "final": 0.5385,
       "rtn": 14.58,
       "pos": "-",
       "color": "RED"
-    },
-    "SKYT": {
-      "sco": 5.25,
-      "final": 0.5377,
-      "rtn": -8.79,
-      "pos": "-",
-      "color": "-"
     },
     "CCS": {
       "sco": 2.25,
@@ -2335,84 +2335,91 @@
     },
     "AGCO": {
       "sco": 5.0,
-      "final": 0.5375,
+      "final": 0.5374,
       "rtn": -4.92,
       "pos": "-",
       "color": "GREEN"
     },
+    "SKYT": {
+      "sco": 5.25,
+      "final": 0.5372,
+      "rtn": -8.79,
+      "pos": "-",
+      "color": "-"
+    },
     "HLT": {
       "sco": 4.75,
-      "final": 0.5367,
+      "final": 0.5365,
       "rtn": -2.83,
       "pos": "-",
       "color": "GREEN"
     },
     "XLP": {
       "sco": 3.75,
-      "final": 0.5329,
+      "final": 0.5328,
       "rtn": 4.73,
       "pos": "-",
       "color": "RED"
     },
     "LMND": {
       "sco": 4.25,
-      "final": 0.5319,
+      "final": 0.532,
       "rtn": 0.57,
       "pos": "-",
       "color": "GREEN"
     },
     "TLT": {
       "sco": 4.5,
-      "final": 0.5318,
+      "final": 0.5316,
       "rtn": -2.1,
       "pos": "-",
       "color": "GREEN"
     },
     "GHRS": {
       "sco": 2.75,
-      "final": 0.53,
+      "final": 0.5297,
       "rtn": 14.37,
       "pos": "-",
       "color": "RED"
     },
     "PHG": {
       "sco": 3.5,
-      "final": 0.5271,
+      "final": 0.527,
       "rtn": 5.4,
       "pos": "-",
       "color": "-"
     },
     "SMTC": {
       "sco": 5.5,
-      "final": 0.5262,
+      "final": 0.5259,
       "rtn": -19.77,
       "pos": "-",
       "color": "-"
     },
     "MMM": {
       "sco": 2.5,
-      "final": 0.5241,
+      "final": 0.5239,
       "rtn": 15.47,
       "pos": "-",
       "color": "RED"
     },
     "XPRO": {
       "sco": 2.5,
-      "final": 0.5235,
+      "final": 0.5233,
       "rtn": 15.1,
       "pos": "-",
       "color": "-"
     },
     "ASX": {
       "sco": 4.5,
-      "final": 0.5221,
+      "final": 0.522,
       "rtn": -4.38,
       "pos": "-",
       "color": "RED"
     },
     "FMX": {
       "sco": 4.0,
-      "final": 0.5218,
+      "final": 0.5219,
       "rtn": -0.02,
       "pos": "-",
       "color": "GREEN"
@@ -2426,7 +2433,7 @@
     },
     "KEX": {
       "sco": 4.25,
-      "final": 0.5149,
+      "final": 0.5148,
       "rtn": -3.96,
       "pos": "-",
       "color": "GREEN"
@@ -2440,14 +2447,14 @@
     },
     "APH": {
       "sco": 2.75,
-      "final": 0.5076,
+      "final": 0.5075,
       "rtn": 7.02,
       "pos": "-",
       "color": "RED"
     },
     "HAL": {
       "sco": 4.5,
-      "final": 0.5074,
+      "final": 0.5071,
       "rtn": -11.82,
       "pos": "-",
       "color": "GREEN"
@@ -2461,70 +2468,70 @@
     },
     "OBK": {
       "sco": 2.0,
-      "final": 0.507,
+      "final": 0.5067,
       "rtn": 14.89,
       "pos": "-",
       "color": "RED"
     },
     "AMZN": {
       "sco": 2.75,
-      "final": 0.5058,
+      "final": 0.5057,
       "rtn": 6.56,
       "pos": "-",
       "color": "-"
     },
     "NVST": {
       "sco": 1.5,
-      "final": 0.5036,
+      "final": 0.5035,
       "rtn": 21.12,
       "pos": "-",
       "color": "RED"
     },
     "ATRO": {
       "sco": 2.0,
-      "final": 0.5027,
+      "final": 0.5025,
       "rtn": 13.6,
       "pos": "-",
       "color": "-"
     },
     "BCE": {
       "sco": 3.75,
-      "final": 0.5026,
+      "final": 0.5025,
       "rtn": -3.05,
       "pos": "-",
       "color": "-"
     },
     "SHW": {
       "sco": 1.75,
-      "final": 0.5025,
+      "final": 0.5024,
       "rtn": 16.58,
       "pos": "-",
       "color": "RED"
     },
     "ALV": {
       "sco": 4.0,
-      "final": 0.5019,
+      "final": 0.5016,
       "rtn": -6.4,
       "pos": "-",
       "color": "RED"
     },
     "HASI": {
       "sco": 3.25,
-      "final": 0.5011,
+      "final": 0.5012,
       "rtn": 0.78,
       "pos": "-",
       "color": "-"
     },
     "BAC": {
       "sco": 1.5,
-      "final": 0.5011,
+      "final": 0.501,
       "rtn": 19.55,
       "pos": "-",
       "color": "RED"
     },
     "CPNG": {
       "sco": 3.25,
-      "final": 0.4998,
+      "final": 0.4999,
       "rtn": 0.61,
       "pos": "-",
       "color": "GREEN"
@@ -2538,14 +2545,14 @@
     },
     "TSM": {
       "sco": 3.75,
-      "final": 0.4978,
+      "final": 0.4977,
       "rtn": -4.17,
       "pos": "-",
       "color": "RED"
     },
     "EOG": {
       "sco": 3.0,
-      "final": 0.4972,
+      "final": 0.4971,
       "rtn": 2.06,
       "pos": "-",
       "color": "-"
@@ -2566,28 +2573,28 @@
     },
     "WSM": {
       "sco": 1.75,
-      "final": 0.4961,
+      "final": 0.4959,
       "rtn": 13.89,
       "pos": "-",
       "color": "RED"
     },
     "CELC": {
       "sco": 3.25,
-      "final": 0.4951,
+      "final": 0.495,
       "rtn": -0.57,
       "pos": "-",
       "color": "-"
     },
     "WERN": {
       "sco": 4.0,
-      "final": 0.494,
+      "final": 0.4935,
       "rtn": -10.42,
       "pos": "-",
       "color": "GREEN"
     },
     "WFC": {
       "sco": 2.0,
-      "final": 0.4935,
+      "final": 0.4934,
       "rtn": 10.81,
       "pos": "-",
       "color": "RED"
@@ -2601,77 +2608,77 @@
     },
     "IEX": {
       "sco": 2.25,
-      "final": 0.4922,
+      "final": 0.4921,
       "rtn": 7.29,
       "pos": "-",
       "color": "RED"
     },
     "AX": {
       "sco": 1.5,
-      "final": 0.492,
+      "final": 0.4917,
       "rtn": 15.63,
       "pos": "-",
       "color": "RED"
     },
     "SSB": {
       "sco": 1.5,
-      "final": 0.4918,
+      "final": 0.4916,
       "rtn": 15.62,
       "pos": "-",
       "color": "-"
     },
     "DKNG": {
       "sco": 3.0,
-      "final": 0.4912,
+      "final": 0.4913,
       "rtn": 0.6,
       "pos": "-",
       "color": "-"
     },
     "SU": {
       "sco": 3.0,
-      "final": 0.4906,
+      "final": 0.4907,
       "rtn": 0.49,
       "pos": "-",
       "color": "-"
     },
     "DCI": {
       "sco": 2.0,
-      "final": 0.4869,
+      "final": 0.4868,
       "rtn": 8.56,
       "pos": "-",
       "color": "RED"
     },
     "XOM": {
       "sco": 2.5,
-      "final": 0.4861,
+      "final": 0.486,
       "rtn": 3.41,
       "pos": "-",
       "color": "-"
     },
     "LIN": {
       "sco": 3.25,
-      "final": 0.4851,
+      "final": 0.485,
       "rtn": -3.25,
       "pos": "-",
       "color": "GREEN"
     },
     "IWM": {
       "sco": 2.5,
-      "final": 0.4841,
+      "final": 0.484,
       "rtn": 3.05,
       "pos": "-",
       "color": "-"
     },
     "XLY": {
       "sco": 2.75,
-      "final": 0.4836,
+      "final": 0.4837,
       "rtn": 0.61,
       "pos": "-",
       "color": "-"
     },
     "AIG": {
       "sco": 2.0,
-      "final": 0.4823,
+      "final": 0.4822,
       "rtn": 6.74,
       "pos": "-",
       "color": "-"
@@ -2685,7 +2692,7 @@
     },
     "DCOM": {
       "sco": 1.5,
-      "final": 0.4783,
+      "final": 0.4782,
       "rtn": 11.13,
       "pos": "-",
       "color": "RED"
@@ -2699,35 +2706,35 @@
     },
     "QQQ": {
       "sco": 3.0,
-      "final": 0.475,
+      "final": 0.4749,
       "rtn": -3.63,
       "pos": "-",
       "color": "-"
     },
     "AME": {
       "sco": 2.0,
-      "final": 0.4711,
+      "final": 0.471,
       "rtn": 3.67,
       "pos": "-",
       "color": "RED"
     },
     "UPWK": {
       "sco": 1.75,
-      "final": 0.4697,
+      "final": 0.4696,
       "rtn": 5.37,
       "pos": "-",
       "color": "RED"
     },
     "C": {
       "sco": 2.0,
-      "final": 0.467,
+      "final": 0.4669,
       "rtn": 2.81,
       "pos": "-",
       "color": "RED"
     },
     "BAP": {
       "sco": 1.0,
-      "final": 0.4668,
+      "final": 0.4665,
       "rtn": 12.52,
       "pos": "-",
       "color": "RED"
@@ -2741,21 +2748,21 @@
     },
     "VNQ": {
       "sco": 1.75,
-      "final": 0.4648,
+      "final": 0.4647,
       "rtn": 3.91,
       "pos": "-",
       "color": "RED"
     },
     "GDS": {
       "sco": 2.75,
-      "final": 0.4637,
+      "final": 0.4636,
       "rtn": -5.0,
       "pos": "-",
       "color": "-"
     },
     "CLF": {
       "sco": 3.5,
-      "final": 0.4632,
+      "final": 0.463,
       "rtn": -17.88,
       "pos": "-",
       "color": "RED"
@@ -2769,14 +2776,14 @@
     },
     "ALB": {
       "sco": 3.5,
-      "final": 0.4628,
+      "final": 0.4626,
       "rtn": -18.19,
       "pos": "-",
       "color": "-"
     },
     "FXI": {
       "sco": 2.0,
-      "final": 0.4597,
+      "final": 0.4598,
       "rtn": 0.67,
       "pos": "-",
       "color": "RED"
@@ -2804,21 +2811,14 @@
     },
     "HRI": {
       "sco": 0.5,
-      "final": 0.4558,
-      "rtn": 14.11,
-      "pos": "-",
-      "color": "RED"
-    },
-    "LTM": {
-      "sco": 1.75,
       "final": 0.4556,
-      "rtn": 1.65,
+      "rtn": 14.11,
       "pos": "-",
       "color": "RED"
     },
     "PRU": {
       "sco": 0.0,
-      "final": 0.4532,
+      "final": 0.4531,
       "rtn": 20.22,
       "pos": "-",
       "color": "RED"
@@ -2832,21 +2832,21 @@
     },
     "GATX": {
       "sco": 1.0,
-      "final": 0.45,
+      "final": 0.4499,
       "rtn": 6.89,
       "pos": "-",
       "color": "-"
     },
     "LRCX": {
       "sco": 2.75,
-      "final": 0.4498,
+      "final": 0.4495,
       "rtn": -12.1,
       "pos": "-",
       "color": "-"
     },
     "SBCF": {
       "sco": 0.0,
-      "final": 0.4484,
+      "final": 0.4483,
       "rtn": 18.0,
       "pos": "-",
       "color": "RED"
@@ -2860,14 +2860,14 @@
     },
     "GM": {
       "sco": 1.0,
-      "final": 0.4459,
+      "final": 0.4458,
       "rtn": 5.82,
       "pos": "-",
       "color": "RED"
     },
     "OI": {
       "sco": 2.25,
-      "final": 0.4428,
+      "final": 0.4422,
       "rtn": -7.28,
       "pos": "-",
       "color": "GREEN"
@@ -2881,98 +2881,98 @@
     },
     "FBNC": {
       "sco": 0.25,
-      "final": 0.4407,
+      "final": 0.4404,
       "rtn": 12.08,
       "pos": "-",
       "color": "RED"
     },
     "MSGS": {
       "sco": 1.25,
-      "final": 0.4404,
+      "final": 0.4403,
       "rtn": 2.24,
       "pos": "-",
       "color": "RED"
     },
     "ADM": {
       "sco": 1.75,
-      "final": 0.4403,
+      "final": 0.4402,
       "rtn": -2.44,
       "pos": "-",
       "color": "GREEN"
     },
     "STNG": {
       "sco": 1.0,
-      "final": 0.4399,
+      "final": 0.4398,
       "rtn": 3.87,
       "pos": "-",
       "color": "RED"
     },
     "MU": {
       "sco": 2.5,
-      "final": 0.4395,
+      "final": 0.4394,
       "rtn": -13.58,
       "pos": "-",
       "color": "GREEN"
     },
     "BKR": {
       "sco": 1.75,
-      "final": 0.4393,
+      "final": 0.4392,
       "rtn": -2.54,
       "pos": "-",
       "color": "-"
     },
     "CI": {
       "sco": 1.0,
-      "final": 0.4374,
+      "final": 0.4373,
       "rtn": 3.61,
       "pos": "-",
       "color": "-"
     },
     "SIMO": {
       "sco": 2.75,
-      "final": 0.4365,
+      "final": 0.4364,
       "rtn": -19.66,
       "pos": "-",
       "color": "RED"
     },
     "HSY": {
       "sco": 1.5,
-      "final": 0.4358,
+      "final": 0.4357,
       "rtn": -1.5,
       "pos": "-",
       "color": "-"
     },
     "BG": {
       "sco": 2.25,
-      "final": 0.4347,
+      "final": 0.4343,
       "rtn": -11.57,
       "pos": "-",
       "color": "GREEN"
     },
     "SRVR": {
       "sco": 2.0,
-      "final": 0.4328,
+      "final": 0.4323,
       "rtn": -8.14,
       "pos": "역배",
       "color": "-"
     },
     "ASND": {
       "sco": -0.25,
-      "final": 0.4317,
+      "final": 0.4314,
       "rtn": 14.35,
       "pos": "-",
       "color": "RED"
     },
     "TSLA": {
       "sco": 2.5,
-      "final": 0.431,
+      "final": 0.4309,
       "rtn": -17.69,
       "pos": "-",
       "color": "GREEN"
     },
     "QCOM": {
       "sco": 2.5,
-      "final": 0.4173,
+      "final": 0.4174,
       "rtn": -34.08,
       "pos": "-",
       "color": "GREEN"
@@ -2984,23 +2984,30 @@
       "pos": "-",
       "color": "-"
     },
+    "UPB": {
+      "sco": 1.25,
+      "final": 0.4121,
+      "rtn": -6.34,
+      "pos": "-",
+      "color": "GREEN"
+    },
     "ITW": {
       "sco": -0.75,
-      "final": 0.4097,
+      "final": 0.4095,
       "rtn": 12.6,
       "pos": "-",
       "color": "RED"
     },
     "NLY": {
       "sco": -0.75,
-      "final": 0.4094,
+      "final": 0.4091,
       "rtn": 12.48,
       "pos": "-",
       "color": "RED"
     },
     "UMBF": {
       "sco": -1.0,
-      "final": 0.4087,
+      "final": 0.4085,
       "rtn": 14.81,
       "pos": "-",
       "color": "RED"
@@ -3026,17 +3033,17 @@
       "pos": "-",
       "color": "-"
     },
-    "WDS": {
-      "sco": 0.0,
-      "final": 0.4036,
-      "rtn": 3.32,
+    "AMAL": {
+      "sco": -1.5,
+      "final": 0.4035,
+      "rtn": 19.92,
       "pos": "-",
       "color": "RED"
     },
-    "AMAL": {
-      "sco": -1.5,
-      "final": 0.4036,
-      "rtn": 19.92,
+    "WDS": {
+      "sco": 0.0,
+      "final": 0.4035,
+      "rtn": 3.32,
       "pos": "-",
       "color": "RED"
     },
@@ -3049,105 +3056,105 @@
     },
     "TS": {
       "sco": 1.5,
-      "final": 0.4032,
+      "final": 0.403,
       "rtn": -15.7,
-      "pos": "-",
-      "color": "-"
-    },
-    "UPB": {
-      "sco": 1.25,
-      "final": 0.4004,
-      "rtn": -12.32,
       "pos": "-",
       "color": "-"
     },
     "GSAT": {
       "sco": 0.25,
-      "final": 0.3998,
+      "final": 0.3999,
       "rtn": 0.2,
       "pos": "-",
       "color": "RED"
     },
     "CFG": {
       "sco": -1.25,
-      "final": 0.3984,
+      "final": 0.3982,
       "rtn": 14.03,
       "pos": "-",
       "color": "RED"
     },
     "KEP": {
       "sco": 1.0,
-      "final": 0.3975,
+      "final": 0.3969,
       "rtn": -9.25,
       "pos": "-",
       "color": "-"
     },
     "RUSHA": {
       "sco": -1.25,
-      "final": 0.3969,
+      "final": 0.3966,
       "rtn": 13.7,
       "pos": "-",
       "color": "RED"
     },
     "GD": {
       "sco": -1.25,
-      "final": 0.3947,
+      "final": 0.3945,
       "rtn": 13.04,
       "pos": "-",
       "color": "RED"
     },
     "UNH": {
       "sco": -0.5,
-      "final": 0.3946,
+      "final": 0.3945,
       "rtn": 4.83,
       "pos": "-",
       "color": "-"
     },
     "SNA": {
       "sco": -0.5,
-      "final": 0.3924,
+      "final": 0.3923,
       "rtn": 4.48,
       "pos": "-",
       "color": "RED"
     },
     "BTSG": {
       "sco": 0.25,
-      "final": 0.3893,
+      "final": 0.3892,
       "rtn": -2.87,
       "pos": "-",
       "color": "-"
     },
     "CFR": {
       "sco": -2.0,
-      "final": 0.3886,
+      "final": 0.3885,
       "rtn": 20.41,
       "pos": "-",
       "color": "RED"
     },
     "UBSI": {
       "sco": -1.5,
-      "final": 0.3856,
+      "final": 0.3854,
       "rtn": 12.74,
       "pos": "-",
       "color": "RED"
     },
+    "NBIS": {
+      "sco": 1.0,
+      "final": 0.3853,
+      "rtn": -16.16,
+      "pos": "-",
+      "color": "GREEN"
+    },
     "CHRW": {
       "sco": 1.0,
-      "final": 0.3841,
+      "final": 0.3838,
       "rtn": -16.51,
       "pos": "-",
       "color": "GREEN"
     },
     "DAN": {
       "sco": 1.0,
-      "final": 0.3837,
+      "final": 0.3834,
       "rtn": -16.6,
       "pos": "-",
       "color": "-"
     },
     "ALHC": {
       "sco": 0.25,
-      "final": 0.383,
+      "final": 0.3828,
       "rtn": -4.42,
       "pos": "-",
       "color": "-"
@@ -3161,42 +3168,42 @@
     },
     "NUE": {
       "sco": 0.0,
-      "final": 0.3819,
+      "final": 0.3818,
       "rtn": -2.57,
       "pos": "-",
       "color": "RED"
     },
     "CB": {
       "sco": -1.25,
-      "final": 0.3818,
+      "final": 0.3817,
       "rtn": 9.03,
       "pos": "-",
       "color": "RED"
     },
     "BE": {
       "sco": 1.25,
-      "final": 0.3809,
+      "final": 0.3807,
       "rtn": -26.64,
-      "pos": "-",
-      "color": "-"
-    },
-    "WFRD": {
-      "sco": 0.5,
-      "final": 0.3805,
-      "rtn": -9.61,
       "pos": "-",
       "color": "-"
     },
     "CLH": {
       "sco": -1.25,
-      "final": 0.3801,
+      "final": 0.38,
       "rtn": 8.4,
       "pos": "-",
       "color": "RED"
     },
+    "WFRD": {
+      "sco": 0.5,
+      "final": 0.38,
+      "rtn": -9.61,
+      "pos": "-",
+      "color": "-"
+    },
     "LAZ": {
       "sco": 0.25,
-      "final": 0.3799,
+      "final": 0.3797,
       "rtn": -6.2,
       "pos": "-",
       "color": "-"
@@ -3224,168 +3231,161 @@
     },
     "LMT": {
       "sco": -1.5,
-      "final": 0.3777,
+      "final": 0.3776,
       "rtn": 10.12,
       "pos": "-",
       "color": "RED"
     },
     "SYK": {
       "sco": -1.75,
-      "final": 0.3759,
+      "final": 0.3756,
       "rtn": 12.4,
       "pos": "-",
       "color": "RED"
     },
     "ETN": {
       "sco": 0.0,
-      "final": 0.3754,
+      "final": 0.3752,
       "rtn": -4.14,
       "pos": "-",
       "color": "RED"
     },
     "WCC": {
       "sco": 0.25,
-      "final": 0.3718,
+      "final": 0.3712,
       "rtn": -10.04,
       "pos": "-",
       "color": "RED"
     },
     "TLK": {
       "sco": -0.75,
-      "final": 0.3709,
+      "final": 0.371,
       "rtn": 0.87,
       "pos": "-",
       "color": "RED"
     },
     "GBX": {
       "sco": -0.5,
-      "final": 0.3706,
+      "final": 0.3705,
       "rtn": -1.33,
       "pos": "-",
       "color": "-"
     },
     "CL": {
       "sco": -1.5,
-      "final": 0.3704,
+      "final": 0.3703,
       "rtn": 7.54,
       "pos": "-",
       "color": "RED"
     },
     "ASML": {
       "sco": -0.5,
-      "final": 0.3695,
+      "final": 0.3693,
       "rtn": -1.62,
       "pos": "-",
       "color": "-"
     },
     "CVBF": {
       "sco": -2.0,
-      "final": 0.3691,
+      "final": 0.3688,
       "rtn": 12.64,
       "pos": "-",
       "color": "RED"
     },
     "ENTG": {
       "sco": -0.25,
-      "final": 0.3682,
+      "final": 0.368,
       "rtn": -3.77,
       "pos": "-",
       "color": "-"
     },
     "PCAR": {
       "sco": -1.75,
-      "final": 0.368,
+      "final": 0.3679,
       "rtn": 9.87,
-      "pos": "-",
-      "color": "RED"
-    },
-    "PNC": {
-      "sco": -2.0,
-      "final": 0.3664,
-      "rtn": 11.86,
       "pos": "-",
       "color": "RED"
     },
     "PNTG": {
       "sco": -2.75,
-      "final": 0.3664,
+      "final": 0.3663,
       "rtn": 22.17,
+      "pos": "-",
+      "color": "RED"
+    },
+    "PNC": {
+      "sco": -2.0,
+      "final": 0.3661,
+      "rtn": 11.86,
       "pos": "-",
       "color": "RED"
     },
     "THO": {
       "sco": -0.5,
-      "final": 0.3652,
+      "final": 0.3651,
       "rtn": -2.76,
       "pos": "-",
       "color": "RED"
     },
     "GXO": {
       "sco": -0.5,
-      "final": 0.3635,
+      "final": 0.3633,
       "rtn": -3.07,
       "pos": "-",
       "color": "-"
     },
     "IBM": {
       "sco": 0.5,
-      "final": 0.3608,
+      "final": 0.3605,
       "rtn": -22.36,
       "pos": "-",
       "color": "-"
     },
     "UCB": {
       "sco": -2.0,
-      "final": 0.36,
+      "final": 0.3599,
       "rtn": 9.88,
       "pos": "-",
       "color": "RED"
     },
     "BP": {
       "sco": -0.75,
-      "final": 0.3594,
+      "final": 0.3592,
       "rtn": -2.32,
       "pos": "-",
       "color": "RED"
     },
-    "NBIS": {
-      "sco": 0.25,
-      "final": 0.359,
-      "rtn": -16.89,
-      "pos": "-",
-      "color": "GREEN"
-    },
     "TEX": {
       "sco": -1.25,
-      "final": 0.3588,
+      "final": 0.3587,
       "rtn": 2.24,
       "pos": "-",
       "color": "RED"
     },
     "GTY": {
       "sco": -1.5,
-      "final": 0.3578,
+      "final": 0.3577,
       "rtn": 3.85,
       "pos": "-",
       "color": "-"
     },
     "ONB": {
       "sco": -2.25,
-      "final": 0.3574,
+      "final": 0.3572,
       "rtn": 11.57,
       "pos": "-",
       "color": "RED"
     },
     "CR": {
       "sco": -2.25,
-      "final": 0.3563,
+      "final": 0.3562,
       "rtn": 11.24,
       "pos": "-",
       "color": "RED"
     },
     "PKG": {
       "sco": -2.0,
-      "final": 0.3548,
+      "final": 0.3547,
       "rtn": 7.84,
       "pos": "-",
       "color": "RED"
@@ -3399,36 +3399,36 @@
     },
     "ONTO": {
       "sco": -0.75,
-      "final": 0.3539,
+      "final": 0.3538,
       "rtn": -3.28,
-      "pos": "-",
-      "color": "-"
-    },
-    "META": {
-      "sco": -0.5,
-      "final": 0.3532,
-      "rtn": -7.13,
       "pos": "-",
       "color": "-"
     },
     "AIT": {
       "sco": -1.5,
-      "final": 0.353,
+      "final": 0.3529,
       "rtn": 2.96,
+      "pos": "-",
+      "color": "RED"
+    },
+    "META": {
+      "sco": -0.5,
+      "final": 0.3527,
+      "rtn": -7.13,
+      "pos": "-",
+      "color": "-"
+    },
+    "HWC": {
+      "sco": -2.5,
+      "final": 0.3517,
+      "rtn": 12.47,
       "pos": "-",
       "color": "RED"
     },
     "ACMR": {
       "sco": 0.0,
-      "final": 0.352,
+      "final": 0.3517,
       "rtn": -16.25,
-      "pos": "-",
-      "color": "RED"
-    },
-    "HWC": {
-      "sco": -2.5,
-      "final": 0.3519,
-      "rtn": 12.47,
       "pos": "-",
       "color": "RED"
     },
@@ -3441,21 +3441,21 @@
     },
     "SHOO": {
       "sco": -1.5,
-      "final": 0.3491,
+      "final": 0.3492,
       "rtn": 1.49,
       "pos": "-",
       "color": "RED"
     },
     "SPMO": {
       "sco": -0.75,
-      "final": 0.3487,
+      "final": 0.3486,
       "rtn": -5.21,
       "pos": "-",
       "color": "RED"
     },
     "CARZ": {
       "sco": -0.25,
-      "final": 0.3487,
+      "final": 0.3485,
       "rtn": -13.82,
       "pos": "-",
       "color": "-"
@@ -3469,21 +3469,21 @@
     },
     "OCS": {
       "sco": -0.75,
-      "final": 0.3453,
+      "final": 0.3447,
       "rtn": -7.08,
       "pos": "-",
       "color": "-"
     },
     "HTH": {
       "sco": -2.25,
-      "final": 0.3447,
+      "final": 0.3446,
       "rtn": 7.16,
       "pos": "-",
       "color": "RED"
     },
     "TTE": {
       "sco": -1.0,
-      "final": 0.3444,
+      "final": 0.3443,
       "rtn": -3.61,
       "pos": "-",
       "color": "RED"
@@ -3497,7 +3497,7 @@
     },
     "PG": {
       "sco": -2.0,
-      "final": 0.3384,
+      "final": 0.3383,
       "rtn": 3.33,
       "pos": "-",
       "color": "RED"
@@ -3511,56 +3511,56 @@
     },
     "FITB": {
       "sco": -3.0,
-      "final": 0.3308,
+      "final": 0.3307,
       "rtn": 10.99,
       "pos": "-",
       "color": "RED"
     },
     "PEN": {
       "sco": -2.0,
-      "final": 0.3293,
+      "final": 0.3294,
       "rtn": 0.72,
       "pos": "-",
       "color": "-"
     },
     "COST": {
       "sco": -1.75,
-      "final": 0.3292,
+      "final": 0.3291,
       "rtn": -1.54,
       "pos": "-",
       "color": "RED"
     },
     "EBAY": {
       "sco": -1.75,
-      "final": 0.3236,
+      "final": 0.3234,
       "rtn": -2.94,
       "pos": "-",
       "color": "-"
     },
     "AXP": {
       "sco": -3.25,
-      "final": 0.3234,
+      "final": 0.3233,
       "rtn": 11.16,
       "pos": "-",
       "color": "RED"
     },
     "STX": {
       "sco": -1.25,
-      "final": 0.3198,
+      "final": 0.3195,
       "rtn": -11.73,
       "pos": "-",
       "color": "RED"
     },
     "CGNX": {
       "sco": -1.5,
-      "final": 0.3178,
+      "final": 0.3173,
       "rtn": -8.35,
       "pos": "-",
       "color": "RED"
     },
     "TMUS": {
       "sco": -2.25,
-      "final": 0.3171,
+      "final": 0.3172,
       "rtn": -0.04,
       "pos": "-",
       "color": "-"
@@ -3574,49 +3574,49 @@
     },
     "SBS": {
       "sco": -1.5,
-      "final": 0.315,
+      "final": 0.3144,
       "rtn": -9.81,
       "pos": "-",
       "color": "-"
     },
     "GOOG": {
       "sco": -2.0,
-      "final": 0.3121,
+      "final": 0.312,
       "rtn": -3.54,
       "pos": "-",
       "color": "RED"
     },
     "BSX": {
       "sco": -2.25,
-      "final": 0.3117,
+      "final": 0.3115,
       "rtn": -1.78,
       "pos": "-",
       "color": "-"
     },
     "WGO": {
       "sco": -3.25,
-      "final": 0.3112,
+      "final": 0.3111,
       "rtn": 6.96,
       "pos": "-",
       "color": "RED"
     },
     "BKU": {
       "sco": -2.75,
-      "final": 0.3108,
+      "final": 0.3107,
       "rtn": 2.46,
       "pos": "-",
       "color": "RED"
     },
     "XLI": {
       "sco": -2.75,
-      "final": 0.309,
+      "final": 0.3089,
       "rtn": 2.03,
       "pos": "-",
       "color": "RED"
     },
     "MTUM": {
       "sco": -1.75,
-      "final": 0.3085,
+      "final": 0.308,
       "rtn": -8.94,
       "pos": "-",
       "color": "RED"
@@ -3630,14 +3630,14 @@
     },
     "HYMC": {
       "sco": -1.0,
-      "final": 0.3079,
+      "final": 0.3078,
       "rtn": -25.89,
       "pos": "-",
       "color": "-"
     },
     "AMD": {
       "sco": -1.5,
-      "final": 0.3066,
+      "final": 0.3065,
       "rtn": -14.18,
       "pos": "-",
       "color": "RED"
@@ -3651,28 +3651,28 @@
     },
     "CVS": {
       "sco": -3.0,
-      "final": 0.3028,
+      "final": 0.3027,
       "rtn": 2.48,
+      "pos": "-",
+      "color": "-"
+    },
+    "BWA": {
+      "sco": -1.5,
+      "final": 0.3022,
+      "rtn": -16.28,
       "pos": "-",
       "color": "-"
     },
     "PDP": {
       "sco": -2.0,
-      "final": 0.3027,
+      "final": 0.3021,
       "rtn": -8.01,
       "pos": "-",
       "color": "RED"
     },
-    "BWA": {
-      "sco": -1.5,
-      "final": 0.3026,
-      "rtn": -16.28,
-      "pos": "-",
-      "color": "-"
-    },
     "AFL": {
       "sco": -3.0,
-      "final": 0.3018,
+      "final": 0.3017,
       "rtn": 2.28,
       "pos": "-",
       "color": "RED"
@@ -3686,7 +3686,7 @@
     },
     "LCII": {
       "sco": -2.5,
-      "final": 0.301,
+      "final": 0.3009,
       "rtn": -2.51,
       "pos": "-",
       "color": "RED"
@@ -3700,274 +3700,267 @@
     },
     "NOC": {
       "sco": -3.25,
-      "final": 0.2998,
+      "final": 0.2997,
       "rtn": 3.71,
       "pos": "-",
       "color": "RED"
     },
     "WRBY": {
       "sco": -3.25,
-      "final": 0.2967,
+      "final": 0.2966,
       "rtn": 3.22,
-      "pos": "-",
-      "color": "RED"
-    },
-    "CMC": {
-      "sco": -2.0,
-      "final": 0.2963,
-      "rtn": -11.4,
       "pos": "-",
       "color": "RED"
     },
     "AUB": {
       "sco": -4.25,
-      "final": 0.2963,
+      "final": 0.296,
       "rtn": 12.87,
+      "pos": "-",
+      "color": "RED"
+    },
+    "CMC": {
+      "sco": -2.0,
+      "final": 0.2959,
+      "rtn": -11.4,
       "pos": "-",
       "color": "RED"
     },
     "DWAS": {
       "sco": -2.5,
-      "final": 0.294,
+      "final": 0.2939,
       "rtn": -3.99,
       "pos": "-",
       "color": "RED"
     },
     "BRKR": {
       "sco": -2.25,
-      "final": 0.2924,
+      "final": 0.2918,
       "rtn": -8.88,
       "pos": "-",
       "color": "RED"
     },
     "TIMB": {
       "sco": -1.75,
-      "final": 0.29,
+      "final": 0.2898,
       "rtn": -19.1,
       "pos": "-",
       "color": "-"
     },
     "TRNO": {
       "sco": -3.75,
-      "final": 0.2875,
+      "final": 0.2874,
       "rtn": 4.72,
       "pos": "-",
       "color": "RED"
     },
     "SOXX": {
       "sco": -2.0,
-      "final": 0.2845,
+      "final": 0.2843,
       "rtn": -17.35,
       "pos": "-",
       "color": "RED"
     },
     "LOB": {
       "sco": -4.5,
-      "final": 0.2835,
+      "final": 0.2834,
       "rtn": 11.44,
       "pos": "-",
       "color": "RED"
     },
     "APG": {
       "sco": -2.75,
-      "final": 0.2824,
+      "final": 0.2823,
       "rtn": -6.08,
       "pos": "-",
       "color": "-"
     },
     "NVT": {
       "sco": -2.25,
-      "final": 0.2804,
+      "final": 0.2802,
       "rtn": -15.71,
       "pos": "-",
       "color": "RED"
     },
     "FFBC": {
       "sco": -4.5,
-      "final": 0.28,
+      "final": 0.2799,
       "rtn": 10.25,
       "pos": "-",
       "color": "RED"
     },
     "CAAP": {
       "sco": -2.75,
-      "final": 0.2791,
+      "final": 0.2786,
       "rtn": -7.38,
       "pos": "-",
       "color": "-"
     },
     "ENS": {
       "sco": -2.0,
-      "final": 0.2785,
+      "final": 0.2782,
       "rtn": -22.68,
-      "pos": "-",
-      "color": "RED"
-    },
-    "TER": {
-      "sco": -2.5,
-      "final": 0.2765,
-      "rtn": -13.35,
       "pos": "-",
       "color": "RED"
     },
     "PBA": {
       "sco": -3.5,
-      "final": 0.2764,
+      "final": 0.2765,
       "rtn": -0.03,
+      "pos": "-",
+      "color": "RED"
+    },
+    "TER": {
+      "sco": -2.5,
+      "final": 0.2763,
+      "rtn": -13.35,
       "pos": "-",
       "color": "RED"
     },
     "TCBI": {
       "sco": -3.5,
-      "final": 0.2754,
+      "final": 0.2753,
       "rtn": -0.3,
       "pos": "-",
       "color": "RED"
     },
     "CRH": {
       "sco": -2.75,
-      "final": 0.2752,
+      "final": 0.2747,
       "rtn": -9.11,
       "pos": "-",
       "color": "-"
     },
     "COHU": {
       "sco": -2.5,
-      "final": 0.2738,
+      "final": 0.2736,
       "rtn": -14.47,
       "pos": "-",
       "color": "-"
     },
-    "MAR": {
-      "sco": -3.0,
-      "final": 0.2729,
-      "rtn": -6.62,
+    "INDB": {
+      "sco": -4.5,
+      "final": 0.2726,
+      "rtn": 7.74,
       "pos": "-",
       "color": "RED"
     },
-    "INDB": {
-      "sco": -4.5,
-      "final": 0.2727,
-      "rtn": 7.74,
+    "MAR": {
+      "sco": -3.0,
+      "final": 0.2723,
+      "rtn": -6.62,
       "pos": "-",
       "color": "RED"
     },
     "CROX": {
       "sco": -4.0,
-      "final": 0.272,
+      "final": 0.2719,
       "rtn": 3.17,
       "pos": "-",
       "color": "RED"
     },
     "TT": {
       "sco": -3.25,
-      "final": 0.2716,
+      "final": 0.2715,
       "rtn": -3.4,
       "pos": "-",
       "color": "RED"
     },
     "HSAI": {
       "sco": -2.5,
-      "final": 0.2711,
+      "final": 0.2707,
       "rtn": -16.17,
       "pos": "-",
       "color": "-"
     },
     "ARCB": {
       "sco": -3.25,
-      "final": 0.2699,
+      "final": 0.2698,
       "rtn": -3.85,
       "pos": "-",
       "color": "RED"
     },
     "BMO": {
       "sco": -4.5,
-      "final": 0.2694,
+      "final": 0.2693,
       "rtn": 6.61,
       "pos": "-",
       "color": "RED"
     },
     "CPA": {
       "sco": -3.25,
-      "final": 0.2684,
+      "final": 0.2682,
       "rtn": -4.67,
       "pos": "-",
       "color": "RED"
     },
     "DAL": {
       "sco": -4.0,
-      "final": 0.268,
+      "final": 0.2679,
       "rtn": 1.89,
       "pos": "-",
       "color": "RED"
     },
     "MIRM": {
       "sco": -4.5,
-      "final": 0.2671,
+      "final": 0.267,
       "rtn": 6.13,
       "pos": "-",
       "color": "-"
     },
     "ITA": {
       "sco": -4.25,
-      "final": 0.2656,
+      "final": 0.2655,
       "rtn": 3.6,
       "pos": "-",
       "color": "RED"
     },
     "STLD": {
       "sco": -2.75,
-      "final": 0.2654,
+      "final": 0.2652,
       "rtn": -14.51,
       "pos": "-",
       "color": "RED"
     },
     "BMA": {
       "sco": -3.0,
-      "final": 0.264,
+      "final": 0.2636,
       "rtn": -11.19,
       "pos": "-",
       "color": "-"
     },
     "O": {
       "sco": -4.5,
-      "final": 0.2626,
+      "final": 0.2625,
       "rtn": 4.67,
       "pos": "-",
       "color": "RED"
     },
     "DLX": {
       "sco": -4.5,
-      "final": 0.2624,
+      "final": 0.2623,
       "rtn": 4.66,
       "pos": "-",
       "color": "RED"
     },
     "MLI": {
       "sco": -3.5,
-      "final": 0.2611,
+      "final": 0.261,
       "rtn": -4.12,
       "pos": "-",
       "color": "RED"
     },
     "CSCO": {
       "sco": -3.0,
-      "final": 0.2609,
+      "final": 0.2607,
       "rtn": -12.77,
       "pos": "-",
       "color": "RED"
     },
     "FERG": {
       "sco": -4.25,
-      "final": 0.259,
+      "final": 0.2591,
       "rtn": 1.44,
-      "pos": "-",
-      "color": "RED"
-    },
-    "SNDR": {
-      "sco": -3.5,
-      "final": 0.2586,
-      "rtn": -5.5,
       "pos": "-",
       "color": "RED"
     },
@@ -3978,33 +3971,40 @@
       "pos": "-",
       "color": "RED"
     },
+    "SNDR": {
+      "sco": -3.5,
+      "final": 0.2585,
+      "rtn": -5.5,
+      "pos": "-",
+      "color": "RED"
+    },
     "FCEL": {
       "sco": -2.75,
-      "final": 0.2579,
+      "final": 0.2577,
       "rtn": -18.57,
       "pos": "-",
       "color": "RED"
     },
     "NGG": {
       "sco": -4.0,
-      "final": 0.2564,
+      "final": 0.2563,
       "rtn": -1.1,
+      "pos": "-",
+      "color": "RED"
+    },
+    "RNST": {
+      "sco": -4.75,
+      "final": 0.2557,
+      "rtn": 4.83,
       "pos": "-",
       "color": "RED"
     },
     "BOTZ": {
       "sco": -3.25,
-      "final": 0.256,
+      "final": 0.2557,
       "rtn": -11.18,
       "pos": "-",
       "color": "-"
-    },
-    "RNST": {
-      "sco": -4.75,
-      "final": 0.2558,
-      "rtn": 4.83,
-      "pos": "-",
-      "color": "RED"
     },
     "MTSI": {
       "sco": -2.5,
@@ -4015,29 +4015,22 @@
     },
     "COHR": {
       "sco": -2.5,
-      "final": 0.2548,
+      "final": 0.2549,
       "rtn": -33.11,
       "pos": "-",
       "color": "RED"
     },
     "JCI": {
       "sco": -3.75,
-      "final": 0.2518,
+      "final": 0.2517,
       "rtn": -4.75,
       "pos": "-",
       "color": "RED"
     },
     "IONQ": {
       "sco": -2.5,
-      "final": 0.2492,
+      "final": 0.2493,
       "rtn": -42.55,
-      "pos": "-",
-      "color": "-"
-    },
-    "ORLA": {
-      "sco": -2.75,
-      "final": 0.2488,
-      "rtn": -29.62,
       "pos": "-",
       "color": "-"
     },
@@ -4050,63 +4043,63 @@
     },
     "PAVE": {
       "sco": -4.0,
-      "final": 0.2475,
+      "final": 0.2474,
       "rtn": -3.29,
       "pos": "-",
       "color": "RED"
     },
     "WDC": {
       "sco": -3.0,
-      "final": 0.246,
+      "final": 0.2457,
       "rtn": -22.65,
       "pos": "-",
       "color": "RED"
     },
     "URI": {
       "sco": -4.25,
-      "final": 0.2447,
+      "final": 0.2446,
       "rtn": -2.32,
       "pos": "-",
       "color": "RED"
     },
     "TYRA": {
       "sco": -3.5,
-      "final": 0.2442,
+      "final": 0.244,
       "rtn": -13.07,
       "pos": "역배",
       "color": "RED"
     },
     "QXO": {
       "sco": -3.25,
-      "final": 0.2429,
+      "final": 0.2427,
       "rtn": -17.76,
       "pos": "역배",
       "color": "RED"
     },
     "GLW": {
       "sco": -3.0,
-      "final": 0.2427,
+      "final": 0.2426,
       "rtn": -25.79,
       "pos": "-",
       "color": "RED"
     },
     "HST": {
       "sco": -4.25,
-      "final": 0.2415,
+      "final": 0.2413,
       "rtn": -3.0,
       "pos": "-",
       "color": "RED"
     },
     "TFIN": {
       "sco": -5.25,
-      "final": 0.2406,
+      "final": 0.2405,
       "rtn": 5.21,
       "pos": "-",
       "color": "RED"
     },
     "F": {
       "sco": -3.75,
-      "final": 0.2402,
+      "final": 0.2399,
       "rtn": -10.69,
       "pos": "-",
       "color": "RED"
@@ -4120,7 +4113,7 @@
     },
     "DIOD": {
       "sco": -3.25,
-      "final": 0.2357,
+      "final": 0.2356,
       "rtn": -24.28,
       "pos": "-",
       "color": "RED"
@@ -4132,44 +4125,51 @@
       "pos": "-",
       "color": "RED"
     },
+    "SITE": {
+      "sco": -4.25,
+      "final": 0.2324,
+      "rtn": -6.28,
+      "pos": "-",
+      "color": "RED"
+    },
     "QMOM": {
       "sco": -4.0,
-      "final": 0.2326,
+      "final": 0.2321,
       "rtn": -10.21,
       "pos": "-",
       "color": "RED"
     },
-    "SITE": {
-      "sco": -4.25,
-      "final": 0.2326,
-      "rtn": -6.28,
+    "ALMS": {
+      "sco": -6.5,
+      "final": 0.2306,
+      "rtn": 15.82,
       "pos": "-",
       "color": "RED"
     },
     "GBCI": {
       "sco": -5.25,
-      "final": 0.2294,
+      "final": 0.2293,
       "rtn": 2.53,
       "pos": "-",
       "color": "RED"
     },
     "KGS": {
       "sco": -4.0,
-      "final": 0.2267,
+      "final": 0.2265,
       "rtn": -13.73,
       "pos": "-",
       "color": "RED"
     },
     "BABA": {
       "sco": -4.5,
-      "final": 0.2256,
+      "final": 0.2254,
       "rtn": -5.67,
       "pos": "-",
       "color": "RED"
     },
     "ABCB": {
       "sco": -5.5,
-      "final": 0.2251,
+      "final": 0.225,
       "rtn": 3.64,
       "pos": "-",
       "color": "RED"
@@ -4183,24 +4183,17 @@
     },
     "OUST": {
       "sco": -3.75,
-      "final": 0.2223,
+      "final": 0.2219,
       "rtn": -21.25,
       "pos": "-",
       "color": "RED"
     },
     "LSTR": {
       "sco": -4.0,
-      "final": 0.2218,
+      "final": 0.2215,
       "rtn": -16.17,
       "pos": "-",
       "color": "-"
-    },
-    "VRT": {
-      "sco": -3.75,
-      "final": 0.2217,
-      "rtn": -22.42,
-      "pos": "역배",
-      "color": "RED"
     },
     "AMRC": {
       "sco": -3.5,
@@ -4209,31 +4202,31 @@
       "pos": "역배",
       "color": "RED"
     },
+    "VRT": {
+      "sco": -3.75,
+      "final": 0.2213,
+      "rtn": -22.42,
+      "pos": "역배",
+      "color": "RED"
+    },
     "AAL": {
       "sco": -5.25,
-      "final": 0.2211,
+      "final": 0.2212,
       "rtn": 0.52,
       "pos": "-",
       "color": "RED"
     },
     "HII": {
       "sco": -5.5,
-      "final": 0.2203,
+      "final": 0.2202,
       "rtn": 2.32,
       "pos": "-",
       "color": "RED"
     },
     "HD": {
       "sco": -6.0,
-      "final": 0.2186,
+      "final": 0.2185,
       "rtn": 6.29,
-      "pos": "-",
-      "color": "RED"
-    },
-    "ALMS": {
-      "sco": -6.5,
-      "final": 0.2183,
-      "rtn": 11.45,
       "pos": "-",
       "color": "RED"
     },
@@ -4246,21 +4239,21 @@
     },
     "DAKT": {
       "sco": -5.25,
-      "final": 0.2171,
+      "final": 0.217,
       "rtn": -0.67,
       "pos": "-",
       "color": "RED"
     },
     "WMS": {
       "sco": -5.75,
-      "final": 0.216,
+      "final": 0.2159,
       "rtn": 3.38,
       "pos": "-",
       "color": "RED"
     },
     "KTOS": {
       "sco": -4.5,
-      "final": 0.2155,
+      "final": 0.2152,
       "rtn": -11.0,
       "pos": "-",
       "color": "-"
@@ -4274,63 +4267,63 @@
     },
     "KN": {
       "sco": -4.5,
-      "final": 0.2142,
+      "final": 0.2138,
       "rtn": -11.53,
       "pos": "-",
       "color": "RED"
     },
     "PLXS": {
       "sco": -4.25,
-      "final": 0.2135,
+      "final": 0.2131,
       "rtn": -16.23,
       "pos": "-",
       "color": "RED"
     },
     "AMAT": {
       "sco": -4.75,
-      "final": 0.2129,
+      "final": 0.2124,
       "rtn": -7.71,
       "pos": "-",
       "color": "RED"
     },
     "TKR": {
       "sco": -4.75,
-      "final": 0.2124,
+      "final": 0.2118,
       "rtn": -8.1,
       "pos": "-",
       "color": "RED"
     },
     "WPC": {
       "sco": -5.25,
-      "final": 0.2093,
+      "final": 0.2092,
       "rtn": -2.93,
       "pos": "-",
       "color": "RED"
     },
     "BIDU": {
       "sco": -4.0,
-      "final": 0.2087,
+      "final": 0.2085,
       "rtn": -26.8,
       "pos": "-",
       "color": "RED"
     },
     "VIAV": {
       "sco": -4.0,
-      "final": 0.2077,
+      "final": 0.2078,
       "rtn": -30.29,
       "pos": "역배",
       "color": "RED"
     },
     "VSAT": {
       "sco": -5.25,
-      "final": 0.2076,
+      "final": 0.2075,
       "rtn": -3.23,
       "pos": "-",
       "color": "RED"
     },
     "VMC": {
       "sco": -5.25,
-      "final": 0.2057,
+      "final": 0.2055,
       "rtn": -3.6,
       "pos": "-",
       "color": "RED"
@@ -4344,14 +4337,14 @@
     },
     "CRS": {
       "sco": -5.5,
-      "final": 0.2045,
+      "final": 0.2043,
       "rtn": -2.14,
       "pos": "-",
       "color": "RED"
     },
     "IR": {
       "sco": -7.0,
-      "final": 0.2039,
+      "final": 0.2036,
       "rtn": 12.17,
       "pos": "-",
       "color": "RED"
@@ -4365,28 +4358,28 @@
     },
     "ADI": {
       "sco": -4.5,
-      "final": 0.203,
+      "final": 0.2028,
       "rtn": -17.34,
       "pos": "-",
       "color": "RED"
     },
     "BBAR": {
       "sco": -4.5,
-      "final": 0.2026,
+      "final": 0.2024,
       "rtn": -17.58,
       "pos": "-",
       "color": "RED"
     },
     "ATMU": {
       "sco": -6.0,
-      "final": 0.1999,
+      "final": 0.2,
       "rtn": 0.88,
       "pos": "역배",
       "color": "RED"
     },
     "JBL": {
       "sco": -4.5,
-      "final": 0.1991,
+      "final": 0.1988,
       "rtn": -20.45,
       "pos": "-",
       "color": "RED"
@@ -4400,42 +4393,42 @@
     },
     "CRC": {
       "sco": -4.75,
-      "final": 0.1977,
+      "final": 0.1975,
       "rtn": -16.03,
       "pos": "-",
       "color": "RED"
     },
     "CALY": {
       "sco": -6.5,
-      "final": 0.1967,
+      "final": 0.1966,
       "rtn": 4.53,
       "pos": "-",
       "color": "RED"
     },
     "VVX": {
       "sco": -5.5,
-      "final": 0.1923,
+      "final": 0.1922,
       "rtn": -6.1,
       "pos": "-",
       "color": "RED"
     },
     "FORM": {
       "sco": -4.75,
-      "final": 0.1917,
+      "final": 0.1915,
       "rtn": -19.3,
       "pos": "역배",
       "color": "RED"
     },
     "TSEM": {
       "sco": -4.75,
-      "final": 0.1894,
+      "final": 0.189,
       "rtn": -22.36,
       "pos": "-",
       "color": "RED"
     },
     "GIL": {
       "sco": -5.5,
-      "final": 0.1873,
+      "final": 0.1867,
       "rtn": -8.3,
       "pos": "-",
       "color": "RED"
@@ -4456,84 +4449,84 @@
     },
     "MPWR": {
       "sco": -4.75,
-      "final": 0.1857,
+      "final": 0.1856,
       "rtn": -25.55,
       "pos": "역배",
       "color": "RED"
     },
     "CAMT": {
       "sco": -4.75,
-      "final": 0.185,
+      "final": 0.1848,
       "rtn": -26.1,
       "pos": "역배",
       "color": "RED"
     },
     "ROK": {
       "sco": -5.75,
-      "final": 0.1833,
+      "final": 0.183,
       "rtn": -6.4,
       "pos": "-",
       "color": "RED"
     },
     "INTC": {
       "sco": -5.0,
-      "final": 0.1826,
+      "final": 0.1822,
       "rtn": -20.62,
       "pos": "-",
       "color": "RED"
     },
     "CAT": {
       "sco": -5.5,
-      "final": 0.1782,
+      "final": 0.178,
       "rtn": -13.44,
       "pos": "-",
       "color": "RED"
     },
     "HUBB": {
       "sco": -6.0,
-      "final": 0.1773,
+      "final": 0.1772,
       "rtn": -5.21,
       "pos": "역배",
       "color": "RED"
     },
     "ORA": {
       "sco": -5.0,
-      "final": 0.1754,
+      "final": 0.1753,
       "rtn": -28.91,
       "pos": "역배",
       "color": "-"
     },
     "ADEA": {
       "sco": -5.25,
-      "final": 0.1752,
+      "final": 0.175,
       "rtn": -19.6,
       "pos": "-",
       "color": "RED"
     },
     "LOW": {
       "sco": -6.75,
-      "final": 0.1744,
+      "final": 0.1745,
       "rtn": 0.81,
       "pos": "-",
       "color": "RED"
     },
     "DOV": {
       "sco": -6.0,
-      "final": 0.174,
+      "final": 0.1735,
       "rtn": -6.95,
       "pos": "역배",
       "color": "RED"
     },
     "EME": {
       "sco": -5.75,
-      "final": 0.1725,
+      "final": 0.1722,
       "rtn": -11.79,
       "pos": "-",
       "color": "RED"
     },
     "CASY": {
       "sco": -6.5,
-      "final": 0.171,
+      "final": 0.1709,
       "rtn": -2.34,
       "pos": "-",
       "color": "RED"
@@ -4547,35 +4540,35 @@
     },
     "BEP": {
       "sco": -5.75,
-      "final": 0.1704,
+      "final": 0.1703,
       "rtn": -13.12,
       "pos": "-",
       "color": "RED"
     },
     "ESI": {
       "sco": -5.5,
-      "final": 0.1697,
+      "final": 0.1695,
       "rtn": -17.64,
       "pos": "-",
       "color": "RED"
     },
     "PLAB": {
       "sco": -5.75,
-      "final": 0.1696,
+      "final": 0.1695,
       "rtn": -13.64,
       "pos": "-",
       "color": "RED"
     },
     "PDFS": {
       "sco": -5.5,
-      "final": 0.1678,
+      "final": 0.1676,
       "rtn": -18.73,
       "pos": "-",
       "color": "RED"
     },
     "AEIS": {
       "sco": -5.75,
-      "final": 0.1667,
+      "final": 0.1666,
       "rtn": -15.38,
       "pos": "역배",
       "color": "RED"
@@ -4589,148 +4582,141 @@
     },
     "PATK": {
       "sco": -6.25,
-      "final": 0.1645,
+      "final": 0.164,
       "rtn": -7.4,
       "pos": "역배",
       "color": "RED"
     },
     "AVGO": {
       "sco": -5.5,
-      "final": 0.1635,
+      "final": 0.1632,
       "rtn": -22.92,
       "pos": "-",
       "color": "RED"
     },
     "TDS": {
       "sco": -6.0,
-      "final": 0.1599,
+      "final": 0.1598,
       "rtn": -14.05,
       "pos": "-",
       "color": "RED"
     },
     "PTF": {
       "sco": -5.5,
-      "final": 0.1593,
+      "final": 0.1591,
       "rtn": -28.53,
       "pos": "-",
       "color": "RED"
     },
     "IDXX": {
       "sco": -7.0,
-      "final": 0.1587,
+      "final": 0.1586,
       "rtn": -1.02,
+      "pos": "-",
+      "color": "RED"
+    },
+    "TDY": {
+      "sco": -7.25,
+      "final": 0.1572,
+      "rtn": 0.64,
       "pos": "-",
       "color": "RED"
     },
     "PWR": {
       "sco": -6.0,
-      "final": 0.1572,
+      "final": 0.1571,
       "rtn": -15.77,
       "pos": "-",
       "color": "RED"
     },
     "CWEN": {
       "sco": -5.75,
-      "final": 0.1571,
+      "final": 0.1567,
       "rtn": -21.21,
       "pos": "역배",
       "color": "RED"
     },
-    "TDY": {
-      "sco": -7.25,
-      "final": 0.1571,
-      "rtn": 0.64,
-      "pos": "-",
-      "color": "RED"
-    },
     "WWD": {
       "sco": -7.0,
-      "final": 0.1552,
+      "final": 0.1551,
       "rtn": -2.26,
       "pos": "-",
       "color": "RED"
     },
     "FSLR": {
       "sco": -5.5,
-      "final": 0.1546,
+      "final": 0.1547,
       "rtn": -35.75,
       "pos": "-",
       "color": "RED"
     },
     "KLAC": {
       "sco": -6.0,
-      "final": 0.1541,
+      "final": 0.154,
       "rtn": -17.3,
       "pos": "-",
       "color": "RED"
     },
     "LSCC": {
       "sco": -5.75,
-      "final": 0.1525,
+      "final": 0.1523,
       "rtn": -26.0,
       "pos": "-",
       "color": "RED"
     },
     "XEL": {
       "sco": -7.25,
-      "final": 0.1521,
+      "final": 0.152,
       "rtn": -0.47,
       "pos": "역배",
       "color": "RED"
     },
     "SPXC": {
       "sco": -6.25,
-      "final": 0.1506,
+      "final": 0.1504,
       "rtn": -15.1,
       "pos": "-",
       "color": "RED"
     },
     "AZO": {
       "sco": -7.0,
-      "final": 0.1498,
+      "final": 0.1497,
       "rtn": -3.26,
       "pos": "역배",
       "color": "RED"
     },
     "DUK": {
       "sco": -7.5,
-      "final": 0.1466,
+      "final": 0.1467,
       "rtn": 0.22,
       "pos": "역배",
       "color": "RED"
     },
     "MCHP": {
       "sco": -6.0,
-      "final": 0.1462,
+      "final": 0.146,
       "rtn": -24.01,
       "pos": "-",
       "color": "RED"
     },
     "RCL": {
       "sco": -7.25,
-      "final": 0.1459,
+      "final": 0.1458,
       "rtn": -2.45,
       "pos": "-",
       "color": "RED"
     },
     "CSTM": {
       "sco": -6.0,
-      "final": 0.1454,
+      "final": 0.1453,
       "rtn": -24.76,
       "pos": "-",
       "color": "RED"
     },
     "JBHT": {
       "sco": -7.0,
-      "final": 0.1419,
+      "final": 0.1414,
       "rtn": -6.63,
-      "pos": "-",
-      "color": "RED"
-    },
-    "TEL": {
-      "sco": -7.0,
-      "final": 0.1415,
-      "rtn": -6.84,
       "pos": "-",
       "color": "RED"
     },
@@ -4738,6 +4724,13 @@
       "sco": -6.0,
       "final": 0.141,
       "rtn": -32.45,
+      "pos": "-",
+      "color": "RED"
+    },
+    "TEL": {
+      "sco": -7.0,
+      "final": 0.141,
+      "rtn": -6.84,
       "pos": "-",
       "color": "RED"
     },
@@ -4757,77 +4750,70 @@
     },
     "DD": {
       "sco": -7.25,
-      "final": 0.1372,
+      "final": 0.1371,
       "rtn": -4.82,
       "pos": "-",
       "color": "RED"
     },
     "RTO": {
       "sco": -6.5,
-      "final": 0.1355,
+      "final": 0.1353,
       "rtn": -18.52,
       "pos": "-",
       "color": "-"
     },
     "BC": {
       "sco": -7.25,
-      "final": 0.1349,
+      "final": 0.1347,
       "rtn": -6.17,
-      "pos": "-",
-      "color": "RED"
-    },
-    "AKAM": {
-      "sco": -6.25,
-      "final": 0.1324,
-      "rtn": -32.98,
       "pos": "-",
       "color": "RED"
     },
     "NBHC": {
       "sco": -8.0,
-      "final": 0.1324,
+      "final": 0.1325,
       "rtn": 0.63,
+      "pos": "-",
+      "color": "RED"
+    },
+    "AKAM": {
+      "sco": -6.25,
+      "final": 0.1325,
+      "rtn": -32.98,
       "pos": "-",
       "color": "RED"
     },
     "HUBG": {
       "sco": -7.25,
-      "final": 0.1314,
+      "final": 0.1309,
       "rtn": -7.66,
-      "pos": "-",
-      "color": "RED"
-    },
-    "SARO": {
-      "sco": -8.0,
-      "final": 0.1308,
-      "rtn": 0.4,
       "pos": "-",
       "color": "RED"
     },
     "VECO": {
       "sco": -6.5,
-      "final": 0.1274,
+      "final": 0.1272,
       "rtn": -26.74,
       "pos": "-",
       "color": "RED"
     },
     "WM": {
       "sco": -8.25,
-      "final": 0.1269,
+      "final": 0.127,
       "rtn": 1.2,
       "pos": "-",
       "color": "RED"
     },
     "AEP": {
       "sco": -8.0,
-      "final": 0.1218,
+      "final": 0.1216,
       "rtn": -2.43,
       "pos": "역배",
       "color": "-"
     },
     "SAIA": {
       "sco": -6.75,
-      "final": 0.1215,
+      "final": 0.1213,
       "rtn": -24.16,
       "pos": "-",
       "color": "RED"
@@ -4841,21 +4827,21 @@
     },
     "UCTT": {
       "sco": -6.75,
-      "final": 0.1207,
+      "final": 0.1206,
       "rtn": -24.93,
       "pos": "-",
       "color": "RED"
     },
     "HAYW": {
       "sco": -8.5,
-      "final": 0.1199,
+      "final": 0.12,
       "rtn": 1.43,
       "pos": "-",
       "color": "RED"
     },
     "TSN": {
       "sco": -8.0,
-      "final": 0.1191,
+      "final": 0.1189,
       "rtn": -2.96,
       "pos": "역배",
       "color": "RED"
@@ -4869,56 +4855,56 @@
     },
     "ANIP": {
       "sco": -8.0,
-      "final": 0.1179,
+      "final": 0.1178,
       "rtn": -3.19,
+      "pos": "-",
+      "color": "RED"
+    },
+    "ECG": {
+      "sco": -7.0,
+      "final": 0.1174,
+      "rtn": -19.71,
       "pos": "-",
       "color": "RED"
     },
     "TXN": {
       "sco": -7.25,
-      "final": 0.1165,
+      "final": 0.1164,
       "rtn": -15.76,
       "pos": "-",
       "color": "RED"
     },
     "MIR": {
       "sco": -7.0,
-      "final": 0.1164,
+      "final": 0.1161,
       "rtn": -21.05,
       "pos": "역배",
       "color": "RED"
     },
     "AVAV": {
       "sco": -7.0,
-      "final": 0.1147,
+      "final": 0.1143,
       "rtn": -22.73,
-      "pos": "-",
-      "color": "RED"
-    },
-    "ECG": {
-      "sco": -7.0,
-      "final": 0.1139,
-      "rtn": -23.86,
       "pos": "-",
       "color": "RED"
     },
     "KLIC": {
       "sco": -7.0,
-      "final": 0.1124,
+      "final": 0.1122,
       "rtn": -25.12,
       "pos": "-",
       "color": "RED"
     },
     "KNX": {
       "sco": -7.5,
-      "final": 0.1115,
+      "final": 0.1113,
       "rtn": -13.87,
       "pos": "-",
       "color": "RED"
     },
     "ACLS": {
       "sco": -7.0,
-      "final": 0.1104,
+      "final": 0.1103,
       "rtn": -27.4,
       "pos": "-",
       "color": "RED"
@@ -4939,28 +4925,35 @@
     },
     "FHB": {
       "sco": -8.5,
-      "final": 0.1083,
+      "final": 0.1082,
       "rtn": -1.61,
       "pos": "-",
       "color": "RED"
     },
     "XLU": {
       "sco": -8.5,
-      "final": 0.1081,
+      "final": 0.108,
       "rtn": -1.62,
       "pos": "역배",
       "color": "RED"
     },
+    "SARO": {
+      "sco": -8.75,
+      "final": 0.1043,
+      "rtn": -0.24,
+      "pos": "-",
+      "color": "RED"
+    },
     "FIX": {
       "sco": -7.5,
-      "final": 0.1037,
+      "final": 0.1036,
       "rtn": -17.87,
       "pos": "-",
       "color": "RED"
     },
     "EVR": {
       "sco": -7.75,
-      "final": 0.1017,
+      "final": 0.1016,
       "rtn": -14.7,
       "pos": "-",
       "color": "RED"
@@ -4981,21 +4974,21 @@
     },
     "FTAI": {
       "sco": -7.5,
-      "final": 0.1005,
+      "final": 0.1001,
       "rtn": -20.89,
       "pos": "역배",
       "color": "RED"
     },
     "ANDE": {
       "sco": -8.0,
-      "final": 0.1003,
+      "final": 0.1,
       "rtn": -11.19,
       "pos": "역배",
       "color": "RED"
     },
     "BILI": {
       "sco": -8.25,
-      "final": 0.1003,
+      "final": 0.0997,
       "rtn": -7.0,
       "pos": "-",
       "color": "RED"
@@ -5009,72 +5002,65 @@
     },
     "CAE": {
       "sco": -8.75,
-      "final": 0.0965,
+      "final": 0.0963,
       "rtn": -2.53,
       "pos": "-",
       "color": "RED"
     },
     "KMT": {
       "sco": -8.25,
-      "final": 0.0958,
+      "final": 0.0953,
       "rtn": -9.0,
       "pos": "역배",
       "color": "RED"
     },
     "TXT": {
       "sco": -8.25,
-      "final": 0.0956,
+      "final": 0.0951,
       "rtn": -9.11,
       "pos": "-",
       "color": "RED"
     },
     "HLIO": {
       "sco": -8.0,
-      "final": 0.0947,
+      "final": 0.0946,
       "rtn": -13.97,
       "pos": "-",
       "color": "RED"
     },
     "GOLF": {
       "sco": -9.0,
-      "final": 0.0941,
+      "final": 0.094,
       "rtn": -0.71,
       "pos": "-",
       "color": "RED"
     },
     "TFII": {
       "sco": -8.0,
-      "final": 0.0928,
+      "final": 0.0926,
       "rtn": -15.59,
       "pos": "-",
       "color": "RED"
     },
     "SO": {
       "sco": -9.0,
-      "final": 0.0914,
+      "final": 0.0913,
       "rtn": -1.67,
       "pos": "역배",
       "color": "RED"
     },
     "ICHR": {
       "sco": -7.75,
-      "final": 0.0898,
+      "final": 0.0894,
       "rtn": -23.47,
       "pos": "-",
       "color": "RED"
     },
     "CMP": {
       "sco": -7.75,
-      "final": 0.0884,
+      "final": 0.0882,
       "rtn": -24.57,
       "pos": "-",
-      "color": "RED"
-    },
-    "PEG": {
-      "sco": -8.75,
-      "final": 0.0876,
-      "rtn": -5.05,
-      "pos": "역배",
       "color": "RED"
     },
     "POWL": {
@@ -5082,6 +5068,13 @@
       "final": 0.0875,
       "rtn": -39.01,
       "pos": "-",
+      "color": "RED"
+    },
+    "PEG": {
+      "sco": -8.75,
+      "final": 0.0875,
+      "rtn": -5.05,
+      "pos": "역배",
       "color": "RED"
     },
     "INOD": {
@@ -5100,29 +5093,22 @@
     },
     "MKSI": {
       "sco": -8.0,
-      "final": 0.0814,
+      "final": 0.081,
       "rtn": -23.62,
       "pos": "-",
       "color": "RED"
     },
     "MCD": {
       "sco": -9.25,
-      "final": 0.0778,
+      "final": 0.0777,
       "rtn": -3.03,
       "pos": "역배",
       "color": "RED"
     },
     "WS": {
       "sco": -8.25,
-      "final": 0.0777,
+      "final": 0.0775,
       "rtn": -18.97,
-      "pos": "-",
-      "color": "RED"
-    },
-    "PII": {
-      "sco": -9.0,
-      "final": 0.0763,
-      "rtn": -6.65,
       "pos": "-",
       "color": "RED"
     },
@@ -5133,37 +5119,44 @@
       "pos": "-",
       "color": "RED"
     },
+    "PII": {
+      "sco": -9.0,
+      "final": 0.0758,
+      "rtn": -6.65,
+      "pos": "-",
+      "color": "RED"
+    },
     "EFXT": {
       "sco": -8.25,
-      "final": 0.074,
+      "final": 0.0736,
       "rtn": -22.7,
       "pos": "역배",
       "color": "RED"
     },
     "AROC": {
       "sco": -9.0,
-      "final": 0.0736,
+      "final": 0.0731,
       "rtn": -8.08,
       "pos": "역배",
       "color": "RED"
     },
     "BWXT": {
       "sco": -8.5,
-      "final": 0.0726,
+      "final": 0.0724,
       "rtn": -17.12,
       "pos": "-",
       "color": "RED"
     },
     "NEE": {
       "sco": -9.5,
-      "final": 0.0718,
+      "final": 0.0716,
       "rtn": -2.53,
       "pos": "역배",
       "color": "RED"
     },
     "BA": {
       "sco": -9.75,
-      "final": 0.0707,
+      "final": 0.0706,
       "rtn": -0.36,
       "pos": "-",
       "color": "RED"
@@ -5177,14 +5170,14 @@
     },
     "MRCY": {
       "sco": -8.5,
-      "final": 0.068,
+      "final": 0.0676,
       "rtn": -20.66,
       "pos": "-",
       "color": "RED"
     },
     "YETI": {
       "sco": -9.0,
-      "final": 0.0672,
+      "final": 0.0669,
       "rtn": -11.4,
       "pos": "-",
       "color": "RED"
@@ -5198,14 +5191,14 @@
     },
     "CCL": {
       "sco": -9.25,
-      "final": 0.0641,
+      "final": 0.0636,
       "rtn": -8.39,
       "pos": "-",
       "color": "RED"
     },
     "PHIN": {
       "sco": -9.0,
-      "final": 0.0622,
+      "final": 0.0621,
       "rtn": -13.9,
       "pos": "-",
       "color": "RED"
@@ -5226,63 +5219,63 @@
     },
     "SYNA": {
       "sco": -8.5,
-      "final": 0.0571,
+      "final": 0.0572,
       "rtn": -34.42,
       "pos": "-",
       "color": "RED"
     },
     "CARR": {
       "sco": -9.25,
-      "final": 0.057,
+      "final": 0.0568,
       "rtn": -12.69,
-      "pos": "-",
-      "color": "RED"
-    },
-    "NCLH": {
-      "sco": -9.5,
-      "final": 0.0567,
-      "rtn": -8.26,
       "pos": "-",
       "color": "RED"
     },
     "CMI": {
       "sco": -9.0,
-      "final": 0.0564,
+      "final": 0.0563,
       "rtn": -16.91,
+      "pos": "-",
+      "color": "RED"
+    },
+    "NCLH": {
+      "sco": -9.5,
+      "final": 0.0562,
+      "rtn": -8.26,
       "pos": "-",
       "color": "RED"
     },
     "CRI": {
       "sco": -9.25,
-      "final": 0.0546,
+      "final": 0.0545,
       "rtn": -13.8,
       "pos": "-",
       "color": "RED"
     },
     "NKE": {
       "sco": -9.5,
-      "final": 0.0538,
+      "final": 0.0533,
       "rtn": -9.61,
       "pos": "-",
       "color": "RED"
     },
     "AMTM": {
       "sco": -9.5,
-      "final": 0.0492,
-      "rtn": -12.27,
+      "final": 0.0488,
+      "rtn": -12.54,
       "pos": "-",
       "color": "RED"
     },
     "GLUE": {
       "sco": -9.0,
-      "final": 0.0483,
+      "final": 0.0482,
       "rtn": -23.93,
       "pos": "-",
       "color": "RED"
     },
     "LHX": {
       "sco": -9.5,
-      "final": 0.0482,
+      "final": 0.048,
       "rtn": -13.04,
       "pos": "-",
       "color": "RED"
@@ -5296,7 +5289,7 @@
     },
     "ODFL": {
       "sco": -9.5,
-      "final": 0.0426,
+      "final": 0.0424,
       "rtn": -15.86,
       "pos": "-",
       "color": "RED"
@@ -5310,14 +5303,14 @@
     },
     "PFSI": {
       "sco": -10.0,
-      "final": 0.0394,
+      "final": 0.0389,
       "rtn": -8.61,
       "pos": "역배",
       "color": "RED"
     },
     "XPO": {
       "sco": -9.75,
-      "final": 0.0385,
+      "final": 0.0383,
       "rtn": -13.78,
       "pos": "-",
       "color": "RED"
@@ -5331,7 +5324,7 @@
     },
     "WMT": {
       "sco": -10.0,
-      "final": 0.034,
+      "final": 0.0336,
       "rtn": -11.59,
       "pos": "역배",
       "color": "RED"
@@ -5345,21 +5338,21 @@
     },
     "RRX": {
       "sco": -9.5,
-      "final": 0.0291,
+      "final": 0.0289,
       "rtn": -26.75,
       "pos": "-",
       "color": "RED"
     },
     "TJX": {
       "sco": -10.0,
-      "final": 0.029,
+      "final": 0.0288,
       "rtn": -14.16,
       "pos": "역배",
       "color": "RED"
     },
     "ASO": {
       "sco": -10.0,
-      "final": 0.0268,
+      "final": 0.0267,
       "rtn": -15.75,
       "pos": "역배",
       "color": "RED"
@@ -5371,17 +5364,17 @@
       "pos": "역배",
       "color": "RED"
     },
-    "VFC": {
-      "sco": -10.0,
+    "NVMI": {
+      "sco": -9.5,
       "final": 0.0249,
-      "rtn": -16.25,
+      "rtn": -34.14,
       "pos": "역배",
       "color": "RED"
     },
-    "NVMI": {
-      "sco": -9.5,
-      "final": 0.0248,
-      "rtn": -34.14,
+    "VFC": {
+      "sco": -10.0,
+      "final": 0.0245,
+      "rtn": -16.25,
       "pos": "역배",
       "color": "RED"
     },
@@ -5401,7 +5394,7 @@
     },
     "OMCL": {
       "sco": -10.0,
-      "final": 0.0185,
+      "final": 0.0182,
       "rtn": -21.03,
       "pos": "-",
       "color": "RED"
