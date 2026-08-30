@@ -77,13 +77,13 @@ BOARDS = [
     {"key": "ktr_vol1",  "label": "KTR_vol1",    "color": "#1C4192", "kind": "daily", "tag": "KR_TR_VOLUME_1", "ledger": "KR"},
     {"key": "ktr_vol2",  "label": "KTR_vol2",    "color": "#2450AB", "kind": "daily", "tag": "KR_TR_VOLUME_2", "ledger": "KR"},
     {"key": "ktr_vcp1",  "label": "KTR_VCP1",    "color": "#2D5FC0", "kind": "daily", "tag": "KR_TR_VCP1",     "ledger": "KR"},
-    {"key": "ktr_vcp2",  "label": "KTR_VCP2",    "color": "#3A6FCF", "kind": "daily", "tag": "KR_TR_VCP2",     "ledger": "KR"},
+    {"key": "ktr_base",  "label": "KTR_BASE",    "color": "#3A6FCF", "kind": "daily", "tag": "KR_TR_BASE",     "ledger": "KR"},
     {"key": "ktr_jeo2",  "label": "KTR_저2",     "color": "#4A7AC7", "kind": "daily", "tag": "KR_TR_JEO2",     "ledger": "KR"},
     {"key": "ktr_ma",    "label": "KTR_MA돌",    "color": "#5A89D4", "kind": "daily", "tag": "KR_TR_MA",       "ledger": "KR"},
     # 빨강 — 미국 TR (도넛 US 계열)
     {"key": "utr_ord_a", "label": "UTR_ORD_A",   "color": "#8F1A12", "kind": "daily", "tag": "US_TR_ORD_A",    "ledger": "US"},
     {"key": "utr_vcp1",  "label": "UTR_VCP1",    "color": "#AB271C", "kind": "daily", "tag": "US_TR_VCP1",     "ledger": "US"},
-    {"key": "utr_vcp2",  "label": "UTR_VCP2",    "color": "#C63628", "kind": "daily", "tag": "US_TR_VCP2",     "ledger": "US"},
+    {"key": "utr_base",  "label": "UTR_BASE",    "color": "#C63628", "kind": "daily", "tag": "US_TR_BASE",     "ledger": "US"},
     {"key": "utr_jeo2",  "label": "UTR_저2",     "color": "#E74C3C", "kind": "daily", "tag": "US_TR_JEO2",     "ledger": "US"},
     {"key": "utr_ma",    "label": "UTR_MA돌",    "color": "#EC6252", "kind": "daily", "tag": "US_TR_MA",       "ledger": "US"},
 ]

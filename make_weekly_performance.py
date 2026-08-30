@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 make_weekly_performance.py ── 주간성과 요약 (보유자산 게시판 하위탭 "주간성과")
 ──────────────────────────────────────────────────────────────────────────
@@ -219,10 +219,12 @@ TAG_ORDER = [
     "2X단타", "삼닉v3_저2", "삼닉v3_추세", "삼닉v3_MA", "삼닉v3_미분류",
     "5minHL", "5minHL2", "5minHL_동시", "5minHL_미분류",
     "KR_TR_ORD_A", "KR_TR_VOLUME_1", "KR_TR_VOLUME_2", "KR_TR_VCP1",
-    "KR_TR_VCP2", "KR_TR_JEO2", "KR_TR_MA", "KR_TR_ADD1",
+    "KR_TR_BASE", "KR_TR_JEO2", "KR_TR_MA", "KR_TR_ADD1",
     "미국VCP", "US_TR_ORD_A", "US_TR_VOLUME_1", "US_TR_VOLUME_2",
-    "US_TR_VCP1", "US_TR_VCP2", "US_TR_JEO2", "US_TR_MA", "US_TR_ADD1",
+    "US_TR_VCP1", "US_TR_BASE", "US_TR_JEO2", "US_TR_MA", "US_TR_ADD1",
     "US_TR_LEGACY", "US_TR_LEGACY_TREND", "US_TR_LEGACY_LOW",
+    # 옛 이름. 과거 라운드트립이 아직 이 태그라 표에서 사라지지 않게 남겨둔다.
+    "KR_TR_VCP2", "US_TR_VCP2",
     "저점사다리",
     # ── 자산배분 (리밸런싱) ──
     "통합ETF",
@@ -234,10 +236,12 @@ TAG_UNIT = {
     "수동매매": "day", "통합ETF": "day",
     "미국VCP": "day", "미국수동": "day",
     "KR_TR_ORD_A": "day", "KR_TR_VOLUME_1": "day", "KR_TR_VOLUME_2": "day",
-    "KR_TR_VCP1": "day", "KR_TR_VCP2": "day", "KR_TR_JEO2": "day", "KR_TR_MA": "day",
+    "KR_TR_VCP1": "day", "KR_TR_BASE": "day", "KR_TR_VCP2": "day",
+    "KR_TR_JEO2": "day", "KR_TR_MA": "day",
     "KR_TR_ADD1": "day",
     "US_TR_ORD_A": "day", "US_TR_VOLUME_1": "day", "US_TR_VOLUME_2": "day",
-    "US_TR_VCP1": "day", "US_TR_VCP2": "day", "US_TR_JEO2": "day", "US_TR_MA": "day",
+    "US_TR_VCP1": "day", "US_TR_BASE": "day", "US_TR_VCP2": "day",
+    "US_TR_JEO2": "day", "US_TR_MA": "day",
     "US_TR_ADD1": "day",
     "US_TR_LEGACY": "day", "US_TR_LEGACY_TREND": "day", "US_TR_LEGACY_LOW": "day",
     "2X단타": "min", "삼닉v3_저2": "min", "삼닉v3_추세": "min", "삼닉v3_MA": "min",
