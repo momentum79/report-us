@@ -1,43 +1,43 @@
 {
-    "avg_sco": 4.2,
+    "avg_sco": 3.6,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 92,
-    "sco_neg": 38,
-    "sco_strong": 30,
-    "sco_zone_neg": 38,
-    "sco_zone_weak": 46,
-    "sco_zone_mid": 16,
-    "sco_zone_strong": 30,
-    "strong_count": 14,
+    "sco_pos": 88,
+    "sco_neg": 42,
+    "sco_strong": 23,
+    "sco_zone_neg": 42,
+    "sco_zone_weak": 48,
+    "sco_zone_mid": 17,
+    "sco_zone_strong": 23,
+    "strong_count": 11,
     "top3_avg_sco": 14.42,
-    "top3_avg_pos": 1.33,
-    "kospi_trend": "GREEN",
+    "top3_avg_pos": 1.0,
+    "kospi_trend": "-",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "-",
     "nasdaq_trend": "-",
-    "kospi_sco": 2.0,
-    "kosdaq_sco": -1.0,
+    "kospi_sco": 1.5,
+    "kosdaq_sco": -0.5,
     "sp500_sco": 6.5,
-    "nasdaq_sco": 2.0,
+    "nasdaq_sco": 4.0,
     "euro_trend": "-",
     "india_trend": "RED",
     "nikkei_trend": "PURPLE",
     "shanghai_trend": "RED",
-    "hongkong_trend": "LIME",
+    "hongkong_trend": "GREEN",
     "brazil_trend": "LIME",
-    "kospi_mult": 0.4,
-    "nasdaq_mult": 0.2,
-    "invest_pct": 55.7,
-    "invest_amount_total": 55692306,
+    "kospi_mult": 0.3,
+    "nasdaq_mult": 0.3,
+    "invest_pct": 55.6,
+    "invest_amount_total": 55633364,
     "internal_weights": [
-        31.7949,
-        23.0769,
-        16.4103,
-        10.2564,
-        10.2564,
-        8.2051
+        31.9258,
+        23.172,
+        16.4779,
+        10.2987,
+        10.2987,
+        7.827
     ],
     "n_holdings": 6,
     "holdings_tickers": [
@@ -49,12 +49,12 @@
         "COPX"
     ],
     "final_ratios": {
-        "228790": 19.08,
-        "ETHA": 13.85,
-        "IBIT": 7.38,
-        "SVXY": 6.15,
-        "ARKK": 5.13,
-        "COPX": 4.1
+        "228790": 19.16,
+        "ETHA": 13.9,
+        "IBIT": 8.24,
+        "SVXY": 6.18,
+        "ARKK": 4.63,
+        "COPX": 3.52
     },
     "top3_tickers": [
         "228790",
@@ -75,24 +75,14 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-08-30 15:47:50",
-    "liq_rejected": [
-        {
-            "ticker": "ARKF",
-            "name": "ARKF",
-            "avg_tv_eok": 71.7,
-            "min_tv_eok": 28.1,
-            "min_eok": 1000,
-            "min_day_eok": 400,
-            "fail_on": "avg"
-        }
-    ],
+    "update_time": "2026-09-01 06:27:20",
+    "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
         "US": 1000,
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1390.3
+        "usd_krw": 1386.5
     }
 }

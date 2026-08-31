@@ -1,6 +1,6 @@
 {
   "account": "2773",
-  "updated": "2026-08-31 15:53:05",
+  "updated": "2026-09-01 06:35:55",
   "success": true,
   "error": null,
   "summary": {
@@ -16,14 +16,27 @@
   "holdings": [],
   "us_holdings": [
     {
+      "ticker": "CCL",
+      "stock_name": "카니발",
+      "quantity": 50,
+      "avg_price": 24.295,
+      "current_price": 23.94,
+      "profit_rate": -1.95,
+      "eval_amount_usd": 1197.0,
+      "eval_amount": 1640368,
+      "buy_date": "",
+      "candle": "",
+      "tag": ""
+    },
+    {
       "ticker": "JOBY",
       "stock_name": "조비 에비에이션",
       "quantity": 90,
       "avg_price": 17.2696,
-      "current_price": 7.0,
-      "profit_rate": -59.81,
-      "eval_amount_usd": 630.0,
-      "eval_amount": 868108,
+      "current_price": 6.8672,
+      "profit_rate": -60.58,
+      "eval_amount_usd": 618.048,
+      "eval_amount": 846972,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -33,30 +46,30 @@
       "stock_name": "로빈후드",
       "quantity": 3,
       "avg_price": 98.21,
-      "current_price": 104.85,
-      "profit_rate": 6.24,
-      "eval_amount_usd": 314.55,
-      "eval_amount": 433434,
+      "current_price": 104.7965,
+      "profit_rate": 6.19,
+      "eval_amount_usd": 314.3895,
+      "eval_amount": 430839,
       "buy_date": "",
       "candle": "",
       "tag": ""
     }
   ],
   "us_summary": {
-    "us_stock_krw": 1301542,
-    "usd_cash": 2761.1,
-    "usd_cash_krw": 3800654,
+    "us_stock_krw": 2918179,
+    "usd_cash": 1543.31,
+    "usd_cash_krw": 2124370,
     "rate": 1376.5,
-    "total_asset_total": 14427876,
-    "eval_pl_usd": -904.34,
-    "eval_pl_krw": -1244824,
+    "total_asset_total": 14382589,
+    "eval_pl_usd": -934.21,
+    "eval_pl_krw": -1285940,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
     "won_entr": 9327049,
     "fx": {
       "USD": {
-        "cash_krw": 3800654,
-        "stock_krw": 1300173,
+        "cash_krw": 2124370,
+        "stock_krw": 2931170,
         "rate": 1376.5
       }
     },
