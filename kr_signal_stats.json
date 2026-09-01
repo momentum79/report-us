@@ -1,5 +1,5 @@
 {
-    "avg_sco": -0.5,
+    "avg_sco": -1.0,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
@@ -7,10 +7,10 @@
     "sco_neg": 18,
     "sco_strong": 2,
     "strong_count": 2,
-    "top3_avg_sco": 14.0,
-    "top3_avg_pos": 1.0,
+    "top3_avg_sco": 13.25,
+    "top3_avg_pos": 1.5,
     "kospi_trend": "-",
-    "kosdaq_trend": "GREEN",
+    "kosdaq_trend": "-",
     "sp500_trend": "-",
     "nasdaq_trend": "-",
     "euro_trend": "-",
@@ -45,9 +45,9 @@
         }
     ],
     "invest_pct_sc3": 35.0,
-    "invest_pct_s1": 55.5,
+    "invest_pct_s1": 47.3,
     "invest_amount_sc3": 35000000,
-    "invest_amount_s1": 55500000,
+    "invest_amount_s1": 47313623,
     "per_ticker_alloc_sc3": [
         {
             "ticker": "228790",
@@ -77,21 +77,21 @@
             "ticker": "228790",
             "industry": "화장품",
             "is_kospi": true,
-            "internal_weight": 55.0,
+            "internal_weight": 53.7275,
             "market_mult": 0.4,
-            "floor_mult": 0.6,
-            "effective_mult": 0.6,
-            "effective_pct": 33.0
+            "floor_mult": 0.45,
+            "effective_mult": 0.45,
+            "effective_pct": 24.1774
         },
         {
             "ticker": "091170",
             "industry": "은행주",
             "is_kospi": true,
-            "internal_weight": 45.0,
+            "internal_weight": 46.2725,
             "market_mult": 0.4,
             "floor_mult": 0.5,
             "effective_mult": 0.5,
-            "effective_pct": 22.5
+            "effective_pct": 23.1362
         }
     ],
     "sc3_state": {
@@ -99,15 +99,15 @@
         "kr_bucket_pct": 0.35,
         "us_state": "-",
         "us_bucket_pct": 0.45,
-        "last_date": "2026-08-31",
-        "updated_today": false
+        "last_date": "2026-09-01",
+        "updated_today": true
     },
     "sc3_ok": true,
-    "trade_date": "2026-08-31",
-    "vol63_median": 45.9,
+    "trade_date": "2026-09-01",
+    "vol63_median": 46.5,
     "internal_weights": [
-        55.0,
-        45.0
+        53.7275,
+        46.2725
     ],
     "n_holdings": 2,
     "holdings_tickers": [
@@ -122,5 +122,5 @@
         55,
         45
     ],
-    "update_time": "2026-09-01 06:28:45"
+    "update_time": "2026-09-01 16:02:42"
 }
