@@ -1,6 +1,6 @@
 {
-  "update_time": "2026-09-02 07:15:03",
-  "elapsed_sec": 2.94,
+  "update_time": "2026-09-02 16:54:06",
+  "elapsed_sec": 11.04,
   "too_many_threshold": 10,
   "target_conditions": [
     {
@@ -46,28 +46,141 @@
     {
       "seq": "2",
       "name": "예상체결상위",
-      "total_count": 0,
+      "total_count": 8,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "002990",
+          "name": "금호건설",
+          "price": 17100,
+          "rate": 0.364,
+          "volume": 20137118,
+          "trade_amount_eok": 3545.6495808,
+          "contract_strength": "93.90",
+          "nxt": ""
+        },
+        {
+          "rank": 2,
+          "code": "003160",
+          "name": "디아이",
+          "price": 30600,
+          "rate": 1.482,
+          "volume": 2942808,
+          "trade_amount_eok": 1710.96,
+          "contract_strength": "146.95",
+          "nxt": "NXT"
+        },
+        {
+          "rank": 3,
+          "code": "045390",
+          "name": "대아티아이",
+          "price": 3770,
+          "rate": 0.635,
+          "volume": 10232428,
+          "trade_amount_eok": 389.13985583,
+          "contract_strength": "84.44",
+          "nxt": ""
+        },
+        {
+          "rank": 4,
+          "code": "067290",
+          "name": "JW신약",
+          "price": 3100,
+          "rate": 0.368,
+          "volume": 55397947,
+          "trade_amount_eok": 1780.77879196,
+          "contract_strength": "81.39",
+          "nxt": ""
+        },
+        {
+          "rank": 5,
+          "code": "125020",
+          "name": "티씨머티리얼즈",
+          "price": 6170,
+          "rate": 0.215,
+          "volume": 1851088,
+          "trade_amount_eok": 117.6755303,
+          "contract_strength": "136.08",
+          "nxt": ""
+        },
+        {
+          "rank": 6,
+          "code": "387690",
+          "name": "레메디",
+          "price": 16780,
+          "rate": 1.58,
+          "volume": 8087737,
+          "trade_amount_eok": 1360.88,
+          "contract_strength": "84.33",
+          "nxt": ""
+        },
+        {
+          "rank": 7,
+          "code": "396300",
+          "name": "세아메카닉스",
+          "price": 5720,
+          "rate": 1.0,
+          "volume": 7615911,
+          "trade_amount_eok": 432.38716875,
+          "contract_strength": "104.60",
+          "nxt": ""
+        },
+        {
+          "rank": 8,
+          "code": "443670",
+          "name": "에스피소프트",
+          "price": 4350,
+          "rate": 1.387,
+          "volume": 15624403,
+          "trade_amount_eok": 696.49279049,
+          "contract_strength": "84.15",
+          "nxt": ""
+        }
+      ],
       "error": ""
     },
     {
       "seq": "4",
       "name": "★ 눌림",
-      "total_count": 0,
+      "total_count": 1,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "192820",
+          "name": "코스맥스",
+          "price": 285500,
+          "rate": -0.052,
+          "volume": 143517,
+          "trade_amount_eok": 409.0489425,
+          "contract_strength": "93.72",
+          "nxt": "NXT선"
+        }
+      ],
       "error": ""
     },
     {
       "seq": "5",
       "name": "★ 삘추세231230",
-      "total_count": 0,
+      "total_count": 1,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "240810",
+          "name": "원익IPS",
+          "price": 109700,
+          "rate": -0.027,
+          "volume": 543695,
+          "trade_amount_eok": 598.3736335,
+          "contract_strength": "142.20",
+          "nxt": "선"
+        }
+      ],
       "error": ""
     }
   ]
