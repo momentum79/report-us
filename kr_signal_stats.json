@@ -1,75 +1,53 @@
 {
-    "avg_sco": -2.8,
+    "avg_sco": -4.3,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
-    "sco_pos": 12,
-    "sco_neg": 23,
-    "sco_strong": 2,
-    "strong_count": 2,
-    "top3_avg_sco": 12.25,
-    "top3_avg_pos": 2.0,
+    "sco_pos": 9,
+    "sco_neg": 26,
+    "sco_strong": 1,
+    "strong_count": 1,
+    "top3_avg_sco": 14.5,
+    "top3_avg_pos": 1.0,
     "kospi_trend": "-",
     "kosdaq_trend": "-",
-    "sp500_trend": "-",
-    "nasdaq_trend": "-",
+    "sp500_trend": "PURPLE",
+    "nasdaq_trend": "PURPLE",
     "euro_trend": "-",
     "india_trend": "RED",
     "nikkei_trend": "PURPLE",
     "kospi_mult": 0.4,
-    "nasdaq_mult": 0.2,
-    "invest_pct": 35.0,
-    "invest_amount_total": 35000000,
+    "nasdaq_mult": 0.1,
+    "invest_pct": 40.0,
+    "invest_amount_total": 40000000,
     "per_ticker_alloc": [
         {
             "ticker": "091170",
             "industry": "은행주",
             "is_kospi": true,
             "bucket": "KOSPI",
-            "internal_weight": 55.0,
-            "market_mult": 0.35,
+            "internal_weight": 100.0,
+            "market_mult": 0.4,
             "floor_mult": null,
-            "effective_mult": 0.35,
-            "effective_pct": 19.25
-        },
-        {
-            "ticker": "228790",
-            "industry": "화장품",
-            "is_kospi": true,
-            "bucket": "KOSPI",
-            "internal_weight": 45.0,
-            "market_mult": 0.35,
-            "floor_mult": null,
-            "effective_mult": 0.35,
-            "effective_pct": 15.75
+            "effective_mult": 0.4,
+            "effective_pct": 40.0
         }
     ],
-    "invest_pct_sc3": 35.0,
-    "invest_pct_s1": 45.8,
-    "invest_amount_sc3": 35000000,
-    "invest_amount_s1": 45752385,
+    "invest_pct_sc3": 40.0,
+    "invest_pct_s1": 55.0,
+    "invest_amount_sc3": 40000000,
+    "invest_amount_s1": 55000000,
     "per_ticker_alloc_sc3": [
         {
             "ticker": "091170",
             "industry": "은행주",
             "is_kospi": true,
             "bucket": "KOSPI",
-            "internal_weight": 55.0,
-            "market_mult": 0.35,
+            "internal_weight": 100.0,
+            "market_mult": 0.4,
             "floor_mult": null,
-            "effective_mult": 0.35,
-            "effective_pct": 19.25
-        },
-        {
-            "ticker": "228790",
-            "industry": "화장품",
-            "is_kospi": true,
-            "bucket": "KOSPI",
-            "internal_weight": 45.0,
-            "market_mult": 0.35,
-            "floor_mult": null,
-            "effective_mult": 0.35,
-            "effective_pct": 15.75
+            "effective_mult": 0.4,
+            "effective_pct": 40.0
         }
     ],
     "per_ticker_alloc_s1": [
@@ -77,50 +55,36 @@
             "ticker": "091170",
             "industry": "은행주",
             "is_kospi": true,
-            "internal_weight": 57.5239,
+            "internal_weight": 100.0,
             "market_mult": 0.4,
-            "floor_mult": 0.5,
-            "effective_mult": 0.5,
-            "effective_pct": 28.7619
-        },
-        {
-            "ticker": "228790",
-            "industry": "화장품",
-            "is_kospi": true,
-            "internal_weight": 42.4761,
-            "market_mult": 0.4,
-            "floor_mult": 0.3,
-            "effective_mult": 0.4,
-            "effective_pct": 16.9905
+            "floor_mult": 0.55,
+            "effective_mult": 0.55,
+            "effective_pct": 55.0
         }
     ],
     "sc3_state": {
         "kr_state": "-",
-        "kr_bucket_pct": 0.35,
-        "us_state": "-",
-        "us_bucket_pct": 0.4,
-        "last_date": "2026-09-02",
+        "kr_bucket_pct": 0.4,
+        "us_state": "PURPLE",
+        "us_bucket_pct": 0.15,
+        "last_date": "2026-09-03",
         "updated_today": true
     },
     "sc3_ok": true,
-    "trade_date": "2026-09-02",
-    "vol63_median": 46.3,
+    "trade_date": "2026-09-03",
+    "vol63_median": 41.1,
     "internal_weights": [
-        57.5239,
-        42.4761
+        100.0
     ],
-    "n_holdings": 2,
+    "n_holdings": 1,
     "holdings_tickers": [
-        "091170",
-        "228790"
+        "091170"
     ],
     "top3_k_tickers": [
-        "091170",
-        "228790"
+        "091170"
     ],
     "allocation_map_used": [
-        55,
-        45
+        100
     ],
-    "update_time": "2026-09-02 16:53:50"
+    "update_time": "2026-09-03 13:16:31"
 }
