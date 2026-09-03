@@ -1,5 +1,5 @@
 {
-  "asof": "2026-09-03 13:34:24",
+  "asof": "2026-09-03 17:08:25",
   "strategy": "F4_B_safe",
   "params": {
     "atr_thr": 1.5,
@@ -21,17 +21,17 @@
   "index": {
     "qqq_color": "PURPLE",
     "spy_color": "PURPLE",
-    "kr_color": "-",
+    "kr_color": "PURPLE",
     "us_safe": false,
-    "kr_safe": true,
+    "kr_safe": false,
     "us_ret_ok": true,
-    "kr_ret_ok": true,
+    "kr_ret_ok": false,
     "qqq_ret20": -1.1236581625540198,
     "qqq_ret60": -0.9538173642241743,
     "spy_ret20": -0.6014627365904968,
     "spy_ret60": 3.509104190903911,
-    "kr_ret20": 0.7334611697027871,
-    "kr_ret60": -19.098623217420762
+    "kr_ret20": -0.6615532118887879,
+    "kr_ret60": -20.2189915914621
   },
   "error": "",
   "swapped": [],
@@ -54,13 +54,13 @@
       "index_ret60": 3.509104190903911,
       "qqq_color": "PURPLE",
       "spy_color": "PURPLE",
-      "kr_color": "-",
+      "kr_color": "PURPLE",
       "liquidity_20d": null,
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 31,
-      "order_amount": 2636231
+      "order_qty": 32,
+      "order_amount": 2762025
     },
     {
       "base_ticker": "PDBC",
@@ -80,13 +80,13 @@
       "index_ret60": 3.509104190903911,
       "qqq_color": "PURPLE",
       "spy_color": "PURPLE",
-      "kr_color": "-",
+      "kr_color": "PURPLE",
       "liquidity_20d": null,
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 207,
-      "order_amount": 5400023
+      "order_qty": 214,
+      "order_amount": 5585563
     },
     {
       "base_ticker": "XLE",
@@ -106,13 +106,13 @@
       "index_ret60": 3.509104190903911,
       "qqq_color": "PURPLE",
       "spy_color": "PURPLE",
-      "kr_color": "-",
+      "kr_color": "PURPLE",
       "liquidity_20d": 1950922.57,
       "liquidity_10d_eok": 26.9,
       "liq2_min_eok": 1000,
       "age_bars": 2753,
-      "order_qty": 50,
-      "order_amount": 4434801
+      "order_qty": 52,
+      "order_amount": 4635692
     }
   ]
 }

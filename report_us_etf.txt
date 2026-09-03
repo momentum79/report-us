@@ -32,17 +32,14 @@ COPX    0.74   4  7.00 53(52)  -     - 하  상  상  상   상     -  8.52  10.
  EWY    1.74   3  6.50 53(50)  -     - 하  상  상  하   상     -  7.83  -3.65   0.61  6.87
 PICK    1.19   3  6.50 57(54)  -     - 하  상  상  상   상     -  6.28   4.59   0.60  3.70
 
-이전 보유 종목: ['ETHA', 'COPX', 'ARKK', 'EWS', 'XLV', 'SCHD']
+이전 보유 종목: ['XLE', 'PDBC', 'SVXY', 'DBA', 'EWT', 'EWS']
 현재 Top3: ['XLE', 'PDBC', 'SVXY']
-  제거: ETHA (sco=10.2)
-  제거: COPX (sco=7.0)
-  제거: ARKK (sco=8.5)
+  유지: XLE (sco=13.2)
+  유지: PDBC (sco=14.0)
+  유지: SVXY (sco=15.0)
+  유지: DBA (sco=16.0)
+  유지: EWT (sco=15.0)
   유지: EWS (sco=12.0)
-  제거: XLV (sco=7.0)
-  제거: SCHD (sco=7.5)
-  추가: XLE
-  추가: PDBC
-  추가: SVXY
 
 최종 보유 종목 (6개): ['XLE', 'PDBC', 'SVXY', 'DBA', 'EWT', 'EWS']
 [나스닥 단계적 비중] PURPLE → up_days=0 리셋, multiplier=0.1
@@ -100,4 +97,4 @@ SVXY    1.50 15.00  15.97   0.90  -  389.85
 
 합계 검증: 96 == 96?
 
-[실행 시간] 19.61초
+[실행 시간] 12.06초

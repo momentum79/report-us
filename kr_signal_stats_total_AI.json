@@ -1,26 +1,26 @@
 {
-    "avg_sco": -1.0,
+    "avg_sco": -1.1,
     "total_cnt": 151,
     "valid_cnt": 148,
     "atr_excl_cnt": 0,
-    "sco_pos": 62,
-    "sco_neg": 86,
-    "sco_strong": 11,
-    "sco_zone_neg": 86,
-    "sco_zone_weak": 42,
-    "sco_zone_mid": 9,
-    "sco_zone_strong": 11,
-    "strong_count": 11,
+    "sco_pos": 61,
+    "sco_neg": 87,
+    "sco_strong": 9,
+    "sco_zone_neg": 87,
+    "sco_zone_weak": 41,
+    "sco_zone_mid": 11,
+    "sco_zone_strong": 9,
+    "strong_count": 9,
     "top3_avg_sco": 15.0,
     "top3_avg_pos": 1.67,
-    "kospi_trend": "-",
+    "kospi_trend": "PURPLE",
     "kosdaq_trend": "-",
     "sp500_trend": "PURPLE",
     "nasdaq_trend": "PURPLE",
     "euro_trend": "-",
     "india_trend": "-",
     "nikkei_trend": "-",
-    "kospi_mult": 0.4,
+    "kospi_mult": 0.1,
     "nasdaq_mult": 0.1,
     "invest_pct": 22.9,
     "invest_amount_total": 22900000,
@@ -50,9 +50,9 @@
         30,
         25
     ],
-    "ai_core_score": 8.81,
-    "ai_core_dedup_score": 7.15,
-    "ai_core_gap": 1.66,
+    "ai_core_score": 8.67,
+    "ai_core_dedup_score": 7.07,
+    "ai_core_gap": 1.6,
     "ai_core_state": "AI Constructive",
     "ai_breadth_state": "Negative",
     "ai_breadth_strong": 2,
@@ -104,7 +104,7 @@
         {
             "basket": "AI_SOFTWARE_PLATFORM",
             "basket_name_kr": "AI_소프트웨어",
-            "score": 13.01,
+            "score": 12.97,
             "valid_count": 7
         },
         {
@@ -116,13 +116,13 @@
         {
             "basket": "AI_DATA_IDENTITY_SECURITY",
             "basket_name_kr": "AI_데이터보안",
-            "score": 8.79,
+            "score": 8.76,
             "valid_count": 9
         },
         {
             "basket": "AI_CYBER_SECURITY",
             "basket_name_kr": "AI_사이버보안",
-            "score": 8.16,
+            "score": 8.14,
             "valid_count": 12
         }
     ],
@@ -153,7 +153,7 @@
             "name": "NOW",
             "Signal_sco": 15.0,
             "return_3m": 19.73,
-            "Final_score": 0.9475,
+            "Final_score": 0.9602,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
                 "AI_AGENT_AUTOMATION_RPA"
@@ -164,29 +164,19 @@
             "name": "OKTA",
             "Signal_sco": 13.75,
             "return_3m": 39.62,
-            "Final_score": 0.8953,
+            "Final_score": 0.9067,
             "baskets": [
                 "AI_DATA_IDENTITY_SECURITY"
             ]
         },
         {
-            "ticker": "001820",
-            "name": "삼화콘덴서",
-            "Signal_sco": 11.75,
-            "return_3m": -8.27,
-            "Final_score": 0.852,
+            "ticker": "HOOD",
+            "name": "HOOD",
+            "Signal_sco": 9.5,
+            "return_3m": 25.81,
+            "Final_score": 0.8518,
             "baskets": [
-                "AI_PASSIVE_COMPONENT_MLCC"
-            ]
-        },
-        {
-            "ticker": "403870",
-            "name": "HPSP",
-            "Signal_sco": 11.75,
-            "return_3m": -10.18,
-            "Final_score": 0.8475,
-            "baskets": [
-                "AI_SEMI_EQUIPMENT"
+                "AI_FINTECH_TRADING"
             ]
         },
         {
@@ -200,37 +190,47 @@
             ]
         },
         {
-            "ticker": "222800",
-            "name": "심텍",
-            "Signal_sco": 11.5,
-            "return_3m": 4.69,
-            "Final_score": 0.8434,
-            "baskets": [
-                "AI_ADV_PACKAGING_SUBSTRATE"
-            ]
-        },
-        {
-            "ticker": "HOOD",
-            "name": "HOOD",
-            "Signal_sco": 9.5,
-            "return_3m": 25.81,
-            "Final_score": 0.8396,
-            "baskets": [
-                "AI_FINTECH_TRADING"
-            ]
-        },
-        {
             "ticker": "ADBE",
             "name": "ADBE",
             "Signal_sco": 13.0,
             "return_3m": 14.2,
-            "Final_score": 0.8281,
+            "Final_score": 0.8397,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
                 "AI_CONTENT_ADS_MEDIA"
             ]
+        },
+        {
+            "ticker": "AAPL",
+            "name": "AAPL",
+            "Signal_sco": 14.75,
+            "return_3m": 7.77,
+            "Final_score": 0.8344,
+            "baskets": [
+                "AI_EDGE_DEVICE_ONDEVICE"
+            ]
+        },
+        {
+            "ticker": "403870",
+            "name": "HPSP",
+            "Signal_sco": 10.75,
+            "return_3m": -11.93,
+            "Final_score": 0.8251,
+            "baskets": [
+                "AI_SEMI_EQUIPMENT"
+            ]
+        },
+        {
+            "ticker": "222800",
+            "name": "심텍",
+            "Signal_sco": 11.0,
+            "return_3m": 2.09,
+            "Final_score": 0.8185,
+            "baskets": [
+                "AI_ADV_PACKAGING_SUBSTRATE"
+            ]
         }
     ],
     "ai_basket_count": 34,
-    "update_time": "2026-09-03 13:28:21"
+    "update_time": "2026-09-03 17:02:35"
 }

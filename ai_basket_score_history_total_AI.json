@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-03 13:34:41",
+  "updated_at": "2026-09-03 17:08:41",
   "window_note": "Compare today with 5 stored snapshots ago when available.",
   "snapshots": [
     {
@@ -14145,9 +14145,9 @@
     },
     {
       "date": "2026-09-03",
-      "update_time": "2026-09-03 13:28:21",
-      "ai_core_score": 8.81,
-      "ai_core_dedup_score": 7.15,
+      "update_time": "2026-09-03 17:02:35",
+      "ai_core_score": 8.67,
+      "ai_core_dedup_score": 7.07,
       "ai_breadth_state": "Negative",
       "baskets": {
         "AI_AGENT_AUTOMATION_RPA": {
@@ -14157,7 +14157,7 @@
         },
         "AI_SOFTWARE_PLATFORM": {
           "basket_name_kr": "AI_소프트웨어",
-          "score": 13.01,
+          "score": 12.97,
           "valid_count": 7
         },
         "AI_FINTECH_TRADING": {
@@ -14167,22 +14167,17 @@
         },
         "AI_DATA_IDENTITY_SECURITY": {
           "basket_name_kr": "AI_데이터보안",
-          "score": 8.79,
+          "score": 8.76,
           "valid_count": 9
         },
         "AI_CYBER_SECURITY": {
           "basket_name_kr": "AI_사이버보안",
-          "score": 8.16,
+          "score": 8.14,
           "valid_count": 12
-        },
-        "AI_PASSIVE_COMPONENT_MLCC": {
-          "basket_name_kr": "AI_MLCC수동부품",
-          "score": 7.5,
-          "valid_count": 2
         },
         "AI_DATA_PIPELINE_DATABASE": {
           "basket_name_kr": "AI_데이터플랫폼",
-          "score": 7.17,
+          "score": 7.13,
           "valid_count": 7
         },
         "AI_DIGITAL_TWIN_SIMULATION": {
@@ -14194,6 +14189,11 @@
           "basket_name_kr": "AI_원자재",
           "score": 6.82,
           "valid_count": 5
+        },
+        "AI_PASSIVE_COMPONENT_MLCC": {
+          "basket_name_kr": "AI_MLCC수동부품",
+          "score": 6.25,
+          "valid_count": 2
         },
         "AI_CONTENT_ADS_MEDIA": {
           "basket_name_kr": "AI_광고미디어",
@@ -14207,22 +14207,22 @@
         },
         "AI_EDGE_DEVICE_ONDEVICE": {
           "basket_name_kr": "AI_온디바이스",
-          "score": 4.07,
+          "score": 4.0,
           "valid_count": 5
-        },
-        "AI_ADV_PACKAGING_SUBSTRATE": {
-          "basket_name_kr": "AI_첨단패키징",
-          "score": 3.57,
-          "valid_count": 9
         },
         "AI_CLOUD_HYPERSCALER": {
           "basket_name_kr": "AI_클라우드",
           "score": 3.39,
           "valid_count": 5
         },
+        "AI_ADV_PACKAGING_SUBSTRATE": {
+          "basket_name_kr": "AI_첨단패키징",
+          "score": 3.11,
+          "valid_count": 9
+        },
         "AI_SEMI_EQUIPMENT": {
           "basket_name_kr": "AI_반도체장비",
-          "score": 2.81,
+          "score": 2.38,
           "valid_count": 13
         },
         "AI_INFERENCE_OPTIMIZATION": {
@@ -14240,15 +14240,15 @@
           "score": 1.5,
           "valid_count": 2
         },
-        "AI_MEMORY_HBM_DRAM": {
-          "basket_name_kr": "AI_메모리",
-          "score": 1.08,
-          "valid_count": 4
-        },
         "AI_CPU_SERVER": {
           "basket_name_kr": "AI_CPU서버",
           "score": 0.79,
           "valid_count": 6
+        },
+        "AI_MEMORY_HBM_DRAM": {
+          "basket_name_kr": "AI_메모리",
+          "score": 0.62,
+          "valid_count": 4
         },
         "AI_DATACENTER_REIT_SERVER": {
           "basket_name_kr": "AI_데이터센터",
@@ -14257,22 +14257,22 @@
         },
         "AI_GPU_ACCELERATOR": {
           "basket_name_kr": "AI_GPU",
-          "score": -0.61,
+          "score": -1.04,
           "valid_count": 6
         },
         "AI_ENERGY_NUCLEAR_SMR_GAS": {
           "basket_name_kr": "AI_에너지",
-          "score": -0.78,
+          "score": -1.06,
           "valid_count": 6
         },
         "AI_POWER_GRID_TRANSFORMER": {
           "basket_name_kr": "AI_전력망",
-          "score": -1.54,
+          "score": -1.67,
           "valid_count": 12
         },
         "AI_FOUNDRY": {
           "basket_name_kr": "AI_파운드리",
-          "score": -2.0,
+          "score": -2.12,
           "valid_count": 2
         },
         "AI_AUTONOMOUS_VEHICLE_DRONE": {
@@ -14307,7 +14307,7 @@
         },
         "AI_STORAGE_CXL_SSD": {
           "basket_name_kr": "AI_스토리지",
-          "score": -5.58,
+          "score": -5.67,
           "valid_count": 3
         },
         "AI_ROBOT_COMPONENT": {
