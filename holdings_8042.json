@@ -1,17 +1,17 @@
 {
   "account": "8042",
-  "updated": "2026-09-04 12:53:15",
+  "updated": "2026-09-04 14:00:06",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 12151459,
-    "tot_pur_amt": 11813169,
-    "tot_evlt_amt": 11732960,
-    "tot_evlt_pl": -88515,
-    "tot_prft_rt": -0.75,
-    "stock_ratio": 96.55597735218461,
+    "total_asset": 12216678,
+    "tot_pur_amt": 11451589,
+    "tot_evlt_amt": 11408155,
+    "tot_evlt_pl": -50152,
+    "tot_prft_rt": -0.44,
+    "stock_ratio": 93.38180968672498,
     "cash": 28522,
-    "tdy_realized_pl": 53477
+    "tdy_realized_pl": 79956
   },
   "holdings": [
     {
@@ -19,50 +19,50 @@
       "stock_name": "TIGER 화장품",
       "quantity": 1125,
       "avg_price": 0,
-      "current_price": 4560,
-      "profit_rate": -2.81,
-      "eval_amount": 5130000,
+      "current_price": 4555,
+      "profit_rate": -2.92,
+      "eval_amount": 5124375,
       "nxt": "",
-      "cntr_str": 73.71,
+      "cntr_str": 75.49,
       "candle": "일봉",
       "tag": "통합ETF"
     },
     {
       "stock_code": "122630",
       "stock_name": "KODEX 레버리지",
-      "quantity": 41,
+      "quantity": 40,
       "avg_price": 0,
-      "current_price": 102310,
-      "profit_rate": 1.44,
-      "eval_amount": 4194710,
+      "current_price": 103515,
+      "profit_rate": 2.02,
+      "eval_amount": 4140600,
       "nxt": "",
-      "cntr_str": 97.55,
-      "candle": "분봉",
-      "tag": "삼닉v3"
+      "cntr_str": 99.35,
+      "candle": "",
+      "tag": ""
     },
     {
       "stock_code": "000660",
       "stock_name": "SK하이닉스",
       "quantity": 1,
       "avg_price": 0,
-      "current_price": 1644000,
-      "profit_rate": 0.01,
-      "eval_amount": 1644000,
+      "current_price": 1664000,
+      "profit_rate": 1.23,
+      "eval_amount": 1664000,
       "nxt": "N선",
-      "cntr_str": 120.11,
+      "cntr_str": 129.03,
       "candle": "분봉",
       "tag": "삼닉v3"
     },
     {
-      "stock_code": "005930",
-      "stock_name": "삼성전자",
-      "quantity": 3,
+      "stock_code": "271050",
+      "stock_name": "KODEX WTI원유선물인버스(H)",
+      "quantity": 260,
       "avg_price": 0,
-      "current_price": 254750,
-      "profit_rate": 0.03,
-      "eval_amount": 764250,
-      "nxt": "N선",
-      "cntr_str": 100.35,
+      "current_price": 1843,
+      "profit_rate": 0.35,
+      "eval_amount": 479180,
+      "nxt": "",
+      "cntr_str": 51.65,
       "candle": "",
       "tag": ""
     }
@@ -86,10 +86,10 @@
       "stock_name": "헬스케어주 SPDR ETF",
       "quantity": 8,
       "avg_price": 174.95,
-      "current_price": 172.98,
-      "profit_rate": -1.26,
-      "eval_amount_usd": 1383.84,
-      "eval_amount": 1879669,
+      "current_price": 173.26,
+      "profit_rate": -1.1,
+      "eval_amount_usd": 1386.08,
+      "eval_amount": 1882712,
       "buy_date": "2026-08-20",
       "candle": "일봉",
       "tag": "통합ETF"
@@ -99,10 +99,10 @@
       "stock_name": "S&P 바이오 SPDR ETF",
       "quantity": 8,
       "avg_price": 168.72,
-      "current_price": 164.64,
+      "current_price": 164.65,
       "profit_rate": -2.55,
-      "eval_amount_usd": 1317.12,
-      "eval_amount": 1789044,
+      "eval_amount_usd": 1317.2,
+      "eval_amount": 1789152,
       "buy_date": "2026-08-20",
       "candle": "일봉",
       "tag": "통합ETF"
@@ -135,25 +135,25 @@
     }
   ],
   "us_summary": {
-    "us_stock_krw": 10017812,
+    "us_stock_krw": 10020963,
     "usd_cash": 6534.77,
     "usd_cash_krw": 8884019,
     "rate": 1359.5,
-    "total_asset_total": 25179611,
-    "eval_pl_usd": -29.41,
-    "eval_pl_krw": -39982,
+    "total_asset_total": 25178410,
+    "eval_pl_usd": -27.09,
+    "eval_pl_krw": -36828,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
     "won_entr": 28522,
     "fx": {
       "USD": {
         "cash_krw": 8884019,
-        "stock_krw": 10026665,
+        "stock_krw": 10029820,
         "rate": 1359.5
       },
       "JPY": {
         "cash_krw": 0,
-        "stock_krw": 6240405,
+        "stock_krw": 6236049,
         "rate": 871.2
       },
       "CNY": {
@@ -162,7 +162,7 @@
         "rate": 202.22
       }
     },
-    "fx_other_krw": 6240405,
-    "fx_other_stock_krw": 6240405
+    "fx_other_krw": 6236049,
+    "fx_other_stock_krw": 6236049
   }
 }
