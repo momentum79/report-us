@@ -1,61 +1,65 @@
 {
-    "avg_sco": 0.1,
+    "avg_sco": 0.7,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 68,
-    "sco_neg": 62,
-    "sco_strong": 13,
-    "sco_zone_neg": 62,
-    "sco_zone_weak": 46,
-    "sco_zone_mid": 9,
-    "sco_zone_strong": 13,
+    "sco_pos": 69,
+    "sco_neg": 61,
+    "sco_strong": 16,
+    "sco_zone_neg": 61,
+    "sco_zone_weak": 42,
+    "sco_zone_mid": 11,
+    "sco_zone_strong": 16,
     "strong_count": 6,
-    "top3_avg_sco": 14.08,
-    "top3_avg_pos": 1.0,
+    "top3_avg_sco": 15.17,
+    "top3_avg_pos": 1.33,
     "kospi_trend": "PURPLE",
-    "kosdaq_trend": "RED",
-    "sp500_trend": "PURPLE",
-    "nasdaq_trend": "PURPLE",
+    "kosdaq_trend": "-",
+    "sp500_trend": "-",
+    "nasdaq_trend": "-",
     "kospi_sco": -3.25,
-    "kosdaq_sco": -6.25,
-    "sp500_sco": 2.5,
-    "nasdaq_sco": -0.25,
+    "kosdaq_sco": -7.25,
+    "sp500_sco": 4.5,
+    "nasdaq_sco": 1.75,
     "euro_trend": "PURPLE",
     "india_trend": "RED",
     "nikkei_trend": "PURPLE",
-    "shanghai_trend": "RED",
-    "hongkong_trend": "GREEN",
+    "shanghai_trend": "-",
+    "hongkong_trend": "LIME",
     "brazil_trend": "LIME",
     "kospi_mult": 0.1,
-    "nasdaq_mult": 0.1,
-    "invest_pct": 47.7,
-    "invest_amount_total": 47675799,
+    "nasdaq_mult": 0.2,
+    "invest_pct": 63.9,
+    "invest_amount_total": 63938554,
     "internal_weights": [
-        45.0,
-        30.0,
-        25.0
+        36.6492,
+        26.7016,
+        26.178,
+        10.4712
     ],
-    "n_holdings": 3,
+    "n_holdings": 4,
     "holdings_tickers": [
         "SVXY",
-        "PDBC",
-        "XLE"
+        "EWT",
+        "XLE",
+        "PDBC"
     ],
     "final_ratios": {
-        "SVXY": 10.14,
-        "PDBC": 20.48,
-        "XLE": 17.06
+        "SVXY": 18.83,
+        "EWT": 13.72,
+        "XLE": 22.42,
+        "PDBC": 8.97
     },
     "top3_tickers": [
-        "SVXY",
-        "PDBC",
-        "XLE"
+        "EWT",
+        "XLE",
+        "PDBC"
     ],
     "allocation_map_used": [
-        45,
+        35,
         30,
-        25
+        25,
+        10
     ],
     "score_model": {
         "name": "vol_stability_v1",
@@ -63,24 +67,14 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-09-03 17:02:03",
-    "liq_rejected": [
-        {
-            "ticker": "DBA",
-            "name": "DBA",
-            "avg_tv_eok": 549.6,
-            "min_tv_eok": 137.1,
-            "min_eok": 1000,
-            "min_day_eok": 400,
-            "fail_on": "avg"
-        }
-    ],
+    "update_time": "2026-09-05 08:29:10",
+    "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
         "US": 1000,
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1379.4
+        "usd_krw": 1369.5
     }
 }
