@@ -65,7 +65,7 @@ BOARD_BY_LEDGER = {
     "로켓":     ["board_rocket"],
     "저점":     ["board_dip"],
     "수동":     ["board_manual"],
-    "한국매수": ["board_ktr_ord_a", "board_ktr_vol1", "board_ktr_vol2",
+    "한국매수": ["board_ktr_ord_b", "board_ktr_vol1", "board_ktr_vol2",
                  "board_ktr_vcp1", "board_ktr_base"],
     "한국저점": ["board_ktr_jeo2", "board_ktr_ma"],
 }

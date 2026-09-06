@@ -630,8 +630,8 @@ body.naver-popup-open { overflow: hidden; }
         const BOT_ACCT = {'주도주':'1887','ROCKET':'1887','2X단타':'8042','삼닉v3_저2':'8042','삼닉v3_추세':'8042','삼닉v3_MA':'8042',
                           '5minHL':'2773','5minHL2':'2773','5minHL_동시':'2773','5minHL_미분류':'2773','기타(8042)':'8042','저점사다리':'1887',
                           '통합ETF':'8042','ABC-VCP':'1887','수동매매':'1887','미국VCP':'1887(US)','미국수동':'1887(US)',
-                          'KR_TR_ORD_A':'2773','KR_TR_VOLUME_1':'2773','KR_TR_VOLUME_2':'2773','KR_TR_VCP1':'2773','KR_TR_VCP2':'2773',
-                          'KR_TR_JEO2':'2773','KR_TR_MA':'2773','US_TR_ORD_A':'1887(US)','US_TR_VOLUME_1':'1887(US)',
+                          'KR_TR_ORD_B':'2773','KR_TR_ORD_1A0':'2773','KR_TR_VOLUME_1':'2773','KR_TR_VOLUME_2':'2773','KR_TR_VCP1':'2773','KR_TR_VCP2':'2773',
+                          'KR_TR_JEO2':'2773','KR_TR_MA':'2773','US_TR_ORD_B':'1887(US)','US_TR_ORD_1A0':'1887(US)','US_TR_VOLUME_1':'1887(US)',
                           'US_TR_VOLUME_2':'1887(US)','US_TR_VCP1':'1887(US)','US_TR_VCP2':'1887(US)','US_TR_JEO2':'1887(US)','US_TR_MA':'1887(US)'};
 
         // 그룹 라벨. bot=자동매매 / alloc=자산배분 / manual=사람이 직접 매수 / seed=컷오프 시딩분
@@ -1029,7 +1029,8 @@ body.naver-popup-open { overflow: hidden; }
                 html += `<div class="wp-grid">`;
                 const byKey = new Map(restBots.map(b => [b.key, b]));
                 const pinePairs = [
-                    ['KR_TR_ORD_A', 'US_TR_ORD_A'],
+                    ['KR_TR_ORD_B', 'US_TR_ORD_B'],
+                    ['KR_TR_ORD_1A0', 'US_TR_ORD_1A0'],
                     ['KR_TR_VOLUME_1', 'US_TR_VOLUME_1'],
                     ['KR_TR_VOLUME_2', 'US_TR_VOLUME_2'],
                     ['KR_TR_VCP1', 'US_TR_VCP1'],

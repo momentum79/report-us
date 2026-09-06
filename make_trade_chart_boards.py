@@ -73,7 +73,7 @@ BOARDS = [
     {"key": "dip",       "label": "저사다리",    "color": "#818A94", "kind": "5min",  "tag": "저점사다리"},
     {"key": "etc8042",   "label": "기타(8042)",  "color": "#939BA4", "kind": "5min",  "tag": "기타(8042)"},
     # 파랑 — 한국 TR (도넛 KR 계열)
-    {"key": "ktr_ord_a", "label": "KTR_ORD_A",   "color": "#16337A", "kind": "daily", "tag": "KR_TR_ORD_A",    "ledger": "KR"},
+    {"key": "ktr_ord_b", "label": "KTR_ORD_B",   "color": "#16337A", "kind": "daily", "tag": "KR_TR_ORD_B",    "ledger": "KR"},
     {"key": "ktr_1a0",   "label": "KTR_1a0",     "color": "#1A3A87", "kind": "daily", "tag": "KR_TR_ORD_1A0",  "ledger": "KR"},
     {"key": "ktr_vol1",  "label": "KTR_vol1",    "color": "#1C4192", "kind": "daily", "tag": "KR_TR_VOLUME_1", "ledger": "KR"},
     {"key": "ktr_vol2",  "label": "KTR_vol2",    "color": "#2450AB", "kind": "daily", "tag": "KR_TR_VOLUME_2", "ledger": "KR"},
@@ -82,7 +82,7 @@ BOARDS = [
     {"key": "ktr_jeo2",  "label": "KTR_저2",     "color": "#4A7AC7", "kind": "daily", "tag": "KR_TR_JEO2",     "ledger": "KR"},
     {"key": "ktr_ma",    "label": "KTR_MA돌",    "color": "#5A89D4", "kind": "daily", "tag": "KR_TR_MA",       "ledger": "KR"},
     # 빨강 — 미국 TR (도넛 US 계열)
-    {"key": "utr_ord_a", "label": "UTR_ORD_A",   "color": "#8F1A12", "kind": "daily", "tag": "US_TR_ORD_A",    "ledger": "US"},
+    {"key": "utr_ord_b", "label": "UTR_ORD_B",   "color": "#8F1A12", "kind": "daily", "tag": "US_TR_ORD_B",    "ledger": "US"},
     {"key": "utr_1a0",   "label": "UTR_1a0",     "color": "#9D2017", "kind": "daily", "tag": "US_TR_ORD_1A0",  "ledger": "US"},
     {"key": "utr_vcp1",  "label": "UTR_VCP1",    "color": "#AB271C", "kind": "daily", "tag": "US_TR_VCP1",     "ledger": "US"},
     {"key": "utr_base",  "label": "UTR_BASE",    "color": "#C63628", "kind": "daily", "tag": "US_TR_BASE",     "ledger": "US"},
