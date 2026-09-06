@@ -218,9 +218,9 @@ TAG_ORDER = [
     "주도주", "ROCKET", "ABC-VCP", "TV알림",
     "2X단타", "삼닉v3_저2", "삼닉v3_추세", "삼닉v3_MA", "삼닉v3_미분류",
     "5minHL", "5minHL2", "5minHL_동시", "5minHL_미분류",
-    "KR_TR_ORD_A", "KR_TR_VOLUME_1", "KR_TR_VOLUME_2", "KR_TR_VCP1",
+    "KR_TR_ORD_A", "KR_TR_ORD_1A0", "KR_TR_VOLUME_1", "KR_TR_VOLUME_2", "KR_TR_VCP1",
     "KR_TR_BASE", "KR_TR_JEO2", "KR_TR_MA", "KR_TR_ADD1",
-    "미국VCP", "US_TR_ORD_A", "US_TR_VOLUME_1", "US_TR_VOLUME_2",
+    "미국VCP", "US_TR_ORD_A", "US_TR_ORD_1A0", "US_TR_VOLUME_1", "US_TR_VOLUME_2",
     "US_TR_VCP1", "US_TR_BASE", "US_TR_JEO2", "US_TR_MA", "US_TR_ADD1",
     "US_TR_LEGACY", "US_TR_LEGACY_TREND", "US_TR_LEGACY_LOW",
     # 옛 이름. 과거 라운드트립이 아직 이 태그라 표에서 사라지지 않게 남겨둔다.
@@ -235,11 +235,13 @@ TAG_UNIT = {
     "주도주": "day", "ROCKET": "day", "ABC-VCP": "day", "TV알림": "day",
     "수동매매": "day", "통합ETF": "day",
     "미국VCP": "day", "미국수동": "day",
-    "KR_TR_ORD_A": "day", "KR_TR_VOLUME_1": "day", "KR_TR_VOLUME_2": "day",
+    "KR_TR_ORD_A": "day", "KR_TR_ORD_1A0": "day",
+    "KR_TR_VOLUME_1": "day", "KR_TR_VOLUME_2": "day",
     "KR_TR_VCP1": "day", "KR_TR_BASE": "day", "KR_TR_VCP2": "day",
     "KR_TR_JEO2": "day", "KR_TR_MA": "day",
     "KR_TR_ADD1": "day",
-    "US_TR_ORD_A": "day", "US_TR_VOLUME_1": "day", "US_TR_VOLUME_2": "day",
+    "US_TR_ORD_A": "day", "US_TR_ORD_1A0": "day",
+    "US_TR_VOLUME_1": "day", "US_TR_VOLUME_2": "day",
     "US_TR_VCP1": "day", "US_TR_BASE": "day", "US_TR_VCP2": "day",
     "US_TR_JEO2": "day", "US_TR_MA": "day",
     "US_TR_ADD1": "day",
@@ -268,14 +270,40 @@ ALLOC_TAGS = {"통합ETF"}
 #     빼는 순간 과거 레거시 손익이 통합에 되살아난다.
 LEGACY_TAGS = {"US_TR_LEGACY", "US_TR_LEGACY_TREND", "US_TR_LEGACY_LOW"}
 
+# ───────── 컷오프 시딩분 (2026-09-05 분리) ─────────
+# 컷오프(=베이스라인 리셋) 때 실계좌 잔고로 심어놓은 포지션은 '봇이 잡은 자리'가 아니다.
+# 진입가가 실제 매수가가 아니라 컷오프 직전 종가로 갈아끼워져 있어서, 이걸 청산한 손익은
+# "그 봇이 그 주에 번/잃은 돈"이 아니라 "컷오프 이후 가격변화"일 뿐이다.
+# 섞어두면 태그를 살릴지 죽일지 판단이 불가능해진다 — 실제로 2X단타(보유단위 '분')가
+# 컷오프 시딩 122630 을 18일에 걸쳐 1~2주씩 흘려판 -151,458원을 뒤집어쓰고 있었다.
+#
+# 그래서 시딩 서랍만 태그 뒤에 이 접미사를 붙여 별도 행으로 뺀다.
+#   · 봇이 컷오프 이후 새로 산 물량은 원래 태그 서랍에 그대로 들어간다(정확 태그 우선).
+#   · 시딩 서랍이 남으면 build_round_trips 의 FIFO 흡수가 알아서 가져간다.
+#   ※ MANUAL/LEGACY 와 같은 이유로 집계에서 통째로 빼면 안 된다. 이 물량을 판 매도가
+#     흡수될 자리가 없어지면 같은 종목의 봇 포지션이 대신 깎여 봇 성과가 오염된다.
+#     '통합 합산·봇 카드에서 제외' 일 뿐이다.
+SEED_TAG_SUFFIX = "_시딩"
+
+
+def seed_tag(tag):
+    """원래 성과 tag → 컷오프 시딩분 tag."""
+    return f"{tag}{SEED_TAG_SUFFIX}"
+
+
+def is_seed_tag(tag):
+    return str(tag).endswith(SEED_TAG_SUFFIX)
+
 # 그룹별 집계 행(개별 태그가 아니라 합산 행). key → (그룹, 합산 대상 판정)
 AGGREGATE_TAGS = {"통합": "bot", "수동합계": "manual"}
 
 
 def tag_group(tag):
-    """성과 tag → 그룹. 'bot' | 'alloc' | 'manual' | 'legacy'"""
+    """성과 tag → 그룹. 'bot' | 'alloc' | 'manual' | 'legacy' | 'seed'"""
     if tag in AGGREGATE_TAGS:
         return AGGREGATE_TAGS[tag]
+    if is_seed_tag(tag):
+        return "seed"
     if tag in MANUAL_TAGS:
         return "manual"
     if tag in ALLOC_TAGS:
@@ -283,6 +311,17 @@ def tag_group(tag):
     if tag in LEGACY_TAGS:
         return "legacy"
     return "bot"
+
+
+def tag_unit(tag):
+    """성과 tag → 보유단위 'day' | 'min' | 'mix'.
+
+    시딩분은 원래 태그가 당일봇('분')이어도 며칠~몇 주에 걸쳐 흘려파는 물량이라
+    보유'분'으로 재면 수천 분짜리 숫자만 나온다. 항상 '일'로 잰다.
+    """
+    if is_seed_tag(tag):
+        return "day"
+    return TAG_UNIT.get(tag, "min")
 
 # 오래된 이름을 쓰는 보조 출력부와의 호환용 alias.
 BOT_ORDER = TAG_ORDER
@@ -581,10 +620,14 @@ def build_round_trips(fills, baseline=None, verbose=True):
             px  = float(b.get("entry_price") or 0)
             if qty <= 0 or px <= 0:
                 continue
-            key = (b["acct"], b["code"], b["tag"])
+            # 시딩분은 원래 태그와 다른 서랍에 심는다(SEED_TAG_SUFFIX 주석 참고).
+            # 컷오프 이후 봇이 새로 사면 원래 태그 서랍이 따로 생기고, 매도는
+            # '정확 태그 우선 → FIFO' 규칙에 따라 봇 물량부터 소진된다.
+            stag = seed_tag(b["tag"])
+            key = (b["acct"], b["code"], stag)
             p = open_pos.get(key)
             if p is None:
-                p = new_pos(b["tag"], b.get("name", ""))
+                p = new_pos(stag, b.get("name", ""))
                 p["first_buy_dt"] = entry_dt
                 open_pos[key] = p
             p["buy_qty"]  += qty
@@ -765,7 +808,8 @@ def check_position_drift(verbose=True):
                 actual[(acct, code)] += int(h.get("quantity") or 0)
 
     if not have_balance:
-        return []
+        # 잔고파일이 아예 없으면 '드리프트 0' 과 구분되어야 한다(배너를 띄우면 안 됨).
+        return None
 
     diffs = []
     for k in sorted(set(tracked) | set(actual)):
@@ -781,6 +825,36 @@ def check_position_drift(verbose=True):
             print(f"     … 외 {len(diffs)-20}건")
         print("     크게 벌어졌으면: python 0order/make_position_baseline.py --apply 로 컷오프 재설정")
     return diffs
+
+
+def build_drift_payload(diffs, limit=15):
+    """check_position_drift() 결과 → 웹 게시판 배너용 dict.
+
+    이 경고는 지금까지 콘솔에만 찍혀서, 배치를 돌린 사람이 로그를 안 보면
+    '트래커엔 있는데 계좌엔 0주' 인 유령 포지션이 몇 주씩 쌓여도 몰랐다.
+    유령은 라운드트립이 영영 안 닫혀서 그 태그 성과가 통째로 안 잡힌다
+    (미국VCP 가 계속 '0건' 으로 보이던 이유). 표 위에 띄워서 드러낸다.
+
+    diffs 가 None(잔고파일 없음) 이면 None — 배너를 그리지 않는다.
+    """
+    if diffs is None:
+        return None
+    rows = []
+    for acct, code, tracked, actual, diff in diffs:
+        rows.append({"acct": acct, "code": code,
+                     "tracked": tracked, "actual": actual, "diff": diff,
+                     "ghost": bool(tracked > 0 and actual == 0)})
+    # 유령 먼저, 그 안에서는 수량차 큰 순
+    rows.sort(key=lambda r: (not r["ghost"], -abs(r["diff"])))
+    return {
+        "count": len(rows),
+        "ghost": sum(1 for r in rows if r["ghost"]),
+        "cutoff": CUTOFF_DATE,
+        "checked_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "rows": rows[:limit],
+        "more": max(0, len(rows) - limit),
+        "fix_hint": "python 0order/make_position_baseline.py --apply",
+    }
 
 
 def _parse_dt(value, fallback_day=None):
@@ -1083,7 +1157,7 @@ def build_report(trips, weeks_limit=None):
     for bot in ordered_tags:
         bt = by_bot.get(bot, [])
         br = by_real.get(bot, [])
-        unit = BOT_UNIT.get(bot, "min")
+        unit = tag_unit(bot)
         weeks = []
         for w in all_weeks:
             wk = w.isoformat()
@@ -1190,7 +1264,7 @@ def build_daily_report(trips, days_limit=None):
             dt_reals = by_real_day.get((bot, dk), [])
             if not dt_trips and not dt_reals:
                 continue
-            unit = BOT_UNIT.get(bot, "min")
+            unit = tag_unit(bot)
             s = summarize(dt_trips, unit, dt_reals if use_reals else None)
             if not s["trades"] and not s["sum_pnl_amt"] and not (s.get("sell_events") or 0):
                 continue
@@ -1245,7 +1319,7 @@ def build_quarter(by_bot, by_real, all_weeks, ordered_tags, rf):
                    [r for r in by_real.get(tag, []) if inwin(r, real_weeks)])
         if not bt and not amt_src:
             continue
-        unit = BOT_UNIT.get(tag, "min")
+        unit = tag_unit(tag)
         s = summarize(bt, unit, amt_src)
         # '매도' 열은 부분청산 회계가 켜진 주차에서만 의미가 있다(그 전 구간은 완결 기준).
         s["sell_events"] = (len([r for r in by_real.get(tag, []) if inwin(r, real_weeks)])
@@ -1257,7 +1331,7 @@ def build_quarter(by_bot, by_real, all_weeks, ordered_tags, rf):
         rows.append(s)
 
     # 봇(통합 → 태그별 손익순) → 자산배분 → 수동(수동합계 → 태그별) → 레거시
-    order = {"bot": 0, "alloc": 1, "manual": 2, "legacy": 3}
+    order = {"bot": 0, "alloc": 1, "manual": 2, "seed": 3, "legacy": 4}
     rows.sort(key=lambda r: (order.get(r["group"], 9),
                              r["key"] not in AGGREGATE_TAGS, -r["sum_pnl_amt"]))
     keys = sorted(wset)
@@ -1487,6 +1561,18 @@ CSV_HEADER = ["봇", "보유단위", "주", "총거래수", "승률(%)", "손익
               "환율(USDKRW)"]
 
 
+def _week_is_empty(s):
+    """이 주차 행을 파일에서 빼도 되는가.
+
+    완결 라운드트립이 0 이어도 부분매도 실현손익은 있을 수 있다(잔량 보유 중).
+    trades 만 보고 스킵하면 그 금액이 파일에서 사라지는데 TOTAL 행에는 남아 있어서
+    '주차 합 ≠ 전체' 가 된다 — 실제로 2X단타에서 151,458원이 이렇게 증발했다.
+    웹 게시판(holdings.html)은 이 행을 그리므로 CSV/xlsx 만 다른 얘기를 하게 된다.
+    """
+    return not (s.get("trades") or s.get("sum_pnl_amt") or s.get("sum_pnl_gross")
+                or s.get("sum_fee_tax") or s.get("sell_events"))
+
+
 def _row(bot_key, unit, s):
     def g(k):
         v = s.get(k)
@@ -1505,7 +1591,7 @@ def write_csv(report):
         w.writerow(CSV_HEADER)
         for b in report["bots"]:
             for wk in b["weeks"]:
-                if wk["trades"] == 0:
+                if _week_is_empty(wk):
                     continue
                 w.writerow(_row(b["key"], b["unit"], wk))
             w.writerow(_row(b["key"], b["unit"], b["total"]))
@@ -1531,7 +1617,7 @@ def write_xlsx(report):
         c.fill = hdr_fill; c.font = hdr_font; c.alignment = Alignment(horizontal="center")
     for b in report["bots"]:
         for wk in b["weeks"]:
-            if wk["trades"] == 0:
+            if _week_is_empty(wk):
                 continue
             ws.append(_row(b["key"], b["unit"], wk))
         ws.append(_row(b["key"], b["unit"], b["total"]))
@@ -1672,10 +1758,11 @@ def main():
     print(f"  intraday 완결 라운드트립: {len(intraday_trips)}건")
     print(f"  TR ledger 완결 라운드트립: {len(tr_trips)}건")
     print(f"  전체 완결 라운드트립: {len(trips)}건")
-    check_position_drift()
+    drift = build_drift_payload(check_position_drift())
 
     # 전체 누적(분석용): full json + csv + xlsx
     full_report = build_report(trips)
+    full_report["drift"] = drift
     # 일별 버킷은 full json 에만 붙인다(웹 피드 weekly_performance.json 은 그대로).
     # csv/xlsx 는 report["bots"] 만 훑으므로 최상위 키가 늘어도 영향 없다.
     full_report["daily"] = build_daily_report(trips)
@@ -1688,6 +1775,8 @@ def main():
 
     # 웹페이지 피드: 최근 N주만 (총계도 그 구간 기준)
     web_report = build_report(trips, weeks_limit=RECENT_WEEKS)
+    # 잔고 드리프트 경고: 지금까지 콘솔에만 찍혀서 아무도 못 봤다 → 게시판 상단 배너로.
+    web_report["drift"] = drift
     # 3개월 누적표는 웹 표시구간(8주)이 아니라 전체 데이터에서 뽑은 걸 쓴다.
     web_report["quarter"] = full_report["quarter"]
     q = web_report["quarter"]

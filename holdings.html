@@ -634,13 +634,20 @@ body.naver-popup-open { overflow: hidden; }
                           'KR_TR_JEO2':'2773','KR_TR_MA':'2773','US_TR_ORD_A':'1887(US)','US_TR_VOLUME_1':'1887(US)',
                           'US_TR_VOLUME_2':'1887(US)','US_TR_VCP1':'1887(US)','US_TR_VCP2':'1887(US)','US_TR_JEO2':'1887(US)','US_TR_MA':'1887(US)'};
 
-        // 그룹 라벨. bot=자동매매 / alloc=자산배분 / manual=사람이 직접 매수
+        // 그룹 라벨. bot=자동매매 / alloc=자산배분 / manual=사람이 직접 매수 / seed=컷오프 시딩분
         const WP_AGG = new Set(['통합', '수동합계']);   // 합산 행(개별 태그 아님) — 중복합산 방지
+        const WP_SEED_SUFFIX = '_시딩';
+        const isSeedKey = k => String(k).endsWith(WP_SEED_SUFFIX);
+        const baseKey = k => isSeedKey(k) ? String(k).slice(0, -WP_SEED_SUFFIX.length) : k;
         const WP_GROUP_NOTE = {
-            '통합': '봇 태그만 합산 · 수동/자산배분 제외',
+            '통합': '봇 태그만 합산 · 수동/자산배분/시딩 제외',
             '수동합계': '참고용 · 통합에 미포함',
             '통합ETF': '자산배분 리밸런싱 · 통합에 미포함',
         };
+        // 시딩 카드 부제: 진입가가 실제 매수가가 아니라 컷오프 직전 종가다.
+        const wpGroupNote = key => isSeedKey(key)
+            ? `컷오프 시딩분 청산 · 진입가=컷오프 직전 종가 → 봇 성과 아님 · 통합에 미포함`
+            : (WP_GROUP_NOTE[key] || '');
 
         function renderWeeklyBot(bot, extraCls) {
             const unit = bot.unit;              // '일' | '분' | '혼합'
@@ -677,9 +684,10 @@ body.naver-popup-open { overflow: hidden; }
             const toggle = collapsible
                 ? `<button class="wp-fold-btn" type="button" onclick="toggleWeeklyCard('${cardId}', this)" title="최근 2주만 보기/전체 보기">+</button>`
                 : '';
-            const note = WP_GROUP_NOTE[bot.key] ? ' · ' + WP_GROUP_NOTE[bot.key] : '';
+            const noteTxt = wpGroupNote(bot.key);
+            const note = noteTxt ? ' · ' + noteTxt : '';
             return `<div id="${cardId}" class="wp-card${collapsible ? ' wp-collapsed' : ''}${extraCls ? ' ' + extraCls : ''}">
-                <div class="wp-title">${toggle}${bot.key} <span class="wp-unit">보유단위: ${unit}${(BOT_ACCT[bot.key] ? ', ' + BOT_ACCT[bot.key] : '')}${note}</span></div>
+                <div class="wp-title">${toggle}${bot.key} <span class="wp-unit">보유단위: ${unit}${(BOT_ACCT[baseKey(bot.key)] ? ', ' + BOT_ACCT[baseKey(bot.key)] : '')}${note}</span></div>
                 <div class="wp-tablewrap"><table class="wp-table">
                     <thead><tr>
                         <th>주(월~금)</th><th>거래</th><th>승률</th><th>손익비</th>
@@ -689,6 +697,38 @@ body.naver-popup-open { overflow: hidden; }
                         ${holdHdr}<th title="수수료·증권거래세 차감 후">실현손익</th>
                     </tr></thead>
                     <tbody>${rows}</tbody>
+                </table></div>
+            </div>`;
+        }
+
+        // 잔고 드리프트 경고 배너.
+        // '트래커+TR장부' 미청산 vs 실제 계좌잔고가 어긋나면 이 표 전체가 조용히 틀어진다.
+        // 특히 트래커엔 있는데 계좌엔 0주인 '유령'은 라운드트립이 영영 안 닫혀서
+        // 그 태그 성과가 통째로 안 잡힌다(미국VCP 가 계속 0건이던 이유).
+        // 지금까지 콘솔 로그에만 찍혀서 아무도 못 봤다 → 표 맨 위로 끌어올린다.
+        function renderDriftBanner(data) {
+            const d = data.drift;
+            if (!d || !d.count) return '';
+            const rows = (d.rows || []).map(r => `<tr${r.ghost ? ' class="wp-drift-ghost"' : ''}>
+                    <td>${r.acct}</td><td>${r.code}</td>
+                    <td style="text-align:right;">${r.tracked.toLocaleString()}</td>
+                    <td style="text-align:right;">${r.actual.toLocaleString()}</td>
+                    <td style="text-align:right;">${r.diff > 0 ? '+' : ''}${r.diff.toLocaleString()}</td>
+                    <td style="text-align:center;">${r.ghost ? '유령' : ''}</td>
+                </tr>`).join('');
+            const more = d.more ? `<tr><td colspan="6" style="color:#999;">… 외 ${d.more}건</td></tr>` : '';
+            return `<div class="wp-drift">
+                <div class="wp-drift-head">
+                    ⚠ 잔고 드리프트 <b>${d.count}건</b>${d.ghost ? ` (그중 <b>유령 ${d.ghost}건</b> — 트래커엔 있는데 계좌엔 0주)` : ''}
+                    <span class="wp-drift-when">확인 ${d.checked_at || '-'}${d.cutoff ? ` · 컷오프 ${d.cutoff}` : ''}</span>
+                    <button class="wp-fold-btn wp-drift-btn" type="button"
+                            onclick="const t=document.getElementById('wp-drift-tbl');t.hidden=!t.hidden;this.textContent=t.hidden?'+':'−';">+</button>
+                </div>
+                <div class="wp-drift-msg">유령은 라운드트립이 영영 안 닫혀 <b>그 태그 성과가 아예 안 잡힌다</b>.
+                    크게 벌어졌으면 <code>${d.fix_hint || 'python 0order/make_position_baseline.py --apply'}</code> 로 컷오프 재설정.</div>
+                <div id="wp-drift-tbl" hidden><table class="wp-table" style="margin-top:6px;">
+                    <thead><tr><th>계좌</th><th>종목</th><th>트래커</th><th>실제</th><th>차이</th><th>비고</th></tr></thead>
+                    <tbody>${rows}${more}</tbody>
                 </table></div>
             </div>`;
         }
@@ -761,7 +801,8 @@ body.naver-popup-open { overflow: hidden; }
         function renderQuarter(data) {
             const q = data.quarter;
             if (!q || !(q.rows || []).length) return '';
-            const GRP = {bot: '봇', alloc: '자산배분', manual: '수동'};
+            const GRP = {bot: '봇', alloc: '자산배분', manual: '수동',
+                         seed: '컷오프 시딩분 (봇 성과 아님)', legacy: '레거시 편입분'};
             let rows = '';
             let prevGrp = null;
             q.rows.forEach(r => {
@@ -934,6 +975,16 @@ body.naver-popup-open { overflow: hidden; }
                     .wp-weeksum{width:100%;}
                     .wp-zero td{color:#aaa;}
                     .wp-mini-note{font-size:10px;color:#999;margin-top:4px;text-align:center;}
+                    /* 잔고 드리프트 경고 배너 */
+                    .wp-drift{max-width:1880px;margin:0 auto 12px;padding:9px 12px;border:1px solid #e8c39a;
+                              border-left:4px solid #d9822b;background:#fdf6ec;border-radius:0 6px 6px 0;}
+                    .wp-drift-head{font-size:13px;font-weight:700;color:#a35a12;}
+                    .wp-drift-when{font-weight:400;font-size:11px;color:#b08b62;margin-left:8px;}
+                    .wp-drift-btn{margin-left:8px;border-color:#e0b183;background:#fffaf3;color:#a35a12;}
+                    .wp-drift-msg{font-size:11px;color:#8a6236;margin-top:3px;line-height:1.5;}
+                    .wp-drift-msg code{background:#f6e7d2;padding:1px 5px;border-radius:3px;}
+                    .wp-drift table{background:#fff;max-width:640px;}
+                    .wp-drift tr.wp-drift-ghost td{background:#fff3f3;color:#a03030;font-weight:600;}
                     /* 그룹 구분: 봇 / 자산배분 / 수동 */
                     .wp-sec{max-width:1880px;margin:20px 0 10px;padding:6px 10px;border-left:4px solid #8B0000;background:#faf3f3;
                             font-weight:700;font-size:14px;color:#8B0000;border-radius:0 6px 6px 0;}
@@ -961,11 +1012,13 @@ body.naver-popup-open { overflow: hidden; }
                         : `완결 포지션 기준 (부분청산 반영은 컷오프 ${data.cutoff_date || '-'} 부터)`}.
                     당일봇=보유'분' / 스윙봇=보유'일'. 손익비=평균수익금액÷평균손실금액(기준 1.0). 체결로그(2026-06-11~) 이전 매매는 제외.</div>
 `;
+                html += renderDriftBanner(data);
                 const allBots = data.bots || [];
                 const totBot = allBots.find(b => b.key === '통합');
                 const restBots = allBots.filter(b => b.key !== '통합' && b.group === 'bot');
                 const allocBots = allBots.filter(b => b.group === 'alloc');
                 const manualBots = allBots.filter(b => b.group === 'manual');
+                const seedBots = allBots.filter(b => b.group === 'seed');
                 html += `<div class="wp-shell"><main class="wp-main">`;
                 if (totBot) html += `<div class="wp-toparea">
                     <div class="wp-solo">${renderWeeklyBot(totBot)}</div>
@@ -1022,6 +1075,16 @@ body.naver-popup-open { overflow: hidden; }
                     html += `<div class="wp-sec wp-sec-muted">수동 <span>사람이 직접 매수 · 참고용 · 통합 합산에서 제외</span></div>`;
                     html += `<div class="wp-grid">`;
                     manualBots.forEach(b => { html += renderWeeklyBot(b, 'wp-muted-card'); });
+                    html += `</div>`;
+                }
+                // 컷오프 시딩분: 봇이 잡은 자리가 아니라 리셋 때 심어둔 잔고를 턴 것.
+                // 진입가가 컷오프 직전 종가라 손익이 '봇 성적'이 아니므로 따로 뗀다.
+                if (seedBots.length) {
+                    html += `<div class="wp-sec wp-sec-muted">컷오프 시딩분
+                        <span>${data.cutoff_date || ''} 리셋 때 실계좌 잔고로 심은 물량의 청산 ·
+                        진입가=컷오프 직전 종가라 봇 성과가 아님 · 통합 합산에서 제외</span></div>`;
+                    html += `<div class="wp-grid">`;
+                    seedBots.forEach(b => { html += renderWeeklyBot(b, 'wp-muted-card'); });
                     html += `</div>`;
                 }
                 const combined = await fetchCombinedAssetParts(COMBINED_DONUT_ACCS);
