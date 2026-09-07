@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07 15:42:06",
+  "updated": "2026-09-07 15:53:36",
   "weeks_limit": 8,
   "week_keys": [
     "2026-07-20",
@@ -9823,11 +9823,19 @@
     ]
   },
   "drift": {
-    "count": 54,
-    "ghost": 45,
+    "count": 55,
+    "ghost": 46,
     "cutoff": "2026-08-17",
-    "checked_at": "2026-09-07 15:42",
+    "checked_at": "2026-09-07 15:53",
     "rows": [
+      {
+        "acct": "8042",
+        "code": "228790",
+        "tracked": 1125,
+        "actual": 0,
+        "diff": 1125,
+        "ghost": true
+      },
       {
         "acct": "8042",
         "code": "0193T0",
@@ -9939,17 +9947,9 @@
         "actual": 0,
         "diff": 4,
         "ghost": true
-      },
-      {
-        "acct": "1887",
-        "code": "MBX",
-        "tracked": 4,
-        "actual": 0,
-        "diff": 4,
-        "ghost": true
       }
     ],
-    "more": 39,
+    "more": 40,
     "fix_hint": "python 0order/make_position_baseline.py --apply"
   },
   "coin_week": {
