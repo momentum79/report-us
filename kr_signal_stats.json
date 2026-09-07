@@ -1,25 +1,25 @@
 {
-    "avg_sco": -5.1,
+    "avg_sco": -4.8,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
-    "sco_pos": 8,
-    "sco_neg": 27,
+    "sco_pos": 9,
+    "sco_neg": 26,
     "sco_strong": 1,
     "strong_count": 1,
-    "top3_avg_sco": 14.0,
-    "top3_avg_pos": 2.0,
-    "kospi_trend": "PURPLE",
+    "top3_avg_sco": 14.5,
+    "top3_avg_pos": 1.0,
+    "kospi_trend": "-",
     "kosdaq_trend": "-",
     "sp500_trend": "-",
     "nasdaq_trend": "-",
     "euro_trend": "-",
     "india_trend": "RED",
     "nikkei_trend": "PURPLE",
-    "kospi_mult": 0.1,
-    "nasdaq_mult": 0.3,
-    "invest_pct": 15.0,
-    "invest_amount_total": 15000000,
+    "kospi_mult": 0.2,
+    "nasdaq_mult": 0.2,
+    "invest_pct": 20.0,
+    "invest_amount_total": 20000000,
     "per_ticker_alloc": [
         {
             "ticker": "091170",
@@ -27,16 +27,16 @@
             "is_kospi": true,
             "bucket": "KOSPI",
             "internal_weight": 100.0,
-            "market_mult": 0.15,
+            "market_mult": 0.2,
             "floor_mult": null,
-            "effective_mult": 0.15,
-            "effective_pct": 15.0
+            "effective_mult": 0.2,
+            "effective_pct": 20.0
         }
     ],
-    "invest_pct_sc3": 15.0,
-    "invest_pct_s1": 10.0,
-    "invest_amount_sc3": 15000000,
-    "invest_amount_s1": 10000000,
+    "invest_pct_sc3": 20.0,
+    "invest_pct_s1": 55.0,
+    "invest_amount_sc3": 20000000,
+    "invest_amount_s1": 55000000,
     "per_ticker_alloc_sc3": [
         {
             "ticker": "091170",
@@ -44,10 +44,10 @@
             "is_kospi": true,
             "bucket": "KOSPI",
             "internal_weight": 100.0,
-            "market_mult": 0.15,
+            "market_mult": 0.2,
             "floor_mult": null,
-            "effective_mult": 0.15,
-            "effective_pct": 15.0
+            "effective_mult": 0.2,
+            "effective_pct": 20.0
         }
     ],
     "per_ticker_alloc_s1": [
@@ -56,23 +56,23 @@
             "industry": "은행주",
             "is_kospi": true,
             "internal_weight": 100.0,
-            "market_mult": 0.1,
-            "floor_mult": 0.0,
-            "effective_mult": 0.1,
-            "effective_pct": 10.0
+            "market_mult": 0.2,
+            "floor_mult": 0.55,
+            "effective_mult": 0.55,
+            "effective_pct": 55.0
         }
     ],
     "sc3_state": {
         "kr_state": "PURPLE",
-        "kr_bucket_pct": 0.15,
+        "kr_bucket_pct": 0.2,
         "us_state": "PURPLE",
         "us_bucket_pct": 0.2,
-        "last_date": "2026-09-04",
-        "updated_today": false
+        "last_date": "2026-09-07",
+        "updated_today": true
     },
     "sc3_ok": true,
-    "trade_date": "2026-09-04",
-    "vol63_median": 40.8,
+    "trade_date": "2026-09-07",
+    "vol63_median": 37.2,
     "internal_weights": [
         100.0
     ],
@@ -86,5 +86,5 @@
     "allocation_map_used": [
         100
     ],
-    "update_time": "2026-09-05 08:28:46"
+    "update_time": "2026-09-07 13:02:46"
 }

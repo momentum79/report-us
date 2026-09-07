@@ -1,17 +1,17 @@
 {
   "account": "8042",
-  "updated": "2026-09-05 08:37:47",
+  "updated": "2026-09-07 13:10:41",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 12193144,
-    "tot_pur_amt": 8585247,
-    "tot_evlt_amt": 8440055,
-    "tot_evlt_pl": -147722,
-    "tot_prft_rt": -1.72,
-    "stock_ratio": 69.21967787799439,
-    "cash": 28522,
-    "tdy_realized_pl": 0
+    "total_asset": 12332204,
+    "tot_pur_amt": 7338693,
+    "tot_evlt_amt": 7190480,
+    "tot_evlt_pl": -150373,
+    "tot_prft_rt": -2.05,
+    "stock_ratio": 58.30652817614759,
+    "cash": 2167347,
+    "tdy_realized_pl": 141479
   },
   "holdings": [
     {
@@ -19,37 +19,37 @@
       "stock_name": "TIGER 화장품",
       "quantity": 1125,
       "avg_price": 0,
-      "current_price": 4520,
-      "profit_rate": -3.66,
-      "eval_amount": 5085000,
+      "current_price": 4465,
+      "profit_rate": -4.84,
+      "eval_amount": 5023125,
       "nxt": "",
-      "cntr_str": 75.92,
+      "cntr_str": 81.78,
       "candle": "일봉",
       "tag": "통합ETF"
     },
     {
       "stock_code": "122630",
       "stock_name": "KODEX 레버리지",
-      "quantity": 27,
+      "quantity": 11,
       "avg_price": 0,
-      "current_price": 103055,
-      "profit_rate": 1.57,
-      "eval_amount": 2782485,
+      "current_price": 111355,
+      "profit_rate": 9.75,
+      "eval_amount": 1224905,
       "nxt": "",
-      "cntr_str": 97.43,
+      "cntr_str": 100.02,
       "candle": "",
       "tag": ""
     },
     {
       "stock_code": "271050",
       "stock_name": "KODEX WTI원유선물인버스(H)",
-      "quantity": 310,
+      "quantity": 515,
       "avg_price": 0,
-      "current_price": 1847,
-      "profit_rate": 0.48,
-      "eval_amount": 572570,
+      "current_price": 1830,
+      "profit_rate": -0.41,
+      "eval_amount": 942450,
       "nxt": "",
-      "cntr_str": 56.48,
+      "cntr_str": 34.66,
       "candle": "",
       "tag": ""
     }
@@ -124,32 +124,32 @@
   "us_summary": {
     "us_stock_krw": 9917252,
     "usd_cash": 6534.77,
-    "usd_cash_krw": 8884019,
-    "rate": 1359.5,
-    "total_asset_total": 25147396,
+    "usd_cash_krw": 8855920,
+    "rate": 1355.2,
+    "total_asset_total": 27497636,
     "eval_pl_usd": -71.05,
-    "eval_pl_krw": -96592,
+    "eval_pl_krw": -96286,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
-    "won_entr": 28522,
+    "won_entr": 2167347,
     "fx": {
       "USD": {
-        "cash_krw": 8884019,
-        "stock_krw": 9970056,
-        "rate": 1359.5
+        "cash_krw": 8855920,
+        "stock_krw": 9938521,
+        "rate": 1355.2
       },
       "JPY": {
-        "cash_krw": 0,
-        "stock_krw": 6264799,
-        "rate": 871.2
+        "cash_krw": 6535848,
+        "stock_krw": 0,
+        "rate": 867.66
       },
       "CNY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 202.22
+        "rate": 201.9
       }
     },
-    "fx_other_krw": 6264799,
-    "fx_other_stock_krw": 6264799
+    "fx_other_krw": 6535848,
+    "fx_other_stock_krw": 0
   }
 }
