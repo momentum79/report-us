@@ -1,24 +1,24 @@
 {
-    "avg_sco": 0.7,
+    "avg_sco": 1.0,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 69,
-    "sco_neg": 61,
+    "sco_pos": 70,
+    "sco_neg": 60,
     "sco_strong": 16,
-    "sco_zone_neg": 61,
-    "sco_zone_weak": 42,
+    "sco_zone_neg": 60,
+    "sco_zone_weak": 43,
     "sco_zone_mid": 11,
     "sco_zone_strong": 16,
     "strong_count": 6,
-    "top3_avg_sco": 15.17,
+    "top3_avg_sco": 15.08,
     "top3_avg_pos": 1.33,
-    "kospi_trend": "PURPLE",
-    "kosdaq_trend": "-",
+    "kospi_trend": "GREEN",
+    "kosdaq_trend": "RED",
     "sp500_trend": "-",
     "nasdaq_trend": "-",
-    "kospi_sco": -3.25,
-    "kosdaq_sco": -7.25,
+    "kospi_sco": 0.75,
+    "kosdaq_sco": -6.5,
     "sp500_sco": 4.5,
     "nasdaq_sco": 1.75,
     "euro_trend": "PURPLE",
@@ -27,10 +27,10 @@
     "shanghai_trend": "-",
     "hongkong_trend": "LIME",
     "brazil_trend": "LIME",
-    "kospi_mult": 0.1,
-    "nasdaq_mult": 0.2,
-    "invest_pct": 63.9,
-    "invest_amount_total": 63938554,
+    "kospi_mult": 0.6,
+    "nasdaq_mult": 0.3,
+    "invest_pct": 60.1,
+    "invest_amount_total": 60108511,
     "internal_weights": [
         36.6492,
         26.7016,
@@ -41,19 +41,19 @@
     "holdings_tickers": [
         "SVXY",
         "EWT",
-        "XLE",
-        "PDBC"
+        "PDBC",
+        "XLE"
     ],
     "final_ratios": {
-        "SVXY": 18.83,
-        "EWT": 13.72,
-        "XLE": 22.42,
-        "PDBC": 8.97
+        "SVXY": 17.7,
+        "EWT": 12.9,
+        "PDBC": 21.08,
+        "XLE": 8.43
     },
     "top3_tickers": [
         "EWT",
-        "XLE",
-        "PDBC"
+        "PDBC",
+        "XLE"
     ],
     "allocation_map_used": [
         35,
@@ -67,7 +67,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-09-05 08:29:10",
+    "update_time": "2026-09-08 12:39:23",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -75,6 +75,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1369.5
+        "usd_krw": 1352.6
     }
 }
