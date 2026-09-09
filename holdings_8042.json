@@ -1,15 +1,15 @@
 {
   "account": "8042",
-  "updated": "2026-09-09 13:16:33",
+  "updated": "2026-09-09 16:02:30",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 12458074,
+    "total_asset": 12462925,
     "tot_pur_amt": 1270357,
-    "tot_evlt_amt": 1242549,
-    "tot_evlt_pl": -28178,
-    "tot_prft_rt": -2.22,
-    "stock_ratio": 9.973845074286764,
+    "tot_evlt_amt": 1247400,
+    "tot_evlt_pl": -23327,
+    "tot_prft_rt": -1.84,
+    "stock_ratio": 10.008886356934669,
     "cash": 10765782,
     "tdy_realized_pl": 0
   },
@@ -19,55 +19,16 @@
       "stock_name": "KODEX WTI원유선물인버스(H)",
       "quantity": 693,
       "avg_price": 0,
-      "current_price": 1793,
-      "profit_rate": -2.22,
-      "eval_amount": 1242549,
+      "current_price": 1800,
+      "profit_rate": -1.84,
+      "eval_amount": 1247400,
       "nxt": "",
-      "cntr_str": 64.32,
+      "cntr_str": 62.66,
       "candle": "",
       "tag": ""
     }
   ],
   "us_holdings": [
-    {
-      "ticker": "IBB",
-      "stock_name": "바이오테크 아이셰어즈 ETF",
-      "quantity": 16,
-      "avg_price": 215.0,
-      "current_price": 207.03,
-      "profit_rate": -3.84,
-      "eval_amount_usd": 3312.48,
-      "eval_amount": 4444354,
-      "buy_date": "2026-08-20",
-      "candle": "일봉",
-      "tag": "통합ETF"
-    },
-    {
-      "ticker": "XLV",
-      "stock_name": "헬스케어주 SPDR ETF",
-      "quantity": 8,
-      "avg_price": 174.95,
-      "current_price": 167.26,
-      "profit_rate": -4.53,
-      "eval_amount_usd": 1338.08,
-      "eval_amount": 1795301,
-      "buy_date": "2026-08-20",
-      "candle": "일봉",
-      "tag": "통합ETF"
-    },
-    {
-      "ticker": "XBI",
-      "stock_name": "S&P 바이오 SPDR ETF",
-      "quantity": 8,
-      "avg_price": 168.72,
-      "current_price": 162.1,
-      "profit_rate": -4.06,
-      "eval_amount_usd": 1296.8,
-      "eval_amount": 1739916,
-      "buy_date": "2026-08-20",
-      "candle": "일봉",
-      "tag": "통합ETF"
-    },
     {
       "ticker": "SVXY",
       "stock_name": "VIX 단기선물 인버스 0.5배 프로셰어즈 ETF",
@@ -83,20 +44,20 @@
     }
   ],
   "us_summary": {
-    "us_stock_krw": 9503956,
-    "usd_cash": 6659.53,
-    "usd_cash_krw": 8931095,
+    "us_stock_krw": 1524385,
+    "usd_cash": 12602.62,
+    "usd_cash_krw": 16901367,
     "rate": 1341.1,
-    "total_asset_total": 35774390,
-    "eval_pl_usd": -214.82,
-    "eval_pl_krw": -288095,
-    "tdy_realized_pl_usd": 0.0,
-    "tdy_realized_pl_krw": 0,
+    "total_asset_total": 35768658,
+    "eval_pl_usd": 27.18,
+    "eval_pl_krw": 36451,
+    "tdy_realized_pl_usd": -250.61,
+    "tdy_realized_pl_krw": -336239,
     "won_entr": 10765782,
     "fx": {
       "USD": {
-        "cash_krw": 8931095,
-        "stock_krw": 9499708,
+        "cash_krw": 16901367,
+        "stock_krw": 1523704,
         "rate": 1341.1
       },
       "JPY": {
