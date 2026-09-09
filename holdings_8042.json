@@ -1,17 +1,17 @@
 {
   "account": "8042",
-  "updated": "2026-09-08 16:57:22",
+  "updated": "2026-09-09 09:30:59",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 12462826,
+    "total_asset": 12453278,
     "tot_pur_amt": 1250656,
-    "tot_evlt_amt": 1227600,
-    "tot_evlt_pl": -23416,
-    "tot_prft_rt": -1.87,
-    "stock_ratio": 9.850093389733598,
-    "cash": 3882002,
-    "tdy_realized_pl": 101695
+    "tot_evlt_amt": 1218052,
+    "tot_evlt_pl": -32964,
+    "tot_prft_rt": -2.64,
+    "stock_ratio": 9.780974936880073,
+    "cash": 10765782,
+    "tdy_realized_pl": 0
   },
   "holdings": [
     {
@@ -19,11 +19,11 @@
       "stock_name": "KODEX WTI원유선물인버스(H)",
       "quantity": 682,
       "avg_price": 0,
-      "current_price": 1800,
-      "profit_rate": -1.87,
-      "eval_amount": 1227600,
+      "current_price": 1786,
+      "profit_rate": -2.64,
+      "eval_amount": 1218052,
       "nxt": "",
-      "cntr_str": 42.92,
+      "cntr_str": 61.58,
       "candle": "",
       "tag": ""
     }
@@ -34,10 +34,10 @@
       "stock_name": "바이오테크 아이셰어즈 ETF",
       "quantity": 16,
       "avg_price": 215.0,
-      "current_price": 211.92,
-      "profit_rate": -1.57,
-      "eval_amount_usd": 3390.72,
-      "eval_amount": 4563061,
+      "current_price": 207.33,
+      "profit_rate": -3.7,
+      "eval_amount_usd": 3317.28,
+      "eval_amount": 4450794,
       "buy_date": "2026-08-20",
       "candle": "일봉",
       "tag": "통합ETF"
@@ -47,10 +47,10 @@
       "stock_name": "헬스케어주 SPDR ETF",
       "quantity": 8,
       "avg_price": 174.95,
-      "current_price": 171.45,
-      "profit_rate": -2.13,
-      "eval_amount_usd": 1371.6,
-      "eval_amount": 1845830,
+      "current_price": 167.5,
+      "profit_rate": -4.39,
+      "eval_amount_usd": 1340.0,
+      "eval_amount": 1797878,
       "buy_date": "2026-08-20",
       "candle": "일봉",
       "tag": "통합ETF"
@@ -60,10 +60,10 @@
       "stock_name": "S&P 바이오 SPDR ETF",
       "quantity": 8,
       "avg_price": 168.72,
-      "current_price": 163.81,
-      "profit_rate": -3.04,
-      "eval_amount_usd": 1310.48,
-      "eval_amount": 1763578,
+      "current_price": 162.08,
+      "profit_rate": -4.07,
+      "eval_amount_usd": 1296.64,
+      "eval_amount": 1739701,
       "buy_date": "2026-08-20",
       "candle": "일봉",
       "tag": "통합ETF"
@@ -73,44 +73,44 @@
       "stock_name": "VIX 단기선물 인버스 0.5배 프로셰어즈 ETF",
       "quantity": 18,
       "avg_price": 61.61,
-      "current_price": 63.53,
-      "profit_rate": 2.97,
-      "eval_amount_usd": 1143.54,
-      "eval_amount": 1538918,
+      "current_price": 63.02,
+      "profit_rate": 2.14,
+      "eval_amount_usd": 1134.36,
+      "eval_amount": 1521970,
       "buy_date": "2026-08-24",
       "candle": "일봉",
       "tag": "통합ETF"
     }
   ],
   "us_summary": {
-    "us_stock_krw": 9711387,
+    "us_stock_krw": 9510343,
     "usd_cash": 6659.53,
-    "usd_cash_krw": 8941084,
-    "rate": 1342.6,
-    "total_asset_total": 29076819,
-    "eval_pl_usd": -82.0,
-    "eval_pl_krw": -110093,
-    "tdy_realized_pl_usd": 18.36,
-    "tdy_realized_pl_krw": 24701,
-    "won_entr": 3882002,
+    "usd_cash_krw": 8931095,
+    "rate": 1341.1,
+    "total_asset_total": 35780774,
+    "eval_pl_usd": -210.06,
+    "eval_pl_krw": -281711,
+    "tdy_realized_pl_usd": 0.0,
+    "tdy_realized_pl_krw": 0,
+    "won_entr": 10765782,
     "fx": {
       "USD": {
-        "cash_krw": 8941084,
-        "stock_krw": 9688658,
-        "rate": 1342.6
+        "cash_krw": 8931095,
+        "stock_krw": 9506092,
+        "rate": 1341.1
       },
       "JPY": {
-        "cash_krw": 6565075,
+        "cash_krw": 6577805,
         "stock_krw": 0,
-        "rate": 871.54
+        "rate": 873.23
       },
       "CNY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 200.6
+        "rate": 199.72
       }
     },
-    "fx_other_krw": 6565075,
+    "fx_other_krw": 6577805,
     "fx_other_stock_krw": 0
   }
 }
