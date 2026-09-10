@@ -1,6 +1,6 @@
 {
-  "update_time": "2026-09-05 08:29:09",
-  "elapsed_sec": 16.88,
+  "update_time": "2026-09-10 10:45:42",
+  "elapsed_sec": 12.65,
   "too_many_threshold": 10,
   "target_conditions": [
     {
@@ -37,106 +37,149 @@
     {
       "seq": "1",
       "name": "120신고_거래",
-      "total_count": 1,
+      "total_count": 0,
       "too_many": false,
       "message": "",
-      "stocks": [
-        {
-          "rank": 1,
-          "code": "010950",
-          "name": "S-Oil",
-          "price": 157300,
-          "rate": 0.636,
-          "volume": 918696,
-          "trade_amount_eok": 2022.57,
-          "contract_strength": "181.74",
-          "nxt": "NXT선"
-        }
-      ],
+      "stocks": [],
       "error": ""
     },
     {
       "seq": "2",
       "name": "예상체결상위",
-      "total_count": 7,
+      "total_count": 12,
       "too_many": false,
       "message": "",
       "stocks": [
         {
           "rank": 1,
-          "code": "003490",
-          "name": "대한항공",
-          "price": 30200,
-          "rate": 0.36,
-          "volume": 4829883,
-          "trade_amount_eok": 1446.2746675,
-          "contract_strength": "210.55",
-          "nxt": "선"
+          "code": "003280",
+          "name": "흥아해운",
+          "price": 2085,
+          "rate": 1.847,
+          "volume": 71535740,
+          "trade_amount_eok": 1436.79,
+          "contract_strength": "112.70",
+          "nxt": ""
         },
         {
           "rank": 2,
-          "code": "004310",
-          "name": "현대약품",
-          "price": 7950,
-          "rate": 0.352,
-          "volume": 11189417,
-          "trade_amount_eok": 889.27879885,
-          "contract_strength": "85.91",
+          "code": "0039P0",
+          "name": "매드업",
+          "price": 9870,
+          "rate": 1.229,
+          "volume": 5839476,
+          "trade_amount_eok": 559.45,
+          "contract_strength": "99.43",
           "nxt": ""
         },
         {
           "rank": 3,
-          "code": "025980",
-          "name": "아난티",
-          "price": 5710,
-          "rate": 0.574,
-          "volume": 6911359,
-          "trade_amount_eok": 383.8342361,
-          "contract_strength": "110.14",
+          "code": "004090",
+          "name": "한국석유",
+          "price": 14130,
+          "rate": 2.234,
+          "volume": 5745059,
+          "trade_amount_eok": 781.25,
+          "contract_strength": "97.02",
           "nxt": ""
         },
         {
           "rank": 4,
-          "code": "032940",
-          "name": "원익",
-          "price": 10050,
-          "rate": 1.713,
-          "volume": 14688271,
-          "trade_amount_eok": 1458.15,
-          "contract_strength": "90.00",
+          "code": "010580",
+          "name": "에스엠벡셀",
+          "price": 2725,
+          "rate": 0.728,
+          "volume": 2918726,
+          "trade_amount_eok": 76.95045275,
+          "contract_strength": "93.95",
           "nxt": ""
         },
         {
           "rank": 5,
-          "code": "033790",
-          "name": "피노",
-          "price": 10200,
-          "rate": 1.552,
-          "volume": 5920208,
-          "trade_amount_eok": 585.01726675,
-          "contract_strength": "105.73",
+          "code": "014530",
+          "name": "극동유화",
+          "price": 3540,
+          "rate": 0.711,
+          "volume": 4908371,
+          "trade_amount_eok": 183.71006546,
+          "contract_strength": "85.32",
           "nxt": ""
         },
         {
           "rank": 6,
-          "code": "090460",
-          "name": "비에이치",
-          "price": 21850,
-          "rate": 1.075,
-          "volume": 2926725,
-          "trade_amount_eok": 1701.28,
-          "contract_strength": "133.47",
-          "nxt": "NXT"
+          "code": "024060",
+          "name": "흥구석유",
+          "price": 15400,
+          "rate": 2.738,
+          "volume": 16387952,
+          "trade_amount_eok": 2378.79,
+          "contract_strength": "102.79",
+          "nxt": ""
         },
         {
           "rank": 7,
-          "code": "187660",
-          "name": "페니트리움바이오",
-          "price": 5850,
-          "rate": 1.471,
-          "volume": 4098447,
-          "trade_amount_eok": 192.53140726,
-          "contract_strength": "77.55",
+          "code": "030530",
+          "name": "원익홀딩스",
+          "price": 23050,
+          "rate": -0.086,
+          "volume": 1477222,
+          "trade_amount_eok": 345.92130925,
+          "contract_strength": "71.12",
+          "nxt": ""
+        },
+        {
+          "rank": 8,
+          "code": "032940",
+          "name": "원익",
+          "price": 10970,
+          "rate": 0.755,
+          "volume": 7889357,
+          "trade_amount_eok": 861.16,
+          "contract_strength": "91.57",
+          "nxt": ""
+        },
+        {
+          "rank": 9,
+          "code": "117580",
+          "name": "대성에너지",
+          "price": 7830,
+          "rate": 0.89,
+          "volume": 3754929,
+          "trade_amount_eok": 307.1024294,
+          "contract_strength": "82.61",
+          "nxt": ""
+        },
+        {
+          "rank": 10,
+          "code": "198440",
+          "name": "강동씨앤엘",
+          "price": 2115,
+          "rate": 0.144,
+          "volume": 7553153,
+          "trade_amount_eok": 166.89594617,
+          "contract_strength": "80.94",
+          "nxt": ""
+        },
+        {
+          "rank": 11,
+          "code": "475040",
+          "name": "스트라드비젼",
+          "price": 3810,
+          "rate": 1.459,
+          "volume": 4649875,
+          "trade_amount_eok": 169.03827251,
+          "contract_strength": "101.56",
+          "nxt": ""
+        },
+        {
+          "rank": 12,
+          "code": "950250",
+          "name": "테라뷰",
+          "price": 3525,
+          "rate": 1.353,
+          "volume": 5131348,
+          "trade_amount_eok": 181.39576451,
+          "contract_strength": "82.71",
           "nxt": ""
         }
       ],
@@ -145,53 +188,20 @@
     {
       "seq": "4",
       "name": "★ 눌림",
-      "total_count": 4,
+      "total_count": 1,
       "too_many": false,
       "message": "",
       "stocks": [
         {
           "rank": 1,
-          "code": "001450",
-          "name": "현대해상",
-          "price": 51100,
-          "rate": -0.449,
-          "volume": 474757,
-          "trade_amount_eok": 243.141036,
-          "contract_strength": "69.34",
-          "nxt": "NXT선"
-        },
-        {
-          "rank": 2,
-          "code": "021240",
-          "name": "코웨이",
-          "price": 99400,
-          "rate": 0.122,
-          "volume": 110383,
-          "trade_amount_eok": 110.00482,
-          "contract_strength": "63.71",
-          "nxt": "NXT선"
-        },
-        {
-          "rank": 3,
-          "code": "078930",
-          "name": "GS",
-          "price": 123900,
-          "rate": 0.421,
-          "volume": 506916,
-          "trade_amount_eok": 634.79541,
-          "contract_strength": "111.51",
-          "nxt": "NXT선"
-        },
-        {
-          "rank": 4,
-          "code": "096530",
-          "name": "씨젠",
-          "price": 31900,
-          "rate": 0.111,
-          "volume": 131985,
-          "trade_amount_eok": 41.98222375,
-          "contract_strength": "88.80",
-          "nxt": "NXT선"
+          "code": "086790",
+          "name": "하나금융지주",
+          "price": 133400,
+          "rate": -0.045,
+          "volume": 199471,
+          "trade_amount_eok": 268.521046,
+          "contract_strength": "111.49",
+          "nxt": "NXT"
         }
       ],
       "error": ""
@@ -199,77 +209,10 @@
     {
       "seq": "5",
       "name": "★ 삘추세231230",
-      "total_count": 6,
+      "total_count": 0,
       "too_many": false,
       "message": "",
-      "stocks": [
-        {
-          "rank": 1,
-          "code": "036930",
-          "name": "주성엔지니어링",
-          "price": 178300,
-          "rate": 0.613,
-          "volume": 872606,
-          "trade_amount_eok": 1537.4,
-          "contract_strength": "175.19",
-          "nxt": ""
-        },
-        {
-          "rank": 2,
-          "code": "042700",
-          "name": "한미반도체",
-          "price": 230000,
-          "rate": 0.926,
-          "volume": 963556,
-          "trade_amount_eok": 3525.92,
-          "contract_strength": "183.87",
-          "nxt": "NXT선"
-        },
-        {
-          "rank": 3,
-          "code": "095610",
-          "name": "테스",
-          "price": 146800,
-          "rate": 0.963,
-          "volume": 483943,
-          "trade_amount_eok": 1043.95,
-          "contract_strength": "153.32",
-          "nxt": "NXT"
-        },
-        {
-          "rank": 4,
-          "code": "108490",
-          "name": "로보티즈",
-          "price": 304500,
-          "rate": 2.254,
-          "volume": 1433047,
-          "trade_amount_eok": 9276.7,
-          "contract_strength": "160.81",
-          "nxt": "NXT"
-        },
-        {
-          "rank": 5,
-          "code": "240810",
-          "name": "원익IPS",
-          "price": 114800,
-          "rate": 0.933,
-          "volume": 905726,
-          "trade_amount_eok": 1021.61,
-          "contract_strength": "146.68",
-          "nxt": "선"
-        },
-        {
-          "rank": 6,
-          "code": "267250",
-          "name": "HD현대",
-          "price": 240500,
-          "rate": 1.265,
-          "volume": 272287,
-          "trade_amount_eok": 781.78,
-          "contract_strength": "127.35",
-          "nxt": "NXT선"
-        }
-      ],
+      "stocks": [],
       "error": ""
     }
   ]
