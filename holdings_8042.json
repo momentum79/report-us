@@ -1,77 +1,90 @@
 {
   "account": "8042",
-  "updated": "2026-09-10 11:07:53",
+  "updated": "2026-09-11 17:09:28",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 12431727,
-    "tot_pur_amt": 1462567,
-    "tot_evlt_amt": 1408462,
-    "tot_evlt_pl": -54525,
-    "tot_prft_rt": -3.73,
-    "stock_ratio": 11.329576333199723,
-    "cash": 11235406,
+    "total_asset": 12389687,
+    "tot_pur_amt": 2071307,
+    "tot_evlt_amt": 1975332,
+    "tot_evlt_pl": -96575,
+    "tot_prft_rt": -4.66,
+    "stock_ratio": 15.943356761151431,
+    "cash": 11215705,
     "tdy_realized_pl": 0
   },
   "holdings": [
     {
       "stock_code": "271050",
       "stock_name": "KODEX WTI원유선물인버스(H)",
-      "quantity": 803,
+      "quantity": 1173,
       "avg_price": 0,
-      "current_price": 1754,
-      "profit_rate": -3.73,
-      "eval_amount": 1408462,
+      "current_price": 1684,
+      "profit_rate": -4.66,
+      "eval_amount": 1975332,
       "nxt": "",
-      "cntr_str": 63.61,
+      "cntr_str": 68.07,
       "candle": "",
       "tag": ""
     }
   ],
   "us_holdings": [
     {
+      "ticker": "XLE",
+      "stock_name": "에너지 SPDR ETF",
+      "quantity": 65,
+      "avg_price": 65.4,
+      "current_price": 64.7,
+      "profit_rate": -1.2,
+      "eval_amount_usd": 4205.5,
+      "eval_amount": 5679317,
+      "buy_date": "2026-07-22",
+      "candle": "일봉",
+      "tag": "통합ETF"
+    },
+    {
       "ticker": "SVXY",
       "stock_name": "VIX 단기선물 인버스 0.5배 프로셰어즈 ETF",
-      "quantity": 18,
+      "quantity": 12,
       "avg_price": 61.61,
-      "current_price": 62.6,
-      "profit_rate": 1.46,
-      "eval_amount_usd": 1126.8,
-      "eval_amount": 1511320,
+      "current_price": 62.05,
+      "profit_rate": 0.57,
+      "eval_amount_usd": 744.6,
+      "eval_amount": 1005545,
       "buy_date": "2026-08-24",
       "candle": "일봉",
       "tag": "통합ETF"
     }
   ],
   "us_summary": {
-    "us_stock_krw": 1511320,
-    "usd_cash": 12602.63,
-    "usd_cash_krw": 16861060,
-    "rate": 1337.9,
-    "total_asset_total": 36175715,
-    "eval_pl_usd": 17.82,
-    "eval_pl_krw": 23841,
+    "us_stock_krw": 6684862,
+    "usd_cash": 8723.99,
+    "usd_cash_krw": 11674443,
+    "rate": 1338.2,
+    "total_asset_total": 36041406,
+    "eval_pl_usd": -40.22,
+    "eval_pl_krw": -53822,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
-    "won_entr": 11235406,
+    "won_entr": 11215705,
     "fx": {
       "USD": {
-        "cash_krw": 16861060,
-        "stock_krw": 1507545,
-        "rate": 1337.9
+        "cash_krw": 11674443,
+        "stock_krw": 6624223,
+        "rate": 1338.2
       },
       "JPY": {
-        "cash_krw": 6571704,
+        "cash_krw": 6527035,
         "stock_krw": 0,
-        "rate": 872.42
+        "rate": 866.49
       },
       "CNY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 199.65
+        "rate": 199.42
       }
     },
-    "fx_other_krw": 6571704,
+    "fx_other_krw": 6527035,
     "fx_other_stock_krw": 0
   }
 }
