@@ -1,59 +1,59 @@
 {
-    "avg_sco": 2.1,
+    "avg_sco": 0.3,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 80,
-    "sco_neg": 50,
-    "sco_strong": 18,
-    "sco_zone_neg": 50,
-    "sco_zone_weak": 50,
-    "sco_zone_mid": 12,
-    "sco_zone_strong": 18,
-    "strong_count": 9,
-    "top3_avg_sco": 15.33,
+    "sco_pos": 67,
+    "sco_neg": 63,
+    "sco_strong": 12,
+    "sco_zone_neg": 63,
+    "sco_zone_weak": 44,
+    "sco_zone_mid": 11,
+    "sco_zone_strong": 12,
+    "strong_count": 5,
+    "top3_avg_sco": 14.25,
     "top3_avg_pos": 1.0,
     "kospi_trend": "GREEN",
     "kosdaq_trend": "RED",
     "sp500_trend": "PURPLE",
-    "nasdaq_trend": "-",
-    "kospi_sco": 7.25,
-    "kosdaq_sco": -8.0,
-    "sp500_sco": 5.75,
-    "nasdaq_sco": 8.5,
+    "nasdaq_trend": "PURPLE",
+    "kospi_sco": 7.0,
+    "kosdaq_sco": -6.75,
+    "sp500_sco": 1.75,
+    "nasdaq_sco": 4.5,
     "euro_trend": "PURPLE",
     "india_trend": "RED",
     "nikkei_trend": "PURPLE",
     "shanghai_trend": "RED",
-    "hongkong_trend": "GREEN",
+    "hongkong_trend": "-",
     "brazil_trend": "LIME",
-    "kospi_mult": 0.6,
-    "nasdaq_mult": 0.2,
-    "invest_pct": 45.7,
-    "invest_amount_total": 45726108,
+    "kospi_mult": 0.5,
+    "nasdaq_mult": 0.1,
+    "invest_pct": 33.3,
+    "invest_amount_total": 33324393,
     "internal_weights": [
-        36.5535,
-        31.3316,
-        22.1932,
-        9.9217
+        35.687,
+        30.5888,
+        25.4907,
+        8.2335
     ],
     "n_holdings": 4,
     "holdings_tickers": [
         "PDBC",
         "XLE",
-        "EWT",
-        "SVXY"
+        "EWZ",
+        "EWT"
     ],
     "final_ratios": {
-        "PDBC": 17.34,
-        "XLE": 14.87,
-        "EWT": 10.72,
-        "SVXY": 2.8
+        "PDBC": 15.35,
+        "XLE": 13.16,
+        "EWZ": 3.63,
+        "EWT": 1.17
     },
     "top3_tickers": [
         "PDBC",
         "XLE",
-        "EWT"
+        "EWZ"
     ],
     "allocation_map_used": [
         35,
@@ -67,13 +67,13 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-09-10 10:43:23",
+    "update_time": "2026-09-11 17:40:25",
     "liq_rejected": [
         {
             "ticker": "GREK",
             "name": "GREK",
-            "avg_tv_eok": 45.7,
-            "min_tv_eok": 17.0,
+            "avg_tv_eok": 43.3,
+            "min_tv_eok": 16.9,
             "min_eok": 1000,
             "min_day_eok": 400,
             "fail_on": "avg"
@@ -85,6 +85,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1347.9
+        "usd_krw": 1348.2
     }
 }
