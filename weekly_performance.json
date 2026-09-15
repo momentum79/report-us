@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-14 18:52:39",
+  "updated": "2026-09-15 17:32:27",
   "weeks_limit": 8,
   "week_keys": [
     "2026-07-27",
@@ -9823,10 +9823,10 @@
     ]
   },
   "drift": {
-    "count": 57,
-    "ghost": 49,
+    "count": 58,
+    "ghost": 50,
     "cutoff": "2026-08-17",
-    "checked_at": "2026-09-14 18:52",
+    "checked_at": "2026-09-15 17:32",
     "rows": [
       {
         "acct": "8042",
@@ -9949,13 +9949,13 @@
         "ghost": true
       }
     ],
-    "more": 42,
+    "more": 43,
     "fix_hint": "python 0order/make_position_baseline.py --apply"
   },
   "coin_week": {
     "label": "9/14~9/20",
-    "total": 0,
-    "has_data": false,
+    "total": 153,
+    "has_data": true,
     "days": [
       {
         "label": "9/14 월",
@@ -9964,8 +9964,8 @@
       },
       {
         "label": "9/15 화",
-        "btc": null,
-        "eth": null
+        "btc": 94,
+        "eth": 59
       },
       {
         "label": "9/16 수",
@@ -10212,24 +10212,24 @@
       "XAUUSDT",
       "XRPUSDT"
     ],
-    "total": -0.13,
+    "total": -0.44,
     "has_data": true,
     "days": [
       {
         "label": "9/14 월",
-        "BTCUSDT": -0.12,
-        "ETHUSDT": -0.01,
-        "XAUUSDT": -0.0,
+        "BTCUSDT": -0.18,
+        "ETHUSDT": -0.13,
+        "XAUUSDT": -0.02,
         "XRPUSDT": null,
-        "total": -0.13
+        "total": -0.33
       },
       {
         "label": "9/15 화",
-        "BTCUSDT": null,
-        "ETHUSDT": null,
-        "XAUUSDT": null,
+        "BTCUSDT": -0.12,
+        "ETHUSDT": 0.05,
+        "XAUUSDT": -0.04,
         "XRPUSDT": null,
-        "total": null
+        "total": -0.11
       },
       {
         "label": "9/16 수",
