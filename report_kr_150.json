@@ -1,10 +1,10 @@
 {
-  "update_time": "2026-09-16 13:40:59",
+  "update_time": "2026-09-16 15:31:17",
   "summary": {
     "lime": 0,
     "mom": 0,
     "green": 0,
-    "red": 4,
+    "red": 3,
     "jung": 1,
     "spot": 0,
     "leader": 0
@@ -14,9 +14,9 @@
       "type": "JUNG",
       "ticker": "316140",
       "name": "우리금융지주",
-      "change": -0.41,
-      "trade_amount": 45775713200,
-      "intensity": false,
+      "change": 0.28,
+      "trade_amount": 72797580900,
+      "intensity": true,
       "nxt": "NXT"
     }
   ],
@@ -25,21 +25,21 @@
       "type": "RED",
       "ticker": "012330",
       "name": "현대모비스",
-      "trade_amount": 122603282000,
+      "trade_amount": 156759113000,
       "nxt": "NXT선"
     },
     {
       "type": "RED",
       "ticker": "377300",
       "name": "카카오페이",
-      "trade_amount": 45054780600,
+      "trade_amount": 53153982000,
       "nxt": "NXT선"
     },
     {
       "type": "RED",
       "ticker": "024110",
       "name": "기업은행",
-      "trade_amount": 9783342000,
+      "trade_amount": 17935741600,
       "nxt": "NXT선"
     }
   ],
@@ -49,49 +49,49 @@
       "ticker": "175330",
       "name": "JB금융지주",
       "signal_sco": 15.5,
-      "change": 2.66,
-      "final_score": 1.0,
+      "change": 2.97,
+      "final_score": 0.99,
       "new_sig": "-",
       "high_vol": false,
       "nxt": "NXT선",
       "fire": 0,
-      "trade_amount": 10753513200
+      "trade_amount": 20377663900
+    },
+    {
+      "ticker": "316140",
+      "name": "우리금융지주",
+      "signal_sco": 15.0,
+      "change": 0.28,
+      "final_score": 0.95,
+      "new_sig": "JUNG",
+      "high_vol": true,
+      "nxt": "NXT",
+      "fire": 0,
+      "trade_amount": 72797580900
     },
     {
       "ticker": "443060",
       "name": "HD현대마린솔루션",
       "signal_sco": 14.0,
       "change": 1.72,
-      "final_score": 0.95,
+      "final_score": 0.94,
       "new_sig": "🆕LIME",
       "high_vol": true,
       "nxt": "NXT",
       "fire": 0,
-      "trade_amount": 13982589500
-    },
-    {
-      "ticker": "316140",
-      "name": "우리금융지주",
-      "signal_sco": 15.0,
-      "change": -0.41,
-      "final_score": 0.94,
-      "new_sig": "JUNG",
-      "high_vol": false,
-      "nxt": "NXT",
-      "fire": 0,
-      "trade_amount": 45775713200
+      "trade_amount": 24225168000
     },
     {
       "ticker": "105560",
       "name": "KB금융",
-      "signal_sco": 13.5,
-      "change": -0.45,
-      "final_score": 0.89,
-      "new_sig": "🆕GRN",
+      "signal_sco": 14.0,
+      "change": -0.28,
+      "final_score": 0.91,
+      "new_sig": "-",
       "high_vol": false,
       "nxt": "NXT선",
       "fire": 0,
-      "trade_amount": 138389482000
+      "trade_amount": 170614556800
     },
     {
       "ticker": "021240",
@@ -103,175 +103,187 @@
       "high_vol": true,
       "nxt": "NXT선",
       "fire": 0,
-      "trade_amount": 18841504200
+      "trade_amount": 26917769400
     },
     {
       "ticker": "086790",
       "name": "하나금융지주",
       "signal_sco": 12.5,
-      "change": -0.58,
-      "final_score": 0.85,
+      "change": -1.02,
+      "final_score": 0.84,
       "new_sig": "-",
       "high_vol": false,
       "nxt": "NXT",
       "fire": 0,
-      "trade_amount": 55213027200
+      "trade_amount": 73104805200
     },
     {
       "ticker": "055550",
       "name": "신한지주",
       "signal_sco": 11.0,
-      "change": 0.09,
+      "change": 0.27,
       "final_score": 0.83,
       "new_sig": "🚀",
       "high_vol": false,
       "nxt": "NXT선",
       "fire": 0,
-      "trade_amount": 62191136000
-    },
-    {
-      "ticker": "012630",
-      "name": "한화엔진",
-      "signal_sco": 13.25,
-      "change": -2.53,
-      "final_score": 0.8,
-      "new_sig": "-",
-      "high_vol": true,
-      "nxt": "NXT선",
-      "fire": 0,
-      "trade_amount": 1643222350
+      "trade_amount": 83370658800
     },
     {
       "ticker": "088350",
       "name": "한화생명",
       "signal_sco": 12.75,
-      "change": -2.35,
-      "final_score": 0.8,
+      "change": -2.01,
+      "final_score": 0.81,
       "new_sig": "-",
       "high_vol": false,
       "nxt": "선",
       "fire": 0,
-      "trade_amount": 6552301500
+      "trade_amount": 10281576960
     },
     {
       "ticker": "028050",
       "name": "삼성E&A",
       "signal_sco": 11.25,
-      "change": -1.76,
-      "final_score": 0.77,
+      "change": -1.17,
+      "final_score": 0.79,
       "new_sig": "-",
       "high_vol": false,
       "nxt": "선",
       "fire": 0,
-      "trade_amount": 36397058200
+      "trade_amount": 49474850000
+    },
+    {
+      "ticker": "012630",
+      "name": "한화엔진",
+      "signal_sco": 13.25,
+      "change": -3.8,
+      "final_score": 0.79,
+      "new_sig": "-",
+      "high_vol": true,
+      "nxt": "NXT선",
+      "fire": 0,
+      "trade_amount": 3116589000
+    },
+    {
+      "ticker": "000990",
+      "name": "DB하이텍",
+      "signal_sco": 8.5,
+      "change": 4.34,
+      "final_score": 0.78,
+      "new_sig": "-",
+      "high_vol": true,
+      "nxt": "NXT",
+      "fire": 0,
+      "trade_amount": 186106250000
     },
     {
       "ticker": "090430",
       "name": "아모레퍼픽",
       "signal_sco": 8.5,
-      "change": 0.9,
-      "final_score": 0.76,
-      "new_sig": "🚀🆕LIME",
+      "change": 0.35,
+      "final_score": 0.75,
+      "new_sig": "🚀",
       "high_vol": false,
       "nxt": "NXT",
       "fire": 0,
-      "trade_amount": 17053529800
-    },
-    {
-      "ticker": "000990",
-      "name": "DB하이텍",
-      "signal_sco": 8.0,
-      "change": 1.42,
-      "final_score": 0.76,
-      "new_sig": "-",
-      "high_vol": true,
-      "nxt": "NXT",
-      "fire": 0,
-      "trade_amount": 130831321500
-    },
-    {
-      "ticker": "000880",
-      "name": "한화",
-      "signal_sco": 8.25,
-      "change": -0.29,
-      "final_score": 0.73,
-      "new_sig": "-",
-      "high_vol": false,
-      "nxt": "NXT선",
-      "fire": 0,
-      "trade_amount": 9597762000
-    },
-    {
-      "ticker": "180640",
-      "name": "한진칼",
-      "signal_sco": 8.0,
-      "change": -0.43,
-      "final_score": 0.72,
-      "new_sig": "-",
-      "high_vol": false,
-      "nxt": "NXT선",
-      "fire": 0,
-      "trade_amount": 4185241600
-    },
-    {
-      "ticker": "000810",
-      "name": "삼성화재",
-      "signal_sco": 7.0,
-      "change": -0.15,
-      "final_score": 0.7,
-      "new_sig": "-",
-      "high_vol": false,
-      "nxt": "NXT선",
-      "fire": 0,
-      "trade_amount": 24933265000
-    },
-    {
-      "ticker": "128940",
-      "name": "한미약품",
-      "signal_sco": 6.0,
-      "change": 1.91,
-      "final_score": 0.7,
-      "new_sig": "🆕LIME",
-      "high_vol": false,
-      "nxt": "NXT선",
-      "fire": 0,
-      "trade_amount": 82353018000
+      "trade_amount": 23609275800
     },
     {
       "ticker": "003490",
       "name": "대한항공",
       "signal_sco": 8.5,
-      "change": -1.53,
-      "final_score": 0.69,
+      "change": -1.02,
+      "final_score": 0.71,
       "new_sig": "-",
       "high_vol": false,
       "nxt": "선",
       "fire": 0,
-      "trade_amount": 27803707400
+      "trade_amount": 37008799450
+    },
+    {
+      "ticker": "000880",
+      "name": "한화",
+      "signal_sco": 7.75,
+      "change": -0.51,
+      "final_score": 0.71,
+      "new_sig": "-",
+      "high_vol": false,
+      "nxt": "NXT선",
+      "fire": 0,
+      "trade_amount": 14005467000
+    },
+    {
+      "ticker": "036460",
+      "name": "한국가스공사",
+      "signal_sco": 7.5,
+      "change": -0.82,
+      "final_score": 0.69,
+      "new_sig": "-",
+      "high_vol": false,
+      "nxt": "NXT",
+      "fire": 0,
+      "trade_amount": 6755393700
+    },
+    {
+      "ticker": "000810",
+      "name": "삼성화재",
+      "signal_sco": 7.0,
+      "change": -0.61,
+      "final_score": 0.68,
+      "new_sig": "-",
+      "high_vol": false,
+      "nxt": "NXT선",
+      "fire": 0,
+      "trade_amount": 37361168000
     },
     {
       "ticker": "052690",
       "name": "한전기술",
       "signal_sco": 10.0,
-      "change": -8.1,
+      "change": -8.64,
       "final_score": 0.68,
       "new_sig": "-",
       "high_vol": true,
       "nxt": "NXT선",
       "fire": 0,
-      "trade_amount": 202843749600
+      "trade_amount": 235095832400
     },
     {
       "ticker": "004020",
       "name": "현대제철",
       "signal_sco": 9.25,
       "change": -2.81,
-      "final_score": 0.67,
+      "final_score": 0.68,
       "new_sig": "🆕LIME",
       "high_vol": true,
       "nxt": "NXT선",
       "fire": 0,
-      "trade_amount": 25257688600
+      "trade_amount": 34434335200
+    },
+    {
+      "ticker": "128940",
+      "name": "한미약품",
+      "signal_sco": 5.5,
+      "change": 1.11,
+      "final_score": 0.67,
+      "new_sig": "🆕LIME",
+      "high_vol": false,
+      "nxt": "NXT선",
+      "fire": 0,
+      "trade_amount": 112770284000
+    },
+    {
+      "ticker": "000150",
+      "name": "두산",
+      "signal_sco": 4.75,
+      "change": 6.92,
+      "final_score": 0.67,
+      "new_sig": "🆕GRN",
+      "high_vol": false,
+      "nxt": "NXT선",
+      "fire": 0,
+      "trade_amount": 153879950000
     },
     {
       "ticker": "005830",
@@ -283,127 +295,115 @@
       "high_vol": false,
       "nxt": "NXT선",
       "fire": 0,
-      "trade_amount": 18484410000
+      "trade_amount": 28415902200
     },
     {
       "ticker": "096770",
       "name": "SK이노베이션",
       "signal_sco": 9.0,
-      "change": -3.45,
-      "final_score": 0.66,
+      "change": -4.08,
+      "final_score": 0.65,
       "new_sig": "🆕GRN",
       "high_vol": true,
       "nxt": "NXT",
       "fire": 0,
-      "trade_amount": 73269119100
-    },
-    {
-      "ticker": "000150",
-      "name": "두산",
-      "signal_sco": 4.25,
-      "change": 4.92,
-      "final_score": 0.65,
-      "new_sig": "🆕GRN",
-      "high_vol": false,
-      "nxt": "NXT선",
-      "fire": 0,
-      "trade_amount": 105133028000
+      "trade_amount": 96615921600
     },
     {
       "ticker": "138040",
       "name": "메리츠금융지주",
-      "signal_sco": 7.0,
-      "change": -1.42,
-      "final_score": 0.65,
+      "signal_sco": 6.5,
+      "change": -1.73,
+      "final_score": 0.63,
       "new_sig": "-",
       "high_vol": false,
       "nxt": "NXT",
       "fire": 0,
-      "trade_amount": 16494935400
+      "trade_amount": 23123121000
     },
     {
-      "ticker": "011170",
-      "name": "롯데케미칼",
-      "signal_sco": 4.5,
-      "change": 0.15,
+      "ticker": "180640",
+      "name": "한진칼",
+      "signal_sco": 6.5,
+      "change": -1.81,
       "final_score": 0.63,
       "new_sig": "-",
-      "high_vol": true,
+      "high_vol": false,
       "nxt": "NXT선",
       "fire": 0,
-      "trade_amount": 22465170000
-    },
-    {
-      "ticker": "047050",
-      "name": "포스코인터내셔널",
-      "signal_sco": 4.25,
-      "change": 0.54,
-      "final_score": 0.63,
-      "new_sig": "-",
-      "high_vol": false,
-      "nxt": "NXT",
-      "fire": 0,
-      "trade_amount": 50757525000
+      "trade_amount": 5886123200
     },
     {
       "ticker": "138930",
       "name": "BNK금융지주",
       "signal_sco": 4.0,
-      "change": 0.87,
+      "change": 0.44,
       "final_score": 0.62,
       "new_sig": "-",
       "high_vol": true,
       "nxt": "NXT",
       "fire": 0,
-      "trade_amount": 5716955520
-    },
-    {
-      "ticker": "036460",
-      "name": "한국가스공사",
-      "signal_sco": 5.75,
-      "change": -2.46,
-      "final_score": 0.58,
-      "new_sig": "-",
-      "high_vol": false,
-      "nxt": "NXT",
-      "fire": 0,
-      "trade_amount": 4442365200
-    },
-    {
-      "ticker": "005935",
-      "name": "삼성전자우",
-      "signal_sco": 1.5,
-      "change": 2.59,
-      "final_score": 0.56,
-      "new_sig": "-",
-      "high_vol": false,
-      "nxt": "",
-      "fire": 0,
-      "trade_amount": 504806351400
-    },
-    {
-      "ticker": "000660",
-      "name": "SK하이닉스",
-      "signal_sco": 1.5,
-      "change": 1.69,
-      "final_score": 0.56,
-      "new_sig": "-",
-      "high_vol": false,
-      "nxt": "NXT선",
-      "fire": 0,
-      "trade_amount": 4545416728000
+      "trade_amount": 11990638070
     },
     {
       "ticker": "051900",
       "name": "LG생활건강",
-      "signal_sco": 3.75,
-      "change": -1.49,
-      "final_score": 0.54,
+      "signal_sco": 4.25,
+      "change": -0.33,
+      "final_score": 0.61,
       "new_sig": "-",
       "high_vol": false,
       "nxt": "NXT선",
       "fire": 0,
-      "trade_amount": 11085004000
+      "trade_amount": 20020806000
+    },
+    {
+      "ticker": "047050",
+      "name": "포스코인터내셔널",
+      "signal_sco": 4.25,
+      "change": -0.72,
+      "final_score": 0.6,
+      "new_sig": "-",
+      "high_vol": false,
+      "nxt": "NXT",
+      "fire": 0,
+      "trade_amount": 59572970400
+    },
+    {
+      "ticker": "000660",
+      "name": "SK하이닉스",
+      "signal_sco": 2.5,
+      "change": 2.69,
+      "final_score": 0.59,
+      "new_sig": "-",
+      "high_vol": false,
+      "nxt": "NXT선",
+      "fire": 0,
+      "trade_amount": 6142038870000
+    },
+    {
+      "ticker": "011170",
+      "name": "롯데케미칼",
+      "signal_sco": 4.5,
+      "change": -1.23,
+      "final_score": 0.58,
+      "new_sig": "-",
+      "high_vol": true,
+      "nxt": "NXT선",
+      "fire": 0,
+      "trade_amount": 29454014100
+    },
+    {
+      "ticker": "006400",
+      "name": "삼성SDI",
+      "signal_sco": 4.75,
+      "change": -1.63,
+      "final_score": 0.58,
+      "new_sig": "-",
+      "high_vol": false,
+      "nxt": "NXT선",
+      "fire": 0,
+      "trade_amount": 243066946000
     }
   ],
   "rank_maps": {
@@ -943,14 +943,14 @@
     "weak_pct": 72.1
   },
   "market_temp": {
-    "today": 19.19,
-    "ema5": 24.64,
-    "ema20": 28.7,
+    "today": 18.8,
+    "ema5": 24.51,
+    "ema20": 28.66,
     "status": "침체 심화",
     "distribution": {
       "H": 9,
-      "W": 9,
-      "N": 18,
+      "W": 7,
+      "N": 20,
       "C": 93,
       "total": 129
     },
@@ -1547,12 +1547,12 @@
       },
       {
         "date": "2026-09-16",
-        "MT": 19.19,
-        "ema5": 24.64,
-        "ema20": 28.7,
+        "MT": 18.8,
+        "ema5": 24.51,
+        "ema20": 28.66,
         "H": 9,
-        "W": 9,
-        "N": 18,
+        "W": 7,
+        "N": 20,
         "C": 93
       }
     ]

@@ -1,9 +1,75 @@
 {
-  "generated_at": "2026-09-16 13:44:57",
+  "generated_at": "2026-09-16 15:34:43",
   "source_policy": "live volume-first A-grade; KR-all/KR150/Naver confirmation; current cumulative tracking; foreign+institution sell blocks A",
   "counts": {
     "a_grade": 0,
-    "watch": 0
+    "watch": 1
   },
-  "items": []
+  "items": [
+    {
+      "ticker": "000660",
+      "name": "SK하이닉스",
+      "grade": "B",
+      "score": 48,
+      "sources": [
+        "leader_tracking_volume",
+        "report_volume_fi_plus",
+        "report_volume_trade"
+      ],
+      "hard_source_count": 1,
+      "reasons": [
+        "거래대금 트래킹 cum +7.13%",
+        "외인+기관 +2311억",
+        "당일 거래대금 상위"
+      ],
+      "naver": {
+        "theme": "반도체와반도체장비",
+        "name": "SK하이닉스",
+        "chg_pct": 4.11,
+        "trade_eok": 79399.28,
+        "open": 2352000.0,
+        "high": 2430000.0,
+        "close": 2382000.0,
+        "ohlc_ok": true,
+        "ok_wick": true,
+        "passed": true
+      },
+      "report_volume": {
+        "rank": 1,
+        "pred_rank": 1,
+        "ticker": "000660",
+        "name": "SK하이닉스",
+        "change": 4.08,
+        "trade_amount": 6485875,
+        "today": 2311.18,
+        "foreign_today": 138.72,
+        "organ_today": 2172.46,
+        "total": -36647.60781,
+        "foreign": -32600.20598,
+        "organ": -4047.40183,
+        "nxt": "NXT선",
+        "snap_price": null,
+        "snap_rank": null,
+        "snap_pct": null,
+        "high_pct": null,
+        "low_pct": null,
+        "open_price": 1690000
+      },
+      "tracking_cum_pct": {
+        "volume": 7.1297989031078535
+      },
+      "foreign_inst_today_eok": 2311.18,
+      "volume_rank": 1,
+      "today_change_pct": 4.08,
+      "volume_primary": true,
+      "today_volume_valid": true,
+      "confirm_count": 0,
+      "a_confirm_sources": [],
+      "a_confirm_count": 0,
+      "best_tracking_cum_pct": 7.1297989031078535,
+      "collapse_reasons": [],
+      "foreign_inst_sell": false,
+      "early_phase": false
+    }
+  ]
 }
