@@ -1,17 +1,17 @@
 {
   "account": "8042",
-  "updated": "2026-09-15 21:52:45",
+  "updated": "2026-09-16 13:50:01",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 12304112,
+    "total_asset": 12321145,
     "tot_pur_amt": 4082502,
-    "tot_evlt_amt": 3901588,
-    "tot_evlt_pl": -182104,
-    "tot_prft_rt": -4.46,
-    "stock_ratio": 31.709626830444975,
-    "cash": 10414645,
-    "tdy_realized_pl": -56
+    "tot_evlt_amt": 3919271,
+    "tot_evlt_pl": -164421,
+    "tot_prft_rt": -4.03,
+    "stock_ratio": 31.809308306979588,
+    "cash": 8766650,
+    "tdy_realized_pl": 0
   },
   "holdings": [
     {
@@ -19,11 +19,11 @@
       "stock_name": "KODEX WTI원유선물인버스(H)",
       "quantity": 1583,
       "avg_price": 0,
-      "current_price": 1646,
-      "profit_rate": -5.23,
-      "eval_amount": 2605618,
+      "current_price": 1632,
+      "profit_rate": -6.03,
+      "eval_amount": 2583456,
       "nxt": "",
-      "cntr_str": 53.7,
+      "cntr_str": 73.88,
       "candle": "",
       "tag": ""
     },
@@ -32,11 +32,11 @@
       "stock_name": "KODEX 레버리지",
       "quantity": 13,
       "avg_price": 0,
-      "current_price": 99690,
-      "profit_rate": -2.88,
-      "eval_amount": 1295970,
+      "current_price": 102755,
+      "profit_rate": 0.1,
+      "eval_amount": 1335815,
       "nxt": "",
-      "cntr_str": 102.16,
+      "cntr_str": 103.21,
       "candle": "",
       "tag": ""
     }
@@ -47,10 +47,10 @@
       "stock_name": "에너지 SPDR ETF",
       "quantity": 51,
       "avg_price": 65.4,
-      "current_price": 64.58,
-      "profit_rate": -1.39,
-      "eval_amount_usd": 3293.58,
-      "eval_amount": 4438593,
+      "current_price": 65.74,
+      "profit_rate": 0.37,
+      "eval_amount_usd": 3352.74,
+      "eval_amount": 4576154,
       "buy_date": "2026-07-22",
       "candle": "일봉",
       "tag": "통합ETF"
@@ -60,44 +60,44 @@
       "stock_name": "VIX 단기선물 인버스 0.5배 프로셰어즈 ETF",
       "quantity": 12,
       "avg_price": 61.61,
-      "current_price": 62.78,
-      "profit_rate": 1.75,
-      "eval_amount_usd": 753.36,
-      "eval_amount": 1015265,
+      "current_price": 62.82,
+      "profit_rate": 1.82,
+      "eval_amount_usd": 753.84,
+      "eval_amount": 1028916,
       "buy_date": "2026-08-24",
       "candle": "일봉",
       "tag": "통합ETF"
     }
   ],
   "us_summary": {
-    "us_stock_krw": 5453858,
+    "us_stock_krw": 5605070,
     "usd_cash": 9628.58,
-    "usd_cash_krw": 12953325,
-    "rate": 1345.3,
-    "total_asset_total": 35381385,
-    "eval_pl_usd": -27.78,
-    "eval_pl_krw": -37372,
-    "tdy_realized_pl_usd": -11.65,
-    "tdy_realized_pl_krw": -15704,
-    "won_entr": 10414645,
+    "usd_cash_krw": 13030357,
+    "rate": 1353.3,
+    "total_asset_total": 33922755,
+    "eval_pl_usd": 31.86,
+    "eval_pl_krw": 43116,
+    "tdy_realized_pl_usd": 0.0,
+    "tdy_realized_pl_krw": 0,
+    "won_entr": 8766650,
     "fx": {
       "USD": {
-        "cash_krw": 12953325,
-        "stock_krw": 5444348,
-        "rate": 1345.3
+        "cash_krw": 13030357,
+        "stock_krw": 5557434,
+        "rate": 1353.3
       },
       "JPY": {
-        "cash_krw": 6569067,
+        "cash_krw": 6568314,
         "stock_krw": 0,
-        "rate": 872.07
+        "rate": 871.97
       },
       "CNY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 200.54
+        "rate": 201.8
       }
     },
-    "fx_other_krw": 6569067,
+    "fx_other_krw": 6568314,
     "fx_other_stock_krw": 0
   }
 }
