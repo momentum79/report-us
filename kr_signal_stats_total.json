@@ -1,26 +1,26 @@
 {
-    "avg_sco": -3.9,
+    "avg_sco": -3.2,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 27,
-    "sco_neg": 103,
-    "sco_strong": 4,
-    "sco_zone_neg": 103,
-    "sco_zone_weak": 17,
+    "sco_pos": 34,
+    "sco_neg": 96,
+    "sco_strong": 1,
+    "sco_zone_neg": 96,
+    "sco_zone_weak": 27,
     "sco_zone_mid": 6,
-    "sco_zone_strong": 4,
-    "strong_count": 3,
-    "top3_avg_sco": 12.58,
-    "top3_avg_pos": 2.67,
+    "sco_zone_strong": 1,
+    "strong_count": 1,
+    "top3_avg_sco": 13.5,
+    "top3_avg_pos": 2.0,
     "kospi_trend": "-",
-    "kosdaq_trend": "RED",
+    "kosdaq_trend": "-",
     "sp500_trend": "PURPLE",
-    "nasdaq_trend": "PURPLE",
-    "kospi_sco": -6.25,
-    "kosdaq_sco": -9.5,
-    "sp500_sco": -2.75,
-    "nasdaq_sco": -5.5,
+    "nasdaq_trend": "LIME",
+    "kospi_sco": -3.75,
+    "kosdaq_sco": -7.25,
+    "sp500_sco": -1.0,
+    "nasdaq_sco": 2.0,
     "euro_trend": "PURPLE",
     "india_trend": "-",
     "nikkei_trend": "-",
@@ -28,34 +28,24 @@
     "hongkong_trend": "PURPLE",
     "brazil_trend": "GREEN",
     "kospi_mult": 0.2,
-    "nasdaq_mult": 0.1,
-    "invest_pct": 1.7,
-    "invest_amount_total": 1651400,
+    "nasdaq_mult": 0.85,
+    "invest_pct": 3.9,
+    "invest_amount_total": 3918500,
     "internal_weights": [
-        45.0,
-        30.0,
-        25.0
+        100.0
     ],
-    "n_holdings": 3,
+    "n_holdings": 1,
     "holdings_tickers": [
-        "PDBC",
-        "XLC",
-        "XLE"
+        "CIBR"
     ],
     "final_ratios": {
-        "PDBC": 0.92,
-        "XLC": 0.22,
-        "XLE": 0.51
+        "CIBR": 3.92
     },
     "top3_tickers": [
-        "PDBC",
-        "XLC",
-        "XLE"
+        "CIBR"
     ],
     "allocation_map_used": [
-        45,
-        30,
-        25
+        100
     ],
     "score_model": {
         "name": "vol_stability_v1",
@@ -63,24 +53,14 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-09-17 17:56:33",
-    "liq_rejected": [
-        {
-            "ticker": "091170",
-            "name": "은행주",
-            "avg_tv_eok": 156.6,
-            "min_tv_eok": 67.4,
-            "min_eok": 200,
-            "min_day_eok": 80,
-            "fail_on": "avg"
-        }
-    ],
+    "update_time": "2026-09-20 09:29:48",
+    "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
         "US": 1000,
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1378.3
+        "usd_krw": 1390.3
     }
 }
