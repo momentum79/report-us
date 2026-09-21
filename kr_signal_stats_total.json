@@ -1,36 +1,36 @@
 {
-    "avg_sco": -3.2,
+    "avg_sco": -2.8,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 34,
-    "sco_neg": 96,
+    "sco_pos": 40,
+    "sco_neg": 90,
     "sco_strong": 1,
-    "sco_zone_neg": 96,
-    "sco_zone_weak": 27,
-    "sco_zone_mid": 6,
+    "sco_zone_neg": 90,
+    "sco_zone_weak": 35,
+    "sco_zone_mid": 4,
     "sco_zone_strong": 1,
     "strong_count": 1,
     "top3_avg_sco": 13.5,
     "top3_avg_pos": 2.0,
-    "kospi_trend": "-",
+    "kospi_trend": "GREEN",
     "kosdaq_trend": "-",
     "sp500_trend": "PURPLE",
     "nasdaq_trend": "LIME",
-    "kospi_sco": -3.75,
-    "kosdaq_sco": -7.25,
-    "sp500_sco": -1.0,
+    "kospi_sco": 0.5,
+    "kosdaq_sco": -4.5,
+    "sp500_sco": -2.25,
     "nasdaq_sco": 2.0,
     "euro_trend": "PURPLE",
     "india_trend": "-",
-    "nikkei_trend": "-",
+    "nikkei_trend": "GREEN",
     "shanghai_trend": "RED",
     "hongkong_trend": "PURPLE",
     "brazil_trend": "GREEN",
-    "kospi_mult": 0.2,
+    "kospi_mult": 0.7,
     "nasdaq_mult": 0.85,
-    "invest_pct": 3.9,
-    "invest_amount_total": 3918500,
+    "invest_pct": 15.3,
+    "invest_amount_total": 15257500,
     "internal_weights": [
         100.0
     ],
@@ -39,7 +39,7 @@
         "CIBR"
     ],
     "final_ratios": {
-        "CIBR": 3.92
+        "CIBR": 15.26
     },
     "top3_tickers": [
         "CIBR"
@@ -53,7 +53,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-09-20 09:29:48",
+    "update_time": "2026-09-21 15:14:24",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -61,6 +61,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1390.3
+        "usd_krw": 1393.8
     }
 }

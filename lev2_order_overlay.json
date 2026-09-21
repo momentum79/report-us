@@ -1,5 +1,5 @@
 {
-  "asof": "2026-09-20 09:39:59",
+  "asof": "2026-09-21 15:14:28",
   "strategy": "F4_B_safe",
   "params": {
     "atr_thr": 1.5,
@@ -21,17 +21,17 @@
   "index": {
     "qqq_color": "LIME",
     "spy_color": "PURPLE",
-    "kr_color": "-",
+    "kr_color": "LIME",
     "us_safe": false,
     "kr_safe": true,
     "us_ret_ok": true,
-    "kr_ret_ok": false,
-    "qqq_ret20": 1.479754636832098,
-    "qqq_ret60": 1.524023692586618,
-    "spy_ret20": -0.11932509489422927,
-    "spy_ret60": 3.880040994209466,
-    "kr_ret20": -0.6319330787415867,
-    "kr_ret60": -20.731574633523607
+    "kr_ret_ok": true,
+    "qqq_ret20": 1.4797518743054905,
+    "qqq_ret60": 1.524021277194576,
+    "spy_ret20": -0.11932861264095651,
+    "spy_ret60": 3.880039277726266,
+    "kr_ret20": 5.165337987640917,
+    "kr_ret60": -23.40779320722566
   },
   "error": "",
   "swapped": [],
@@ -50,17 +50,17 @@
       "lev_reason": "",
       "fallback_reason": "유동성 탈락 (20일 평균 거래대금 $0.71M < $1M)",
       "atr_ratio": 1.3193,
-      "index_ret20": 1.479754636832098,
-      "index_ret60": 1.524023692586618,
+      "index_ret20": 1.4797518743054905,
+      "index_ret60": 1.524021277194576,
       "qqq_color": "LIME",
       "spy_color": "PURPLE",
-      "kr_color": "-",
-      "liquidity_20d": 707398.29,
-      "liquidity_10d_eok": 9.8,
+      "kr_color": "LIME",
+      "liquidity_20d": 708652.45,
+      "liquidity_10d_eok": 9.9,
       "liq2_min_eok": 1000,
-      "age_bars": 501,
-      "order_qty": 9,
-      "order_amount": 1262891
+      "age_bars": 1422,
+      "order_qty": 36,
+      "order_amount": 5064375
     }
   ]
 }
