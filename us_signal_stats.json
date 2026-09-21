@@ -1,31 +1,45 @@
 {
-    "avg_sco": -2.9,
+    "avg_sco": -1.5,
     "total_cnt": 96,
     "valid_cnt": 96,
     "atr_excl_cnt": 0,
-    "sco_pos": 28,
-    "sco_neg": 68,
-    "sco_strong": 1,
-    "strong_count": 1,
-    "top3_avg_sco": 13.5,
-    "top3_avg_pos": 2.0,
+    "sco_pos": 32,
+    "sco_neg": 64,
+    "sco_strong": 5,
+    "strong_count": 5,
+    "top3_avg_sco": 13.0,
+    "top3_avg_pos": 1.0,
     "nasdaq_trend": "LIME",
     "nasdaq_mult": "0.85",
     "invest_pct": 85.0,
     "invest_amount_total": 8500.0,
-    "vol63_median": 33.2,
+    "vol63_median": 33.6,
     "internal_weights": [
-        100.0
+        33.3333,
+        27.2727,
+        19.1919,
+        10.101,
+        10.101
     ],
-    "n_holdings": 1,
+    "n_holdings": 5,
     "holdings_tickers": [
-        "CIBR"
+        "CIBR",
+        "ARKW",
+        "ARKK",
+        "EWT",
+        "SVXY"
     ],
     "top3_tickers": [
-        "CIBR"
+        "CIBR",
+        "ARKW",
+        "ARKK"
     ],
     "allocation_map_used": [
-        100
+        33,
+        27,
+        20,
+        10,
+        10
     ],
-    "update_time": "2026-09-20 09:28:39"
+    "update_time": "2026-09-22 07:12:13"
 }

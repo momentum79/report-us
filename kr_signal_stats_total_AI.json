@@ -1,85 +1,84 @@
 {
-    "avg_sco": 0.0,
+    "avg_sco": 2.0,
     "total_cnt": 151,
     "valid_cnt": 150,
     "atr_excl_cnt": 0,
-    "sco_pos": 68,
-    "sco_neg": 82,
-    "sco_strong": 19,
-    "sco_zone_neg": 82,
-    "sco_zone_weak": 41,
-    "sco_zone_mid": 8,
-    "sco_zone_strong": 19,
-    "strong_count": 19,
-    "top3_avg_sco": 15.0,
-    "top3_avg_pos": 1.67,
-    "kospi_trend": "-",
+    "sco_pos": 85,
+    "sco_neg": 65,
+    "sco_strong": 26,
+    "sco_zone_neg": 65,
+    "sco_zone_weak": 47,
+    "sco_zone_mid": 12,
+    "sco_zone_strong": 26,
+    "strong_count": 26,
+    "top3_avg_sco": 15.33,
+    "top3_avg_pos": 1.0,
+    "kospi_trend": "GREEN",
     "kosdaq_trend": "-",
-    "sp500_trend": "PURPLE",
+    "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
     "euro_trend": "-",
     "india_trend": "-",
     "nikkei_trend": "-",
-    "kospi_mult": 0.2,
+    "kospi_mult": 0.7,
     "nasdaq_mult": 0.85,
-    "invest_pct": 85.0,
-    "invest_amount_total": 85000000,
+    "invest_pct": 83.7,
+    "invest_amount_total": 83705582,
     "internal_weights": [
-        35.0,
-        30.0,
-        25.0,
-        10.0
+        33.5025,
+        27.4112,
+        20.3046,
+        10.1523,
+        8.6294
     ],
-    "n_holdings": 4,
+    "n_holdings": 5,
     "holdings_tickers": [
-        "DELL",
         "OKTA",
+        "DELL",
         "CRWD",
-        "ZS"
+        "ZS",
+        "222800"
     ],
     "final_ratios": {
-        "DELL": 29.75,
-        "OKTA": 25.5,
-        "CRWD": 21.25,
-        "ZS": 8.5
+        "OKTA": 28.48,
+        "DELL": 23.3,
+        "CRWD": 17.26,
+        "ZS": 8.63,
+        "222800": 6.04
     },
     "top3_tickers": [
-        "DELL",
         "OKTA",
+        "DELL",
         "CRWD"
     ],
     "allocation_map_used": [
-        35,
-        30,
-        25,
+        33,
+        27,
+        20,
+        10,
         10
     ],
-    "ai_core_score": 9.25,
-    "ai_core_dedup_score": 7.17,
-    "ai_core_gap": 2.08,
+    "ai_core_score": 10.74,
+    "ai_core_dedup_score": 8.91,
+    "ai_core_gap": 1.83,
     "ai_core_state": "AI Constructive",
     "ai_breadth_state": "Negative",
-    "ai_breadth_strong": 2,
-    "ai_breadth_mid": 3,
-    "ai_breadth_weak": 20,
-    "ai_breadth_negative": 9,
+    "ai_breadth_strong": 4,
+    "ai_breadth_mid": 6,
+    "ai_breadth_weak": 18,
+    "ai_breadth_negative": 6,
     "ai_duplicate_impact": {
         "total_entries": 46,
-        "unique_ticker_count": 37,
-        "duplicate_ratio": 0.1957,
+        "unique_ticker_count": 40,
+        "duplicate_ratio": 0.1304,
         "duplicate_level": "낮음",
-        "top_contributor": "053800",
+        "top_contributor": "AMD",
         "top_contributor_count": 2,
         "top_contributors": [
             {
-                "ticker": "053800",
-                "count": 2,
-                "Signal_sco": 14.0
-            },
-            {
                 "ticker": "AMD",
                 "count": 2,
-                "Signal_sco": 9.25
+                "Signal_sco": 12.75
             },
             {
                 "ticker": "DELL",
@@ -89,12 +88,17 @@
             {
                 "ticker": "HPE",
                 "count": 2,
-                "Signal_sco": 10.5
+                "Signal_sco": 13.0
             },
             {
-                "ticker": "MSFT",
+                "ticker": "NET",
                 "count": 2,
-                "Signal_sco": 5.5
+                "Signal_sco": 15.0
+            },
+            {
+                "ticker": "SMCI",
+                "count": 2,
+                "Signal_sco": 9.5
             }
         ]
     },
@@ -102,72 +106,83 @@
         {
             "basket": "AI_CYBER_SECURITY",
             "basket_name_kr": "AI_사이버보안",
-            "score": 14.3,
+            "score": 14.48,
             "valid_count": 12
         },
         {
             "basket": "AI_DATA_IDENTITY_SECURITY",
             "basket_name_kr": "AI_데이터보안",
-            "score": 13.74,
+            "score": 14.11,
             "valid_count": 9
         },
         {
             "basket": "AI_CPU_SERVER",
             "basket_name_kr": "AI_CPU서버",
-            "score": 10.7,
+            "score": 13.0,
             "valid_count": 6
         },
         {
             "basket": "AI_EDGE_DEVICE_ONDEVICE",
             "basket_name_kr": "AI_온디바이스",
-            "score": 9.37,
+            "score": 11.07,
             "valid_count": 5
         },
         {
             "basket": "AI_DATA_PIPELINE_DATABASE",
             "basket_name_kr": "AI_데이터플랫폼",
-            "score": 8.53,
+            "score": 10.3,
             "valid_count": 7
         }
     ],
     "top_ai_tickers": [
         {
+            "ticker": "OKTA",
+            "name": "OKTA",
+            "Signal_sco": 15.0,
+            "return_3m": 60.43,
+            "Final_score": 0.9804,
+            "baskets": [
+                "AI_DATA_IDENTITY_SECURITY"
+            ]
+        },
+        {
             "ticker": "DELL",
             "name": "DELL",
             "Signal_sco": 16.0,
-            "return_3m": 31.09,
-            "Final_score": 0.9702,
+            "return_3m": 40.74,
+            "Final_score": 0.9685,
             "baskets": [
                 "AI_CPU_SERVER",
                 "AI_DATACENTER_REIT_SERVER"
             ]
         },
         {
-            "ticker": "OKTA",
-            "name": "OKTA",
-            "Signal_sco": 14.0,
-            "return_3m": 53.79,
-            "Final_score": 0.9607,
-            "baskets": [
-                "AI_DATA_IDENTITY_SECURITY"
-            ]
-        },
-        {
             "ticker": "CRWD",
             "name": "CRWD",
             "Signal_sco": 15.0,
-            "return_3m": 41.24,
-            "Final_score": 0.9605,
+            "return_3m": 46.97,
+            "Final_score": 0.9588,
             "baskets": [
                 "AI_CYBER_SECURITY"
             ]
         },
         {
+            "ticker": "META",
+            "name": "META",
+            "Signal_sco": 14.25,
+            "return_3m": 36.54,
+            "Final_score": 0.9376,
+            "baskets": [
+                "AI_CLOUD_HYPERSCALER",
+                "AI_CONTENT_ADS_MEDIA"
+            ]
+        },
+        {
             "ticker": "042510",
             "name": "라온시큐어",
-            "Signal_sco": 13.25,
-            "return_3m": 57.58,
-            "Final_score": 0.946,
+            "Signal_sco": 12.0,
+            "return_3m": 59.26,
+            "Final_score": 0.9214,
             "baskets": [
                 "AI_CYBER_SECURITY",
                 "AI_DATA_IDENTITY_SECURITY"
@@ -177,40 +192,19 @@
             "ticker": "NET",
             "name": "NET",
             "Signal_sco": 15.0,
-            "return_3m": 44.8,
-            "Final_score": 0.8958,
+            "return_3m": 55.16,
+            "Final_score": 0.8994,
             "baskets": [
                 "AI_DATA_PIPELINE_DATABASE",
                 "AI_DATA_IDENTITY_SECURITY"
             ]
         },
         {
-            "ticker": "TEM",
-            "name": "TEM",
-            "Signal_sco": 14.5,
-            "return_3m": 49.87,
-            "Final_score": 0.8946,
-            "baskets": [
-                "AI_HEALTHCARE_BIO"
-            ]
-        },
-        {
             "ticker": "203650",
             "name": "드림시큐리티",
             "Signal_sco": 14.0,
-            "return_3m": 11.2,
-            "Final_score": 0.891,
-            "baskets": [
-                "AI_CYBER_SECURITY",
-                "AI_DATA_IDENTITY_SECURITY"
-            ]
-        },
-        {
-            "ticker": "053800",
-            "name": "안랩",
-            "Signal_sco": 14.0,
-            "return_3m": 28.19,
-            "Final_score": 0.8697,
+            "return_3m": 16.22,
+            "Final_score": 0.895,
             "baskets": [
                 "AI_CYBER_SECURITY",
                 "AI_DATA_IDENTITY_SECURITY"
@@ -219,26 +213,37 @@
         {
             "ticker": "ZS",
             "name": "ZS",
-            "Signal_sco": 14.5,
-            "return_3m": 55.03,
-            "Final_score": 0.862,
+            "Signal_sco": 15.0,
+            "return_3m": 67.31,
+            "Final_score": 0.8583,
             "baskets": [
                 "AI_CYBER_SECURITY",
                 "AI_DATA_IDENTITY_SECURITY"
             ]
         },
         {
-            "ticker": "META",
-            "name": "META",
-            "Signal_sco": 13.0,
-            "return_3m": 19.38,
-            "Final_score": 0.8539,
+            "ticker": "AMD",
+            "name": "AMD",
+            "Signal_sco": 12.75,
+            "return_3m": 15.58,
+            "Final_score": 0.8574,
             "baskets": [
-                "AI_CLOUD_HYPERSCALER",
-                "AI_CONTENT_ADS_MEDIA"
+                "AI_GPU_ACCELERATOR",
+                "AI_CPU_SERVER",
+                "AI_EDGE_DEVICE_ONDEVICE"
+            ]
+        },
+        {
+            "ticker": "001820",
+            "name": "삼화콘덴서",
+            "Signal_sco": 12.5,
+            "return_3m": 10.92,
+            "Final_score": 0.8557,
+            "baskets": [
+                "AI_PASSIVE_COMPONENT_MLCC"
             ]
         }
     ],
     "ai_basket_count": 34,
-    "update_time": "2026-09-20 09:30:23"
+    "update_time": "2026-09-22 07:14:06"
 }
