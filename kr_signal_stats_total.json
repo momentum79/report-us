@@ -1,13 +1,13 @@
 {
-    "avg_sco": -1.5,
+    "avg_sco": -1.4,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 47,
-    "sco_neg": 83,
+    "sco_pos": 48,
+    "sco_neg": 82,
     "sco_strong": 5,
-    "sco_zone_neg": 83,
-    "sco_zone_weak": 34,
+    "sco_zone_neg": 82,
+    "sco_zone_weak": 35,
     "sco_zone_mid": 8,
     "sco_zone_strong": 5,
     "strong_count": 4,
@@ -18,8 +18,8 @@
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
     "kospi_sco": 4.0,
-    "kosdaq_sco": -1.25,
-    "sp500_sco": 1.5,
+    "kosdaq_sco": -1.75,
+    "sp500_sco": 2.75,
     "nasdaq_sco": 7.75,
     "euro_trend": "PURPLE",
     "india_trend": "-",
@@ -63,7 +63,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-09-22 14:19:32",
+    "update_time": "2026-09-22 22:25:22",
     "liq_rejected": [
         {
             "ticker": "ARKW",
