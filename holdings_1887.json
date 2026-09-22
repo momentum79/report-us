@@ -1,43 +1,29 @@
 {
   "account": "1887",
-  "updated": "2026-09-22 07:21:34",
+  "updated": "2026-09-22 14:16:30",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 3700980,
-    "tot_pur_amt": 258000,
-    "tot_evlt_amt": 274000,
-    "tot_evlt_pl": 15382,
-    "tot_prft_rt": 5.96,
-    "stock_ratio": 7.403444493080211,
+    "total_asset": 3709464,
+    "tot_pur_amt": 0,
+    "tot_evlt_amt": 0,
+    "tot_evlt_pl": 0,
+    "tot_prft_rt": 0.0,
+    "stock_ratio": 0.0,
     "cash": 3427568,
-    "tdy_realized_pl": 0
+    "tdy_realized_pl": 23866
   },
-  "holdings": [
-    {
-      "stock_code": "005930",
-      "stock_name": "삼성전자",
-      "quantity": 1,
-      "avg_price": 0,
-      "current_price": 274000,
-      "profit_rate": 5.96,
-      "eval_amount": 274000,
-      "nxt": "N선",
-      "cntr_str": null,
-      "candle": "",
-      "tag": ""
-    }
-  ],
+  "holdings": [],
   "us_holdings": [
     {
       "ticker": "KORU",
       "stock_name": "한국 3배 레버리지 디렉시온 ETF",
       "quantity": 64,
       "avg_price": 19.9409,
-      "current_price": 22.55,
-      "profit_rate": 12.55,
-      "eval_amount_usd": 1443.2,
-      "eval_amount": 1980575,
+      "current_price": 22.27,
+      "profit_rate": 11.15,
+      "eval_amount_usd": 1425.28,
+      "eval_amount": 1960472,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -47,10 +33,10 @@
       "stock_name": "코카콜라",
       "quantity": 3,
       "avg_price": 84.194,
-      "current_price": 87.4467,
-      "profit_rate": 3.35,
-      "eval_amount_usd": 262.3401,
-      "eval_amount": 360022,
+      "current_price": 87.6,
+      "profit_rate": 3.53,
+      "eval_amount_usd": 262.8,
+      "eval_amount": 361481,
       "buy_date": "2026-07-20",
       "candle": "일봉",
       "tag": "미국VCP"
@@ -60,10 +46,10 @@
       "stock_name": "미국 반도체 3배 디렉시온 ETF",
       "quantity": 1,
       "avg_price": 117.7123,
-      "current_price": 143.05,
-      "profit_rate": 20.97,
-      "eval_amount_usd": 143.05,
-      "eval_amount": 196314,
+      "current_price": 139.51,
+      "profit_rate": 17.97,
+      "eval_amount_usd": 139.51,
+      "eval_amount": 191896,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -73,36 +59,36 @@
       "stock_name": "텔레폰 앤드 데이터 시스템스",
       "quantity": 2,
       "avg_price": 34.54,
-      "current_price": 36.73,
-      "profit_rate": 5.83,
-      "eval_amount_usd": 73.46,
-      "eval_amount": 100812,
+      "current_price": 35.71,
+      "profit_rate": 2.88,
+      "eval_amount_usd": 71.42,
+      "eval_amount": 98238,
       "buy_date": "",
       "candle": "",
       "tag": ""
     }
   ],
   "us_summary": {
-    "us_stock_krw": 2637723,
-    "usd_cash": 18187.39,
-    "usd_cash_krw": 25167713,
-    "rate": 1383.8,
-    "total_asset_total": 31254986,
-    "eval_pl_usd": 206.46,
-    "eval_pl_krw": 285699,
-    "tdy_realized_pl_usd": 230.31,
-    "tdy_realized_pl_krw": 316068,
+    "us_stock_krw": 2612087,
+    "usd_cash": 18187.4,
+    "usd_cash_krw": 25176817,
+    "rate": 1384.3,
+    "total_asset_total": 31233239,
+    "eval_pl_usd": 183.42,
+    "eval_pl_krw": 253908,
+    "tdy_realized_pl_usd": 0.0,
+    "tdy_realized_pl_krw": 0,
     "won_entr": 3427568,
     "fx": {
       "USD": {
-        "cash_krw": 25167713,
-        "stock_krw": 2659705,
-        "rate": 1383.8
+        "cash_krw": 25176817,
+        "stock_krw": 2628854,
+        "rate": 1384.3
       },
       "JPY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 881.01
+        "rate": 879.84
       }
     },
     "fx_other_krw": 0,
