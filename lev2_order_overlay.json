@@ -1,5 +1,5 @@
 {
-  "asof": "2026-09-22 07:22:20",
+  "asof": "2026-09-22 14:26:40",
   "strategy": "F4_B_safe",
   "params": {
     "atr_thr": 1.5,
@@ -26,12 +26,12 @@
     "kr_safe": true,
     "us_ret_ok": true,
     "kr_ret_ok": true,
-    "qqq_ret20": 3.928847298413274,
-    "qqq_ret60": 3.5023263699852647,
-    "spy_ret20": 1.0160410586824487,
-    "spy_ret60": 5.3384192916646755,
-    "kr_ret20": 5.382329355158255,
-    "kr_ret60": -23.249757793550785
+    "qqq_ret20": 3.9288517604844087,
+    "qqq_ret60": 3.502331165024164,
+    "spy_ret20": 1.0160371937522727,
+    "spy_ret60": 5.338417540514784,
+    "kr_ret20": 4.452455639308961,
+    "kr_ret60": -18.638405881666475
   },
   "error": "",
   "swapped": [],
@@ -50,17 +50,17 @@
       "lev_reason": "",
       "fallback_reason": "유동성 탈락 (20일 평균 거래대금 $0.73M < $1M)",
       "atr_ratio": 1.115,
-      "index_ret20": 3.928847298413274,
-      "index_ret60": 3.5023263699852647,
+      "index_ret20": 3.9288517604844087,
+      "index_ret60": 3.502331165024164,
       "qqq_color": "LIME",
       "spy_color": "LIME",
       "kr_color": "LIME",
-      "liquidity_20d": 734994.98,
+      "liquidity_20d": 731214.34,
       "liquidity_10d_eok": 10.2,
       "liq2_min_eok": 1000,
-      "age_bars": 500,
-      "order_qty": 28,
-      "order_amount": 3869602
+      "age_bars": 1423,
+      "order_qty": 32,
+      "order_amount": 4424001
     },
     {
       "base_ticker": "EWT",
@@ -75,9 +75,9 @@
       "is_lev2": false,
       "lev_reason": "",
       "fallback_reason": "2x 매핑 없음 (NO_2X)",
-      "atr_ratio": 0.8953,
-      "index_ret20": 3.928847298413274,
-      "index_ret60": 3.5023263699852647,
+      "atr_ratio": 0.8957,
+      "index_ret20": 3.9288517604844087,
+      "index_ret60": 3.502331165024164,
       "qqq_color": "LIME",
       "spy_color": "LIME",
       "kr_color": "LIME",
@@ -85,8 +85,8 @@
       "liquidity_10d_eok": null,
       "liq2_min_eok": null,
       "age_bars": null,
-      "order_qty": 17,
-      "order_amount": 2626286
+      "order_qty": 19,
+      "order_amount": 2936321
     },
     {
       "base_ticker": "ARKK",
@@ -102,17 +102,17 @@
       "lev_reason": "",
       "fallback_reason": "유동성 탈락 (20일 평균 거래대금 $0.81M < $1M)",
       "atr_ratio": 1.0235,
-      "index_ret20": 3.928847298413274,
-      "index_ret60": 3.5023263699852647,
+      "index_ret20": 3.9288517604844087,
+      "index_ret60": 3.502331165024164,
       "qqq_color": "LIME",
       "spy_color": "LIME",
       "kr_color": "LIME",
-      "liquidity_20d": 810263.18,
+      "liquidity_20d": 812242.57,
       "liquidity_10d_eok": 11.3,
       "liq2_min_eok": 1000,
-      "age_bars": 500,
-      "order_qty": 18,
-      "order_amount": 2197668
+      "age_bars": 1101,
+      "order_qty": 20,
+      "order_amount": 2442735
     }
   ]
 }

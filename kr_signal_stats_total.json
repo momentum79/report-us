@@ -1,13 +1,13 @@
 {
-    "avg_sco": -1.7,
+    "avg_sco": -1.5,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 45,
-    "sco_neg": 85,
+    "sco_pos": 47,
+    "sco_neg": 83,
     "sco_strong": 5,
-    "sco_zone_neg": 85,
-    "sco_zone_weak": 32,
+    "sco_zone_neg": 83,
+    "sco_zone_weak": 34,
     "sco_zone_mid": 8,
     "sco_zone_strong": 5,
     "strong_count": 4,
@@ -17,20 +17,20 @@
     "kosdaq_trend": "GREEN",
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
-    "kospi_sco": 1.0,
-    "kosdaq_sco": -3.75,
-    "sp500_sco": 2.75,
+    "kospi_sco": 4.0,
+    "kosdaq_sco": -1.25,
+    "sp500_sco": 1.5,
     "nasdaq_sco": 7.75,
     "euro_trend": "PURPLE",
     "india_trend": "-",
-    "nikkei_trend": "GREEN",
+    "nikkei_trend": "-",
     "shanghai_trend": "RED",
     "hongkong_trend": "PURPLE",
     "brazil_trend": "LIME",
     "kospi_mult": 0.7,
     "nasdaq_mult": 0.85,
-    "invest_pct": 31.8,
-    "invest_amount_total": 31815500,
+    "invest_pct": 36.2,
+    "invest_amount_total": 36176000,
     "internal_weights": [
         45.0,
         30.0,
@@ -43,9 +43,9 @@
         "ARKK"
     ],
     "final_ratios": {
-        "CIBR": 14.32,
-        "EWT": 9.54,
-        "ARKK": 7.95
+        "CIBR": 16.28,
+        "EWT": 10.85,
+        "ARKK": 9.04
     },
     "top3_tickers": [
         "CIBR",
@@ -63,12 +63,12 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-09-22 07:13:28",
+    "update_time": "2026-09-22 14:19:32",
     "liq_rejected": [
         {
             "ticker": "ARKW",
             "name": "ARKW",
-            "avg_tv_eok": 122.8,
+            "avg_tv_eok": 122.9,
             "min_tv_eok": 50.9,
             "min_eok": 1000,
             "min_day_eok": 400,
@@ -81,6 +81,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1393.8
+        "usd_krw": 1394.3
     }
 }
