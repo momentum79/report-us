@@ -1,5 +1,5 @@
 {
-    "avg_sco": -1.2,
+    "avg_sco": -1.3,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
@@ -15,22 +15,22 @@
     "top3_avg_pos": 1.0,
     "kospi_trend": "GREEN",
     "kosdaq_trend": "-",
-    "sp500_trend": "LIME",
-    "nasdaq_trend": "LIME",
+    "sp500_trend": "GREEN",
+    "nasdaq_trend": "GREEN",
     "kospi_sco": 7.75,
     "kosdaq_sco": -0.5,
     "sp500_sco": 2.75,
     "nasdaq_sco": 7.75,
     "euro_trend": "PURPLE",
-    "india_trend": "RED",
+    "india_trend": "-",
     "nikkei_trend": "-",
     "shanghai_trend": "RED",
     "hongkong_trend": "PURPLE",
-    "brazil_trend": "LIME",
+    "brazil_trend": "GREEN",
     "kospi_mult": 0.7,
-    "nasdaq_mult": 0.85,
-    "invest_pct": 46.6,
-    "invest_amount_total": 46639500,
+    "nasdaq_mult": 0.7,
+    "invest_pct": 29.8,
+    "invest_amount_total": 29792000,
     "internal_weights": [
         45.0,
         30.0,
@@ -43,9 +43,9 @@
         "EWT"
     ],
     "final_ratios": {
-        "CIBR": 20.99,
-        "ARKK": 13.99,
-        "EWT": 11.66
+        "CIBR": 13.41,
+        "ARKK": 8.94,
+        "EWT": 7.45
     },
     "top3_tickers": [
         "CIBR",
@@ -63,7 +63,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-09-23 10:15:41",
+    "update_time": "2026-09-23 15:04:23",
     "liq_rejected": [
         {
             "ticker": "449190",
@@ -72,15 +72,6 @@
             "min_tv_eok": 26.2,
             "min_eok": 200,
             "min_day_eok": 80,
-            "fail_on": "avg"
-        },
-        {
-            "ticker": "ARKW",
-            "name": "ARKW",
-            "avg_tv_eok": 120.7,
-            "min_tv_eok": 50.0,
-            "min_eok": 1000,
-            "min_day_eok": 400,
             "fail_on": "avg"
         }
     ],
