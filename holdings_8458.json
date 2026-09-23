@@ -1,15 +1,15 @@
 {
   "account": "8458",
-  "updated": "2026-09-22 14:28:21",
+  "updated": "2026-09-23 10:25:03",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 12944676,
+    "total_asset": 13028566,
     "tot_pur_amt": 6433495,
-    "tot_evlt_amt": 7066360,
-    "tot_evlt_pl": 630885,
-    "tot_prft_rt": 9.81,
-    "stock_ratio": 54.58892907014435,
+    "tot_evlt_amt": 7150260,
+    "tot_evlt_pl": 714775,
+    "tot_prft_rt": 11.11,
+    "stock_ratio": 54.88140444619922,
     "cash": 5879356,
     "tdy_realized_pl": 0
   },
@@ -19,66 +19,92 @@
       "stock_name": "KODEX 200타겟위클리커버드콜",
       "quantity": 271,
       "avg_price": 0,
-      "current_price": 20740,
-      "profit_rate": 12.86,
-      "eval_amount": 5620540,
+      "current_price": 21035,
+      "profit_rate": 14.47,
+      "eval_amount": 5700485,
       "nxt": "",
-      "cntr_str": 104.98
+      "cntr_str": 105.45
     },
     {
       "stock_code": "494300",
       "stock_name": "KODEX 미국나스닥100데일리커버드콜OTM",
       "quantity": 110,
       "avg_price": 0,
-      "current_price": 9005,
-      "profit_rate": -0.31,
-      "eval_amount": 990550,
+      "current_price": 9000,
+      "profit_rate": -0.36,
+      "eval_amount": 990000,
       "nxt": "",
-      "cntr_str": 101.23
+      "cntr_str": 83.11
     },
     {
       "stock_code": "0198A0",
       "stock_name": "KIWOOM 코스닥150커버드콜액티브",
       "quantity": 53,
       "avg_price": 0,
-      "current_price": 8590,
-      "profit_rate": -1.38,
-      "eval_amount": 455270,
+      "current_price": 8675,
+      "profit_rate": -0.4,
+      "eval_amount": 459775,
       "nxt": "",
-      "cntr_str": 116.93
+      "cntr_str": 111.73
     }
   ],
   "us_holdings": [
     {
       "ticker": "CIBR",
       "stock_name": "나스닥 사이버보안 퍼스트 트러스트 ETF",
-      "quantity": 13,
-      "avg_price": 100.07,
-      "current_price": 103.16,
-      "profit_rate": 2.94,
-      "eval_amount_usd": 1341.08,
-      "eval_amount": 1844655,
+      "quantity": 14,
+      "avg_price": 100.2914,
+      "current_price": 102.75,
+      "profit_rate": 2.31,
+      "eval_amount_usd": 1438.5,
+      "eval_amount": 1950534,
+      "buy_date": "",
+      "candle": "",
+      "tag": ""
+    },
+    {
+      "ticker": "EWT",
+      "stock_name": "MSCI 대만 아이셰어즈 ETF",
+      "quantity": 8,
+      "avg_price": 114.58,
+      "current_price": 115.31,
+      "profit_rate": 0.49,
+      "eval_amount_usd": 922.48,
+      "eval_amount": 1250836,
+      "buy_date": "",
+      "candle": "",
+      "tag": ""
+    },
+    {
+      "ticker": "ARKK",
+      "stock_name": "이노베이션 액티브 아크 ETF",
+      "quantity": 8,
+      "avg_price": 90.75,
+      "current_price": 91.42,
+      "profit_rate": 0.59,
+      "eval_amount_usd": 731.36,
+      "eval_amount": 991687,
       "buy_date": "",
       "candle": "",
       "tag": ""
     }
   ],
   "us_summary": {
-    "us_stock_krw": 1844655,
-    "usd_cash": 3429.3,
-    "usd_cash_krw": 4747179,
-    "rate": 1384.3,
-    "total_asset_total": 12482992,
-    "eval_pl_usd": 40.17,
-    "eval_pl_krw": 55607,
+    "us_stock_krw": 4193057,
+    "usd_cash": 1682.74,
+    "usd_cash_krw": 2288526,
+    "rate": 1360.0,
+    "total_asset_total": 12373464,
+    "eval_pl_usd": 45.62,
+    "eval_pl_krw": 62043,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
     "won_entr": 5879356,
     "fx": {
       "USD": {
-        "cash_krw": 4747179,
-        "stock_krw": 1856457,
-        "rate": 1384.3
+        "cash_krw": 2288526,
+        "stock_krw": 4205582,
+        "rate": 1360.0
       }
     },
     "fx_other_krw": 0,

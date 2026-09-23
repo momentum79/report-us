@@ -1,47 +1,88 @@
 {
-    "avg_sco": -1.0,
+    "avg_sco": -0.3,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
-    "sco_pos": 16,
-    "sco_neg": 19,
-    "sco_strong": 0,
-    "strong_count": 0,
-    "top3_avg_sco": null,
-    "top3_avg_pos": null,
+    "sco_pos": 14,
+    "sco_neg": 21,
+    "sco_strong": 1,
+    "strong_count": 1,
+    "top3_avg_sco": 14.5,
+    "top3_avg_pos": 1.0,
     "kospi_trend": "GREEN",
-    "kosdaq_trend": "GREEN",
+    "kosdaq_trend": "-",
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
     "euro_trend": "-",
-    "india_trend": "-",
+    "india_trend": "RED",
     "nikkei_trend": "-",
-    "kospi_mult": 0.0,
+    "kospi_mult": 0.7,
     "nasdaq_mult": 0.85,
-    "invest_pct": 0.0,
-    "invest_amount_total": 0,
-    "per_ticker_alloc": [],
-    "invest_pct_sc3": 0.0,
-    "invest_pct_s1": 0.0,
-    "invest_amount_sc3": 0,
-    "invest_amount_s1": 0,
-    "per_ticker_alloc_sc3": [],
-    "per_ticker_alloc_s1": [],
+    "invest_pct": 80.0,
+    "invest_amount_total": 80000000,
+    "per_ticker_alloc": [
+        {
+            "ticker": "449190",
+            "industry": "나스닥",
+            "is_kospi": false,
+            "bucket": "NASDAQ",
+            "internal_weight": 100.0,
+            "market_mult": 0.8,
+            "floor_mult": null,
+            "effective_mult": 0.8,
+            "effective_pct": 80.0
+        }
+    ],
+    "invest_pct_sc3": 80.0,
+    "invest_pct_s1": 85.0,
+    "invest_amount_sc3": 80000000,
+    "invest_amount_s1": 85000000,
+    "per_ticker_alloc_sc3": [
+        {
+            "ticker": "449190",
+            "industry": "나스닥",
+            "is_kospi": false,
+            "bucket": "NASDAQ",
+            "internal_weight": 100.0,
+            "market_mult": 0.8,
+            "floor_mult": null,
+            "effective_mult": 0.8,
+            "effective_pct": 80.0
+        }
+    ],
+    "per_ticker_alloc_s1": [
+        {
+            "ticker": "449190",
+            "industry": "나스닥",
+            "is_kospi": false,
+            "internal_weight": 100.0,
+            "market_mult": 0.85,
+            "floor_mult": 0.55,
+            "effective_mult": 0.85,
+            "effective_pct": 85.0
+        }
+    ],
     "sc3_state": {
         "kr_state": "GREEN",
-        "kr_bucket_pct": 0.6,
+        "kr_bucket_pct": 0.65,
         "us_state": "LIME",
-        "us_bucket_pct": 0.75,
-        "last_date": "2026-09-22",
+        "us_bucket_pct": 0.8,
+        "last_date": "2026-09-23",
         "updated_today": true
     },
     "sc3_ok": true,
-    "trade_date": "2026-09-22",
-    "vol63_median": null,
-    "internal_weights": [],
-    "n_holdings": 0,
-    "holdings_tickers": [],
+    "trade_date": "2026-09-23",
+    "vol63_median": 19.9,
+    "internal_weights": [
+        100.0
+    ],
+    "n_holdings": 1,
+    "holdings_tickers": [
+        "449190"
+    ],
     "top3_k_tickers": [],
-    "allocation_map_used": [],
-    "update_time": "2026-09-22 14:08:42"
+    "allocation_map_used": [
+        100
+    ],
+    "update_time": "2026-09-23 10:17:35"
 }

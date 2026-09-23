@@ -1,36 +1,36 @@
 {
-    "avg_sco": -1.4,
+    "avg_sco": -1.2,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 48,
-    "sco_neg": 82,
-    "sco_strong": 5,
-    "sco_zone_neg": 82,
-    "sco_zone_weak": 35,
-    "sco_zone_mid": 8,
-    "sco_zone_strong": 5,
-    "strong_count": 4,
+    "sco_pos": 46,
+    "sco_neg": 84,
+    "sco_strong": 6,
+    "sco_zone_neg": 84,
+    "sco_zone_weak": 30,
+    "sco_zone_mid": 10,
+    "sco_zone_strong": 6,
+    "strong_count": 3,
     "top3_avg_sco": 13.0,
     "top3_avg_pos": 1.0,
     "kospi_trend": "GREEN",
-    "kosdaq_trend": "GREEN",
+    "kosdaq_trend": "-",
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
-    "kospi_sco": 4.0,
-    "kosdaq_sco": -1.75,
+    "kospi_sco": 7.75,
+    "kosdaq_sco": -0.5,
     "sp500_sco": 2.75,
     "nasdaq_sco": 7.75,
     "euro_trend": "PURPLE",
-    "india_trend": "-",
+    "india_trend": "RED",
     "nikkei_trend": "-",
     "shanghai_trend": "RED",
     "hongkong_trend": "PURPLE",
     "brazil_trend": "LIME",
     "kospi_mult": 0.7,
     "nasdaq_mult": 0.85,
-    "invest_pct": 36.2,
-    "invest_amount_total": 36176000,
+    "invest_pct": 46.6,
+    "invest_amount_total": 46639500,
     "internal_weights": [
         45.0,
         30.0,
@@ -39,18 +39,18 @@
     "n_holdings": 3,
     "holdings_tickers": [
         "CIBR",
-        "EWT",
-        "ARKK"
+        "ARKK",
+        "EWT"
     ],
     "final_ratios": {
-        "CIBR": 16.28,
-        "EWT": 10.85,
-        "ARKK": 9.04
+        "CIBR": 20.99,
+        "ARKK": 13.99,
+        "EWT": 11.66
     },
     "top3_tickers": [
         "CIBR",
-        "EWT",
-        "ARKK"
+        "ARKK",
+        "EWT"
     ],
     "allocation_map_used": [
         45,
@@ -63,13 +63,22 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-09-22 22:25:22",
+    "update_time": "2026-09-23 10:15:41",
     "liq_rejected": [
+        {
+            "ticker": "449190",
+            "name": "나스닥",
+            "avg_tv_eok": 51.5,
+            "min_tv_eok": 26.2,
+            "min_eok": 200,
+            "min_day_eok": 80,
+            "fail_on": "avg"
+        },
         {
             "ticker": "ARKW",
             "name": "ARKW",
-            "avg_tv_eok": 122.9,
-            "min_tv_eok": 50.9,
+            "avg_tv_eok": 120.7,
+            "min_tv_eok": 50.0,
             "min_eok": 1000,
             "min_day_eok": 400,
             "fail_on": "avg"
@@ -81,6 +90,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1394.3
+        "usd_krw": 1370.0
     }
 }

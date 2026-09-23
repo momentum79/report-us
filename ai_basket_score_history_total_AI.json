@@ -1,186 +1,7 @@
 {
-  "updated_at": "2026-09-22 14:27:00",
+  "updated_at": "2026-09-23 10:26:01",
   "window_note": "Compare today with 5 stored snapshots ago when available.",
   "snapshots": [
-    {
-      "date": "2026-06-23",
-      "update_time": "2026-06-23 22:29:54",
-      "ai_core_score": 13.06,
-      "ai_core_dedup_score": 12.9,
-      "ai_breadth_state": "Mixed",
-      "baskets": {
-        "AI_STORAGE_CXL_SSD": {
-          "basket_name_kr": "AI_스토리지",
-          "score": 14.5,
-          "valid_count": 3
-        },
-        "AI_MEMORY_HBM_DRAM": {
-          "basket_name_kr": "AI_메모리",
-          "score": 14.12,
-          "valid_count": 4
-        },
-        "AI_SEMI_EQUIPMENT": {
-          "basket_name_kr": "AI_반도체장비",
-          "score": 13.66,
-          "valid_count": 13
-        },
-        "AI_GPU_ACCELERATOR": {
-          "basket_name_kr": "AI_GPU",
-          "score": 13.52,
-          "valid_count": 6
-        },
-        "AI_PASSIVE_COMPONENT_MLCC": {
-          "basket_name_kr": "AI_MLCC수동부품",
-          "score": 13.5,
-          "valid_count": 2
-        },
-        "AI_COOLING_THERMAL": {
-          "basket_name_kr": "AI_냉각",
-          "score": 13.28,
-          "valid_count": 6
-        },
-        "AI_CPU_SERVER": {
-          "basket_name_kr": "AI_CPU서버",
-          "score": 12.22,
-          "valid_count": 6
-        },
-        "AI_ADV_PACKAGING_SUBSTRATE": {
-          "basket_name_kr": "AI_첨단패키징",
-          "score": 12.07,
-          "valid_count": 9
-        },
-        "AI_FOUNDRY": {
-          "basket_name_kr": "AI_파운드리",
-          "score": 12.0,
-          "valid_count": 2
-        },
-        "AI_EDGE_DEVICE_ONDEVICE": {
-          "basket_name_kr": "AI_온디바이스",
-          "score": 11.76,
-          "valid_count": 5
-        },
-        "AI_ONSITE_POWER_FUELCELL": {
-          "basket_name_kr": "AI_자가발전",
-          "score": 11.25,
-          "valid_count": 1
-        },
-        "AI_POWER_GRID_TRANSFORMER": {
-          "basket_name_kr": "AI_전력망",
-          "score": 11.04,
-          "valid_count": 12
-        },
-        "AI_FACTORY_AUTOMATION": {
-          "basket_name_kr": "AI_공장자동화",
-          "score": 10.9,
-          "valid_count": 10
-        },
-        "AI_DATACENTER_REIT_SERVER": {
-          "basket_name_kr": "AI_데이터센터",
-          "score": 10.33,
-          "valid_count": 7
-        },
-        "AI_HEALTHCARE_BIO": {
-          "basket_name_kr": "AI_헬스케어바이오",
-          "score": 10.16,
-          "valid_count": 10
-        },
-        "AI_INFERENCE_OPTIMIZATION": {
-          "basket_name_kr": "AI_추론최적화",
-          "score": 9.48,
-          "valid_count": 5
-        },
-        "AI_RAW_MATERIALS_COPPER_RAREEARTH": {
-          "basket_name_kr": "AI_원자재",
-          "score": 8.33,
-          "valid_count": 5
-        },
-        "AI_NETWORKING_SWITCH_DPU": {
-          "basket_name_kr": "AI_네트워크",
-          "score": 7.72,
-          "valid_count": 5
-        },
-        "AI_ROBOT_COMPONENT": {
-          "basket_name_kr": "AI_로봇부품",
-          "score": 6.87,
-          "valid_count": 8
-        },
-        "AI_CYBER_SECURITY": {
-          "basket_name_kr": "AI_사이버보안",
-          "score": 5.86,
-          "valid_count": 12
-        },
-        "AI_FINTECH_TRADING": {
-          "basket_name_kr": "AI_핀테크",
-          "score": 5.77,
-          "valid_count": 5
-        },
-        "AI_OPTICAL_PHOTONICS": {
-          "basket_name_kr": "AI_광통신",
-          "score": 5.05,
-          "valid_count": 5
-        },
-        "AI_ENERGY_NUCLEAR_SMR_GAS": {
-          "basket_name_kr": "AI_에너지",
-          "score": 4.64,
-          "valid_count": 6
-        },
-        "AI_DATA_IDENTITY_SECURITY": {
-          "basket_name_kr": "AI_데이터보안",
-          "score": 3.86,
-          "valid_count": 9
-        },
-        "AI_ASIC_CUSTOM_CHIP": {
-          "basket_name_kr": "AI_맞춤칩ASIC",
-          "score": 3.59,
-          "valid_count": 4
-        },
-        "AI_HUMANOID_ROBOT": {
-          "basket_name_kr": "AI_휴머노이드",
-          "score": 1.76,
-          "valid_count": 7
-        },
-        "AI_DATA_PIPELINE_DATABASE": {
-          "basket_name_kr": "AI_데이터플랫폼",
-          "score": 1.11,
-          "valid_count": 7
-        },
-        "AI_EDA_DESIGN_TOOLS": {
-          "basket_name_kr": "AI_EDA설계",
-          "score": 0.25,
-          "valid_count": 2
-        },
-        "AI_AUTONOMOUS_VEHICLE_DRONE": {
-          "basket_name_kr": "AI_자율주행드론",
-          "score": -0.29,
-          "valid_count": 6
-        },
-        "AI_DIGITAL_TWIN_SIMULATION": {
-          "basket_name_kr": "AI_디지털트윈",
-          "score": -0.85,
-          "valid_count": 5
-        },
-        "AI_SOFTWARE_PLATFORM": {
-          "basket_name_kr": "AI_소프트웨어",
-          "score": -1.46,
-          "valid_count": 7
-        },
-        "AI_CLOUD_HYPERSCALER": {
-          "basket_name_kr": "AI_클라우드",
-          "score": -2.33,
-          "valid_count": 5
-        },
-        "AI_CONTENT_ADS_MEDIA": {
-          "basket_name_kr": "AI_광고미디어",
-          "score": -6.94,
-          "valid_count": 5
-        },
-        "AI_AGENT_AUTOMATION_RPA": {
-          "basket_name_kr": "AI_에이전트자동화",
-          "score": -10.53,
-          "valid_count": 5
-        }
-      }
-    },
     {
       "date": "2026-06-24",
       "update_time": "2026-06-24 23:32:26",
@@ -14313,6 +14134,185 @@
         "AI_ENERGY_NUCLEAR_SMR_GAS": {
           "basket_name_kr": "AI_에너지",
           "score": -5.7,
+          "valid_count": 6
+        },
+        "AI_EDA_DESIGN_TOOLS": {
+          "basket_name_kr": "AI_EDA설계",
+          "score": -6.88,
+          "valid_count": 2
+        }
+      }
+    },
+    {
+      "date": "2026-09-23",
+      "update_time": "2026-09-23 10:16:19",
+      "ai_core_score": 11.16,
+      "ai_core_dedup_score": 10.22,
+      "ai_breadth_state": "Mixed",
+      "baskets": {
+        "AI_CYBER_SECURITY": {
+          "basket_name_kr": "AI_사이버보안",
+          "score": 14.36,
+          "valid_count": 12
+        },
+        "AI_DATA_IDENTITY_SECURITY": {
+          "basket_name_kr": "AI_데이터보안",
+          "score": 13.95,
+          "valid_count": 9
+        },
+        "AI_CPU_SERVER": {
+          "basket_name_kr": "AI_CPU서버",
+          "score": 13.0,
+          "valid_count": 6
+        },
+        "AI_EDGE_DEVICE_ONDEVICE": {
+          "basket_name_kr": "AI_온디바이스",
+          "score": 11.49,
+          "valid_count": 5
+        },
+        "AI_PASSIVE_COMPONENT_MLCC": {
+          "basket_name_kr": "AI_MLCC수동부품",
+          "score": 11.0,
+          "valid_count": 2
+        },
+        "AI_DATA_PIPELINE_DATABASE": {
+          "basket_name_kr": "AI_데이터플랫폼",
+          "score": 10.56,
+          "valid_count": 7
+        },
+        "AI_DATACENTER_REIT_SERVER": {
+          "basket_name_kr": "AI_데이터센터",
+          "score": 9.55,
+          "valid_count": 7
+        },
+        "AI_ADV_PACKAGING_SUBSTRATE": {
+          "basket_name_kr": "AI_첨단패키징",
+          "score": 9.49,
+          "valid_count": 9
+        },
+        "AI_HEALTHCARE_BIO": {
+          "basket_name_kr": "AI_헬스케어바이오",
+          "score": 9.17,
+          "valid_count": 10
+        },
+        "AI_ONSITE_POWER_FUELCELL": {
+          "basket_name_kr": "AI_자가발전",
+          "score": 9.0,
+          "valid_count": 1
+        },
+        "AI_MEMORY_HBM_DRAM": {
+          "basket_name_kr": "AI_메모리",
+          "score": 8.99,
+          "valid_count": 4
+        },
+        "AI_GPU_ACCELERATOR": {
+          "basket_name_kr": "AI_GPU",
+          "score": 8.89,
+          "valid_count": 6
+        },
+        "AI_FOUNDRY": {
+          "basket_name_kr": "AI_파운드리",
+          "score": 8.88,
+          "valid_count": 2
+        },
+        "AI_CLOUD_HYPERSCALER": {
+          "basket_name_kr": "AI_클라우드",
+          "score": 8.7,
+          "valid_count": 5
+        },
+        "AI_SEMI_EQUIPMENT": {
+          "basket_name_kr": "AI_반도체장비",
+          "score": 8.68,
+          "valid_count": 13
+        },
+        "AI_NETWORKING_SWITCH_DPU": {
+          "basket_name_kr": "AI_네트워크",
+          "score": 8.54,
+          "valid_count": 5
+        },
+        "AI_SOFTWARE_PLATFORM": {
+          "basket_name_kr": "AI_소프트웨어",
+          "score": 7.82,
+          "valid_count": 7
+        },
+        "AI_POWER_GRID_TRANSFORMER": {
+          "basket_name_kr": "AI_전력망",
+          "score": 7.2,
+          "valid_count": 12
+        },
+        "AI_INFERENCE_OPTIMIZATION": {
+          "basket_name_kr": "AI_추론최적화",
+          "score": 7.14,
+          "valid_count": 5
+        },
+        "AI_OPTICAL_PHOTONICS": {
+          "basket_name_kr": "AI_광통신",
+          "score": 7.1,
+          "valid_count": 5
+        },
+        "AI_AGENT_AUTOMATION_RPA": {
+          "basket_name_kr": "AI_에이전트자동화",
+          "score": 6.95,
+          "valid_count": 5
+        },
+        "AI_ROBOT_COMPONENT": {
+          "basket_name_kr": "AI_로봇부품",
+          "score": 5.45,
+          "valid_count": 8
+        },
+        "AI_FACTORY_AUTOMATION": {
+          "basket_name_kr": "AI_공장자동화",
+          "score": 5.23,
+          "valid_count": 10
+        },
+        "AI_CONTENT_ADS_MEDIA": {
+          "basket_name_kr": "AI_광고미디어",
+          "score": 5.17,
+          "valid_count": 5
+        },
+        "AI_ASIC_CUSTOM_CHIP": {
+          "basket_name_kr": "AI_맞춤칩ASIC",
+          "score": 4.98,
+          "valid_count": 4
+        },
+        "AI_FINTECH_TRADING": {
+          "basket_name_kr": "AI_핀테크",
+          "score": 4.5,
+          "valid_count": 5
+        },
+        "AI_HUMANOID_ROBOT": {
+          "basket_name_kr": "AI_휴머노이드",
+          "score": 3.37,
+          "valid_count": 7
+        },
+        "AI_RAW_MATERIALS_COPPER_RAREEARTH": {
+          "basket_name_kr": "AI_원자재",
+          "score": 0.58,
+          "valid_count": 5
+        },
+        "AI_STORAGE_CXL_SSD": {
+          "basket_name_kr": "AI_스토리지",
+          "score": 0.25,
+          "valid_count": 3
+        },
+        "AI_COOLING_THERMAL": {
+          "basket_name_kr": "AI_냉각",
+          "score": -0.24,
+          "valid_count": 6
+        },
+        "AI_DIGITAL_TWIN_SIMULATION": {
+          "basket_name_kr": "AI_디지털트윈",
+          "score": -2.0,
+          "valid_count": 5
+        },
+        "AI_AUTONOMOUS_VEHICLE_DRONE": {
+          "basket_name_kr": "AI_자율주행드론",
+          "score": -3.38,
+          "valid_count": 6
+        },
+        "AI_ENERGY_NUCLEAR_SMR_GAS": {
+          "basket_name_kr": "AI_에너지",
+          "score": -6.03,
           "valid_count": 6
         },
         "AI_EDA_DESIGN_TOOLS": {

@@ -1,15 +1,15 @@
 {
   "account": "8042",
-  "updated": "2026-09-22 14:28:10",
+  "updated": "2026-09-23 10:24:49",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 16040538,
+    "total_asset": 16176249,
     "tot_pur_amt": 4082502,
-    "tot_evlt_amt": 4212415,
-    "tot_evlt_pl": 128683,
-    "tot_prft_rt": 3.15,
-    "stock_ratio": 26.261058076730343,
+    "tot_evlt_amt": 4347561,
+    "tot_evlt_pl": 263809,
+    "tot_prft_rt": 6.46,
+    "stock_ratio": 26.876199791434964,
     "cash": 11829328,
     "tdy_realized_pl": 0
   },
@@ -19,11 +19,11 @@
       "stock_name": "KODEX WTI원유선물인버스(H)",
       "quantity": 1583,
       "avg_price": 0,
-      "current_price": 1725,
-      "profit_rate": -0.68,
-      "eval_amount": 2730675,
+      "current_price": 1782,
+      "profit_rate": 2.61,
+      "eval_amount": 2820906,
       "nxt": "",
-      "cntr_str": 63.82,
+      "cntr_str": 115.03,
       "candle": "",
       "tag": ""
     },
@@ -32,42 +32,69 @@
       "stock_name": "KODEX 레버리지",
       "quantity": 13,
       "avg_price": 0,
-      "current_price": 113980,
-      "profit_rate": 11.04,
-      "eval_amount": 1481740,
+      "current_price": 117435,
+      "profit_rate": 14.41,
+      "eval_amount": 1526655,
       "nxt": "",
-      "cntr_str": 95.21,
+      "cntr_str": 88.64,
       "candle": "",
       "tag": ""
     }
   ],
-  "us_holdings": [],
+  "us_holdings": [
+    {
+      "ticker": "CIBR",
+      "stock_name": "나스닥 사이버보안 퍼스트 트러스트 ETF",
+      "quantity": 31,
+      "avg_price": 103.105,
+      "current_price": 102.75,
+      "profit_rate": -0.48,
+      "eval_amount_usd": 3185.25,
+      "eval_amount": 4319039,
+      "buy_date": "2026-09-21",
+      "candle": "일봉",
+      "tag": "통합ETF"
+    },
+    {
+      "ticker": "ARKK",
+      "stock_name": "이노베이션 액티브 아크 ETF",
+      "quantity": 19,
+      "avg_price": 90.81,
+      "current_price": 91.42,
+      "profit_rate": 0.53,
+      "eval_amount_usd": 1736.98,
+      "eval_amount": 2355258,
+      "buy_date": "2026-09-22",
+      "candle": "일봉",
+      "tag": "통합ETF"
+    }
+  ],
   "us_summary": {
-    "us_stock_krw": 0,
-    "usd_cash": 11629.05,
-    "usd_cash_krw": 16098093,
-    "rate": 1384.3,
-    "total_asset_total": 27927421,
-    "eval_pl_usd": 0.0,
-    "eval_pl_krw": 0,
+    "us_stock_krw": 6674297,
+    "usd_cash": 6703.98,
+    "usd_cash_krw": 9117406,
+    "rate": 1360.0,
+    "total_asset_total": 27640966,
+    "eval_pl_usd": 0.58,
+    "eval_pl_krw": 788,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
     "won_entr": 11829328,
     "fx": {
       "USD": {
-        "cash_krw": 16098093,
-        "stock_krw": 0,
-        "rate": 1384.3
+        "cash_krw": 9117406,
+        "stock_krw": 6694232,
+        "rate": 1360.0
       },
       "JPY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 879.84
+        "rate": 863.68
       },
       "CNY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 207.0
+        "rate": 203.28
       }
     },
     "fx_other_krw": 0,
