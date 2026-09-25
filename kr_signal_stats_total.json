@@ -3,24 +3,24 @@
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 51,
-    "sco_neg": 79,
+    "sco_pos": 49,
+    "sco_neg": 81,
     "sco_strong": 12,
-    "sco_zone_neg": 79,
-    "sco_zone_weak": 29,
-    "sco_zone_mid": 10,
+    "sco_zone_neg": 81,
+    "sco_zone_weak": 26,
+    "sco_zone_mid": 11,
     "sco_zone_strong": 12,
     "strong_count": 9,
-    "top3_avg_sco": 14.83,
-    "top3_avg_pos": 1.0,
+    "top3_avg_sco": 14.42,
+    "top3_avg_pos": 1.33,
     "kospi_trend": "GREEN",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
     "kospi_sco": 7.75,
     "kosdaq_sco": 0.25,
-    "sp500_sco": 10.25,
-    "nasdaq_sco": 15.25,
+    "sp500_sco": 12.0,
+    "nasdaq_sco": 16.0,
     "euro_trend": "PURPLE",
     "india_trend": "-",
     "nikkei_trend": "PURPLE",
@@ -29,40 +29,36 @@
     "brazil_trend": "GREEN",
     "kospi_mult": 0.7,
     "nasdaq_mult": 0.85,
-    "invest_pct": 41.4,
-    "invest_amount_total": 41411999,
+    "invest_pct": 38.8,
+    "invest_amount_total": 38793998,
     "internal_weights": [
-        33.9157,
-        24.9743,
-        20.555,
-        10.2775,
-        10.2775
+        35.8974,
+        30.7692,
+        23.0769,
+        10.2564
     ],
-    "n_holdings": 5,
+    "n_holdings": 4,
     "holdings_tickers": [
         "CIBR",
-        "ETHA",
         "XLK",
-        "EWT",
+        "ETHA",
         "ARKK"
     ],
     "final_ratios": {
-        "CIBR": 14.05,
-        "ETHA": 10.34,
-        "XLK": 8.51,
-        "EWT": 4.26,
-        "ARKK": 4.26
+        "CIBR": 13.93,
+        "XLK": 11.94,
+        "ETHA": 8.95,
+        "ARKK": 3.98
     },
     "top3_tickers": [
         "CIBR",
-        "ETHA",
-        "XLK"
+        "XLK",
+        "ETHA"
     ],
     "allocation_map_used": [
-        33,
-        27,
-        20,
-        10,
+        35,
+        30,
+        25,
         10
     ],
     "score_model": {
@@ -71,8 +67,18 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-09-24 18:14:09",
-    "liq_rejected": [],
+    "update_time": "2026-09-25 20:48:34",
+    "liq_rejected": [
+        {
+            "ticker": "449190",
+            "name": "나스닥",
+            "avg_tv_eok": 53.0,
+            "min_tv_eok": 26.2,
+            "min_eok": 200,
+            "min_day_eok": 80,
+            "fail_on": "avg"
+        }
+    ],
     "liq_thresholds": {
         "KR": 200,
         "US": 1000,
