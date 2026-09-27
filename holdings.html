@@ -632,7 +632,11 @@ body.naver-popup-open { overflow: hidden; }
                           '통합ETF':'8042','ABC-VCP':'1887','수동매매':'1887','미국VCP':'1887(US)','미국수동':'1887(US)',
                           'KR_TR_ORD_B':'2773','KR_TR_ORD_1A0':'2773','KR_TR_VOLUME_1':'2773','KR_TR_VOLUME_2':'2773','KR_TR_VCP1':'2773','KR_TR_VCP2':'2773',
                           'KR_TR_JEO2':'2773','KR_TR_MA':'2773','US_TR_ORD_B':'1887(US)','US_TR_ORD_1A0':'1887(US)','US_TR_VOLUME_1':'1887(US)',
-                          'US_TR_VOLUME_2':'1887(US)','US_TR_VCP1':'1887(US)','US_TR_VCP2':'1887(US)','US_TR_JEO2':'1887(US)','US_TR_MA':'1887(US)'};
+                          'US_TR_VOLUME_2':'1887(US)','US_TR_VCP1':'1887(US)','US_TR_VCP2':'1887(US)','US_TR_JEO2':'1887(US)','US_TR_MA':'1887(US)',
+                          '업비트SCO-Top3':'업비트','업비트SCO-15분':'업비트','바이낸스SCO-Top3':'바이낸스 선물(USDT→원)'};
+        // 코인 TR 은 장부 태그가 그대로 행 이름이라(UP_TR_*/BN_TR_*) 접두사로 계좌를 붙인다.
+        const botAcct = k => BOT_ACCT[k] || (String(k).startsWith('UP_TR_') ? '업비트'
+                             : (String(k).startsWith('BN_TR_') ? '바이낸스 선물(USDT→원)' : ''));
 
         // 그룹 라벨. bot=자동매매 / alloc=자산배분 / manual=사람이 직접 매수 / seed=컷오프 시딩분
         const WP_AGG = new Set(['통합', '수동합계']);   // 합산 행(개별 태그 아님) — 중복합산 방지
@@ -687,7 +691,7 @@ body.naver-popup-open { overflow: hidden; }
             const noteTxt = wpGroupNote(bot.key);
             const note = noteTxt ? ' · ' + noteTxt : '';
             return `<div id="${cardId}" class="wp-card${collapsible ? ' wp-collapsed' : ''}${extraCls ? ' ' + extraCls : ''}">
-                <div class="wp-title">${toggle}${bot.key} <span class="wp-unit">보유단위: ${unit}${(BOT_ACCT[baseKey(bot.key)] ? ', ' + BOT_ACCT[baseKey(bot.key)] : '')}${note}</span></div>
+                <div class="wp-title">${toggle}${bot.key} <span class="wp-unit">보유단위: ${unit}${(botAcct(baseKey(bot.key)) ? ', ' + botAcct(baseKey(bot.key)) : '')}${note}</span></div>
                 <div class="wp-tablewrap"><table class="wp-table">
                     <thead><tr>
                         <th>주(월~금)</th><th>거래</th><th>승률</th><th>손익비</th>
@@ -827,7 +831,7 @@ body.naver-popup-open { overflow: hidden; }
                 </tr>`;
             });
             const scope = q.clamped_to_cutoff
-                ? `컷오프(${data.cutoff_date}) 이후 ${q.weeks}주`
+                ? `${(q.clamp_from && q.clamp_from === data.display_from) ? '표시 시작일' : '컷오프'}(${q.clamp_from || data.cutoff_date}) 이후 ${q.weeks}주`
                 : `최근 ${q.weeks}주`;
             return `<div class="wp-card wp-solo wp-quarter">
                 <div class="wp-title">3개월 누적 (태그별) <span class="wp-unit">${q.label} · ${scope} · 봇 → 자산배분 → 수동 순, 그룹 안에서는 손익순</span></div>
@@ -1010,7 +1014,8 @@ body.naver-popup-open { overflow: hidden; }
                     거래건수·승률·PF·기대값 = 완결 포지션 기준 / 실현손익 금액 = ${data.realize_from
                         ? `${data.realize_from} 주부터 <b>매도 시점</b> 기준(부분청산 포함)`
                         : `완결 포지션 기준 (부분청산 반영은 컷오프 ${data.cutoff_date || '-'} 부터)`}.
-                    당일봇=보유'분' / 스윙봇=보유'일'. 손익비=평균수익금액÷평균손실금액(기준 1.0). 체결로그(2026-06-11~) 이전 매매는 제외.</div>
+                    당일봇=보유'분' / 스윙봇=보유'일'. 손익비=평균수익금액÷평균손실금액(기준 1.0). 체결로그(2026-06-11~) 이전 매매는 제외.
+                    ${data.display_from ? `<br><b>집계 시작 ${data.display_from}</b> — 그 전에 매도된 건은 표에서 뺐다(장부는 그대로, 그 이전 주는 빈 칸).` : ''}</div>
 `;
                 html += renderDriftBanner(data);
                 const allBots = data.bots || [];
@@ -1047,6 +1052,10 @@ body.naver-popup-open { overflow: hidden; }
                     '5minHL', '5minHL2',
                     '5minHL_미분류', '미국VCP',
                     '저점사다리',
+                    '업비트SCO-Top3', '업비트SCO-15분',
+                    '바이낸스SCO-Top3',
+                    // 코인 TR(UP_TR_*/BN_TR_*): 거래가 생긴 태그만 행으로 오므로 코인 봇 바로 뒤에 붙인다.
+                    ...restBots.map(b => b.key).filter(k => /^(UP|BN)_TR_/.test(k)).sort(),
                 ];
                 const rendered = new Set();
                 const renderKey = key => {
