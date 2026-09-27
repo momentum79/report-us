@@ -226,8 +226,6 @@ TAG_ORDER = [
     # 옛 이름. 과거 라운드트립이 아직 이 태그라 표에서 사라지지 않게 남겨둔다.
     "KR_TR_VCP2", "US_TR_VCP2",
     "저점사다리",
-    # ── 코인 봇 (2026-09-26 편입, build_coin_bot_trips) ──
-    "업비트SCO-Top3", "업비트SCO-15분", "바이낸스SCO-Top3",
     # ── 자산배분 (리밸런싱) ──
     "통합ETF",
     # ── 수동 (사람이 직접 매수) ──
@@ -252,21 +250,7 @@ TAG_UNIT = {
     "삼닉v3_미분류": "min",
     "5minHL": "min", "5minHL2": "min", "5minHL_동시": "min", "5minHL_미분류": "min",
     "기타(8042)": "min", "저점사다리": "min", "통합": "mix", "수동합계": "mix",
-    "업비트SCO-Top3": "day", "업비트SCO-15분": "min", "바이낸스SCO-Top3": "day",
 }
-
-# 코인 TR 봇 태그 접두 (2026-09-26 편입, build_coin_bot_trips). 장부 태그를 그대로 행 이름으로 쓴다.
-# KR/US TR 과 달리 TAG_ORDER 에 9개씩 미리 박지 않는다 — 거래가 생긴 태그만 행으로 붙는다
-# (build_report 의 extra 경로). 보유단위는 스윙이라 전부 '일'.
-COIN_TR_TAG_PREFIXES = ("UP_TR_", "BN_TR_")
-
-# ───────── 웹 표시 시작일 (2026-09-26 사용자 결정) ─────────
-# 7~8월은 운영 실수가 많아 집계하면 태그 판단이 왜곡된다 → 웹 피드(weekly_performance.json)
-# 에서만 이 날짜 이전에 '청산(매도)'된 건을 뺀다. 장부·체결로그·full json/csv/xlsx 는 그대로.
-#   · 기준은 매도일(exit_dt). 8월에 사서 9월에 판 물량은 9월 성과로 들어간다.
-#   · 표시 주수(RECENT_WEEKS=8, 3개월 13주)는 그대로 — 이 날짜 이전 주 행은 빈 칸으로 남는다.
-#   · None 으로 두면 예전처럼 전 기간 표시.
-DISPLAY_FROM = "2026-09-01"
 
 # 사람이 직접 낸 주문으로 분류되는 태그. 이 태그의 '매도'는 어느 봇 물량을 판 건지
 # 알 수 없으므로 자기 서랍이 비면 같은 종목의 봇 서랍에서 FIFO 로 흡수한다
@@ -336,8 +320,6 @@ def tag_unit(tag):
     보유'분'으로 재면 수천 분짜리 숫자만 나온다. 항상 '일'로 잰다.
     """
     if is_seed_tag(tag):
-        return "day"
-    if str(tag).startswith(COIN_TR_TAG_PREFIXES):
         return "day"
     return TAG_UNIT.get(tag, "min")
 
@@ -1021,173 +1003,6 @@ def build_tr_ledger_round_trips():
     return trips
 
 
-# ───────── 코인 봇 (2026-09-26 편입) ─────────
-# 수량이 소수라 위 int() 전제 파이프라인에 못 넣는다 → 봇 장부를 직접 replay 한다.
-#   업비트SCO-Top3   = coin/0order/ledger/coin_ctop3_upbit_live.json  (tag UP_CTOP3, KRW)
-#   업비트SCO-15분   = coin/0order/0_upbit_sco15m_trades_live.csv     (c15- 봇 체결로그, KRW)
-#   바이낸스SCO-Top3 = coin_binan/ledger/binan_tr_futures_live.json   (tag BN_CTOP3, USDT 명목)
-#   업비트 TR        = coin/0order/ledger/coin_tr_upbit_live.json      (tag UP_TR_*, 행=태그, KRW)
-#   바이낸스 TR      = coin_binan/ledger/binan_tr_futures_live.json   (tag BN_TR_*, 행=태그, USDT 명목)
-# 장부 funds 는 수수료 빼기 전 체결금액이라 수수료는 여기서 요율로 뗀다.
-# 바이낸스 펀딩비는 심볼 단위라 봇별로 못 나눠서 빠진다(선물 income 미니표에 있음).
-# USDT 는 USD 로 보고 그 주 USDKRW 로 환산한다(_krw 의 ccy=="USD" 경로).
-COIN_BOT_UP_CTOP3 = "업비트SCO-Top3"
-COIN_BOT_UP_SCO15 = "업비트SCO-15분"
-COIN_BOT_BN_CTOP3 = "바이낸스SCO-Top3"
-COIN_CTOP3_LEDGER = os.path.join(BASE_DIR, "coin", "0order", "ledger", "coin_ctop3_upbit_live.json")
-COIN_TR_LEDGER = os.path.join(BASE_DIR, "coin", "0order", "ledger", "coin_tr_upbit_live.json")
-COIN_SCO15_CSV = os.path.join(BASE_DIR, "coin", "0order", "0_upbit_sco15m_trades_live.csv")
-BINAN_TR_LEDGER = os.path.join(BASE_DIR, "coin_binan", "ledger", "binan_tr_futures_live.json")
-BINAN_FEE_BUY = 0.0002     # USDT-M 선물 maker (진입=지정가)
-BINAN_FEE_SELL = 0.0005    # taker (청산=시장가)
-COIN_DUST = 1e-9
-
-
-def _coin_trip(bot, source, code, entry_dt, exit_dt, qty, buy_val, sell_val,
-               fee_buy, fee_sell, ccy, sign=1.0):
-    """코인 라운드트립/실현 1건. trade_costs.apply_to_trip 과 같은 필드를 직접 채운다.
-    buy_val/sell_val = 그 수량의 수수료 전 체결금액. sign=-1 이면 숏."""
-    fb, fs = buy_val * fee_buy, sell_val * fee_sell
-    gross = (sell_val - buy_val) * sign
-    net = gross - fb - fs
-    basis = buy_val + fb
-    return {
-        "bot": bot, "source": source, "code": code, "name": code,
-        "entry_dt": entry_dt, "exit_dt": exit_dt,
-        "avg_entry": buy_val / qty if qty else 0.0,
-        "avg_exit": sell_val / qty if qty else 0.0,
-        "qty": qty,
-        "pnl_pct": (gross / buy_val * 100.0) if buy_val > 0 else 0.0,
-        "pnl_amt": gross,
-        "kind": "COIN", "ccy": ccy, "fee_tax": fb + fs,
-        "net_pnl_amt": net,
-        "net_pnl_pct": (net / basis * 100.0) if basis > 0 else 0.0,
-        "hold_min": max(0.0, (exit_dt - entry_dt).total_seconds() / 60.0),
-        "hold_day": max(0, (exit_dt.date() - entry_dt.date()).days),
-    }
-
-
-def _coin_replay(bot, source, code, events, fee_buy, fee_sell, ccy, sign=1.0):
-    """[(dt, 'BUY'|'SELL'|'CLEAR', volume, funds)] 시간순 replay.
-    → (완결 트립들, 매도건별 실현들). flat→매수…→flat = 1 트립.
-    CLEAR = 봇이 장부를 비운 기록(잔량 먼지·계좌 0). 판 만큼만 트립으로 닫는다."""
-    trips, reals = [], []
-    held = cost = 0.0
-    first = None
-    bought = sold_qty = sold_val = sold_cost = 0.0
-
-    def _close(dt):
-        nonlocal held, cost, first, bought, sold_qty, sold_val, sold_cost
-        if sold_qty > COIN_DUST and first is not None:
-            t = _coin_trip(bot, source, code, first, dt, sold_qty, sold_cost, sold_val,
-                           fee_buy, fee_sell, ccy, sign)
-            trips.append(t)
-        held = cost = bought = sold_qty = sold_val = sold_cost = 0.0
-        first = None
-
-    for dt, side, vol, funds in sorted(events, key=lambda e: e[0]):
-        if side == "BUY" and vol > 0 and funds > 0:
-            if held <= COIN_DUST:
-                first = dt
-            held += vol
-            cost += funds
-            bought += vol
-        elif side == "SELL" and vol > 0 and held > COIN_DUST:
-            take = min(vol, held)
-            avg = cost / held
-            val = funds * (take / vol)
-            reals.append(_coin_trip(bot, source, code, first or dt, dt, take, avg * take, val,
-                                    fee_buy, fee_sell, ccy, sign))
-            sold_qty += take
-            sold_val += val
-            sold_cost += avg * take
-            held -= take
-            cost -= avg * take
-            if held <= max(COIN_DUST, bought * 1e-6):
-                _close(dt)
-        elif side == "CLEAR" and held > COIN_DUST:
-            _close(dt)
-    return trips, reals
-
-
-def _ledger_events(pos):
-    """coin_tr_ledger / binan_tr_ledger 포지션 history → replay 이벤트(전 회차)."""
-    evs = []
-    for h in pos.get("history") or []:
-        dt = _parse_dt(h.get("at"), h.get("trade_date"))
-        try:
-            vol, funds = float(h.get("volume") or 0), float(h.get("funds") or 0)
-        except (TypeError, ValueError):
-            continue
-        if dt is not None and h.get("side") in ("BUY", "SELL"):
-            evs.append((dt, h["side"], vol, funds))
-    return evs
-
-
-def build_coin_bot_trips(verbose=True):
-    """코인 봇 → (완결 트립). 매도건별 실현은 REALIZATIONS 에 바로 넣는다.
-    컷오프(08-17) 이전 거래가 없어서 컷오프 이월 로직은 필요 없다."""
-    trips, reals = [], []
-
-    def _ledger(path, want, bot, fee_buy, fee_sell, ccy):
-        """want = 정확 태그 → 행 이름 bot. want 가 '_' 로 끝나면 접두사 → 행 이름 = 포지션 태그."""
-        if not os.path.exists(path):
-            return
-        try:
-            with open(path, encoding="utf-8") as f:
-                data = json.load(f)
-        except Exception as e:
-            print(f"  ⚠️ 코인 장부 읽기 실패({os.path.basename(path)}): {e}")
-            return
-        for pos in (data.get("positions") or {}).values():
-            tag = str(pos.get("strategy_tag") or "")
-            if not (tag.startswith(want) if want.endswith("_") else tag == want):
-                continue
-            sign = -1.0 if str(pos.get("direction") or "").upper() == "SHORT" else 1.0
-            t, r = _coin_replay(bot or tag, "coin_ledger", pos.get("code", ""), _ledger_events(pos),
-                                fee_buy, fee_sell, ccy, sign)
-            trips.extend(t)
-            reals.extend(r)
-
-    _ledger(COIN_CTOP3_LEDGER, "UP_CTOP3", COIN_BOT_UP_CTOP3, COIN_FEE, COIN_FEE, "KRW")
-    _ledger(BINAN_TR_LEDGER, "BN_CTOP3", COIN_BOT_BN_CTOP3, BINAN_FEE_BUY, BINAN_FEE_SELL, "USD")
-    # TR 봇: 업비트 KRW 0.05% 양쪽 / 바이낸스는 CTOP3 와 같은 maker 진입·taker 청산.
-    _ledger(COIN_TR_LEDGER, "UP_TR_", None, COIN_FEE, COIN_FEE, "KRW")
-    _ledger(BINAN_TR_LEDGER, "BN_TR_", None, BINAN_FEE_BUY, BINAN_FEE_SELL, "USD")
-
-    if os.path.exists(COIN_SCO15_CSV):
-        by_mk = defaultdict(list)
-        with open(COIN_SCO15_CSV, encoding="utf-8-sig", newline="") as f:
-            for row in csv.DictReader(f):
-                if str(row.get("mode", "")).upper() != "LIVE":
-                    continue
-                act = str(row.get("action", "")).upper()
-                side = {"BUY": "BUY", "SELL": "SELL",
-                        "LEDGER_CLEAR": "CLEAR", "DUST_CLEAR": "CLEAR"}.get(act)
-                dt = _parse_dt(row.get("time"))
-                if not side or dt is None:
-                    continue
-                try:
-                    vol = float(row.get("volume") or 0)
-                    funds = float(row.get("amount_krw") or 0)
-                except ValueError:
-                    continue
-                by_mk[row.get("market", "")].append((dt, side, vol, funds))
-        for mk, evs in by_mk.items():
-            code = mk.split("-", 1)[1] if "-" in mk else mk
-            t, r = _coin_replay(COIN_BOT_UP_SCO15, "coin_sco15m", code, evs,
-                                COIN_FEE, COIN_FEE, "KRW")
-            trips.extend(t)
-            reals.extend(r)
-
-    # 부분청산 회계는 컷오프 도래 후에만 켜진다(build_report 가 rf 로 거른다).
-    REALIZATIONS.extend(reals)
-    if verbose:
-        amt = sum(_krw(r, "net_pnl_amt") for r in reals)
-        print(f"  코인 봇: 완결 {len(trips)}건 / 매도 {len(reals)}건 {amt:,.0f}원")
-    return trips
-
-
 # ───────── 주(월~금) 버킷 ─────────
 def week_monday(d):
     """date d 가 속한 주의 월요일(date)."""
@@ -1295,15 +1110,10 @@ def summarize(trips, unit, reals=None):
     return out
 
 
-def build_report(trips, weeks_limit=None, display_from=None):
+def build_report(trips, weeks_limit=None):
     """weeks_limit 지정 시 최근 N주만 포함(총계도 그 구간 기준 재계산).
-    None 이면 전체 누적.
-    display_from(YYYY-MM-DD) 지정 시 그 날 이전에 청산(매도)된 트립·실현을 뺀다(웹 표시용).
-    주 칸 수는 그대로 두므로 그 이전 주는 빈 행이 된다."""
+    None 이면 전체 누적."""
     reals = list(REALIZATIONS)
-    if display_from:
-        trips = [t for t in trips if t["exit_dt"].date().isoformat() >= display_from]
-        reals = [r for r in reals if r["exit_dt"].date().isoformat() >= display_from]
     rf = realize_from_week()          # 이 주차부터 금액을 매도시점 실현으로 집계
 
     def _wk(x):
@@ -1382,12 +1192,10 @@ def build_report(trips, weeks_limit=None, display_from=None):
         # 부분청산 회계가 켜지는 주(월요일). 이 주부터 실현손익 금액은 매도시점 기준.
         "realize_from": rf,
         "cutoff_date": CUTOFF_DATE,
-        # 웹 표시 시작일. 이 날 이전 매도는 표에서 빠져 있다(장부·full json 은 그대로).
-        "display_from": display_from,
         # 주차별 환산환율(=weekly_fx_snapshot.json 과 동일). 이 파일만 있어도 재현 가능.
         "fx_usdkrw": {w.isoformat(): round(fx_for_week(w), 2) for w in all_weeks},
         "bots": bots_out,
-        "quarter": build_quarter(by_bot, by_real, all_weeks, ordered_tags, rf, display_from),
+        "quarter": build_quarter(by_bot, by_real, all_weeks, ordered_tags, rf),
     }
 
 
@@ -1483,9 +1291,8 @@ def build_daily_report(trips, days_limit=None):
 QUARTER_WEEKS = 13
 
 
-def build_quarter(by_bot, by_real, all_weeks, ordered_tags, rf, display_from=None):
-    """최근 QUARTER_WEEKS 주 구간의 태그별 누적. 주간표와 같은 summarize 를 창 전체에 적용.
-    display_from 이 창 안에 있으면 시작을 그 주로 당긴다(컷오프와 같은 방식)."""
+def build_quarter(by_bot, by_real, all_weeks, ordered_tags, rf):
+    """최근 QUARTER_WEEKS 주 구간의 태그별 누적. 주간표와 같은 summarize 를 창 전체에 적용."""
     if not all_weeks:
         return None
     end = all_weeks[-1]
@@ -1494,13 +1301,6 @@ def build_quarter(by_bot, by_real, all_weeks, ordered_tags, rf, display_from=Non
     if rf and start.isoformat() < rf <= end.isoformat():
         start = datetime.strptime(rf, "%Y-%m-%d").date()
         clamped = True
-    clamp_from = rf if clamped else None
-    if display_from:
-        dw = week_monday(datetime.strptime(display_from, "%Y-%m-%d").date())
-        if start < dw <= end:
-            start = dw
-            clamped = True
-            clamp_from = display_from
     weeks = [w for w in all_weeks if start <= w <= end]
     if not weeks:
         return None
@@ -1540,7 +1340,6 @@ def build_quarter(by_bot, by_real, all_weeks, ordered_tags, rf, display_from=Non
         "from": keys[0], "to": keys[-1],
         "label": f"{week_label(weeks[0])[:5]}~{week_label(weeks[-1])[-5:]}",
         "clamped_to_cutoff": clamped,
-        "clamp_from": clamp_from,
         "rows": rows,
     }
 
@@ -1955,8 +1754,7 @@ def main():
     print(f"  fill 이벤트: {len(fills)}건")
     intraday_trips = build_round_trips(fills)
     tr_trips = build_tr_ledger_round_trips()
-    coin_trips = build_coin_bot_trips()
-    trips = intraday_trips + tr_trips + coin_trips
+    trips = intraday_trips + tr_trips
     print(f"  intraday 완결 라운드트립: {len(intraday_trips)}건")
     print(f"  TR ledger 완결 라운드트립: {len(tr_trips)}건")
     print(f"  전체 완결 라운드트립: {len(trips)}건")
@@ -1976,13 +1774,11 @@ def main():
     write_xlsx(full_report)
 
     # 웹페이지 피드: 최근 N주만 (총계도 그 구간 기준)
-    # DISPLAY_FROM 이전 매도는 웹에서만 뺀다(full json/csv/xlsx 는 위에서 이미 전체로 씀).
-    web_report = build_report(trips, weeks_limit=RECENT_WEEKS, display_from=DISPLAY_FROM)
+    web_report = build_report(trips, weeks_limit=RECENT_WEEKS)
     # 잔고 드리프트 경고: 지금까지 콘솔에만 찍혀서 아무도 못 봤다 → 게시판 상단 배너로.
     web_report["drift"] = drift
-    # 3개월 누적표는 웹 표시구간(8주)이 아니라 전체 데이터에서 뽑은 걸 쓴다(표시 시작일 적용).
-    web_report["quarter"] = (build_report(trips, display_from=DISPLAY_FROM)["quarter"]
-                             if DISPLAY_FROM else full_report["quarter"])
+    # 3개월 누적표는 웹 표시구간(8주)이 아니라 전체 데이터에서 뽑은 걸 쓴다.
+    web_report["quarter"] = full_report["quarter"]
     q = web_report["quarter"]
     if q:
         print(f"  3개월 누적표: {q['label']} ({q['weeks']}주, 태그 {len(q['rows'])}개"
