@@ -1,5 +1,5 @@
 {
-    "avg_sco": -0.3,
+    "avg_sco": -1.2,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
@@ -7,7 +7,7 @@
     "sco_neg": 21,
     "sco_strong": 1,
     "strong_count": 1,
-    "top3_avg_sco": 14.5,
+    "top3_avg_sco": 15.25,
     "top3_avg_pos": 1.0,
     "kospi_trend": "GREEN",
     "kosdaq_trend": "-",
@@ -16,10 +16,10 @@
     "euro_trend": "-",
     "india_trend": "RED",
     "nikkei_trend": "-",
-    "kospi_mult": 0.7,
+    "kospi_mult": 0.6,
     "nasdaq_mult": 0.85,
-    "invest_pct": 80.0,
-    "invest_amount_total": 80000000,
+    "invest_pct": 75.0,
+    "invest_amount_total": 75000000,
     "per_ticker_alloc": [
         {
             "ticker": "449190",
@@ -27,15 +27,15 @@
             "is_kospi": false,
             "bucket": "NASDAQ",
             "internal_weight": 100.0,
-            "market_mult": 0.8,
+            "market_mult": 0.75,
             "floor_mult": null,
-            "effective_mult": 0.8,
-            "effective_pct": 80.0
+            "effective_mult": 0.75,
+            "effective_pct": 75.0
         }
     ],
-    "invest_pct_sc3": 80.0,
+    "invest_pct_sc3": 75.0,
     "invest_pct_s1": 85.0,
-    "invest_amount_sc3": 80000000,
+    "invest_amount_sc3": 75000000,
     "invest_amount_s1": 85000000,
     "per_ticker_alloc_sc3": [
         {
@@ -44,10 +44,10 @@
             "is_kospi": false,
             "bucket": "NASDAQ",
             "internal_weight": 100.0,
-            "market_mult": 0.8,
+            "market_mult": 0.75,
             "floor_mult": null,
-            "effective_mult": 0.8,
-            "effective_pct": 80.0
+            "effective_mult": 0.75,
+            "effective_pct": 75.0
         }
     ],
     "per_ticker_alloc_s1": [
@@ -57,22 +57,22 @@
             "is_kospi": false,
             "internal_weight": 100.0,
             "market_mult": 0.85,
-            "floor_mult": 0.55,
+            "floor_mult": 0.6,
             "effective_mult": 0.85,
             "effective_pct": 85.0
         }
     ],
     "sc3_state": {
         "kr_state": "GREEN",
-        "kr_bucket_pct": 0.65,
+        "kr_bucket_pct": 0.6,
         "us_state": "LIME",
-        "us_bucket_pct": 0.8,
-        "last_date": "2026-09-23",
+        "us_bucket_pct": 0.75,
+        "last_date": "2026-09-28",
         "updated_today": true
     },
     "sc3_ok": true,
-    "trade_date": "2026-09-23",
-    "vol63_median": 19.9,
+    "trade_date": "2026-09-28",
+    "vol63_median": 20.0,
     "internal_weights": [
         100.0
     ],
@@ -84,5 +84,5 @@
     "allocation_map_used": [
         100
     ],
-    "update_time": "2026-09-23 10:17:35"
+    "update_time": "2026-09-28 13:21:07"
 }
