@@ -71,18 +71,8 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-09-28 13:33:33",
-    "liq_rejected": [
-        {
-            "ticker": "449190",
-            "name": "나스닥",
-            "avg_tv_eok": 53.0,
-            "min_tv_eok": 26.2,
-            "min_eok": 200,
-            "min_day_eok": 80,
-            "fail_on": "avg"
-        }
-    ],
+    "update_time": "2026-09-28 15:27:49",
+    "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
         "US": 1000,
