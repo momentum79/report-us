@@ -1,23 +1,23 @@
 {
-    "avg_sco": -1.2,
+    "avg_sco": -2.6,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
-    "sco_pos": 14,
-    "sco_neg": 21,
+    "sco_pos": 12,
+    "sco_neg": 23,
     "sco_strong": 1,
     "strong_count": 1,
-    "top3_avg_sco": 15.25,
-    "top3_avg_pos": 1.0,
-    "kospi_trend": "GREEN",
+    "top3_avg_sco": 15.0,
+    "top3_avg_pos": 2.0,
+    "kospi_trend": "-",
     "kosdaq_trend": "-",
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
     "euro_trend": "-",
     "india_trend": "RED",
     "nikkei_trend": "-",
-    "kospi_mult": 0.6,
-    "nasdaq_mult": 0.85,
+    "kospi_mult": 0.2,
+    "nasdaq_mult": 0.8,
     "invest_pct": 75.0,
     "invest_amount_total": 75000000,
     "per_ticker_alloc": [
@@ -34,9 +34,9 @@
         }
     ],
     "invest_pct_sc3": 75.0,
-    "invest_pct_s1": 85.0,
+    "invest_pct_s1": 80.0,
     "invest_amount_sc3": 75000000,
-    "invest_amount_s1": 85000000,
+    "invest_amount_s1": 80000000,
     "per_ticker_alloc_sc3": [
         {
             "ticker": "449190",
@@ -56,23 +56,23 @@
             "industry": "나스닥",
             "is_kospi": false,
             "internal_weight": 100.0,
-            "market_mult": 0.85,
-            "floor_mult": 0.6,
-            "effective_mult": 0.85,
-            "effective_pct": 85.0
+            "market_mult": 0.8,
+            "floor_mult": 0.55,
+            "effective_mult": 0.8,
+            "effective_pct": 80.0
         }
     ],
     "sc3_state": {
-        "kr_state": "GREEN",
-        "kr_bucket_pct": 0.6,
+        "kr_state": "-",
+        "kr_bucket_pct": 0.35,
         "us_state": "LIME",
         "us_bucket_pct": 0.75,
-        "last_date": "2026-09-28",
-        "updated_today": false
+        "last_date": "2026-09-29",
+        "updated_today": true
     },
     "sc3_ok": true,
-    "trade_date": "2026-09-28",
-    "vol63_median": 20.1,
+    "trade_date": "2026-09-29",
+    "vol63_median": 19.5,
     "internal_weights": [
         100.0
     ],
@@ -84,5 +84,5 @@
     "allocation_map_used": [
         100
     ],
-    "update_time": "2026-09-28 15:26:34"
+    "update_time": "2026-09-29 13:47:56"
 }
