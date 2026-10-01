@@ -1,69 +1,61 @@
 {
-    "avg_sco": -0.7,
+    "avg_sco": -3.8,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 51,
-    "sco_neg": 79,
-    "sco_strong": 16,
-    "sco_zone_neg": 79,
-    "sco_zone_weak": 25,
-    "sco_zone_mid": 10,
-    "sco_zone_strong": 16,
-    "strong_count": 10,
-    "top3_avg_sco": 15.0,
-    "top3_avg_pos": 1.33,
+    "sco_pos": 39,
+    "sco_neg": 91,
+    "sco_strong": 5,
+    "sco_zone_neg": 91,
+    "sco_zone_weak": 23,
+    "sco_zone_mid": 11,
+    "sco_zone_strong": 5,
+    "strong_count": 4,
+    "top3_avg_sco": 12.67,
+    "top3_avg_pos": 1.0,
     "kospi_trend": "GREEN",
-    "kosdaq_trend": "-",
-    "sp500_trend": "LIME",
+    "kosdaq_trend": "GREEN",
+    "sp500_trend": "-",
     "nasdaq_trend": "LIME",
-    "kospi_sco": 8.25,
-    "kosdaq_sco": 0.75,
-    "sp500_sco": 12.0,
-    "nasdaq_sco": 15.0,
-    "euro_trend": "-",
+    "kospi_sco": 5.0,
+    "kosdaq_sco": 4.75,
+    "sp500_sco": 3.5,
+    "nasdaq_sco": 9.0,
+    "euro_trend": "PURPLE",
     "india_trend": "RED",
-    "nikkei_trend": "-",
+    "nikkei_trend": "GREEN",
     "shanghai_trend": "RED",
     "hongkong_trend": "PURPLE",
-    "brazil_trend": "-",
-    "kospi_mult": 0.6,
-    "nasdaq_mult": 0.85,
-    "invest_pct": 51.0,
-    "invest_amount_total": 50999999,
+    "brazil_trend": "PURPLE",
+    "kospi_mult": 0.7,
+    "nasdaq_mult": 0.8,
+    "invest_pct": 33.9,
+    "invest_amount_total": 33909622,
     "internal_weights": [
-        33.5025,
-        27.4112,
-        20.3046,
-        8.6294,
-        10.1523
+        46.7532,
+        31.1688,
+        22.0779
     ],
-    "n_holdings": 5,
+    "n_holdings": 3,
     "holdings_tickers": [
         "XLK",
-        "ARKK",
-        "QQQ",
-        "ETHA",
-        "CIBR"
+        "SMH",
+        "455850"
     ],
     "final_ratios": {
-        "XLK": 17.09,
-        "ARKK": 13.98,
-        "QQQ": 10.36,
-        "ETHA": 4.4,
-        "CIBR": 5.18
+        "XLK": 16.3,
+        "SMH": 10.87,
+        "455850": 6.74
     },
     "top3_tickers": [
         "XLK",
-        "ARKK",
-        "QQQ"
+        "SMH",
+        "455850"
     ],
     "allocation_map_used": [
-        33,
-        27,
-        20,
-        10,
-        10
+        45,
+        30,
+        25
     ],
     "score_model": {
         "name": "vol_stability_v1",
@@ -71,14 +63,24 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-09-28 15:27:49",
-    "liq_rejected": [],
+    "update_time": "2026-10-01 23:39:09",
+    "liq_rejected": [
+        {
+            "ticker": "449190",
+            "name": "나스닥",
+            "avg_tv_eok": 53.0,
+            "min_tv_eok": 26.2,
+            "min_eok": 200,
+            "min_day_eok": 80,
+            "fail_on": "avg"
+        }
+    ],
     "liq_thresholds": {
         "KR": 200,
         "US": 1000,
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1362.0
+        "usd_krw": 1365.7
     }
 }
