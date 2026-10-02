@@ -1,17 +1,17 @@
 {
   "account": "8042",
-  "updated": "2026-10-01 23:51:17",
+  "updated": "2026-10-02 18:15:06",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 7070207,
-    "tot_pur_amt": 5411571,
-    "tot_evlt_amt": 5593859,
-    "tot_evlt_pl": 179561,
-    "tot_prft_rt": 3.32,
-    "stock_ratio": 79.11874433096513,
-    "cash": 1427610,
-    "tdy_realized_pl": 696
+    "total_asset": 7001389,
+    "tot_pur_amt": 6524071,
+    "tot_evlt_amt": 6637858,
+    "tot_evlt_pl": 110743,
+    "tot_prft_rt": 1.7,
+    "stock_ratio": 94.8077302946601,
+    "cash": 1151570,
+    "tdy_realized_pl": 0
   },
   "holdings": [
     {
@@ -19,11 +19,11 @@
       "stock_name": "KODEX WTI원유선물인버스(H)",
       "quantity": 1803,
       "avg_price": 0,
-      "current_price": 1793,
-      "profit_rate": 3.3,
-      "eval_amount": 3232779,
+      "current_price": 1746,
+      "profit_rate": 0.59,
+      "eval_amount": 3148038,
       "nxt": "",
-      "cntr_str": 96.27,
+      "cntr_str": 77.85,
       "candle": "",
       "tag": ""
     },
@@ -32,11 +32,24 @@
       "stock_name": "KODEX 레버리지",
       "quantity": 16,
       "avg_price": 0,
-      "current_price": 113255,
-      "profit_rate": 4.2,
-      "eval_amount": 1812080,
+      "current_price": 114395,
+      "profit_rate": 5.25,
+      "eval_amount": 1830320,
       "nxt": "",
-      "cntr_str": 101.31,
+      "cntr_str": 100.85,
+      "candle": "",
+      "tag": ""
+    },
+    {
+      "stock_code": "251340",
+      "stock_name": "KODEX 코스닥150선물인버스",
+      "quantity": 500,
+      "avg_price": 0,
+      "current_price": 2215,
+      "profit_rate": -0.48,
+      "eval_amount": 1107500,
+      "nxt": "",
+      "cntr_str": 97.94,
       "candle": "",
       "tag": ""
     },
@@ -45,11 +58,11 @@
       "stock_name": "삼성전자",
       "quantity": 2,
       "avg_price": 0,
-      "current_price": 274500,
-      "profit_rate": 0.6,
-      "eval_amount": 549000,
+      "current_price": 276000,
+      "profit_rate": 1.15,
+      "eval_amount": 552000,
       "nxt": "N선",
-      "cntr_str": 157.66,
+      "cntr_str": 115.33,
       "candle": "",
       "tag": ""
     }
@@ -60,10 +73,10 @@
       "stock_name": "나스닥 사이버보안 퍼스트 트러스트 ETF",
       "quantity": 25,
       "avg_price": 103.105,
-      "current_price": 103.475,
-      "profit_rate": 0.21,
-      "eval_amount_usd": 2586.875,
-      "eval_amount": 3524358,
+      "current_price": 104.65,
+      "profit_rate": 1.35,
+      "eval_amount_usd": 2616.25,
+      "eval_amount": 3559408,
       "buy_date": "2026-09-21",
       "candle": "일봉",
       "tag": "통합ETF"
@@ -73,10 +86,10 @@
       "stock_name": "이노베이션 액티브 아크 ETF",
       "quantity": 19,
       "avg_price": 90.81,
-      "current_price": 89.43,
-      "profit_rate": -1.65,
-      "eval_amount_usd": 1699.17,
-      "eval_amount": 2314949,
+      "current_price": 89.44,
+      "profit_rate": -1.64,
+      "eval_amount_usd": 1699.36,
+      "eval_amount": 2311979,
       "buy_date": "2026-09-22",
       "candle": "일봉",
       "tag": "통합ETF"
@@ -86,41 +99,41 @@
       "stock_name": "MSCI 대만 아이셰어즈 ETF",
       "quantity": 12,
       "avg_price": 114.8,
-      "current_price": 112.325,
-      "profit_rate": -2.29,
-      "eval_amount_usd": 1347.9,
-      "eval_amount": 1836378,
+      "current_price": 114.5,
+      "profit_rate": -0.4,
+      "eval_amount_usd": 1374.0,
+      "eval_amount": 1869327,
       "buy_date": "2026-09-10",
       "candle": "일봉",
       "tag": "통합ETF"
     }
   ],
   "us_summary": {
-    "us_stock_krw": 7675685,
+    "us_stock_krw": 7740714,
     "usd_cash": 4576.57,
-    "usd_cash_krw": 6204455,
-    "rate": 1355.7,
-    "total_asset_total": 15270004,
-    "eval_pl_usd": -46.67,
-    "eval_pl_krw": -63270,
+    "usd_cash_krw": 6222304,
+    "rate": 1359.6,
+    "total_asset_total": 15109467,
+    "eval_pl_usd": 8.99,
+    "eval_pl_krw": 12222,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
-    "won_entr": 1427610,
+    "won_entr": 1151570,
     "fx": {
       "USD": {
-        "cash_krw": 6204455,
-        "stock_krw": 7637939,
-        "rate": 1355.7
+        "cash_krw": 6222304,
+        "stock_krw": 7735593,
+        "rate": 1359.6
       },
       "JPY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 861.28
+        "rate": 860.32
       },
       "CNY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 202.19
+        "rate": 202.55
       }
     },
     "fx_other_krw": 0,
