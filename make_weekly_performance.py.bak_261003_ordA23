@@ -218,9 +218,9 @@ TAG_ORDER = [
     "주도주", "ROCKET", "ABC-VCP", "TV알림",
     "2X단타", "삼닉v3_저2", "삼닉v3_추세", "삼닉v3_MA", "삼닉v3_미분류",
     "5minHL", "5minHL2", "5minHL_동시", "5minHL_미분류",
-    "KR_TR_ORD_B", "KR_TR_ORD_1A0", "KR_TR_BLACK_B", "KR_TR_PURPLE_B", "KR_TR_VOLUME_1", "KR_TR_VOLUME_2", "KR_TR_VCP1",
+    "KR_TR_ORD_B", "KR_TR_ORD_1A0", "KR_TR_VOLUME_1", "KR_TR_VOLUME_2", "KR_TR_VCP1",
     "KR_TR_BASE", "KR_TR_JEO2", "KR_TR_MA", "KR_TR_ADD1",
-    "미국VCP", "US_TR_ORD_B", "US_TR_ORD_1A0", "US_TR_BLACK_B", "US_TR_PURPLE_B", "US_TR_VOLUME_1", "US_TR_VOLUME_2",
+    "미국VCP", "US_TR_ORD_B", "US_TR_ORD_1A0", "US_TR_VOLUME_1", "US_TR_VOLUME_2",
     "US_TR_VCP1", "US_TR_BASE", "US_TR_JEO2", "US_TR_MA", "US_TR_ADD1",
     "US_TR_LEGACY", "US_TR_LEGACY_TREND", "US_TR_LEGACY_LOW",
     # 옛 이름. 과거 라운드트립이 아직 이 태그라 표에서 사라지지 않게 남겨둔다.
@@ -228,27 +228,21 @@ TAG_ORDER = [
     "저점사다리",
     # ── 코인 봇 (2026-09-26 편입, build_coin_bot_trips) ──
     "업비트SCO-Top3", "업비트SCO-15분", "바이낸스SCO-Top3",
-    # BTC/ETH 국면 비중봇 v6 (2026-10-05, 매일 09:01) - btceth_regime_v6_orders.jsonl replay
-    "업비트국면v6",
     # ── 자산배분 (리밸런싱) ──
     "통합ETF",
     # ── 수동 (사람이 직접 매수) ──
     "수동합계", "수동매매", "미국수동", "기타(8042)",
-    # 차트매수(2026-10-04): 캔들 팝업 b 로 사람이 고른 진입. 청산은 TR 엔진 → 장부 태그 그대로 행.
-    "KR_TR_CHART", "US_TR_CHART", "UP_TR_CHART", "BN_TR_CHART",
 ]
 TAG_UNIT = {
     "주도주": "day", "ROCKET": "day", "ABC-VCP": "day", "TV알림": "day",
     "수동매매": "day", "통합ETF": "day",
     "미국VCP": "day", "미국수동": "day",
     "KR_TR_ORD_B": "day", "KR_TR_ORD_1A0": "day",
-    "KR_TR_BLACK_B": "day", "KR_TR_PURPLE_B": "day",
     "KR_TR_VOLUME_1": "day", "KR_TR_VOLUME_2": "day",
     "KR_TR_VCP1": "day", "KR_TR_BASE": "day", "KR_TR_VCP2": "day",
     "KR_TR_JEO2": "day", "KR_TR_MA": "day",
     "KR_TR_ADD1": "day",
     "US_TR_ORD_B": "day", "US_TR_ORD_1A0": "day",
-    "US_TR_BLACK_B": "day", "US_TR_PURPLE_B": "day",
     "US_TR_VOLUME_1": "day", "US_TR_VOLUME_2": "day",
     "US_TR_VCP1": "day", "US_TR_BASE": "day", "US_TR_VCP2": "day",
     "US_TR_JEO2": "day", "US_TR_MA": "day",
@@ -259,8 +253,6 @@ TAG_UNIT = {
     "5minHL": "min", "5minHL2": "min", "5minHL_동시": "min", "5minHL_미분류": "min",
     "기타(8042)": "min", "저점사다리": "min", "통합": "mix", "수동합계": "mix",
     "업비트SCO-Top3": "day", "업비트SCO-15분": "min", "바이낸스SCO-Top3": "day",
-    "업비트국면v6": "day",
-    "KR_TR_CHART": "day", "US_TR_CHART": "day", "UP_TR_CHART": "day", "BN_TR_CHART": "day",
 }
 
 # 코인 TR 봇 태그 접두 (2026-09-26 편입, build_coin_bot_trips). 장부 태그를 그대로 행 이름으로 쓴다.
@@ -276,25 +268,12 @@ COIN_TR_TAG_PREFIXES = ("UP_TR_", "BN_TR_")
 #   · None 으로 두면 예전처럼 전 기간 표시.
 DISPLAY_FROM = "2026-09-01"
 
-# ───────── 웹 카드에서 뺀 태그 (2026-10-05 사용자 지정) ─────────
-# 더 이상 안 쓰는 봇/이름. 웹 피드(weekly_performance.json)의 카드·3개월표에서만 뺀다.
-#   · 계산은 그대로 한다 → 그 봇이 실제로 낸 과거 손익은 '통합' 행에 계속 들어간다(있었던 일이라서).
-#   · full json/csv/xlsx 에는 그대로 남는다.
-#   업비트SCO-15분 = c15 봇 10-04 중단(bat .off) / KR·US_TR_VCP2 = 옛 태그 이름(거래 0건)
-RETIRED_WEB_TAGS = {"업비트SCO-15분", "KR_TR_VCP2", "US_TR_VCP2"}
-
 # 사람이 직접 낸 주문으로 분류되는 태그. 이 태그의 '매도'는 어느 봇 물량을 판 건지
 # 알 수 없으므로 자기 서랍이 비면 같은 종목의 봇 서랍에서 FIFO 로 흡수한다
 # (build_round_trips 참고). 매수는 그대로 이 태그의 포지션이 된다.
 #   ※ 집계에서 빼면 안 된다. 봇이 산 물량을 사람이 판 매도가 흡수될 자리가 없어져
 #     그 봇 포지션이 영영 안 닫힌다. "통합 합산·표시에서 제외" 일 뿐이다.
 MANUAL_TAGS = {"수동매매", "미국수동", "기타(8042)"}
-
-# 차트매수 (2026-10-04, 0order/0_chart_buy.py). 진입은 사람이 고르고 청산은 TR 엔진이 한다.
-# 봇 성과 비교를 흐리지 않게 '수동' 그룹(통합 합산 제외·수동합계 포함)으로 본다.
-#   MANUAL_TAGS 와 달리 FIFO 흡수 대상이 아니다 - TR 장부에 매수·매도가 같은 태그로 남아서
-#   (build_tr_ledger_round_trips / build_coin_bot_trips) 남의 서랍을 빌릴 일이 없다.
-CHART_TAGS = {"KR_TR_CHART", "US_TR_CHART", "UP_TR_CHART", "BN_TR_CHART"}
 
 # 자산배분(주간 리밸런싱). 매매전략이 아니라 비중조절이라 통합에 섞으면 비교가 흐려진다.
 ALLOC_TAGS = {"통합ETF"}
@@ -341,7 +320,7 @@ def tag_group(tag):
         return AGGREGATE_TAGS[tag]
     if is_seed_tag(tag):
         return "seed"
-    if tag in MANUAL_TAGS or tag in CHART_TAGS:
+    if tag in MANUAL_TAGS:
         return "manual"
     if tag in ALLOC_TAGS:
         return "alloc"
@@ -1058,10 +1037,6 @@ COIN_BOT_BN_CTOP3 = "바이낸스SCO-Top3"
 COIN_CTOP3_LEDGER = os.path.join(BASE_DIR, "coin", "0order", "ledger", "coin_ctop3_upbit_live.json")
 COIN_TR_LEDGER = os.path.join(BASE_DIR, "coin", "0order", "ledger", "coin_tr_upbit_live.json")
 COIN_SCO15_CSV = os.path.join(BASE_DIR, "coin", "0order", "0_upbit_sco15m_trades_live.csv")
-# BTC/ETH 국면 비중봇 v6 (2026-10-05). 체결 jsonl: BUY/SELL(funds=수수료 전 체결금액) + ADOPT(첫 실행 때
-# 넘겨받은 수동 BTC/ETH 를 그 시각 호가로 평가한 '진입'. 실제 주문이 아니라 수수료가 없다).
-COIN_BOT_UP_RG6 = "업비트국면v6"
-COIN_RG6_JSONL = os.path.join(BASE_DIR, "coin", "0order", "btceth_regime_v6_orders.jsonl")
 BINAN_TR_LEDGER = os.path.join(BASE_DIR, "coin_binan", "ledger", "binan_tr_futures_live.json")
 BINAN_FEE_BUY = 0.0002     # USDT-M 선물 maker (진입=지정가)
 BINAN_FEE_SELL = 0.0005    # taker (청산=시장가)
@@ -1202,34 +1177,6 @@ def build_coin_bot_trips(verbose=True):
             code = mk.split("-", 1)[1] if "-" in mk else mk
             t, r = _coin_replay(COIN_BOT_UP_SCO15, "coin_sco15m", code, evs,
                                 COIN_FEE, COIN_FEE, "KRW")
-            trips.extend(t)
-            reals.extend(r)
-
-    if os.path.exists(COIN_RG6_JSONL):
-        by_code = defaultdict(list)
-        with open(COIN_RG6_JSONL, encoding="utf-8") as f:
-            for line in f:
-                try:
-                    rec = json.loads(line)
-                except ValueError:
-                    continue                        # 쓰는 중인 마지막 줄 등
-                act = str(rec.get("action") or "").upper()
-                if act not in ("BUY", "SELL", "ADOPT") or str(rec.get("uuid") or "").startswith("dry-"):
-                    continue
-                dt = _parse_dt(rec.get("time"))
-                try:
-                    vol = float(rec.get("fill_volume") or 0)
-                    funds = float(rec.get("funds") or 0)
-                except (TypeError, ValueError):
-                    continue
-                if dt is None or vol <= 0 or funds <= 0:
-                    continue
-                if act == "ADOPT":
-                    # 인계분엔 수수료가 없다 - replay 가 매수 수수료를 붙이므로 그만큼 빼 둔다(원가 = 평가액)
-                    act, funds = "BUY", funds / (1 + COIN_FEE)
-                by_code[str(rec.get("code") or "")].append((dt, act, vol, funds))
-        for code, evs in by_code.items():
-            t, r = _coin_replay(COIN_BOT_UP_RG6, "coin_rg6", code, evs, COIN_FEE, COIN_FEE, "KRW")
             trips.extend(t)
             reals.extend(r)
 
@@ -2036,13 +1983,6 @@ def main():
     # 3개월 누적표는 웹 표시구간(8주)이 아니라 전체 데이터에서 뽑은 걸 쓴다(표시 시작일 적용).
     web_report["quarter"] = (build_report(trips, display_from=DISPLAY_FROM)["quarter"]
                              if DISPLAY_FROM else full_report["quarter"])
-    # 안 쓰는 태그는 웹 카드·3개월표에서만 뺀다(통합 합산·full 산출물은 그대로)
-    web_report["bots"] = [b for b in web_report["bots"] if b.get("key") not in RETIRED_WEB_TAGS]
-    if web_report.get("quarter"):
-        web_report["quarter"] = dict(web_report["quarter"])
-        web_report["quarter"]["rows"] = [r for r in web_report["quarter"]["rows"]
-                                         if r.get("key") not in RETIRED_WEB_TAGS]
-    web_report["retired_tags"] = sorted(RETIRED_WEB_TAGS)
     q = web_report["quarter"]
     if q:
         print(f"  3개월 누적표: {q['label']} ({q['weeks']}주, 태그 {len(q['rows'])}개"
