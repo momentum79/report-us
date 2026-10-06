@@ -1,64 +1,68 @@
 {
-    "avg_sco": -3.2,
+    "avg_sco": -1.4,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 44,
-    "sco_neg": 86,
-    "sco_strong": 9,
-    "sco_zone_neg": 86,
-    "sco_zone_weak": 24,
-    "sco_zone_mid": 11,
-    "sco_zone_strong": 9,
-    "strong_count": 8,
-    "top3_avg_sco": 14.0,
+    "sco_pos": 50,
+    "sco_neg": 80,
+    "sco_strong": 19,
+    "sco_zone_neg": 80,
+    "sco_zone_weak": 19,
+    "sco_zone_mid": 12,
+    "sco_zone_strong": 19,
+    "strong_count": 14,
+    "top3_avg_sco": 15.5,
     "top3_avg_pos": 1.0,
     "kospi_trend": "GREEN",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
-    "kospi_sco": 6.0,
-    "kosdaq_sco": 7.5,
-    "sp500_sco": 5.0,
-    "nasdaq_sco": 12.5,
-    "euro_trend": "PURPLE",
+    "kospi_sco": 5.5,
+    "kosdaq_sco": 9.25,
+    "sp500_sco": 11.0,
+    "nasdaq_sco": 15.5,
+    "euro_trend": "RED",
     "india_trend": "RED",
     "nikkei_trend": "GREEN",
     "shanghai_trend": "RED",
     "hongkong_trend": "PURPLE",
-    "brazil_trend": "-",
-    "kospi_mult": 0.7,
+    "brazil_trend": "LIME",
+    "kospi_mult": 0.5,
     "nasdaq_mult": 0.85,
-    "invest_pct": 27.0,
-    "invest_amount_total": 27045273,
+    "invest_pct": 26.6,
+    "invest_amount_total": 26622780,
     "internal_weights": [
-        35.533,
-        30.4569,
-        25.3807,
-        8.6294
+        33.6735,
+        27.551,
+        20.4082,
+        9.6939,
+        8.6735
     ],
-    "n_holdings": 4,
+    "n_holdings": 5,
     "holdings_tickers": [
         "CIBR",
         "XLK",
+        "IGV",
         "SMH",
         "455850"
     ],
     "final_ratios": {
-        "CIBR": 9.76,
-        "XLK": 8.36,
-        "SMH": 6.97,
-        "455850": 1.95
+        "CIBR": 9.25,
+        "XLK": 7.57,
+        "IGV": 5.6,
+        "SMH": 2.66,
+        "455850": 1.54
     },
     "top3_tickers": [
         "CIBR",
         "XLK",
-        "SMH"
+        "IGV"
     ],
     "allocation_map_used": [
-        35,
-        30,
-        25,
+        33,
+        27,
+        20,
+        10,
         10
     ],
     "score_model": {
@@ -67,7 +71,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-10-03 08:43:24",
+    "update_time": "2026-10-07 06:03:06",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -75,6 +79,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1369.6
+        "usd_krw": 1368.5
     }
 }
