@@ -1,14 +1,14 @@
 {
-    "avg_sco": -0.9,
+    "avg_sco": -0.0,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
     "sco_pos": 17,
     "sco_neg": 18,
-    "sco_strong": 3,
-    "strong_count": 3,
-    "top3_avg_sco": 13.42,
-    "top3_avg_pos": 1.0,
+    "sco_strong": 4,
+    "strong_count": 4,
+    "top3_avg_sco": 13.75,
+    "top3_avg_pos": 1.33,
     "kospi_trend": "GREEN",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "LIME",
@@ -16,32 +16,32 @@
     "euro_trend": "-",
     "india_trend": "RED",
     "nikkei_trend": "GREEN",
-    "kospi_mult": 0.5,
+    "kospi_mult": 0.4,
     "nasdaq_mult": 0.85,
-    "invest_pct": 67.5,
-    "invest_amount_total": 67500000,
+    "invest_pct": 71.2,
+    "invest_amount_total": 71250000,
     "per_ticker_alloc": [
-        {
-            "ticker": "455850",
-            "industry": "반소부",
-            "is_kospi": true,
-            "bucket": "KOSPI",
-            "internal_weight": 45.0,
-            "market_mult": 0.6,
-            "floor_mult": null,
-            "effective_mult": 0.6,
-            "effective_pct": 27.0
-        },
         {
             "ticker": "449190",
             "industry": "나스닥",
             "is_kospi": false,
             "bucket": "NASDAQ",
-            "internal_weight": 30.0,
+            "internal_weight": 45.0,
             "market_mult": 0.85,
             "floor_mult": null,
             "effective_mult": 0.85,
-            "effective_pct": 25.5
+            "effective_pct": 38.25
+        },
+        {
+            "ticker": "455850",
+            "industry": "반소부",
+            "is_kospi": true,
+            "bucket": "KOSPI",
+            "internal_weight": 30.0,
+            "market_mult": 0.6,
+            "floor_mult": null,
+            "effective_mult": 0.6,
+            "effective_pct": 18.0
         },
         {
             "ticker": "091160",
@@ -55,32 +55,32 @@
             "effective_pct": 15.0
         }
     ],
-    "invest_pct_sc3": 67.5,
-    "invest_pct_s1": 62.7,
-    "invest_amount_sc3": 67500000,
-    "invest_amount_s1": 62750000,
+    "invest_pct_sc3": 71.2,
+    "invest_pct_s1": 64.8,
+    "invest_amount_sc3": 71250000,
+    "invest_amount_s1": 64750000,
     "per_ticker_alloc_sc3": [
-        {
-            "ticker": "455850",
-            "industry": "반소부",
-            "is_kospi": true,
-            "bucket": "KOSPI",
-            "internal_weight": 45.0,
-            "market_mult": 0.6,
-            "floor_mult": null,
-            "effective_mult": 0.6,
-            "effective_pct": 27.0
-        },
         {
             "ticker": "449190",
             "industry": "나스닥",
             "is_kospi": false,
             "bucket": "NASDAQ",
-            "internal_weight": 30.0,
+            "internal_weight": 45.0,
             "market_mult": 0.85,
             "floor_mult": null,
             "effective_mult": 0.85,
-            "effective_pct": 25.5
+            "effective_pct": 38.25
+        },
+        {
+            "ticker": "455850",
+            "industry": "반소부",
+            "is_kospi": true,
+            "bucket": "KOSPI",
+            "internal_weight": 30.0,
+            "market_mult": 0.6,
+            "floor_mult": null,
+            "effective_mult": 0.6,
+            "effective_pct": 18.0
         },
         {
             "ticker": "091160",
@@ -96,34 +96,34 @@
     ],
     "per_ticker_alloc_s1": [
         {
-            "ticker": "455850",
-            "industry": "반소부",
-            "is_kospi": true,
-            "internal_weight": 45.0,
-            "market_mult": 0.5,
-            "floor_mult": 0.55,
-            "effective_mult": 0.55,
-            "effective_pct": 24.75
-        },
-        {
             "ticker": "449190",
             "industry": "나스닥",
             "is_kospi": false,
-            "internal_weight": 30.0,
+            "internal_weight": 45.0,
             "market_mult": 0.85,
-            "floor_mult": 0.55,
+            "floor_mult": 0.6,
             "effective_mult": 0.85,
-            "effective_pct": 25.5
+            "effective_pct": 38.25
+        },
+        {
+            "ticker": "455850",
+            "industry": "반소부",
+            "is_kospi": true,
+            "internal_weight": 30.0,
+            "market_mult": 0.4,
+            "floor_mult": 0.55,
+            "effective_mult": 0.55,
+            "effective_pct": 16.5
         },
         {
             "ticker": "091160",
             "industry": "반도체",
             "is_kospi": true,
             "internal_weight": 25.0,
-            "market_mult": 0.5,
-            "floor_mult": 0.35,
-            "effective_mult": 0.5,
-            "effective_pct": 12.5
+            "market_mult": 0.4,
+            "floor_mult": 0.3,
+            "effective_mult": 0.4,
+            "effective_pct": 10.0
         }
     ],
     "sc3_state": {
@@ -131,12 +131,12 @@
         "kr_bucket_pct": 0.6,
         "us_state": "LIME",
         "us_bucket_pct": 0.85,
-        "last_date": "2026-10-06",
-        "updated_today": false
+        "last_date": "2026-10-07",
+        "updated_today": true
     },
     "sc3_ok": true,
-    "trade_date": "2026-10-06",
-    "vol63_median": 92.6,
+    "trade_date": "2026-10-07",
+    "vol63_median": 92.9,
     "internal_weights": [
         45.0,
         30.0,
@@ -144,8 +144,8 @@
     ],
     "n_holdings": 3,
     "holdings_tickers": [
-        "455850",
         "449190",
+        "455850",
         "091160"
     ],
     "top3_k_tickers": [
@@ -157,5 +157,5 @@
         30,
         25
     ],
-    "update_time": "2026-10-07 06:04:48"
+    "update_time": "2026-10-07 12:40:41"
 }
