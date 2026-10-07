@@ -1,5 +1,5 @@
 {
-    "avg_sco": -0.0,
+    "avg_sco": -0.3,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
@@ -7,8 +7,8 @@
     "sco_neg": 18,
     "sco_strong": 4,
     "strong_count": 4,
-    "top3_avg_sco": 13.75,
-    "top3_avg_pos": 1.33,
+    "top3_avg_sco": 13.5,
+    "top3_avg_pos": 1.67,
     "kospi_trend": "GREEN",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "LIME",
@@ -56,9 +56,9 @@
         }
     ],
     "invest_pct_sc3": 71.2,
-    "invest_pct_s1": 64.8,
+    "invest_pct_s1": 61.8,
     "invest_amount_sc3": 71250000,
-    "invest_amount_s1": 64750000,
+    "invest_amount_s1": 61750000,
     "per_ticker_alloc_sc3": [
         {
             "ticker": "449190",
@@ -111,9 +111,9 @@
             "is_kospi": true,
             "internal_weight": 30.0,
             "market_mult": 0.4,
-            "floor_mult": 0.55,
-            "effective_mult": 0.55,
-            "effective_pct": 16.5
+            "floor_mult": 0.45,
+            "effective_mult": 0.45,
+            "effective_pct": 13.5
         },
         {
             "ticker": "091160",
@@ -132,11 +132,11 @@
         "us_state": "LIME",
         "us_bucket_pct": 0.85,
         "last_date": "2026-10-07",
-        "updated_today": true
+        "updated_today": false
     },
     "sc3_ok": true,
     "trade_date": "2026-10-07",
-    "vol63_median": 92.9,
+    "vol63_median": 93.3,
     "internal_weights": [
         45.0,
         30.0,
@@ -157,5 +157,5 @@
         30,
         25
     ],
-    "update_time": "2026-10-07 12:40:41"
+    "update_time": "2026-10-08 06:04:25"
 }
