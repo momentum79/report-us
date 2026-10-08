@@ -1,69 +1,73 @@
 {
-    "avg_sco": -0.9,
+    "avg_sco": -1.2,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 51,
-    "sco_neg": 79,
-    "sco_strong": 19,
-    "sco_zone_neg": 79,
+    "sco_pos": 49,
+    "sco_neg": 81,
+    "sco_strong": 17,
+    "sco_zone_neg": 81,
     "sco_zone_weak": 22,
     "sco_zone_mid": 10,
-    "sco_zone_strong": 19,
+    "sco_zone_strong": 17,
     "strong_count": 13,
-    "top3_avg_sco": 15.83,
-    "top3_avg_pos": 1.0,
-    "kospi_trend": "GREEN",
+    "top3_avg_sco": 15.17,
+    "top3_avg_pos": 1.67,
+    "kospi_trend": "PURPLE",
     "kosdaq_trend": "GREEN",
     "sp500_trend": "LIME",
     "nasdaq_trend": "LIME",
-    "kospi_sco": 3.75,
-    "kosdaq_sco": 10.0,
-    "sp500_sco": 13.5,
-    "nasdaq_sco": 15.5,
+    "kospi_sco": -0.25,
+    "kosdaq_sco": 9.25,
+    "sp500_sco": 14.5,
+    "nasdaq_sco": 15.0,
     "euro_trend": "RED",
     "india_trend": "RED",
     "nikkei_trend": "GREEN",
     "shanghai_trend": "RED",
     "hongkong_trend": "RED",
     "brazil_trend": "LIME",
-    "kospi_mult": 0.4,
-    "nasdaq_mult": 0.85,
-    "invest_pct": 31.4,
-    "invest_amount_total": 31364826,
+    "kospi_mult": 0.1,
+    "nasdaq_mult": 0.8,
+    "invest_pct": 25.7,
+    "invest_amount_total": 25671329,
     "internal_weights": [
-        33.6735,
-        27.551,
-        20.4082,
-        9.6939,
-        8.6735
+        32.1377,
+        25.9175,
+        16.5872,
+        9.8486,
+        8.8119,
+        6.6971
     ],
-    "n_holdings": 5,
+    "n_holdings": 6,
     "holdings_tickers": [
-        "CIBR",
         "IGV",
+        "EWZ",
+        "CIBR",
         "XLK",
-        "SMH",
-        "455850"
+        "455850",
+        "SMH"
     ],
     "final_ratios": {
-        "CIBR": 11.01,
-        "IGV": 9.01,
-        "XLK": 6.67,
-        "SMH": 3.17,
-        "455850": 1.5
+        "IGV": 8.83,
+        "EWZ": 7.12,
+        "CIBR": 4.56,
+        "XLK": 2.71,
+        "455850": 0.61,
+        "SMH": 1.84
     },
     "top3_tickers": [
-        "CIBR",
         "IGV",
-        "XLK"
+        "EWZ",
+        "CIBR"
     ],
     "allocation_map_used": [
-        33,
-        27,
-        20,
+        31,
+        25,
+        16,
         10,
-        10
+        10,
+        8
     ],
     "score_model": {
         "name": "vol_stability_v1",
@@ -71,7 +75,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-10-08 06:02:48",
+    "update_time": "2026-10-09 06:02:51",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -79,6 +83,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1353.4
+        "usd_krw": 1349.2
     }
 }
