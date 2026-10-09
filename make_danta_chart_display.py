@@ -418,7 +418,7 @@ function buildIntraday(card,code,rows){
   const sig=computeLowSignals(rows), marks=[];
   sig.jeo.forEach(t=>marks.push({time:t,position:'belowBar',color:'#e11d1d',shape:'square',text:'저'}));
   sig.jeo2.forEach(t=>marks.push({time:t,position:'belowBar',color:'#000000',shape:'arrowUp',text:'저2'}));
-  computeTopSignals(rows).forEach(t=>marks.push({time:t,position:'aboveBar',color:'#000000',shape:'arrowDown',text:'X'}));
+  computeTopSignals(rows).forEach(t=>marks.push({time:t,position:'aboveBar',color:'#8a8f98',shape:'square',text:'X',size:0}));
   // 매매일지 B(진입)/S(청산) — 노란 박스 오버레이로 강조(확 눈에 띄게).
   //   B = 캔들아래 노란박스 'B'(검정글자) / S = 캔들위 노란박스 'S'(검정글자, 10-09 파랑→검정) + 익손절금액·%
   //   네이티브 마커는 글자 배경박스를 못 줘서, 글자크기·형태는 그대로 둔 채 HTML 오버레이로 박스만 입힌다.

@@ -914,7 +914,7 @@ function buildTF(prefix,rows,visBars,bgMap,code){
   const sig=computeLowSignals(rows), marks=[];
   sig.jeo.forEach(t=>marks.push({time:t,position:'belowBar',color:'#e11d1d',shape:'square',text:'저'}));
   sig.jeo2.forEach(t=>marks.push({time:t,position:'belowBar',color:'#000000',shape:'arrowUp',text:'저2'}));
-  computeTopSignals(rows).forEach(t=>marks.push({time:t,position:'aboveBar',color:'#000000',shape:'arrowDown',text:'X'}));
+  computeTopSignals(rows).forEach(t=>marks.push({time:t,position:'aboveBar',color:'#8a8f98',shape:'square',text:'X',size:0}));
   marks.sort((a,b)=>a.time<b.time?-1:(a.time>b.time?1:0));
   if(marks.length)cs.setMarkers(marks);
   const rsiArr=rsiWilder(closes,14), rsiMa=smaArr(rsiArr,14);

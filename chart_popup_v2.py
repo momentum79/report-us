@@ -842,7 +842,7 @@ function buildIntraday(rows,code){
   const sig=computeLowSignals(rows), marks=[];
   sig.jeo.forEach(t=>marks.push({time:t,position:'belowBar',color:'#e11d1d',shape:'square',text:''}));
   sig.jeo2.forEach(t=>marks.push({time:t,position:'belowBar',color:'#000000',shape:'square',text:'저2',size:0}));
-  computeTopSignals(rows).forEach(t=>marks.push({time:t,position:'aboveBar',color:'#000000',shape:'square',text:'X',size:0}));
+  computeTopSignals(rows).forEach(t=>marks.push({time:t,position:'aboveBar',color:'#8a8f98',shape:'square',text:'X',size:0}));
   // 매매일지 B(진입)/S(청산) — 둘 다 검정화살표로 통일
   //  B(진입): 캔들 아래 검정 위화살표  /  S(청산): 캔들 위 검정 아래화살표
   const lbl2t=new Map(rows.map(b=>[b[6],b[0]]));

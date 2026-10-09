@@ -407,7 +407,7 @@ function buildIntraday(rows,code){
   const sig=computeLowSignals(rows), marks=[];
   sig.jeo.forEach(t=>marks.push({time:t,position:'belowBar',color:'#e11d1d',shape:'square',text:''}));
   sig.jeo2.forEach(t=>marks.push({time:t,position:'belowBar',color:'#000000',shape:'square',text:'저2',size:0}));
-  computeTopSignals(rows).forEach(t=>marks.push({time:t,position:'aboveBar',color:'#000000',shape:'square',text:'X',size:0}));
+  computeTopSignals(rows).forEach(t=>marks.push({time:t,position:'aboveBar',color:'#8a8f98',shape:'square',text:'X',size:0}));
   const lbl2t=new Map(rows.map(b=>[b[6],b[0]]));
   (TRADES[code]||[]).forEach(m=>{
     let t=lbl2t.get(m.t);
