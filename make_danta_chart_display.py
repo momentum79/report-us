@@ -452,7 +452,13 @@ function buildIntraday(card,code,rows){
       for(;ix>=0&&rows[ix][6].slice(0,10)===prevDay;ix--)prevDayBars++;}
     span=curDayBars+prevDayBars+N_GAP;  // 직전 거래일 전체(NXT면 오전8시 프리장 포함)까지
   }
-  const tot=cd.length, from=Math.max(0,tot-span), to=tot-1+RIGHT_PAD;
+  const tot=cd.length;
+  let from=Math.max(0,tot-span), to=tot-1+RIGHT_PAD;
+  // 자동일지 '날짜별' 카드에서만 window.FOCUS_DAY='YYYY-MM-DD' 주입 → 그날 봉만 보여준다
+  const FOCUS_DAY=(typeof window!=='undefined'&&window.FOCUS_DAY)||'';
+  if(FOCUS_DAY){const a=rows.findIndex(r=>r[6].slice(0,10)===FOCUS_DAY);
+    if(a>=0){let b=a;while(b+1<rows.length&&rows[b+1][6].slice(0,10)===FOCUS_DAY)b++;
+      from=Math.max(0,a-N_GAP);to=b+RIGHT_PAD;}}
   ch.timeScale().setVisibleLogicalRange({from,to});
   rch.timeScale().setVisibleLogicalRange({from,to});
   syncPair(ch,rch);

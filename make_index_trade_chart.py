@@ -7,6 +7,7 @@ from pathlib import Path
 
 import journal_summary          # 게시판 첫 화면용 매매일지 요약표 생성
 import make_trade_chart_boards   # 성과 tag별 종목 차트 생성
+import make_trade_daily_home     # 첫 화면 '날짜별' (일별손익 + 그날 매매차트 펼침, 2026-10-09)
 from make_trade_chart_boards import BOARDS, CHART_WIDTH
 
 # Paths
@@ -196,15 +197,28 @@ def main():
             f"<select id=\"{sid}\" onchange=\"updateChart(this.value, '{sid}')\">"
             f'<option value="">-- 종목 선택 --</option>{opts}</select></div>')
 
-    # 첫 화면: 매매일지 요약표(차트 대신). 상단 select 에서 종목 고르면 차트로 전환.
+    # 매매일지 요약표 (■ 매매일지 버튼). 2026-10-09 부터 첫 화면은 '날짜별'.
     summary_ok = False
     try:
         days, n_rows = journal_summary.build_summary_file(str(SUMMARY_HTML), charts_dir=str(TARGET_DIR))
         print(f"     매매일지 : {SUMMARY_HTML.name} ({days}거래일 / {n_rows}건)")
-        default_src = SUMMARY_HTML.name
         summary_ok = True
     except Exception as e:
-        print(f"     [WARN] 매매일지 요약 생성 실패 → 차트로 fallback: {e}")
+        print(f"     [WARN] 매매일지 요약 생성 실패: {e}")
+
+    # 첫 화면: 날짜별 (일별 손익 7일·월별 + 고른 날짜 매매차트 펼침)
+    daily_ok = False
+    try:
+        make_trade_daily_home.build(make_trade_chart_boards.DAY_CARDS, BOARDS)
+        daily_ok = True
+    except Exception as e:
+        print(f"     [WARN] 날짜별 첫 화면 생성 실패 → 매매일지로 fallback: {e}")
+    daily_src = Path(make_trade_daily_home.OUT_HTML).name
+    if daily_ok:
+        default_src = daily_src
+    elif summary_ok:
+        default_src = SUMMARY_HTML.name
+    else:
         default_src = active[0][1][0][2] if active else ""
 
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -213,8 +227,10 @@ def main():
     groups_html = "".join(groups)
 
     summary_btn = (
-        '<div class="acct-group"><span class="acct-label summary-btn" '
-        'onclick="showSummary()">■ 매매일지</span></div>' if summary_ok else ""
+        ('<div class="acct-group"><span class="acct-label daily-btn" '
+         'onclick="showDaily()">📅 날짜별</span></div>' if daily_ok else "")
+        + ('<div class="acct-group"><span class="acct-label summary-btn" '
+           'onclick="showSummary()">■ 매매일지</span></div>' if summary_ok else "")
     )
 
     html_content = f"""<!DOCTYPE html>
@@ -252,6 +268,13 @@ def main():
         @media screen and (max-width: 1400px) {{
             .header {{ max-width: 100%; }}
         }}
+        /* 휴대폰(≤767px): 메뉴가 30개 가까이라 줄바꿈하면 화면을 다 덮는다 → 가로 스크롤 한 줄 */
+        @media screen and (max-width: 767px) {{
+            .header {{ flex-wrap: nowrap; overflow-x: auto; gap: 0 8px; padding: 4px 8px;
+                       -webkit-overflow-scrolling: touch; scrollbar-width: thin; }}
+            .acct-group {{ flex: 0 0 auto; }}
+            .updated {{ display: none; }}
+        }}
         .acct-group {{
             display: flex;
             align-items: center;
@@ -268,6 +291,8 @@ def main():
         }}
         .acct-label.summary-btn {{ background: #1d1d1f; cursor: pointer; }}
         .acct-label.summary-btn:hover {{ background: #000; }}
+        .acct-label.daily-btn {{ background: #b45309; cursor: pointer; }}
+        .acct-label.daily-btn:hover {{ background: #92400e; }}
         .updated {{
             font-size: 11px;
             color: #8a8a8a;
@@ -307,7 +332,39 @@ def main():
     <script>
         var SELECT_IDS = {ids_json};        // 거래 있는 tag 게시판만
         var activeSelectId = null;          // 키보드 D/S 이동 대상(현재 게시판)
-        var SUMMARY_SRC = "{default_src}";  // 첫 화면(매매일지 요약)
+        var SUMMARY_SRC = "{SUMMARY_HTML.name}";  // 매매일지 요약
+        var DAILY_SRC = "{daily_src}";             // 첫 화면(날짜별)
+        // 날짜별 화면은 4열 그리드 반응형이라 차트폭 기준 축소(scale)를 하지 않는다
+        function isDaily() {{
+            var s = document.getElementById('chart-frame').getAttribute('src') || '';
+            return s.split('#')[0] === DAILY_SRC;
+        }}
+        function clearSelects() {{
+            activeSelectId = null;
+            SELECT_IDS.forEach(function(id) {{
+                var el = document.getElementById(id);
+                if (el) el.value = '';
+            }});
+        }}
+        var lastDailyHash = '';   // 날짜별에서 보던 날짜(#YYYY-MM-DD) — 큰 차트 보고 돌아올 때 복원
+        function rememberDaily() {{
+            try {{
+                if (isDaily()) lastDailyHash = document.getElementById('chart-frame').contentWindow.location.hash || '';
+            }} catch (e) {{}}
+        }}
+        function showDaily() {{
+            document.getElementById('chart-frame').src = DAILY_SRC + lastDailyHash;
+            clearSelects();
+            adjustScale();
+        }}
+        // 날짜별 카드의 종목명 줄 → 그 종목 큰 차트 + 해당 게시판 드롭다운 선택
+        function openBoardChart(url, key) {{
+            rememberDaily();
+            var id = 'select-' + key;
+            var el = document.getElementById(id);
+            if (el) el.value = url;
+            updateChart(url, el ? id : null);
+        }}
 
         // 차트 → 매매일지 요약으로 복귀. 모든 select 초기화.
         function showSummary() {{
@@ -322,6 +379,7 @@ def main():
 
         function updateChart(url, activeId) {{
             if (!url) return;
+            rememberDaily();
             document.getElementById('chart-frame').src = url;
             activeSelectId = activeId;
             SELECT_IDS.forEach(function(id) {{
@@ -337,7 +395,7 @@ def main():
             const iframe = document.getElementById('chart-frame');
             const winW = window.innerWidth;
             const contentW = {CONTENT_WIDTH};
-            if (winW < contentW) {{
+            if (winW < contentW && !isDaily()) {{
                 const scale = winW / contentW;
                 iframe.style.width = contentW + 'px';
                 iframe.style.height = (100 / scale) + '%';
@@ -395,6 +453,7 @@ def main():
             if (dir === 0) return;
             // 매매일지 요약이 떠 있으면(종목 미선택) D/S 를 표 내부 행 이동으로 위임
             var fr = document.getElementById('chart-frame');
+            if (!activeSelectId && isDaily()) return;   // 날짜별 화면에선 D/S 이동 없음(스크롤 그대로)
             if (!activeSelectId && fr.getAttribute('src') === SUMMARY_SRC) {{
                 try {{
                     if (fr.contentWindow && typeof fr.contentWindow.journalNav === 'function') {{
@@ -421,9 +480,14 @@ def main():
 """
     OUTPUT_HTML.write_text(html_content, encoding="utf-8")
     print(f"[OK] {OUTPUT_HTML} updated  (최근 {RECENT_DAYS}일: {cutoff}~ 거래분만)")
+    hidden = 0
     for b in BOARDS:
         n = len(boards.get(b["key"], []))
-        print(f"     {b['label']:12s} {n:3d}개" + ("" if n else "   (거래 없음 → 메뉴 숨김)"))
+        if n:
+            print(f"     {b['label']:12s} {n:3d}개")
+        else:
+            hidden += 1
+    print(f"     (최근 {RECENT_DAYS}일 거래 없는 메뉴 {hidden}개는 숨김)")
 
 
 if __name__ == "__main__":
