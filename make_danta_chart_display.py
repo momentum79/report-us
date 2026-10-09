@@ -420,7 +420,7 @@ function buildIntraday(card,code,rows){
   sig.jeo2.forEach(t=>marks.push({time:t,position:'belowBar',color:'#000000',shape:'arrowUp',text:'저2'}));
   computeTopSignals(rows).forEach(t=>marks.push({time:t,position:'aboveBar',color:'#000000',shape:'arrowDown',text:'X'}));
   // 매매일지 B(진입)/S(청산) — 노란 박스 오버레이로 강조(확 눈에 띄게).
-  //   B = 캔들아래 노란박스 'B'(검정글자) / S = 캔들위 노란박스 'S'(파랑글자) + 익손절금액·%
+  //   B = 캔들아래 노란박스 'B'(검정글자) / S = 캔들위 노란박스 'S'(검정글자, 10-09 파랑→검정) + 익손절금액·%
   //   네이티브 마커는 글자 배경박스를 못 줘서, 글자크기·형태는 그대로 둔 채 HTML 오버레이로 박스만 입힌다.
   const lbl2t=new Map(rows.map(b=>[b[6],b[0]]));
   const hiByT=new Map(rows.map(b=>[b[0],b[2]]));
@@ -496,7 +496,7 @@ function buildIntraday(card,code,rows){
       const amtline=s.amt?('<div style="color:'+pc+'">'+(s.amt>0?'+':'')+Math.round(s.amt).toLocaleString()+'</div>'):'';
       html+='<div class="s" style="left:'+x+'px;top:'+(y-18)+'px">'+amtline+
             '<div style="color:'+pc+'">'+s.pct+'</div>'+
-            '<div><span class="sbox'+((s.acct&&s.acct.endsWith('DIP'))?' dip':'')+'" style="color:#1448cc">'+(s.origin==='manual'?'SS':'S')+'</span></div></div>';
+            '<div><span class="sbox'+((s.acct&&s.acct.endsWith('DIP'))?' dip':'')+'" style="color:#111">'+(s.origin==='manual'?'SS':'S')+'</span></div></div>';
     });
     anno.innerHTML=html;
   }

@@ -198,7 +198,7 @@ def _pnl_rows_html(days, hist, by_day, fx, card_days, letters=None):
         m = by_day.get(d) or {k: v for k, v in (hist.get(d) or {}).items() if k != "fx"}
         tot = _krw_total(m, fx)
         lt = (letters or {}).get(d) or {}
-        cells = "".join(f'<td class="{_cls(m.get(mk))}">'
+        cells = "".join(f'<td class="mk {_cls(m.get(mk))}">'
                         + (f'<i class="rg {lt[mk]}">{lt[mk]}</i>' if lt.get(mk) else "")
                         + f'{_money(m.get(mk), ccy)}</td>'
                         for mk, _l, ccy in MARKETS)
@@ -206,7 +206,7 @@ def _pnl_rows_html(days, hist, by_day, fx, card_days, letters=None):
         out.append(f'<tr data-day="{d}" class="{"go" if has else "nogo"}">'
                    f'<td class="d">{_day_label(d)}</td>'
                    f'<td class="t {_cls(tot)}">{_money(tot, "KRW")}</td>{cells}'
-                   f'<td class="n">{len(card_days.get(d, [])) or ""}</td></tr>')
+                   f'<td class="mk n">{len(card_days.get(d, [])) or ""}</td></tr>')
     return "".join(out)
 
 
@@ -226,7 +226,7 @@ def _month_rows_html(hist):
     out = []
     for mon in sorted(months, reverse=True)[:12]:
         a = months[mon]
-        cells = "".join(f'<td class="{_cls(a.get(mk))}">{_money(a.get(mk), ccy)}</td>'
+        cells = "".join(f'<td class="mk {_cls(a.get(mk))}">{_money(a.get(mk), ccy)}</td>'
                         for mk, _l, ccy in MARKETS)
         out.append(f'<tr><td class="d">{int(mon[5:7])}월 <span class="y">{mon[:4]}</span></td>'
                    f'<td class="t {_cls(a["tot"])}">{_money(a["tot"], "KRW")}</td>{cells}</tr>')
@@ -271,6 +271,7 @@ td.d{text-align:left;font-family:'Segoe UI','Malgun Gothic',sans-serif;font-weig
 td.d .y{font-weight:400;color:var(--mute);font-size:10px}
 td.t{font-weight:700}
 td.n{color:var(--mute);font-size:11px}
+th.mk,td.mk{text-align:left;padding-left:14px}   /* 시장 열 = 왼쪽 정렬(세로로 맞춰 보기, 10-09 사용자) */
 .p{color:var(--p)}.m{color:var(--m)}.z{color:#b0b4ba}
 tr.go{cursor:pointer}
 tr.go:hover td{background:#f3f4f6}
@@ -285,12 +286,16 @@ tr.nogo td.d{color:#b0b4ba}
 .dayhead h1{font-size:17px}
 .dayhead select{font-size:12px;padding:2px 6px;border:1px solid #ccc;border-radius:4px;background:#fff}
 .dayhead .hint{font-size:11px;color:var(--mute)}
-.sec{font-size:12.5px;font-weight:700;margin:16px 0 6px 2px;padding-left:7px;border-left:4px solid #888;display:flex;gap:8px;align-items:baseline}
-.sec .st{font-weight:400;color:var(--mute);font-family:'JetBrains Mono',monospace;font-size:11.5px}
-.sec .st b{font-weight:700}
+/* 카드는 메뉴와 상관없이 한 줄 4개로 채운다(10-09 사용자: 메뉴당 1~2개면 오른쪽이 비어 스크롤이 길어짐).
+   메뉴가 바뀌는 카드 위에 메뉴 제목(gh), 줄 중간에서 바뀌면 그 앞 칸 사이에 검정 점선. */
+.cw{position:relative;min-width:0;display:flex;flex-direction:column}
+.gh{height:24px;font-size:12.5px;font-weight:700;padding-left:7px;border-left:4px solid transparent;display:flex;gap:6px;align-items:center;white-space:nowrap;overflow:hidden;margin-bottom:4px}
+.gh.cont{font-weight:400;color:var(--mute);font-size:11.5px}
+.gh .st{font-weight:400;color:var(--mute);font-family:'JetBrains Mono',monospace;font-size:11.5px}
+.gh .st b{font-weight:700}
+.cw.sep::before{content:'';position:absolute;left:-9px;top:0;bottom:0;border-left:2px dashed #111}
 .bigsec{font-size:14px;font-weight:700;margin:26px 0 2px;padding-top:10px;border-top:2px dashed #c4b5fd;color:#5b21b6}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.grid>.cc:nth-child(4n+2){margin-left:22px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 18px;margin-top:10px}
 .cc{background:var(--card);border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden;min-width:0}
 .ct{padding:6px 10px;font-size:12.5px;border-bottom:1px solid #eee;display:flex;gap:6px;align-items:baseline;white-space:nowrap;cursor:pointer}
 .ct:hover{background:#f9fafb}.ct:hover .nm{text-decoration:underline}
@@ -301,12 +306,12 @@ tr.nogo td.d{color:#b0b4ba}
 .cc iframe{display:block;width:100%;height:300px;border:0}
 .cc .nd{height:300px;display:flex;align-items:center;justify-content:center;color:#991b1b;font-size:12px}
 .empty{color:var(--mute);font-size:13px;padding:30px 0}
-@media (max-width:1100px) and (min-width:768px){.grid{grid-template-columns:repeat(2,1fr)}.grid>.cc:nth-child(4n+2){margin-left:0}}
+@media (max-width:1100px) and (min-width:768px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:767px){
   body{padding:8px 10px 30px}
   .top{gap:10px}.box{width:100%;overflow-x:auto}
   table{font-size:11px}td,th{padding:3px 5px}
-  .grid{grid-template-columns:1fr;gap:10px}.grid>.cc:nth-child(4n+2){margin-left:0}
+  .grid{grid-template-columns:1fr;gap:10px}
   .cc iframe,.cc .nd{height:260px}
 }
 </style>
@@ -315,13 +320,13 @@ tr.nogo td.d{color:#b0b4ba}
 <div class="top">
   <div class="box">
     <h2>일별 손익 <small>최근 __NDAYS__일 · 수익금 칸 합계 · __FX__ · 주식은 주문접수 기준 · 날짜 누르면 아래 차트 · 글자 = 지수 coloryp(L/G/M중립/P/R · 한국 KODEX200 · 미국 QQQ · 코인 BTC)</small></h2>
-    <table><thead><tr><th>날짜</th><th>합계</th><th>한국</th><th>미국</th><th>업비트</th><th>바낸</th><th>차트</th></tr></thead>
+    <table><thead><tr><th>날짜</th><th>합계</th><th class="mk">한국</th><th class="mk">미국</th><th class="mk">업비트</th><th class="mk">바낸</th><th class="mk">차트</th></tr></thead>
     <tbody>__DAYROWS__</tbody></table>
     __HOLD__
   </div>
   <div class="box">
     <h2>월별 집계 <small>날짜별 기록 누적 · 원화 합계는 그날 환율</small></h2>
-    <table><thead><tr><th>월</th><th>합계</th><th>한국</th><th>미국</th><th>업비트</th><th>바낸</th></tr></thead>
+    <table><thead><tr><th>월</th><th>합계</th><th class="mk">한국</th><th class="mk">미국</th><th class="mk">업비트</th><th class="mk">바낸</th></tr></thead>
     <tbody>__MONTHROWS__</tbody></table>
     <div class="note">__MONTHNOTE__</div>
   </div>
@@ -355,24 +360,44 @@ function card(c,day){
     '<span class="nm">'+esc(c.name)+'</span>'+(c.code!==c.name?'<span class="cd">'+esc(c.code)+'</span>':'')+
     '<span class="bs">'+bs+'</span>'+pl+'</div>'+body+'</div>';
 }
+function groupHead(b,list){
+  var w=0,l=0;list.forEach(function(c){if(c.nS){if(c.pnl>0)w++;else if(c.pnl<0)l++;}});
+  return '📌 '+esc(b.label)+' <span class="st">'+list.length+(w||l?' · <b class="p">익'+w+'</b>/<b class="m">손'+l+'</b>':'')+'</span>';
+}
+function gridHtml(cards,day){
+  var byKey={};cards.forEach(function(c){(byKey[c.key]=byKey[c.key]||[]).push(c);});
+  return '<div class="grid">'+cards.map(function(c,i){
+    var start=(i===0||cards[i-1].key!==c.key),b=BOARDS[c.key]||{label:c.key,color:'#888'};
+    return '<div class="cw" data-start="'+(start?1:0)+'" data-key="'+c.key+'">'+
+      '<div class="gh"'+(start?' style="border-left-color:'+b.color+'">'+groupHead(b,byKey[c.key]):'>')+'</div>'+
+      card(c,day)+'</div>';}).join('')+'</div>';
+}
+// 열 수(4/2/1)에 맞춰: 줄 중간에서 메뉴가 바뀌면 점선, 줄 첫 칸이 이어지는 메뉴면 '↳ 메뉴' 표시
+function layoutGrids(){
+  document.querySelectorAll('#cards .grid').forEach(function(g){
+    var cols=getComputedStyle(g).gridTemplateColumns.split(' ').filter(Boolean).length||1;
+    [].forEach.call(g.children,function(cw,i){
+      var start=cw.getAttribute('data-start')==='1',col=i%cols,gh=cw.firstChild,b=BOARDS[cw.getAttribute('data-key')]||{};
+      cw.classList.toggle('sep',start&&col>0);
+      if(!start){
+        gh.className='gh'+(col===0?' cont':'');
+        gh.style.borderLeftColor=col===0?(b.color||'#888'):'transparent';
+        gh.innerHTML=col===0?'↳ '+esc(b.label||'')+' 계속':'';
+      }
+    });
+  });
+}
+var lt_;window.addEventListener('resize',function(){clearTimeout(lt_);lt_=setTimeout(layoutGrids,120);});
 function render(day){
-  var cs=DATA[day]||[],box=document.getElementById('cards'),html='',cur=null,grp=[],min5=false;
+  var cs=DATA[day]||[],box=document.getElementById('cards');
   document.getElementById('dtitle').textContent=day?('📅 '+dl(day)+' 매매차트 '+cs.length+'개'):'📅 매매차트';
   document.querySelectorAll('tr[data-day]').forEach(function(r){r.classList.toggle('sel',r.getAttribute('data-day')===day);});
   var sel=document.getElementById('dsel');if(sel.value!==day)sel.value=day;
-  function flush(){
-    if(!grp.length)return;var b=BOARDS[cur]||{label:cur,color:'#888'},w=0,l=0;
-    grp.forEach(function(c){if(c.nS){if(c.pnl>0)w++;else if(c.pnl<0)l++;}});
-    html+='<div class="sec" style="border-left-color:'+b.color+'">📌 '+esc(b.label)+
-      ' <span class="st">'+grp.length+(w||l?' · <b class="p">익'+w+'</b>/<b class="m">손'+l+'</b>':'')+'</span></div>'+
-      '<div class="grid">'+grp.map(function(c){return card(c,day);}).join('')+'</div>';
-    grp=[];}
-  cs.forEach(function(c){
-    if(c.kind==='5min'&&!min5){flush();min5=true;html+='<div class="bigsec">5분봉 메뉴</div>';}
-    if(c.key!==cur){flush();cur=c.key;}
-    grp.push(c);});
-  flush();
+  var daily=cs.filter(function(c){return c.kind!=='5min';}),min5=cs.filter(function(c){return c.kind==='5min';});
+  var html=(daily.length?gridHtml(daily,day):'')+
+           (min5.length?'<div class="bigsec">5분봉 메뉴</div>'+gridHtml(min5,day):'');
   box.innerHTML=html||'<div class="empty">이 날짜엔 차트로 볼 매매가 없습니다.</div>';
+  layoutGrids();
   try{history.replaceState(null,'','#'+day);}catch(e){}
 }
 (function(){
