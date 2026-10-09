@@ -180,12 +180,27 @@ def _day_label(d):
     return f"{dt.month}/{dt.day}({WEEKDAY_KO[dt.weekday()]})"
 
 
-def _pnl_rows_html(days, hist, by_day, fx, card_days):
+def _regime_letters(days):
+    """시장별 지수 coloryp 한 글자 {day: {시장: L/G/M/P/R}} — MASTER 창과 같은 index_regime."""
+    try:
+        if ROOT_DIR not in sys.path:
+            sys.path.insert(0, ROOT_DIR)
+        import index_regime
+        return index_regime.letters_by_day(days)
+    except Exception as e:                       # noqa: BLE001 - 글자만 빠진다
+        print(f"     [WARN] 지수색 실패: {e}")
+        return {}
+
+
+def _pnl_rows_html(days, hist, by_day, fx, card_days, letters=None):
     out = []
     for d in days:
         m = by_day.get(d) or {k: v for k, v in (hist.get(d) or {}).items() if k != "fx"}
         tot = _krw_total(m, fx)
-        cells = "".join(f'<td class="{_cls(m.get(mk))}">{_money(m.get(mk), ccy)}</td>'
+        lt = (letters or {}).get(d) or {}
+        cells = "".join(f'<td class="{_cls(m.get(mk))}">'
+                        + (f'<i class="rg {lt[mk]}">{lt[mk]}</i>' if lt.get(mk) else "")
+                        + f'{_money(m.get(mk), ccy)}</td>'
                         for mk, _l, ccy in MARKETS)
         has = d in card_days
         out.append(f'<tr data-day="{d}" class="{"go" if has else "nogo"}">'
@@ -261,6 +276,8 @@ tr.go{cursor:pointer}
 tr.go:hover td{background:#f3f4f6}
 tr.sel td{background:var(--sel)!important}
 tr.nogo td.d{color:#b0b4ba}
+.rg{font-style:normal;font-size:9.5px;font-weight:700;display:inline-block;width:13px;line-height:13px;text-align:center;border-radius:3px;margin-right:5px;color:#fff;vertical-align:1px}
+.rg.L{background:#22c55e}.rg.G{background:#15803d}.rg.M{background:#9ca3af}.rg.P{background:#a855f7}.rg.R{background:#ef4444}
 .hold{font-size:12px;margin-top:4px;font-family:'JetBrains Mono',monospace}
 .hold .hi{margin-right:6px}.hold i{font-style:normal}
 .note{font-size:10.5px;color:var(--mute);margin-top:5px}
@@ -297,7 +314,7 @@ tr.nogo td.d{color:#b0b4ba}
 <body>
 <div class="top">
   <div class="box">
-    <h2>일별 손익 <small>최근 __NDAYS__일 · 수익금 칸 합계 · __FX__ · 주식은 주문접수 기준 · 날짜 누르면 아래 차트</small></h2>
+    <h2>일별 손익 <small>최근 __NDAYS__일 · 수익금 칸 합계 · __FX__ · 주식은 주문접수 기준 · 날짜 누르면 아래 차트 · 글자 = 지수 coloryp(L/G/M중립/P/R · 한국 KODEX200 · 미국 QQQ · 코인 BTC)</small></h2>
     <table><thead><tr><th>날짜</th><th>합계</th><th>한국</th><th>미국</th><th>업비트</th><th>바낸</th><th>차트</th></tr></thead>
     <tbody>__DAYROWS__</tbody></table>
     __HOLD__
@@ -391,7 +408,7 @@ def build(day_cards, boards):
     html = (PAGE
             .replace("__NDAYS__", str(PNL_DAYS))
             .replace("__FX__", f"$1={fx:,.0f}원" if fx else "환율 없음")
-            .replace("__DAYROWS__", _pnl_rows_html(days, hist, by_day, fx, day_cards))
+            .replace("__DAYROWS__", _pnl_rows_html(days, hist, by_day, fx, day_cards, _regime_letters(days)))
             .replace("__MONTHROWS__", _month_rows_html(hist))
             .replace("__MONTHNOTE__", month_note)
             .replace("__HOLD__", _hold_html(holds, hat))
