@@ -88,7 +88,7 @@
 </head>
 <body>
 <div class="top-nav-container"><div class="top-nav"><a href="main_hub.html" class="nav-item">상황판</a><a href="order.html" class="nav-item">주문</a><a href="summary.html" class="nav-item">요약</a><a href="danta_chart.html" class="nav-item active">단타</a><a href="kr_chart.html" class="nav-item">차트</a><a href="us_summary.html" class="nav-item">미국요약</a></div></div>
-<h1>⚡ 단타 게시판 (5분봉 · 고정 6종목 · 저/저2/X + B/S) — 갱신 2026-10-09 06:17</h1>
+<h1>⚡ 단타 게시판 (5분봉 · 고정 6종목 · 저/저2/X + B/S) — 갱신 2026-10-10 11:41</h1>
 <div id="status">렌더링 준비 중...</div>
 <div class="board-wrap"><div class="chart-grid"><div class="chart-card"><div class="chart-title">삼전 x2 (레버리지)<span class="sub">0193W0</span></div><div class="cwrap" id="card-0"><div class="chartbox"><div class="legend"></div><div class="cchart"></div></div><div class="rlab">RSI(14) · 파랑=RSI 빨강=14이평 · 저/저2=저점신호 X=고점신호 B/S=매매</div><div class="rchart"></div></div></div><div class="chart-card"><div class="chart-title">하닉 x2 (레버리지)<span class="sub">0193T0</span></div><div class="cwrap" id="card-1"><div class="chartbox"><div class="legend"></div><div class="cchart"></div></div><div class="rlab">RSI(14) · 파랑=RSI 빨강=14이평 · 저/저2=저점신호 X=고점신호 B/S=매매</div><div class="rchart"></div></div></div><div class="chart-card"><div class="chart-title">삼전 x-2 (인버스레버리지)<span class="sub">0193L0</span></div><div class="cwrap" id="card-2"><div class="chartbox"><div class="legend"></div><div class="cchart"></div></div><div class="rlab">RSI(14) · 파랑=RSI 빨강=14이평 · 저/저2=저점신호 X=고점신호 B/S=매매</div><div class="rchart"></div></div></div><div class="chart-card"><div class="chart-title">하닉 x-2 (인버스레버리지)<span class="sub">0197X0</span></div><div class="cwrap" id="card-3"><div class="chartbox"><div class="legend"></div><div class="cchart"></div></div><div class="rlab">RSI(14) · 파랑=RSI 빨강=14이평 · 저/저2=저점신호 X=고점신호 B/S=매매</div><div class="rchart"></div></div></div><div class="chart-card"><div class="chart-title">KODEX 레버리지<span class="sub">122630</span></div><div class="cwrap" id="card-4"><div class="chartbox"><div class="legend"></div><div class="cchart"></div></div><div class="rlab">RSI(14) · 파랑=RSI 빨강=14이평 · 저/저2=저점신호 X=고점신호 B/S=매매</div><div class="rchart"></div></div></div><div class="chart-card"><div class="chart-title">KODEX 인버스 x2<span class="sub">252670</span></div><div class="cwrap" id="card-5"><div class="chartbox"><div class="legend"></div><div class="cchart"></div></div><div class="rlab">RSI(14) · 파랑=RSI 빨강=14이평 · 저/저2=저점신호 X=고점신호 B/S=매매</div><div class="rchart"></div></div></div></div><div class="pnl-side"><table class="pnl-table"><caption>당일 실현손익</caption><tbody><tr><td class="nm">삼전x 2</td><td class="pl" style="color:#111111">0원</td></tr><tr><td class="nm">삼전x -2</td><td class="pl" style="color:#111111">0원</td></tr><tr><td class="nm">하닉x 2</td><td class="pl" style="color:#111111">0원</td></tr><tr><td class="nm">하닉x -2</td><td class="pl" style="color:#111111">0원</td></tr><tr><td class="nm">코스피 x2</td><td class="pl" style="color:#111111">0원</td></tr><tr><td class="nm">코스피 x-2</td><td class="pl" style="color:#111111">0원</td></tr><tr class="total"><td class="nm">손익</td><td class="pl" style="color:#111111">0원</td></tr></tbody></table></div></div>
 
@@ -354,9 +354,9 @@ function buildIntraday(card,code,rows){
   const sig=computeLowSignals(rows), marks=[];
   sig.jeo.forEach(t=>marks.push({time:t,position:'belowBar',color:'#e11d1d',shape:'square',text:'저'}));
   sig.jeo2.forEach(t=>marks.push({time:t,position:'belowBar',color:'#000000',shape:'arrowUp',text:'저2'}));
-  computeTopSignals(rows).forEach(t=>marks.push({time:t,position:'aboveBar',color:'#000000',shape:'arrowDown',text:'X'}));
+  computeTopSignals(rows).forEach(t=>marks.push({time:t,position:'aboveBar',color:'#8a8f98',shape:'square',text:'X',size:0}));
   // 매매일지 B(진입)/S(청산) — 노란 박스 오버레이로 강조(확 눈에 띄게).
-  //   B = 캔들아래 노란박스 'B'(검정글자) / S = 캔들위 노란박스 'S'(파랑글자) + 익손절금액·%
+  //   B = 캔들아래 노란박스 'B'(검정글자) / S = 캔들위 노란박스 'S'(검정글자, 10-09 파랑→검정) + 익손절금액·%
   //   네이티브 마커는 글자 배경박스를 못 줘서, 글자크기·형태는 그대로 둔 채 HTML 오버레이로 박스만 입힌다.
   const lbl2t=new Map(rows.map(b=>[b[6],b[0]]));
   const hiByT=new Map(rows.map(b=>[b[0],b[2]]));
@@ -388,7 +388,13 @@ function buildIntraday(card,code,rows){
       for(;ix>=0&&rows[ix][6].slice(0,10)===prevDay;ix--)prevDayBars++;}
     span=curDayBars+prevDayBars+N_GAP;  // 직전 거래일 전체(NXT면 오전8시 프리장 포함)까지
   }
-  const tot=cd.length, from=Math.max(0,tot-span), to=tot-1+RIGHT_PAD;
+  const tot=cd.length;
+  let from=Math.max(0,tot-span), to=tot-1+RIGHT_PAD;
+  // 자동일지 '날짜별' 카드에서만 window.FOCUS_DAY='YYYY-MM-DD' 주입 → 그날 봉만 보여준다
+  const FOCUS_DAY=(typeof window!=='undefined'&&window.FOCUS_DAY)||'';
+  if(FOCUS_DAY){const a=rows.findIndex(r=>r[6].slice(0,10)===FOCUS_DAY);
+    if(a>=0){let b=a;while(b+1<rows.length&&rows[b+1][6].slice(0,10)===FOCUS_DAY)b++;
+      from=Math.max(0,a-N_GAP);to=b+RIGHT_PAD;}}
   ch.timeScale().setVisibleLogicalRange({from,to});
   rch.timeScale().setVisibleLogicalRange({from,to});
   syncPair(ch,rch);
@@ -426,7 +432,7 @@ function buildIntraday(card,code,rows){
       const amtline=s.amt?('<div style="color:'+pc+'">'+(s.amt>0?'+':'')+Math.round(s.amt).toLocaleString()+'</div>'):'';
       html+='<div class="s" style="left:'+x+'px;top:'+(y-18)+'px">'+amtline+
             '<div style="color:'+pc+'">'+s.pct+'</div>'+
-            '<div><span class="sbox'+((s.acct&&s.acct.endsWith('DIP'))?' dip':'')+'" style="color:#1448cc">'+(s.origin==='manual'?'SS':'S')+'</span></div></div>';
+            '<div><span class="sbox'+((s.acct&&s.acct.endsWith('DIP'))?' dip':'')+'" style="color:#111">'+(s.origin==='manual'?'SS':'S')+'</span></div></div>';
     });
     anno.innerHTML=html;
   }

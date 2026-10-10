@@ -2,12 +2,12 @@ C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pykrx\__
   import pkg_resources
 ✅ 한국 ETF 캐시 업데이트 완료: 35개 종목
 
-이전 보유 종목: ['449190', '455850', '091160']
+이전 보유 종목: ['449190', '455850', '449180', '091160']
 현재 Top3: ['449190', '455850', '449180']
   유지: 449190 (sco=15.5)
   유지: 455850 (sco=13.2)
+  유지: 449180 (sco=13.5)
   유지: 091160 (sco=11.8)
-  추가: 449180
 
 최종 보유 종목 (4개): ['449190', '455850', '449180', '091160']
 [코스피 단계적 비중] PURPLE → up_days=0 리셋, multiplier=0.1
@@ -39,7 +39,7 @@ C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pykrx\__
 ✅ 저점 신호 데이터가 'D:\py\report-us\kr_etf_low_signals.json'에 저장되었습니다.
 ✅ kr_etf_gann_fire_set.json 저장 완료 (🔥 2개)
 ✅ kr_etf_stab.json 저장 완료 (35개)
-✅ 시장온도 히스토리 저장 완료 → 'D:\py\report-us\top3_etf_track.json'  (총 433일)
+✅ 시장온도 히스토리 저장 완료 → 'D:\py\report-us\top3_etf_track.json'  (총 434일)
 
 [벤치마크 추세]  코스피: PURPLE  /  코스닥: GREEN
                  에센피: LIME  /  나스닥: LIME
@@ -90,4 +90,4 @@ X_455850**  X_반소부(2212)           2.9%     1   13.2   67(65)    정배   �
 
 [ATR 트레일링(-10%)로 제외 - 최근 2주] 없음
 
-[실행 소요 시간]: 10.04초
+[실행 소요 시간]: 11.02초
