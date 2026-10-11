@@ -1,11 +1,11 @@
-$SATS: possibly delisted; no price data found  (1d 2024-07-12 -> 2026-10-10) (Yahoo error = "No data found, symbol may be delisted")
+$SATS: possibly delisted; no price data found  (1d 2024-07-14 -> 2026-10-12) (Yahoo error = "No data found, symbol may be delisted")
 
 1 Failed download:
-['SATS']: possibly delisted; no price data found  (1d 2024-07-12 -> 2026-10-10) (Yahoo error = "No data found, symbol may be delisted")
-$VSCO: possibly delisted; no price data found  (1d 2024-07-12 -> 2026-10-10) (Yahoo error = "No data found, symbol may be delisted")
+['SATS']: possibly delisted; no price data found  (1d 2024-07-14 -> 2026-10-12) (Yahoo error = "No data found, symbol may be delisted")
+$VSCO: possibly delisted; no price data found  (1d 2024-07-14 -> 2026-10-12) (Yahoo error = "No data found, symbol may be delisted")
 
 1 Failed download:
-['VSCO']: possibly delisted; no price data found  (1d 2024-07-12 -> 2026-10-10) (Yahoo error = "No data found, symbol may be delisted")
+['VSCO']: possibly delisted; no price data found  (1d 2024-07-14 -> 2026-10-12) (Yahoo error = "No data found, symbol may be delisted")
 CSV에서 784개 티커 로드 완료: D:\py\korea\us.csv
 총 784개 티커 분석 시작...
 
@@ -91,7 +91,7 @@ JOYY       81.05    0.25        16.0   19.21      6.96      45.35        93.54  
 ESGU      170.52    0.67        14.0    3.71      2.25      50.57        92.33      -
 ARKW**    167.14    1.86        13.0   15.84      7.49      46.40        90.12      -
 
-이전 Top4: ['ABBV', 'JOYY', 'ATKR', 'WBD', 'SLAB', 'NVDA', 'VUG', 'EWJ', 'ENTG']
+이전 Top4: ['ABBV', 'JOYY', 'ESGU', 'ARKW', 'ATKR', 'WBD', 'VUG', 'NVDA', 'ENTG']
 
 === 유지된 이전 Top4 (오늘 Top4 탈락했지만 sco>=11) ===
 Ticker  Signal_sco  수익률(%)  Final_score
@@ -145,4 +145,4 @@ Ticker  ATR5  ATR60  ATR비율
 
 합계 검증: 762 == 762?
 
-[실행 시간] 74.44초
+[실행 시간] 78.96초
