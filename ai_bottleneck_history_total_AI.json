@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12 06:13:14",
+  "updated_at": "2026-10-14 06:13:52",
   "window_note": "Compare today with 5 stored snapshots ago when available. Retains up to 5 years.",
   "snapshots": [
     {
@@ -4794,6 +4794,50 @@
         "SOFTWARE_ADOPTION": {
           "name_kr": "SW/데이터플랫폼",
           "score": 12.52,
+          "state": "HOT"
+        }
+      }
+    },
+    {
+      "date": "2026-10-14",
+      "update_time": "2026-10-14 06:03:39",
+      "headline": "네트워크/광통신 병목 우세",
+      "location": "NETWORK_OPTICS",
+      "confidence": "HIGH",
+      "layers": {
+        "DEMAND_CAPEX": {
+          "name_kr": "수요/CAPEX",
+          "score": 7.5,
+          "state": "SOFT"
+        },
+        "SILICON_COMPUTE": {
+          "name_kr": "칩/ASIC",
+          "score": 4.73,
+          "state": "SOFT"
+        },
+        "MEMORY_PACKAGING": {
+          "name_kr": "HBM/패키징/MLCC",
+          "score": 2.05,
+          "state": "SOFT"
+        },
+        "NETWORK_OPTICS": {
+          "name_kr": "네트워크/광통신",
+          "score": 8.45,
+          "state": "WATCH"
+        },
+        "POWER_COOLING": {
+          "name_kr": "전력/냉각",
+          "score": 4.52,
+          "state": "SOFT"
+        },
+        "DATACENTER_DEPLOY": {
+          "name_kr": "데이터센터/서버",
+          "score": 7.21,
+          "state": "SOFT"
+        },
+        "SOFTWARE_ADOPTION": {
+          "name_kr": "SW/데이터플랫폼",
+          "score": 12.94,
           "state": "HOT"
         }
       }
