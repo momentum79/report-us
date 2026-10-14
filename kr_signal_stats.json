@@ -10,14 +10,14 @@
     "top3_avg_sco": 15.0,
     "top3_avg_pos": 1.0,
     "kospi_trend": "PURPLE",
-    "kosdaq_trend": "-",
+    "kosdaq_trend": "RED",
     "sp500_trend": "LIME",
-    "nasdaq_trend": "GREEN",
+    "nasdaq_trend": "-",
     "euro_trend": "-",
     "india_trend": "RED",
     "nikkei_trend": "-",
     "kospi_mult": 0.1,
-    "nasdaq_mult": 0.5,
+    "nasdaq_mult": 0.2,
     "invest_pct": 65.0,
     "invest_amount_total": 65000000,
     "per_ticker_alloc": [
@@ -56,7 +56,7 @@
             "industry": "에센피",
             "is_kospi": false,
             "internal_weight": 100.0,
-            "market_mult": 0.5,
+            "market_mult": 0.2,
             "floor_mult": 0.6,
             "effective_mult": 0.6,
             "effective_pct": 60.0
@@ -68,7 +68,7 @@
         "us_state": "GREEN",
         "us_bucket_pct": 0.65,
         "last_date": "2026-10-14",
-        "updated_today": true
+        "updated_today": false
     },
     "sc3_ok": true,
     "trade_date": "2026-10-14",
@@ -84,5 +84,5 @@
     "allocation_map_used": [
         100
     ],
-    "update_time": "2026-10-14 12:41:10"
+    "update_time": "2026-10-14 15:35:51"
 }
