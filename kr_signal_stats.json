@@ -1,75 +1,53 @@
 {
-    "avg_sco": -4.8,
+    "avg_sco": -6.2,
     "total_cnt": 35,
     "valid_cnt": 35,
     "atr_excl_cnt": 0,
     "sco_pos": 8,
     "sco_neg": 27,
-    "sco_strong": 2,
-    "strong_count": 2,
-    "top3_avg_sco": 13.0,
-    "top3_avg_pos": 2.5,
+    "sco_strong": 1,
+    "strong_count": 1,
+    "top3_avg_sco": 15.0,
+    "top3_avg_pos": 1.0,
     "kospi_trend": "PURPLE",
     "kosdaq_trend": "-",
     "sp500_trend": "LIME",
     "nasdaq_trend": "GREEN",
     "euro_trend": "-",
     "india_trend": "RED",
-    "nikkei_trend": "GREEN",
+    "nikkei_trend": "-",
     "kospi_mult": 0.1,
     "nasdaq_mult": 0.5,
-    "invest_pct": 60.0,
-    "invest_amount_total": 60000000,
+    "invest_pct": 65.0,
+    "invest_amount_total": 65000000,
     "per_ticker_alloc": [
         {
             "ticker": "449180",
             "industry": "에센피",
             "is_kospi": false,
             "bucket": "NASDAQ",
-            "internal_weight": 55.0,
-            "market_mult": 0.6,
+            "internal_weight": 100.0,
+            "market_mult": 0.65,
             "floor_mult": null,
-            "effective_mult": 0.6,
-            "effective_pct": 33.0
-        },
-        {
-            "ticker": "449190",
-            "industry": "나스닥",
-            "is_kospi": false,
-            "bucket": "NASDAQ",
-            "internal_weight": 45.0,
-            "market_mult": 0.6,
-            "floor_mult": null,
-            "effective_mult": 0.6,
-            "effective_pct": 27.0
+            "effective_mult": 0.65,
+            "effective_pct": 65.0
         }
     ],
-    "invest_pct_sc3": 60.0,
-    "invest_pct_s1": 53.1,
-    "invest_amount_sc3": 60000000,
-    "invest_amount_s1": 53075202,
+    "invest_pct_sc3": 65.0,
+    "invest_pct_s1": 60.0,
+    "invest_amount_sc3": 65000000,
+    "invest_amount_s1": 60000000,
     "per_ticker_alloc_sc3": [
         {
             "ticker": "449180",
             "industry": "에센피",
             "is_kospi": false,
             "bucket": "NASDAQ",
-            "internal_weight": 55.0,
-            "market_mult": 0.6,
+            "internal_weight": 100.0,
+            "market_mult": 0.65,
             "floor_mult": null,
-            "effective_mult": 0.6,
-            "effective_pct": 33.0
-        },
-        {
-            "ticker": "449190",
-            "industry": "나스닥",
-            "is_kospi": false,
-            "bucket": "NASDAQ",
-            "internal_weight": 45.0,
-            "market_mult": 0.6,
-            "floor_mult": null,
-            "effective_mult": 0.6,
-            "effective_pct": 27.0
+            "effective_mult": 0.65,
+            "effective_pct": 65.0
         }
     ],
     "per_ticker_alloc_s1": [
@@ -77,47 +55,34 @@
             "ticker": "449180",
             "industry": "에센피",
             "is_kospi": false,
-            "internal_weight": 61.5041,
+            "internal_weight": 100.0,
             "market_mult": 0.5,
-            "floor_mult": 0.55,
-            "effective_mult": 0.55,
-            "effective_pct": 33.8272
-        },
-        {
-            "ticker": "449190",
-            "industry": "나스닥",
-            "is_kospi": false,
-            "internal_weight": 38.4959,
-            "market_mult": 0.5,
-            "floor_mult": 0.3,
-            "effective_mult": 0.5,
-            "effective_pct": 19.248
+            "floor_mult": 0.6,
+            "effective_mult": 0.6,
+            "effective_pct": 60.0
         }
     ],
     "sc3_state": {
         "kr_state": "PURPLE",
-        "kr_bucket_pct": 0.15,
+        "kr_bucket_pct": 0.2,
         "us_state": "GREEN",
-        "us_bucket_pct": 0.6,
-        "last_date": "2026-10-13",
-        "updated_today": false
+        "us_bucket_pct": 0.65,
+        "last_date": "2026-10-14",
+        "updated_today": true
     },
     "sc3_ok": true,
-    "trade_date": "2026-10-13",
-    "vol63_median": 15.6,
+    "trade_date": "2026-10-14",
+    "vol63_median": 11.5,
     "internal_weights": [
-        61.5041,
-        38.4959
+        100.0
     ],
-    "n_holdings": 2,
+    "n_holdings": 1,
     "holdings_tickers": [
-        "449180",
-        "449190"
+        "449180"
     ],
     "top3_k_tickers": [],
     "allocation_map_used": [
-        55,
-        45
+        100
     ],
-    "update_time": "2026-10-14 06:04:31"
+    "update_time": "2026-10-14 12:41:10"
 }
