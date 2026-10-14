@@ -1,10 +1,11 @@
-C:\Users\uidg9619\AppData\Local\Programs\Python\Python313\Lib\site-packages\pykrx\__init__.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+C:\Users\User\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pykrx\__init__.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
   import pkg_resources
 ✅ 한국 ETF 캐시 업데이트 완료: 35개 종목
 
-이전 보유 종목: ['449180']
+이전 보유 종목: ['449180', '449190']
 현재 Top3: ['449180']
   유지: 449180 (sco=15.0)
+  제거: 449190 (sco=9.0)
 
 최종 보유 종목 (1개): ['449180']
 [코스피 단계적 비중] PURPLE → up_days=0 리셋, multiplier=0.1
@@ -30,7 +31,7 @@ C:\Users\uidg9619\AppData\Local\Programs\Python\Python313\Lib\site-packages\pykr
 ✅ 저점 신호 데이터가 'D:\py\report-us\kr_etf_low_signals.json'에 저장되었습니다.
 ✅ kr_etf_gann_fire_set.json 저장 완료 (🔥 0개)
 ✅ kr_etf_stab.json 저장 완료 (35개)
-✅ 시장온도 히스토리 저장 완료 → 'D:\py\report-us\top3_etf_track.json'  (총 437일)
+✅ 시장온도 히스토리 저장 완료 → 'D:\py\report-us\top3_etf_track.json'  (총 438일)
 
 [벤치마크 추세]  코스피: PURPLE  /  코스닥: RED
                  에센피: LIME  /  나스닥: -
@@ -81,4 +82,4 @@ Ticker      Name                    등락    위치    Sco      RSI     정   5
 
 [ATR 트레일링(-10%)로 제외 - 최근 2주] 없음
 
-[실행 소요 시간]: 10.04초
+[실행 소요 시간]: 9.84초

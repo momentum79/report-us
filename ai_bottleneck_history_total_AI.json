@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14 06:13:52",
+  "updated_at": "2026-10-15 06:13:40",
   "window_note": "Compare today with 5 stored snapshots ago when available. Retains up to 5 years.",
   "snapshots": [
     {
@@ -4838,6 +4838,50 @@
         "SOFTWARE_ADOPTION": {
           "name_kr": "SW/데이터플랫폼",
           "score": 12.94,
+          "state": "HOT"
+        }
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "update_time": "2026-10-15 06:03:36",
+      "headline": "혼합/확산 국면",
+      "location": "MIXED",
+      "confidence": "HIGH",
+      "layers": {
+        "DEMAND_CAPEX": {
+          "name_kr": "수요/CAPEX",
+          "score": 8.08,
+          "state": "WATCH"
+        },
+        "SILICON_COMPUTE": {
+          "name_kr": "칩/ASIC",
+          "score": 2.46,
+          "state": "SOFT"
+        },
+        "MEMORY_PACKAGING": {
+          "name_kr": "HBM/패키징/MLCC",
+          "score": -0.76,
+          "state": "WEAK"
+        },
+        "NETWORK_OPTICS": {
+          "name_kr": "네트워크/광통신",
+          "score": 5.69,
+          "state": "SOFT"
+        },
+        "POWER_COOLING": {
+          "name_kr": "전력/냉각",
+          "score": 2.58,
+          "state": "SOFT"
+        },
+        "DATACENTER_DEPLOY": {
+          "name_kr": "데이터센터/서버",
+          "score": 3.82,
+          "state": "SOFT"
+        },
+        "SOFTWARE_ADOPTION": {
+          "name_kr": "SW/데이터플랫폼",
+          "score": 11.43,
           "state": "HOT"
         }
       }
