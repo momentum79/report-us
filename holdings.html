@@ -737,30 +737,40 @@ body.naver-popup-open { overflow: hidden; }
             </div>`;
         }
 
-        // 코인(업비트) 이번 주(월~일) BTC/ETH 실현손익 미니표 (3열)
+        // 코인 전체(업비트+바낸 봇) 이번 주(월~일) 실현손익 미니표 + 봇별 주간 합 (2026-10-14)
+        // MASTER 창 '일별 손익'의 업비트·바낸 칸과 같은 범위. 바낸은 USDT → 원화.
         function renderCoinWeek(data) {
             const cw = data.coin_week;
             if (!cw) return '';
-            const cell = v => {
+            const won = v => `${(v>=0?'+':'')}${v.toLocaleString()}원`;
+            const cell = (v, bold) => {
                 if (v === null || v === undefined) return '<td style="text-align:right;color:#bbb;">-</td>';
                 const cls = v >= 0 ? 'wp-pos' : 'wp-neg';
-                return `<td style="text-align:right;" class="${cls}">${(v>=0?'+':'')}${v.toLocaleString()}원</td>`;
+                return `<td style="text-align:right;${bold ? '' : 'font-weight:400;'}" class="${cls}">${won(v)}</td>`;
             };
             let body = '';
             (cw.days || []).forEach(d => {
-                body += `<tr><td style="text-align:left;">${d.label}</td>${cell(d.btc)}${cell(d.eth)}</tr>`;
+                body += `<tr><td style="text-align:left;">${d.label}</td>${cell(d.up)}${cell(d.bn)}${cell(d.sum, true)}</tr>`;
             });
+            body += `<tr class="wp-coin-sum"><td style="text-align:left;">주간</td>${cell(cw.up_total, true)}${cell(cw.bn_total, true)}${cell(cw.total, true)}</tr>`;
+            const bots = cw.bots || [];
+            if (bots.length) {
+                body += `<tr class="wp-coin-sep"><td colspan="4">봇별 (이번 주)</td></tr>`;
+                bots.forEach(b => {
+                    body += `<tr class="wp-coin-bot"><td colspan="3" style="text-align:left;"><span class="wp-coin-venue">${b.venue}</span>${b.bot}</td>${cell(b.amt)}</tr>`;
+                });
+            }
             const total = cw.total || 0;
             const totalCls = total >= 0 ? 'wp-pos' : 'wp-neg';
-            const totalTxt = `${(total>=0?'+':'')}${total.toLocaleString()}원`;
             return `<div class="wp-summary">
                 <table class="wp-mini wp-coin">
                     <thead>
-                        <tr><th style="text-align:left;">코인 성과</th><th style="text-align:right;" colspan="2"><span class="${totalCls}">${totalTxt}</span></th></tr>
-                        <tr><th style="text-align:left;">요일</th><th style="text-align:right;">BTC</th><th style="text-align:right;">ETH</th></tr>
+                        <tr><th style="text-align:left;">코인 성과</th><th style="text-align:right;" colspan="3"><span class="${totalCls}">${won(total)}</span></th></tr>
+                        <tr><th style="text-align:left;">요일</th><th style="text-align:right;">업비트</th><th style="text-align:right;">바낸</th><th style="text-align:right;">합계</th></tr>
                     </thead>
                     <tbody>${body}</tbody>
                 </table>
+                <div class="wp-mini-note">코인봇 전체 매도 실현(수수료 차감) · 바낸 $1=${cw.usdkrw ? Math.round(cw.usdkrw).toLocaleString() : '-'}원 · 펀딩비 제외</div>
             </div>`;
         }
 
@@ -975,7 +985,11 @@ body.naver-popup-open { overflow: hidden; }
                     .wp-mini{width:100%;border-collapse:collapse;font-size:12px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);border-radius:8px;overflow:hidden;}
                     .wp-mini th{background:#f6eeee;color:#5a3a3a;padding:7px 16px;border:1px solid #ecdede;font-weight:700;}
                     .wp-mini td{padding:7px 16px;border:1px solid #f0e8e8;white-space:nowrap;}
-                    .wp-coin th,.wp-coin td{padding:4px 14px;}
+                    .wp-coin th,.wp-coin td{padding:4px 7px;}
+                    .wp-coin tr.wp-coin-sum td{background:#faf3f3;border-top:2px solid #d8b8b8;font-weight:700;}
+                    .wp-coin tr.wp-coin-sep td{background:#f6eeee;color:#5a3a3a;font-weight:700;font-size:11px;padding:3px 7px;}
+                    .wp-coin tr.wp-coin-bot td{font-size:11px;padding:3px 7px;}
+                    .wp-coin-venue{display:inline-block;min-width:34px;color:#999;font-size:10px;}
                     .wp-weeksum{width:100%;}
                     .wp-zero td{color:#aaa;}
                     .wp-mini-note{font-size:10px;color:#999;margin-top:4px;text-align:center;}
