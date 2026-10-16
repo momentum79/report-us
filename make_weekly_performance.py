@@ -182,11 +182,16 @@ def save_fx_snapshot():
         json.dump(payload, f, ensure_ascii=False, indent=2)
     print(f"  OK {os.path.relpath(FX_SNAPSHOT_JSON, OUT_DIR)} ({len(payload['rates'])}주)")
 
-# ───────── 코인(업비트) 주간(월~일) 실현손익 설정 ─────────
+# ───────── 코인 주간(월~일) 실현손익 설정 ─────────
 # 주식봇과 달리 코인은 주말도 거래되므로 월~일 7일 기준.
-# 실현손익 = MTF 본전략(평균단가 replay, net) + scalp(realized_pnl 컬럼) 합산.
+# 2026-10-14: 코인 '전체' 성과로 확장 (MASTER 창 일별손익의 업비트+바낸 칸과 같은 범위).
+#   업비트 = 코인봇 장부(build_coin_bot_trips: SCO-Top3·TR·국면v6·15분) + BTC/ETH MTF v3·v5 + v3 스캘프
+#   바이낸스 = 코인봇 장부(SCO-Top3·TR, USDT → 청산주 환율로 원화). 펀딩비는 봇별로 못 나눠 빠진다.
 COIN_FEE = 0.0005  # 업비트 KRW마켓 수수료 0.05% (reserved_fee 로 확인). net 계산에 매수·매도 양쪽 적용.
-COIN_MTF_CSV = os.path.join(BASE_DIR, "coin", "0order", "0_upbit_btc_eth_mtf_trades_v3_live.csv")
+COIN_MTF_CSVS = {  # 봇 이름 → MTF 체결 CSV (평균단가 replay)
+    "BTC/ETH v3": os.path.join(BASE_DIR, "coin", "0order", "0_upbit_btc_eth_mtf_trades_v3_live.csv"),
+    "BTC/ETH v5": os.path.join(BASE_DIR, "coin", "0order", "0_upbit_btc_eth_mtf_trades_v5_live.csv"),
+}
 COIN_SCALP_CSVS = [  # 우선순위: v3 있으면 v3, 없으면 v2
     os.path.join(BASE_DIR, "coin", "0order", "0_upbit_scalp_trades_v3_live.csv"),
     os.path.join(BASE_DIR, "coin", "0order", "0_upbit_scalp_trades_v2_live.csv"),
@@ -1644,16 +1649,16 @@ def build_us_vcp(fills, weeks_limit=None):
 
 
 # ───────── 코인 주간(월~일) 실현손익 ─────────
-def _coin_mtf_daily():
+def _coin_mtf_daily(path):
     """MTF 본전략 CSV → {(YYYY-MM-DD, 'KRW-BTC'): net_realized}.
     평균단가 replay: 매수는 수수료 포함 원가풀, 매도는 (net_proceeds − 평단×수량).
     오류 manual 행(identifier=manual & uuid 공백, 예: BTC price 1.6억 중복행)은 제외 →
     봇 state json 보유수량과 정확히 일치."""
     daily = defaultdict(float)
-    if not os.path.exists(COIN_MTF_CSV):
+    if not os.path.exists(path):
         return daily
     pos = defaultdict(lambda: {"qty": 0.0, "cost": 0.0})  # 수수료 포함 원가풀
-    with open(COIN_MTF_CSV, encoding="utf-8-sig") as f:
+    with open(path, encoding="utf-8-sig") as f:
         for row in csv.DictReader(f):
             act = row.get("action"); mk = row.get("market")
             if act not in ("BUY", "SELL") or mk not in COIN_MARKETS:
@@ -1707,36 +1712,72 @@ def _coin_scalp_daily():
     return daily
 
 
-def build_coin_week(today=None):
-    """이번 주(월~일) BTC/ETH 일별 실현손익(net, MTF+scalp) → 웹 table 구조."""
+def _coin_bot_label(bot):
+    """REALIZATIONS 봇 이름 → 미니표 행 이름. 'UP_TR_ORD_B' → 'TR ORD_B', '업비트SCO-Top3' → 'SCO-Top3'."""
+    for pre in ("UP_TR_", "BN_TR_"):
+        if bot.startswith(pre):
+            return "TR " + bot[len(pre):]
+    for pre in ("업비트", "바이낸스"):
+        if bot.startswith(pre):
+            return bot[len(pre):]
+    return bot
+
+
+def build_coin_week(coin_reals, today=None):
+    """이번 주(월~일) 코인 전체 일별 실현손익(net, 원화) → 웹 table 구조.
+    coin_reals = build_coin_bot_trips 가 만든 매도건별 실현(kind=COIN). ccy USD = 바이낸스(USDT).
+    여기에 장부 밖 BTC/ETH 봇(MTF v3·v5, v3 스캘프)을 업비트로 더한다."""
     if today is None:
         today = date.today()
     monday = today - timedelta(days=today.weekday())
-    mtf = _coin_mtf_daily()
-    scp = _coin_scalp_daily()
+    sunday = monday + timedelta(days=6)
+
+    daily = defaultdict(float)     # (iso, 'up'|'bn') → 원
+    seen = set()                   # 매도가 있었던 (iso, venue) - 손익 0 이어도 칸에 0 표시
+    by_bot = defaultdict(float)    # (venue, 행 이름) → 원
+
+    def _add(iso, venue, bot, v):
+        daily[(iso, venue)] += v
+        seen.add((iso, venue))
+        by_bot[(venue, bot)] += v
+
+    for r in coin_reals:
+        d = r["exit_dt"].date()
+        if not (monday <= d <= sunday):
+            continue
+        venue = "bn" if r.get("ccy") == "USD" else "up"
+        _add(d.isoformat(), venue, _coin_bot_label(r["bot"]), _krw(r, "net_pnl_amt"))
+    side = [(bot, _coin_mtf_daily(p)) for bot, p in COIN_MTF_CSVS.items()]
+    side.append(("v3 스캘프", _coin_scalp_daily()))
+    for bot, dd in side:
+        for (iso, _mk), v in dd.items():
+            if monday.isoformat() <= iso <= sunday.isoformat():
+                _add(iso, "up", bot, v)
 
     days = []
-    total = 0.0
-    any_val = False
     for i in range(7):
         d = monday + timedelta(days=i)
         iso = d.isoformat()
-        row = {"label": f"{d.month}/{d.day} {COIN_WEEKDAYS[i]}", "btc": None, "eth": None}
-        for mk, key in COIN_MARKETS.items():
-            has = (iso, mk) in mtf or (iso, mk) in scp
-            if has:
-                v = int(round(mtf.get((iso, mk), 0.0) + scp.get((iso, mk), 0.0)))
-                row[key] = v
-                total += v
-                any_val = True
+        row = {"label": f"{d.month}/{d.day} {COIN_WEEKDAYS[i]}", "up": None, "bn": None, "sum": None}
+        for venue in ("up", "bn"):
+            if (iso, venue) in seen:
+                row[venue] = int(round(daily[(iso, venue)]))
+        if row["up"] is not None or row["bn"] is not None:
+            row["sum"] = (row["up"] or 0) + (row["bn"] or 0)
         days.append(row)
 
-    fri = monday + timedelta(days=6)
+    bots = [{"venue": "업비트" if v == "up" else "바낸", "bot": b, "amt": int(round(a))}
+            for (v, b), a in by_bot.items()]
+    bots.sort(key=lambda x: (x["venue"] != "업비트", -abs(x["amt"])))
     return {
-        "label": f"{monday.month}/{monday.day}~{fri.month}/{fri.day}",
-        "total": int(round(total)),
-        "has_data": any_val,
+        "label": f"{monday.month}/{monday.day}~{sunday.month}/{sunday.day}",
+        "total": sum(d["sum"] or 0 for d in days),
+        "up_total": sum(d["up"] or 0 for d in days),
+        "bn_total": sum(d["bn"] or 0 for d in days),
+        "usdkrw": round(fx_for_week(monday), 1),
+        "has_data": bool(seen),
         "days": days,
+        "bots": bots,
     }
 
 
@@ -2009,6 +2050,7 @@ def main():
     intraday_trips = build_round_trips(fills)
     tr_trips = build_tr_ledger_round_trips()
     coin_trips = build_coin_bot_trips()
+    coin_reals = [r for r in REALIZATIONS if r.get("kind") == "COIN"]   # 코인 미니표용(매도건별)
     trips = intraday_trips + tr_trips + coin_trips
     print(f"  intraday 완결 라운드트립: {len(intraday_trips)}건")
     print(f"  TR ledger 완결 라운드트립: {len(tr_trips)}건")
@@ -2047,8 +2089,8 @@ def main():
     if q:
         print(f"  3개월 누적표: {q['label']} ({q['weeks']}주, 태그 {len(q['rows'])}개"
               + (", 컷오프 이후로 제한" if q["clamped_to_cutoff"] else "") + ")")
-    # 코인(업비트) 이번 주(월~일) 실현손익 미니표 데이터 부착
-    web_report["coin_week"] = build_coin_week()
+    # 코인 전체(업비트+바낸 봇) 이번 주(월~일) 실현손익 미니표 데이터 부착
+    web_report["coin_week"] = build_coin_week(coin_reals)
     cw = web_report["coin_week"]
     print(f"  코인 이번주({cw['label']}) 실현손익 합: {cw['total']:,}원")
     # 미국VCP 매수 포착(buy-only) 보드 데이터 부착
