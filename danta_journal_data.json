@@ -1,72 +1,13 @@
 {
-  "generated": "2026-10-16 15:39:49",
+  "generated": "2026-10-19 06:25:39",
   "dates": [
-    "2026-09-29",
     "2026-09-30",
     "2026-10-02",
     "2026-10-05",
-    "2026-10-06"
+    "2026-10-06",
+    "2026-10-16"
   ],
   "rows": [
-    {
-      "date": "2026-09-29",
-      "acct": "8042CHU3",
-      "code": "000660",
-      "name": "SK하이닉스",
-      "strategy": "trend3",
-      "buys": [],
-      "sells": [
-        {
-          "tm": "09:32",
-          "qty": 1,
-          "price": 1779000,
-          "ord_no": "MANUAL"
-        }
-      ],
-      "realized": 139000,
-      "basis": 1640000,
-      "remain": 0,
-      "avg": 0
-    },
-    {
-      "date": "2026-09-29",
-      "acct": "8042",
-      "code": "005930",
-      "name": "삼성전자",
-      "strategy": "lowhigh",
-      "buys": [
-        {
-          "tm": "09:06",
-          "qty": 1,
-          "price": 268500
-        }
-      ],
-      "sells": [],
-      "realized": 0,
-      "basis": 0,
-      "remain": 3,
-      "avg": 257953
-    },
-    {
-      "date": "2026-09-29",
-      "acct": "8042CHU3",
-      "code": "122630",
-      "name": "KODEX 레버리지",
-      "strategy": "trend3",
-      "buys": [],
-      "sells": [
-        {
-          "tm": "09:55",
-          "qty": 15,
-          "price": 109325,
-          "ord_no": "0222277"
-        }
-      ],
-      "realized": 102675,
-      "basis": 1537200,
-      "remain": 0,
-      "avg": 0
-    },
     {
       "date": "2026-09-30",
       "acct": "8042",
@@ -978,29 +919,583 @@
       "basis": 0,
       "remain": 4,
       "avg": 287
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00000A",
+      "name": "애질런트 테크놀로지스",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 4,
+          "price": 176
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 5,
+      "avg": 174
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "0000BE",
+      "name": "블룸 에너지",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 230
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 6,
+      "avg": 279
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "0000IP",
+      "name": "인터내셔널 페이퍼",
+      "strategy": "us_pine_lowbuy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 21,
+          "price": 34
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 21,
+      "avg": 34
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000BDX",
+      "name": "벡턴 디킨슨",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 194
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 2,
+      "avg": 185
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000CRM",
+      "name": "세일스포스",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 249
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 5,
+      "avg": 220
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000CVX",
+      "name": "셰브론",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 222
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 5,
+      "avg": 202
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000DHR",
+      "name": "다나허",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 3,
+          "price": 231
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 5,
+      "avg": 226
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000DVN",
+      "name": "데번 에너지",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 49
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 8,
+      "avg": 47
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000EMR",
+      "name": "에머슨 일렉트릭",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 161
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 3,
+      "avg": 161
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000FCX",
+      "name": "프리포트 맥모란",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 4,
+          "price": 69
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 9,
+      "avg": 71
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000HPE",
+      "name": "휴렛 팩커드 엔터프라이즈",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 5,
+          "price": 56
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 19,
+      "avg": 60
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000HPQ",
+      "name": "HP",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 10,
+          "price": 31
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 50,
+      "avg": 30
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000IQV",
+      "name": "아이큐비아 홀딩스",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 272
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 4,
+      "avg": 270
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000JCI",
+      "name": "존슨 콘트롤즈 인터내셔널",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 2,
+          "price": 146
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 2,
+      "avg": 146
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000KDP",
+      "name": "큐리그 닥터 페퍼",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 9,
+          "price": 34
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 9,
+      "avg": 34
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000PFE",
+      "name": "화이자",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 29,
+          "price": 29
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 29,
+      "avg": 29
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "000TGT",
+      "name": "타겟",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 4,
+          "price": 159
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 4,
+      "avg": 159
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00ABBV",
+      "name": "애브비",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 283
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 4,
+      "avg": 268
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00ANET",
+      "name": "아리스타 네트웍스",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 183
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 10,
+      "avg": 204
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00CPAY",
+      "name": "코페이",
+      "strategy": "us_pine_lowbuy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 409
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 1,
+      "avg": 409
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00CRWD",
+      "name": "크라우드스트라이크 홀딩스",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 245
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 2,
+      "avg": 256
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00CTSH",
+      "name": "코그니전트 테크놀로지 솔루션스",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 12,
+          "price": 67
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 12,
+      "avg": 67
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00DXCM",
+      "name": "덱스컴",
+      "strategy": "us_pine_lowbuy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 5,
+          "price": 88
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 8,
+      "avg": 87
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00FAST",
+      "name": "패스널",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 6,
+          "price": 50
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 28,
+      "avg": 50
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00GILD",
+      "name": "길리어드 사이언스",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 2,
+          "price": 156
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 9,
+      "avg": 151
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00HOOD",
+      "name": "로빈후드",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 3,
+          "price": 102
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 8,
+      "avg": 106
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00ILMN",
+      "name": "일루미나",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 1,
+          "price": 271
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 1,
+      "avg": 271
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00MNST",
+      "name": "몬스터 베버리지",
+      "strategy": "us_pine_buy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 15,
+          "price": 45
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 15,
+      "avg": 45
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00WDAY",
+      "name": "워크데이",
+      "strategy": "us_pine_lowbuy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 2,
+          "price": 198
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 2,
+      "avg": 198
+    },
+    {
+      "date": "2026-10-16",
+      "acct": "1887US",
+      "code": "00WYNN",
+      "name": "윈 리조츠",
+      "strategy": "us_pine_lowbuy",
+      "buys": [
+        {
+          "tm": "09:00",
+          "qty": 9,
+          "price": 76
+        }
+      ],
+      "sells": [],
+      "realized": 0,
+      "basis": 0,
+      "remain": 9,
+      "avg": 76
     }
   ],
   "trade_marks": {
     "005930": [
       {
-        "t": "2026-09-29 09:05",
-        "s": "B"
-      },
-      {
         "t": "2026-09-30 08:05",
         "s": "B"
-      }
-    ],
-    "000660": [
-      {
-        "t": "2026-09-29 09:30",
-        "s": "S"
-      }
-    ],
-    "122630": [
-      {
-        "t": "2026-09-29 09:55",
-        "s": "S"
       }
     ],
     "00SHOP": [
@@ -1059,6 +1554,10 @@
       {
         "t": "2026-10-05 09:00",
         "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
       }
     ],
     "00SMCI": [
@@ -1071,17 +1570,29 @@
       {
         "t": "2026-10-05 09:00",
         "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
       }
     ],
     "00ABBV": [
       {
         "t": "2026-10-05 09:00",
         "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
       }
     ],
     "000BDX": [
       {
         "t": "2026-10-05 09:00",
+        "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
         "s": "B"
       }
     ],
@@ -1109,11 +1620,19 @@
       {
         "t": "2026-10-06 09:00",
         "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
       }
     ],
     "00CRWD": [
       {
         "t": "2026-10-05 09:00",
+        "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
         "s": "B"
       }
     ],
@@ -1124,6 +1643,10 @@
       },
       {
         "t": "2026-10-06 09:00",
+        "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
         "s": "B"
       }
     ],
@@ -1141,17 +1664,29 @@
       {
         "t": "2026-10-06 09:00",
         "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
       }
     ],
     "000DVN": [
       {
         "t": "2026-10-05 09:00",
         "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
       }
     ],
     "00DXCM": [
       {
         "t": "2026-10-05 09:00",
+        "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
         "s": "B"
       }
     ],
@@ -1170,6 +1705,10 @@
     "000EMR": [
       {
         "t": "2026-10-05 09:00",
+        "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
         "s": "B"
       }
     ],
@@ -1237,11 +1776,19 @@
       {
         "t": "2026-10-06 09:00",
         "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
       }
     ],
     "00FAST": [
       {
         "t": "2026-10-06 09:00",
+        "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
         "s": "B"
       }
     ],
@@ -1255,11 +1802,19 @@
       {
         "t": "2026-10-06 09:00",
         "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
       }
     ],
     "00GILD": [
       {
         "t": "2026-10-06 09:00",
+        "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
         "s": "B"
       }
     ],
@@ -1267,11 +1822,99 @@
       {
         "t": "2026-10-06 09:00",
         "s": "B"
+      },
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
       }
     ],
     "00GDDY": [
       {
         "t": "2026-10-06 09:00",
+        "s": "B"
+      }
+    ],
+    "00CTSH": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "000PFE": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "000HPE": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "000HPQ": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "00ILMN": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "000IQV": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "000JCI": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "000KDP": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "00MNST": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "000TGT": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "00CPAY": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "00WDAY": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "0000IP": [
+      {
+        "t": "2026-10-16 09:00",
+        "s": "B"
+      }
+    ],
+    "00WYNN": [
+      {
+        "t": "2026-10-16 09:00",
         "s": "B"
       }
     ]
