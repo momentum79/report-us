@@ -1,36 +1,36 @@
 {
-    "avg_sco": -3.4,
+    "avg_sco": -3.9,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 41,
-    "sco_neg": 89,
-    "sco_strong": 4,
-    "sco_zone_neg": 89,
-    "sco_zone_weak": 28,
-    "sco_zone_mid": 9,
-    "sco_zone_strong": 4,
-    "strong_count": 4,
-    "top3_avg_sco": 14.42,
+    "sco_pos": 37,
+    "sco_neg": 93,
+    "sco_strong": 7,
+    "sco_zone_neg": 93,
+    "sco_zone_weak": 24,
+    "sco_zone_mid": 6,
+    "sco_zone_strong": 7,
+    "strong_count": 6,
+    "top3_avg_sco": 15.67,
     "top3_avg_pos": 1.0,
     "kospi_trend": "RED",
     "kosdaq_trend": "RED",
-    "sp500_trend": "-",
+    "sp500_trend": "PURPLE",
     "nasdaq_trend": "PURPLE",
-    "kospi_sco": -11.0,
-    "kosdaq_sco": -6.25,
-    "sp500_sco": 6.0,
-    "nasdaq_sco": 0.75,
+    "kospi_sco": -12.0,
+    "kosdaq_sco": -8.0,
+    "sp500_sco": 1.0,
+    "nasdaq_sco": -3.25,
     "euro_trend": "-",
     "india_trend": "-",
-    "nikkei_trend": "PURPLE",
-    "shanghai_trend": "GREEN",
+    "nikkei_trend": "RED",
+    "shanghai_trend": "RED",
     "hongkong_trend": "-",
-    "brazil_trend": "GREEN",
+    "brazil_trend": "LIME",
     "kospi_mult": 0.0,
     "nasdaq_mult": 0.1,
-    "invest_pct": 7.8,
-    "invest_amount_total": 7783200,
+    "invest_pct": 4.6,
+    "invest_amount_total": 4602000,
     "internal_weights": [
         45.0,
         30.0,
@@ -43,9 +43,9 @@
         "PDBC"
     ],
     "final_ratios": {
-        "XLE": 4.35,
-        "XLV": 1.02,
-        "PDBC": 2.42
+        "XLE": 2.51,
+        "XLV": 0.7,
+        "PDBC": 1.39
     },
     "top3_tickers": [
         "XLE",
@@ -63,7 +63,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-10-19 06:02:56",
+    "update_time": "2026-10-21 06:03:10",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -71,6 +71,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1358.5
+        "usd_krw": 1342.1
     }
 }
