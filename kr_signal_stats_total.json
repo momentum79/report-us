@@ -1,5 +1,5 @@
 {
-    "avg_sco": -3.9,
+    "avg_sco": -3.8,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
@@ -17,8 +17,8 @@
     "kosdaq_trend": "RED",
     "sp500_trend": "PURPLE",
     "nasdaq_trend": "PURPLE",
-    "kospi_sco": -12.0,
-    "kosdaq_sco": -8.0,
+    "kospi_sco": -11.5,
+    "kosdaq_sco": -7.0,
     "sp500_sco": 1.0,
     "nasdaq_sco": -3.25,
     "euro_trend": "-",
@@ -63,7 +63,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-10-21 06:03:10",
+    "update_time": "2026-10-21 20:17:36",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -71,6 +71,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1342.1
+        "usd_krw": 1338.0
     }
 }

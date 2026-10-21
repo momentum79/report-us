@@ -1,6 +1,6 @@
 {
-  "update_time": "2026-10-21 06:04:55",
-  "elapsed_sec": 2.99,
+  "update_time": "2026-10-21 20:20:15",
+  "elapsed_sec": 7.54,
   "too_many_threshold": 10,
   "target_conditions": [
     {
@@ -46,28 +46,97 @@
     {
       "seq": "2",
       "name": "예상체결상위",
-      "total_count": 0,
+      "total_count": 1,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "396300",
+          "name": "HT로보틱스",
+          "price": 11410,
+          "rate": 1.679,
+          "volume": 31520840,
+          "trade_amount_eok": 3454.24,
+          "contract_strength": "90.82",
+          "nxt": ""
+        }
+      ],
       "error": ""
     },
     {
       "seq": "4",
       "name": "★ 눌림",
-      "total_count": 0,
+      "total_count": 4,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "028670",
+          "name": "팬오션",
+          "price": 6520,
+          "rate": 0.109,
+          "volume": 3557139,
+          "trade_amount_eok": 230.13414775,
+          "contract_strength": "123.06",
+          "nxt": "선"
+        },
+        {
+          "rank": 2,
+          "code": "096530",
+          "name": "씨젠",
+          "price": 36150,
+          "rate": -0.203,
+          "volume": 257118,
+          "trade_amount_eok": 93.413961,
+          "contract_strength": "76.77",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 3,
+          "code": "138040",
+          "name": "메리츠금융지주",
+          "price": 130500,
+          "rate": 0.093,
+          "volume": 164821,
+          "trade_amount_eok": 215.131224,
+          "contract_strength": "133.94",
+          "nxt": "NXT"
+        },
+        {
+          "rank": 4,
+          "code": "251970",
+          "name": "펌텍코리아",
+          "price": 68600,
+          "rate": -0.297,
+          "volume": 119034,
+          "trade_amount_eok": 81.441732,
+          "contract_strength": "74.98",
+          "nxt": "NXT"
+        }
+      ],
       "error": ""
     },
     {
       "seq": "5",
       "name": "★ 삘추세231230",
-      "total_count": 0,
+      "total_count": 1,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "207940",
+          "name": "삼성바이오로직스",
+          "price": 1412000,
+          "rate": 0.151,
+          "volume": 116940,
+          "trade_amount_eok": 1166.23953,
+          "contract_strength": "157.06",
+          "nxt": "NXT"
+        }
+      ],
       "error": ""
     }
   ]

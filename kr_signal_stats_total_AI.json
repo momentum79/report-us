@@ -1,18 +1,18 @@
 {
-    "avg_sco": -4.6,
+    "avg_sco": -4.4,
     "total_cnt": 151,
     "valid_cnt": 150,
     "atr_excl_cnt": 0,
-    "sco_pos": 29,
-    "sco_neg": 121,
+    "sco_pos": 31,
+    "sco_neg": 119,
     "sco_strong": 10,
-    "sco_zone_neg": 121,
-    "sco_zone_weak": 16,
+    "sco_zone_neg": 119,
+    "sco_zone_weak": 18,
     "sco_zone_mid": 3,
     "sco_zone_strong": 10,
     "strong_count": 10,
-    "top3_avg_sco": 14.58,
-    "top3_avg_pos": 1.67,
+    "top3_avg_sco": 14.5,
+    "top3_avg_pos": 1.0,
     "kospi_trend": "RED",
     "kosdaq_trend": "-",
     "sp500_trend": "PURPLE",
@@ -22,42 +22,46 @@
     "nikkei_trend": "-",
     "kospi_mult": 0.0,
     "nasdaq_mult": 0.1,
-    "invest_pct": 22.5,
-    "invest_amount_total": 22493505,
+    "invest_pct": 22.4,
+    "invest_amount_total": 22436546,
     "internal_weights": [
-        46.7532,
-        31.1688,
-        22.0779
+        35.533,
+        30.4569,
+        25.3807,
+        8.6294
     ],
-    "n_holdings": 3,
+    "n_holdings": 4,
     "holdings_tickers": [
         "NOW",
         "053800",
+        "CME",
         "042510"
     ],
     "final_ratios": {
-        "NOW": 11.22,
-        "053800": 6.86,
-        "042510": 4.42
+        "NOW": 8.53,
+        "053800": 6.09,
+        "CME": 6.09,
+        "042510": 1.73
     },
     "top3_tickers": [
         "NOW",
         "053800",
-        "042510"
+        "CME"
     ],
     "allocation_map_used": [
-        45,
+        35,
         30,
-        25
+        25,
+        10
     ],
-    "ai_core_score": 6.35,
-    "ai_core_dedup_score": 2.76,
-    "ai_core_gap": 3.59,
+    "ai_core_score": 6.2,
+    "ai_core_dedup_score": 2.85,
+    "ai_core_gap": 3.35,
     "ai_core_state": "AI Weak",
     "ai_breadth_state": "Negative",
     "ai_breadth_strong": 1,
-    "ai_breadth_mid": 3,
-    "ai_breadth_weak": 8,
+    "ai_breadth_mid": 1,
+    "ai_breadth_weak": 10,
     "ai_breadth_negative": 22,
     "ai_duplicate_impact": {
         "total_entries": 50,
@@ -70,17 +74,17 @@
             {
                 "ticker": "042510",
                 "count": 2,
-                "Signal_sco": 13.75
+                "Signal_sco": 11.0
             },
             {
                 "ticker": "053800",
                 "count": 2,
-                "Signal_sco": 14.0
+                "Signal_sco": 12.5
             },
             {
                 "ticker": "136540",
                 "count": 2,
-                "Signal_sco": 2.0
+                "Signal_sco": 4.5
             },
             {
                 "ticker": "ADBE",
@@ -104,25 +108,25 @@
         {
             "basket": "AI_SOFTWARE_PLATFORM",
             "basket_name_kr": "AI_소프트웨어",
-            "score": 10.04,
+            "score": 10.29,
             "valid_count": 7
         },
         {
             "basket": "AI_DATA_IDENTITY_SECURITY",
             "basket_name_kr": "AI_데이터보안",
-            "score": 9.05,
+            "score": 7.99,
             "valid_count": 9
         },
         {
             "basket": "AI_CYBER_SECURITY",
             "basket_name_kr": "AI_사이버보안",
-            "score": 8.78,
+            "score": 7.73,
             "valid_count": 12
         },
         {
             "basket": "AI_HEALTHCARE_BIO",
             "basket_name_kr": "AI_헬스케어바이오",
-            "score": 5.61,
+            "score": 5.91,
             "valid_count": 10
         }
     ],
@@ -132,7 +136,7 @@
             "name": "NOW",
             "Signal_sco": 16.0,
             "return_3m": 41.66,
-            "Final_score": 0.9842,
+            "Final_score": 0.9841,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
                 "AI_AGENT_AUTOMATION_RPA"
@@ -141,20 +145,9 @@
         {
             "ticker": "053800",
             "name": "안랩",
-            "Signal_sco": 14.0,
-            "return_3m": 68.18,
-            "Final_score": 0.9607,
-            "baskets": [
-                "AI_CYBER_SECURITY",
-                "AI_DATA_IDENTITY_SECURITY"
-            ]
-        },
-        {
-            "ticker": "042510",
-            "name": "라온시큐어",
-            "Signal_sco": 13.75,
-            "return_3m": 143.0,
-            "Final_score": 0.9558,
+            "Signal_sco": 12.5,
+            "return_3m": 61.67,
+            "Final_score": 0.9313,
             "baskets": [
                 "AI_CYBER_SECURITY",
                 "AI_DATA_IDENTITY_SECURITY"
@@ -165,9 +158,20 @@
             "name": "CME",
             "Signal_sco": 15.0,
             "return_3m": 16.19,
-            "Final_score": 0.9221,
+            "Final_score": 0.9218,
             "baskets": [
                 "AI_FINTECH_TRADING"
+            ]
+        },
+        {
+            "ticker": "042510",
+            "name": "라온시큐어",
+            "Signal_sco": 11.0,
+            "return_3m": 145.04,
+            "Final_score": 0.9018,
+            "baskets": [
+                "AI_CYBER_SECURITY",
+                "AI_DATA_IDENTITY_SECURITY"
             ]
         },
         {
@@ -175,7 +179,7 @@
             "name": "CRM",
             "Signal_sco": 14.0,
             "return_3m": 39.89,
-            "Final_score": 0.9008,
+            "Final_score": 0.9002,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
                 "AI_AGENT_AUTOMATION_RPA"
@@ -186,7 +190,7 @@
             "name": "HXGBY",
             "Signal_sco": 15.0,
             "return_3m": 20.99,
-            "Final_score": 0.885,
+            "Final_score": 0.8843,
             "baskets": [
                 "AI_ROBOT_COMPONENT"
             ]
@@ -196,7 +200,7 @@
             "name": "ADSK",
             "Signal_sco": 13.0,
             "return_3m": 8.71,
-            "Final_score": 0.8722,
+            "Final_score": 0.8718,
             "baskets": [
                 "AI_DIGITAL_TWIN_SIMULATION"
             ]
@@ -206,7 +210,7 @@
             "name": "ISRG",
             "Signal_sco": 12.0,
             "return_3m": 22.75,
-            "Final_score": 0.8646,
+            "Final_score": 0.8642,
             "baskets": [
                 "AI_HUMANOID_ROBOT",
                 "AI_HEALTHCARE_BIO"
@@ -225,14 +229,14 @@
         {
             "ticker": "328130",
             "name": "루닛",
-            "Signal_sco": 8.25,
-            "return_3m": 38.16,
-            "Final_score": 0.8409,
+            "Signal_sco": 9.25,
+            "return_3m": 26.85,
+            "Final_score": 0.8366,
             "baskets": [
                 "AI_HEALTHCARE_BIO"
             ]
         }
     ],
     "ai_basket_count": 34,
-    "update_time": "2026-10-21 06:03:52"
+    "update_time": "2026-10-21 20:18:17"
 }
