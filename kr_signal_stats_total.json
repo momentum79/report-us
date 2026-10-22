@@ -1,61 +1,65 @@
 {
-    "avg_sco": -3.5,
+    "avg_sco": -3.6,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 36,
-    "sco_neg": 94,
-    "sco_strong": 9,
-    "sco_zone_neg": 94,
-    "sco_zone_weak": 22,
+    "sco_pos": 34,
+    "sco_neg": 96,
+    "sco_strong": 12,
+    "sco_zone_neg": 96,
+    "sco_zone_weak": 17,
     "sco_zone_mid": 5,
-    "sco_zone_strong": 9,
-    "strong_count": 8,
-    "top3_avg_sco": 15.0,
+    "sco_zone_strong": 12,
+    "strong_count": 11,
+    "top3_avg_sco": 14.67,
     "top3_avg_pos": 1.33,
     "kospi_trend": "RED",
     "kosdaq_trend": "RED",
     "sp500_trend": "PURPLE",
     "nasdaq_trend": "PURPLE",
     "kospi_sco": -11.5,
-    "kosdaq_sco": -7.0,
-    "sp500_sco": 1.5,
-    "nasdaq_sco": -3.75,
+    "kosdaq_sco": -7.75,
+    "sp500_sco": 0.75,
+    "nasdaq_sco": -4.0,
     "euro_trend": "-",
     "india_trend": "-",
     "nikkei_trend": "RED",
     "shanghai_trend": "RED",
     "hongkong_trend": "-",
-    "brazil_trend": "GREEN",
+    "brazil_trend": "-",
     "kospi_mult": 0.0,
     "nasdaq_mult": 0.1,
-    "invest_pct": 9.9,
-    "invest_amount_total": 9926160,
+    "invest_pct": 11.7,
+    "invest_amount_total": 11724832,
     "internal_weights": [
-        45.0,
-        30.0,
-        25.0
+        35.533,
+        28.934,
+        25.3807,
+        10.1523
     ],
-    "n_holdings": 3,
+    "n_holdings": 4,
     "holdings_tickers": [
-        "XLE",
         "XLV",
+        "XLE",
+        "SCHD",
         "PDBC"
     ],
     "final_ratios": {
-        "XLE": 5.41,
-        "XLV": 1.51,
-        "PDBC": 3.0
+        "XLV": 1.88,
+        "XLE": 6.38,
+        "SCHD": 1.23,
+        "PDBC": 2.24
     },
     "top3_tickers": [
-        "XLE",
         "XLV",
-        "PDBC"
+        "XLE",
+        "SCHD"
     ],
     "allocation_map_used": [
-        45,
+        35,
         30,
-        25
+        25,
+        10
     ],
     "score_model": {
         "name": "vol_stability_v1",
@@ -63,7 +67,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-10-22 06:03:11",
+    "update_time": "2026-10-23 06:03:13",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -71,6 +75,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1338.0
+        "usd_krw": 1335.5
     }
 }
