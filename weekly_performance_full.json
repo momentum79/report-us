@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24 12:35:42",
+  "updated": "2026-10-26 20:05:22",
   "weeks_limit": null,
   "week_keys": [
     "2026-06-08",
@@ -21,7 +21,8 @@
     "2026-09-28",
     "2026-10-05",
     "2026-10-12",
-    "2026-10-19"
+    "2026-10-19",
+    "2026-10-26"
   ],
   "week_labels": {
     "2026-06-08": "06/08~06/12",
@@ -43,7 +44,8 @@
     "2026-09-28": "09/28~10/02",
     "2026-10-05": "10/05~10/09",
     "2026-10-12": "10/12~10/16",
-    "2026-10-19": "10/19~10/23"
+    "2026-10-19": "10/19~10/23",
+    "2026-10-26": "10/26~10/30"
   },
   "realize_from": "2026-08-17",
   "cutoff_date": "2026-08-17",
@@ -68,7 +70,8 @@
     "2026-09-28": 1352.0,
     "2026-10-05": 1371.0,
     "2026-10-12": 1352.0,
-    "2026-10-19": 1339.0
+    "2026-10-19": 1339.0,
+    "2026-10-26": 1325.0
   },
   "bots": [
     {
@@ -476,29 +479,50 @@
           "fx_usdkrw": 1352.0
         },
         {
-          "trades": 20,
-          "winrate": 40.0,
-          "pl_ratio": 1.16,
-          "avg_win": 3.84,
-          "avg_loss": 2.86,
+          "trades": 22,
+          "winrate": 40.9,
+          "pl_ratio": 1.11,
+          "avg_win": 3.92,
+          "avg_loss": 3.12,
           "max_win": 7.16,
-          "max_loss": 4.83,
+          "max_loss": 6.3,
           "hold_win": null,
           "hold_loss": null,
-          "expectancy": -0.179,
-          "expectancy_amt": -2163,
+          "expectancy": -0.243,
+          "expectancy_amt": -2181,
           "profit_factor": 0.77,
-          "sum_pnl_amt": -559467,
-          "sum_pnl_gross": -543444,
-          "sum_fee_tax": 16023,
-          "sell_events": 35,
+          "sum_pnl_amt": -566962,
+          "sum_pnl_gross": -550505,
+          "sum_fee_tax": 16457,
+          "sell_events": 42,
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 1,
+          "winrate": 0.0,
+          "pl_ratio": 0.0,
+          "avg_win": null,
+          "avg_loss": 0.97,
+          "max_win": null,
+          "max_loss": 0.97,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": -0.966,
+          "expectancy_amt": -7742,
+          "profit_factor": 0.0,
+          "sum_pnl_amt": -4668,
+          "sum_pnl_gross": -4048,
+          "sum_fee_tax": 621,
+          "sell_events": 2,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
-        "trades": 462,
+        "trades": 465,
         "winrate": 39.4,
         "pl_ratio": 1.57,
         "avg_win": 4.65,
@@ -507,13 +531,13 @@
         "max_loss": 20.1,
         "hold_win": null,
         "hold_loss": null,
-        "expectancy": 0.115,
-        "expectancy_amt": 165,
+        "expectancy": 0.108,
+        "expectancy_amt": 137,
         "profit_factor": 1.02,
-        "sum_pnl_amt": -478336,
-        "sum_pnl_gross": -288673,
-        "sum_fee_tax": 189661,
-        "sell_events": 629,
+        "sum_pnl_amt": -490499,
+        "sum_pnl_gross": -299782,
+        "sum_fee_tax": 190716,
+        "sell_events": 638,
         "week": "TOTAL",
         "label": "전체"
       }
@@ -942,6 +966,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -1389,6 +1434,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -1836,6 +1902,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -2283,6 +2370,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -2730,6 +2838,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -3177,6 +3306,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -3624,6 +3774,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -4071,6 +4242,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -4518,6 +4710,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -4965,6 +5178,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -5412,6 +5646,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -5859,6 +6114,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -6306,6 +6582,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -6753,6 +7050,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -7200,6 +7518,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -7647,6 +7986,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -8094,6 +8454,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -8541,6 +8922,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -8988,6 +9390,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -9435,6 +9858,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -9882,6 +10326,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -10329,6 +10794,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -10776,6 +11262,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -11223,6 +11730,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -11670,6 +12198,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -12117,6 +12666,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -12564,25 +13134,46 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 1,
+          "winrate": 0.0,
+          "pl_ratio": 0.0,
+          "avg_win": null,
+          "avg_loss": 0.97,
+          "max_win": null,
+          "max_loss": 0.97,
+          "hold_win": null,
+          "hold_loss": 20.0,
+          "expectancy": -0.966,
+          "expectancy_amt": -7742,
+          "profit_factor": 0.0,
+          "sum_pnl_amt": -2489,
+          "sum_pnl_gross": -1908,
+          "sum_fee_tax": 581,
+          "sell_events": 1,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
-        "trades": 19,
-        "winrate": 36.8,
-        "pl_ratio": 0.79,
+        "trades": 20,
+        "winrate": 35.0,
+        "pl_ratio": 0.81,
         "avg_win": 2.76,
-        "avg_loss": 2.31,
+        "avg_loss": 2.2,
         "max_win": 5.03,
         "max_loss": 4.78,
         "hold_win": 4.0,
-        "hold_loss": 5.25,
-        "expectancy": -0.441,
-        "expectancy_amt": -4253,
-        "profit_factor": 0.46,
-        "sum_pnl_amt": -58370,
-        "sum_pnl_gross": -43817,
-        "sum_fee_tax": 14552,
-        "sell_events": 43,
+        "hold_loss": 6.38,
+        "expectancy": -0.468,
+        "expectancy_amt": -4427,
+        "profit_factor": 0.44,
+        "sum_pnl_amt": -60859,
+        "sum_pnl_gross": -45725,
+        "sum_fee_tax": 15133,
+        "sell_events": 44,
         "week": "TOTAL",
         "label": "전체"
       }
@@ -13011,6 +13602,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -13458,6 +14070,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -13905,6 +14538,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -14352,6 +15006,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -14799,6 +15474,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -15246,6 +15942,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -15693,6 +16410,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -16140,6 +16878,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -16587,6 +17346,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -17034,6 +17814,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -17481,6 +18282,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -17928,6 +18750,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -18375,6 +19218,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -18822,6 +19686,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -19269,6 +20154,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -19716,6 +20622,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -20163,6 +21090,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -20591,6 +21539,27 @@
           "fx_usdkrw": 1352.0
         },
         {
+          "trades": 2,
+          "winrate": 50.0,
+          "pl_ratio": 0.72,
+          "avg_win": 4.54,
+          "avg_loss": 6.3,
+          "max_win": 4.54,
+          "max_loss": 6.3,
+          "hold_win": 0.0,
+          "hold_loss": 0.0,
+          "expectancy": -0.883,
+          "expectancy_amt": -2364,
+          "profit_factor": 0.72,
+          "sum_pnl_amt": -7495,
+          "sum_pnl_gross": -7062,
+          "sum_fee_tax": 434,
+          "sell_events": 7,
+          "week": "2026-10-19",
+          "label": "10/19~10/23",
+          "fx_usdkrw": 1339.0
+        },
+        {
           "trades": 0,
           "winrate": null,
           "pl_ratio": null,
@@ -20603,32 +21572,32 @@
           "expectancy": null,
           "expectancy_amt": null,
           "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "sell_events": 0,
-          "week": "2026-10-19",
-          "label": "10/19~10/23",
-          "fx_usdkrw": 1339.0
+          "sum_pnl_amt": -2180,
+          "sum_pnl_gross": -2140,
+          "sum_fee_tax": 40,
+          "sell_events": 1,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
-        "trades": 23,
-        "winrate": 47.8,
-        "pl_ratio": 1.03,
-        "avg_win": 5.37,
-        "avg_loss": 5.44,
+        "trades": 25,
+        "winrate": 48.0,
+        "pl_ratio": 1.0,
+        "avg_win": 5.3,
+        "avg_loss": 5.51,
         "max_win": 11.86,
         "max_loss": 8.36,
-        "hold_win": 1.0,
-        "hold_loss": 0.83,
-        "expectancy": -0.272,
-        "expectancy_amt": -428,
-        "profit_factor": 0.94,
-        "sum_pnl_amt": -9854,
-        "sum_pnl_gross": -5670,
-        "sum_fee_tax": 4183,
-        "sell_events": 90,
+        "hold_win": 0.92,
+        "hold_loss": 0.77,
+        "expectancy": -0.321,
+        "expectancy_amt": -583,
+        "profit_factor": 0.92,
+        "sum_pnl_amt": -19529,
+        "sum_pnl_gross": -14872,
+        "sum_fee_tax": 4657,
+        "sell_events": 98,
         "week": "TOTAL",
         "label": "전체"
       }
@@ -21057,6 +22026,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -21504,6 +22494,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -21951,6 +22962,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -22398,6 +23430,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -22845,6 +23898,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -23292,6 +24366,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -23739,6 +24834,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -24186,6 +25302,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -24633,6 +25770,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -25080,6 +26238,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -25527,6 +26706,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -25974,6 +27174,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -26421,6 +27642,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -26868,6 +28110,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -27315,6 +28578,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -27762,6 +29046,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -28209,6 +29514,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -28656,6 +29982,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -29103,6 +30450,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -29550,6 +30918,27 @@
           "week": "2026-10-19",
           "label": "10/19~10/23",
           "fx_usdkrw": 1339.0
+        },
+        {
+          "trades": 0,
+          "winrate": null,
+          "pl_ratio": null,
+          "avg_win": null,
+          "avg_loss": null,
+          "max_win": null,
+          "max_loss": null,
+          "hold_win": null,
+          "hold_loss": null,
+          "expectancy": null,
+          "expectancy_amt": null,
+          "profit_factor": null,
+          "sum_pnl_amt": 0,
+          "sum_pnl_gross": 0,
+          "sum_fee_tax": 0,
+          "sell_events": 0,
+          "week": "2026-10-26",
+          "label": "10/26~10/30",
+          "fx_usdkrw": 1325.0
         }
       ],
       "total": {
@@ -29575,30 +30964,30 @@
     }
   ],
   "quarter": {
-    "weeks": 10,
+    "weeks": 11,
     "from": "2026-08-17",
-    "to": "2026-10-19",
-    "label": "08/17~10/23",
+    "to": "2026-10-26",
+    "label": "08/17~10/30",
     "clamped_to_cutoff": true,
     "clamp_from": "2026-08-17",
     "rows": [
       {
-        "trades": 239,
-        "winrate": 41.4,
+        "trades": 242,
+        "winrate": 41.3,
         "pl_ratio": 1.41,
         "avg_win": 4.65,
-        "avg_loss": 2.95,
+        "avg_loss": 2.96,
         "max_win": 29.58,
         "max_loss": 8.36,
         "hold_win": null,
         "hold_loss": null,
-        "expectancy": 0.2,
-        "expectancy_amt": -37,
-        "profit_factor": 1.0,
-        "sum_pnl_amt": -563180,
-        "sum_pnl_gross": -408104,
-        "sum_fee_tax": 155076,
-        "sell_events": 629,
+        "expectancy": 0.186,
+        "expectancy_amt": -88,
+        "profit_factor": 0.99,
+        "sum_pnl_amt": -575343,
+        "sum_pnl_gross": -419213,
+        "sum_fee_tax": 156130,
+        "sell_events": 638,
         "key": "통합",
         "group": "bot",
         "unit": "혼합",
@@ -29935,22 +31324,22 @@
         "label": "UP_TR_ORD_1A0"
       },
       {
-        "trades": 23,
-        "winrate": 47.8,
-        "pl_ratio": 1.03,
-        "avg_win": 5.37,
-        "avg_loss": 5.44,
+        "trades": 25,
+        "winrate": 48.0,
+        "pl_ratio": 1.0,
+        "avg_win": 5.3,
+        "avg_loss": 5.51,
         "max_win": 11.86,
         "max_loss": 8.36,
-        "hold_win": 1.0,
-        "hold_loss": 0.83,
-        "expectancy": -0.272,
-        "expectancy_amt": -428,
-        "profit_factor": 0.94,
-        "sum_pnl_amt": -9853,
-        "sum_pnl_gross": -5670,
-        "sum_fee_tax": 4183,
-        "sell_events": 90,
+        "hold_win": 0.92,
+        "hold_loss": 0.77,
+        "expectancy": -0.321,
+        "expectancy_amt": -583,
+        "profit_factor": 0.92,
+        "sum_pnl_amt": -19528,
+        "sum_pnl_gross": -14871,
+        "sum_fee_tax": 4657,
+        "sell_events": 98,
         "key": "바이낸스SCO-Top3",
         "group": "bot",
         "unit": "일",
@@ -30001,22 +31390,22 @@
         "label": "US_TR_JEO2"
       },
       {
-        "trades": 19,
-        "winrate": 36.8,
-        "pl_ratio": 0.79,
+        "trades": 20,
+        "winrate": 35.0,
+        "pl_ratio": 0.81,
         "avg_win": 2.76,
-        "avg_loss": 2.31,
+        "avg_loss": 2.2,
         "max_win": 5.03,
         "max_loss": 4.78,
         "hold_win": 4.0,
-        "hold_loss": 5.25,
-        "expectancy": -0.441,
-        "expectancy_amt": -4253,
-        "profit_factor": 0.46,
-        "sum_pnl_amt": -58370,
-        "sum_pnl_gross": -43818,
-        "sum_fee_tax": 14552,
-        "sell_events": 43,
+        "hold_loss": 6.38,
+        "expectancy": -0.468,
+        "expectancy_amt": -4427,
+        "profit_factor": 0.44,
+        "sum_pnl_amt": -60858,
+        "sum_pnl_gross": -45726,
+        "sum_fee_tax": 15132,
+        "sell_events": 44,
         "key": "US_TR_ORD_1A0",
         "group": "bot",
         "unit": "일",
@@ -30399,10 +31788,10 @@
     ]
   },
   "drift": {
-    "count": 56,
+    "count": 57,
     "ghost": 47,
     "cutoff": "2026-08-17",
-    "checked_at": "2026-10-24 12:35",
+    "checked_at": "2026-10-26 20:05",
     "rows": [
       {
         "acct": "8042",
@@ -30525,7 +31914,7 @@
         "ghost": true
       }
     ],
-    "more": 41,
+    "more": 42,
     "fix_hint": "python 0order/make_position_baseline.py --apply"
   },
   "daily": {
@@ -30626,9 +32015,11 @@
       "2026-10-20",
       "2026-10-21",
       "2026-10-22",
-      "2026-10-23"
+      "2026-10-23",
+      "2026-10-24",
+      "2026-10-26"
     ],
-    "today": "2026-10-24",
+    "today": "2026-10-26",
     "realize_from": "2026-08-17",
     "days": {
       "2026-06-12": {
@@ -40037,6 +41428,131 @@
             "unit": "일",
             "day": "2026-10-23",
             "label": "10/23(금)"
+          }
+        ]
+      },
+      "2026-10-24": {
+        "label": "10/24(토)",
+        "rows": [
+          {
+            "trades": 2,
+            "winrate": 50.0,
+            "pl_ratio": 0.72,
+            "avg_win": 4.54,
+            "avg_loss": 6.3,
+            "max_win": 4.54,
+            "max_loss": 6.3,
+            "hold_win": null,
+            "hold_loss": null,
+            "expectancy": -0.883,
+            "expectancy_amt": -2364,
+            "profit_factor": 0.72,
+            "sum_pnl_amt": -7495,
+            "sum_pnl_gross": -7062,
+            "sum_fee_tax": 434,
+            "sell_events": 7,
+            "key": "통합",
+            "group": "bot",
+            "unit": "혼합",
+            "day": "2026-10-24",
+            "label": "10/24(토)"
+          },
+          {
+            "trades": 2,
+            "winrate": 50.0,
+            "pl_ratio": 0.72,
+            "avg_win": 4.54,
+            "avg_loss": 6.3,
+            "max_win": 4.54,
+            "max_loss": 6.3,
+            "hold_win": 0.0,
+            "hold_loss": 0.0,
+            "expectancy": -0.883,
+            "expectancy_amt": -2364,
+            "profit_factor": 0.72,
+            "sum_pnl_amt": -7495,
+            "sum_pnl_gross": -7062,
+            "sum_fee_tax": 434,
+            "sell_events": 7,
+            "key": "바이낸스SCO-Top3",
+            "group": "bot",
+            "unit": "일",
+            "day": "2026-10-24",
+            "label": "10/24(토)"
+          }
+        ]
+      },
+      "2026-10-26": {
+        "label": "10/26(월)",
+        "rows": [
+          {
+            "trades": 1,
+            "winrate": 0.0,
+            "pl_ratio": 0.0,
+            "avg_win": null,
+            "avg_loss": 0.97,
+            "max_win": null,
+            "max_loss": 0.97,
+            "hold_win": null,
+            "hold_loss": null,
+            "expectancy": -0.966,
+            "expectancy_amt": -7742,
+            "profit_factor": 0.0,
+            "sum_pnl_amt": -4668,
+            "sum_pnl_gross": -4048,
+            "sum_fee_tax": 621,
+            "sell_events": 2,
+            "key": "통합",
+            "group": "bot",
+            "unit": "혼합",
+            "day": "2026-10-26",
+            "label": "10/26(월)"
+          },
+          {
+            "trades": 1,
+            "winrate": 0.0,
+            "pl_ratio": 0.0,
+            "avg_win": null,
+            "avg_loss": 0.97,
+            "max_win": null,
+            "max_loss": 0.97,
+            "hold_win": null,
+            "hold_loss": 20.0,
+            "expectancy": -0.966,
+            "expectancy_amt": -7742,
+            "profit_factor": 0.0,
+            "sum_pnl_amt": -2489,
+            "sum_pnl_gross": -1908,
+            "sum_fee_tax": 581,
+            "sell_events": 1,
+            "key": "US_TR_ORD_1A0",
+            "group": "bot",
+            "unit": "일",
+            "day": "2026-10-26",
+            "label": "10/26(월)"
+          },
+          {
+            "trades": 0,
+            "winrate": null,
+            "pl_ratio": null,
+            "avg_win": null,
+            "avg_loss": null,
+            "max_win": null,
+            "max_loss": null,
+            "hold_win": null,
+            "hold_loss": null,
+            "expectancy": null,
+            "expectancy_amt": null,
+            "profit_factor": null,
+            "sum_pnl_amt": -2180,
+            "sum_pnl_gross": -2140,
+            "sum_fee_tax": 40,
+            "sell_events": 1,
+            "key": "바이낸스SCO-Top3",
+            "group": "bot",
+            "unit": "일",
+            "day": "2026-10-26",
+            "label": "10/26(월)"
           }
         ]
       }
