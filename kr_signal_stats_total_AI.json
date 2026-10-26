@@ -1,17 +1,17 @@
 {
-    "avg_sco": -4.3,
+    "avg_sco": -4.1,
     "total_cnt": 151,
     "valid_cnt": 150,
     "atr_excl_cnt": 0,
-    "sco_pos": 39,
-    "sco_neg": 111,
-    "sco_strong": 12,
-    "sco_zone_neg": 111,
-    "sco_zone_weak": 25,
-    "sco_zone_mid": 2,
-    "sco_zone_strong": 12,
-    "strong_count": 12,
-    "top3_avg_sco": 15.0,
+    "sco_pos": 42,
+    "sco_neg": 108,
+    "sco_strong": 11,
+    "sco_zone_neg": 108,
+    "sco_zone_weak": 23,
+    "sco_zone_mid": 8,
+    "sco_zone_strong": 11,
+    "strong_count": 11,
+    "top3_avg_sco": 15.67,
     "top3_avg_pos": 1.0,
     "kospi_trend": "RED",
     "kosdaq_trend": "-",
@@ -22,51 +22,47 @@
     "nikkei_trend": "-",
     "kospi_mult": 0.0,
     "nasdaq_mult": 0.1,
-    "invest_pct": 22.7,
-    "invest_amount_total": 22659165,
+    "invest_pct": 24.0,
+    "invest_amount_total": 23999999,
     "internal_weights": [
-        35.7965,
-        30.6827,
-        24.2905,
-        9.2304
+        46.3918,
+        27.8351,
+        25.7732
     ],
-    "n_holdings": 4,
+    "n_holdings": 3,
     "holdings_tickers": [
         "NOW",
-        "CME",
         "ZS",
-        "053800"
+        "CME"
     ],
     "final_ratios": {
-        "NOW": 8.59,
-        "CME": 7.36,
-        "ZS": 4.86,
-        "053800": 1.85
+        "NOW": 11.13,
+        "ZS": 6.68,
+        "CME": 6.19
     },
     "top3_tickers": [
         "NOW",
-        "CME",
-        "ZS"
+        "ZS",
+        "CME"
     ],
     "allocation_map_used": [
-        35,
+        45,
         30,
-        25,
-        10
+        25
     ],
-    "ai_core_score": 6.74,
-    "ai_core_dedup_score": 3.38,
-    "ai_core_gap": 3.36,
+    "ai_core_score": 7.22,
+    "ai_core_dedup_score": 3.94,
+    "ai_core_gap": 3.28,
     "ai_core_state": "AI Weak",
     "ai_breadth_state": "Negative",
     "ai_breadth_strong": 2,
     "ai_breadth_mid": 2,
-    "ai_breadth_weak": 8,
-    "ai_breadth_negative": 22,
+    "ai_breadth_weak": 7,
+    "ai_breadth_negative": 23,
     "ai_duplicate_impact": {
         "total_entries": 50,
-        "unique_ticker_count": 39,
-        "duplicate_ratio": 0.22,
+        "unique_ticker_count": 40,
+        "duplicate_ratio": 0.2,
         "duplicate_level": "보통",
         "top_contributor": "PLTR",
         "top_contributor_count": 3,
@@ -74,7 +70,7 @@
             {
                 "ticker": "PLTR",
                 "count": 3,
-                "Signal_sco": 7.5
+                "Signal_sco": 8.5
             },
             {
                 "ticker": "042510",
@@ -84,17 +80,17 @@
             {
                 "ticker": "053800",
                 "count": 2,
-                "Signal_sco": 11.0
+                "Signal_sco": 8.5
             },
             {
                 "ticker": "064400",
                 "count": 2,
-                "Signal_sco": 6.25
+                "Signal_sco": 9.0
             },
             {
-                "ticker": "136540",
+                "ticker": "ADBE",
                 "count": 2,
-                "Signal_sco": 3.5
+                "Signal_sco": 11.75
             }
         ]
     },
@@ -102,32 +98,32 @@
         {
             "basket": "AI_AGENT_AUTOMATION_RPA",
             "basket_name_kr": "AI_에이전트자동화",
-            "score": 12.42,
+            "score": 12.56,
             "valid_count": 5
         },
         {
             "basket": "AI_SOFTWARE_PLATFORM",
             "basket_name_kr": "AI_소프트웨어",
-            "score": 11.97,
+            "score": 12.32,
             "valid_count": 7
-        },
-        {
-            "basket": "AI_DATA_IDENTITY_SECURITY",
-            "basket_name_kr": "AI_데이터보안",
-            "score": 8.38,
-            "valid_count": 9
         },
         {
             "basket": "AI_CYBER_SECURITY",
             "basket_name_kr": "AI_사이버보안",
-            "score": 8.29,
+            "score": 9.35,
             "valid_count": 12
         },
         {
-            "basket": "AI_HEALTHCARE_BIO",
-            "basket_name_kr": "AI_헬스케어바이오",
-            "score": 6.42,
-            "valid_count": 10
+            "basket": "AI_DATA_IDENTITY_SECURITY",
+            "basket_name_kr": "AI_데이터보안",
+            "score": 8.62,
+            "valid_count": 9
+        },
+        {
+            "basket": "AI_DATA_PIPELINE_DATABASE",
+            "basket_name_kr": "AI_데이터플랫폼",
+            "score": 7.0,
+            "valid_count": 7
         }
     ],
     "top_ai_tickers": [
@@ -135,7 +131,7 @@
             "ticker": "NOW",
             "name": "NOW",
             "Signal_sco": 16.0,
-            "return_3m": 44.42,
+            "return_3m": 42.21,
             "Final_score": 1.0,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
@@ -143,32 +139,32 @@
             ]
         },
         {
-            "ticker": "CME",
-            "name": "CME",
-            "Signal_sco": 16.0,
-            "return_3m": 14.94,
-            "Final_score": 0.9468,
-            "baskets": [
-                "AI_FINTECH_TRADING"
-            ]
-        },
-        {
             "ticker": "ZS",
             "name": "ZS",
-            "Signal_sco": 13.0,
-            "return_3m": 71.95,
-            "Final_score": 0.9411,
+            "Signal_sco": 15.0,
+            "return_3m": 72.26,
+            "Final_score": 0.9804,
             "baskets": [
                 "AI_CYBER_SECURITY",
                 "AI_DATA_IDENTITY_SECURITY"
             ]
         },
         {
+            "ticker": "CME",
+            "name": "CME",
+            "Signal_sco": 16.0,
+            "return_3m": 15.58,
+            "Final_score": 0.9441,
+            "baskets": [
+                "AI_FINTECH_TRADING"
+            ]
+        },
+        {
             "ticker": "PTC",
             "name": "PTC",
-            "Signal_sco": 11.5,
-            "return_3m": 42.19,
-            "Final_score": 0.9116,
+            "Signal_sco": 12.0,
+            "return_3m": 41.58,
+            "Final_score": 0.9208,
             "baskets": [
                 "AI_DIGITAL_TWIN_SIMULATION"
             ]
@@ -177,61 +173,59 @@
             "ticker": "CRM",
             "name": "CRM",
             "Signal_sco": 14.0,
-            "return_3m": 37.79,
-            "Final_score": 0.9021,
+            "return_3m": 34.79,
+            "Final_score": 0.8942,
             "baskets": [
                 "AI_SOFTWARE_PLATFORM",
                 "AI_AGENT_AUTOMATION_RPA"
             ]
         },
         {
-            "ticker": "053800",
-            "name": "안랩",
-            "Signal_sco": 11.0,
-            "return_3m": 41.11,
-            "Final_score": 0.8775,
+            "ticker": "ADSK",
+            "name": "ADSK",
+            "Signal_sco": 13.0,
+            "return_3m": 6.51,
+            "Final_score": 0.8671,
             "baskets": [
-                "AI_CYBER_SECURITY",
-                "AI_DATA_IDENTITY_SECURITY"
+                "AI_DIGITAL_TWIN_SIMULATION"
+            ]
+        },
+        {
+            "ticker": "HXGBY",
+            "name": "HXGBY",
+            "Signal_sco": 14.0,
+            "return_3m": 11.2,
+            "Final_score": 0.8633,
+            "baskets": [
+                "AI_ROBOT_COMPONENT"
             ]
         },
         {
             "ticker": "ISRG",
             "name": "ISRG",
-            "Signal_sco": 11.75,
-            "return_3m": 28.14,
-            "Final_score": 0.8726,
+            "Signal_sco": 12.25,
+            "return_3m": 27.82,
+            "Final_score": 0.8448,
             "baskets": [
                 "AI_HUMANOID_ROBOT",
                 "AI_HEALTHCARE_BIO"
             ]
         },
         {
-            "ticker": "ADSK",
-            "name": "ADSK",
-            "Signal_sco": 13.0,
-            "return_3m": 7.33,
-            "Final_score": 0.8718,
+            "ticker": "BUG",
+            "name": "BUG",
+            "Signal_sco": 9.75,
+            "return_3m": 35.03,
+            "Final_score": 0.8383,
             "baskets": [
-                "AI_DIGITAL_TWIN_SIMULATION"
-            ]
-        },
-        {
-            "ticker": "ADBE",
-            "name": "ADBE",
-            "Signal_sco": 12.0,
-            "return_3m": 6.42,
-            "Final_score": 0.8343,
-            "baskets": [
-                "AI_SOFTWARE_PLATFORM",
-                "AI_CONTENT_ADS_MEDIA"
+                "AI_CYBER_SECURITY"
             ]
         },
         {
             "ticker": "042510",
             "name": "라온시큐어",
             "Signal_sco": 7.5,
-            "return_3m": 124.9,
+            "return_3m": 123.37,
             "Final_score": 0.833,
             "baskets": [
                 "AI_CYBER_SECURITY",
@@ -240,5 +234,5 @@
         }
     ],
     "ai_basket_count": 34,
-    "update_time": "2026-10-24 12:28:53"
+    "update_time": "2026-10-27 06:03:51"
 }
