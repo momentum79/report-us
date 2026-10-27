@@ -1,59 +1,59 @@
 {
-    "avg_sco": -4.1,
+    "avg_sco": -4.4,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 35,
-    "sco_neg": 95,
-    "sco_strong": 11,
-    "sco_zone_neg": 95,
-    "sco_zone_weak": 18,
-    "sco_zone_mid": 6,
-    "sco_zone_strong": 11,
-    "strong_count": 10,
-    "top3_avg_sco": 14.67,
-    "top3_avg_pos": 1.33,
-    "kospi_trend": "RED",
+    "sco_pos": 32,
+    "sco_neg": 98,
+    "sco_strong": 10,
+    "sco_zone_neg": 98,
+    "sco_zone_weak": 15,
+    "sco_zone_mid": 7,
+    "sco_zone_strong": 10,
+    "strong_count": 9,
+    "top3_avg_sco": 13.5,
+    "top3_avg_pos": 2.0,
+    "kospi_trend": "PURPLE",
     "kosdaq_trend": "RED",
     "sp500_trend": "PURPLE",
     "nasdaq_trend": "PURPLE",
-    "kospi_sco": -11.5,
-    "kosdaq_sco": -10.25,
-    "sp500_sco": -1.0,
-    "nasdaq_sco": -5.5,
+    "kospi_sco": -10.25,
+    "kosdaq_sco": -10.75,
+    "sp500_sco": -1.75,
+    "nasdaq_sco": -5.0,
     "euro_trend": "-",
-    "india_trend": "-",
+    "india_trend": "RED",
     "nikkei_trend": "RED",
     "shanghai_trend": "RED",
-    "hongkong_trend": "RED",
+    "hongkong_trend": "-",
     "brazil_trend": "RED",
-    "kospi_mult": 0.0,
+    "kospi_mult": 0.1,
     "nasdaq_mult": 0.1,
     "invest_pct": 0.0,
     "invest_amount_total": 0,
     "internal_weights": [
-        33.8422,
-        30.5344,
-        25.4453,
-        10.1781
+        35.533,
+        28.934,
+        25.3807,
+        10.1523
     ],
     "n_holdings": 4,
     "holdings_tickers": [
+        "PDBC",
         "XLE",
         "XLV",
-        "PDBC",
         "SCHD"
     ],
     "final_ratios": {
+        "PDBC": 0.0,
         "XLE": 0.0,
         "XLV": 0.0,
-        "PDBC": 0.0,
         "SCHD": 0.0
     },
     "top3_tickers": [
+        "PDBC",
         "XLE",
-        "XLV",
-        "PDBC"
+        "XLV"
     ],
     "allocation_map_used": [
         35,
@@ -67,7 +67,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-10-27 06:03:08",
+    "update_time": "2026-10-28 06:03:01",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -75,6 +75,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1334.3
+        "usd_krw": 1332.6
     }
 }
