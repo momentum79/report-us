@@ -1,6 +1,6 @@
 {
-  "update_time": "2026-10-28 06:05:47",
-  "elapsed_sec": 3.02,
+  "update_time": "2026-10-28 19:44:59",
+  "elapsed_sec": 5.77,
   "too_many_threshold": 10,
   "target_conditions": [
     {
@@ -46,10 +46,44 @@
     {
       "seq": "2",
       "name": "예상체결상위",
-      "total_count": 0,
+      "total_count": 3,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "028050",
+          "name": "삼성E&A",
+          "price": 63300,
+          "rate": 0.177,
+          "volume": 4196382,
+          "trade_amount_eok": 2678.9885045,
+          "contract_strength": "91.32",
+          "nxt": "선"
+        },
+        {
+          "rank": 2,
+          "code": "411080",
+          "name": "샌즈랩",
+          "price": 8730,
+          "rate": 0.646,
+          "volume": 14585662,
+          "trade_amount_eok": 1299.92,
+          "contract_strength": "91.38",
+          "nxt": ""
+        },
+        {
+          "rank": 3,
+          "code": "419050",
+          "name": "삼기에너지솔루션즈",
+          "price": 2540,
+          "rate": 0.367,
+          "volume": 34611633,
+          "trade_amount_eok": 940.73749231,
+          "contract_strength": "81.44",
+          "nxt": ""
+        }
+      ],
       "error": ""
     },
     {
@@ -64,10 +98,22 @@
     {
       "seq": "5",
       "name": "★ 삘추세231230",
-      "total_count": 0,
+      "total_count": 1,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "030530",
+          "name": "원익홀딩스",
+          "price": 28000,
+          "rate": 1.789,
+          "volume": 6598001,
+          "trade_amount_eok": 1864.79,
+          "contract_strength": "104.62",
+          "nxt": ""
+        }
+      ],
       "error": ""
     }
   ]

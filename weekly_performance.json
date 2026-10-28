@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-28 06:11:04",
+  "updated": "2026-10-28 19:51:33",
   "weeks_limit": 8,
   "week_keys": [
     "2026-09-07",
@@ -200,10 +200,10 @@
           "expectancy": -0.195,
           "expectancy_amt": 861,
           "profit_factor": 1.11,
-          "sum_pnl_amt": -137742,
-          "sum_pnl_gross": -133866,
-          "sum_fee_tax": 3876,
-          "sell_events": 10,
+          "sum_pnl_amt": -172413,
+          "sum_pnl_gross": -168485,
+          "sum_fee_tax": 3928,
+          "sell_events": 11,
           "week": "2026-10-26",
           "label": "10/26~10/30",
           "fx_usdkrw": 1333.0
@@ -222,10 +222,10 @@
         "expectancy": 0.324,
         "expectancy_amt": 1934,
         "profit_factor": 1.21,
-        "sum_pnl_amt": -253297,
-        "sum_pnl_gross": -137470,
-        "sum_fee_tax": 115826,
-        "sell_events": 533,
+        "sum_pnl_amt": -287968,
+        "sum_pnl_gross": -172089,
+        "sum_fee_tax": 115878,
+        "sell_events": 534,
         "week": "TOTAL",
         "label": "최근 8주"
       }
@@ -1175,10 +1175,10 @@
           "expectancy": null,
           "expectancy_amt": null,
           "profit_factor": null,
-          "sum_pnl_amt": -122447,
-          "sum_pnl_gross": -122322,
-          "sum_fee_tax": 124,
-          "sell_events": 1,
+          "sum_pnl_amt": -157118,
+          "sum_pnl_gross": -156941,
+          "sum_fee_tax": 176,
+          "sell_events": 2,
           "week": "2026-10-26",
           "label": "10/26~10/30",
           "fx_usdkrw": 1333.0
@@ -1197,10 +1197,10 @@
         "expectancy": null,
         "expectancy_amt": null,
         "profit_factor": null,
-        "sum_pnl_amt": -700183,
-        "sum_pnl_gross": -699333,
-        "sum_fee_tax": 849,
-        "sell_events": 4,
+        "sum_pnl_amt": -734854,
+        "sum_pnl_gross": -733952,
+        "sum_fee_tax": 901,
+        "sell_events": 5,
         "week": "TOTAL",
         "label": "최근 8주"
       }
@@ -11757,10 +11757,10 @@
         "expectancy": 0.267,
         "expectancy_amt": 1592,
         "profit_factor": 1.17,
-        "sum_pnl_amt": -345924,
-        "sum_pnl_gross": -213740,
-        "sum_fee_tax": 132184,
-        "sell_events": 585,
+        "sum_pnl_amt": -380595,
+        "sum_pnl_gross": -248359,
+        "sum_fee_tax": 132236,
+        "sell_events": 586,
         "key": "통합",
         "group": "bot",
         "unit": "혼합",
@@ -12263,10 +12263,10 @@
         "expectancy": 1.542,
         "expectancy_amt": 60798,
         "profit_factor": null,
-        "sum_pnl_amt": -650734,
-        "sum_pnl_gross": -648786,
-        "sum_fee_tax": 1949,
-        "sell_events": 33,
+        "sum_pnl_amt": -685405,
+        "sum_pnl_gross": -683404,
+        "sum_fee_tax": 2001,
+        "sell_events": 34,
         "key": "2X단타",
         "group": "bot",
         "unit": "분",
@@ -12385,10 +12385,10 @@
     ]
   },
   "drift": {
-    "count": 57,
-    "ghost": 47,
+    "count": 56,
+    "ghost": 48,
     "cutoff": "2026-08-17",
-    "checked_at": "2026-10-28 06:11",
+    "checked_at": "2026-10-28 19:51",
     "rows": [
       {
         "acct": "8042",
@@ -12511,7 +12511,7 @@
         "ghost": true
       }
     ],
-    "more": 42,
+    "more": 41,
     "fix_hint": "python 0order/make_position_baseline.py --apply"
   },
   "retired_tags": [
@@ -12521,8 +12521,8 @@
   ],
   "coin_week": {
     "label": "10/26~11/1",
-    "total": -14836,
-    "up_total": -5359,
+    "total": -14351,
+    "up_total": -4874,
     "bn_total": -9477,
     "usdkrw": 1333.0,
     "has_data": true,
@@ -12541,9 +12541,9 @@
       },
       {
         "label": "10/28 수",
-        "up": null,
+        "up": 485,
         "bn": null,
-        "sum": null
+        "sum": 485
       },
       {
         "label": "10/29 목",
@@ -12574,7 +12574,7 @@
       {
         "venue": "업비트",
         "bot": "v3 스캘프",
-        "amt": -5359
+        "amt": -4874
       },
       {
         "venue": "바낸",
@@ -12827,7 +12827,7 @@
       "ZKUSDT",
       "ZROUSDT"
     ],
-    "total": -10.57,
+    "total": -11.58,
     "has_data": true,
     "days": [
       {
@@ -12908,9 +12908,9 @@
         "AXSUSDT": null,
         "BATUSDT": null,
         "BMTUSDT": null,
-        "BTCUSDT": -0.28,
+        "BTCUSDT": -0.66,
         "BTWUSDT": null,
-        "ETHUSDT": -0.3,
+        "ETHUSDT": -0.94,
         "INJUSDT": null,
         "IRYSUSDT": null,
         "MAGICUSDT": null,
@@ -12930,7 +12930,7 @@
         "ZECUSDT": null,
         "ZKUSDT": null,
         "ZROUSDT": null,
-        "total": -0.58
+        "total": -1.59
       },
       {
         "label": "10/29 목",

@@ -1,13 +1,13 @@
 {
-    "avg_sco": -4.4,
+    "avg_sco": -4.1,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 32,
-    "sco_neg": 98,
+    "sco_pos": 33,
+    "sco_neg": 97,
     "sco_strong": 10,
-    "sco_zone_neg": 98,
-    "sco_zone_weak": 15,
+    "sco_zone_neg": 97,
+    "sco_zone_weak": 16,
     "sco_zone_mid": 7,
     "sco_zone_strong": 10,
     "strong_count": 9,
@@ -17,13 +17,13 @@
     "kosdaq_trend": "RED",
     "sp500_trend": "PURPLE",
     "nasdaq_trend": "PURPLE",
-    "kospi_sco": -10.25,
-    "kosdaq_sco": -10.75,
+    "kospi_sco": -7.25,
+    "kosdaq_sco": -9.5,
     "sp500_sco": -1.75,
     "nasdaq_sco": -5.0,
     "euro_trend": "-",
     "india_trend": "RED",
-    "nikkei_trend": "RED",
+    "nikkei_trend": "PURPLE",
     "shanghai_trend": "RED",
     "hongkong_trend": "-",
     "brazil_trend": "RED",
@@ -67,7 +67,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-10-28 06:03:01",
+    "update_time": "2026-10-28 19:43:36",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -75,6 +75,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1332.6
+        "usd_krw": 1334.3
     }
 }

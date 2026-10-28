@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-28 06:11:03",
+  "updated": "2026-10-28 19:51:32",
   "weeks_limit": null,
   "week_keys": [
     "2026-06-08",
@@ -512,10 +512,10 @@
           "expectancy": -0.195,
           "expectancy_amt": 861,
           "profit_factor": 1.11,
-          "sum_pnl_amt": -137742,
-          "sum_pnl_gross": -133866,
-          "sum_fee_tax": 3876,
-          "sell_events": 10,
+          "sum_pnl_amt": -172413,
+          "sum_pnl_gross": -168485,
+          "sum_fee_tax": 3928,
+          "sell_events": 11,
           "week": "2026-10-26",
           "label": "10/26~10/30",
           "fx_usdkrw": 1333.0
@@ -534,10 +534,10 @@
         "expectancy": 0.106,
         "expectancy_amt": 164,
         "profit_factor": 1.02,
-        "sum_pnl_amt": -623573,
-        "sum_pnl_gross": -429600,
-        "sum_fee_tax": 193971,
-        "sell_events": 646,
+        "sum_pnl_amt": -658244,
+        "sum_pnl_gross": -464219,
+        "sum_fee_tax": 194023,
+        "sell_events": 647,
         "week": "TOTAL",
         "label": "전체"
       }
@@ -2852,10 +2852,10 @@
           "expectancy": null,
           "expectancy_amt": null,
           "profit_factor": null,
-          "sum_pnl_amt": -122447,
-          "sum_pnl_gross": -122322,
-          "sum_fee_tax": 124,
-          "sell_events": 1,
+          "sum_pnl_amt": -157118,
+          "sum_pnl_gross": -156941,
+          "sum_fee_tax": 176,
+          "sell_events": 2,
           "week": "2026-10-26",
           "label": "10/26~10/30",
           "fx_usdkrw": 1333.0
@@ -2874,10 +2874,10 @@
         "expectancy": 0.312,
         "expectancy_amt": 1872,
         "profit_factor": 1.47,
-        "sum_pnl_amt": -458500,
-        "sum_pnl_gross": -445860,
-        "sum_fee_tax": 12638,
-        "sell_events": 42,
+        "sum_pnl_amt": -493171,
+        "sum_pnl_gross": -480479,
+        "sum_fee_tax": 12690,
+        "sell_events": 43,
         "week": "TOTAL",
         "label": "전체"
       }
@@ -30984,10 +30984,10 @@
         "expectancy": 0.18,
         "expectancy_amt": -30,
         "profit_factor": 1.0,
-        "sum_pnl_amt": -708417,
-        "sum_pnl_gross": -549031,
-        "sum_fee_tax": 159386,
-        "sell_events": 646,
+        "sum_pnl_amt": -743088,
+        "sum_pnl_gross": -583650,
+        "sum_fee_tax": 159438,
+        "sell_events": 647,
         "key": "통합",
         "group": "bot",
         "unit": "혼합",
@@ -31556,10 +31556,10 @@
         "expectancy": 8.559,
         "expectancy_amt": 74837,
         "profit_factor": null,
-        "sum_pnl_amt": -563396,
-        "sum_pnl_gross": -561168,
-        "sum_fee_tax": 2228,
-        "sell_events": 42,
+        "sum_pnl_amt": -598067,
+        "sum_pnl_gross": -595787,
+        "sum_fee_tax": 2280,
+        "sell_events": 43,
         "key": "2X단타",
         "group": "bot",
         "unit": "분",
@@ -31788,10 +31788,10 @@
     ]
   },
   "drift": {
-    "count": 57,
-    "ghost": 47,
+    "count": 56,
+    "ghost": 48,
     "cutoff": "2026-08-17",
-    "checked_at": "2026-10-28 06:11",
+    "checked_at": "2026-10-28 19:51",
     "rows": [
       {
         "acct": "8042",
@@ -31914,7 +31914,7 @@
         "ghost": true
       }
     ],
-    "more": 42,
+    "more": 41,
     "fix_hint": "python 0order/make_position_baseline.py --apply"
   },
   "daily": {
@@ -32018,7 +32018,8 @@
       "2026-10-23",
       "2026-10-24",
       "2026-10-26",
-      "2026-10-27"
+      "2026-10-27",
+      "2026-10-28"
     ],
     "today": "2026-10-28",
     "realize_from": "2026-08-17",
@@ -41697,6 +41698,57 @@
             "unit": "일",
             "day": "2026-10-27",
             "label": "10/27(화)"
+          }
+        ]
+      },
+      "2026-10-28": {
+        "label": "10/28(수)",
+        "rows": [
+          {
+            "trades": 0,
+            "winrate": null,
+            "pl_ratio": null,
+            "avg_win": null,
+            "avg_loss": null,
+            "max_win": null,
+            "max_loss": null,
+            "hold_win": null,
+            "hold_loss": null,
+            "expectancy": null,
+            "expectancy_amt": null,
+            "profit_factor": null,
+            "sum_pnl_amt": -34671,
+            "sum_pnl_gross": -34619,
+            "sum_fee_tax": 52,
+            "sell_events": 1,
+            "key": "통합",
+            "group": "bot",
+            "unit": "혼합",
+            "day": "2026-10-28",
+            "label": "10/28(수)"
+          },
+          {
+            "trades": 0,
+            "winrate": null,
+            "pl_ratio": null,
+            "avg_win": null,
+            "avg_loss": null,
+            "max_win": null,
+            "max_loss": null,
+            "hold_win": null,
+            "hold_loss": null,
+            "expectancy": null,
+            "expectancy_amt": null,
+            "profit_factor": null,
+            "sum_pnl_amt": -34671,
+            "sum_pnl_gross": -34619,
+            "sum_fee_tax": 52,
+            "sell_events": 1,
+            "key": "2X단타",
+            "group": "bot",
+            "unit": "분",
+            "day": "2026-10-28",
+            "label": "10/28(수)"
           }
         ]
       }
