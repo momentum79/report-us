@@ -1,6 +1,6 @@
 {
-  "update_time": "2026-10-28 19:44:59",
-  "elapsed_sec": 5.77,
+  "update_time": "2026-10-31 09:31:12",
+  "elapsed_sec": 7.29,
   "too_many_threshold": 10,
   "target_conditions": [
     {
@@ -46,42 +46,53 @@
     {
       "seq": "2",
       "name": "예상체결상위",
-      "total_count": 3,
+      "total_count": 4,
       "too_many": false,
       "message": "",
       "stocks": [
         {
           "rank": 1,
-          "code": "028050",
-          "name": "삼성E&A",
-          "price": 63300,
-          "rate": 0.177,
-          "volume": 4196382,
-          "trade_amount_eok": 2678.9885045,
-          "contract_strength": "91.32",
-          "nxt": "선"
+          "code": "011200",
+          "name": "HMM",
+          "price": 23250,
+          "rate": 0.426,
+          "volume": 1887193,
+          "trade_amount_eok": 436.54109475,
+          "contract_strength": "118.70",
+          "nxt": "NXT선"
         },
         {
           "rank": 2,
-          "code": "411080",
-          "name": "샌즈랩",
-          "price": 8730,
-          "rate": 0.646,
-          "volume": 14585662,
-          "trade_amount_eok": 1299.92,
-          "contract_strength": "91.38",
+          "code": "030530",
+          "name": "원익홀딩스",
+          "price": 28850,
+          "rate": 0.285,
+          "volume": 4995151,
+          "trade_amount_eok": 1463.5437995,
+          "contract_strength": "102.32",
           "nxt": ""
         },
         {
           "rank": 3,
-          "code": "419050",
-          "name": "삼기에너지솔루션즈",
-          "price": 2540,
-          "rate": 0.367,
-          "volume": 34611633,
-          "trade_amount_eok": 940.73749231,
-          "contract_strength": "81.44",
-          "nxt": ""
+          "code": "046890",
+          "name": "서울반도체",
+          "price": 11440,
+          "rate": 0.214,
+          "volume": 5630669,
+          "trade_amount_eok": 698.39590835,
+          "contract_strength": "83.14",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 4,
+          "code": "328130",
+          "name": "루닛",
+          "price": 15400,
+          "rate": 0.28,
+          "volume": 4108233,
+          "trade_amount_eok": 641.48413585,
+          "contract_strength": "90.59",
+          "nxt": "NXT"
         }
       ],
       "error": ""
@@ -89,31 +100,31 @@
     {
       "seq": "4",
       "name": "★ 눌림",
-      "total_count": 0,
-      "too_many": false,
-      "message": "",
-      "stocks": [],
-      "error": ""
-    },
-    {
-      "seq": "5",
-      "name": "★ 삘추세231230",
       "total_count": 1,
       "too_many": false,
       "message": "",
       "stocks": [
         {
           "rank": 1,
-          "code": "030530",
-          "name": "원익홀딩스",
-          "price": 28000,
-          "rate": 1.789,
-          "volume": 6598001,
-          "trade_amount_eok": 1864.79,
-          "contract_strength": "104.62",
-          "nxt": ""
+          "code": "021240",
+          "name": "코웨이",
+          "price": 103500,
+          "rate": 0.187,
+          "volume": 205077,
+          "trade_amount_eok": 145.6756185,
+          "contract_strength": "135.25",
+          "nxt": "NXT선"
         }
       ],
+      "error": ""
+    },
+    {
+      "seq": "5",
+      "name": "★ 삘추세231230",
+      "total_count": 0,
+      "too_many": false,
+      "message": "",
+      "stocks": [],
       "error": ""
     }
   ]

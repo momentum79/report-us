@@ -1,64 +1,68 @@
 {
-    "avg_sco": -4.1,
+    "avg_sco": -2.4,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 33,
-    "sco_neg": 97,
-    "sco_strong": 10,
-    "sco_zone_neg": 97,
-    "sco_zone_weak": 16,
-    "sco_zone_mid": 7,
-    "sco_zone_strong": 10,
-    "strong_count": 9,
-    "top3_avg_sco": 13.5,
-    "top3_avg_pos": 2.0,
-    "kospi_trend": "PURPLE",
+    "sco_pos": 43,
+    "sco_neg": 87,
+    "sco_strong": 12,
+    "sco_zone_neg": 87,
+    "sco_zone_weak": 27,
+    "sco_zone_mid": 4,
+    "sco_zone_strong": 12,
+    "strong_count": 10,
+    "top3_avg_sco": 13.33,
+    "top3_avg_pos": 1.0,
+    "kospi_trend": "-",
     "kosdaq_trend": "RED",
-    "sp500_trend": "PURPLE",
+    "sp500_trend": "-",
     "nasdaq_trend": "PURPLE",
-    "kospi_sco": -7.25,
-    "kosdaq_sco": -9.5,
-    "sp500_sco": -1.75,
-    "nasdaq_sco": -5.0,
-    "euro_trend": "-",
-    "india_trend": "RED",
+    "kospi_sco": -2.25,
+    "kosdaq_sco": -8.25,
+    "sp500_sco": 4.25,
+    "nasdaq_sco": -2.0,
+    "euro_trend": "GREEN",
+    "india_trend": "-",
     "nikkei_trend": "PURPLE",
     "shanghai_trend": "RED",
     "hongkong_trend": "-",
     "brazil_trend": "RED",
-    "kospi_mult": 0.1,
+    "kospi_mult": 0.2,
     "nasdaq_mult": 0.1,
     "invest_pct": 0.0,
     "invest_amount_total": 0,
     "internal_weights": [
-        35.533,
-        28.934,
-        25.3807,
-        10.1523
+        33.1658,
+        27.1357,
+        20.1005,
+        9.5477,
+        10.0503
     ],
-    "n_holdings": 4,
+    "n_holdings": 5,
     "holdings_tickers": [
-        "PDBC",
-        "XLE",
+        "SCHD",
         "XLV",
-        "SCHD"
+        "VTV",
+        "XLE",
+        "PDBC"
     ],
     "final_ratios": {
-        "PDBC": 0.0,
-        "XLE": 0.0,
+        "SCHD": 0.0,
         "XLV": 0.0,
-        "SCHD": 0.0
+        "VTV": 0.0,
+        "XLE": 0.0,
+        "PDBC": 0.0
     },
     "top3_tickers": [
-        "PDBC",
-        "XLE",
-        "XLV"
+        "SCHD",
+        "XLV",
+        "VTV"
     ],
     "allocation_map_used": [
-        35,
-        30,
-        25,
+        33,
+        27,
+        20,
+        10,
         10
     ],
     "score_model": {
@@ -67,7 +71,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-10-28 19:43:36",
+    "update_time": "2026-10-31 09:31:50",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -75,6 +79,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1334.3
+        "usd_krw": 1345.3
     }
 }
