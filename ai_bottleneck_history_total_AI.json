@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-31 09:43:50",
+  "updated_at": "2026-11-04 07:13:51",
   "window_note": "Compare today with 5 stored snapshots ago when available. Retains up to 5 years.",
   "snapshots": [
     {
@@ -5235,6 +5235,50 @@
           "name_kr": "SW/데이터플랫폼",
           "score": 9.58,
           "state": "WATCH"
+        }
+      }
+    },
+    {
+      "date": "2026-11-04",
+      "update_time": "2026-11-04 07:03:31",
+      "headline": "AI 전체 위험회피",
+      "location": "RISK_OFF",
+      "confidence": "HIGH",
+      "layers": {
+        "DEMAND_CAPEX": {
+          "name_kr": "수요/CAPEX",
+          "score": -4.25,
+          "state": "WEAK"
+        },
+        "SILICON_COMPUTE": {
+          "name_kr": "칩/ASIC",
+          "score": -7.11,
+          "state": "WEAK"
+        },
+        "MEMORY_PACKAGING": {
+          "name_kr": "HBM/패키징/MLCC",
+          "score": -4.28,
+          "state": "WEAK"
+        },
+        "NETWORK_OPTICS": {
+          "name_kr": "네트워크/광통신",
+          "score": -7.97,
+          "state": "WEAK"
+        },
+        "POWER_COOLING": {
+          "name_kr": "전력/냉각",
+          "score": -6.18,
+          "state": "WEAK"
+        },
+        "DATACENTER_DEPLOY": {
+          "name_kr": "데이터센터/서버",
+          "score": -0.93,
+          "state": "WEAK"
+        },
+        "SOFTWARE_ADOPTION": {
+          "name_kr": "SW/데이터플랫폼",
+          "score": 3.67,
+          "state": "SOFT"
         }
       }
     }

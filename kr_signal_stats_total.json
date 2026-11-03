@@ -1,68 +1,64 @@
 {
-    "avg_sco": -2.4,
+    "avg_sco": -3.7,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 43,
-    "sco_neg": 87,
-    "sco_strong": 12,
-    "sco_zone_neg": 87,
-    "sco_zone_weak": 27,
-    "sco_zone_mid": 4,
-    "sco_zone_strong": 12,
+    "sco_pos": 34,
+    "sco_neg": 96,
+    "sco_strong": 11,
+    "sco_zone_neg": 96,
+    "sco_zone_weak": 18,
+    "sco_zone_mid": 5,
+    "sco_zone_strong": 11,
     "strong_count": 10,
-    "top3_avg_sco": 13.33,
-    "top3_avg_pos": 1.0,
+    "top3_avg_sco": 15.17,
+    "top3_avg_pos": 1.33,
     "kospi_trend": "-",
     "kosdaq_trend": "RED",
-    "sp500_trend": "-",
-    "nasdaq_trend": "PURPLE",
-    "kospi_sco": -2.25,
-    "kosdaq_sco": -8.25,
-    "sp500_sco": 4.25,
-    "nasdaq_sco": -2.0,
+    "sp500_trend": "PURPLE",
+    "nasdaq_trend": "RED",
+    "kospi_sco": -3.0,
+    "kosdaq_sco": -9.5,
+    "sp500_sco": -5.0,
+    "nasdaq_sco": -10.25,
     "euro_trend": "GREEN",
-    "india_trend": "-",
-    "nikkei_trend": "PURPLE",
-    "shanghai_trend": "RED",
-    "hongkong_trend": "-",
+    "india_trend": "GREEN",
+    "nikkei_trend": "RED",
+    "shanghai_trend": "-",
+    "hongkong_trend": "LIME",
     "brazil_trend": "RED",
     "kospi_mult": 0.2,
-    "nasdaq_mult": 0.1,
+    "nasdaq_mult": 0.0,
     "invest_pct": 0.0,
     "invest_amount_total": 0,
     "internal_weights": [
-        33.1658,
-        27.1357,
-        20.1005,
-        9.5477,
-        10.0503
+        34.2784,
+        30.9278,
+        24.4845,
+        10.3093
     ],
-    "n_holdings": 5,
+    "n_holdings": 4,
     "holdings_tickers": [
-        "SCHD",
         "XLV",
-        "VTV",
-        "XLE",
-        "PDBC"
-    ],
-    "final_ratios": {
-        "SCHD": 0.0,
-        "XLV": 0.0,
-        "VTV": 0.0,
-        "XLE": 0.0,
-        "PDBC": 0.0
-    },
-    "top3_tickers": [
         "SCHD",
-        "XLV",
+        "XLP",
         "VTV"
     ],
+    "final_ratios": {
+        "XLV": 0.0,
+        "SCHD": 0.0,
+        "XLP": 0.0,
+        "VTV": 0.0
+    },
+    "top3_tickers": [
+        "XLV",
+        "SCHD",
+        "XLP"
+    ],
     "allocation_map_used": [
-        33,
-        27,
-        20,
-        10,
+        35,
+        30,
+        25,
         10
     ],
     "score_model": {
@@ -71,14 +67,24 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-10-31 09:31:50",
-    "liq_rejected": [],
+    "update_time": "2026-11-04 07:02:50",
+    "liq_rejected": [
+        {
+            "ticker": "EWL",
+            "name": "EWL",
+            "avg_tv_eok": 427.4,
+            "min_tv_eok": 179.9,
+            "min_eok": 1000,
+            "min_day_eok": 400,
+            "fail_on": "avg"
+        }
+    ],
     "liq_thresholds": {
         "KR": 200,
         "US": 1000,
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1345.3
+        "usd_krw": 1351.0
     }
 }

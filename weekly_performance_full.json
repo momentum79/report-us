@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03 22:15:25",
+  "updated": "2026-11-04 07:09:59",
   "weeks_limit": null,
   "week_keys": [
     "2026-06-08",
@@ -536,10 +536,10 @@
           "expectancy": 3.363,
           "expectancy_amt": 14816,
           "profit_factor": null,
-          "sum_pnl_amt": 12426,
-          "sum_pnl_gross": 13016,
-          "sum_fee_tax": 590,
-          "sell_events": 3,
+          "sum_pnl_amt": 9579,
+          "sum_pnl_gross": 10230,
+          "sum_fee_tax": 651,
+          "sell_events": 4,
           "week": "2026-11-02",
           "label": "11/02~11/06",
           "fx_usdkrw": 1335.0
@@ -558,10 +558,10 @@
         "expectancy": 0.123,
         "expectancy_amt": 261,
         "profit_factor": 1.03,
-        "sum_pnl_amt": -617730,
-        "sum_pnl_gross": -421238,
-        "sum_fee_tax": 196491,
-        "sell_events": 659,
+        "sum_pnl_amt": -620577,
+        "sum_pnl_gross": -424024,
+        "sum_fee_tax": 196552,
+        "sell_events": 660,
         "week": "TOTAL",
         "label": "전체"
       }
@@ -22541,10 +22541,10 @@
           "expectancy": null,
           "expectancy_amt": null,
           "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "sell_events": 0,
+          "sum_pnl_amt": -2847,
+          "sum_pnl_gross": -2787,
+          "sum_fee_tax": 61,
+          "sell_events": 1,
           "week": "2026-11-02",
           "label": "11/02~11/06",
           "fx_usdkrw": 1335.0
@@ -22563,10 +22563,10 @@
         "expectancy": -0.71,
         "expectancy_amt": -1645,
         "profit_factor": 0.79,
-        "sum_pnl_amt": -44380,
-        "sum_pnl_gross": -39468,
-        "sum_fee_tax": 4912,
-        "sell_events": 102,
+        "sum_pnl_amt": -47227,
+        "sum_pnl_gross": -42255,
+        "sum_fee_tax": 4973,
+        "sell_events": 103,
         "week": "TOTAL",
         "label": "전체"
       }
@@ -32373,10 +32373,10 @@
         "expectancy": 0.211,
         "expectancy_amt": 155,
         "profit_factor": 1.02,
-        "sum_pnl_amt": -702574,
-        "sum_pnl_gross": -540668,
-        "sum_fee_tax": 161906,
-        "sell_events": 659,
+        "sum_pnl_amt": -705422,
+        "sum_pnl_gross": -543455,
+        "sum_fee_tax": 161967,
+        "sell_events": 660,
         "key": "통합",
         "group": "bot",
         "unit": "혼합",
@@ -32769,10 +32769,10 @@
         "expectancy": -0.71,
         "expectancy_amt": -1645,
         "profit_factor": 0.79,
-        "sum_pnl_amt": -44380,
-        "sum_pnl_gross": -39468,
-        "sum_fee_tax": 4912,
-        "sell_events": 102,
+        "sum_pnl_amt": -47228,
+        "sum_pnl_gross": -42255,
+        "sum_fee_tax": 4973,
+        "sell_events": 103,
         "key": "바이낸스SCO-Top3",
         "group": "bot",
         "unit": "일",
@@ -33180,7 +33180,7 @@
     "count": 56,
     "ghost": 48,
     "cutoff": "2026-08-17",
-    "checked_at": "2026-11-03 22:15",
+    "checked_at": "2026-11-04 07:09",
     "rows": [
       {
         "acct": "8042",
@@ -33411,9 +33411,10 @@
       "2026-10-28",
       "2026-10-30",
       "2026-10-31",
-      "2026-11-02"
+      "2026-11-02",
+      "2026-11-03"
     ],
-    "today": "2026-11-03",
+    "today": "2026-11-04",
     "realize_from": "2026-08-17",
     "days": {
       "2026-06-12": {
@@ -43386,6 +43387,57 @@
             "unit": "일",
             "day": "2026-11-02",
             "label": "11/02(월)"
+          }
+        ]
+      },
+      "2026-11-03": {
+        "label": "11/03(화)",
+        "rows": [
+          {
+            "trades": 0,
+            "winrate": null,
+            "pl_ratio": null,
+            "avg_win": null,
+            "avg_loss": null,
+            "max_win": null,
+            "max_loss": null,
+            "hold_win": null,
+            "hold_loss": null,
+            "expectancy": null,
+            "expectancy_amt": null,
+            "profit_factor": null,
+            "sum_pnl_amt": -2847,
+            "sum_pnl_gross": -2787,
+            "sum_fee_tax": 61,
+            "sell_events": 1,
+            "key": "통합",
+            "group": "bot",
+            "unit": "혼합",
+            "day": "2026-11-03",
+            "label": "11/03(화)"
+          },
+          {
+            "trades": 0,
+            "winrate": null,
+            "pl_ratio": null,
+            "avg_win": null,
+            "avg_loss": null,
+            "max_win": null,
+            "max_loss": null,
+            "hold_win": null,
+            "hold_loss": null,
+            "expectancy": null,
+            "expectancy_amt": null,
+            "profit_factor": null,
+            "sum_pnl_amt": -2847,
+            "sum_pnl_gross": -2787,
+            "sum_fee_tax": 61,
+            "sell_events": 1,
+            "key": "바이낸스SCO-Top3",
+            "group": "bot",
+            "unit": "일",
+            "day": "2026-11-03",
+            "label": "11/03(화)"
           }
         ]
       }

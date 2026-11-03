@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-03 22:15:26",
+  "updated": "2026-11-04 07:10:00",
   "weeks_limit": 8,
   "week_keys": [
     "2026-09-14",
@@ -200,10 +200,10 @@
           "expectancy": 3.363,
           "expectancy_amt": 14816,
           "profit_factor": null,
-          "sum_pnl_amt": 12426,
-          "sum_pnl_gross": 13016,
-          "sum_fee_tax": 590,
-          "sell_events": 3,
+          "sum_pnl_amt": 9579,
+          "sum_pnl_gross": 10230,
+          "sum_fee_tax": 651,
+          "sell_events": 4,
           "week": "2026-11-02",
           "label": "11/02~11/06",
           "fx_usdkrw": 1335.0
@@ -222,10 +222,10 @@
         "expectancy": 0.39,
         "expectancy_amt": 2495,
         "profit_factor": 1.29,
-        "sum_pnl_amt": -229634,
-        "sum_pnl_gross": -111783,
-        "sum_fee_tax": 117851,
-        "sell_events": 544,
+        "sum_pnl_amt": -232481,
+        "sum_pnl_gross": -114569,
+        "sum_fee_tax": 117912,
+        "sell_events": 545,
         "week": "TOTAL",
         "label": "최근 8주"
       }
@@ -8390,10 +8390,10 @@
           "expectancy": null,
           "expectancy_amt": null,
           "profit_factor": null,
-          "sum_pnl_amt": 0,
-          "sum_pnl_gross": 0,
-          "sum_fee_tax": 0,
-          "sell_events": 0,
+          "sum_pnl_amt": -2847,
+          "sum_pnl_gross": -2787,
+          "sum_fee_tax": 61,
+          "sell_events": 1,
           "week": "2026-11-02",
           "label": "11/02~11/06",
           "fx_usdkrw": 1335.0
@@ -8412,10 +8412,10 @@
         "expectancy": -0.71,
         "expectancy_amt": -1645,
         "profit_factor": 0.79,
-        "sum_pnl_amt": -44380,
-        "sum_pnl_gross": -39468,
-        "sum_fee_tax": 4912,
-        "sell_events": 102,
+        "sum_pnl_amt": -47227,
+        "sum_pnl_gross": -42255,
+        "sum_fee_tax": 4973,
+        "sell_events": 103,
         "week": "TOTAL",
         "label": "최근 8주"
       }
@@ -11562,10 +11562,10 @@
         "expectancy": 0.299,
         "expectancy_amt": 1761,
         "profit_factor": 1.2,
-        "sum_pnl_amt": -340082,
-        "sum_pnl_gross": -205378,
-        "sum_fee_tax": 134704,
-        "sell_events": 598,
+        "sum_pnl_amt": -342929,
+        "sum_pnl_gross": -208164,
+        "sum_fee_tax": 134765,
+        "sell_events": 599,
         "key": "통합",
         "group": "bot",
         "unit": "혼합",
@@ -11936,10 +11936,10 @@
         "expectancy": -0.71,
         "expectancy_amt": -1645,
         "profit_factor": 0.79,
-        "sum_pnl_amt": -44380,
-        "sum_pnl_gross": -39468,
-        "sum_fee_tax": 4912,
-        "sell_events": 102,
+        "sum_pnl_amt": -47228,
+        "sum_pnl_gross": -42255,
+        "sum_fee_tax": 4973,
+        "sell_events": 103,
         "key": "바이낸스SCO-Top3",
         "group": "bot",
         "unit": "일",
@@ -12193,7 +12193,7 @@
     "count": 56,
     "ghost": 48,
     "cutoff": "2026-08-17",
-    "checked_at": "2026-11-03 22:15",
+    "checked_at": "2026-11-04 07:09",
     "rows": [
       {
         "acct": "8042",
@@ -12326,9 +12326,9 @@
   ],
   "coin_week": {
     "label": "11/2~11/8",
-    "total": -107,
+    "total": -2954,
     "up_total": -107,
-    "bn_total": 0,
+    "bn_total": -2847,
     "usdkrw": 1335.0,
     "has_data": true,
     "days": [
@@ -12341,8 +12341,8 @@
       {
         "label": "11/3 화",
         "up": null,
-        "bn": null,
-        "sum": null
+        "bn": -2847,
+        "sum": -2847
       },
       {
         "label": "11/4 수",
@@ -12380,6 +12380,11 @@
         "venue": "업비트",
         "bot": "v3 스캘프",
         "amt": -107
+      },
+      {
+        "venue": "바낸",
+        "bot": "SCO-Top3",
+        "amt": -2847
       }
     ]
   },
@@ -12629,23 +12634,23 @@
       "ZKUSDT",
       "ZROUSDT"
     ],
-    "total": 0.0,
-    "has_data": false,
+    "total": -5.53,
+    "has_data": true,
     "days": [
       {
         "label": "11/2 월",
-        "1000PEPEUSDT": null,
+        "1000PEPEUSDT": -0.06,
         "AAVEUSDT": null,
         "AEROUSDT": null,
         "AGTUSDT": null,
         "ATOMUSDT": null,
         "AXSUSDT": null,
         "BATUSDT": null,
-        "BEAMXUSDT": null,
+        "BEAMXUSDT": -0.07,
         "BMTUSDT": null,
-        "BTCUSDT": null,
+        "BTCUSDT": -0.79,
         "BTWUSDT": null,
-        "ETHUSDT": null,
+        "ETHUSDT": 0.01,
         "INJUSDT": null,
         "IRYSUSDT": null,
         "MAGICUSDT": null,
@@ -12666,22 +12671,22 @@
         "ZECUSDT": null,
         "ZKUSDT": null,
         "ZROUSDT": null,
-        "total": null
+        "total": -0.9
       },
       {
         "label": "11/3 화",
-        "1000PEPEUSDT": null,
+        "1000PEPEUSDT": -2.17,
         "AAVEUSDT": null,
         "AEROUSDT": null,
         "AGTUSDT": null,
         "ATOMUSDT": null,
         "AXSUSDT": null,
         "BATUSDT": null,
-        "BEAMXUSDT": null,
+        "BEAMXUSDT": -0.06,
         "BMTUSDT": null,
-        "BTCUSDT": null,
+        "BTCUSDT": -0.78,
         "BTWUSDT": null,
-        "ETHUSDT": null,
+        "ETHUSDT": -0.9,
         "INJUSDT": null,
         "IRYSUSDT": null,
         "MAGICUSDT": null,
@@ -12702,22 +12707,22 @@
         "ZECUSDT": null,
         "ZKUSDT": null,
         "ZROUSDT": null,
-        "total": null
+        "total": -3.91
       },
       {
         "label": "11/4 수",
-        "1000PEPEUSDT": null,
+        "1000PEPEUSDT": -0.01,
         "AAVEUSDT": null,
         "AEROUSDT": null,
         "AGTUSDT": null,
         "ATOMUSDT": null,
         "AXSUSDT": null,
         "BATUSDT": null,
-        "BEAMXUSDT": null,
+        "BEAMXUSDT": -0.02,
         "BMTUSDT": null,
-        "BTCUSDT": null,
+        "BTCUSDT": -0.27,
         "BTWUSDT": null,
-        "ETHUSDT": null,
+        "ETHUSDT": -0.41,
         "INJUSDT": null,
         "IRYSUSDT": null,
         "MAGICUSDT": null,
@@ -12738,7 +12743,7 @@
         "ZECUSDT": null,
         "ZKUSDT": null,
         "ZROUSDT": null,
-        "total": null
+        "total": -0.71
       },
       {
         "label": "11/5 목",
