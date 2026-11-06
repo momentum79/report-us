@@ -1,15 +1,15 @@
 {
   "account": "8042",
-  "updated": "2026-11-06 07:27:31",
+  "updated": "2026-11-06 09:58:04",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 7020805,
+    "total_asset": 6855606,
     "tot_pur_amt": 3398959,
-    "tot_evlt_amt": 3400446,
-    "tot_evlt_pl": 487,
-    "tot_prft_rt": 0.01,
-    "stock_ratio": 48.433847685557424,
+    "tot_evlt_amt": 3235407,
+    "tot_evlt_pl": -164532,
+    "tot_prft_rt": -4.84,
+    "stock_ratio": 47.1935960147068,
     "cash": 3620859,
     "tdy_realized_pl": 0
   },
@@ -19,11 +19,11 @@
       "stock_name": "KODEX WTI원유선물인버스(H)",
       "quantity": 1803,
       "avg_price": 0,
-      "current_price": 1782,
-      "profit_rate": 2.67,
-      "eval_amount": 3212946,
+      "current_price": 1709,
+      "profit_rate": -1.54,
+      "eval_amount": 3081327,
       "nxt": "",
-      "cntr_str": null,
+      "cntr_str": 96.51,
       "candle": "",
       "tag": ""
     },
@@ -32,11 +32,11 @@
       "stock_name": "KODEX 레버리지",
       "quantity": 3,
       "avg_price": 0,
-      "current_price": 62500,
-      "profit_rate": -30.68,
-      "eval_amount": 187500,
+      "current_price": 51360,
+      "profit_rate": -43.04,
+      "eval_amount": 154080,
       "nxt": "",
-      "cntr_str": null,
+      "cntr_str": 116.06,
       "candle": "",
       "tag": ""
     }
@@ -47,10 +47,10 @@
       "stock_name": "나스닥 사이버보안 퍼스트 트러스트 ETF",
       "quantity": 25,
       "avg_price": 103.105,
-      "current_price": 91.53,
-      "profit_rate": -11.35,
-      "eval_amount_usd": 2288.25,
-      "eval_amount": 3076780,
+      "current_price": 91.01,
+      "profit_rate": -11.86,
+      "eval_amount_usd": 2275.25,
+      "eval_amount": 3084783,
       "buy_date": "2026-09-21",
       "candle": "일봉",
       "tag": "통합ETF"
@@ -60,10 +60,10 @@
       "stock_name": "이노베이션 액티브 아크 ETF",
       "quantity": 19,
       "avg_price": 90.81,
-      "current_price": 72.33,
-      "profit_rate": -20.47,
-      "eval_amount_usd": 1374.27,
-      "eval_amount": 1847843,
+      "current_price": 73.15,
+      "profit_rate": -19.57,
+      "eval_amount_usd": 1389.85,
+      "eval_amount": 1884358,
       "buy_date": "2026-09-22",
       "candle": "일봉",
       "tag": "통합ETF"
@@ -73,41 +73,41 @@
       "stock_name": "MSCI 대만 아이셰어즈 ETF",
       "quantity": 12,
       "avg_price": 114.8,
-      "current_price": 87.9483,
-      "profit_rate": -23.51,
-      "eval_amount_usd": 1055.3796,
-      "eval_amount": 1419063,
+      "current_price": 85.88,
+      "profit_rate": -25.31,
+      "eval_amount_usd": 1030.56,
+      "eval_amount": 1397233,
       "buy_date": "2026-09-10",
       "candle": "일봉",
       "tag": "통합ETF"
     }
   ],
   "us_summary": {
-    "us_stock_krw": 6343686,
+    "us_stock_krw": 6366374,
     "usd_cash": 4060.14,
-    "usd_cash_krw": 5443429,
-    "rate": 1340.7,
-    "total_asset_total": 15389575,
-    "eval_pl_usd": -962.72,
-    "eval_pl_krw": -1290718,
+    "usd_cash_krw": 5448707,
+    "rate": 1342.0,
+    "total_asset_total": 15371141,
+    "eval_pl_usd": -984.95,
+    "eval_pl_krw": -1321802,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
     "won_entr": 3620859,
     "fx": {
       "USD": {
-        "cash_krw": 5443429,
-        "stock_krw": 6325287,
-        "rate": 1340.7
+        "cash_krw": 5448707,
+        "stock_krw": 6301575,
+        "rate": 1342.0
       },
       "JPY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 846.35
+        "rate": 852.31
       },
       "CNY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 200.52
+        "rate": 201.34
       }
     },
     "fx_other_krw": 0,
