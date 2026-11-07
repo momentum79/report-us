@@ -1,6 +1,6 @@
 {
-  "update_time": "2026-11-06 07:05:52",
-  "elapsed_sec": 2.96,
+  "update_time": "2026-11-07 13:25:59",
+  "elapsed_sec": 9.72,
   "too_many_threshold": 10,
   "target_conditions": [
     {
@@ -37,37 +37,151 @@
     {
       "seq": "1",
       "name": "120신고_거래",
-      "total_count": 0,
+      "total_count": 1,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "089860",
+          "name": "롯데렌탈",
+          "price": 58500,
+          "rate": 1.059,
+          "volume": 2411819,
+          "trade_amount_eok": 2931.78,
+          "contract_strength": "14.64",
+          "nxt": "NXT"
+        }
+      ],
       "error": ""
     },
     {
       "seq": "2",
       "name": "예상체결상위",
-      "total_count": 0,
+      "total_count": 4,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "030200",
+          "name": "KT",
+          "price": 52500,
+          "rate": 0.135,
+          "volume": 1183232,
+          "trade_amount_eok": 620.3966505,
+          "contract_strength": "124.83",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 2,
+          "code": "032640",
+          "name": "LG유플러스",
+          "price": 16520,
+          "rate": 0.37,
+          "volume": 3039412,
+          "trade_amount_eok": 500.5012282,
+          "contract_strength": "129.04",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 3,
+          "code": "035420",
+          "name": "NAVER",
+          "price": 188600,
+          "rate": 0.2,
+          "volume": 2023856,
+          "trade_amount_eok": 3771.7004405,
+          "contract_strength": "129.09",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 4,
+          "code": "261780",
+          "name": "아리바이오랩",
+          "price": 4305,
+          "rate": 1.182,
+          "volume": 3786325,
+          "trade_amount_eok": 163.46717013,
+          "contract_strength": "118.55",
+          "nxt": ""
+        }
+      ],
       "error": ""
     },
     {
       "seq": "4",
       "name": "★ 눌림",
-      "total_count": 0,
+      "total_count": 3,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "011200",
+          "name": "HMM",
+          "price": 21950,
+          "rate": -0.373,
+          "volume": 1432284,
+          "trade_amount_eok": 314.7598255,
+          "contract_strength": "93.15",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 2,
+          "code": "021240",
+          "name": "코웨이",
+          "price": 105900,
+          "rate": -0.355,
+          "volume": 179012,
+          "trade_amount_eok": 191.514597,
+          "contract_strength": "149.24",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 3,
+          "code": "033780",
+          "name": "KT&G",
+          "price": 190700,
+          "rate": -0.18,
+          "volume": 606734,
+          "trade_amount_eok": 1159.8031885,
+          "contract_strength": "138.05",
+          "nxt": "NXT"
+        }
+      ],
       "error": ""
     },
     {
       "seq": "5",
       "name": "★ 삘추세231230",
-      "total_count": 0,
+      "total_count": 2,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "018260",
+          "name": "삼성에스디에스",
+          "price": 215000,
+          "rate": 0.488,
+          "volume": 477122,
+          "trade_amount_eok": 1418.95,
+          "contract_strength": "167.84",
+          "nxt": "NXT"
+        },
+        {
+          "rank": 2,
+          "code": "035420",
+          "name": "NAVER",
+          "price": 188600,
+          "rate": 0.2,
+          "volume": 2023856,
+          "trade_amount_eok": 3771.7004405,
+          "contract_strength": "129.09",
+          "nxt": "NXT선"
+        }
+      ],
       "error": ""
     }
   ]
