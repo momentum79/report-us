@@ -61,6 +61,41 @@ def _fetch_candles(kind, sym, count):
     return None
 
 
+# 바이낸스 선물 포지션 차트용 — 키 'BN:<SYMBOL>' (예: BN:BEAMXUSDT). 업비트에 없는 코인이 많아 바이낸스 캔들을 쓴다.
+#   선물(fapi) 먼저, 막히면 현물 미러(data-api.binance.vision). coin_daily_ohlcv.py 와 같은 순서.
+BN_KEY_PREFIX = "BN:"
+_BN_KLINE_URLS = ("https://fapi.binance.com/fapi/v1/klines",
+                  "https://data-api.binance.vision/api/v3/klines")
+_KST_SEC = 9 * 3600
+
+
+def _fetch_bn_candles(symbol, interval, count):
+    """바이낸스 klines → 업비트 캔들과 같은 키 구조(dict 리스트, 최신이 앞)로 변환. 실패 시 None.
+    1d 봉은 00:00 UTC(=09:00 KST) 시작이라 업비트 일봉 날짜와 같다."""
+    for url in _BN_KLINE_URLS:
+        try:
+            r = requests.get(url, params={"symbol": symbol, "interval": interval, "limit": count},
+                             timeout=10)
+            if r.status_code != 200:
+                continue
+            rows = r.json()
+            if not isinstance(rows, list) or not rows:
+                continue
+            out = []
+            for k in reversed(rows):
+                kst = datetime.fromtimestamp(int(k[0]) / 1000 + _KST_SEC, timezone.utc)
+                out.append({
+                    "candle_date_time_kst": kst.strftime("%Y-%m-%dT%H:%M:%S"),
+                    "opening_price": float(k[1]), "high_price": float(k[2]),
+                    "low_price": float(k[3]), "trade_price": float(k[4]),
+                    "candle_acc_trade_volume": float(k[5]),
+                })
+            return out
+        except (requests.RequestException, ValueError, TypeError, IndexError):
+            continue
+    return None
+
+
 def _add_trend_states(bars):
     """봉 리스트에 추세상태('t': LIME/GREEN/RED/PURPLE) 부여 (단타 게시판과 동일 공식)."""
     if not _TREND_OK or not bars or len(bars) < 60:
@@ -100,10 +135,15 @@ def fetch_coin_candle_data(symbols):
     out = {}
     ok = 0
     for sym in symbols:
-        raw_d = _fetch_candles("days", sym, CANDLE_COUNT_D)
-        time.sleep(0.12)                       # 업비트 초당 제한(≈10req/s) 여유
-        raw_5 = _fetch_candles("minutes/5", sym, CANDLE_COUNT_5)
-        time.sleep(0.12)
+        if sym.startswith(BN_KEY_PREFIX):
+            bn_sym = sym[len(BN_KEY_PREFIX):]
+            raw_d = _fetch_bn_candles(bn_sym, "1d", CANDLE_COUNT_D)
+            raw_5 = _fetch_bn_candles(bn_sym, "5m", CANDLE_COUNT_5)
+        else:
+            raw_d = _fetch_candles("days", sym, CANDLE_COUNT_D)
+            time.sleep(0.12)                   # 업비트 초당 제한(≈10req/s) 여유
+            raw_5 = _fetch_candles("minutes/5", sym, CANDLE_COUNT_5)
+            time.sleep(0.12)
         if not isinstance(raw_d, list) or not isinstance(raw_5, list):
             print(f"   [warn] {sym} 캔들 로드 실패 - 건너뜀")
             continue
@@ -583,6 +623,9 @@ def _sum_row(label, val_html):
             f'<span class="ac-sval">{val_html}</span></div>')
 
 
+UPBIT_HIDE_UNDER_KRW = 10000   # 업비트 보유표: 평가금액 이 값 미만 코인은 표시 안 함
+
+
 def _upbit_card(up):
     if not up or not up.get("ok"):
         msg = (up or {}).get("error", "데이터 없음")
@@ -601,15 +644,29 @@ def _upbit_card(up):
     head = ('<tr><th>코인</th><th class="r">수량</th><th class="r">현재가</th>'
             '<th class="r">수익률</th><th class="r">평가</th></tr>')
     body = ""
+    shown, hidden = [], 0
     for h in up.get("holdings", []):
+        try:
+            ev = float(h.get("eval") or 0)
+        except (TypeError, ValueError):
+            ev = 0.0
+        if ev < UPBIT_HIDE_UNDER_KRW:         # 평가 1만원 미만(가격 없음 포함) 숨김 — 합계 줄은 그대로
+            hidden += 1
+            continue
+        shown.append(h)
+    for h in shown:
+        cur = h.get("cur") or ""
         body += (
-            f'<tr><td class="sym">{h.get("cur")}</td>'
+            f'<tr><td class="sym">{name_link(cur, cur)}</td>'
             f'<td class="r">{_qty(h.get("qty"))}</td>'
             f'<td class="r">{_won(h.get("price")) if h.get("price") else "-"}</td>'
             f'<td class="r">{_pct(h.get("pnl_rate"))}</td>'
             f'<td class="r">{_man(h.get("eval")) if h.get("eval") else "-"}</td></tr>'
         )
     table = f'<table class="ac-t">{head}{body}</table>' if body else '<div class="empty">보유 없음</div>'
+    if hidden:
+        table += (f'<div class="ac-note">평가 {UPBIT_HIDE_UNDER_KRW // 10000}만원 미만 '
+                  f'{hidden}종목 숨김</div>')
     return card("🟦 업비트", "#1565c0", summ + table, raw=True, cls="ac-card")
 
 
@@ -660,11 +717,34 @@ def _binance_card(bn, rate, week=None):
             cls = "down" if b < 5 else ""
             return f'<span class="{cls}">{b:.1f}%</span>'
 
-        sym_head = "".join(
-            f'<th class="r sym">{(p.get("symbol") or "").replace("USDT", "")}</th>'
-            for p in positions)
+        def _sym_head(p):
+            import html as _html
+            full = p.get("symbol") or ""
+            short = full.replace("USDT", "")
+            href = f"https://www.binance.com/en/futures/{full}"
+            return (f'<th class="r sym"><a class="sym" data-coin="{BN_KEY_PREFIX}{_html.escape(full)}" '
+                    f'data-name="{_html.escape(short)}" href="{href}" target="_blank" rel="noopener">'
+                    f'{_html.escape(short)}</a></th>')
+
+        def _spot_equiv(p):
+            # 현물환산 = 보유수량 × 진입가 = 증거금 × 레버리지. 현물로 같은 수량을 샀다면 들어갔을 달러.
+            try:
+                notional = abs(float(p.get("amt"))) * float(p.get("entry"))
+            except (TypeError, ValueError):
+                return "-"
+            try:
+                lev = float(p.get("lev"))
+            except (TypeError, ValueError):
+                lev = 0
+            txt = f"${notional:,.2f}"
+            if lev > 0:
+                txt += f'<small class="kw">(증거금 ${notional / lev:,.2f}×{lev:g})</small>'
+            return txt
+
+        sym_head = "".join(_sym_head(p) for p in positions)
         rows = [
             ("방향", "".join(f'<td class="r">{_side_badge(p)}</td>' for p in positions)),
+            ("현물환산", _cells(_spot_equiv)),
             ("보유수량", _cells(lambda p: _qty(p.get("amt")))),
             ("진입가", _cells(lambda p: _usdt_won(p.get("entry"), p.get("entry_krw")))),
             ("현재가", _cells(lambda p: _usdt_won(p.get("mark"), p.get("mark_krw")))),
@@ -1067,6 +1147,24 @@ POPUP_JS = r"""
     if(c && c.d && c.d.length) return Promise.resolve(c);
     // 2순위: 임베드가 비었으면 브라우저에서 업비트 직접 fetch (CORS 허용)
     if(cache[sym]) return Promise.resolve(cache[sym]);
+    if(sym.indexOf('BN:')===0){
+      // 바이낸스 선물 포지션: 임베드 실패 시 브라우저에서 fapi 직접 시도 (KST 벽시계 = UTC+9h 로 맞춤)
+      var bs=encodeURIComponent(sym.slice(3)), bu='https://fapi.binance.com/fapi/v1/klines?symbol='+bs;
+      var conv=function(rows,daily){ return (Array.isArray(rows)?rows:[]).map(function(k){
+        var t=Math.floor(k[0]/1000)+32400;
+        return {time:daily?new Date(t*1000).toISOString().slice(0,10):t,
+          open:+k[1],high:+k[2],low:+k[3],close:+k[4],volume:+k[5]}; }); };
+      return Promise.all([
+        fetch(bu+'&interval=1d&limit=200').then(function(r){return r.json();}),
+        fetch(bu+'&interval=5m&limit=200').then(function(r){return r.json();})
+      ]).then(function(res){
+        var d=conv(res[0],true);
+        if(!d.length) throw new Error('no data');
+        var obj={d:d,m:conv(res[1],false)};
+        cache[sym]=obj;
+        return obj;
+      });
+    }
     var base='https://api.upbit.com/v1/candles/';
     var qs='?market=KRW-'+encodeURIComponent(sym)+'&count=200';
     return Promise.all([
@@ -1096,7 +1194,9 @@ POPUP_JS = r"""
   }
   function show(sym,name){
     curSym=sym; curName=name||'';
-    elTitle.textContent=(name?name+' ':'')+'('+sym+'/KRW)';
+    var isBN=sym.indexOf('BN:')===0;
+    elTitle.textContent=isBN ? (name+' ('+sym.slice(3)+' 바이낸스 선물)')
+                             : ((name?name+' ':'')+'('+sym+'/KRW)');
     elSub.textContent='로딩...'; elSub.style.color='#888';
     destroy();
     loadSym(sym).then(function(c){
@@ -1109,7 +1209,7 @@ POPUP_JS = r"""
       if(rows.length>=2){
         var cc=rows[rows.length-1].close, pp=rows[rows.length-2].close;
         var pct=(cc/pp-1)*100;
-        elSub.textContent=fmtP(cc)+'원  '+(pct>=0?'+':'')+pct.toFixed(2)+'%';
+        elSub.textContent=fmtP(cc)+(isBN?' USDT  ':'원  ')+(pct>=0?'+':'')+pct.toFixed(2)+'%';
         elSub.style.color=pct>=0?UP:DOWN;
       }
     }).catch(function(){
@@ -1247,7 +1347,7 @@ def build_html(data):
 
     # 화면에 실제 렌더된 심볼만 수집(순서 보존) → 빌드 시점 캔들 임베드
     seen, symbols = set(), []
-    for sym in re.findall(r'data-coin="([^"]+)"', row1 + surge_card + row2 + row3 + vcp_block):
+    for sym in re.findall(r'data-coin="([^"]+)"', acct_block + row1 + surge_card + row2 + row3 + vcp_block):
         if sym not in seen:
             seen.add(sym); symbols.append(sym)
     coin_data = fetch_coin_candle_data(symbols)
@@ -1386,6 +1486,8 @@ def build_html(data):
   table.ac-t .r {{ text-align: right; font-variant-numeric: tabular-nums; }}
   table.ac-t td.sym {{ font-weight: 700; color: #2c3e50; }}
   table.ac-t th.sym {{ font-weight: 700; color: #2c3e50; text-align: right; }}
+  table.ac-t a.sym {{ color: inherit; }}
+  .ac-card .ac-note {{ color: #b2bec3; font-size: 0.75rem; text-align: right; margin-top: 4px; }}
   /* 전치 테이블(바이낸스): 필드=행, 코인=열 */
   table.ac-tv td.fld, table.ac-tv th.fld {{ text-align: left; color: #7f8c8d;
     font-weight: 600; white-space: nowrap; background: #fafbfc; }}
