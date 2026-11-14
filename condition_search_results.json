@@ -1,6 +1,6 @@
 {
-  "update_time": "2026-11-11 07:05:57",
-  "elapsed_sec": 2.97,
+  "update_time": "2026-11-14 09:44:59",
+  "elapsed_sec": 8.9,
   "too_many_threshold": 10,
   "target_conditions": [
     {
@@ -46,28 +46,130 @@
     {
       "seq": "2",
       "name": "예상체결상위",
-      "total_count": 0,
+      "total_count": 4,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "017670",
+          "name": "SK텔레콤",
+          "price": 84600,
+          "rate": 0.38,
+          "volume": 969196,
+          "trade_amount_eok": 816.725154,
+          "contract_strength": "93.68",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 2,
+          "code": "028050",
+          "name": "삼성E&A",
+          "price": 69400,
+          "rate": 0.515,
+          "volume": 3211555,
+          "trade_amount_eok": 2202.63,
+          "contract_strength": "165.53",
+          "nxt": "선"
+        },
+        {
+          "rank": 3,
+          "code": "086790",
+          "name": "하나금융지주",
+          "price": 124100,
+          "rate": 0.299,
+          "volume": 658546,
+          "trade_amount_eok": 817.534635,
+          "contract_strength": "143.12",
+          "nxt": "NXT"
+        },
+        {
+          "rank": 4,
+          "code": "316140",
+          "name": "우리금융지주",
+          "price": 32400,
+          "rate": 0.269,
+          "volume": 1350195,
+          "trade_amount_eok": 434.884868,
+          "contract_strength": "113.23",
+          "nxt": "NXT"
+        }
+      ],
       "error": ""
     },
     {
       "seq": "4",
       "name": "★ 눌림",
-      "total_count": 0,
+      "total_count": 1,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "008930",
+          "name": "한미사이언스",
+          "price": 51500,
+          "rate": -0.602,
+          "volume": 275823,
+          "trade_amount_eok": 142.970437,
+          "contract_strength": "105.21",
+          "nxt": "NXT"
+        }
+      ],
       "error": ""
     },
     {
       "seq": "5",
       "name": "★ 삘추세231230",
-      "total_count": 0,
+      "total_count": 4,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "034730",
+          "name": "SK",
+          "price": 507000,
+          "rate": 0.14,
+          "volume": 124332,
+          "trade_amount_eok": 638.24952,
+          "contract_strength": "157.46",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 2,
+          "code": "064400",
+          "name": "LG씨엔에스",
+          "price": 79300,
+          "rate": 0.517,
+          "volume": 1562768,
+          "trade_amount_eok": 1245.7,
+          "contract_strength": "120.58",
+          "nxt": ""
+        },
+        {
+          "rank": 3,
+          "code": "086790",
+          "name": "하나금융지주",
+          "price": 124100,
+          "rate": 0.299,
+          "volume": 658546,
+          "trade_amount_eok": 817.534635,
+          "contract_strength": "143.12",
+          "nxt": "NXT"
+        },
+        {
+          "rank": 4,
+          "code": "277810",
+          "name": "레인보우로보틱스",
+          "price": 378500,
+          "rate": 0.955,
+          "volume": 180377,
+          "trade_amount_eok": 1153.4,
+          "contract_strength": "125.22",
+          "nxt": "NXT"
+        }
+      ],
       "error": ""
     }
   ]

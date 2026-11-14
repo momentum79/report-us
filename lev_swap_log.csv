@@ -1,6 +1,6 @@
 ﻿asof,base_ticker,base_market,base_name,lev_ticker,lev_market,final_order_ticker,final_order_market,order_symbol_or_prefix,is_lev2,lev_reason,fallback_reason,atr_ratio,index_ret20,index_ret60,qqq_color,spy_color,kr_color,liquidity_20d,liquidity_10d_eok,liq2_min_eok,age_bars,order_qty,order_amount
-2026-11-11 07:12:52,INDA,US,,,,INDA,US,NA:INDA,False,,2x 매핑 없음 (NO_2X),1.6584,-9.25400391097143,-7.55065775004411,RED,PURPLE,RED,,,,,,
-2026-11-11 07:12:52,EWW,US,,,,EWW,US,NY:EWW,False,,2x 매핑 없음 (NO_2X),1.1676,-9.25400391097143,-7.55065775004411,RED,PURPLE,RED,,,,,,
-2026-11-11 07:12:52,XLV,US,Healthcare,RXL,US,XLV,US,NY:XLV,False,,ATR 게이트 탈락 (atr5/atr60=1.715 > 1.5),1.7151,-9.25400391097143,-7.55065775004411,RED,PURPLE,RED,906494.47,12.4,1000,501,,
-2026-11-11 07:12:52,XLP,US,Consumer Staples,UGE,US,XLP,US,NY:XLP,False,,ATR 게이트 탈락 (atr5/atr60=1.735 > 1.5),1.7352,-9.25400391097143,-7.55065775004411,RED,PURPLE,RED,1899964.47,25.9,1000,501,,
-2026-11-11 07:12:52,XLF,US,Financials,UYG,US,XLF,US,NY:XLF,False,,ATR 게이트 탈락 (atr5/atr60=1.890 > 1.5),1.8902,-9.25400391097143,-7.55065775004411,RED,PURPLE,RED,1438252.7,19.6,1000,501,,
+2026-11-14 09:56:05,XLV,US,Healthcare,RXL,US,XLV,US,NY:XLV,False,,지수 수익률 게이트 탈락 (US 20일/60일 모두 <= 0),0.9847,-4.213859348960048,-4.366108948437553,-,-,-,879273.3,11.8,1000,501,,
+2026-11-14 09:56:05,INDA,US,,,,INDA,US,NA:INDA,False,,2x 매핑 없음 (NO_2X),0.8248,-4.213859348960048,-4.366108948437553,-,-,-,,,,,,
+2026-11-14 09:56:05,XLF,US,Financials,UYG,US,XLF,US,NY:XLF,False,,지수 수익률 게이트 탈락 (US 20일/60일 모두 <= 0),0.9572,-4.213859348960048,-4.366108948437553,-,-,-,1452412.3,19.5,1000,501,,
+2026-11-14 09:56:05,XLP,US,Consumer Staples,UGE,US,XLP,US,NY:XLP,False,,지수 수익률 게이트 탈락 (US 20일/60일 모두 <= 0),1.0089,-4.213859348960048,-4.366108948437553,-,-,-,1898389.77,25.5,1000,501,,
+2026-11-14 09:56:05,EWW,US,,,,EWW,US,NY:EWW,False,,2x 매핑 없음 (NO_2X),0.82,-4.213859348960048,-4.366108948437553,-,-,-,,,,,,
