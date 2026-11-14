@@ -12,9 +12,26 @@ if sys.stdout.encoding != 'utf-8':
         sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 # ====== 설정 ======
-BOT_TOKEN = "8530193490:AAEfFfROoVCQ9e3dS2dfKzOAwN_Na-qkaiQ"
-CHAT_ID = 1909192815
+# 텔레그램 토큰은 공개 저장소(report-us)에 두지 않는다 (2026-11-14).
+# 우선순위: 환경변수 TELEGRAM_BOT_TOKEN/TELEGRAM_CHAT_ID → D:\py	elegram_secret.json (비공개 저장소)
+def _load_telegram_secret():
+    import os
+    tok = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+    chat = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+    p = Path(__file__).resolve().parent.parent / "telegram_secret.json"
+    if (not tok or not chat) and p.exists():
+        try:
+            d = json.loads(p.read_text(encoding="utf-8"))
+            tok = tok or str(d.get("bot_token", "")).strip()
+            chat = chat or str(d.get("chat_id", "")).strip()
+        except Exception as e:
+            print(f"[WARN] telegram_secret.json read failed: {e}")
+    if not tok or not chat:
+        print(f"[WARN] telegram token/chat_id missing: {p}")
+    return tok, (int(chat) if chat.lstrip("-").isdigit() else chat)
 
+
+BOT_TOKEN, CHAT_ID = _load_telegram_secret()
 BASE_KR = Path("D:/py")
 # 종목명 매핑 파일들
 TICKER_FILES = [
