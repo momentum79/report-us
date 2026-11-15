@@ -166,6 +166,33 @@ body {
 .vixetf-table tr.vx-sell td.vx-hold { color: #c0392b; }
 .vixetf-table tr.vx-wait td.vx-hold { color: #95a5a6; }
 .vx-foot { font-size: 11px; color: #95a5a6; margin-top: 6px; }
+
+/* ── VIX 선물 기간구조 그래프 (4종 표 왼쪽) ── */
+.vixterm-panel {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  max-width: 100%;
+}
+.vxt-box {
+  flex: 1 1 auto;
+  min-height: 150px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  padding: 2px 4px;
+}
+.vxt-svg { width: 100%; height: 100%; display: block; }
+.vxt-grid { stroke: #ececec; stroke-width: 1; }
+.vxt-vline { stroke: #f3f3f3; stroke-width: 1; }
+.vxt-ytick { font-size: 10px; fill: #95a5a6; text-anchor: end; }
+.vxt-m { font-size: 11px; font-weight: 700; fill: #2c3e50; text-anchor: middle; }
+.vxt-d { font-size: 9.5px; fill: #95a5a6; text-anchor: middle; }
+.vxt-line { fill: none; stroke: #29b6f6; stroke-width: 2.2; stroke-linejoin: round; }
+.vxt-dot { fill: #29b6f6; stroke: #fff; stroke-width: 1.2; }
+.vxt-val { font-size: 10.5px; fill: #2c3e50; text-anchor: middle; }
+.vxt-empty { font-size: 12px; color: #95a5a6; padding: 20px; }
 .vx-stale { color: #e67e22; font-weight: 700; }
 
 /* ── 상단 2열 (Market Trend + TODAY'S REGIME) ── */
@@ -696,14 +723,19 @@ body {
     
     </div>
 
-    <!-- ZVOL·SVXY 보유 요약 (vix_etf_alert.py → vix_etf_state.json) -->
+    <!-- VIX 선물 기간구조 그래프 → VIX 4종 표 (vix_etf_alert.py → vix_etf_state.json) -->
+    
+    <div class="vixterm-panel">
+      <div class="meta" style="margin-bottom: 5px;">11/13 Last · VIX 19.3</div>
+      <div class="section-title">VIX VCO : -18.1</div>
+      <div class="vxt-box"><svg class="vxt-svg" viewBox="0 0 380 165" preserveAspectRatio="xMidYMid meet" role="img" aria-label="VIX 선물 기간구조"><line x1="32" x2="370" y1="131.0" y2="131.0" class="vxt-grid"/><text x="27" y="134.5" class="vxt-ytick">19</text><line x1="32" x2="370" y1="94.7" y2="94.7" class="vxt-grid"/><text x="27" y="98.2" class="vxt-ytick">20</text><line x1="32" x2="370" y1="58.3" y2="58.3" class="vxt-grid"/><text x="27" y="61.8" class="vxt-ytick">21</text><line x1="32" x2="370" y1="22.0" y2="22.0" class="vxt-grid"/><text x="27" y="25.5" class="vxt-ytick">22</text><line x1="60.2" x2="60.2" y1="22" y2="131" class="vxt-vline"/><text x="60.2" y="146" class="vxt-m">M1</text><text x="60.2" y="159" class="vxt-d">3일</text><line x1="116.5" x2="116.5" y1="22" y2="131" class="vxt-vline"/><text x="116.5" y="146" class="vxt-m">M2</text><text x="116.5" y="159" class="vxt-d">31일</text><line x1="172.8" x2="172.8" y1="22" y2="131" class="vxt-vline"/><text x="172.8" y="146" class="vxt-m">M3</text><text x="172.8" y="159" class="vxt-d">66일</text><line x1="229.2" x2="229.2" y1="22" y2="131" class="vxt-vline"/><text x="229.2" y="146" class="vxt-m">M4</text><text x="229.2" y="159" class="vxt-d">94일</text><line x1="285.5" x2="285.5" y1="22" y2="131" class="vxt-vline"/><text x="285.5" y="146" class="vxt-m">M5</text><text x="285.5" y="159" class="vxt-d">122일</text><line x1="341.8" x2="341.8" y1="22" y2="131" class="vxt-vline"/><text x="341.8" y="146" class="vxt-m">M6</text><text x="341.8" y="159" class="vxt-d">157일</text><polyline points="60.2,109.2 116.5,103.8 172.8,81.9 229.2,67.8 285.5,62.7 341.8,49.2" class="vxt-line"/><circle cx="60.2" cy="109.2" r="4" class="vxt-dot"/><text x="60.2" y="101.2" class="vxt-val">19.60</text><circle cx="116.5" cy="103.8" r="4" class="vxt-dot"/><text x="116.5" y="95.8" class="vxt-val">19.75</text><circle cx="172.8" cy="81.9" r="4" class="vxt-dot"/><text x="172.8" y="73.9" class="vxt-val">20.35</text><circle cx="229.2" cy="67.8" r="4" class="vxt-dot"/><text x="229.2" y="59.8" class="vxt-val">20.74</text><circle cx="285.5" cy="62.7" r="4" class="vxt-dot"/><text x="285.5" y="54.7" class="vxt-val">20.88</text><circle cx="341.8" cy="49.2" r="4" class="vxt-dot"/><text x="341.8" y="41.2" class="vxt-val">21.25</text></svg></div>
+    </div>
     <div class="vixetf-panel">
-      
       <div class="meta" style="margin-bottom: 5px;">VIX 19.3 · sco 4.75 · 11/13 종가</div>
-      <div class="section-title">ZVOL · SVXY (VIX 숏 ETF)</div>
+      <div class="section-title">VIX 4종 (QLD · VX선물 · ZVOL · SVXY)</div>
       <table class="trend-table vixetf-table">
-        <thead><tr><th>티커</th><th>보유</th><th>청산</th></tr></thead>
-        <tbody><tr class="vx-wait"><td class="vx-tk">ZVOL</td><td class="vx-hold">대기</td><td class="vx-exit">VIX 22 돌파 시 매수</td></tr><tr class="vx-hold"><td class="vx-tk">SVXY</td><td class="vx-hold">보유 1일</td><td class="vx-exit">VIX<18 또는 1/12</td></tr></tbody>
+        <thead><tr><th>전략</th><th>보유</th><th>청산 / 다음</th></tr></thead>
+        <tbody><tr class="vx-wait"><td class="vx-tk">QLD</td><td class="vx-hold">현금</td><td class="vx-exit">다음 판정 11/20(금) 종가</td></tr><tr class="vx-hold"><td class="vx-tk">VX선물</td><td class="vx-hold">보유 1/5</td><td class="vx-exit">11/20 08:00 KST 환매 (12월물)</td></tr><tr class="vx-wait"><td class="vx-tk">ZVOL</td><td class="vx-hold">대기</td><td class="vx-exit">VIX 22 돌파 시 매수</td></tr><tr class="vx-hold"><td class="vx-tk">SVXY</td><td class="vx-hold">보유 1일</td><td class="vx-exit">VIX<18 또는 1/12</td></tr></tbody>
       </table>
       <script>
       (function () {
@@ -716,8 +748,8 @@ body {
         window.addEventListener('resize', sync);
       })();
       </script>
-
     </div>
+
   </div>
 
   <!-- TODAY'S TOP3 LEADERSHIP 카드 (16d window) -->

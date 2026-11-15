@@ -6,6 +6,7 @@
 import csv
 import io
 import json
+import math
 import re
 from pathlib import Path
 from datetime import datetime, timedelta
@@ -833,14 +834,57 @@ def fmt_diff(today_val, yest_val, key):
         return "-", ""
 
 
+def _vix_term_svg(term: dict | None) -> str:
+    """VIX 선물 기간구조 M1~M6 (점 = 각 M 세로선 위, 선으로 연결). 가로축 아래 작은 글씨 = 만기까지 남은 날."""
+    if not term or not term.get("rows") or not all(r.get("price") for r in term["rows"]):
+        return '<div class="vxt-empty">VX 선물 데이터 없음</div>'
+    rows = term["rows"]
+    W, H, L, R, T, B = 380, 165, 32, 10, 22, 34           # 그림 크기·여백 (.vixterm-panel 폭과 맞춤)
+    px = [float(r["price"]) for r in rows]
+    lo, hi = min(px), max(px)
+    span = max(hi - lo, 0.4)
+    lo, hi = lo - span * 0.18, hi + span * 0.28            # 위쪽은 값 글자 자리
+    raw_step = (hi - lo) / 4
+    step = next(s for s in (0.1, 0.2, 0.25, 0.5, 1, 2, 2.5, 5, 10) if s >= raw_step)
+    y0 = math.floor(lo / step) * step
+    y1 = math.ceil(hi / step) * step
+    n = len(rows)
+    xs = [L + (W - L - R) * (i + 0.5) / n for i in range(n)]
+    def Y(v):
+        return T + (H - T - B) * (1 - (v - y0) / (y1 - y0))
+    today = datetime.now().date()
+    g = []
+    k = 0
+    while y0 + k * step <= y1 + 1e-9:                      # 가로 눈금
+        v = y0 + k * step
+        g.append(f'<line x1="{L}" x2="{W - R}" y1="{Y(v):.1f}" y2="{Y(v):.1f}" class="vxt-grid"/>'
+                 f'<text x="{L - 5}" y="{Y(v) + 3.5:.1f}" class="vxt-ytick">{v:g}</text>')
+        k += 1
+    for i, r in enumerate(rows):                           # M 세로선 + 가로축 글자
+        exp = datetime.strptime(r["exp"], "%Y-%m-%d").date()
+        days = (exp - today).days
+        g.append(f'<line x1="{xs[i]:.1f}" x2="{xs[i]:.1f}" y1="{T}" y2="{H - B}" class="vxt-vline"/>'
+                 f'<text x="{xs[i]:.1f}" y="{H - B + 15}" class="vxt-m">{r["m"]}</text>'
+                 f'<text x="{xs[i]:.1f}" y="{H - B + 28}" class="vxt-d">{days}일</text>')
+    pts = " ".join(f"{xs[i]:.1f},{Y(v):.1f}" for i, v in enumerate(px))
+    g.append(f'<polyline points="{pts}" class="vxt-line"/>')
+    for i, v in enumerate(px):
+        g.append(f'<circle cx="{xs[i]:.1f}" cy="{Y(v):.1f}" r="4" class="vxt-dot"/>'
+                 f'<text x="{xs[i]:.1f}" y="{Y(v) - 8:.1f}" class="vxt-val">{v:.2f}</text>')
+    return (f'<svg class="vxt-svg" viewBox="0 0 {W} {H}" preserveAspectRatio="xMidYMid meet" '
+            f'role="img" aria-label="VIX 선물 기간구조">{"".join(g)}</svg>')
+
+
 def build_vixetf_card_html():
-    """ZVOL·SVXY 보유 여부 요약 (vix_etf_alert.py 가 쓰는 vix_etf_state.json). 없으면 안내만."""
+    """상단 1행 오른쪽: [VIX 선물 기간구조 그래프] → [VIX 4종 표(QLD·VX선물·ZVOL·SVXY)].
+    원천 = vix_etf_alert.py 가 쓰는 vix_etf_state.json (vix_data: CBOE·키움, yfinance 미사용)."""
     p = BASE / "vix_etf_state.json"
     try:
         d = json.loads(p.read_text(encoding="utf-8"))
     except Exception:
         d = None
     rows = ""
+    term = (d or {}).get("term")
     if d and d.get("rows"):
         for r in d["rows"]:
             lv = r.get("level", "wait")
@@ -852,11 +896,21 @@ def build_vixetf_card_html():
     else:
         rows = '<tr><td colspan="3" class="vx-exit">vix_etf_alert.py 실행 전</td></tr>'
         foot = ""
+    vco = (term or {}).get("vco")
+    vco_txt = f"{vco:+.1f}" if isinstance(vco, (int, float)) else "-"
+    tdate = (term or {}).get("date", "")
+    tmeta = f'{tdate[5:].replace("-", "/")} Last · VIX {term.get("vix")}' if term else "&nbsp;"
     return f"""
+    <div class="vixterm-panel">
+      <div class="meta" style="margin-bottom: 5px;">{tmeta}</div>
+      <div class="section-title">VIX VCO : {vco_txt}</div>
+      <div class="vxt-box">{_vix_term_svg(term)}</div>
+    </div>
+    <div class="vixetf-panel">
       <div class="meta" style="margin-bottom: 5px;">{foot or "&nbsp;"}</div>
-      <div class="section-title">ZVOL · SVXY (VIX 숏 ETF)</div>
+      <div class="section-title">VIX 4종 (QLD · VX선물 · ZVOL · SVXY)</div>
       <table class="trend-table vixetf-table">
-        <thead><tr><th>티커</th><th>보유</th><th>청산</th></tr></thead>
+        <thead><tr><th>전략</th><th>보유</th><th>청산 / 다음</th></tr></thead>
         <tbody>{rows}</tbody>
       </table>
       <script>
@@ -870,6 +924,7 @@ def build_vixetf_card_html():
         window.addEventListener('resize', sync);
       }})();
       </script>
+    </div>
 """
 
 
@@ -1171,6 +1226,33 @@ body {{
 .vixetf-table tr.vx-sell td.vx-hold {{ color: #c0392b; }}
 .vixetf-table tr.vx-wait td.vx-hold {{ color: #95a5a6; }}
 .vx-foot {{ font-size: 11px; color: #95a5a6; margin-top: 6px; }}
+
+/* ── VIX 선물 기간구조 그래프 (4종 표 왼쪽) ── */
+.vixterm-panel {{
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  max-width: 100%;
+}}
+.vxt-box {{
+  flex: 1 1 auto;
+  min-height: 150px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+  padding: 2px 4px;
+}}
+.vxt-svg {{ width: 100%; height: 100%; display: block; }}
+.vxt-grid {{ stroke: #ececec; stroke-width: 1; }}
+.vxt-vline {{ stroke: #f3f3f3; stroke-width: 1; }}
+.vxt-ytick {{ font-size: 10px; fill: #95a5a6; text-anchor: end; }}
+.vxt-m {{ font-size: 11px; font-weight: 700; fill: #2c3e50; text-anchor: middle; }}
+.vxt-d {{ font-size: 9.5px; fill: #95a5a6; text-anchor: middle; }}
+.vxt-line {{ fill: none; stroke: #29b6f6; stroke-width: 2.2; stroke-linejoin: round; }}
+.vxt-dot {{ fill: #29b6f6; stroke: #fff; stroke-width: 1.2; }}
+.vxt-val {{ font-size: 10.5px; fill: #2c3e50; text-anchor: middle; }}
+.vxt-empty {{ font-size: 12px; color: #95a5a6; padding: 20px; }}
 .vx-stale {{ color: #e67e22; font-weight: 700; }}
 
 /* ── 상단 2열 (Market Trend + TODAY'S REGIME) ── */
@@ -1671,10 +1753,8 @@ body {{
       {regime_card_html}
     </div>
 
-    <!-- ZVOL·SVXY 보유 요약 (vix_etf_alert.py → vix_etf_state.json) -->
-    <div class="vixetf-panel">
-      {vixetf_card_html}
-    </div>
+    <!-- VIX 선물 기간구조 그래프 → VIX 4종 표 (vix_etf_alert.py → vix_etf_state.json) -->
+    {vixetf_card_html}
   </div>
 
   <!-- TODAY'S TOP3 LEADERSHIP 카드 (16d window) -->
