@@ -147,6 +147,27 @@ body {
   margin-top: 5px;
 }
 
+/* ── ZVOL·SVXY 보유 요약 (상단 오른쪽) ── */
+.vixetf-panel {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 260px;
+}
+.vixetf-table { min-width: 260px; height: 132px; }
+.vixetf-table td { padding: 4px 10px; font-size: 13px; }
+.vixetf-table td.vx-tk { font-weight: 700; color: #2c3e50; }
+.vixetf-table td.vx-hold { font-weight: 700; white-space: nowrap; }
+.vixetf-table td.vx-exit { text-align: left; color: #555; font-size: 12px; white-space: nowrap; }
+.vixetf-table tr.vx-hold td.vx-hold { color: #27ae60; }
+.vixetf-table tr.vx-buy  { background: #eafaf1; }
+.vixetf-table tr.vx-buy td.vx-hold { color: #1e8449; }
+.vixetf-table tr.vx-sell { background: #fdecea; }
+.vixetf-table tr.vx-sell td.vx-hold { color: #c0392b; }
+.vixetf-table tr.vx-wait td.vx-hold { color: #95a5a6; }
+.vx-foot { font-size: 11px; color: #95a5a6; margin-top: 6px; }
+.vx-stale { color: #e67e22; font-weight: 700; }
+
 /* ── 상단 2열 (Market Trend + TODAY'S REGIME) ── */
 .top-summary-row {
   display: flex;
@@ -619,7 +640,7 @@ body {
   <!-- 상단 2열: 왼쪽 Market Trend + 오른쪽 TODAY'S REGIME 카드 -->
   <div class="top-summary-row">
     <div class="left-panel">
-      <div class="meta" style="margin-bottom: 5px;">Updated: 2026-11-14 09:45:22</div>
+      <div class="meta" style="margin-bottom: 5px;">Updated: 2026-11-15 10:52:34</div>
       <div class="section-title">Market Trend</div>
       <table class="trend-table">
         <thead>
@@ -649,7 +670,7 @@ body {
       
     <div class="regime-card-title">
       <span class="regime-card-title-main">TODAY'S REGIME</span>
-      <span class="regime-prev-date">(전일대비 2026-11-11)</span>
+      <span class="regime-prev-date">(전일대비 2026-11-14)</span>
     </div>
     <div class="regime-card-grid">
       <div class="regime-metric-card regime-score-card">
@@ -658,21 +679,44 @@ body {
           <div class="regime-score-value">10.8</div>
           <div class="regime-score-sub">/ 100</div>
         </div>
-        <div class="regime-delta diff-good">▲ +1 <span class="regime-prev-label">(전일 9.8)</span></div>
+        <div class="regime-delta diff-zero">0 <span class="regime-prev-label">(전일 10.8)</span></div>
       </div>
       <div class="regime-metric-card regime-state-card">
         <div class="regime-metric-label">시장판정</div>
         <div class="regime-state-value" style="color:#922b21;">위험 회피</div>
       </div>
       <div class="regime-metric-card">  <div class="regime-metric-label">Strong Zone</div>  <div class="regime-metric-value">0개 / 130개</div>  <div class="regime-delta diff-zero">0 <span class="regime-prev-label">(전일 0개)</span></div></div>
-      <div class="regime-metric-card">  <div class="regime-metric-label">Risk Zone</div>  <div class="regime-metric-value">106개 / 130개</div>  <div class="regime-delta diff-good">▼ -3 <span class="regime-prev-label">(전일 109개)</span></div></div>
-      <div class="regime-metric-card">  <div class="regime-metric-label">Worst Zone</div>  <div class="regime-metric-value">80개 / 130개</div>  <div class="regime-delta diff-good">▼ -4 <span class="regime-prev-label">(전일 84개)</span></div></div>
+      <div class="regime-metric-card">  <div class="regime-metric-label">Risk Zone</div>  <div class="regime-metric-value">106개 / 130개</div>  <div class="regime-delta diff-zero">0 <span class="regime-prev-label">(전일 106개)</span></div></div>
+      <div class="regime-metric-card">  <div class="regime-metric-label">Worst Zone</div>  <div class="regime-metric-value">80개 / 130개</div>  <div class="regime-delta diff-zero">0 <span class="regime-prev-label">(전일 80개)</span></div></div>
     </div>
     <div class="regime-comment">
       <span class="regime-comment-tag">💬 COMMENT</span>
       <span class="regime-comment-text">약세 구역 비중이 높고 리더십이 부족합니다. 현금 비중을 우선하고 신규 진입은 최소화하는 구간입니다.</span>
     </div>
     
+    </div>
+
+    <!-- ZVOL·SVXY 보유 요약 (vix_etf_alert.py → vix_etf_state.json) -->
+    <div class="vixetf-panel">
+      
+      <div class="meta" style="margin-bottom: 5px;">VIX 19.3 · sco 4.75 · 11/13 종가</div>
+      <div class="section-title">ZVOL · SVXY (VIX 숏 ETF)</div>
+      <table class="trend-table vixetf-table">
+        <thead><tr><th>티커</th><th>보유</th><th>청산</th></tr></thead>
+        <tbody><tr class="vx-wait"><td class="vx-tk">ZVOL</td><td class="vx-hold">대기</td><td class="vx-exit">VIX 22 돌파 시 매수</td></tr><tr class="vx-hold"><td class="vx-tk">SVXY</td><td class="vx-hold">보유 1일</td><td class="vx-exit">VIX<18 또는 1/12</td></tr></tbody>
+      </table>
+      <script>
+      (function () {
+        function sync() {
+          var a = document.querySelector('.top-summary-row .left-panel .trend-table');
+          var b = document.querySelector('.vixetf-table');
+          if (a && b) { b.style.height = a.getBoundingClientRect().height + 'px'; }
+        }
+        window.addEventListener('load', sync);
+        window.addEventListener('resize', sync);
+      })();
+      </script>
+
     </div>
   </div>
 
@@ -31289,6 +31333,50 @@ if (typeof Chart !== 'undefined' && typeof ChartDataLabels !== 'undefined') {
   },
   {
     "date": "2026-11-14",
+    "Worst": 80,
+    "Neutral": 1,
+    "Recovery": 0,
+    "HotVeryHot": 0,
+    "total_universe": 130,
+    "avg_sco": -1.92,
+    "avg_3m": -10.3,
+    "Other": 49,
+    "Worst_pct": 61.54,
+    "Neutral_pct": 0.77,
+    "Recovery_pct": 0.0,
+    "HotVeryHot_pct": 0.0,
+    "Other_pct": 37.69,
+    "cell_<0__<0%": NaN,
+    "cell_<0__0~15%": NaN,
+    "cell_<0__15~30%": NaN,
+    "cell_<0__30%+": NaN,
+    "cell_0~7__<0%": NaN,
+    "cell_0~7__0~15%": NaN,
+    "cell_0~7__15~30%": NaN,
+    "cell_0~7__30%+": NaN,
+    "cell_8~10__<0%": NaN,
+    "cell_8~10__0~15%": NaN,
+    "cell_8~10__15~30%": NaN,
+    "cell_8~10__30%+": NaN,
+    "cell_11+__<0%": NaN,
+    "cell_11+__0~15%": NaN,
+    "cell_11+__15~30%": NaN,
+    "cell_11+__30%+": NaN,
+    "QQQ_close": 679.89,
+    "SPY_close": NaN,
+    "sco_strong": 11.0,
+    "sco_mid": 12.0,
+    "sco_weak": 24.0,
+    "sco_neg": 83.0,
+    "regime_raw_avg": 2.6154,
+    "regime_map_score": 10.8,
+    "strong_zone_cnt": 0.0,
+    "risk_zone_cnt": 106.0,
+    "worst_zone_cnt": 80.0,
+    "regime_state": "위험 회피"
+  },
+  {
+    "date": "2026-11-15",
     "Worst": 80,
     "Neutral": 1,
     "Recovery": 0,

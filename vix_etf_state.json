@@ -1,0 +1,21 @@
+{
+ "updated": "2026-11-15 10:50",
+ "bar": "2026-11-13",
+ "stale": false,
+ "vix": 19.3,
+ "vix_sco": 4.75,
+ "rows": [
+  {
+   "ticker": "ZVOL",
+   "hold": "대기",
+   "exit": "VIX 22 돌파 시 매수",
+   "level": "wait"
+  },
+  {
+   "ticker": "SVXY",
+   "hold": "보유 1일",
+   "level": "hold",
+   "exit": "VIX<18 또는 1/12"
+  }
+ ]
+}

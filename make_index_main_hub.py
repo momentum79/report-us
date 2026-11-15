@@ -833,6 +833,46 @@ def fmt_diff(today_val, yest_val, key):
         return "-", ""
 
 
+def build_vixetf_card_html():
+    """ZVOL·SVXY 보유 여부 요약 (vix_etf_alert.py 가 쓰는 vix_etf_state.json). 없으면 안내만."""
+    p = BASE / "vix_etf_state.json"
+    try:
+        d = json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        d = None
+    rows = ""
+    if d and d.get("rows"):
+        for r in d["rows"]:
+            lv = r.get("level", "wait")
+            rows += (f'<tr class="vx-{lv}"><td class="vx-tk">{r.get("ticker","")}</td>'
+                     f'<td class="vx-hold">{r.get("hold","")}</td><td class="vx-exit">{r.get("exit","")}</td></tr>')
+        bar = d.get("bar", "")
+        stale = ' <span class="vx-stale">데이터 미확정</span>' if d.get("stale") else ""
+        foot = f'VIX {d.get("vix","-")} · sco {d.get("vix_sco","-")} · {bar[5:].replace("-","/")} 종가{stale}'
+    else:
+        rows = '<tr><td colspan="3" class="vx-exit">vix_etf_alert.py 실행 전</td></tr>'
+        foot = ""
+    return f"""
+      <div class="meta" style="margin-bottom: 5px;">{foot or "&nbsp;"}</div>
+      <div class="section-title">ZVOL · SVXY (VIX 숏 ETF)</div>
+      <table class="trend-table vixetf-table">
+        <thead><tr><th>티커</th><th>보유</th><th>청산</th></tr></thead>
+        <tbody>{rows}</tbody>
+      </table>
+      <script>
+      (function () {{
+        function sync() {{
+          var a = document.querySelector('.top-summary-row .left-panel .trend-table');
+          var b = document.querySelector('.vixetf-table');
+          if (a && b) {{ b.style.height = a.getBoundingClientRect().height + 'px'; }}
+        }}
+        window.addEventListener('load', sync);
+        window.addEventListener('resize', sync);
+      }})();
+      </script>
+"""
+
+
 def main():
     stats = load_stats()
     yest  = load_yesterday_zones()
@@ -949,6 +989,7 @@ def main():
 
     # --- TODAY'S REGIME 카드 ---
     regime_card_html = build_regime_summary_card()
+    vixetf_card_html = build_vixetf_card_html()
 
     # --- TODAY'S TOP3 LEADERSHIP 카드 ---
     leadership_data      = compute_leadership()
@@ -1110,6 +1151,27 @@ body {{
   color: #aaa;
   margin-top: 5px;
 }}
+
+/* ── ZVOL·SVXY 보유 요약 (상단 오른쪽) ── */
+.vixetf-panel {{
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 260px;
+}}
+.vixetf-table {{ min-width: 260px; height: 132px; }}
+.vixetf-table td {{ padding: 4px 10px; font-size: 13px; }}
+.vixetf-table td.vx-tk {{ font-weight: 700; color: #2c3e50; }}
+.vixetf-table td.vx-hold {{ font-weight: 700; white-space: nowrap; }}
+.vixetf-table td.vx-exit {{ text-align: left; color: #555; font-size: 12px; white-space: nowrap; }}
+.vixetf-table tr.vx-hold td.vx-hold {{ color: #27ae60; }}
+.vixetf-table tr.vx-buy  {{ background: #eafaf1; }}
+.vixetf-table tr.vx-buy td.vx-hold {{ color: #1e8449; }}
+.vixetf-table tr.vx-sell {{ background: #fdecea; }}
+.vixetf-table tr.vx-sell td.vx-hold {{ color: #c0392b; }}
+.vixetf-table tr.vx-wait td.vx-hold {{ color: #95a5a6; }}
+.vx-foot {{ font-size: 11px; color: #95a5a6; margin-top: 6px; }}
+.vx-stale {{ color: #e67e22; font-weight: 700; }}
 
 /* ── 상단 2열 (Market Trend + TODAY'S REGIME) ── */
 .top-summary-row {{
@@ -1607,6 +1669,11 @@ body {{
 
     <div class="regime-summary-card">
       {regime_card_html}
+    </div>
+
+    <!-- ZVOL·SVXY 보유 요약 (vix_etf_alert.py → vix_etf_state.json) -->
+    <div class="vixetf-panel">
+      {vixetf_card_html}
     </div>
   </div>
 
