@@ -17,8 +17,8 @@
     "kosdaq_trend": "-",
     "sp500_trend": "-",
     "nasdaq_trend": "-",
-    "kospi_sco": -9.75,
-    "kosdaq_sco": -7.5,
+    "kospi_sco": -9.0,
+    "kosdaq_sco": -6.75,
     "sp500_sco": -3.0,
     "nasdaq_sco": -7.5,
     "euro_trend": "GREEN",
@@ -71,7 +71,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-11-15 10:52:34",
+    "update_time": "2026-11-16 21:14:53",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -79,6 +79,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1342.4
+        "usd_krw": 1450.0
     }
 }
