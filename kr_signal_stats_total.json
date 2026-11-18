@@ -1,73 +1,56 @@
 {
-    "avg_sco": -3.0,
+    "avg_sco": -6.5,
     "total_cnt": 130,
     "valid_cnt": 130,
     "atr_excl_cnt": 0,
-    "sco_pos": 40,
-    "sco_neg": 90,
-    "sco_strong": 7,
-    "sco_zone_neg": 90,
-    "sco_zone_weak": 27,
-    "sco_zone_mid": 6,
-    "sco_zone_strong": 7,
-    "strong_count": 7,
-    "top3_avg_sco": 13.83,
-    "top3_avg_pos": 1.33,
-    "kospi_trend": "-",
-    "kosdaq_trend": "-",
+    "sco_pos": 22,
+    "sco_neg": 108,
+    "sco_strong": 2,
+    "sco_zone_neg": 108,
+    "sco_zone_weak": 17,
+    "sco_zone_mid": 3,
+    "sco_zone_strong": 2,
+    "strong_count": 2,
+    "top3_avg_sco": 12.12,
+    "top3_avg_pos": 2.5,
+    "kospi_trend": "RED",
+    "kosdaq_trend": "RED",
     "sp500_trend": "RED",
     "nasdaq_trend": "RED",
-    "kospi_sco": -9.0,
-    "kosdaq_sco": -6.75,
-    "sp500_sco": -3.5,
-    "nasdaq_sco": -8.0,
-    "euro_trend": "GREEN",
+    "kospi_sco": -10.0,
+    "kosdaq_sco": -9.5,
+    "sp500_sco": -9.25,
+    "nasdaq_sco": -10.75,
+    "euro_trend": "RED",
     "india_trend": "GREEN",
-    "nikkei_trend": "-",
-    "shanghai_trend": "GREEN",
+    "nikkei_trend": "RED",
+    "shanghai_trend": "RED",
     "hongkong_trend": "GREEN",
     "brazil_trend": "RED",
-    "kospi_mult": 0.2,
+    "kospi_mult": 0.0,
     "nasdaq_mult": 0.0,
     "invest_pct": 0.0,
     "invest_amount_total": 0,
     "internal_weights": [
-        31.25,
-        25.2016,
-        15.3226,
-        10.0806,
-        10.0806,
-        8.0645
+        56.266,
+        43.734
     ],
-    "n_holdings": 6,
+    "n_holdings": 2,
     "holdings_tickers": [
-        "XLP",
-        "XLU",
-        "XLV",
         "INDA",
-        "XLF",
-        "EWW"
+        "XLP"
     ],
     "final_ratios": {
-        "XLP": 0.0,
-        "XLU": 0.0,
-        "XLV": 0.0,
         "INDA": 0.0,
-        "XLF": 0.0,
-        "EWW": 0.0
+        "XLP": 0.0
     },
     "top3_tickers": [
-        "XLP",
-        "XLU",
-        "XLV"
+        "INDA",
+        "XLP"
     ],
     "allocation_map_used": [
-        31,
-        25,
-        16,
-        10,
-        10,
-        8
+        55,
+        45
     ],
     "score_model": {
         "name": "vol_stability_v1",
@@ -75,7 +58,7 @@
         "stability": "downside_vol63_45 + mdd126_35 + vol_spike_20",
         "final": "base * (0.80 + 0.20 * stability) * atr_penalty"
     },
-    "update_time": "2026-11-17 07:03:30",
+    "update_time": "2026-11-19 08:07:34",
     "liq_rejected": [],
     "liq_thresholds": {
         "KR": 200,
@@ -83,6 +66,6 @@
         "KR_min_day": 80,
         "US_min_day": 400,
         "lookback": 20,
-        "usd_krw": 1343.7
+        "usd_krw": 1450.0
     }
 }

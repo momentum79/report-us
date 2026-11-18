@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-17 07:01",
- "bar": "2026-11-13",
+ "updated": "2026-11-19 08:05",
+ "bar": "2026-11-17",
  "stale": true,
- "vix": 19.3,
- "vix_sco": 4.75,
+ "vix": 25.46,
+ "vix_sco": 7.75,
  "rows": [
   {
    "ticker": "QLD",
@@ -13,69 +13,69 @@
   },
   {
    "ticker": "VX선물",
-   "hold": "보유 1/5",
+   "hold": "보유 3/5",
    "level": "hold",
    "exit": "11/20 08:00 KST 환매 (12월물)"
   },
   {
    "ticker": "ZVOL",
-   "hold": "대기",
-   "exit": "VIX 22 돌파 시 매수",
-   "level": "wait"
+   "hold": "보유 1일",
+   "level": "hold",
+   "exit": "MA10 아래 2일(1/2) 또는 12/30"
   },
   {
    "ticker": "SVXY",
-   "hold": "보유 1일",
+   "hold": "보유 3일",
    "level": "hold",
    "exit": "VIX<18 또는 1/12"
   }
  ],
  "term": {
-  "date": "2026-11-13",
-  "vix": 19.3,
-  "vco": -18.05,
+  "date": "2026-11-17",
+  "vix": 25.46,
+  "vco": -97.89,
   "rows": [
    {
     "m": "M1",
     "exp": "2026-11-18",
-    "days": 5,
-    "price": 19.6,
-    "settle": 19.1079
+    "days": 1,
+    "price": 24.25,
+    "settle": 24.7417
    },
    {
     "m": "M2",
     "exp": "2026-12-16",
-    "days": 33,
-    "price": 19.75,
-    "settle": 19.4379
+    "days": 29,
+    "price": 22.35,
+    "settle": 22.6881
    },
    {
     "m": "M3",
     "exp": "2027-01-20",
-    "days": 68,
-    "price": 20.35,
-    "settle": 20.1892
+    "days": 64,
+    "price": 22.4,
+    "settle": 22.6527
    },
    {
     "m": "M4",
     "exp": "2027-02-17",
-    "days": 96,
-    "price": 20.74,
-    "settle": 20.5558
+    "days": 92,
+    "price": 22.58,
+    "settle": 22.8088
    },
    {
     "m": "M5",
     "exp": "2027-03-17",
-    "days": 124,
-    "price": 20.88,
-    "settle": 20.7984
+    "days": 120,
+    "price": 22.52,
+    "settle": 22.6567
    },
    {
     "m": "M6",
     "exp": "2027-04-21",
-    "days": 159,
-    "price": 21.25,
-    "settle": 21.1861
+    "days": 155,
+    "price": 22.62,
+    "settle": 22.6971
    }
   ],
   "missing": []
