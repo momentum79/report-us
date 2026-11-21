@@ -1,6 +1,6 @@
 {
-  "update_time": "2026-11-19 08:10:21",
-  "elapsed_sec": 3.0,
+  "update_time": "2026-11-21 09:30:37",
+  "elapsed_sec": 5.07,
   "too_many_threshold": 10,
   "target_conditions": [
     {
@@ -37,10 +37,22 @@
     {
       "seq": "1",
       "name": "120신고_거래",
-      "total_count": 0,
+      "total_count": 1,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "180640",
+          "name": "한진칼",
+          "price": 237000,
+          "rate": 0.972,
+          "volume": 571616,
+          "trade_amount_eok": 2823.69,
+          "contract_strength": "110.77",
+          "nxt": "NXT선"
+        }
+      ],
       "error": ""
     },
     {
@@ -55,10 +67,33 @@
     {
       "seq": "4",
       "name": "★ 눌림",
-      "total_count": 0,
+      "total_count": 2,
       "too_many": false,
       "message": "",
-      "stocks": [],
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "003490",
+          "name": "대한항공",
+          "price": 31300,
+          "rate": -0.354,
+          "volume": 2094564,
+          "trade_amount_eok": 662.3931265,
+          "contract_strength": "99.10",
+          "nxt": "선"
+        },
+        {
+          "rank": 2,
+          "code": "053800",
+          "name": "안랩",
+          "price": 109700,
+          "rate": -0.696,
+          "volume": 419589,
+          "trade_amount_eok": 473.378057,
+          "contract_strength": "87.94",
+          "nxt": "NXT"
+        }
+      ],
       "error": ""
     },
     {
