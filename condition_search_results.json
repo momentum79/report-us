@@ -1,6 +1,6 @@
 {
-  "update_time": "2026-11-21 09:30:37",
-  "elapsed_sec": 5.07,
+  "update_time": "2026-11-27 19:12:51",
+  "elapsed_sec": 14.37,
   "too_many_threshold": 10,
   "target_conditions": [
     {
@@ -37,72 +37,193 @@
     {
       "seq": "1",
       "name": "120신고_거래",
-      "total_count": 1,
+      "total_count": 0,
       "too_many": false,
       "message": "",
-      "stocks": [
-        {
-          "rank": 1,
-          "code": "180640",
-          "name": "한진칼",
-          "price": 237000,
-          "rate": 0.972,
-          "volume": 571616,
-          "trade_amount_eok": 2823.69,
-          "contract_strength": "110.77",
-          "nxt": "NXT선"
-        }
-      ],
+      "stocks": [],
       "error": ""
     },
     {
       "seq": "2",
       "name": "예상체결상위",
-      "total_count": 0,
-      "too_many": false,
-      "message": "",
-      "stocks": [],
-      "error": ""
-    },
-    {
-      "seq": "4",
-      "name": "★ 눌림",
-      "total_count": 2,
+      "total_count": 6,
       "too_many": false,
       "message": "",
       "stocks": [
         {
           "rank": 1,
-          "code": "003490",
-          "name": "대한항공",
-          "price": 31300,
-          "rate": -0.354,
-          "volume": 2094564,
-          "trade_amount_eok": 662.3931265,
-          "contract_strength": "99.10",
-          "nxt": "선"
+          "code": "012860",
+          "name": "모베이스전자",
+          "price": 2325,
+          "rate": 0.967,
+          "volume": 6735256,
+          "trade_amount_eok": 153.52991234,
+          "contract_strength": "110.03",
+          "nxt": ""
         },
         {
           "rank": 2,
-          "code": "053800",
-          "name": "안랩",
-          "price": 109700,
-          "rate": -0.696,
-          "volume": 419589,
-          "trade_amount_eok": 473.378057,
-          "contract_strength": "87.94",
-          "nxt": "NXT"
+          "code": "027360",
+          "name": "아주IB투자",
+          "price": 2875,
+          "rate": 1.143,
+          "volume": 6435669,
+          "trade_amount_eok": 179.61515183,
+          "contract_strength": "117.37",
+          "nxt": ""
+        },
+        {
+          "rank": 3,
+          "code": "042510",
+          "name": "라온시큐어",
+          "price": 19030,
+          "rate": 2.136,
+          "volume": 5139113,
+          "trade_amount_eok": 959.16,
+          "contract_strength": "98.39",
+          "nxt": ""
+        },
+        {
+          "rank": 4,
+          "code": "100790",
+          "name": "미래에셋벤처투자",
+          "price": 19830,
+          "rate": 0.565,
+          "volume": 6422573,
+          "trade_amount_eok": 1259.43,
+          "contract_strength": "87.46",
+          "nxt": ""
+        },
+        {
+          "rank": 5,
+          "code": "232680",
+          "name": "라온로보틱스",
+          "price": 15110,
+          "rate": 2.03,
+          "volume": 4927208,
+          "trade_amount_eok": 729.09402995,
+          "contract_strength": "95.02",
+          "nxt": ""
+        },
+        {
+          "rank": 6,
+          "code": "319400",
+          "name": "현대무벡스",
+          "price": 19190,
+          "rate": 1.546,
+          "volume": 3879891,
+          "trade_amount_eok": 725.84107375,
+          "contract_strength": "106.90",
+          "nxt": ""
         }
       ],
       "error": ""
     },
     {
-      "seq": "5",
-      "name": "★ 삘추세231230",
+      "seq": "4",
+      "name": "★ 눌림",
       "total_count": 0,
       "too_many": false,
       "message": "",
       "stocks": [],
+      "error": ""
+    },
+    {
+      "seq": "5",
+      "name": "★ 삘추세231230",
+      "total_count": 8,
+      "too_many": false,
+      "message": "",
+      "stocks": [
+        {
+          "rank": 1,
+          "code": "039490",
+          "name": "키움증권",
+          "price": 236500,
+          "rate": 1.593,
+          "volume": 266899,
+          "trade_amount_eok": 730.56,
+          "contract_strength": "143.22",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 2,
+          "code": "079550",
+          "name": "LIG디펜스앤에어로스",
+          "price": 417000,
+          "rate": 0.692,
+          "volume": 220661,
+          "trade_amount_eok": 1088.71,
+          "contract_strength": "104.17",
+          "nxt": "NXT선"
+        },
+        {
+          "rank": 3,
+          "code": "141080",
+          "name": "리가켐바이오",
+          "price": 69300,
+          "rate": 2.222,
+          "volume": 756002,
+          "trade_amount_eok": 757.67,
+          "contract_strength": "116.88",
+          "nxt": "NXT"
+        },
+        {
+          "rank": 4,
+          "code": "178320",
+          "name": "서진시스템",
+          "price": 33350,
+          "rate": 2.018,
+          "volume": 1609827,
+          "trade_amount_eok": 514.48816325,
+          "contract_strength": "195.18",
+          "nxt": ""
+        },
+        {
+          "rank": 5,
+          "code": "226950",
+          "name": "올릭스",
+          "price": 108700,
+          "rate": 1.867,
+          "volume": 706951,
+          "trade_amount_eok": 985.59,
+          "contract_strength": "116.52",
+          "nxt": "NXT"
+        },
+        {
+          "rank": 6,
+          "code": "298380",
+          "name": "에이비엘바이오",
+          "price": 47800,
+          "rate": 2.936,
+          "volume": 1519854,
+          "trade_amount_eok": 1071.32,
+          "contract_strength": "117.13",
+          "nxt": "NXT"
+        },
+        {
+          "rank": 7,
+          "code": "347850",
+          "name": "디앤디파마텍",
+          "price": 42250,
+          "rate": 1.591,
+          "volume": 1769323,
+          "trade_amount_eok": 735.26,
+          "contract_strength": "127.32",
+          "nxt": ""
+        },
+        {
+          "rank": 8,
+          "code": "466100",
+          "name": "클로봇",
+          "price": 23650,
+          "rate": 2.987,
+          "volume": 3084515,
+          "trade_amount_eok": 1439.49,
+          "contract_strength": "102.92",
+          "nxt": "NXT"
+        }
+      ],
       "error": ""
     }
   ]

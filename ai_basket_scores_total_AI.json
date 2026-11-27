@@ -1,21 +1,21 @@
 {
-  "update_time": "2026-11-21 09:31:48",
-  "ai_core_score": -0.55,
-  "ai_core_raw_score": -0.55,
-  "ai_core_dedup_score": -2.9,
-  "ai_core_gap": 2.35,
-  "ai_core_state": "AI Risk-Off",
+  "update_time": "2026-11-27 19:09:00",
+  "ai_core_score": 1.49,
+  "ai_core_raw_score": 1.49,
+  "ai_core_dedup_score": -0.78,
+  "ai_core_gap": 2.27,
+  "ai_core_state": "AI Weak",
   "ai_breadth_state": "Negative",
   "basket_count": 34,
   "valid_basket_count": 34,
   "ai_breadth_strong": 0,
-  "ai_breadth_mid": 0,
+  "ai_breadth_mid": 2,
   "ai_breadth_weak": 3,
-  "ai_breadth_negative": 31,
+  "ai_breadth_negative": 29,
   "duplicate_impact": {
     "total_entries": 50,
-    "unique_ticker_count": 44,
-    "duplicate_ratio": 0.12,
+    "unique_ticker_count": 43,
+    "duplicate_ratio": 0.14,
     "duplicate_level": "낮음",
     "top_contributor": "053800",
     "top_contributor_count": 2,
@@ -23,163 +23,164 @@
       {
         "ticker": "053800",
         "count": 2,
-        "Signal_sco": 7.0
+        "Signal_sco": 16.0
       },
       {
         "ticker": "136540",
         "count": 2,
-        "Signal_sco": 11.0
+        "Signal_sco": 13.5
       },
       {
         "ticker": "277810",
         "count": 2,
-        "Signal_sco": 2.0
+        "Signal_sco": 9.75
+      },
+      {
+        "ticker": "454910",
+        "count": 2,
+        "Signal_sco": -2.75
       },
       {
         "ticker": "469070",
         "count": 2,
-        "Signal_sco": -8.5
-      },
-      {
-        "ticker": "ISRG",
-        "count": 2,
-        "Signal_sco": -3.75
+        "Signal_sco": 1.5
       }
     ]
   },
   "top_ai_baskets": [
     {
+      "basket": "AI_CYBER_SECURITY",
+      "basket_name_kr": "AI_사이버보안",
+      "score": 9.54,
+      "valid_count": 12
+    },
+    {
       "basket": "AI_DATA_IDENTITY_SECURITY",
       "basket_name_kr": "AI_데이터보안",
-      "score": 5.36,
+      "score": 9.29,
       "valid_count": 9
     },
     {
-      "basket": "AI_CYBER_SECURITY",
-      "basket_name_kr": "AI_사이버보안",
-      "score": 5.17,
-      "valid_count": 12
+      "basket": "AI_ROBOT_COMPONENT",
+      "basket_name_kr": "AI_로봇부품",
+      "score": 5.26,
+      "valid_count": 8
     },
     {
       "basket": "AI_HEALTHCARE_BIO",
       "basket_name_kr": "AI_헬스케어바이오",
-      "score": 0.17,
+      "score": 3.78,
       "valid_count": 10
     },
     {
-      "basket": "AI_DATA_PIPELINE_DATABASE",
-      "basket_name_kr": "AI_데이터플랫폼",
-      "score": -0.73,
+      "basket": "AI_HUMANOID_ROBOT",
+      "basket_name_kr": "AI_휴머노이드",
+      "score": 2.02,
       "valid_count": 7
-    },
-    {
-      "basket": "AI_FINTECH_TRADING",
-      "basket_name_kr": "AI_핀테크",
-      "score": -1.73,
-      "valid_count": 5
     }
   ],
   "top_ai_tickers": [
     {
-      "ticker": "328130",
-      "name": "루닛",
-      "Signal_sco": 11.25,
-      "return_3m": 72.46,
+      "ticker": "053800",
+      "name": "안랩",
+      "Signal_sco": 16.0,
+      "return_3m": 194.92,
       "Final_score": 1.0,
       "baskets": [
-        "AI_HEALTHCARE_BIO"
+        "AI_CYBER_SECURITY",
+        "AI_DATA_IDENTITY_SECURITY"
       ]
     },
     {
       "ticker": "136540",
       "name": "윈스",
-      "Signal_sco": 11.0,
-      "return_3m": 14.31,
-      "Final_score": 0.9941,
+      "Signal_sco": 13.5,
+      "return_3m": 23.11,
+      "Final_score": 0.9509,
       "baskets": [
         "AI_CYBER_SECURITY",
         "AI_DATA_IDENTITY_SECURITY"
       ]
     },
     {
-      "ticker": "007810",
-      "name": "코리아써키트",
-      "Signal_sco": 10.75,
-      "return_3m": 60.58,
-      "Final_score": 0.9882,
+      "ticker": "328130",
+      "name": "루닛",
+      "Signal_sco": 13.0,
+      "return_3m": 95.05,
+      "Final_score": 0.9411,
       "baskets": [
-        "AI_ADV_PACKAGING_SUBSTRATE"
+        "AI_HEALTHCARE_BIO"
       ]
     },
     {
-      "ticker": "053800",
-      "name": "안랩",
-      "Signal_sco": 7.0,
-      "return_3m": 92.79,
-      "Final_score": 0.8995,
+      "ticker": "277810",
+      "name": "레인보우로보틱스",
+      "Signal_sco": 9.75,
+      "return_3m": 14.66,
+      "Final_score": 0.8615,
       "baskets": [
-        "AI_CYBER_SECURITY",
-        "AI_DATA_IDENTITY_SECURITY"
+        "AI_HUMANOID_ROBOT",
+        "AI_ROBOT_COMPONENT"
       ]
     },
     {
-      "ticker": "PTC",
-      "name": "PTC",
-      "Signal_sco": 7.0,
-      "return_3m": 22.74,
-      "Final_score": 0.8803,
+      "ticker": "389500",
+      "name": "에스비비테크",
+      "Signal_sco": 7.5,
+      "return_3m": 1.05,
+      "Final_score": 0.7859,
       "baskets": [
-        "AI_DIGITAL_TWIN_SIMULATION"
-      ]
-    },
-    {
-      "ticker": "CME",
-      "name": "CME",
-      "Signal_sco": 6.5,
-      "return_3m": 9.99,
-      "Final_score": 0.867,
-      "baskets": [
-        "AI_FINTECH_TRADING"
-      ]
-    },
-    {
-      "ticker": "AAPL",
-      "name": "AAPL",
-      "Signal_sco": 7.0,
-      "return_3m": 8.98,
-      "Final_score": 0.862,
-      "baskets": [
-        "AI_EDGE_DEVICE_ONDEVICE"
+        "AI_ROBOT_COMPONENT"
       ]
     },
     {
       "ticker": "ICE",
       "name": "ICE",
-      "Signal_sco": 3.5,
-      "return_3m": 5.78,
-      "Final_score": 0.8047,
+      "Signal_sco": 6.0,
+      "return_3m": 11.78,
+      "Final_score": 0.7798,
       "baskets": [
         "AI_FINTECH_TRADING"
       ]
     },
     {
-      "ticker": "TTD",
-      "name": "TTD",
-      "Signal_sco": 3.75,
-      "return_3m": -0.3,
-      "Final_score": 0.7914,
+      "ticker": "PTC",
+      "name": "PTC",
+      "Signal_sco": 8.5,
+      "return_3m": 28.26,
+      "Final_score": 0.7755,
       "baskets": [
-        "AI_CONTENT_ADS_MEDIA"
+        "AI_DIGITAL_TWIN_SIMULATION"
       ]
     },
     {
-      "ticker": "TDOC",
-      "name": "TDOC",
-      "Signal_sco": 1.5,
-      "return_3m": 17.14,
-      "Final_score": 0.7694,
+      "ticker": "058610",
+      "name": "에스피지",
+      "Signal_sco": 7.0,
+      "return_3m": -0.21,
+      "Final_score": 0.7732,
       "baskets": [
-        "AI_HEALTHCARE_BIO"
+        "AI_ROBOT_COMPONENT"
+      ]
+    },
+    {
+      "ticker": "AAPL",
+      "name": "AAPL",
+      "Signal_sco": 8.0,
+      "return_3m": 9.45,
+      "Final_score": 0.7546,
+      "baskets": [
+        "AI_EDGE_DEVICE_ONDEVICE"
+      ]
+    },
+    {
+      "ticker": "CME",
+      "name": "CME",
+      "Signal_sco": 5.75,
+      "return_3m": 9.34,
+      "Final_score": 0.7244,
+      "baskets": [
+        "AI_FINTECH_TRADING"
       ]
     }
   ],
@@ -191,19 +192,19 @@
       "location": "RISK_OFF",
       "interpretation": "레이어 전반의 가격/score가 약해 병목 이동보다 AI 투자심리 훼손으로 봅니다.",
       "confidence": "HIGH",
-      "confidence_gap": 4.19,
-      "demand_score": -5.73,
-      "silicon_score": -8.1,
-      "memory_packaging_score": -8.57,
-      "network_optics_score": -4.91,
-      "power_cooling_score": -8.35,
-      "datacenter_deploy_score": -7.45
+      "confidence_gap": 6.39,
+      "demand_score": -7.24,
+      "silicon_score": -10.1,
+      "memory_packaging_score": -9.16,
+      "network_optics_score": -9.96,
+      "power_cooling_score": -8.8,
+      "datacenter_deploy_score": -10.0
     },
     "layers": [
       {
         "layer": "DEMAND_CAPEX",
         "name_kr": "수요/CAPEX",
-        "score": -5.73,
+        "score": -7.24,
         "state": "WEAK",
         "state_kr": "위험",
         "note": "하이퍼스케일러와 AI 사용처가 CAPEX를 유지하는지 보는 수요 레이어",
@@ -214,48 +215,48 @@
         "basket_count": 2,
         "valid_basket_count": 2,
         "hot_basket_count": 0,
-        "top_basket": "AI_CLOUD_HYPERSCALER",
-        "top_basket_kr": "AI_클라우드",
-        "top_basket_score": -5.34,
+        "top_basket": "AI_CONTENT_ADS_MEDIA",
+        "top_basket_kr": "AI_광고미디어",
+        "top_basket_score": -6.75,
         "leaders": [
           {
             "ticker": "TTD",
             "name": "TTD",
             "display": "TTD",
-            "Signal_sco": 3.75,
-            "Final_score": 0.7914,
+            "Signal_sco": -1.0,
+            "Final_score": 0.6002,
             "trend": "-"
-          },
-          {
-            "ticker": "AMZN",
-            "name": "AMZN",
-            "display": "AMZN",
-            "Signal_sco": 1.0,
-            "Final_score": 0.6935,
-            "trend": "RED"
           },
           {
             "ticker": "MSFT",
             "name": "MSFT",
             "display": "MSFT",
-            "Signal_sco": -5.75,
-            "Final_score": 0.4841,
+            "Signal_sco": -6.5,
+            "Final_score": 0.3812,
             "trend": "PURPLE"
+          },
+          {
+            "ticker": "AMZN",
+            "name": "AMZN",
+            "display": "AMZN",
+            "Signal_sco": -7.5,
+            "Final_score": 0.3768,
+            "trend": "RED"
           },
           {
             "ticker": "META",
             "name": "META",
             "display": "META",
-            "Signal_sco": -8.75,
-            "Final_score": 0.3815,
-            "trend": "RED"
+            "Signal_sco": -7.75,
+            "Final_score": 0.4141,
+            "trend": "-"
           },
           {
-            "ticker": "GOOGL",
-            "name": "GOOGL",
-            "display": "GOOGL",
-            "Signal_sco": -11.0,
-            "Final_score": 0.2438,
+            "ticker": "ADBE",
+            "name": "ADBE",
+            "display": "ADBE",
+            "Signal_sco": -9.75,
+            "Final_score": 0.2835,
             "trend": "RED"
           }
         ]
@@ -263,7 +264,7 @@
       {
         "layer": "SILICON_COMPUTE",
         "name_kr": "칩/ASIC",
-        "score": -8.1,
+        "score": -10.1,
         "state": "WEAK",
         "state_kr": "위험",
         "note": "GPU, ASIC, CPU, 파운드리 쪽 시장 선호",
@@ -277,48 +278,48 @@
         "basket_count": 5,
         "valid_basket_count": 5,
         "hot_basket_count": 0,
-        "top_basket": "AI_ASIC_CUSTOM_CHIP",
-        "top_basket_kr": "AI_맞춤칩ASIC",
-        "top_basket_score": -3.6,
+        "top_basket": "AI_INFERENCE_OPTIMIZATION",
+        "top_basket_kr": "AI_추론최적화",
+        "top_basket_score": -9.4,
         "leaders": [
           {
             "ticker": "AMZN",
             "name": "AMZN",
             "display": "AMZN",
-            "Signal_sco": 1.0,
-            "Final_score": 0.6935,
-            "trend": "RED"
-          },
-          {
-            "ticker": "AVGO",
-            "name": "AVGO",
-            "display": "AVGO",
-            "Signal_sco": 1.0,
-            "Final_score": 0.6217,
-            "trend": "GREEN"
-          },
-          {
-            "ticker": "AMD",
-            "name": "AMD",
-            "display": "AMD",
-            "Signal_sco": -5.5,
-            "Final_score": 0.3978,
+            "Signal_sco": -7.5,
+            "Final_score": 0.3768,
             "trend": "RED"
           },
           {
             "ticker": "QCOM",
             "name": "QCOM",
             "display": "QCOM",
-            "Signal_sco": -8.5,
-            "Final_score": 0.3553,
-            "trend": "RED"
+            "Signal_sco": -7.75,
+            "Final_score": 0.364,
+            "trend": "PURPLE"
           },
           {
             "ticker": "091160",
             "name": "KODEX반도체",
             "display": "091160(KODEX반도체)",
-            "Signal_sco": -10.0,
-            "Final_score": 0.2149,
+            "Signal_sco": -9.0,
+            "Final_score": 0.2098,
+            "trend": "-"
+          },
+          {
+            "ticker": "NVDA",
+            "name": "NVDA",
+            "display": "NVDA",
+            "Signal_sco": -9.25,
+            "Final_score": 0.1299,
+            "trend": "RED"
+          },
+          {
+            "ticker": "HPE",
+            "name": "HPE",
+            "display": "HPE",
+            "Signal_sco": -9.5,
+            "Final_score": 0.1427,
             "trend": "RED"
           }
         ]
@@ -326,7 +327,7 @@
       {
         "layer": "MEMORY_PACKAGING",
         "name_kr": "HBM/패키징/MLCC",
-        "score": -8.57,
+        "score": -9.16,
         "state": "WEAK",
         "state_kr": "위험",
         "note": "HBM, CoWoS/기판, 서버 전력 안정화 부품 병목",
@@ -341,46 +342,46 @@
         "hot_basket_count": 0,
         "top_basket": "AI_ADV_PACKAGING_SUBSTRATE",
         "top_basket_kr": "AI_첨단패키징",
-        "top_basket_score": -2.66,
+        "top_basket_score": -7.07,
         "leaders": [
           {
             "ticker": "007810",
             "name": "코리아써키트",
             "display": "007810(코리아써키트)",
-            "Signal_sco": 10.75,
-            "Final_score": 0.9882,
-            "trend": "LIME"
+            "Signal_sco": -0.75,
+            "Final_score": 0.671,
+            "trend": "-"
           },
           {
-            "ticker": "007660",
-            "name": "이수페타시스",
-            "display": "007660(이수페타시스)",
-            "Signal_sco": -5.5,
-            "Final_score": 0.3243,
+            "ticker": "009150",
+            "name": "삼성전기",
+            "display": "009150(삼성전기)",
+            "Signal_sco": -8.5,
+            "Final_score": 0.1214,
             "trend": "-"
           },
           {
             "ticker": "222800",
             "name": "심텍",
             "display": "222800(심텍)",
-            "Signal_sco": -7.25,
-            "Final_score": 0.4138,
+            "Signal_sco": -8.75,
+            "Final_score": 0.3132,
+            "trend": "-"
+          },
+          {
+            "ticker": "091160",
+            "name": "KODEX반도체",
+            "display": "091160(KODEX반도체)",
+            "Signal_sco": -9.0,
+            "Final_score": 0.2098,
             "trend": "-"
           },
           {
             "ticker": "STX",
             "name": "STX",
             "display": "STX",
-            "Signal_sco": -8.75,
-            "Final_score": 0.1612,
-            "trend": "RED"
-          },
-          {
-            "ticker": "353200",
-            "name": "대덕전자",
-            "display": "353200(대덕전자)",
-            "Signal_sco": -9.25,
-            "Final_score": 0.1073,
+            "Signal_sco": -9.5,
+            "Final_score": 0.0907,
             "trend": "RED"
           }
         ]
@@ -388,7 +389,7 @@
       {
         "layer": "NETWORK_OPTICS",
         "name_kr": "네트워크/광통신",
-        "score": -4.91,
+        "score": -9.96,
         "state": "WEAK",
         "state_kr": "위험",
         "note": "AI 클러스터 확장에 필요한 scale-out 네트워크와 광통신",
@@ -401,46 +402,46 @@
         "hot_basket_count": 0,
         "top_basket": "AI_NETWORKING_SWITCH_DPU",
         "top_basket_kr": "AI_네트워크",
-        "top_basket_score": -3.73,
+        "top_basket_score": -9.46,
         "leaders": [
           {
             "ticker": "ANET",
             "name": "ANET",
             "display": "ANET",
-            "Signal_sco": 2.0,
-            "Final_score": 0.6671,
-            "trend": "RED"
+            "Signal_sco": -8.75,
+            "Final_score": 0.285,
+            "trend": "PURPLE"
           },
           {
-            "ticker": "AVGO",
-            "name": "AVGO",
-            "display": "AVGO",
-            "Signal_sco": 1.0,
-            "Final_score": 0.6217,
-            "trend": "GREEN"
+            "ticker": "NVDA",
+            "name": "NVDA",
+            "display": "NVDA",
+            "Signal_sco": -9.25,
+            "Final_score": 0.1299,
+            "trend": "RED"
           },
           {
             "ticker": "COHR",
             "name": "COHR",
             "display": "COHR",
-            "Signal_sco": -6.25,
-            "Final_score": 0.3647,
-            "trend": "RED"
-          },
-          {
-            "ticker": "CIEN",
-            "name": "CIEN",
-            "display": "CIEN",
-            "Signal_sco": -11.0,
-            "Final_score": 0.125,
+            "Signal_sco": -9.75,
+            "Final_score": 0.1985,
             "trend": "RED"
           },
           {
             "ticker": "CSCO",
             "name": "CSCO",
             "display": "CSCO",
-            "Signal_sco": -11.0,
-            "Final_score": 0.2681,
+            "Signal_sco": -9.75,
+            "Final_score": 0.2507,
+            "trend": "RED"
+          },
+          {
+            "ticker": "AVGO",
+            "name": "AVGO",
+            "display": "AVGO",
+            "Signal_sco": -10.5,
+            "Final_score": 0.2258,
             "trend": "RED"
           }
         ]
@@ -448,7 +449,7 @@
       {
         "layer": "POWER_COOLING",
         "name_kr": "전력/냉각",
-        "score": -8.35,
+        "score": -8.8,
         "state": "WEAK",
         "state_kr": "위험",
         "note": "변압기, 스위치기어, 자가발전, 액체냉각 등 물리 인프라 병목",
@@ -461,48 +462,48 @@
         "basket_count": 4,
         "valid_basket_count": 4,
         "hot_basket_count": 0,
-        "top_basket": "AI_POWER_GRID_TRANSFORMER",
-        "top_basket_kr": "AI_전력망",
-        "top_basket_score": -6.01,
+        "top_basket": "AI_COOLING_THERMAL",
+        "top_basket_kr": "AI_냉각",
+        "top_basket_score": -6.69,
         "leaders": [
           {
             "ticker": "MOD",
             "name": "MOD",
             "display": "MOD",
-            "Signal_sco": -1.0,
-            "Final_score": 0.5267,
-            "trend": "-"
+            "Signal_sco": -1.25,
+            "Final_score": 0.4465,
+            "trend": "GREEN"
           },
           {
             "ticker": "PWR",
             "name": "PWR",
             "display": "PWR",
-            "Signal_sco": -2.0,
-            "Final_score": 0.6254,
-            "trend": "GREEN"
+            "Signal_sco": -3.5,
+            "Final_score": 0.4317,
+            "trend": "RED"
           },
           {
-            "ticker": "103590",
-            "name": "일진전기",
-            "display": "103590(일진전기)",
-            "Signal_sco": -2.5,
-            "Final_score": 0.5146,
+            "ticker": "CARR",
+            "name": "CARR",
+            "display": "CARR",
+            "Signal_sco": -6.75,
+            "Final_score": 0.3895,
             "trend": "-"
           },
           {
-            "ticker": "CEG",
-            "name": "CEG",
-            "display": "CEG",
-            "Signal_sco": -4.0,
-            "Final_score": 0.5032,
-            "trend": "RED"
+            "ticker": "HUBB",
+            "name": "HUBB",
+            "display": "HUBB",
+            "Signal_sco": -7.5,
+            "Final_score": 0.3901,
+            "trend": "-"
           },
           {
             "ticker": "NRG",
             "name": "NRG",
             "display": "NRG",
-            "Signal_sco": -8.5,
-            "Final_score": 0.3907,
+            "Signal_sco": -8.25,
+            "Final_score": 0.3315,
             "trend": "RED"
           }
         ]
@@ -510,7 +511,7 @@
       {
         "layer": "DATACENTER_DEPLOY",
         "name_kr": "데이터센터/서버",
-        "score": -7.45,
+        "score": -10.0,
         "state": "WEAK",
         "state_kr": "위험",
         "note": "전력 확보 후 실제 랙/서버/데이터센터 가동 수혜",
@@ -522,46 +523,46 @@
         "hot_basket_count": 0,
         "top_basket": "AI_DATACENTER_REIT_SERVER",
         "top_basket_kr": "AI_데이터센터",
-        "top_basket_score": -7.45,
+        "top_basket_score": -10.0,
         "leaders": [
           {
             "ticker": "EQIX",
             "name": "EQIX",
             "display": "EQIX",
-            "Signal_sco": -1.25,
-            "Final_score": 0.6415,
-            "trend": "-"
-          },
-          {
-            "ticker": "DLR",
-            "name": "DLR",
-            "display": "DLR",
-            "Signal_sco": -8.5,
-            "Final_score": 0.4023,
+            "Signal_sco": -9.25,
+            "Final_score": 0.3507,
             "trend": "RED"
           },
           {
             "ticker": "HPE",
             "name": "HPE",
             "display": "HPE",
-            "Signal_sco": -10.0,
-            "Final_score": 0.1854,
-            "trend": "RED"
-          },
-          {
-            "ticker": "VRT",
-            "name": "VRT",
-            "display": "VRT",
-            "Signal_sco": -11.0,
-            "Final_score": 0.2205,
+            "Signal_sco": -9.5,
+            "Final_score": 0.1427,
             "trend": "RED"
           },
           {
             "ticker": "DELL",
             "name": "DELL",
             "display": "DELL",
+            "Signal_sco": -10.25,
+            "Final_score": 0.0656,
+            "trend": "RED"
+          },
+          {
+            "ticker": "SMCI",
+            "name": "SMCI",
+            "display": "SMCI",
+            "Signal_sco": -11.0,
+            "Final_score": 0.0597,
+            "trend": "RED"
+          },
+          {
+            "ticker": "VRT",
+            "name": "VRT",
+            "display": "VRT",
             "Signal_sco": -11.5,
-            "Final_score": 0.0275,
+            "Final_score": 0.0952,
             "trend": "RED"
           }
         ]
@@ -569,7 +570,7 @@
       {
         "layer": "SOFTWARE_ADOPTION",
         "name_kr": "SW/데이터플랫폼",
-        "score": -0.72,
+        "score": -0.85,
         "state": "WEAK",
         "state_kr": "위험",
         "note": "AI 인프라 위에서 실제 사용과 데이터 플랫폼 확산을 보는 레이어",
@@ -583,49 +584,49 @@
         "basket_count": 5,
         "valid_basket_count": 5,
         "hot_basket_count": 0,
-        "top_basket": "AI_DATA_IDENTITY_SECURITY",
-        "top_basket_kr": "AI_데이터보안",
-        "top_basket_score": 5.36,
+        "top_basket": "AI_CYBER_SECURITY",
+        "top_basket_kr": "AI_사이버보안",
+        "top_basket_score": 9.54,
         "leaders": [
-          {
-            "ticker": "136540",
-            "name": "윈스",
-            "display": "136540(윈스)",
-            "Signal_sco": 11.0,
-            "Final_score": 0.9941,
-            "trend": "-"
-          },
           {
             "ticker": "053800",
             "name": "안랩",
             "display": "053800(안랩)",
-            "Signal_sco": 7.0,
-            "Final_score": 0.8995,
-            "trend": "-"
+            "Signal_sco": 16.0,
+            "Final_score": 1.0,
+            "trend": "LIME"
           },
           {
-            "ticker": "OKTA",
-            "name": "OKTA",
-            "display": "OKTA",
-            "Signal_sco": 4.75,
-            "Final_score": 0.7508,
-            "trend": "GREEN"
+            "ticker": "136540",
+            "name": "윈스",
+            "display": "136540(윈스)",
+            "Signal_sco": 13.5,
+            "Final_score": 0.9509,
+            "trend": "LIME"
           },
           {
             "ticker": "S",
             "name": "S",
             "display": "S",
-            "Signal_sco": 3.5,
-            "Final_score": 0.7359,
-            "trend": "GREEN"
+            "Signal_sco": 7.0,
+            "Final_score": 0.6993,
+            "trend": "LIME"
           },
           {
-            "ticker": "CRWD",
-            "name": "CRWD",
-            "display": "CRWD",
-            "Signal_sco": 2.5,
-            "Final_score": 0.6666,
-            "trend": "GREEN"
+            "ticker": "OKTA",
+            "name": "OKTA",
+            "display": "OKTA",
+            "Signal_sco": 6.5,
+            "Final_score": 0.68,
+            "trend": "LIME"
+          },
+          {
+            "ticker": "BUG",
+            "name": "BUG",
+            "display": "BUG",
+            "Signal_sco": 6.0,
+            "Final_score": 0.6613,
+            "trend": "-"
           }
         ]
       }
@@ -634,7 +635,7 @@
       {
         "layer": "SOFTWARE_ADOPTION",
         "name_kr": "SW/데이터플랫폼",
-        "score": -0.72,
+        "score": -0.85,
         "state": "WEAK",
         "state_kr": "위험",
         "note": "AI 인프라 위에서 실제 사용과 데이터 플랫폼 확산을 보는 레이어",
@@ -648,116 +649,56 @@
         "basket_count": 5,
         "valid_basket_count": 5,
         "hot_basket_count": 0,
-        "top_basket": "AI_DATA_IDENTITY_SECURITY",
-        "top_basket_kr": "AI_데이터보안",
-        "top_basket_score": 5.36,
+        "top_basket": "AI_CYBER_SECURITY",
+        "top_basket_kr": "AI_사이버보안",
+        "top_basket_score": 9.54,
         "leaders": [
-          {
-            "ticker": "136540",
-            "name": "윈스",
-            "display": "136540(윈스)",
-            "Signal_sco": 11.0,
-            "Final_score": 0.9941,
-            "trend": "-"
-          },
           {
             "ticker": "053800",
             "name": "안랩",
             "display": "053800(안랩)",
-            "Signal_sco": 7.0,
-            "Final_score": 0.8995,
-            "trend": "-"
+            "Signal_sco": 16.0,
+            "Final_score": 1.0,
+            "trend": "LIME"
           },
           {
-            "ticker": "OKTA",
-            "name": "OKTA",
-            "display": "OKTA",
-            "Signal_sco": 4.75,
-            "Final_score": 0.7508,
-            "trend": "GREEN"
+            "ticker": "136540",
+            "name": "윈스",
+            "display": "136540(윈스)",
+            "Signal_sco": 13.5,
+            "Final_score": 0.9509,
+            "trend": "LIME"
           },
           {
             "ticker": "S",
             "name": "S",
             "display": "S",
-            "Signal_sco": 3.5,
-            "Final_score": 0.7359,
-            "trend": "GREEN"
+            "Signal_sco": 7.0,
+            "Final_score": 0.6993,
+            "trend": "LIME"
           },
           {
-            "ticker": "CRWD",
-            "name": "CRWD",
-            "display": "CRWD",
-            "Signal_sco": 2.5,
-            "Final_score": 0.6666,
-            "trend": "GREEN"
-          }
-        ]
-      },
-      {
-        "layer": "NETWORK_OPTICS",
-        "name_kr": "네트워크/광통신",
-        "score": -4.91,
-        "state": "WEAK",
-        "state_kr": "위험",
-        "note": "AI 클러스터 확장에 필요한 scale-out 네트워크와 광통신",
-        "baskets": [
-          "AI_NETWORKING_SWITCH_DPU",
-          "AI_OPTICAL_PHOTONICS"
-        ],
-        "basket_count": 2,
-        "valid_basket_count": 2,
-        "hot_basket_count": 0,
-        "top_basket": "AI_NETWORKING_SWITCH_DPU",
-        "top_basket_kr": "AI_네트워크",
-        "top_basket_score": -3.73,
-        "leaders": [
-          {
-            "ticker": "ANET",
-            "name": "ANET",
-            "display": "ANET",
-            "Signal_sco": 2.0,
-            "Final_score": 0.6671,
-            "trend": "RED"
+            "ticker": "OKTA",
+            "name": "OKTA",
+            "display": "OKTA",
+            "Signal_sco": 6.5,
+            "Final_score": 0.68,
+            "trend": "LIME"
           },
           {
-            "ticker": "AVGO",
-            "name": "AVGO",
-            "display": "AVGO",
-            "Signal_sco": 1.0,
-            "Final_score": 0.6217,
-            "trend": "GREEN"
-          },
-          {
-            "ticker": "COHR",
-            "name": "COHR",
-            "display": "COHR",
-            "Signal_sco": -6.25,
-            "Final_score": 0.3647,
-            "trend": "RED"
-          },
-          {
-            "ticker": "CIEN",
-            "name": "CIEN",
-            "display": "CIEN",
-            "Signal_sco": -11.0,
-            "Final_score": 0.125,
-            "trend": "RED"
-          },
-          {
-            "ticker": "CSCO",
-            "name": "CSCO",
-            "display": "CSCO",
-            "Signal_sco": -11.0,
-            "Final_score": 0.2681,
-            "trend": "RED"
+            "ticker": "BUG",
+            "name": "BUG",
+            "display": "BUG",
+            "Signal_sco": 6.0,
+            "Final_score": 0.6613,
+            "trend": "-"
           }
         ]
       },
       {
         "layer": "DEMAND_CAPEX",
         "name_kr": "수요/CAPEX",
-        "score": -5.73,
+        "score": -7.24,
         "state": "WEAK",
         "state_kr": "위험",
         "note": "하이퍼스케일러와 AI 사용처가 CAPEX를 유지하는지 보는 수요 레이어",
@@ -768,170 +709,48 @@
         "basket_count": 2,
         "valid_basket_count": 2,
         "hot_basket_count": 0,
-        "top_basket": "AI_CLOUD_HYPERSCALER",
-        "top_basket_kr": "AI_클라우드",
-        "top_basket_score": -5.34,
+        "top_basket": "AI_CONTENT_ADS_MEDIA",
+        "top_basket_kr": "AI_광고미디어",
+        "top_basket_score": -6.75,
         "leaders": [
           {
             "ticker": "TTD",
             "name": "TTD",
             "display": "TTD",
-            "Signal_sco": 3.75,
-            "Final_score": 0.7914,
+            "Signal_sco": -1.0,
+            "Final_score": 0.6002,
             "trend": "-"
-          },
-          {
-            "ticker": "AMZN",
-            "name": "AMZN",
-            "display": "AMZN",
-            "Signal_sco": 1.0,
-            "Final_score": 0.6935,
-            "trend": "RED"
           },
           {
             "ticker": "MSFT",
             "name": "MSFT",
             "display": "MSFT",
-            "Signal_sco": -5.75,
-            "Final_score": 0.4841,
+            "Signal_sco": -6.5,
+            "Final_score": 0.3812,
             "trend": "PURPLE"
+          },
+          {
+            "ticker": "AMZN",
+            "name": "AMZN",
+            "display": "AMZN",
+            "Signal_sco": -7.5,
+            "Final_score": 0.3768,
+            "trend": "RED"
           },
           {
             "ticker": "META",
             "name": "META",
             "display": "META",
-            "Signal_sco": -8.75,
-            "Final_score": 0.3815,
-            "trend": "RED"
-          },
-          {
-            "ticker": "GOOGL",
-            "name": "GOOGL",
-            "display": "GOOGL",
-            "Signal_sco": -11.0,
-            "Final_score": 0.2438,
-            "trend": "RED"
-          }
-        ]
-      },
-      {
-        "layer": "DATACENTER_DEPLOY",
-        "name_kr": "데이터센터/서버",
-        "score": -7.45,
-        "state": "WEAK",
-        "state_kr": "위험",
-        "note": "전력 확보 후 실제 랙/서버/데이터센터 가동 수혜",
-        "baskets": [
-          "AI_DATACENTER_REIT_SERVER"
-        ],
-        "basket_count": 1,
-        "valid_basket_count": 1,
-        "hot_basket_count": 0,
-        "top_basket": "AI_DATACENTER_REIT_SERVER",
-        "top_basket_kr": "AI_데이터센터",
-        "top_basket_score": -7.45,
-        "leaders": [
-          {
-            "ticker": "EQIX",
-            "name": "EQIX",
-            "display": "EQIX",
-            "Signal_sco": -1.25,
-            "Final_score": 0.6415,
+            "Signal_sco": -7.75,
+            "Final_score": 0.4141,
             "trend": "-"
           },
           {
-            "ticker": "DLR",
-            "name": "DLR",
-            "display": "DLR",
-            "Signal_sco": -8.5,
-            "Final_score": 0.4023,
-            "trend": "RED"
-          },
-          {
-            "ticker": "HPE",
-            "name": "HPE",
-            "display": "HPE",
-            "Signal_sco": -10.0,
-            "Final_score": 0.1854,
-            "trend": "RED"
-          },
-          {
-            "ticker": "VRT",
-            "name": "VRT",
-            "display": "VRT",
-            "Signal_sco": -11.0,
-            "Final_score": 0.2205,
-            "trend": "RED"
-          },
-          {
-            "ticker": "DELL",
-            "name": "DELL",
-            "display": "DELL",
-            "Signal_sco": -11.5,
-            "Final_score": 0.0275,
-            "trend": "RED"
-          }
-        ]
-      },
-      {
-        "layer": "SILICON_COMPUTE",
-        "name_kr": "칩/ASIC",
-        "score": -8.1,
-        "state": "WEAK",
-        "state_kr": "위험",
-        "note": "GPU, ASIC, CPU, 파운드리 쪽 시장 선호",
-        "baskets": [
-          "AI_GPU_ACCELERATOR",
-          "AI_CPU_SERVER",
-          "AI_ASIC_CUSTOM_CHIP",
-          "AI_INFERENCE_OPTIMIZATION",
-          "AI_FOUNDRY"
-        ],
-        "basket_count": 5,
-        "valid_basket_count": 5,
-        "hot_basket_count": 0,
-        "top_basket": "AI_ASIC_CUSTOM_CHIP",
-        "top_basket_kr": "AI_맞춤칩ASIC",
-        "top_basket_score": -3.6,
-        "leaders": [
-          {
-            "ticker": "AMZN",
-            "name": "AMZN",
-            "display": "AMZN",
-            "Signal_sco": 1.0,
-            "Final_score": 0.6935,
-            "trend": "RED"
-          },
-          {
-            "ticker": "AVGO",
-            "name": "AVGO",
-            "display": "AVGO",
-            "Signal_sco": 1.0,
-            "Final_score": 0.6217,
-            "trend": "GREEN"
-          },
-          {
-            "ticker": "AMD",
-            "name": "AMD",
-            "display": "AMD",
-            "Signal_sco": -5.5,
-            "Final_score": 0.3978,
-            "trend": "RED"
-          },
-          {
-            "ticker": "QCOM",
-            "name": "QCOM",
-            "display": "QCOM",
-            "Signal_sco": -8.5,
-            "Final_score": 0.3553,
-            "trend": "RED"
-          },
-          {
-            "ticker": "091160",
-            "name": "KODEX반도체",
-            "display": "091160(KODEX반도체)",
-            "Signal_sco": -10.0,
-            "Final_score": 0.2149,
+            "ticker": "ADBE",
+            "name": "ADBE",
+            "display": "ADBE",
+            "Signal_sco": -9.75,
+            "Final_score": 0.2835,
             "trend": "RED"
           }
         ]
@@ -939,7 +758,7 @@
       {
         "layer": "POWER_COOLING",
         "name_kr": "전력/냉각",
-        "score": -8.35,
+        "score": -8.8,
         "state": "WEAK",
         "state_kr": "위험",
         "note": "변압기, 스위치기어, 자가발전, 액체냉각 등 물리 인프라 병목",
@@ -952,48 +771,48 @@
         "basket_count": 4,
         "valid_basket_count": 4,
         "hot_basket_count": 0,
-        "top_basket": "AI_POWER_GRID_TRANSFORMER",
-        "top_basket_kr": "AI_전력망",
-        "top_basket_score": -6.01,
+        "top_basket": "AI_COOLING_THERMAL",
+        "top_basket_kr": "AI_냉각",
+        "top_basket_score": -6.69,
         "leaders": [
           {
             "ticker": "MOD",
             "name": "MOD",
             "display": "MOD",
-            "Signal_sco": -1.0,
-            "Final_score": 0.5267,
-            "trend": "-"
+            "Signal_sco": -1.25,
+            "Final_score": 0.4465,
+            "trend": "GREEN"
           },
           {
             "ticker": "PWR",
             "name": "PWR",
             "display": "PWR",
-            "Signal_sco": -2.0,
-            "Final_score": 0.6254,
-            "trend": "GREEN"
+            "Signal_sco": -3.5,
+            "Final_score": 0.4317,
+            "trend": "RED"
           },
           {
-            "ticker": "103590",
-            "name": "일진전기",
-            "display": "103590(일진전기)",
-            "Signal_sco": -2.5,
-            "Final_score": 0.5146,
+            "ticker": "CARR",
+            "name": "CARR",
+            "display": "CARR",
+            "Signal_sco": -6.75,
+            "Final_score": 0.3895,
             "trend": "-"
           },
           {
-            "ticker": "CEG",
-            "name": "CEG",
-            "display": "CEG",
-            "Signal_sco": -4.0,
-            "Final_score": 0.5032,
-            "trend": "RED"
+            "ticker": "HUBB",
+            "name": "HUBB",
+            "display": "HUBB",
+            "Signal_sco": -7.5,
+            "Final_score": 0.3901,
+            "trend": "-"
           },
           {
             "ticker": "NRG",
             "name": "NRG",
             "display": "NRG",
-            "Signal_sco": -8.5,
-            "Final_score": 0.3907,
+            "Signal_sco": -8.25,
+            "Final_score": 0.3315,
             "trend": "RED"
           }
         ]
@@ -1001,7 +820,7 @@
       {
         "layer": "MEMORY_PACKAGING",
         "name_kr": "HBM/패키징/MLCC",
-        "score": -8.57,
+        "score": -9.16,
         "state": "WEAK",
         "state_kr": "위험",
         "note": "HBM, CoWoS/기판, 서버 전력 안정화 부품 병목",
@@ -1016,46 +835,228 @@
         "hot_basket_count": 0,
         "top_basket": "AI_ADV_PACKAGING_SUBSTRATE",
         "top_basket_kr": "AI_첨단패키징",
-        "top_basket_score": -2.66,
+        "top_basket_score": -7.07,
         "leaders": [
           {
             "ticker": "007810",
             "name": "코리아써키트",
             "display": "007810(코리아써키트)",
-            "Signal_sco": 10.75,
-            "Final_score": 0.9882,
-            "trend": "LIME"
+            "Signal_sco": -0.75,
+            "Final_score": 0.671,
+            "trend": "-"
           },
           {
-            "ticker": "007660",
-            "name": "이수페타시스",
-            "display": "007660(이수페타시스)",
-            "Signal_sco": -5.5,
-            "Final_score": 0.3243,
+            "ticker": "009150",
+            "name": "삼성전기",
+            "display": "009150(삼성전기)",
+            "Signal_sco": -8.5,
+            "Final_score": 0.1214,
             "trend": "-"
           },
           {
             "ticker": "222800",
             "name": "심텍",
             "display": "222800(심텍)",
-            "Signal_sco": -7.25,
-            "Final_score": 0.4138,
+            "Signal_sco": -8.75,
+            "Final_score": 0.3132,
+            "trend": "-"
+          },
+          {
+            "ticker": "091160",
+            "name": "KODEX반도체",
+            "display": "091160(KODEX반도체)",
+            "Signal_sco": -9.0,
+            "Final_score": 0.2098,
             "trend": "-"
           },
           {
             "ticker": "STX",
             "name": "STX",
             "display": "STX",
+            "Signal_sco": -9.5,
+            "Final_score": 0.0907,
+            "trend": "RED"
+          }
+        ]
+      },
+      {
+        "layer": "NETWORK_OPTICS",
+        "name_kr": "네트워크/광통신",
+        "score": -9.96,
+        "state": "WEAK",
+        "state_kr": "위험",
+        "note": "AI 클러스터 확장에 필요한 scale-out 네트워크와 광통신",
+        "baskets": [
+          "AI_NETWORKING_SWITCH_DPU",
+          "AI_OPTICAL_PHOTONICS"
+        ],
+        "basket_count": 2,
+        "valid_basket_count": 2,
+        "hot_basket_count": 0,
+        "top_basket": "AI_NETWORKING_SWITCH_DPU",
+        "top_basket_kr": "AI_네트워크",
+        "top_basket_score": -9.46,
+        "leaders": [
+          {
+            "ticker": "ANET",
+            "name": "ANET",
+            "display": "ANET",
             "Signal_sco": -8.75,
-            "Final_score": 0.1612,
+            "Final_score": 0.285,
+            "trend": "PURPLE"
+          },
+          {
+            "ticker": "NVDA",
+            "name": "NVDA",
+            "display": "NVDA",
+            "Signal_sco": -9.25,
+            "Final_score": 0.1299,
             "trend": "RED"
           },
           {
-            "ticker": "353200",
-            "name": "대덕전자",
-            "display": "353200(대덕전자)",
+            "ticker": "COHR",
+            "name": "COHR",
+            "display": "COHR",
+            "Signal_sco": -9.75,
+            "Final_score": 0.1985,
+            "trend": "RED"
+          },
+          {
+            "ticker": "CSCO",
+            "name": "CSCO",
+            "display": "CSCO",
+            "Signal_sco": -9.75,
+            "Final_score": 0.2507,
+            "trend": "RED"
+          },
+          {
+            "ticker": "AVGO",
+            "name": "AVGO",
+            "display": "AVGO",
+            "Signal_sco": -10.5,
+            "Final_score": 0.2258,
+            "trend": "RED"
+          }
+        ]
+      },
+      {
+        "layer": "DATACENTER_DEPLOY",
+        "name_kr": "데이터센터/서버",
+        "score": -10.0,
+        "state": "WEAK",
+        "state_kr": "위험",
+        "note": "전력 확보 후 실제 랙/서버/데이터센터 가동 수혜",
+        "baskets": [
+          "AI_DATACENTER_REIT_SERVER"
+        ],
+        "basket_count": 1,
+        "valid_basket_count": 1,
+        "hot_basket_count": 0,
+        "top_basket": "AI_DATACENTER_REIT_SERVER",
+        "top_basket_kr": "AI_데이터센터",
+        "top_basket_score": -10.0,
+        "leaders": [
+          {
+            "ticker": "EQIX",
+            "name": "EQIX",
+            "display": "EQIX",
             "Signal_sco": -9.25,
-            "Final_score": 0.1073,
+            "Final_score": 0.3507,
+            "trend": "RED"
+          },
+          {
+            "ticker": "HPE",
+            "name": "HPE",
+            "display": "HPE",
+            "Signal_sco": -9.5,
+            "Final_score": 0.1427,
+            "trend": "RED"
+          },
+          {
+            "ticker": "DELL",
+            "name": "DELL",
+            "display": "DELL",
+            "Signal_sco": -10.25,
+            "Final_score": 0.0656,
+            "trend": "RED"
+          },
+          {
+            "ticker": "SMCI",
+            "name": "SMCI",
+            "display": "SMCI",
+            "Signal_sco": -11.0,
+            "Final_score": 0.0597,
+            "trend": "RED"
+          },
+          {
+            "ticker": "VRT",
+            "name": "VRT",
+            "display": "VRT",
+            "Signal_sco": -11.5,
+            "Final_score": 0.0952,
+            "trend": "RED"
+          }
+        ]
+      },
+      {
+        "layer": "SILICON_COMPUTE",
+        "name_kr": "칩/ASIC",
+        "score": -10.1,
+        "state": "WEAK",
+        "state_kr": "위험",
+        "note": "GPU, ASIC, CPU, 파운드리 쪽 시장 선호",
+        "baskets": [
+          "AI_GPU_ACCELERATOR",
+          "AI_CPU_SERVER",
+          "AI_ASIC_CUSTOM_CHIP",
+          "AI_INFERENCE_OPTIMIZATION",
+          "AI_FOUNDRY"
+        ],
+        "basket_count": 5,
+        "valid_basket_count": 5,
+        "hot_basket_count": 0,
+        "top_basket": "AI_INFERENCE_OPTIMIZATION",
+        "top_basket_kr": "AI_추론최적화",
+        "top_basket_score": -9.4,
+        "leaders": [
+          {
+            "ticker": "AMZN",
+            "name": "AMZN",
+            "display": "AMZN",
+            "Signal_sco": -7.5,
+            "Final_score": 0.3768,
+            "trend": "RED"
+          },
+          {
+            "ticker": "QCOM",
+            "name": "QCOM",
+            "display": "QCOM",
+            "Signal_sco": -7.75,
+            "Final_score": 0.364,
+            "trend": "PURPLE"
+          },
+          {
+            "ticker": "091160",
+            "name": "KODEX반도체",
+            "display": "091160(KODEX반도체)",
+            "Signal_sco": -9.0,
+            "Final_score": 0.2098,
+            "trend": "-"
+          },
+          {
+            "ticker": "NVDA",
+            "name": "NVDA",
+            "display": "NVDA",
+            "Signal_sco": -9.25,
+            "Final_score": 0.1299,
+            "trend": "RED"
+          },
+          {
+            "ticker": "HPE",
+            "name": "HPE",
+            "display": "HPE",
+            "Signal_sco": -9.5,
+            "Final_score": 0.1427,
             "trend": "RED"
           }
         ]
@@ -1064,287 +1065,116 @@
   },
   "baskets": [
     {
-      "basket": "AI_DATA_IDENTITY_SECURITY",
-      "basket_kr": "AI_데이터보안",
-      "basket_name_kr": "AI_데이터보안",
-      "score": 5.36,
-      "top3_avg": 7.58,
-      "all_avg": 0.17,
-      "valid_count": 9,
-      "member_count": 9,
-      "top_members": [
-        {
-          "ticker": "136540",
-          "name": "윈스",
-          "display": "136540(윈스)",
-          "Signal_sco": 11.0,
-          "return_3m": 14.31,
-          "Final_score": 0.9941,
-          "trend": "-"
-        },
-        {
-          "ticker": "053800",
-          "name": "안랩",
-          "display": "053800(안랩)",
-          "Signal_sco": 7.0,
-          "return_3m": 92.79,
-          "Final_score": 0.8995,
-          "trend": "-"
-        },
-        {
-          "ticker": "OKTA",
-          "name": "OKTA",
-          "display": "OKTA",
-          "Signal_sco": 4.75,
-          "return_3m": 10.73,
-          "Final_score": 0.7508,
-          "trend": "GREEN"
-        },
-        {
-          "ticker": "NET",
-          "name": "NET",
-          "display": "NET",
-          "Signal_sco": 0.5,
-          "return_3m": -10.79,
-          "Final_score": 0.5564,
-          "trend": "GREEN"
-        },
-        {
-          "ticker": "ZS",
-          "name": "ZS",
-          "display": "ZS",
-          "Signal_sco": 0.25,
-          "return_3m": 4.01,
-          "Final_score": 0.5324,
-          "trend": "PURPLE"
-        }
-      ]
-    },
-    {
       "basket": "AI_CYBER_SECURITY",
       "basket_kr": "AI_사이버보안",
       "basket_name_kr": "AI_사이버보안",
-      "score": 5.17,
-      "top3_avg": 7.17,
-      "all_avg": 0.52,
+      "score": 9.54,
+      "top3_avg": 12.17,
+      "all_avg": 3.42,
       "valid_count": 12,
       "member_count": 12,
       "top_members": [
         {
-          "ticker": "136540",
-          "name": "윈스",
-          "display": "136540(윈스)",
-          "Signal_sco": 11.0,
-          "return_3m": 14.31,
-          "Final_score": 0.9941,
-          "trend": "-"
-        },
-        {
           "ticker": "053800",
           "name": "안랩",
           "display": "053800(안랩)",
-          "Signal_sco": 7.0,
-          "return_3m": 92.79,
-          "Final_score": 0.8995,
-          "trend": "-"
+          "Signal_sco": 16.0,
+          "return_3m": 194.92,
+          "Final_score": 1.0,
+          "trend": "LIME"
+        },
+        {
+          "ticker": "136540",
+          "name": "윈스",
+          "display": "136540(윈스)",
+          "Signal_sco": 13.5,
+          "return_3m": 23.11,
+          "Final_score": 0.9509,
+          "trend": "LIME"
         },
         {
           "ticker": "S",
           "name": "S",
           "display": "S",
-          "Signal_sco": 3.5,
-          "return_3m": 0.88,
-          "Final_score": 0.7359,
-          "trend": "GREEN"
-        },
-        {
-          "ticker": "CRWD",
-          "name": "CRWD",
-          "display": "CRWD",
-          "Signal_sco": 2.5,
-          "return_3m": 0.65,
-          "Final_score": 0.6666,
-          "trend": "GREEN"
+          "Signal_sco": 7.0,
+          "return_3m": 16.77,
+          "Final_score": 0.6993,
+          "trend": "LIME"
         },
         {
           "ticker": "BUG",
           "name": "BUG",
           "display": "BUG",
-          "Signal_sco": 1.5,
-          "return_3m": 2.02,
-          "Final_score": 0.6544,
+          "Signal_sco": 6.0,
+          "return_3m": 14.64,
+          "Final_score": 0.6613,
+          "trend": "-"
+        },
+        {
+          "ticker": "ZS",
+          "name": "ZS",
+          "display": "ZS",
+          "Signal_sco": 5.75,
+          "return_3m": 29.43,
+          "Final_score": 0.6638,
           "trend": "-"
         }
       ]
     },
     {
-      "basket": "AI_HEALTHCARE_BIO",
-      "basket_kr": "AI_헬스케어바이오",
-      "basket_name_kr": "AI_헬스케어바이오",
-      "score": 0.17,
-      "top3_avg": 3.0,
-      "all_avg": -6.42,
-      "valid_count": 10,
-      "member_count": 10,
+      "basket": "AI_DATA_IDENTITY_SECURITY",
+      "basket_kr": "AI_데이터보안",
+      "basket_name_kr": "AI_데이터보안",
+      "score": 9.29,
+      "top3_avg": 12.0,
+      "all_avg": 2.97,
+      "valid_count": 9,
+      "member_count": 9,
       "top_members": [
         {
-          "ticker": "328130",
-          "name": "루닛",
-          "display": "328130(루닛)",
-          "Signal_sco": 11.25,
-          "return_3m": 72.46,
+          "ticker": "053800",
+          "name": "안랩",
+          "display": "053800(안랩)",
+          "Signal_sco": 16.0,
+          "return_3m": 194.92,
           "Final_score": 1.0,
-          "trend": "-"
+          "trend": "LIME"
         },
         {
-          "ticker": "TDOC",
-          "name": "TDOC",
-          "display": "TDOC",
-          "Signal_sco": 1.5,
-          "return_3m": 17.14,
-          "Final_score": 0.7694,
-          "trend": "-"
+          "ticker": "136540",
+          "name": "윈스",
+          "display": "136540(윈스)",
+          "Signal_sco": 13.5,
+          "return_3m": 23.11,
+          "Final_score": 0.9509,
+          "trend": "LIME"
         },
         {
-          "ticker": "ISRG",
-          "name": "ISRG",
-          "display": "ISRG",
-          "Signal_sco": -3.75,
-          "return_3m": 8.71,
-          "Final_score": 0.5339,
-          "trend": "RED"
-        },
-        {
-          "ticker": "IBB",
-          "name": "IBB",
-          "display": "IBB",
-          "Signal_sco": -7.5,
-          "return_3m": -7.1,
-          "Final_score": 0.459,
-          "trend": "PURPLE"
-        },
-        {
-          "ticker": "TEM",
-          "name": "TEM",
-          "display": "TEM",
-          "Signal_sco": -8.75,
-          "return_3m": -23.55,
-          "Final_score": 0.2725,
-          "trend": "PURPLE"
-        }
-      ]
-    },
-    {
-      "basket": "AI_DATA_PIPELINE_DATABASE",
-      "basket_kr": "AI_데이터플랫폼",
-      "basket_name_kr": "AI_데이터플랫폼",
-      "score": -0.73,
-      "top3_avg": 1.5,
-      "all_avg": -5.93,
-      "valid_count": 7,
-      "member_count": 7,
-      "top_members": [
-        {
-          "ticker": "064400",
-          "name": "LG씨엔에스",
-          "display": "064400(LG씨엔에스)",
-          "Signal_sco": 2.25,
-          "return_3m": -2.07,
-          "Final_score": 0.717,
-          "trend": "RED"
-        },
-        {
-          "ticker": "018260",
-          "name": "삼성에스디에스",
-          "display": "018260(삼성에스디에스)",
-          "Signal_sco": 1.75,
-          "return_3m": -9.43,
-          "Final_score": 0.6812,
-          "trend": "RED"
-        },
-        {
-          "ticker": "NET",
-          "name": "NET",
-          "display": "NET",
-          "Signal_sco": 0.5,
-          "return_3m": -10.79,
-          "Final_score": 0.5564,
-          "trend": "GREEN"
-        },
-        {
-          "ticker": "SNOW",
-          "name": "SNOW",
-          "display": "SNOW",
-          "Signal_sco": -11.0,
-          "return_3m": -22.57,
-          "Final_score": 0.2104,
-          "trend": "RED"
-        },
-        {
-          "ticker": "PLTR",
-          "name": "PLTR",
-          "display": "PLTR",
-          "Signal_sco": -11.0,
-          "return_3m": -22.83,
-          "Final_score": 0.1718,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_FINTECH_TRADING",
-      "basket_kr": "AI_핀테크",
-      "basket_name_kr": "AI_핀테크",
-      "score": -1.73,
-      "top3_avg": -0.33,
-      "all_avg": -5.0,
-      "valid_count": 5,
-      "member_count": 5,
-      "top_members": [
-        {
-          "ticker": "CME",
-          "name": "CME",
-          "display": "CME",
+          "ticker": "OKTA",
+          "name": "OKTA",
+          "display": "OKTA",
           "Signal_sco": 6.5,
-          "return_3m": 9.99,
-          "Final_score": 0.867,
+          "return_3m": 21.23,
+          "Final_score": 0.68,
+          "trend": "LIME"
+        },
+        {
+          "ticker": "ZS",
+          "name": "ZS",
+          "display": "ZS",
+          "Signal_sco": 5.75,
+          "return_3m": 29.43,
+          "Final_score": 0.6638,
           "trend": "-"
         },
         {
-          "ticker": "ICE",
-          "name": "ICE",
-          "display": "ICE",
+          "ticker": "PANW",
+          "name": "PANW",
+          "display": "PANW",
           "Signal_sco": 3.5,
-          "return_3m": 5.78,
-          "Final_score": 0.8047,
-          "trend": "-"
-        },
-        {
-          "ticker": "IBKR",
-          "name": "IBKR",
-          "display": "IBKR",
-          "Signal_sco": -11.0,
-          "return_3m": -26.2,
-          "Final_score": 0.2741,
-          "trend": "RED"
-        },
-        {
-          "ticker": "HOOD",
-          "name": "HOOD",
-          "display": "HOOD",
-          "Signal_sco": -12.0,
-          "return_3m": -43.36,
-          "Final_score": 0.0412,
-          "trend": "RED"
-        },
-        {
-          "ticker": "COIN",
-          "name": "COIN",
-          "display": "COIN",
-          "Signal_sco": -12.0,
-          "return_3m": -46.53,
-          "Final_score": 0.009,
-          "trend": "RED"
+          "return_3m": -1.64,
+          "Final_score": 0.5664,
+          "trend": "GREEN"
         }
       ]
     },
@@ -1352,169 +1182,112 @@
       "basket": "AI_ROBOT_COMPONENT",
       "basket_kr": "AI_로봇부품",
       "basket_name_kr": "AI_로봇부품",
-      "score": -2.16,
-      "top3_avg": -0.42,
-      "all_avg": -6.22,
+      "score": 5.26,
+      "top3_avg": 8.08,
+      "all_avg": -1.34,
       "valid_count": 8,
       "member_count": 8,
       "top_members": [
         {
-          "ticker": "389500",
-          "name": "에스비비테크",
-          "display": "389500(에스비비테크)",
-          "Signal_sco": 3.0,
-          "return_3m": -7.8,
-          "Final_score": 0.7573,
-          "trend": "GREEN"
-        },
-        {
           "ticker": "277810",
           "name": "레인보우로보틱스",
           "display": "277810(레인보우로보틱스)",
-          "Signal_sco": 2.0,
-          "return_3m": -9.34,
-          "Final_score": 0.7296,
+          "Signal_sco": 9.75,
+          "return_3m": 14.66,
+          "Final_score": 0.8615,
+          "trend": "LIME"
+        },
+        {
+          "ticker": "389500",
+          "name": "에스비비테크",
+          "display": "389500(에스비비테크)",
+          "Signal_sco": 7.5,
+          "return_3m": 1.05,
+          "Final_score": 0.7859,
           "trend": "GREEN"
         },
         {
           "ticker": "058610",
           "name": "에스피지",
           "display": "058610(에스피지)",
-          "Signal_sco": -6.25,
-          "return_3m": -22.55,
-          "Final_score": 0.4314,
-          "trend": "-"
-        },
-        {
-          "ticker": "HXGBY",
-          "name": "HXGBY",
-          "display": "HXGBY",
-          "Signal_sco": -8.0,
-          "return_3m": -10.42,
-          "Final_score": 0.3957,
-          "trend": "PURPLE"
+          "Signal_sco": 7.0,
+          "return_3m": -0.21,
+          "Final_score": 0.7732,
+          "trend": "GREEN"
         },
         {
           "ticker": "469070",
           "name": "AI로봇ETF",
           "display": "469070(AI로봇ETF)",
-          "Signal_sco": -8.5,
-          "return_3m": -25.72,
-          "Final_score": 0.3523,
-          "trend": "RED"
+          "Signal_sco": 1.5,
+          "return_3m": -13.08,
+          "Final_score": 0.6019,
+          "trend": "GREEN"
+        },
+        {
+          "ticker": "HXGBY",
+          "name": "HXGBY",
+          "display": "HXGBY",
+          "Signal_sco": -6.75,
+          "return_3m": -0.2,
+          "Final_score": 0.3767,
+          "trend": "PURPLE"
         }
       ]
     },
     {
-      "basket": "AI_DIGITAL_TWIN_SIMULATION",
-      "basket_kr": "AI_디지털트윈",
-      "basket_name_kr": "AI_디지털트윈",
-      "score": -2.32,
-      "top3_avg": -1.0,
-      "all_avg": -5.4,
-      "valid_count": 5,
-      "member_count": 5,
+      "basket": "AI_HEALTHCARE_BIO",
+      "basket_kr": "AI_헬스케어바이오",
+      "basket_name_kr": "AI_헬스케어바이오",
+      "score": 3.78,
+      "top3_avg": 6.33,
+      "all_avg": -2.17,
+      "valid_count": 10,
+      "member_count": 10,
       "top_members": [
         {
-          "ticker": "PTC",
-          "name": "PTC",
-          "display": "PTC",
-          "Signal_sco": 7.0,
-          "return_3m": 22.74,
-          "Final_score": 0.8803,
+          "ticker": "328130",
+          "name": "루닛",
+          "display": "328130(루닛)",
+          "Signal_sco": 13.0,
+          "return_3m": 95.05,
+          "Final_score": 0.9411,
           "trend": "-"
         },
         {
-          "ticker": "ADSK",
-          "name": "ADSK",
-          "display": "ADSK",
-          "Signal_sco": -1.0,
-          "return_3m": -9.65,
-          "Final_score": 0.6123,
-          "trend": "PURPLE"
-        },
-        {
-          "ticker": "SNPS",
-          "name": "SNPS",
-          "display": "SNPS",
-          "Signal_sco": -9.0,
-          "return_3m": -14.78,
-          "Final_score": 0.3755,
-          "trend": "RED"
-        },
-        {
-          "ticker": "CDNS",
-          "name": "CDNS",
-          "display": "CDNS",
-          "Signal_sco": -12.0,
-          "return_3m": -18.98,
-          "Final_score": 0.2714,
-          "trend": "RED"
-        },
-        {
-          "ticker": "NVDA",
-          "name": "NVDA",
-          "display": "NVDA",
-          "Signal_sco": -12.0,
-          "return_3m": -44.88,
-          "Final_score": 0.0054,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_ADV_PACKAGING_SUBSTRATE",
-      "basket_kr": "AI_첨단패키징",
-      "basket_name_kr": "AI_첨단패키징",
-      "score": -2.66,
-      "top3_avg": -0.67,
-      "all_avg": -7.31,
-      "valid_count": 9,
-      "member_count": 9,
-      "top_members": [
-        {
-          "ticker": "007810",
-          "name": "코리아써키트",
-          "display": "007810(코리아써키트)",
-          "Signal_sco": 10.75,
-          "return_3m": 60.58,
-          "Final_score": 0.9882,
+          "ticker": "IBB",
+          "name": "IBB",
+          "display": "IBB",
+          "Signal_sco": 4.5,
+          "return_3m": 3.53,
+          "Final_score": 0.6576,
           "trend": "LIME"
         },
         {
-          "ticker": "007660",
-          "name": "이수페타시스",
-          "display": "007660(이수페타시스)",
-          "Signal_sco": -5.5,
-          "return_3m": -31.91,
-          "Final_score": 0.3243,
+          "ticker": "TDOC",
+          "name": "TDOC",
+          "display": "TDOC",
+          "Signal_sco": 1.5,
+          "return_3m": 21.73,
+          "Final_score": 0.6955,
           "trend": "-"
         },
         {
-          "ticker": "222800",
-          "name": "심텍",
-          "display": "222800(심텍)",
-          "Signal_sco": -7.25,
-          "return_3m": -6.27,
-          "Final_score": 0.4138,
-          "trend": "-"
+          "ticker": "XBI",
+          "name": "XBI",
+          "display": "XBI",
+          "Signal_sco": 0.0,
+          "return_3m": -4.16,
+          "Final_score": 0.5432,
+          "trend": "GREEN"
         },
         {
-          "ticker": "353200",
-          "name": "대덕전자",
-          "display": "353200(대덕전자)",
-          "Signal_sco": -9.25,
-          "return_3m": -30.78,
-          "Final_score": 0.1073,
-          "trend": "RED"
-        },
-        {
-          "ticker": "091160",
-          "name": "KODEX반도체",
-          "display": "091160(KODEX반도체)",
-          "Signal_sco": -10.0,
-          "return_3m": -30.79,
-          "Final_score": 0.2149,
+          "ticker": "ISRG",
+          "name": "ISRG",
+          "display": "ISRG",
+          "Signal_sco": -0.5,
+          "return_3m": 15.69,
+          "Final_score": 0.5609,
           "trend": "RED"
         }
       ]
@@ -1523,9 +1296,9 @@
       "basket": "AI_HUMANOID_ROBOT",
       "basket_kr": "AI_휴머노이드",
       "basket_name_kr": "AI_휴머노이드",
-      "score": -3.2,
-      "top3_avg": -1.67,
-      "all_avg": -6.79,
+      "score": 2.02,
+      "top3_avg": 3.75,
+      "all_avg": -2.0,
       "valid_count": 7,
       "member_count": 7,
       "top_members": [
@@ -1533,549 +1306,102 @@
           "ticker": "277810",
           "name": "레인보우로보틱스",
           "display": "277810(레인보우로보틱스)",
-          "Signal_sco": 2.0,
-          "return_3m": -9.34,
-          "Final_score": 0.7296,
+          "Signal_sco": 9.75,
+          "return_3m": 14.66,
+          "Final_score": 0.8615,
+          "trend": "LIME"
+        },
+        {
+          "ticker": "469070",
+          "name": "AI로봇ETF",
+          "display": "469070(AI로봇ETF)",
+          "Signal_sco": 1.5,
+          "return_3m": -13.08,
+          "Final_score": 0.6019,
           "trend": "GREEN"
         },
         {
           "ticker": "TSLA",
           "name": "TSLA",
           "display": "TSLA",
-          "Signal_sco": -3.25,
-          "return_3m": -2.53,
-          "Final_score": 0.5493,
-          "trend": "RED"
+          "Signal_sco": 0.0,
+          "return_3m": 6.75,
+          "Final_score": 0.5382,
+          "trend": "-"
         },
         {
           "ticker": "ISRG",
           "name": "ISRG",
           "display": "ISRG",
-          "Signal_sco": -3.75,
-          "return_3m": 8.71,
-          "Final_score": 0.5339,
-          "trend": "RED"
-        },
-        {
-          "ticker": "469070",
-          "name": "AI로봇ETF",
-          "display": "469070(AI로봇ETF)",
-          "Signal_sco": -8.5,
-          "return_3m": -25.72,
-          "Final_score": 0.3523,
+          "Signal_sco": -0.5,
+          "return_3m": 15.69,
+          "Final_score": 0.5609,
           "trend": "RED"
         },
         {
           "ticker": "454910",
           "name": "두산로보틱스",
           "display": "454910(두산로보틱스)",
-          "Signal_sco": -10.0,
-          "return_3m": -32.21,
-          "Final_score": 0.2517,
-          "trend": "RED"
+          "Signal_sco": -2.75,
+          "return_3m": -23.52,
+          "Final_score": 0.4551,
+          "trend": "GREEN"
         }
       ]
     },
     {
-      "basket": "AI_EDGE_DEVICE_ONDEVICE",
-      "basket_kr": "AI_온디바이스",
-      "basket_name_kr": "AI_온디바이스",
-      "score": -3.39,
-      "top3_avg": -2.33,
-      "all_avg": -5.85,
+      "basket": "AI_FINTECH_TRADING",
+      "basket_kr": "AI_핀테크",
+      "basket_name_kr": "AI_핀테크",
+      "score": -1.19,
+      "top3_avg": 0.25,
+      "all_avg": -4.55,
       "valid_count": 5,
       "member_count": 5,
       "top_members": [
         {
-          "ticker": "AAPL",
-          "name": "AAPL",
-          "display": "AAPL",
-          "Signal_sco": 7.0,
-          "return_3m": 8.98,
-          "Final_score": 0.862,
+          "ticker": "ICE",
+          "name": "ICE",
+          "display": "ICE",
+          "Signal_sco": 6.0,
+          "return_3m": 11.78,
+          "Final_score": 0.7798,
           "trend": "-"
         },
         {
-          "ticker": "AMD",
-          "name": "AMD",
-          "display": "AMD",
-          "Signal_sco": -5.5,
-          "return_3m": -10.97,
-          "Final_score": 0.3978,
+          "ticker": "CME",
+          "name": "CME",
+          "display": "CME",
+          "Signal_sco": 5.75,
+          "return_3m": 9.34,
+          "Final_score": 0.7244,
+          "trend": "LIME"
+        },
+        {
+          "ticker": "IBKR",
+          "name": "IBKR",
+          "display": "IBKR",
+          "Signal_sco": -11.0,
+          "return_3m": -17.31,
+          "Final_score": 0.2409,
           "trend": "RED"
         },
         {
-          "ticker": "QCOM",
-          "name": "QCOM",
-          "display": "QCOM",
-          "Signal_sco": -8.5,
-          "return_3m": -8.51,
-          "Final_score": 0.3553,
+          "ticker": "HOOD",
+          "name": "HOOD",
+          "display": "HOOD",
+          "Signal_sco": -11.5,
+          "return_3m": -36.45,
+          "Final_score": 0.0885,
           "trend": "RED"
         },
         {
-          "ticker": "ARM",
-          "name": "ARM",
-          "display": "ARM",
-          "Signal_sco": -10.25,
-          "return_3m": -40.36,
-          "Final_score": 0.1396,
-          "trend": "RED"
-        },
-        {
-          "ticker": "005930",
-          "name": "삼성전자",
-          "display": "005930(삼성전자)",
+          "ticker": "COIN",
+          "name": "COIN",
+          "display": "COIN",
           "Signal_sco": -12.0,
-          "return_3m": -29.61,
-          "Final_score": 0.2137,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_ASIC_CUSTOM_CHIP",
-      "basket_kr": "AI_맞춤칩ASIC",
-      "basket_name_kr": "AI_맞춤칩ASIC",
-      "score": -3.6,
-      "top3_avg": -3.0,
-      "all_avg": -5.0,
-      "valid_count": 4,
-      "member_count": 4,
-      "top_members": [
-        {
-          "ticker": "AVGO",
-          "name": "AVGO",
-          "display": "AVGO",
-          "Signal_sco": 1.0,
-          "return_3m": -17.92,
-          "Final_score": 0.6217,
-          "trend": "GREEN"
-        },
-        {
-          "ticker": "AMZN",
-          "name": "AMZN",
-          "display": "AMZN",
-          "Signal_sco": 1.0,
-          "return_3m": -3.68,
-          "Final_score": 0.6935,
-          "trend": "RED"
-        },
-        {
-          "ticker": "MRVL",
-          "name": "MRVL",
-          "display": "MRVL",
-          "Signal_sco": -11.0,
-          "return_3m": -49.34,
-          "Final_score": 0.0237,
-          "trend": "RED"
-        },
-        {
-          "ticker": "GOOGL",
-          "name": "GOOGL",
-          "display": "GOOGL",
-          "Signal_sco": -11.0,
-          "return_3m": -22.07,
-          "Final_score": 0.2438,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_NETWORKING_SWITCH_DPU",
-      "basket_kr": "AI_네트워크",
-      "basket_name_kr": "AI_네트워크",
-      "score": -3.73,
-      "top3_avg": -2.67,
-      "all_avg": -6.2,
-      "valid_count": 5,
-      "member_count": 5,
-      "top_members": [
-        {
-          "ticker": "ANET",
-          "name": "ANET",
-          "display": "ANET",
-          "Signal_sco": 2.0,
-          "return_3m": -16.64,
-          "Final_score": 0.6671,
-          "trend": "RED"
-        },
-        {
-          "ticker": "AVGO",
-          "name": "AVGO",
-          "display": "AVGO",
-          "Signal_sco": 1.0,
-          "return_3m": -17.92,
-          "Final_score": 0.6217,
-          "trend": "GREEN"
-        },
-        {
-          "ticker": "CSCO",
-          "name": "CSCO",
-          "display": "CSCO",
-          "Signal_sco": -11.0,
-          "return_3m": -18.87,
-          "Final_score": 0.2681,
-          "trend": "RED"
-        },
-        {
-          "ticker": "MRVL",
-          "name": "MRVL",
-          "display": "MRVL",
-          "Signal_sco": -11.0,
-          "return_3m": -49.34,
-          "Final_score": 0.0237,
-          "trend": "RED"
-        },
-        {
-          "ticker": "NVDA",
-          "name": "NVDA",
-          "display": "NVDA",
-          "Signal_sco": -12.0,
-          "return_3m": -44.88,
-          "Final_score": 0.0054,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_SOFTWARE_PLATFORM",
-      "basket_kr": "AI_소프트웨어",
-      "basket_name_kr": "AI_소프트웨어",
-      "score": -3.9,
-      "top3_avg": -2.33,
-      "all_avg": -7.57,
-      "valid_count": 7,
-      "member_count": 7,
-      "top_members": [
-        {
-          "ticker": "064400",
-          "name": "LG씨엔에스",
-          "display": "064400(LG씨엔에스)",
-          "Signal_sco": 2.25,
-          "return_3m": -2.07,
-          "Final_score": 0.717,
-          "trend": "RED"
-        },
-        {
-          "ticker": "018260",
-          "name": "삼성에스디에스",
-          "display": "018260(삼성에스디에스)",
-          "Signal_sco": 1.75,
-          "return_3m": -9.43,
-          "Final_score": 0.6812,
-          "trend": "RED"
-        },
-        {
-          "ticker": "PLTR",
-          "name": "PLTR",
-          "display": "PLTR",
-          "Signal_sco": -11.0,
-          "return_3m": -22.83,
-          "Final_score": 0.1718,
-          "trend": "RED"
-        },
-        {
-          "ticker": "CRM",
-          "name": "CRM",
-          "display": "CRM",
-          "Signal_sco": -11.0,
-          "return_3m": -28.21,
-          "Final_score": 0.1558,
-          "trend": "RED"
-        },
-        {
-          "ticker": "SNOW",
-          "name": "SNOW",
-          "display": "SNOW",
-          "Signal_sco": -11.0,
-          "return_3m": -22.57,
-          "Final_score": 0.2104,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_CLOUD_HYPERSCALER",
-      "basket_kr": "AI_클라우드",
-      "basket_name_kr": "AI_클라우드",
-      "score": -5.34,
-      "top3_avg": -4.5,
-      "all_avg": -7.3,
-      "valid_count": 5,
-      "member_count": 5,
-      "top_members": [
-        {
-          "ticker": "AMZN",
-          "name": "AMZN",
-          "display": "AMZN",
-          "Signal_sco": 1.0,
-          "return_3m": -3.68,
-          "Final_score": 0.6935,
-          "trend": "RED"
-        },
-        {
-          "ticker": "MSFT",
-          "name": "MSFT",
-          "display": "MSFT",
-          "Signal_sco": -5.75,
-          "return_3m": -3.88,
-          "Final_score": 0.4841,
-          "trend": "PURPLE"
-        },
-        {
-          "ticker": "META",
-          "name": "META",
-          "display": "META",
-          "Signal_sco": -8.75,
-          "return_3m": -1.72,
-          "Final_score": 0.3815,
-          "trend": "RED"
-        },
-        {
-          "ticker": "GOOGL",
-          "name": "GOOGL",
-          "display": "GOOGL",
-          "Signal_sco": -11.0,
-          "return_3m": -22.07,
-          "Final_score": 0.2438,
-          "trend": "RED"
-        },
-        {
-          "ticker": "ORCL",
-          "name": "ORCL",
-          "display": "ORCL",
-          "Signal_sco": -12.0,
-          "return_3m": -33.16,
-          "Final_score": 0.1725,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_POWER_GRID_TRANSFORMER",
-      "basket_kr": "AI_전력망",
-      "basket_name_kr": "AI_전력망",
-      "score": -6.01,
-      "top3_avg": -4.5,
-      "all_avg": -9.54,
-      "valid_count": 12,
-      "member_count": 12,
-      "top_members": [
-        {
-          "ticker": "PWR",
-          "name": "PWR",
-          "display": "PWR",
-          "Signal_sco": -2.0,
-          "return_3m": -10.08,
-          "Final_score": 0.6254,
-          "trend": "GREEN"
-        },
-        {
-          "ticker": "103590",
-          "name": "일진전기",
-          "display": "103590(일진전기)",
-          "Signal_sco": -2.5,
-          "return_3m": -20.42,
-          "Final_score": 0.5146,
-          "trend": "-"
-        },
-        {
-          "ticker": "267260",
-          "name": "HD현대일렉트릭",
-          "display": "267260(HD현대일렉트릭)",
-          "Signal_sco": -9.0,
-          "return_3m": -46.39,
-          "Final_score": 0.2267,
-          "trend": "-"
-        },
-        {
-          "ticker": "298040",
-          "name": "효성중공업",
-          "display": "298040(효성중공업)",
-          "Signal_sco": -10.0,
-          "return_3m": -40.87,
-          "Final_score": 0.2623,
-          "trend": "-"
-        },
-        {
-          "ticker": "GRID",
-          "name": "GRID",
-          "display": "GRID",
-          "Signal_sco": -11.0,
-          "return_3m": -19.8,
-          "Final_score": 0.296,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_OPTICAL_PHOTONICS",
-      "basket_kr": "AI_광통신",
-      "basket_name_kr": "AI_광통신",
-      "score": -6.09,
-      "top3_avg": -5.42,
-      "all_avg": -7.65,
-      "valid_count": 5,
-      "member_count": 5,
-      "top_members": [
-        {
-          "ticker": "AVGO",
-          "name": "AVGO",
-          "display": "AVGO",
-          "Signal_sco": 1.0,
-          "return_3m": -17.92,
-          "Final_score": 0.6217,
-          "trend": "GREEN"
-        },
-        {
-          "ticker": "COHR",
-          "name": "COHR",
-          "display": "COHR",
-          "Signal_sco": -6.25,
-          "return_3m": -36.62,
-          "Final_score": 0.3647,
-          "trend": "RED"
-        },
-        {
-          "ticker": "LITE",
-          "name": "LITE",
-          "display": "LITE",
-          "Signal_sco": -11.0,
-          "return_3m": -51.83,
-          "Final_score": 0.0239,
-          "trend": "RED"
-        },
-        {
-          "ticker": "CIEN",
-          "name": "CIEN",
-          "display": "CIEN",
-          "Signal_sco": -11.0,
-          "return_3m": -41.39,
-          "Final_score": 0.125,
-          "trend": "RED"
-        },
-        {
-          "ticker": "MRVL",
-          "name": "MRVL",
-          "display": "MRVL",
-          "Signal_sco": -11.0,
-          "return_3m": -49.34,
-          "Final_score": 0.0237,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_CONTENT_ADS_MEDIA",
-      "basket_kr": "AI_광고미디어",
-      "basket_name_kr": "AI_광고미디어",
-      "score": -6.13,
-      "top3_avg": -5.33,
-      "all_avg": -8.0,
-      "valid_count": 5,
-      "member_count": 5,
-      "top_members": [
-        {
-          "ticker": "TTD",
-          "name": "TTD",
-          "display": "TTD",
-          "Signal_sco": 3.75,
-          "return_3m": -0.3,
-          "Final_score": 0.7914,
-          "trend": "-"
-        },
-        {
-          "ticker": "META",
-          "name": "META",
-          "display": "META",
-          "Signal_sco": -8.75,
-          "return_3m": -1.72,
-          "Final_score": 0.3815,
-          "trend": "RED"
-        },
-        {
-          "ticker": "GOOGL",
-          "name": "GOOGL",
-          "display": "GOOGL",
-          "Signal_sco": -11.0,
-          "return_3m": -22.07,
-          "Final_score": 0.2438,
-          "trend": "RED"
-        },
-        {
-          "ticker": "NFLX",
-          "name": "NFLX",
-          "display": "NFLX",
-          "Signal_sco": -12.0,
-          "return_3m": -28.95,
-          "Final_score": 0.2254,
-          "trend": "RED"
-        },
-        {
-          "ticker": "ADBE",
-          "name": "ADBE",
-          "display": "ADBE",
-          "Signal_sco": -12.0,
-          "return_3m": -24.71,
-          "Final_score": 0.2109,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_INFERENCE_OPTIMIZATION",
-      "basket_kr": "AI_추론최적화",
-      "basket_name_kr": "AI_추론최적화",
-      "score": -6.59,
-      "top3_avg": -5.92,
-      "all_avg": -8.15,
-      "valid_count": 5,
-      "member_count": 5,
-      "top_members": [
-        {
-          "ticker": "AVGO",
-          "name": "AVGO",
-          "display": "AVGO",
-          "Signal_sco": 1.0,
-          "return_3m": -17.92,
-          "Final_score": 0.6217,
-          "trend": "GREEN"
-        },
-        {
-          "ticker": "QCOM",
-          "name": "QCOM",
-          "display": "QCOM",
-          "Signal_sco": -8.5,
-          "return_3m": -8.51,
-          "Final_score": 0.3553,
-          "trend": "RED"
-        },
-        {
-          "ticker": "ARM",
-          "name": "ARM",
-          "display": "ARM",
-          "Signal_sco": -10.25,
-          "return_3m": -40.36,
-          "Final_score": 0.1396,
-          "trend": "RED"
-        },
-        {
-          "ticker": "MRVL",
-          "name": "MRVL",
-          "display": "MRVL",
-          "Signal_sco": -11.0,
-          "return_3m": -49.34,
-          "Final_score": 0.0237,
-          "trend": "RED"
-        },
-        {
-          "ticker": "NVDA",
-          "name": "NVDA",
-          "display": "NVDA",
-          "Signal_sco": -12.0,
-          "return_3m": -44.88,
-          "Final_score": 0.0054,
+          "return_3m": -41.34,
+          "Final_score": 0.0222,
           "trend": "RED"
         }
       ]
@@ -2084,169 +1410,169 @@
       "basket": "AI_FACTORY_AUTOMATION",
       "basket_kr": "AI_공장자동화",
       "basket_name_kr": "AI_공장자동화",
-      "score": -7.23,
-      "top3_avg": -6.17,
-      "all_avg": -9.7,
+      "score": -1.27,
+      "top3_avg": 0.92,
+      "all_avg": -6.38,
       "valid_count": 10,
       "member_count": 10,
       "top_members": [
         {
-          "ticker": "EMR",
-          "name": "EMR",
-          "display": "EMR",
-          "Signal_sco": -5.0,
-          "return_3m": -3.96,
-          "Final_score": 0.51,
-          "trend": "PURPLE"
+          "ticker": "117730",
+          "name": "티로보틱스",
+          "display": "117730(티로보틱스)",
+          "Signal_sco": 3.25,
+          "return_3m": 3.43,
+          "Final_score": 0.7079,
+          "trend": "GREEN"
         },
         {
           "ticker": "090360",
           "name": "로보스타",
           "display": "090360(로보스타)",
-          "Signal_sco": -5.0,
-          "return_3m": -30.26,
-          "Final_score": 0.445,
-          "trend": "-"
-        },
-        {
-          "ticker": "117730",
-          "name": "티로보틱스",
-          "display": "117730(티로보틱스)",
-          "Signal_sco": -8.5,
-          "return_3m": -18.11,
-          "Final_score": 0.3332,
-          "trend": "RED"
-        },
-        {
-          "ticker": "ROK",
-          "name": "ROK",
-          "display": "ROK",
-          "Signal_sco": -10.0,
-          "return_3m": -16.11,
-          "Final_score": 0.3,
-          "trend": "RED"
+          "Signal_sco": 2.25,
+          "return_3m": -17.01,
+          "Final_score": 0.63,
+          "trend": "GREEN"
         },
         {
           "ticker": "454910",
           "name": "두산로보틱스",
           "display": "454910(두산로보틱스)",
-          "Signal_sco": -10.0,
-          "return_3m": -32.21,
-          "Final_score": 0.2517,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_DATACENTER_REIT_SERVER",
-      "basket_kr": "AI_데이터센터",
-      "basket_name_kr": "AI_데이터센터",
-      "score": -7.45,
-      "top3_avg": -6.58,
-      "all_avg": -9.46,
-      "valid_count": 7,
-      "member_count": 7,
-      "top_members": [
+          "Signal_sco": -2.75,
+          "return_3m": -23.52,
+          "Final_score": 0.4551,
+          "trend": "GREEN"
+        },
         {
-          "ticker": "EQIX",
-          "name": "EQIX",
-          "display": "EQIX",
-          "Signal_sco": -1.25,
-          "return_3m": -9.6,
-          "Final_score": 0.6415,
+          "ticker": "EMR",
+          "name": "EMR",
+          "display": "EMR",
+          "Signal_sco": -4.75,
+          "return_3m": 6.88,
+          "Final_score": 0.4454,
+          "trend": "PURPLE"
+        },
+        {
+          "ticker": "0038A0",
+          "name": "미국로봇",
+          "display": "0038A0(미국로봇)",
+          "Signal_sco": -8.5,
+          "return_3m": -12.65,
+          "Final_score": 0.3139,
           "trend": "-"
+        }
+      ]
+    },
+    {
+      "basket": "AI_DIGITAL_TWIN_SIMULATION",
+      "basket_kr": "AI_디지털트윈",
+      "basket_name_kr": "AI_디지털트윈",
+      "score": -1.31,
+      "top3_avg": 0.08,
+      "all_avg": -4.55,
+      "valid_count": 5,
+      "member_count": 5,
+      "top_members": [
+        {
+          "ticker": "PTC",
+          "name": "PTC",
+          "display": "PTC",
+          "Signal_sco": 8.5,
+          "return_3m": 28.26,
+          "Final_score": 0.7755,
+          "trend": "LIME"
         },
         {
-          "ticker": "DLR",
-          "name": "DLR",
-          "display": "DLR",
-          "Signal_sco": -8.5,
-          "return_3m": -14.85,
-          "Final_score": 0.4023,
+          "ticker": "ADSK",
+          "name": "ADSK",
+          "display": "ADSK",
+          "Signal_sco": 1.0,
+          "return_3m": -0.36,
+          "Final_score": 0.5851,
+          "trend": "PURPLE"
+        },
+        {
+          "ticker": "NVDA",
+          "name": "NVDA",
+          "display": "NVDA",
+          "Signal_sco": -9.25,
+          "return_3m": -31.26,
+          "Final_score": 0.1299,
           "trend": "RED"
         },
         {
-          "ticker": "HPE",
-          "name": "HPE",
-          "display": "HPE",
-          "Signal_sco": -10.0,
-          "return_3m": -24.62,
-          "Final_score": 0.1854,
-          "trend": "RED"
-        },
-        {
-          "ticker": "VRT",
-          "name": "VRT",
-          "display": "VRT",
-          "Signal_sco": -11.0,
-          "return_3m": -38.25,
-          "Final_score": 0.2205,
-          "trend": "RED"
-        },
-        {
-          "ticker": "DELL",
-          "name": "DELL",
-          "display": "DELL",
+          "ticker": "SNPS",
+          "name": "SNPS",
+          "display": "SNPS",
           "Signal_sco": -11.5,
-          "return_3m": -41.05,
-          "Final_score": 0.0275,
+          "return_3m": -2.35,
+          "Final_score": 0.2352,
+          "trend": "RED"
+        },
+        {
+          "ticker": "CDNS",
+          "name": "CDNS",
+          "display": "CDNS",
+          "Signal_sco": -11.5,
+          "return_3m": -5.8,
+          "Final_score": 0.2387,
           "trend": "RED"
         }
       ]
     },
     {
-      "basket": "AI_ENERGY_NUCLEAR_SMR_GAS",
-      "basket_kr": "AI_에너지",
-      "basket_name_kr": "AI_에너지",
-      "score": -8.15,
-      "top3_avg": -7.5,
-      "all_avg": -9.67,
-      "valid_count": 6,
-      "member_count": 6,
+      "basket": "AI_EDGE_DEVICE_ONDEVICE",
+      "basket_kr": "AI_온디바이스",
+      "basket_name_kr": "AI_온디바이스",
+      "score": -4.49,
+      "top3_avg": -3.5,
+      "all_avg": -6.8,
+      "valid_count": 5,
+      "member_count": 5,
       "top_members": [
         {
-          "ticker": "CEG",
-          "name": "CEG",
-          "display": "CEG",
-          "Signal_sco": -4.0,
-          "return_3m": -15.81,
-          "Final_score": 0.5032,
+          "ticker": "AAPL",
+          "name": "AAPL",
+          "display": "AAPL",
+          "Signal_sco": 8.0,
+          "return_3m": 9.45,
+          "Final_score": 0.7546,
+          "trend": "LIME"
+        },
+        {
+          "ticker": "QCOM",
+          "name": "QCOM",
+          "display": "QCOM",
+          "Signal_sco": -7.75,
+          "return_3m": 1.78,
+          "Final_score": 0.364,
+          "trend": "PURPLE"
+        },
+        {
+          "ticker": "ARM",
+          "name": "ARM",
+          "display": "ARM",
+          "Signal_sco": -10.75,
+          "return_3m": -31.22,
+          "Final_score": 0.0957,
           "trend": "RED"
         },
         {
-          "ticker": "NRG",
-          "name": "NRG",
-          "display": "NRG",
-          "Signal_sco": -8.5,
-          "return_3m": -22.88,
-          "Final_score": 0.3907,
-          "trend": "RED"
-        },
-        {
-          "ticker": "VST",
-          "name": "VST",
-          "display": "VST",
-          "Signal_sco": -10.0,
-          "return_3m": -17.43,
-          "Final_score": 0.2752,
-          "trend": "RED"
-        },
-        {
-          "ticker": "434730",
-          "name": "원자력ETF",
-          "display": "434730(원자력ETF)",
+          "ticker": "005930",
+          "name": "삼성전자",
+          "display": "005930(삼성전자)",
           "Signal_sco": -11.5,
-          "return_3m": -38.36,
-          "Final_score": 0.15,
+          "return_3m": -31.23,
+          "Final_score": 0.1519,
           "trend": "RED"
         },
         {
-          "ticker": "SMR",
-          "name": "SMR",
-          "display": "SMR",
+          "ticker": "AMD",
+          "name": "AMD",
+          "display": "AMD",
           "Signal_sco": -12.0,
-          "return_3m": -65.5,
-          "Final_score": 0.0111,
+          "return_3m": -11.66,
+          "Final_score": 0.126,
           "trend": "RED"
         }
       ]
@@ -2255,9 +1581,9 @@
       "basket": "AI_COOLING_THERMAL",
       "basket_kr": "AI_냉각",
       "basket_name_kr": "AI_냉각",
-      "score": -8.22,
-      "top3_avg": -7.67,
-      "all_avg": -9.5,
+      "score": -6.69,
+      "top3_avg": -5.92,
+      "all_avg": -8.5,
       "valid_count": 6,
       "member_count": 6,
       "top_members": [
@@ -2265,273 +1591,159 @@
           "ticker": "MOD",
           "name": "MOD",
           "display": "MOD",
-          "Signal_sco": -1.0,
-          "return_3m": -33.08,
-          "Final_score": 0.5267,
+          "Signal_sco": -1.25,
+          "return_3m": -24.64,
+          "Final_score": 0.4465,
+          "trend": "GREEN"
+        },
+        {
+          "ticker": "CARR",
+          "name": "CARR",
+          "display": "CARR",
+          "Signal_sco": -6.75,
+          "return_3m": -5.45,
+          "Final_score": 0.3895,
           "trend": "-"
-        },
-        {
-          "ticker": "VRT",
-          "name": "VRT",
-          "display": "VRT",
-          "Signal_sco": -11.0,
-          "return_3m": -38.25,
-          "Final_score": 0.2205,
-          "trend": "RED"
-        },
-        {
-          "ticker": "ETN",
-          "name": "ETN",
-          "display": "ETN",
-          "Signal_sco": -11.0,
-          "return_3m": -24.94,
-          "Final_score": 0.2536,
-          "trend": "RED"
         },
         {
           "ticker": "TT",
           "name": "TT",
           "display": "TT",
-          "Signal_sco": -11.0,
-          "return_3m": -14.77,
-          "Final_score": 0.291,
+          "Signal_sco": -9.75,
+          "return_3m": -8.11,
+          "Final_score": 0.2895,
           "trend": "RED"
         },
         {
           "ticker": "NVT",
           "name": "NVT",
           "display": "NVT",
-          "Signal_sco": -11.0,
-          "return_3m": -34.42,
-          "Final_score": 0.1999,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_SEMI_EQUIPMENT",
-      "basket_kr": "AI_반도체장비",
-      "basket_name_kr": "AI_반도체장비",
-      "score": -8.86,
-      "top3_avg": -8.33,
-      "all_avg": -10.08,
-      "valid_count": 13,
-      "member_count": 13,
-      "top_members": [
-        {
-          "ticker": "403870",
-          "name": "HPSP",
-          "display": "403870(HPSP)",
-          "Signal_sco": -7.0,
-          "return_3m": -14.11,
-          "Final_score": 0.3361,
-          "trend": "-"
-        },
-        {
-          "ticker": "036930",
-          "name": "주성엔지니어링",
-          "display": "036930(주성엔지니어링)",
-          "Signal_sco": -9.0,
-          "return_3m": -14.22,
-          "Final_score": 0.2878,
-          "trend": "-"
-        },
-        {
-          "ticker": "095340",
-          "name": "ISC",
-          "display": "095340(ISC)",
-          "Signal_sco": -9.0,
-          "return_3m": -18.29,
-          "Final_score": 0.32,
-          "trend": "RED"
-        },
-        {
-          "ticker": "240810",
-          "name": "원익IPS",
-          "display": "240810(원익IPS)",
-          "Signal_sco": -9.25,
-          "return_3m": -38.72,
-          "Final_score": 0.1475,
-          "trend": "RED"
-        },
-        {
-          "ticker": "084370",
-          "name": "유진테크",
-          "display": "084370(유진테크)",
-          "Signal_sco": -9.25,
-          "return_3m": -47.9,
-          "Final_score": 0.0928,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_CPU_SERVER",
-      "basket_kr": "AI_CPU서버",
-      "basket_name_kr": "AI_CPU서버",
-      "score": -9.02,
-      "top3_avg": -8.58,
-      "all_avg": -10.04,
-      "valid_count": 6,
-      "member_count": 6,
-      "top_members": [
-        {
-          "ticker": "AMD",
-          "name": "AMD",
-          "display": "AMD",
-          "Signal_sco": -5.5,
-          "return_3m": -10.97,
-          "Final_score": 0.3978,
-          "trend": "RED"
-        },
-        {
-          "ticker": "HPE",
-          "name": "HPE",
-          "display": "HPE",
-          "Signal_sco": -10.0,
-          "return_3m": -24.62,
-          "Final_score": 0.1854,
-          "trend": "RED"
-        },
-        {
-          "ticker": "ARM",
-          "name": "ARM",
-          "display": "ARM",
           "Signal_sco": -10.25,
-          "return_3m": -40.36,
-          "Final_score": 0.1396,
+          "return_3m": -29.48,
+          "Final_score": 0.1407,
           "trend": "RED"
         },
         {
-          "ticker": "INTC",
-          "name": "INTC",
-          "display": "INTC",
-          "Signal_sco": -11.0,
-          "return_3m": -44.32,
-          "Final_score": 0.0305,
-          "trend": "RED"
-        },
-        {
-          "ticker": "DELL",
-          "name": "DELL",
-          "display": "DELL",
+          "ticker": "VRT",
+          "name": "VRT",
+          "display": "VRT",
           "Signal_sco": -11.5,
-          "return_3m": -41.05,
-          "Final_score": 0.0275,
+          "return_3m": -32.22,
+          "Final_score": 0.0952,
           "trend": "RED"
         }
       ]
     },
     {
-      "basket": "AI_GPU_ACCELERATOR",
-      "basket_kr": "AI_GPU",
-      "basket_name_kr": "AI_GPU",
-      "score": -9.31,
-      "top3_avg": -8.83,
-      "all_avg": -10.42,
-      "valid_count": 6,
-      "member_count": 6,
+      "basket": "AI_CONTENT_ADS_MEDIA",
+      "basket_kr": "AI_광고미디어",
+      "basket_name_kr": "AI_광고미디어",
+      "score": -6.75,
+      "top3_avg": -6.17,
+      "all_avg": -8.1,
+      "valid_count": 5,
+      "member_count": 5,
       "top_members": [
         {
-          "ticker": "AMD",
-          "name": "AMD",
-          "display": "AMD",
-          "Signal_sco": -5.5,
-          "return_3m": -10.97,
-          "Final_score": 0.3978,
+          "ticker": "TTD",
+          "name": "TTD",
+          "display": "TTD",
+          "Signal_sco": -1.0,
+          "return_3m": 2.25,
+          "Final_score": 0.6002,
+          "trend": "-"
+        },
+        {
+          "ticker": "META",
+          "name": "META",
+          "display": "META",
+          "Signal_sco": -7.75,
+          "return_3m": 5.5,
+          "Final_score": 0.4141,
+          "trend": "-"
+        },
+        {
+          "ticker": "ADBE",
+          "name": "ADBE",
+          "display": "ADBE",
+          "Signal_sco": -9.75,
+          "return_3m": -18.61,
+          "Final_score": 0.2835,
           "trend": "RED"
+        },
+        {
+          "ticker": "GOOGL",
+          "name": "GOOGL",
+          "display": "GOOGL",
+          "Signal_sco": -11.0,
+          "return_3m": -18.43,
+          "Final_score": 0.2079,
+          "trend": "RED"
+        },
+        {
+          "ticker": "NFLX",
+          "name": "NFLX",
+          "display": "NFLX",
+          "Signal_sco": -11.0,
+          "return_3m": -26.48,
+          "Final_score": 0.2555,
+          "trend": "RED"
+        }
+      ]
+    },
+    {
+      "basket": "AI_ADV_PACKAGING_SUBSTRATE",
+      "basket_kr": "AI_첨단패키징",
+      "basket_name_kr": "AI_첨단패키징",
+      "score": -7.07,
+      "top3_avg": -6.17,
+      "all_avg": -9.17,
+      "valid_count": 9,
+      "member_count": 9,
+      "top_members": [
+        {
+          "ticker": "007810",
+          "name": "코리아써키트",
+          "display": "007810(코리아써키트)",
+          "Signal_sco": -0.75,
+          "return_3m": 23.98,
+          "Final_score": 0.671,
+          "trend": "-"
+        },
+        {
+          "ticker": "222800",
+          "name": "심텍",
+          "display": "222800(심텍)",
+          "Signal_sco": -8.75,
+          "return_3m": -17.94,
+          "Final_score": 0.3132,
+          "trend": "-"
         },
         {
           "ticker": "091160",
           "name": "KODEX반도체",
           "display": "091160(KODEX반도체)",
-          "Signal_sco": -10.0,
-          "return_3m": -30.79,
-          "Final_score": 0.2149,
+          "Signal_sco": -9.0,
+          "return_3m": -29.75,
+          "Final_score": 0.2098,
+          "trend": "-"
+        },
+        {
+          "ticker": "042700",
+          "name": "한미반도체",
+          "display": "042700(한미반도체)",
+          "Signal_sco": -10.25,
+          "return_3m": -27.53,
+          "Final_score": 0.2246,
           "trend": "RED"
         },
         {
-          "ticker": "SOXX",
-          "name": "SOXX",
-          "display": "SOXX",
-          "Signal_sco": -11.0,
-          "return_3m": -29.5,
-          "Final_score": 0.186,
-          "trend": "RED"
-        },
-        {
-          "ticker": "SMH",
-          "name": "SMH",
-          "display": "SMH",
-          "Signal_sco": -12.0,
-          "return_3m": -30.18,
-          "Final_score": 0.1498,
-          "trend": "RED"
-        },
-        {
-          "ticker": "NVDA",
-          "name": "NVDA",
-          "display": "NVDA",
-          "Signal_sco": -12.0,
-          "return_3m": -44.88,
-          "Final_score": 0.0054,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_AUTONOMOUS_VEHICLE_DRONE",
-      "basket_kr": "AI_자율주행드론",
-      "basket_name_kr": "AI_자율주행드론",
-      "score": -9.38,
-      "top3_avg": -8.92,
-      "all_avg": -10.46,
-      "valid_count": 6,
-      "member_count": 6,
-      "top_members": [
-        {
-          "ticker": "TSLA",
-          "name": "TSLA",
-          "display": "TSLA",
-          "Signal_sco": -3.25,
-          "return_3m": -2.53,
-          "Final_score": 0.5493,
-          "trend": "RED"
-        },
-        {
-          "ticker": "JOBY",
-          "name": "JOBY",
-          "display": "JOBY",
-          "Signal_sco": -11.5,
-          "return_3m": -49.65,
-          "Final_score": 0.116,
-          "trend": "RED"
-        },
-        {
-          "ticker": "MBLY",
-          "name": "MBLY",
-          "display": "MBLY",
-          "Signal_sco": -12.0,
-          "return_3m": -46.92,
-          "Final_score": 0.0635,
-          "trend": "RED"
-        },
-        {
-          "ticker": "RIVN",
-          "name": "RIVN",
-          "display": "RIVN",
-          "Signal_sco": -12.0,
-          "return_3m": -38.51,
-          "Final_score": 0.2086,
-          "trend": "RED"
-        },
-        {
-          "ticker": "ACHR",
-          "name": "ACHR",
-          "display": "ACHR",
-          "Signal_sco": -12.0,
-          "return_3m": -50.93,
-          "Final_score": 0.0956,
+          "ticker": "067310",
+          "name": "하나마이크론",
+          "display": "067310(하나마이크론)",
+          "Signal_sco": -10.25,
+          "return_3m": -36.15,
+          "Final_score": 0.0989,
           "trend": "RED"
         }
       ]
@@ -2540,9 +1752,237 @@
       "basket": "AI_AGENT_AUTOMATION_RPA",
       "basket_kr": "AI_에이전트자동화",
       "basket_name_kr": "AI_에이전트자동화",
-      "score": -9.52,
-      "top3_avg": -9.25,
-      "all_avg": -10.15,
+      "score": -7.08,
+      "top3_avg": -6.75,
+      "all_avg": -7.85,
+      "valid_count": 5,
+      "member_count": 5,
+      "top_members": [
+        {
+          "ticker": "PLTR",
+          "name": "PLTR",
+          "display": "PLTR",
+          "Signal_sco": -6.0,
+          "return_3m": -9.08,
+          "Final_score": 0.3224,
+          "trend": "-"
+        },
+        {
+          "ticker": "MSFT",
+          "name": "MSFT",
+          "display": "MSFT",
+          "Signal_sco": -6.5,
+          "return_3m": -2.02,
+          "Final_score": 0.3812,
+          "trend": "PURPLE"
+        },
+        {
+          "ticker": "PATH",
+          "name": "PATH",
+          "display": "PATH",
+          "Signal_sco": -7.75,
+          "return_3m": -31.53,
+          "Final_score": 0.261,
+          "trend": "-"
+        },
+        {
+          "ticker": "CRM",
+          "name": "CRM",
+          "display": "CRM",
+          "Signal_sco": -9.25,
+          "return_3m": -23.46,
+          "Final_score": 0.2161,
+          "trend": "RED"
+        },
+        {
+          "ticker": "NOW",
+          "name": "NOW",
+          "display": "NOW",
+          "Signal_sco": -9.75,
+          "return_3m": -35.51,
+          "Final_score": 0.0657,
+          "trend": "-"
+        }
+      ]
+    },
+    {
+      "basket": "AI_AUTONOMOUS_VEHICLE_DRONE",
+      "basket_kr": "AI_자율주행드론",
+      "basket_name_kr": "AI_자율주행드론",
+      "score": -7.2,
+      "top3_avg": -6.42,
+      "all_avg": -9.04,
+      "valid_count": 6,
+      "member_count": 6,
+      "top_members": [
+        {
+          "ticker": "TSLA",
+          "name": "TSLA",
+          "display": "TSLA",
+          "Signal_sco": 0.0,
+          "return_3m": 6.75,
+          "Final_score": 0.5382,
+          "trend": "-"
+        },
+        {
+          "ticker": "RIVN",
+          "name": "RIVN",
+          "display": "RIVN",
+          "Signal_sco": -9.5,
+          "return_3m": -24.62,
+          "Final_score": 0.3146,
+          "trend": "RED"
+        },
+        {
+          "ticker": "478150",
+          "name": "우주방위",
+          "display": "478150(우주방위)",
+          "Signal_sco": -9.75,
+          "return_3m": -14.78,
+          "Final_score": 0.3088,
+          "trend": "RED"
+        },
+        {
+          "ticker": "ACHR",
+          "name": "ACHR",
+          "display": "ACHR",
+          "Signal_sco": -11.5,
+          "return_3m": -45.32,
+          "Final_score": 0.0614,
+          "trend": "RED"
+        },
+        {
+          "ticker": "JOBY",
+          "name": "JOBY",
+          "display": "JOBY",
+          "Signal_sco": -11.5,
+          "return_3m": -41.7,
+          "Final_score": 0.1035,
+          "trend": "RED"
+        }
+      ]
+    },
+    {
+      "basket": "AI_POWER_GRID_TRANSFORMER",
+      "basket_kr": "AI_전력망",
+      "basket_name_kr": "AI_전력망",
+      "score": -7.36,
+      "top3_avg": -6.5,
+      "all_avg": -9.35,
+      "valid_count": 12,
+      "member_count": 12,
+      "top_members": [
+        {
+          "ticker": "PWR",
+          "name": "PWR",
+          "display": "PWR",
+          "Signal_sco": -3.5,
+          "return_3m": -7.49,
+          "Final_score": 0.4317,
+          "trend": "RED"
+        },
+        {
+          "ticker": "HUBB",
+          "name": "HUBB",
+          "display": "HUBB",
+          "Signal_sco": -7.5,
+          "return_3m": -3.29,
+          "Final_score": 0.3901,
+          "trend": "-"
+        },
+        {
+          "ticker": "267260",
+          "name": "HD현대일렉트릭",
+          "display": "267260(HD현대일렉트릭)",
+          "Signal_sco": -8.5,
+          "return_3m": -46.86,
+          "Final_score": 0.2839,
+          "trend": "-"
+        },
+        {
+          "ticker": "010120",
+          "name": "LS ELECTRIC",
+          "display": "010120(LS ELECTRIC)",
+          "Signal_sco": -8.5,
+          "return_3m": -41.69,
+          "Final_score": 0.1939,
+          "trend": "-"
+        },
+        {
+          "ticker": "103590",
+          "name": "일진전기",
+          "display": "103590(일진전기)",
+          "Signal_sco": -8.5,
+          "return_3m": -24.86,
+          "Final_score": 0.3468,
+          "trend": "-"
+        }
+      ]
+    },
+    {
+      "basket": "AI_DATA_PIPELINE_DATABASE",
+      "basket_kr": "AI_데이터플랫폼",
+      "basket_name_kr": "AI_데이터플랫폼",
+      "score": -7.66,
+      "top3_avg": -7.25,
+      "all_avg": -8.61,
+      "valid_count": 7,
+      "member_count": 7,
+      "top_members": [
+        {
+          "ticker": "PLTR",
+          "name": "PLTR",
+          "display": "PLTR",
+          "Signal_sco": -6.0,
+          "return_3m": -9.08,
+          "Final_score": 0.3224,
+          "trend": "-"
+        },
+        {
+          "ticker": "NET",
+          "name": "NET",
+          "display": "NET",
+          "Signal_sco": -7.25,
+          "return_3m": -0.77,
+          "Final_score": 0.3494,
+          "trend": "PURPLE"
+        },
+        {
+          "ticker": "MDB",
+          "name": "MDB",
+          "display": "MDB",
+          "Signal_sco": -8.5,
+          "return_3m": -27.79,
+          "Final_score": 0.2109,
+          "trend": "RED"
+        },
+        {
+          "ticker": "SNOW",
+          "name": "SNOW",
+          "display": "SNOW",
+          "Signal_sco": -9.0,
+          "return_3m": -16.29,
+          "Final_score": 0.2224,
+          "trend": "PURPLE"
+        },
+        {
+          "ticker": "064400",
+          "name": "LG씨엔에스",
+          "display": "064400(LG씨엔에스)",
+          "Signal_sco": -9.5,
+          "return_3m": -7.12,
+          "Final_score": 0.357,
+          "trend": "PURPLE"
+        }
+      ]
+    },
+    {
+      "basket": "AI_CLOUD_HYPERSCALER",
+      "basket_kr": "AI_클라우드",
+      "basket_name_kr": "AI_클라우드",
+      "score": -7.73,
+      "top3_avg": -7.25,
+      "all_avg": -8.85,
       "valid_count": 5,
       "member_count": 5,
       "top_members": [
@@ -2550,45 +1990,579 @@
           "ticker": "MSFT",
           "name": "MSFT",
           "display": "MSFT",
-          "Signal_sco": -5.75,
-          "return_3m": -3.88,
-          "Final_score": 0.4841,
+          "Signal_sco": -6.5,
+          "return_3m": -2.02,
+          "Final_score": 0.3812,
           "trend": "PURPLE"
         },
         {
-          "ticker": "PATH",
-          "name": "PATH",
-          "display": "PATH",
-          "Signal_sco": -11.0,
-          "return_3m": -40.21,
-          "Final_score": 0.159,
+          "ticker": "AMZN",
+          "name": "AMZN",
+          "display": "AMZN",
+          "Signal_sco": -7.5,
+          "return_3m": -4.12,
+          "Final_score": 0.3768,
           "trend": "RED"
+        },
+        {
+          "ticker": "META",
+          "name": "META",
+          "display": "META",
+          "Signal_sco": -7.75,
+          "return_3m": 5.5,
+          "Final_score": 0.4141,
+          "trend": "-"
+        },
+        {
+          "ticker": "GOOGL",
+          "name": "GOOGL",
+          "display": "GOOGL",
+          "Signal_sco": -11.0,
+          "return_3m": -18.43,
+          "Final_score": 0.2079,
+          "trend": "RED"
+        },
+        {
+          "ticker": "ORCL",
+          "name": "ORCL",
+          "display": "ORCL",
+          "Signal_sco": -11.5,
+          "return_3m": -26.22,
+          "Final_score": 0.1116,
+          "trend": "RED"
+        }
+      ]
+    },
+    {
+      "basket": "AI_SOFTWARE_PLATFORM",
+      "basket_kr": "AI_소프트웨어",
+      "basket_name_kr": "AI_소프트웨어",
+      "score": -8.36,
+      "top3_avg": -8.08,
+      "all_avg": -9.0,
+      "valid_count": 7,
+      "member_count": 7,
+      "top_members": [
+        {
+          "ticker": "PLTR",
+          "name": "PLTR",
+          "display": "PLTR",
+          "Signal_sco": -6.0,
+          "return_3m": -9.08,
+          "Final_score": 0.3224,
+          "trend": "-"
+        },
+        {
+          "ticker": "SNOW",
+          "name": "SNOW",
+          "display": "SNOW",
+          "Signal_sco": -9.0,
+          "return_3m": -16.29,
+          "Final_score": 0.2224,
+          "trend": "PURPLE"
         },
         {
           "ticker": "CRM",
           "name": "CRM",
           "display": "CRM",
-          "Signal_sco": -11.0,
-          "return_3m": -28.21,
-          "Final_score": 0.1558,
+          "Signal_sco": -9.25,
+          "return_3m": -23.46,
+          "Final_score": 0.2161,
           "trend": "RED"
         },
         {
-          "ticker": "PLTR",
-          "name": "PLTR",
-          "display": "PLTR",
-          "Signal_sco": -11.0,
-          "return_3m": -22.83,
-          "Final_score": 0.1718,
-          "trend": "RED"
+          "ticker": "064400",
+          "name": "LG씨엔에스",
+          "display": "064400(LG씨엔에스)",
+          "Signal_sco": -9.5,
+          "return_3m": -7.12,
+          "Final_score": 0.357,
+          "trend": "PURPLE"
         },
         {
           "ticker": "NOW",
           "name": "NOW",
           "display": "NOW",
-          "Signal_sco": -12.0,
-          "return_3m": -36.71,
-          "Final_score": 0.0267,
+          "Signal_sco": -9.75,
+          "return_3m": -35.51,
+          "Final_score": 0.0657,
+          "trend": "-"
+        }
+      ]
+    },
+    {
+      "basket": "AI_SEMI_EQUIPMENT",
+      "basket_kr": "AI_반도체장비",
+      "basket_name_kr": "AI_반도체장비",
+      "score": -8.73,
+      "top3_avg": -8.17,
+      "all_avg": -10.06,
+      "valid_count": 13,
+      "member_count": 13,
+      "top_members": [
+        {
+          "ticker": "403870",
+          "name": "HPSP",
+          "display": "403870(HPSP)",
+          "Signal_sco": -6.75,
+          "return_3m": -18.92,
+          "Final_score": 0.3637,
+          "trend": "-"
+        },
+        {
+          "ticker": "240810",
+          "name": "원익IPS",
+          "display": "240810(원익IPS)",
+          "Signal_sco": -8.75,
+          "return_3m": -37.76,
+          "Final_score": 0.1829,
+          "trend": "-"
+        },
+        {
+          "ticker": "091160",
+          "name": "KODEX반도체",
+          "display": "091160(KODEX반도체)",
+          "Signal_sco": -9.0,
+          "return_3m": -29.75,
+          "Final_score": 0.2098,
+          "trend": "-"
+        },
+        {
+          "ticker": "058470",
+          "name": "리노공업",
+          "display": "058470(리노공업)",
+          "Signal_sco": -9.25,
+          "return_3m": -21.77,
+          "Final_score": 0.2907,
+          "trend": "-"
+        },
+        {
+          "ticker": "084370",
+          "name": "유진테크",
+          "display": "084370(유진테크)",
+          "Signal_sco": -9.5,
+          "return_3m": -43.29,
+          "Final_score": 0.1275,
+          "trend": "-"
+        }
+      ]
+    },
+    {
+      "basket": "AI_PASSIVE_COMPONENT_MLCC",
+      "basket_kr": "AI_MLCC수동부품",
+      "basket_name_kr": "AI_MLCC수동부품",
+      "score": -9.12,
+      "top3_avg": -9.12,
+      "all_avg": -9.12,
+      "valid_count": 2,
+      "member_count": 2,
+      "top_members": [
+        {
+          "ticker": "009150",
+          "name": "삼성전기",
+          "display": "009150(삼성전기)",
+          "Signal_sco": -8.5,
+          "return_3m": -43.83,
+          "Final_score": 0.1214,
+          "trend": "-"
+        },
+        {
+          "ticker": "001820",
+          "name": "삼화콘덴서",
+          "display": "001820(삼화콘덴서)",
+          "Signal_sco": -9.75,
+          "return_3m": -32.12,
+          "Final_score": 0.1542,
+          "trend": "PURPLE"
+        }
+      ]
+    },
+    {
+      "basket": "AI_INFERENCE_OPTIMIZATION",
+      "basket_kr": "AI_추론최적화",
+      "basket_name_kr": "AI_추론최적화",
+      "score": -9.4,
+      "top3_avg": -9.17,
+      "all_avg": -9.95,
+      "valid_count": 5,
+      "member_count": 5,
+      "top_members": [
+        {
+          "ticker": "QCOM",
+          "name": "QCOM",
+          "display": "QCOM",
+          "Signal_sco": -7.75,
+          "return_3m": 1.78,
+          "Final_score": 0.364,
+          "trend": "PURPLE"
+        },
+        {
+          "ticker": "NVDA",
+          "name": "NVDA",
+          "display": "NVDA",
+          "Signal_sco": -9.25,
+          "return_3m": -31.26,
+          "Final_score": 0.1299,
+          "trend": "RED"
+        },
+        {
+          "ticker": "AVGO",
+          "name": "AVGO",
+          "display": "AVGO",
+          "Signal_sco": -10.5,
+          "return_3m": -18.47,
+          "Final_score": 0.2258,
+          "trend": "RED"
+        },
+        {
+          "ticker": "ARM",
+          "name": "ARM",
+          "display": "ARM",
+          "Signal_sco": -10.75,
+          "return_3m": -31.22,
+          "Final_score": 0.0957,
+          "trend": "RED"
+        },
+        {
+          "ticker": "MRVL",
+          "name": "MRVL",
+          "display": "MRVL",
+          "Signal_sco": -11.5,
+          "return_3m": -37.75,
+          "Final_score": 0.0232,
+          "trend": "RED"
+        }
+      ]
+    },
+    {
+      "basket": "AI_NETWORKING_SWITCH_DPU",
+      "basket_kr": "AI_네트워크",
+      "basket_name_kr": "AI_네트워크",
+      "score": -9.46,
+      "top3_avg": -9.25,
+      "all_avg": -9.95,
+      "valid_count": 5,
+      "member_count": 5,
+      "top_members": [
+        {
+          "ticker": "ANET",
+          "name": "ANET",
+          "display": "ANET",
+          "Signal_sco": -8.75,
+          "return_3m": -13.35,
+          "Final_score": 0.285,
+          "trend": "PURPLE"
+        },
+        {
+          "ticker": "NVDA",
+          "name": "NVDA",
+          "display": "NVDA",
+          "Signal_sco": -9.25,
+          "return_3m": -31.26,
+          "Final_score": 0.1299,
+          "trend": "RED"
+        },
+        {
+          "ticker": "CSCO",
+          "name": "CSCO",
+          "display": "CSCO",
+          "Signal_sco": -9.75,
+          "return_3m": -13.83,
+          "Final_score": 0.2507,
+          "trend": "RED"
+        },
+        {
+          "ticker": "AVGO",
+          "name": "AVGO",
+          "display": "AVGO",
+          "Signal_sco": -10.5,
+          "return_3m": -18.47,
+          "Final_score": 0.2258,
+          "trend": "RED"
+        },
+        {
+          "ticker": "MRVL",
+          "name": "MRVL",
+          "display": "MRVL",
+          "Signal_sco": -11.5,
+          "return_3m": -37.75,
+          "Final_score": 0.0232,
+          "trend": "RED"
+        }
+      ]
+    },
+    {
+      "basket": "AI_ENERGY_NUCLEAR_SMR_GAS",
+      "basket_kr": "AI_에너지",
+      "basket_name_kr": "AI_에너지",
+      "score": -9.67,
+      "top3_avg": -9.33,
+      "all_avg": -10.46,
+      "valid_count": 6,
+      "member_count": 6,
+      "top_members": [
+        {
+          "ticker": "NRG",
+          "name": "NRG",
+          "display": "NRG",
+          "Signal_sco": -8.25,
+          "return_3m": -15.63,
+          "Final_score": 0.3315,
+          "trend": "RED"
+        },
+        {
+          "ticker": "434730",
+          "name": "원자력ETF",
+          "display": "434730(원자력ETF)",
+          "Signal_sco": -9.0,
+          "return_3m": -41.3,
+          "Final_score": 0.2141,
+          "trend": "-"
+        },
+        {
+          "ticker": "0051G0",
+          "name": "S&P500AI",
+          "display": "0051G0(S&P500AI)",
+          "Signal_sco": -10.75,
+          "return_3m": -34.3,
+          "Final_score": 0.1793,
+          "trend": "RED"
+        },
+        {
+          "ticker": "VST",
+          "name": "VST",
+          "display": "VST",
+          "Signal_sco": -11.0,
+          "return_3m": -11.99,
+          "Final_score": 0.2281,
+          "trend": "RED"
+        },
+        {
+          "ticker": "CEG",
+          "name": "CEG",
+          "display": "CEG",
+          "Signal_sco": -11.75,
+          "return_3m": -15.94,
+          "Final_score": 0.2396,
+          "trend": "RED"
+        }
+      ]
+    },
+    {
+      "basket": "AI_ASIC_CUSTOM_CHIP",
+      "basket_kr": "AI_맞춤칩ASIC",
+      "basket_name_kr": "AI_맞춤칩ASIC",
+      "score": -9.8,
+      "top3_avg": -9.67,
+      "all_avg": -10.12,
+      "valid_count": 4,
+      "member_count": 4,
+      "top_members": [
+        {
+          "ticker": "AMZN",
+          "name": "AMZN",
+          "display": "AMZN",
+          "Signal_sco": -7.5,
+          "return_3m": -4.12,
+          "Final_score": 0.3768,
+          "trend": "RED"
+        },
+        {
+          "ticker": "AVGO",
+          "name": "AVGO",
+          "display": "AVGO",
+          "Signal_sco": -10.5,
+          "return_3m": -18.47,
+          "Final_score": 0.2258,
+          "trend": "RED"
+        },
+        {
+          "ticker": "GOOGL",
+          "name": "GOOGL",
+          "display": "GOOGL",
+          "Signal_sco": -11.0,
+          "return_3m": -18.43,
+          "Final_score": 0.2079,
+          "trend": "RED"
+        },
+        {
+          "ticker": "MRVL",
+          "name": "MRVL",
+          "display": "MRVL",
+          "Signal_sco": -11.5,
+          "return_3m": -37.75,
+          "Final_score": 0.0232,
+          "trend": "RED"
+        }
+      ]
+    },
+    {
+      "basket": "AI_GPU_ACCELERATOR",
+      "basket_kr": "AI_GPU",
+      "basket_name_kr": "AI_GPU",
+      "score": -9.82,
+      "top3_avg": -9.5,
+      "all_avg": -10.58,
+      "valid_count": 6,
+      "member_count": 6,
+      "top_members": [
+        {
+          "ticker": "091160",
+          "name": "KODEX반도체",
+          "display": "091160(KODEX반도체)",
+          "Signal_sco": -9.0,
+          "return_3m": -29.75,
+          "Final_score": 0.2098,
+          "trend": "-"
+        },
+        {
+          "ticker": "NVDA",
+          "name": "NVDA",
+          "display": "NVDA",
+          "Signal_sco": -9.25,
+          "return_3m": -31.26,
+          "Final_score": 0.1299,
+          "trend": "RED"
+        },
+        {
+          "ticker": "446770",
+          "name": "ACE글로벌반도체TOP4",
+          "display": "446770(ACE글로벌반도체TOP4)",
+          "Signal_sco": -10.25,
+          "return_3m": -25.49,
+          "Final_score": 0.19,
+          "trend": "-"
+        },
+        {
+          "ticker": "SMH",
+          "name": "SMH",
+          "display": "SMH",
+          "Signal_sco": -11.5,
+          "return_3m": -22.52,
+          "Final_score": 0.1345,
+          "trend": "RED"
+        },
+        {
+          "ticker": "SOXX",
+          "name": "SOXX",
+          "display": "SOXX",
+          "Signal_sco": -11.5,
+          "return_3m": -23.21,
+          "Final_score": 0.1281,
+          "trend": "RED"
+        }
+      ]
+    },
+    {
+      "basket": "AI_CPU_SERVER",
+      "basket_kr": "AI_CPU서버",
+      "basket_name_kr": "AI_CPU서버",
+      "score": -9.97,
+      "top3_avg": -9.75,
+      "all_avg": -10.5,
+      "valid_count": 6,
+      "member_count": 6,
+      "top_members": [
+        {
+          "ticker": "INTC",
+          "name": "INTC",
+          "display": "INTC",
+          "Signal_sco": -9.5,
+          "return_3m": -38.78,
+          "Final_score": 0.0601,
+          "trend": "RED"
+        },
+        {
+          "ticker": "HPE",
+          "name": "HPE",
+          "display": "HPE",
+          "Signal_sco": -9.5,
+          "return_3m": -19.55,
+          "Final_score": 0.1427,
+          "trend": "RED"
+        },
+        {
+          "ticker": "DELL",
+          "name": "DELL",
+          "display": "DELL",
+          "Signal_sco": -10.25,
+          "return_3m": -30.01,
+          "Final_score": 0.0656,
+          "trend": "RED"
+        },
+        {
+          "ticker": "ARM",
+          "name": "ARM",
+          "display": "ARM",
+          "Signal_sco": -10.75,
+          "return_3m": -31.22,
+          "Final_score": 0.0957,
+          "trend": "RED"
+        },
+        {
+          "ticker": "SMCI",
+          "name": "SMCI",
+          "display": "SMCI",
+          "Signal_sco": -11.0,
+          "return_3m": -36.5,
+          "Final_score": 0.0597,
+          "trend": "RED"
+        }
+      ]
+    },
+    {
+      "basket": "AI_DATACENTER_REIT_SERVER",
+      "basket_kr": "AI_데이터센터",
+      "basket_name_kr": "AI_데이터센터",
+      "score": -10.0,
+      "top3_avg": -9.67,
+      "all_avg": -10.79,
+      "valid_count": 7,
+      "member_count": 7,
+      "top_members": [
+        {
+          "ticker": "EQIX",
+          "name": "EQIX",
+          "display": "EQIX",
+          "Signal_sco": -9.25,
+          "return_3m": -4.33,
+          "Final_score": 0.3507,
+          "trend": "RED"
+        },
+        {
+          "ticker": "HPE",
+          "name": "HPE",
+          "display": "HPE",
+          "Signal_sco": -9.5,
+          "return_3m": -19.55,
+          "Final_score": 0.1427,
+          "trend": "RED"
+        },
+        {
+          "ticker": "DELL",
+          "name": "DELL",
+          "display": "DELL",
+          "Signal_sco": -10.25,
+          "return_3m": -30.01,
+          "Final_score": 0.0656,
+          "trend": "RED"
+        },
+        {
+          "ticker": "SMCI",
+          "name": "SMCI",
+          "display": "SMCI",
+          "Signal_sco": -11.0,
+          "return_3m": -36.5,
+          "Final_score": 0.0597,
+          "trend": "RED"
+        },
+        {
+          "ticker": "VRT",
+          "name": "VRT",
+          "display": "VRT",
+          "Signal_sco": -11.5,
+          "return_3m": -32.22,
+          "Final_score": 0.0952,
           "trend": "RED"
         }
       ]
@@ -2597,97 +2571,37 @@
       "basket": "AI_STORAGE_CXL_SSD",
       "basket_kr": "AI_스토리지",
       "basket_name_kr": "AI_스토리지",
-      "score": -10.25,
-      "top3_avg": -10.25,
-      "all_avg": -10.25,
+      "score": -10.17,
+      "top3_avg": -10.17,
+      "all_avg": -10.17,
       "valid_count": 3,
       "member_count": 4,
       "top_members": [
         {
-          "ticker": "STX",
-          "name": "STX",
-          "display": "STX",
-          "Signal_sco": -8.75,
-          "return_3m": -46.01,
-          "Final_score": 0.1612,
-          "trend": "RED"
-        },
-        {
           "ticker": "WDC",
           "name": "WDC",
           "display": "WDC",
-          "Signal_sco": -10.0,
-          "return_3m": -43.46,
-          "Final_score": 0.1629,
+          "Signal_sco": -9.5,
+          "return_3m": -39.5,
+          "Final_score": 0.1027,
+          "trend": "RED"
+        },
+        {
+          "ticker": "STX",
+          "name": "STX",
+          "display": "STX",
+          "Signal_sco": -9.5,
+          "return_3m": -42.12,
+          "Final_score": 0.0907,
           "trend": "RED"
         },
         {
           "ticker": "005930",
           "name": "삼성전자",
           "display": "005930(삼성전자)",
-          "Signal_sco": -12.0,
-          "return_3m": -29.61,
-          "Final_score": 0.2137,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_EDA_DESIGN_TOOLS",
-      "basket_kr": "AI_EDA설계",
-      "basket_name_kr": "AI_EDA설계",
-      "score": -10.5,
-      "top3_avg": -10.5,
-      "all_avg": -10.5,
-      "valid_count": 2,
-      "member_count": 2,
-      "top_members": [
-        {
-          "ticker": "SNPS",
-          "name": "SNPS",
-          "display": "SNPS",
-          "Signal_sco": -9.0,
-          "return_3m": -14.78,
-          "Final_score": 0.3755,
-          "trend": "RED"
-        },
-        {
-          "ticker": "CDNS",
-          "name": "CDNS",
-          "display": "CDNS",
-          "Signal_sco": -12.0,
-          "return_3m": -18.98,
-          "Final_score": 0.2714,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_PASSIVE_COMPONENT_MLCC",
-      "basket_kr": "AI_MLCC수동부품",
-      "basket_name_kr": "AI_MLCC수동부품",
-      "score": -10.62,
-      "top3_avg": -10.62,
-      "all_avg": -10.62,
-      "valid_count": 2,
-      "member_count": 2,
-      "top_members": [
-        {
-          "ticker": "009150",
-          "name": "삼성전기",
-          "display": "009150(삼성전기)",
-          "Signal_sco": -9.75,
-          "return_3m": -41.81,
-          "Final_score": 0.1242,
-          "trend": "RED"
-        },
-        {
-          "ticker": "001820",
-          "name": "삼화콘덴서",
-          "display": "001820(삼화콘덴서)",
           "Signal_sco": -11.5,
-          "return_3m": -25.11,
-          "Final_score": 0.1001,
+          "return_3m": -31.23,
+          "Final_score": 0.1519,
           "trend": "RED"
         }
       ]
@@ -2696,9 +2610,9 @@
       "basket": "AI_MEMORY_HBM_DRAM",
       "basket_kr": "AI_메모리",
       "basket_name_kr": "AI_메모리",
-      "score": -10.77,
-      "top3_avg": -10.67,
-      "all_avg": -11.0,
+      "score": -10.27,
+      "top3_avg": -10.17,
+      "all_avg": -10.5,
       "valid_count": 4,
       "member_count": 4,
       "top_members": [
@@ -2706,87 +2620,93 @@
           "ticker": "091160",
           "name": "KODEX반도체",
           "display": "091160(KODEX반도체)",
-          "Signal_sco": -10.0,
-          "return_3m": -30.79,
-          "Final_score": 0.2149,
-          "trend": "RED"
-        },
-        {
-          "ticker": "MU",
-          "name": "MU",
-          "display": "MU",
-          "Signal_sco": -11.0,
-          "return_3m": -36.43,
-          "Final_score": 0.0996,
-          "trend": "RED"
+          "Signal_sco": -9.0,
+          "return_3m": -29.75,
+          "Final_score": 0.2098,
+          "trend": "-"
         },
         {
           "ticker": "000660",
           "name": "SK하이닉스",
           "display": "000660(SK하이닉스)",
-          "Signal_sco": -11.0,
-          "return_3m": -34.17,
-          "Final_score": 0.2421,
+          "Signal_sco": -10.0,
+          "return_3m": -33.93,
+          "Final_score": 0.1663,
+          "trend": "PURPLE"
+        },
+        {
+          "ticker": "MU",
+          "name": "MU",
+          "display": "MU",
+          "Signal_sco": -11.5,
+          "return_3m": -35.58,
+          "Final_score": 0.0298,
           "trend": "RED"
         },
         {
           "ticker": "005930",
           "name": "삼성전자",
           "display": "005930(삼성전자)",
-          "Signal_sco": -12.0,
-          "return_3m": -29.61,
-          "Final_score": 0.2137,
+          "Signal_sco": -11.5,
+          "return_3m": -31.23,
+          "Final_score": 0.1519,
           "trend": "RED"
         }
       ]
     },
     {
-      "basket": "AI_ONSITE_POWER_FUELCELL",
-      "basket_kr": "AI_자가발전",
-      "basket_name_kr": "AI_자가발전",
-      "score": -11.0,
-      "top3_avg": -11.0,
-      "all_avg": -11.0,
-      "valid_count": 1,
-      "member_count": 1,
+      "basket": "AI_OPTICAL_PHOTONICS",
+      "basket_kr": "AI_광통신",
+      "basket_name_kr": "AI_광통신",
+      "score": -10.47,
+      "top3_avg": -10.33,
+      "all_avg": -10.8,
+      "valid_count": 5,
+      "member_count": 5,
       "top_members": [
         {
-          "ticker": "BE",
-          "name": "BE",
-          "display": "BE",
-          "Signal_sco": -11.0,
-          "return_3m": -34.63,
-          "Final_score": 0.1461,
-          "trend": "RED"
-        }
-      ]
-    },
-    {
-      "basket": "AI_FOUNDRY",
-      "basket_kr": "AI_파운드리",
-      "basket_name_kr": "AI_파운드리",
-      "score": -12.0,
-      "top3_avg": -12.0,
-      "all_avg": -12.0,
-      "valid_count": 2,
-      "member_count": 2,
-      "top_members": [
-        {
-          "ticker": "TSM",
-          "name": "TSM",
-          "display": "TSM",
-          "Signal_sco": -12.0,
-          "return_3m": -25.21,
-          "Final_score": 0.1647,
+          "ticker": "COHR",
+          "name": "COHR",
+          "display": "COHR",
+          "Signal_sco": -9.75,
+          "return_3m": -27.88,
+          "Final_score": 0.1985,
           "trend": "RED"
         },
         {
-          "ticker": "005930",
-          "name": "삼성전자",
-          "display": "005930(삼성전자)",
-          "Signal_sco": -12.0,
-          "return_3m": -29.61,
-          "Final_score": 0.2137,
+          "ticker": "AVGO",
+          "name": "AVGO",
+          "display": "AVGO",
+          "Signal_sco": -10.5,
+          "return_3m": -18.47,
+          "Final_score": 0.2258,
+          "trend": "RED"
+        },
+        {
+          "ticker": "CIEN",
+          "name": "CIEN",
+          "display": "CIEN",
+          "Signal_sco": -10.75,
+          "return_3m": -32.62,
+          "Final_score": 0.0834,
+          "trend": "RED"
+        },
+        {
+          "ticker": "LITE",
+          "name": "LITE",
+          "display": "LITE",
+          "Signal_sco": -11.5,
+          "return_3m": -45.15,
+          "Final_score": 0.0098,
+          "trend": "RED"
+        },
+        {
+          "ticker": "MRVL",
+          "name": "MRVL",
+          "display": "MRVL",
+          "Signal_sco": -11.5,
+          "return_3m": -37.75,
+          "Final_score": 0.0232,
           "trend": "RED"
         }
       ]
@@ -2795,55 +2715,136 @@
       "basket": "AI_RAW_MATERIALS_COPPER_RAREEARTH",
       "basket_kr": "AI_원자재",
       "basket_name_kr": "AI_원자재",
-      "score": -12.0,
-      "top3_avg": -12.0,
-      "all_avg": -12.0,
+      "score": -11.35,
+      "top3_avg": -11.33,
+      "all_avg": -11.4,
       "valid_count": 5,
       "member_count": 5,
       "top_members": [
         {
+          "ticker": "REMX",
+          "name": "REMX",
+          "display": "REMX",
+          "Signal_sco": -11.0,
+          "return_3m": -42.51,
+          "Final_score": 0.1329,
+          "trend": "RED"
+        },
+        {
           "ticker": "COPX",
           "name": "COPX",
           "display": "COPX",
-          "Signal_sco": -12.0,
-          "return_3m": -41.6,
-          "Final_score": 0.1282,
+          "Signal_sco": -11.5,
+          "return_3m": -34.27,
+          "Final_score": 0.1183,
           "trend": "RED"
         },
         {
           "ticker": "PICK",
           "name": "PICK",
           "display": "PICK",
-          "Signal_sco": -12.0,
-          "return_3m": -30.42,
-          "Final_score": 0.2099,
-          "trend": "RED"
-        },
-        {
-          "ticker": "REMX",
-          "name": "REMX",
-          "display": "REMX",
-          "Signal_sco": -12.0,
-          "return_3m": -46.93,
-          "Final_score": 0.1472,
+          "Signal_sco": -11.5,
+          "return_3m": -25.16,
+          "Final_score": 0.1857,
           "trend": "RED"
         },
         {
           "ticker": "FCX",
           "name": "FCX",
           "display": "FCX",
-          "Signal_sco": -12.0,
-          "return_3m": -41.23,
-          "Final_score": 0.0833,
+          "Signal_sco": -11.5,
+          "return_3m": -32.86,
+          "Final_score": 0.1021,
           "trend": "RED"
         },
         {
           "ticker": "SCCO",
           "name": "SCCO",
           "display": "SCCO",
-          "Signal_sco": -12.0,
-          "return_3m": -37.41,
-          "Final_score": 0.1116,
+          "Signal_sco": -11.5,
+          "return_3m": -29.37,
+          "Final_score": 0.1132,
+          "trend": "RED"
+        }
+      ]
+    },
+    {
+      "basket": "AI_FOUNDRY",
+      "basket_kr": "AI_파운드리",
+      "basket_name_kr": "AI_파운드리",
+      "score": -11.5,
+      "top3_avg": -11.5,
+      "all_avg": -11.5,
+      "valid_count": 2,
+      "member_count": 2,
+      "top_members": [
+        {
+          "ticker": "TSM",
+          "name": "TSM",
+          "display": "TSM",
+          "Signal_sco": -11.5,
+          "return_3m": -17.09,
+          "Final_score": 0.1665,
+          "trend": "RED"
+        },
+        {
+          "ticker": "005930",
+          "name": "삼성전자",
+          "display": "005930(삼성전자)",
+          "Signal_sco": -11.5,
+          "return_3m": -31.23,
+          "Final_score": 0.1519,
+          "trend": "RED"
+        }
+      ]
+    },
+    {
+      "basket": "AI_ONSITE_POWER_FUELCELL",
+      "basket_kr": "AI_자가발전",
+      "basket_name_kr": "AI_자가발전",
+      "score": -11.5,
+      "top3_avg": -11.5,
+      "all_avg": -11.5,
+      "valid_count": 1,
+      "member_count": 1,
+      "top_members": [
+        {
+          "ticker": "BE",
+          "name": "BE",
+          "display": "BE",
+          "Signal_sco": -11.5,
+          "return_3m": -28.43,
+          "Final_score": 0.0794,
+          "trend": "RED"
+        }
+      ]
+    },
+    {
+      "basket": "AI_EDA_DESIGN_TOOLS",
+      "basket_kr": "AI_EDA설계",
+      "basket_name_kr": "AI_EDA설계",
+      "score": -11.5,
+      "top3_avg": -11.5,
+      "all_avg": -11.5,
+      "valid_count": 2,
+      "member_count": 2,
+      "top_members": [
+        {
+          "ticker": "SNPS",
+          "name": "SNPS",
+          "display": "SNPS",
+          "Signal_sco": -11.5,
+          "return_3m": -2.35,
+          "Final_score": 0.2352,
+          "trend": "RED"
+        },
+        {
+          "ticker": "CDNS",
+          "name": "CDNS",
+          "display": "CDNS",
+          "Signal_sco": -11.5,
+          "return_3m": -5.8,
+          "Final_score": 0.2387,
           "trend": "RED"
         }
       ]

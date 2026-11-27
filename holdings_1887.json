@@ -1,16 +1,16 @@
 {
   "account": "1887",
-  "updated": "2026-11-21 09:38:55",
+  "updated": "2026-11-27 19:18:17",
   "success": true,
   "error": null,
   "summary": {
-    "total_asset": 717298,
+    "total_asset": 0,
     "tot_pur_amt": 0,
     "tot_evlt_amt": 0,
     "tot_evlt_pl": 0,
     "tot_prft_rt": 0.0,
-    "stock_ratio": 0.0,
-    "cash": 717298,
+    "stock_ratio": 0,
+    "cash": 0,
     "tdy_realized_pl": 0
   },
   "holdings": [],
@@ -18,12 +18,12 @@
     {
       "ticker": "KORU",
       "stock_name": "한국 3배 레버리지 디렉시온 ETF",
-      "quantity": 509,
-      "avg_price": 6.7845,
-      "current_price": 4.76,
-      "profit_rate": -30.26,
-      "eval_amount_usd": 2422.84,
-      "eval_amount": 3263080,
+      "quantity": 609,
+      "avg_price": 6.4734,
+      "current_price": 5.9205,
+      "profit_rate": -9.02,
+      "eval_amount_usd": 3605.5845,
+      "eval_amount": 4844102,
       "buy_date": "",
       "candle": "",
       "tag": ""
@@ -33,49 +33,36 @@
       "stock_name": "미국 반도체 3배 디렉시온 ETF",
       "quantity": 33,
       "avg_price": 38.2743,
-      "current_price": 30.88,
-      "profit_rate": -19.77,
-      "eval_amount_usd": 1019.04,
-      "eval_amount": 1372443,
-      "buy_date": "",
-      "candle": "",
-      "tag": ""
-    },
-    {
-      "ticker": "ZVOL",
-      "stock_name": "VOLATILITY PREMIUM PLUS",
-      "quantity": 32,
-      "avg_price": 5.8471,
-      "current_price": 5.53,
-      "profit_rate": -5.91,
-      "eval_amount_usd": 176.96,
-      "eval_amount": 238329,
+      "current_price": 36.5513,
+      "profit_rate": -4.99,
+      "eval_amount_usd": 1206.1929,
+      "eval_amount": 1620520,
       "buy_date": "",
       "candle": "",
       "tag": ""
     }
   ],
   "us_summary": {
-    "us_stock_krw": 4873852,
-    "usd_cash": 15137.01,
-    "usd_cash_krw": 20144332,
-    "rate": 1330.8,
-    "total_asset_total": 25677582,
-    "eval_pl_usd": -1284.63,
-    "eval_pl_krw": -1709585,
+    "us_stock_krw": 6464622,
+    "usd_cash": 4833.25,
+    "usd_cash_krw": 6489604,
+    "rate": 1342.7,
+    "total_asset_total": 12950319,
+    "eval_pl_usd": -393.58,
+    "eval_pl_krw": -528459,
     "tdy_realized_pl_usd": 0.0,
     "tdy_realized_pl_krw": 0,
-    "won_entr": 717298,
+    "won_entr": 0,
     "fx": {
       "USD": {
-        "cash_krw": 20144332,
-        "stock_krw": 4815952,
-        "rate": 1330.8
+        "cash_krw": 6489604,
+        "stock_krw": 6460715,
+        "rate": 1342.7
       },
       "JPY": {
         "cash_krw": 0,
         "stock_krw": 0,
-        "rate": 833.73
+        "rate": 842.95
       }
     },
     "fx_other_krw": 0,

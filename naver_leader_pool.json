@@ -1,9 +1,64 @@
 {
-  "generated_at": "2026-11-19 08:12:29",
+  "generated_at": "2026-11-27 19:14:30",
   "source_policy": "live volume-first A-grade; KR-all/KR150/Naver confirmation; current cumulative tracking; foreign+institution sell blocks A",
   "counts": {
     "a_grade": 0,
-    "watch": 0
+    "watch": 1
   },
-  "items": []
+  "items": [
+    {
+      "ticker": "000660",
+      "name": "SK하이닉스",
+      "grade": "B",
+      "score": 48,
+      "sources": [
+        "leader_tracking_volume",
+        "report_volume_fi_plus",
+        "report_volume_trade"
+      ],
+      "hard_source_count": 1,
+      "reasons": [
+        "거래대금 트래킹 cum -1.16%",
+        "외인+기관 +393억",
+        "당일 거래대금 상위"
+      ],
+      "naver": null,
+      "report_volume": {
+        "rank": 1,
+        "pred_rank": 1,
+        "ticker": "000660",
+        "name": "SK하이닉스",
+        "change": 5.03,
+        "trade_amount": 5042634,
+        "today": 393.32000000000005,
+        "foreign_today": 1036.66,
+        "organ_today": -643.34,
+        "total": -7125.873300000001,
+        "foreign": -5631.93309,
+        "organ": -1493.9402100000002,
+        "nxt": "NXT선",
+        "snap_price": null,
+        "snap_rank": null,
+        "snap_pct": null,
+        "high_pct": null,
+        "low_pct": null,
+        "open_price": 1053000
+      },
+      "tracking_cum_pct": {
+        "volume": -1.1607142857142816
+      },
+      "foreign_inst_today_eok": 393.32000000000005,
+      "volume_rank": 1,
+      "today_change_pct": 5.03,
+      "volume_primary": true,
+      "today_volume_valid": true,
+      "confirm_count": 0,
+      "a_confirm_sources": [],
+      "a_confirm_count": 0,
+      "best_tracking_cum_pct": -1.1607142857142816,
+      "collapse_reasons": [],
+      "foreign_inst_sell": false,
+      "early_phase": false
+    }
+  ]
 }
